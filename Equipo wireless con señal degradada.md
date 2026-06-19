@@ -112,4 +112,3 @@ Siempre verificar si el cliente está dentro de cobertura de Fibra Óptica.
   - Cargar actualización tecnológica
   - Solicitar prioridad a Coordinación
 
-https://github.com/Eternet/Coordinacion/blob/main/Documentacion/Procesos/Solicitud%20de%20prioridad/readme.md
