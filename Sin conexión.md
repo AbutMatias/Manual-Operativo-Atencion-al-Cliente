@@ -250,6 +250,7 @@ https://github.com/Eternet/Atencion.Clientes/tree/main/Documentacion/Diagnostico
 - Equipo wireless del cliente sin respuesta
 - Equipo wireless con señal degradada
 - Equipo cliente (Antena) desenlazándose
+- Equipo cliente (Antena) reiniciándose
 
 - Fibra (CD):
 https://github.com/Eternet/General/blob/main/docs/Atencion%20al%20Cliente/readme.md#routers
