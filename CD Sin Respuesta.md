@@ -50,7 +50,7 @@ Verificar si la falla afecta:
 Si se detecta una falla general:
 
 1. Crear un Issue para el área de Redes.
-2. Etiquetar a `@Eternet/obras-distribucion-fibra-optica`.
+2. Etiquetar a `@Eternet/obras-distribucion-fibra-optica` `@Eternet/backofficetecnico` `@Eternet/atencion-al-cliente`.
 3. Informar también por WhatsApp.
 
 ---
