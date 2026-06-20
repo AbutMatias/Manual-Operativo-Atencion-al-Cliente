@@ -52,11 +52,9 @@ Se utiliza la herramienta Netmap para consultar el estado de la ONU, su señal y
   
 2. Ingresar a Netmap  
 
-3. Buscar al cliente y abrir “Propiedades”
+3. Buscar al cliente y click en los 3 puntos. Obtener estado de ONU
 
-4. Ir a “Datos de la ONU” y seleccionar “Obtener estado”
-
-5. Verificar:
+4. Verificar:
    - Señal óptica (dBm)
    - Estado de la ONU
    - Conexión física con el router
@@ -64,9 +62,11 @@ Se utiliza la herramienta Netmap para consultar el estado de la ONU, su señal y
 ---
 
 ## Capturas de referencia
-![image](https://user-images.githubusercontent.com/101568958/199506378-260c7557-f579-4962-bf49-7d242461ff09.png)
+<img width="1845" height="892" alt="image" src="https://github.com/user-attachments/assets/b75f851c-b3ab-436a-8577-1df72fcc43c0" />
 
-![image](https://user-images.githubusercontent.com/101568958/199507813-d17622dc-95ab-4d27-b989-e68d9b6c0cd1.png)
+
+<img width="1864" height="884" alt="image" src="https://github.com/user-attachments/assets/00aa624a-91e0-40b3-85ed-aa279c79c6af" />
+
 
 ---
 
