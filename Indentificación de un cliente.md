@@ -4,38 +4,6 @@
 
 Identificar correctamente al cliente para poder acceder a su información y brindarle soporte.
 
----
-
-## Orden de búsqueda recomendado
-
-Al recibir un llamado, intentar identificar al cliente siguiendo este orden:
-
-### 1. Número de Cliente o Razón Social
-
-Es la forma más rápida de encontrarlo.
-
-### 2. DNI o CUIT/CUIL
-
-Si no conoce el número de cliente, solicitar alguno de estos datos.
-
-### 3. Domicilio y Localidad
-
-Solicitar la dirección completa donde se encuentra instalado el servicio.
-
-### 4. Dirección IP
-
-Si el cliente tiene acceso a internet, solicitar su IP pública.
-
-### 5. MAC Address del Router
-
-Si no es posible identificarlo por IP, solicitar la MAC del router.
-
-### 6. Datos de la Factura
-
-Como última alternativa, solicitar información presente en una factura del servicio.
-
----
-
 ## Diagrama de Identificación
 
 ```mermaid
@@ -64,6 +32,37 @@ flowchart TD
 
     D --> L[Fin del proceso]
 ```
+---
+
+## Orden de búsqueda recomendado
+
+Al recibir un llamado, intentar identificar al cliente siguiendo este orden:
+
+### 1. Número de Cliente o Razón Social
+
+Es la forma más rápida de encontrarlo.
+
+<img width="232" height="870" alt="image" src="https://github.com/user-attachments/assets/3ff05e9d-8fff-458a-a9ff-b90b2e92ce74" />
+
+### 2. DNI o CUIT/CUIL
+
+Si no conoce el número de cliente, solicitar alguno de estos datos.
+
+### 3. Domicilio y Localidad
+
+Solicitar la dirección completa donde se encuentra instalado el servicio.
+
+### 4. Dirección IP
+
+Si el cliente tiene acceso a internet, solicitar su IP pública.
+
+### 5. MAC Address del Router
+
+Si no es posible identificarlo por IP, solicitar la MAC del router.
+
+### 6. Datos de la Factura
+
+Como última alternativa, solicitar información presente en una factura del servicio.
 
 ---
 
@@ -80,6 +79,9 @@ Puede buscarse directamente desde la lista de clientes.
 3. Seleccionar **Buscar**.
 4. Ingresar el dato correspondiente.
 
+<img width="316" height="429" alt="image" src="https://github.com/user-attachments/assets/45e602eb-0ae2-4f69-a333-79e233857a80" />
+
+<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/f07a2496-4d90-4fdc-89cf-f8cc93e76791" />
 ---
 
 ## Búsqueda por IP
