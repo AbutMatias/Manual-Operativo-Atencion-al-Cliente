@@ -20,8 +20,6 @@ Si el router no responde pero el CPE está activo:
 - Ir a Netmap > Obtener estado
 - Verificar que la interfaz ethernet esté activa
 
-
-
 ---
 
 #### Si es equipo wireless
@@ -31,16 +29,12 @@ Si el router no responde pero el CPE está activo:
 - Verificar interfaz ether1
 - Debe estar en estado registrado y con negociación correcta (100 Mbps o 1 Gbps)
 
-
-
 ---
 
 ##### Ubiquiti Nanostation
 - Acceder por web
 - Verificar interfaces LAN0 o LAN1
 - Deben tener link (no estar en “Unplugged”)
-
-
 
 ---
 
@@ -57,7 +51,7 @@ Verificar:
 ### 1.3 Identificar dispositivo conectado
 
 #### Si es ONU
-- Ver tabla ARP en la ONU
+- Ver tabla MAC en la ONU
 
 
 
@@ -76,10 +70,9 @@ Verificar:
 ---
 
 ### 1.4 Verificación física
-Confirmar estado de luces:
-
-- Esquemas de conexión:
-https://github.com/Eternet/General/blob/main/docs/Atencion%20al%20Cliente/readme.md#routers
+- Confirmar estado de luces
+- Conexiones WAN - LAN - PoE - Data + Power
+- Conexion Electrica (Toma Corriente).
 
 ---
 
@@ -135,16 +128,8 @@ Para verificar el estado de una ONU existen dos métodos:
 - Netmap (interfaz gráfica)
   https://github.com/Eternet/General/blob/main/docs/SSAK/Netmap/readme.md
 
-- OLT (por consola)
-  https://github.com/Eternet/Atencion.Clientes/blob/main/Documentacion/Diagnosticos/OLT/Acceso%20a%20OLTs%20y%20Comandos/readme.md
-
----
-
-Netmap utiliza servicios automáticos para obtener información de las ONUs.  
-Si estos servicios fallan, se debe usar la OLT directamente.
-
-Más información:
-https://github.com/Eternet/General/tree/main/docs/Servidores/ServiciosYAplicaciones/OLT%20Services
+- OLT (por Grafana)
+  https://github.com/AbutMatias/Inducci-n-Atencion-al-Cliente-/blob/main/Acceso%20a%20OLTs.md
 
 ---
 
