@@ -228,16 +228,16 @@ https://github.com/Eternet/General/tree/main/docs/Servidores/ServiciosYAplicacio
 ## 4.2 ONU responde pero Ethernet no levanta
 
 - Seguir procedimiento de “Sin conexión”
-https://github.com/Eternet/Atencion.Clientes/blob/main/Documentacion/Diagnosticos/Chequeo%20de%20reclamos/Sin%20conexi%C3%B3n/readme.md#procedimiento
 
 ---
 
 ## 4.3 ONU activa pero router no responde
 
-- Verificar tabla ARP de la ONU
-https://github.com/Eternet/Atencion.Clientes/blob/main/Documentacion/Diagnosticos/OLT/Acceso%20a%20OLTs%20y%20Comandos/readme.md#ver-la-tabla-arp-de-la-onu
+- Verificar tabla MAC de la ONU
 
-Esto confirma si el router está correctamente conectado.
+<img width="1286" height="518" alt="image" src="https://github.com/user-attachments/assets/6ec0119c-e7fc-45c8-97d8-d490d06b1ce1" />
+
+Tiene que ser la misma MAC que la del Router. Esto confirma si el router está correctamente conectado. 
 
 - Wireless:
 https://github.com/Eternet/Atencion.Clientes/tree/main/Documentacion/Diagnosticos/Verificacion%20de%20un%20equipo%20wireless
@@ -247,10 +247,10 @@ https://github.com/Eternet/Atencion.Clientes/tree/main/Documentacion/Diagnostico
 ## 3. Verificar nodo sin respuesta
 
 - Wireless (AP):
-- Equipo wireless del cliente sin respuesta
-- Equipo wireless con señal degradada
-- Equipo cliente (Antena) desenlazándose
-- Equipo cliente (Antena) reiniciándose
+- [Equipo wireless del cliente sin respuesta](https://github.com/AbutMatias/Inducci-n-Atencion-al-Cliente-/blob/main/Equipo%20wireless%20del%20cliente%20sin%20respuesta.md)
+- [Equipo wireless con señal degradada](https://github.com/AbutMatias/Inducci-n-Atencion-al-Cliente-/blob/main/Equipo%20wireless%20con%20señal%20degradada.md)
+- [Equipo cliente (Antena) desenlazándose](https://github.com/AbutMatias/Inducci-n-Atencion-al-Cliente-/blob/main/Equipo%20cliente%20(Antena)%20desenlazándose.md)
+- [Equipo cliente (Antena) reiniciándose](https://github.com/AbutMatias/Inducci-n-Atencion-al-Cliente-/blob/main/Equipo%20cliente%20(Antena)%20reiniciándose.md)
 
-- Fibra (CD):
-https://github.com/Eternet/General/blob/main/docs/Atencion%20al%20Cliente/readme.md#routers
+- Fibra (ONU):
+[https://github.com/Eternet/General/blob/main/docs/Atencion%20al%20Cliente/readme.md#routers](https://github.com/AbutMatias/Inducci-n-Atencion-al-Cliente-/blob/main/Acceso%20a%20OLTs.md)
