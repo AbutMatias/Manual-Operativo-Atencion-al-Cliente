@@ -126,7 +126,7 @@ Si no toma IP por DHCP:
 Para verificar el estado de una ONU existen dos métodos:
 
 - Netmap (interfaz gráfica)
-  https://github.com/Eternet/General/blob/main/docs/SSAK/Netmap/readme.md
+  https://github.com/AbutMatias/Inducci-n-Atencion-al-Cliente-/blob/main/NetMap.md
 
 - OLT (por Grafana)
   https://github.com/AbutMatias/Inducci-n-Atencion-al-Cliente-/blob/main/Acceso%20a%20OLTs.md
