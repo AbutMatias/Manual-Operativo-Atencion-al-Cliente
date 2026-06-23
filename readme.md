@@ -102,6 +102,7 @@ Repositorio de documentación técnica, soporte y diagnóstico de red.
 - [Impresoras](./doc/Detectar%20y%20resolver%20Problemas%20en%20Impresoras.md)
 - [Smart TVs](./doc/Detectar%20y%20resolver%20Problemas%20en%20Smart%20TVs.md)
 - [Celulares](./doc/Detectar%20y%20resolver%20problemas%20con%20celulares.md)
+- [Cámaras / DVR](./doc/Detectar%20y%20resolver%20Problemas%20en%20Cámaras%20o%20Equipos%20DVR.md)
 
 ---
 
