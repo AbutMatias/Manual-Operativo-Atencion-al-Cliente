@@ -1,12 +1,14 @@
 # 📘 Manual Operativo - Atención al Cliente – Índice General
 
-Este repositorio contiene documentación técnica, operativa y de soporte para diagnóstico, gestión de reclamos y administración de red.
+Repositorio de documentación técnica, soporte y diagnóstico de red.
 
 ---
 
-# 🔎 Índice general
+# 🔎 Acceso rápido por categoría
 
-## Atención al cliente y reclamos
+---
+
+## 🎫 Atención al cliente y reclamos
 - [Carga de reclamos](./doc/Carga%20de%20reclamos.md)
 - [Carga de instalación interna](./doc/Carga%20de%20instalación%20interna.md)
 - [Monitoreo de reclamos](./doc/Monitoreo%20de%20Reclamos.md)
@@ -19,7 +21,7 @@ Este repositorio contiene documentación técnica, operativa y de soporte para d
 
 ---
 
-## Diagnóstico de red
+## 🌐 Diagnóstico de red
 - [Sin conexión](./doc/Sin%20conexión.md)
 - [Sin conexión Eternet Plus](./doc/Sin%20conexión%20–%20Eternet%20Plus.md)
 - [Saturación de ancho de banda](./doc/Saturación%20de%20ancho%20de%20banda.md)
@@ -33,7 +35,7 @@ Este repositorio contiene documentación técnica, operativa y de soporte para d
 
 ---
 
-## Equipos de red
+## 📡 Equipos de red
 - [Winbox](./doc/Winbox.md)
 - [Winbox sin RoMON](./doc/WinBox%20no%20conecta%20por%20ROMON.md)
 - [MikroTik](./doc/MikroTik.md)
@@ -46,7 +48,7 @@ Este repositorio contiene documentación técnica, operativa y de soporte para d
 
 ---
 
-## Wireless / AP / CPE
+## 📶 Wireless / AP / CPE
 - [Ubiquiti NanoStation](./doc/Acceso%20y%20diagnóstico%20de%20equipos%20Ubiquiti%20(NanoStation).md)
 - [Equipo cliente reiniciándose](./doc/Equipo%20cliente%20(Antena)%20reiniciándose.md)
 - [Equipo cliente desenlazándose](./doc/Equipo%20cliente%20(Antena)%20desenlazándose.md)
@@ -57,7 +59,7 @@ Este repositorio contiene documentación técnica, operativa y de soporte para d
 
 ---
 
-## Infraestructura / core / fibra
+## 🏗️ Infraestructura / core / fibra
 - [OLTs](./doc/Acceso%20a%20OLTs.md)
 - [Listado OLTs](./doc/Listado%20de%20OLTs%20con%20gestión%20web.md)
 - [Fibra óptica](./doc/Actualizacion%20a%20Fibra%20Optica.md)
@@ -67,7 +69,7 @@ Este repositorio contiene documentación técnica, operativa y de soporte para d
 
 ---
 
-## Infraestructura física
+## ⚡ Infraestructura física
 - [Energía shelters y torres](./doc/Energia%20electrica%20shelters%20y%20torres.md)
 - [Cables colgando](./doc/Cables%20colgando.md)
 - [Suministros EDES](./doc/Suministros%20EDES.md)
@@ -75,7 +77,7 @@ Este repositorio contiene documentación técnica, operativa y de soporte para d
 
 ---
 
-## Sistemas internos
+## 🧩 Sistemas internos
 - [Botmaker](./doc/Botmaker.md)
 - [Eternet App](./doc/Eternet%20App.md)
 - [Foro Eternet](./doc/Foro%20Eternet.md)
@@ -86,7 +88,7 @@ Este repositorio contiene documentación técnica, operativa y de soporte para d
 
 ---
 
-## Procesos y operación
+## ⚙️ Procesos y operación
 - [Prioridades](./doc/Ordenamiento%20de%20Tareas%20y%20Prioridades.md)
 - [Problemas masivos](./doc/Gestión%20de%20Problemas%20Generales%20o%20Masivos.md)
 - [CRF](./doc/Funcionamiento%20del%20CRF.md)
@@ -95,7 +97,15 @@ Este repositorio contiene documentación técnica, operativa y de soporte para d
 
 ---
 
-## Glosario y conceptos
+## 🖥️ Dispositivos del cliente
+- [Consolas y PC conectividad](./doc/Guía%20para%20problemas%20de%20conectividad%20en%20Consolas%20de%20Videojuegos%20y%20PC.md)
+- [Impresoras](./doc/Detectar%20y%20resolver%20Problemas%20en%20Impresoras.md)
+- [Smart TVs](./doc/Detectar%20y%20resolver%20Problemas%20en%20Smart%20TVs.md)
+- [Celulares](./doc/Detectar%20y%20resolver%20problemas%20con%20celulares.md)
+
+---
+
+## 📚 Glosario y conceptos
 - [Glosario](./doc/Glosario.md)
 - [Glosario diagnóstico](./doc/XLGlosario%20de%20Diagnosticos.md)
 - [Chequeos básicos](./doc/Chequeos%20básicos%20y%20uso%20de%20terminología.md)
