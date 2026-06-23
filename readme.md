@@ -33,6 +33,10 @@ Repositorio de documentación técnica, soporte y diagnóstico de red.
 - [Diagnóstico de cobertura](./doc/Diagnósticos%20por%20problemas%20de%20cobertura.md)
 - [Problemas en juegos online](./doc/Problemas%20en%20Juegos%20Online.md)
 
+> [!TIP]
+> [Glosario de Diagnosticos](https://github.com/AbutMatias/Manual-Operativo-Atencion-al-Cliente/blob/main/doc/Glosario%20de%20Diagnosticos.md)
+
+
 ---
 
 ## 📡 Equipos de red
