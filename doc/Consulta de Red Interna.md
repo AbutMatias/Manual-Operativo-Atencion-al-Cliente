@@ -8,190 +8,226 @@ Este procedimiento permite responder consultas relacionadas con la red interna d
 - Identificación de equipos conectados.
 - Verificación de dispositivos por WiFi o cable.
 - Detección de consumos inusuales.
-- Consultas generales sobre la red local.
+- Diagnóstico de saturación interna.
+- Problemas de conectividad local.
 
 > [!IMPORTANT]
-> La información disponible dependerá del tipo de router instalado. Los equipos MikroTik permiten obtener información más detallada que otros modelos.
+> La información disponible depende del tipo de router. MikroTik permite mayor nivel de detalle que equipos domésticos.
+
+---
 
 ## Identificación del Router
 
-Antes de comenzar, debemos identificar qué tipo de router posee el cliente:
+Antes de comenzar:
 
 - MikroTik
 - Vilo
 - GLC
 - Photon
-- Router propio del cliente
-
-Esto determinará qué información podremos obtener.
+- Router del cliente
 
 ---
 
-## Consulta de Cantidad de Dispositivos Conectados
+## Verificaciones iniciales (básicas)
 
-### Equipos MikroTik
+Antes de ver dispositivos, revisar:
 
-1. Ingresar al router mediante Winbox.
-2. Dirigirse a:
-
-   `IP` → `DHCP Server` → `Leases`
-
-3. Verificar la cantidad de registros activos.
-
-![image]
-
-4. Cada registro representa un dispositivo que obtuvo una dirección IP del router.
-
-Podemos observar:
-
-- Dirección IP asignada.
-- Dirección MAC.
-- Nombre del dispositivo (si lo informa).
-- Tiempo de concesión (Lease Time).
+- Estado WAN (conectado / sin conexión)
+- Uptime del router
+- CPU y memoria
+- Estado de interfaces
+- Errores en interfaces (drops / CRC)
+- Velocidad negociada de puertos
 
 ---
 
-### Equipos Vilo, GLC o Photon
+## Estado del sistema (MikroTik)
 
-1. Ingresar a la administración del equipo.
-2. Buscar la sección:
+### Recursos
 
-   - Clientes Conectados
-   - Devices
-   - Connected Devices
-   - Lista de Clientes
+```bash
+/system resource print
+```
+### Observar:
 
-3. Verificar la cantidad de dispositivos registrados.
+### Interfaces
+- CPU usage
+- Free memory
+- Uptime
+```
+/interface monitor-traffic ether1
+```
+###  Observar:
 
-![image]
+- Saturación de tráfico
+- Inestabilidad RX/TX
+- Pérdida de paquetes en interfaz
 
----
+Cantidad de dispositivos conectados
+MikroTik (DHCP)
+```
+/ip dhcp-server lease print where status=bound
+```
+###  Wireless
+```
+/interface wireless registration-table print
+```
 
-## Identificación de Dispositivos
+###  Observar:
 
-Una vez localizada la lista de equipos conectados podemos identificar:
+- Cantidad de dispositivos activos
+- IP asignada
+- MAC address
+- Hostname (si está disponible)
 
-- Celulares.
-- Smart TV.
-- Consolas.
-- Computadoras.
-- Cámaras.
-- Impresoras.
-- Repetidores.
+##  Identificación de dispositivos
 
-La identificación puede realizarse mediante:
+###  Permite identificar:
 
-- Nombre del dispositivo.
-- Dirección MAC.
-- Dirección IP.
+- Celulares
+- PCs
+- Smart TV
+- Consolas
+-Cámaras IP
+- Impresoras
+- Repetidores
 
-Si el cliente no reconoce algún dispositivo:
+###  Métodos:
 
-1. Solicitar que apague el equipo sospechoso.
-2. Actualizar la lista.
-3. Verificar si desaparece del listado.
+- MAC address
+- IP asignada
+- Hostname
 
----
+##  Verificación WiFi
+```
+/interface wireless registration-table
+```
 
-## Verificación de Equipos por WiFi
+###  Observar:
 
-### MikroTik
+- Señal (dBm)
+- CCQ (calidad de enlace)
+- TX/RX rate
+- Tiempo conectado
 
-1. Ingresar a:
+###  Indicadores:
 
-   `Wireless` → `Registration`
+- Señal menor a -75 dBm → mala calidad
+- CCQ bajo → interferencia o mala señal
+- Retransmisiones → inestabilidad
 
-2. Verificar las estaciones conectadas.
+###  Verificación por cable
+```
+/interface bridge host print
+```
+O
+```
+/ip dhcp-server lease print
+```
+###Observar:
 
-![image]
+- Tráfico por puerto
+- MAC por interfaz
+- Actividad LAN
 
-Podremos observar:
+## Consumo de red (Torch)
+```
+/tool torch interface=bridge
+```
 
-- Dirección MAC.
-- Señal.
-- Tiempo conectado.
-- Velocidad de enlace.
-- Banda utilizada (2.4 GHz o 5 GHz).
+### Observar:
 
----
+- IP origen
+- IP destino
+- TX/RX en tiempo real
+- Dispositivos con mayor consumo
 
-## Verificación de Equipos por Cable
+## Detección de saturación
 
-### MikroTik
+### Observar:
 
-1. Ingresar a:
+- Uso constante del 100%
+- Picos de tráfico
+- Un solo dispositivo consumiendo todo
+- Congestión en horarios específicos
+- Verificación de DHCP
+```
+/ip dhcp-server lease print
+```
 
-   `Bridge` → `Hosts`
+### Observar:
 
-o
+- IP duplicadas
+- Conflictos de asignación
+- Leases expirados
+- inestabilidad en asignación
 
-   `IP` → `DHCP Server` → `Leases`
+## Detección de conflictos ARP
+```
+/ip arp print
+```
 
-2. Identificar dispositivos conectados mediante interfaces Ethernet.
+### Observar:
 
-3. También podemos observar actividad desde:
+- MAC duplicadas
+- IP sin resolución estable
+- Cambios constantes de MAC
 
-   `Interfaces`
+## Detección de loops
+```
+/interface bridge host print
+```
 
-![image]
+### Observar:
 
-Si una interfaz Ethernet muestra tráfico, existe un dispositivo conectado y transmitiendo datos.
+- MAC repetidas en múltiples puertos
+- Incremento de broadcast
+- Tráfico anormal en LAN
 
----
+### Indicadores:
 
-## Verificación de Consumo de la Red
+- Lentitud general de red
+- CPU elevada en router
+- Cortes intermitentes
 
-Si el cliente consulta qué dispositivo está utilizando más ancho de banda:
+Diagnóstico interno de conectividad
+Ping al gateway
+```
+ping 192.168.1.1
+```
 
-### MikroTik
+### Observar:
 
-1. Ingresar a:
+- Pérdida interna
+- Latencia estable
 
-   `Tools` → `Torch`
+### Interpretación:
 
-2. Seleccionar la interfaz principal (`brPrivada`).
+- Pérdida aquí → problema local (LAN / WiFi / router)
+- Sin pérdida → problema externo (ISP)
 
-3. Ejecutar la herramienta.
+## Diagnóstico avanzado
+Tabla de hosts
+```
+/interface bridge host print
+```
+Interfaces activas
+```
+/interface print
+```
 
-![image]
+Consultas frecuentes
+¿Muchos dispositivos afectan la red?
 
-La ventana mostrará:
+Sí, consumen ancho de banda y recursos del router.
 
-- IP de origen.
-- IP de destino.
-- Velocidad de descarga.
-- Velocidad de subida.
+¿Se puede ver qué hace cada dispositivo?
 
-Esto permite identificar qué dispositivo está generando mayor consumo.
+Solo tráfico general, no contenido.
 
----
-
-## Consultas Frecuentes
-
-### ¿Cuántos dispositivos soporta mi router?
-
-Depende del modelo de router, aunque en condiciones normales los equipos pueden administrar decenas de dispositivos simultáneamente.
-
-### ¿Muchos dispositivos conectados afectan la velocidad?
-
-Sí. Cuantos más dispositivos utilicen internet al mismo tiempo, mayor será el consumo del ancho de banda disponible.
-
-### ¿Puedo saber qué páginas visita un dispositivo?
-
-No. Desde Atención al Cliente únicamente se puede verificar tráfico y consumo. No se visualiza el contenido específico de navegación.
-
-### ¿Puedo bloquear dispositivos?
-
-Solo si el router posee administración de Eternet y la tarea se encuentra contemplada dentro de los procedimientos vigentes.
-
----
-
-## Conclusión
-
-Con las verificaciones anteriores podremos:
-
-- Determinar cuántos dispositivos están conectados.
-- Identificar equipos por WiFi o cable.
-- Detectar consumos elevados.
-- Verificar actividad dentro de la red local.
-- Responder consultas generales relacionadas con la red interna del cliente.
+¿Por qué se cae el WiFi?
+- Interferencia
+- Saturación
+- Mala señal
+- Loops de red
+- Exceso de dispositivos
