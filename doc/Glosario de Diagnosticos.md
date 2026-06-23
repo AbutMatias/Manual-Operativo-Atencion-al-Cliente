@@ -24,16 +24,16 @@ Este documento agrupa los tipos de incidencias más comunes en Eternet para faci
 
 ## Wireless
 
-- [Equipo cliente sin respuesta](h[ttps://github.com/AbutMatias/Manual-Operativo-Atencion-al-Cliente/blob/main/Equipo%20wireless%20del%20cliente%20sin%20respuesta.md](https://github.com/AbutMatias/Manual-Operativo-Atencion-al-Cliente/blob/main/doc/Equipo%20wireless%20del%20cliente%20sin%20respuesta.md))  
+- [Equipo cliente sin respuesta](https://github.com/AbutMatias/Manual-Operativo-Atencion-al-Cliente/blob/main/doc/Equipo%20wireless%20del%20cliente%20sin%20respuesta.md])  
   La antena no responde.
 
-- [Equipo cliente desenlazándose]([https://github.com/AbutMatias/Manual-Operativo-Atencion-al-Cliente/blob/main/Equipo%20cliente%20(Antena)%20desenlazándose.md](https://github.com/AbutMatias/Manual-Operativo-Atencion-al-Cliente/blob/main/doc/Equipo%20cliente%20(Antena)%20desenlazándose.md))  
+- [Equipo cliente desenlazándose](https://github.com/AbutMatias/Manual-Operativo-Atencion-al-Cliente/blob/main/doc/Equipo%20cliente%20(Antena)%20desenlazándose.md)  
   Desconexiones constantes del equipo wireless.
 
-- [Equipo cliente reiniciándose]([https://github.com/AbutMatias/Manual-Operativo-Atencion-al-Cliente/blob/main/Equipo%20cliente%20(Antena)%20reiniciándose.md](https://github.com/AbutMatias/Manual-Operativo-Atencion-al-Cliente/blob/main/doc/Equipo%20cliente%20(Antena)%20reiniciándose.md))  
+- [Equipo cliente reiniciándose](https://github.com/AbutMatias/Manual-Operativo-Atencion-al-Cliente/blob/main/doc/Equipo%20cliente%20(Antena)%20reiniciándose.md)  
   Reinicios frecuentes del equipo wireless (uptime se reinicia).
 
-- [Equipo cliente con calidad degradada]([https://github.com/AbutMatias/Manual-Operativo-Atencion-al-Cliente/blob/main/Equipo%20wireless%20con%20señal%20degradada.md](https://github.com/AbutMatias/Manual-Operativo-Atencion-al-Cliente/blob/main/doc/Equipo%20wireless%20con%20señal%20degradada.md))  
+- [Equipo cliente con calidad degradada](https://github.com/AbutMatias/Manual-Operativo-Atencion-al-Cliente/blob/main/doc/Equipo%20wireless%20con%20señal%20degradada.md) 
   Señal inestable, baja calidad de enlace o degradación en la transmisión.
 
 - Corregir registro CPE  
@@ -43,13 +43,13 @@ Este documento agrupa los tipos de incidencias más comunes en Eternet para faci
 
 ## Fibra óptica (FUTURA)
 
-- [Sin conexión FUTURA]([https://github.com/AbutMatias/Manual-Operativo-Atencion-al-Cliente/blob/main/XLSin%20conexión.md](https://github.com/AbutMatias/Manual-Operativo-Atencion-al-Cliente/blob/main/doc/Sin%20conexión.md))  
+- [Sin conexión FUTURA](https://github.com/AbutMatias/Manual-Operativo-Atencion-al-Cliente/blob/main/doc/Sin%20conexión.md)  
   Sin respuesta óptica desde la ONU.
 
-- [ONU con mala señal]([https://github.com/AbutMatias/Manual-Operativo-Atencion-al-Cliente/blob/main/Acceso%20a%20OLTs.md](https://github.com/AbutMatias/Manual-Operativo-Atencion-al-Cliente/blob/main/doc/Acceso%20a%20OLTs.md))  
+- [ONU con mala señal](https://github.com/AbutMatias/Manual-Operativo-Atencion-al-Cliente/blob/main/doc/Acceso%20a%20OLTs.md) 
   Señal óptica en valores críticos (ej. -28 / -30 dBm o similares).
 
-- [ONU con pérdidas de señal]([https://github.com/AbutMatias/Manual-Operativo-Atencion-al-Cliente/blob/main/Acceso%20a%20OLTs.md](https://github.com/AbutMatias/Manual-Operativo-Atencion-al-Cliente/blob/main/doc/Acceso%20a%20OLTs.md))  
+- [ONU con pérdidas de señal](https://github.com/AbutMatias/Manual-Operativo-Atencion-al-Cliente/blob/main/doc/Acceso%20a%20OLTs.md)  
   Intermitencias o degradación en la señal óptica.
 
 ---
@@ -58,16 +58,16 @@ Este documento agrupa los tipos de incidencias más comunes en Eternet para faci
 
 Este grupo incluye múltiples causas posibles dentro del domicilio del cliente.
 
-- [Sin conexión – Eternet Plus]([https://github.com/AbutMatias/Manual-Operativo-Atencion-al-Cliente/blob/main/Sin%20conexión%20–%20Eternet%20Plus.md](https://github.com/AbutMatias/Manual-Operativo-Atencion-al-Cliente/blob/main/doc/Sin%20conexión%20–%20Eternet%20Plus.md))  
+- [Sin conexión – Eternet Plus](https://github.com/AbutMatias/Manual-Operativo-Atencion-al-Cliente/blob/main/doc/Sin%20conexión%20–%20Eternet%20Plus.md)
   El equipo secundario/repetidor no tiene conexión.
 
-- [Sin conexión – CPE OK]([https://github.com/AbutMatias/Manual-Operativo-Atencion-al-Cliente/blob/main/doc/Equipo%20wireless%20del%20cliente%20sin%20respuesta.md](https://github.com/AbutMatias/Manual-Operativo-Atencion-al-Cliente/blob/main/doc/Equipo%20wireless%20del%20cliente%20sin%20respuesta.md))  
+- [Sin conexión – CPE OK](https://github.com/AbutMatias/Manual-Operativo-Atencion-al-Cliente/blob/main/doc/Equipo%20wireless%20del%20cliente%20sin%20respuesta.md)
   La última milla funciona, pero la red interna no tiene conexión.
 
-- [Pérdida a destino]([https://github.com/AbutMatias/Manual-Operativo-Atencion-al-Cliente/edit/main/doc/Pérdida%20a%20destino.md](https://github.com/AbutMatias/Manual-Operativo-Atencion-al-Cliente/blob/main/doc/Perdida%20a%20destino.md))  
+- [Pérdida a destino](https://github.com/AbutMatias/Manual-Operativo-Atencion-al-Cliente/blob/main/doc/Perdida%20a%20destino.md)
   Pérdida de paquetes hacia un servicio o destino específico (juegos, webs, etc.).
 
-- [Cambio de clave WiFi / SSID]([https://github.com/AbutMatias/Manual-Operativo-Atencion-al-Cliente/blob/main/Chequeo%20de%20un%20dispositivo%20puntual.md](https://github.com/AbutMatias/Manual-Operativo-Atencion-al-Cliente/blob/main/doc/Chequeo%20de%20un%20dispositivo%20puntual.md))  
+- [Cambio de clave WiFi / SSID](https://github.com/AbutMatias/Manual-Operativo-Atencion-al-Cliente/blob/main/doc/Chequeo%20de%20un%20dispositivo%20puntual.md)
   Modificación de nombre o contraseña de red WiFi.
 
 - [Lentitud](https://github.com/AbutMatias/Manual-Operativo-Atencion-al-Cliente/blob/main/doc/Consulta%20de%20Red%20Interna.md)  
