@@ -8,9 +8,9 @@ Esta guía ayuda a diagnosticar y resolver problemas comunes de conexión, naveg
 
 > [!TIP]
 > Como información complementaria se pueden consultar las siguientes guías:
-> - [Saturación de ancho de banda](https://github.com/AbutMatias/Inducci-n-Atencion-al-Cliente-/blob/main/Saturación%20de%20ancho%20de%20banda.md)
-> - [Chequeo de acceso a un sitio web o servidor](https://github.com/AbutMatias/Inducci-n-Atencion-al-Cliente-/blob/main/Chequeo%20de%20acceso%20a%20un%20sitio%20web%20o%20servidor.md)
-> - [Chequeo de dispositivo puntual](https://github.com/AbutMatias/Inducci-n-Atencion-al-Cliente-/blob/main/Chequeo%20de%20un%20dispositivo%20puntual.md)
+> - [Saturación de ancho de banda](https://github.com/AbutMatias/Manual-Operativo-Atencion-al-Cliente/blob/main/doc/Saturación%20de%20ancho%20de%20banda.md)
+> - [Chequeo de acceso a un sitio web o servidor](https://github.com/AbutMatias/Manual-Operativo-Atencion-al-Cliente/blob/main/doc/Chequeo%20de%20acceso%20a%20un%20sitio%20web%20o%20servidor.md)
+> - [Chequeo de dispositivo puntual](https://github.com/AbutMatias/Manual-Operativo-Atencion-al-Cliente/blob/main/doc/Chequeo%20de%20un%20dispositivo%20puntual.md)
 
 ---
 
