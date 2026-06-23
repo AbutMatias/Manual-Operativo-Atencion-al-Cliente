@@ -8,7 +8,7 @@ Este repositorio contiene documentación técnica, operativa y de soporte para d
 # Índice general
 
 ## Atención al cliente y reclamos
-- [Carga de reclamos](./Carga%20de%20reclamos.md)
+- [Carga de reclamos](./doc/Carga%20de%20reclamos.md)
 - [Carga de instalación interna](./Carga%20de%20instalación%20interna.md)
 - [Monitoreo de reclamos](./Monitoreo%20de%20Reclamos.md)
 - [Derivación de reclamos e internas](./Derivación%20de%20Reclamos%20e%20Internas.md)
