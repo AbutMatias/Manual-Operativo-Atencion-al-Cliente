@@ -24,10 +24,10 @@ Este documento agrupa los tipos de incidencias más comunes en Eternet para faci
 
 ## Wireless
 
-- [Equipo cliente sin respuesta](https://github.com/AbutMatias/Inducci-n-Atencion-al-Cliente-/blob/main/Equipo%20wireless%20del%20cliente%20sin%20respuesta.md)
+- [Equipo cliente sin respuesta](https://github.com/AbutMatias/Inducci-n-Atencion-al-Cliente-/blob/main/Equipo%20wireless%20del%20cliente%20sin%20respuesta.md)  
   La antena no responde.
 
-- [Equipo cliente desenlazándose](https://github.com/AbutMatias/Inducci-n-Atencion-al-Cliente-/blob/main/Equipo%20cliente%20(Antena)%20desenlazándose.md)
+- [Equipo cliente desenlazándose](https://github.com/AbutMatias/Inducci-n-Atencion-al-Cliente-/blob/main/Equipo%20cliente%20(Antena)%20desenlazándose.md)  
   Desconexiones constantes del equipo wireless.
 
 - [Equipo cliente reiniciándose](https://github.com/AbutMatias/Inducci-n-Atencion-al-Cliente-/blob/main/Equipo%20cliente%20(Antena)%20reiniciándose.md)  
