@@ -20,7 +20,7 @@ Antes de iniciar el diagnóstico, recopilar información:
 
 ---
 
-## 2. 📡 Test básico desde el cliente
+## 2. Test básico desde el cliente
 
 ### Windows:
 ```bash
