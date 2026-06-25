@@ -88,8 +88,8 @@ Se habilita en:
 
 # 🧠 Recordatorios importantes
 
-- Verificar la **cobertura antes de ofrecer un servicio**
-  👉 https://github.com/Eternet/General/blob/main/docs/Comercial%20Actualizado/Procesos/Zonas%20sin%20cobertura.md
+- Verificar la **[cobertura antes de ofrecer un servicio](https://github.com/AbutMatias/Manual-Operativo-Atencion-al-Cliente/blob/main/doc/Zonas%20sin%20cobertura.md)**
+  
 
 - En localidades con **Fibra Óptica no se ofrece Wireless**
 - Priorizar siempre:
