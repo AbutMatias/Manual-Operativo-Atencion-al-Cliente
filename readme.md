@@ -16,8 +16,6 @@ Repositorio de documentación técnica, soporte y diagnóstico de red.
 - [Procedimiento de atención de reclamos](./doc/Procedimiento%20para%20atención%20de%20reclamos%20(Atención%20al%20Cliente).md)
 - [Procedimiento reclamos VIP](./doc/Procedimiento%20para%20atención%20de%20reclamos%20de%20clientes%20VIP.md)
 - [Notificación de cierre de reclamos](./doc/Notificación%20de%20cierre%20de%20reclamos%20a%20clientes.md)
-- [Recupero de bajas](./doc/Recupero%20de%20bajas.md)
-- [Retención de clientes](./doc/Retención%20de%20Clientes%20por%20Disconformidad%20Tarifaria.md)
 
 ---
 
