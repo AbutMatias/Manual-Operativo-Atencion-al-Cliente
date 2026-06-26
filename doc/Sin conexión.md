@@ -1,4 +1,4 @@
-<img width="1781" height="560" alt="image" src="https://github.com/user-attachments/assets/d8867011-3cd8-4d09-b687-554b0fb820d2" /># Sin conexión
+# Sin conexión
 
 Cuando un cliente está sin conexión, primero debemos identificar dónde está la falla:
 
@@ -19,8 +19,8 @@ Si el router no responde pero el CPE está activo:
 #### Si es ONU (fibra)
 - Ir a Netmap > Obtener estado
 - Verificar que la interfaz ethernet esté activa
+<img width="1781" height="560" alt="image" src="https://github.com/user-attachments/assets/d8867011-3cd8-4d09-b687-554b0fb820d2" />
 
-<img width="1781" height="560" alt="image" src="https://github.com/user-attachments/assets/0addeb01-d5a2-4f0b-88e0-7b9329df7248" />
 
 ---
 
