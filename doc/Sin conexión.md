@@ -1,4 +1,4 @@
-# Sin conexión
+<img width="1781" height="560" alt="image" src="https://github.com/user-attachments/assets/d8867011-3cd8-4d09-b687-554b0fb820d2" /># Sin conexión
 
 Cuando un cliente está sin conexión, primero debemos identificar dónde está la falla:
 
@@ -20,14 +20,21 @@ Si el router no responde pero el CPE está activo:
 - Ir a Netmap > Obtener estado
 - Verificar que la interfaz ethernet esté activa
 
+<img width="1781" height="560" alt="image" src="https://github.com/user-attachments/assets/0addeb01-d5a2-4f0b-88e0-7b9329df7248" />
+
 ---
 
 #### Si es equipo wireless
 
 ##### MikroTik
-- Acceder con Winbox
-- Verificar interfaz ether1
+- Acceder con Winbox con IP de el CPE (Antena)
+- Verificar interfaz ether1 (Doble click en ether1 > ... > Status)
+<img width="1156" height="805" alt="image" src="https://github.com/user-attachments/assets/91ba5eed-2076-4c01-8b9a-3db2c222f20b" />
+
 - Debe estar en estado registrado y con negociación correcta (100 Mbps o 1 Gbps)
+
+<img width="1807" height="908" alt="image" src="https://github.com/user-attachments/assets/d8206285-53a2-4df7-b762-17851d064410" />
+
 
 ---
 
