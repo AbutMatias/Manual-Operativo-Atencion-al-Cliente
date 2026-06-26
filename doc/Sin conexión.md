@@ -67,13 +67,13 @@ Verificar:
 ---
 
 #### Si es MikroTik wireless
-- Bridge > Hosts
+- Bridge → Hosts
 - Buscar MAC de ether1
 
 ---
 
 #### Si es Nanostation
-- Bridge Table
+- Bridge → Table
 - Buscar registros en LAN0 o LAN1
 
 ---
@@ -89,21 +89,26 @@ Verificar:
 
 Verificar en Hotspot:
 
-- IP > Host
+- IP → Hotspot
   - Debe existir registro con IP y MAC en estado “A” (autorizado)
+<img width="1327" height="667" alt="image" src="https://github.com/user-attachments/assets/8a77e195-9233-4d37-a8da-6dc0f253a994" />
 
-- IP > Routes
+- IP → Routes
   - Debe existir ruta para la IP del cliente
+<img width="1092" height="652" alt="image" src="https://github.com/user-attachments/assets/f8a0dfa2-d011-4cf7-908f-82e62bf17ea7" />
 
-- IP > ARP
+- IP → ARP
   - Debe existir entrada IP/MAC
+<img width="822" height="620" alt="image" src="https://github.com/user-attachments/assets/9dd0d04c-ac76-4329-8821-9daaa785eb15" />
 
-- IP > Firewall > Address List
+- IP → Firewall → Address List
   - Verificar que no esté bloqueado
+<img width="1617" height="627" alt="image" src="https://github.com/user-attachments/assets/8a43aa4e-cd2a-4bae-a5c9-a2c75d5bb5ef" />
 
-- IP > DHCP Server > Leases
+- IP → DHCP Server → Leases
   - Buscar por MAC
   - Estado debe ser “Bound”
+<img width="1155" height="637" alt="image" src="https://github.com/user-attachments/assets/a5c3e8ff-e415-44bc-b633-5cfa64f6b1df" />
 
 ---
 
