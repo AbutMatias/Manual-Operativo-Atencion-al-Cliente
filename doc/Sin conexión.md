@@ -50,7 +50,7 @@ Verificar:
 
 - Router encendido
 - Cableado correcto:
-  - CPE → puerto WAN del router
+  - CPE → puerto WAN del router o en puerto PoE (Cuando no tiene data + power)
   - Fuente → puerto Power
 
 ---
@@ -59,7 +59,9 @@ Verificar:
 
 #### Si es ONU
 - Ver tabla MAC en la ONU
+- En este ejemplo se verifica la MAC del router con el que esta conectado la ONU.
 
+<img width="1544" height="589" alt="image" src="https://github.com/user-attachments/assets/5bbc8b29-b9cf-449a-8f97-05072555f1a0" />
 
 
 ---
