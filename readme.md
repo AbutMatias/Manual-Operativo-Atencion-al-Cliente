@@ -21,7 +21,7 @@ Repositorio de documentación técnica, soporte y diagnóstico de red.
 
 ---
 
-## 🌐 Diagnóstico de red
+## 🌐 Diagnóstico de red FOOTOOOOOSSSS
 - [Sin conexión](./doc/Sin%20conexión.md)
 - [Sin conexión Eternet Plus](./doc/Sin%20conexión%20–%20Eternet%20Plus.md)
 - [Saturación de ancho de banda](./doc/Saturación%20de%20ancho%20de%20banda.md)
