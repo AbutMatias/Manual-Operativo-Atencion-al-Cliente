@@ -26,7 +26,7 @@ Si el router no responde pero el CPE está activo:
 
 #### Si es equipo wireless
 
-##### MikroTik
+#### MikroTik
 - Acceder con Winbox con IP de el CPE (Antena)
 - Verificar interfaz ether1 (Doble click en ether1 > ... > Status)
 <img width="1156" height="805" alt="image" src="https://github.com/user-attachments/assets/91ba5eed-2076-4c01-8b9a-3db2c222f20b" />
@@ -38,7 +38,7 @@ Si el router no responde pero el CPE está activo:
 
 ---
 
-##### Ubiquiti Nanostation
+#### Ubiquiti Nanostation
 - Acceder por web
 - Verificar interfaces LAN0 o LAN1
 - Deben tener link (no estar en “Unplugged”)
