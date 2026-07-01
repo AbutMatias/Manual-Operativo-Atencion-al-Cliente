@@ -9,10 +9,10 @@ Repositorio de documentación técnica, soporte y diagnóstico de red.
 ---
 
 ## 🎫 Atención al cliente y reclamos
-- [Carga de reclamos](./doc/Carga%20de%20reclamos.md)
-- [Carga de instalación interna](./doc/Carga%20de%20instalación%20interna.md)
-- [Monitoreo de reclamos](./doc/Monitoreo%20de%20Reclamos.md)
-- [Derivación de reclamos e internas](./doc/Derivación%20de%20Reclamos%20e%20Internas.md)
+- [Carga de reclamos](./doc/Carga%20de%20reclamos.md) OK
+- [Carga de instalación interna](./doc/Carga%20de%20instalación%20interna.md) OK
+- [Monitoreo de reclamos](./doc/Monitoreo%20de%20Reclamos.md) OK
+- [Derivación de reclamos e internas](./doc/Derivación%20de%20Reclamos%20e%20Internas.md) OK
 - [Procedimiento de atención de reclamos](./doc/Procedimiento%20para%20atención%20de%20reclamos%20(Atención%20al%20Cliente).md)
 - [Procedimiento reclamos VIP](./doc/Procedimiento%20para%20atención%20de%20reclamos%20de%20clientes%20VIP.md)
 - [Notificación de cierre de reclamos](./doc/Notificación%20de%20cierre%20de%20reclamos%20a%20clientes.md)
