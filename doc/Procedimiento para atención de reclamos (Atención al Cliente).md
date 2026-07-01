@@ -17,6 +17,9 @@ Disponemos de 2 plataformas principales para registro y comunicación interna:
   - Búsqueda de clientes
   - Carga de reclamos
   - Seguimiento interno
+ 
+    <img width="1917" height="1010" alt="image" src="https://github.com/user-attachments/assets/d95e0cff-21ec-4834-91eb-82d1a73a2ee8" />
+
 ---
 
 ## GitHub
