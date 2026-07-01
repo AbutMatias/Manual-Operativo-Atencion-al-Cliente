@@ -62,7 +62,7 @@ Importante:
   - Realizar la carga del reclamo
 
 Instructivo:
-https://github.com/AbutMatias/Inducci-n-Atencion-al-Cliente-/blob/main/Carga%20de%20reclamos.md
+https://github.com/AbutMatias/Manual-Operativo-Atencion-al-Cliente/blob/main/doc/Carga%20de%20reclamos.md
 
 ---
 
