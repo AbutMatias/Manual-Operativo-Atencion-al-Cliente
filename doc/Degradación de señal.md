@@ -20,9 +20,16 @@ Identificar si:
 
 ## Paso 2: Obtener las señales de las ONUs
 
+Por Grafana:
+**Dashboard → OLTs → OLT Sopto(Localidades) o OLT ZTE (Tres Arroyos) → Colocamos la MAC de la ONU correspondiente → Query**
+<img width="1845" height="719" alt="image" src="https://github.com/user-attachments/assets/a41a4fd6-abe3-43c4-9bdd-9c8f10b9ac87" />
+<img width="1489" height="631" alt="image" src="https://github.com/user-attachments/assets/bd5e58b2-9e3a-48cf-ba5f-3acec936d1c7" />
+
+Otro metodo
+
 Las señales pueden consultarse desde:
 
-**SSAK → Equipos de Red → ONUs → Listado de ONUs**
+**NetMap → Colocamos la IP del cliente o CD → ... → Listado de ONUs**
 
 Buscar por:
 
@@ -30,6 +37,9 @@ Buscar por:
 * Nodo Padre
 
 > **Importante:** Siempre que sea posible, obtener las señales en tiempo real de las ONUs afectadas.
+<img width="1839" height="873" alt="image" src="https://github.com/user-attachments/assets/c2f211c6-1441-48a0-b55a-bdb02eeb9c0f" />
+
+
 
 ---
 
@@ -39,18 +49,18 @@ Cada CD posee un valor máximo de señal admitido (DBM límite).
 
 Comparar la señal de cada ONU con ese valor para determinar su estado.
 
-### Señal Normal
+### Señal Normal: > -24 dBm
 
 * Igual o mejor que el DBM límite.
 * No debería presentar inconvenientes.
 
-### Señal con Problemas
+### Señal con Problemas: -24 a -27 dBm
 
 * Supera levemente el DBM límite.
 * Generalmente el servicio sigue funcionando.
 * Debe monitorearse ya que puede empeorar.
 
-### Señal Crítica
+### Señal Crítica: < -30 dBm
 
 * Supera ampliamente el DBM límite.
 * Puede provocar cortes, lentitud o inestabilidad.
