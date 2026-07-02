@@ -25,8 +25,8 @@ Repositorio de documentación técnica, soporte y diagnóstico de red.
 - [Saturación de ancho de banda](./doc/Saturación%20de%20ancho%20de%20banda.md)OK
 - [Degradación de señal](./doc/Degradación%20de%20señal.md)OK
 - [Ping](./doc/Ping.md)OK
-- [Traceroute](./doc/Traceroute%20(Traza%20de%20red).md)
-- [Prueba de velocidad](./doc/Prueba%20de%20velocidad.md)
+- [Traceroute](./doc/Traceroute%20(Traza%20de%20red).md)OK
+- [Prueba de velocidad](./doc/Prueba%20de%20velocidad.md)OK
 - [Chequeo de sitio web o servidor](./doc/Chequeo%20de%20acceso%20a%20un%20sitio%20web%20o%20servidor.md)
 - [Diagnóstico de cobertura](./doc/Diagnósticos%20por%20problemas%20de%20cobertura.md)
 - [Problemas en juegos online](./doc/Problemas%20en%20Juegos%20Online.md)
