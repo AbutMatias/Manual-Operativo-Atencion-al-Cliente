@@ -116,6 +116,6 @@ Se debe:
 2. Crear issue en GitHub usando la plantilla adecuada  
    https://github.com/Eternet/Reclamos/issues/new/choose
 3. Asignar etiquetas correspondientes  
-4. Vincular el issue al sector responsable  
+4. Vincular el issue al sector responsable 
 
 ---
