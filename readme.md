@@ -24,7 +24,7 @@ Repositorio de documentación técnica, soporte y diagnóstico de red.
 - [Sin conexión Eternet Plus](./doc/Sin%20conexión%20–%20Eternet%20Plus.md) OK
 - [Saturación de ancho de banda](./doc/Saturación%20de%20ancho%20de%20banda.md)OK
 - [Degradación de señal](./doc/Degradación%20de%20señal.md)OK
-- [Ping](./doc/Ping.md)
+- [Ping](./doc/Ping.md)OK
 - [Traceroute](./doc/Traceroute%20(Traza%20de%20red).md)
 - [Prueba de velocidad](./doc/Prueba%20de%20velocidad.md)
 - [Chequeo de sitio web o servidor](./doc/Chequeo%20de%20acceso%20a%20un%20sitio%20web%20o%20servidor.md)
