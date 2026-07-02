@@ -15,7 +15,7 @@ Repositorio de documentación técnica, soporte y diagnóstico de red.
 - [Derivación de reclamos e internas](./doc/Derivación%20de%20Reclamos%20e%20Internas.md) OK
 - [Procedimiento de atención de reclamos](./doc/Procedimiento%20para%20atención%20de%20reclamos%20(Atención%20al%20Cliente).md) OK
 - [Procedimiento reclamos VIP](./doc/Procedimiento%20para%20atención%20de%20reclamos%20de%20clientes%20VIP.md) OK
-- [Notificación de cierre de reclamos](./doc/Notificación%20de%20cierre%20de%20reclamos%20a%20clientes.md)
+- [Notificación de cierre de reclamos](./doc/Notificación%20de%20cierre%20de%20reclamos%20a%20clientes.md) OK
 
 ---
 
