@@ -22,8 +22,8 @@ Repositorio de documentación técnica, soporte y diagnóstico de red.
 ## 🌐 Diagnóstico de red FOOTOOOOOSSSS
 - [Sin conexión](./doc/Sin%20conexión.md) OK
 - [Sin conexión Eternet Plus](./doc/Sin%20conexión%20–%20Eternet%20Plus.md) OK
-- [Saturación de ancho de banda](./doc/Saturación%20de%20ancho%20de%20banda.md)
-- [Degradación de señal](./doc/Degradación%20de%20señal.md)
+- [Saturación de ancho de banda](./doc/Saturación%20de%20ancho%20de%20banda.md)OK
+- [Degradación de señal](./doc/Degradación%20de%20señal.md)OK
 - [Ping](./doc/Ping.md)
 - [Traceroute](./doc/Traceroute%20(Traza%20de%20red).md)
 - [Prueba de velocidad](./doc/Prueba%20de%20velocidad.md)
