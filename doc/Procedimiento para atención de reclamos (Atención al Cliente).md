@@ -63,20 +63,19 @@ Importante:
 
 Instructivo:
 https://github.com/AbutMatias/Manual-Operativo-Atencion-al-Cliente/blob/main/doc/Carga%20de%20reclamos.md
+<img width="1661" height="869" alt="image" src="https://github.com/user-attachments/assets/f446db79-9a8d-442a-b4ec-acf772d2927b" />
 
 ---
 
 ## 3. Diagnóstico del reclamo
 
-- Agregar observaciones en SSAK
-- Información clave:
-  - Detalle del problema
-  - Pruebas realizadas
-  - Comportamiento del servicio
+- Agregar observaciones en un Issue en el repositorio **Reclamos** en GitHub
+
 
 Importante:
 - Estas notas pueden ser utilizadas por otros técnicos o sectores
 - Deben ser claras y completas
+<img width="1578" height="883" alt="image" src="https://github.com/user-attachments/assets/994826f2-2f25-4194-9f3b-1697ae9c3fe5" />
 
 ---
 
