@@ -9,24 +9,24 @@ Repositorio de documentación técnica, soporte y diagnóstico de red.
 ---
 
 ## 🎫 Atención al cliente y reclamos
-- [Carga de reclamos](./doc/Carga%20de%20reclamos.md) OK
-- [Carga de instalación interna](./doc/Carga%20de%20instalación%20interna.md) OK
-- [Monitoreo de reclamos](./doc/Monitoreo%20de%20Reclamos.md) OK
-- [Derivación de reclamos e internas](./doc/Derivación%20de%20Reclamos%20e%20Internas.md) OK
-- [Procedimiento de atención de reclamos](./doc/Procedimiento%20para%20atención%20de%20reclamos%20(Atención%20al%20Cliente).md) OK
-- [Procedimiento reclamos VIP](./doc/Procedimiento%20para%20atención%20de%20reclamos%20de%20clientes%20VIP.md) OK
-- [Notificación de cierre de reclamos](./doc/Notificación%20de%20cierre%20de%20reclamos%20a%20clientes.md) OK
+- [Carga de reclamos](./doc/Carga%20de%20reclamos.md) 
+- [Carga de instalación interna](./doc/Carga%20de%20instalación%20interna.md) 
+- [Monitoreo de reclamos](./doc/Monitoreo%20de%20Reclamos.md) 
+- [Derivación de reclamos e internas](./doc/Derivación%20de%20Reclamos%20e%20Internas.md) 
+- [Procedimiento de atención de reclamos](./doc/Procedimiento%20para%20atención%20de%20reclamos%20(Atención%20al%20Cliente).md) 
+- [Procedimiento reclamos VIP](./doc/Procedimiento%20para%20atención%20de%20reclamos%20de%20clientes%20VIP.md) 
+- [Notificación de cierre de reclamos](./doc/Notificación%20de%20cierre%20de%20reclamos%20a%20clientes.md) 
 
 ---
 
 ## 🌐 Diagnóstico de red FOOTOOOOOSSSS
-- [Sin conexión](./doc/Sin%20conexión.md) OK
-- [Sin conexión Eternet Plus](./doc/Sin%20conexión%20–%20Eternet%20Plus.md) OK
-- [Saturación de ancho de banda](./doc/Saturación%20de%20ancho%20de%20banda.md)OK
-- [Degradación de señal](./doc/Degradación%20de%20señal.md)OK
-- [Ping](./doc/Ping.md)OK
-- [Traceroute](./doc/Traceroute%20(Traza%20de%20red).md)OK
-- [Prueba de velocidad](./doc/Prueba%20de%20velocidad.md)OK
+- [Sin conexión](./doc/Sin%20conexión.md) 
+- [Sin conexión Eternet Plus](./doc/Sin%20conexión%20–%20Eternet%20Plus.md) 
+- [Saturación de ancho de banda](./doc/Saturación%20de%20ancho%20de%20banda.md)
+- [Degradación de señal](./doc/Degradación%20de%20señal.md)
+- [Ping](./doc/Ping.md)
+- [Traceroute](./doc/Traceroute%20(Traza%20de%20red).md)
+- [Prueba de velocidad](./doc/Prueba%20de%20velocidad.md)
 - [Chequeo de sitio web o servidor](./doc/Chequeo%20de%20acceso%20a%20un%20sitio%20web%20o%20servidor.md)
 - [Diagnóstico de cobertura](./doc/Diagnósticos%20por%20problemas%20de%20cobertura.md)
 - [Problemas en juegos online](./doc/Problemas%20en%20Juegos%20Online.md)
