@@ -75,8 +75,7 @@
 ### Sugerir:
 
 - Reubicar el router en un punto más central
-- Incorporar repetidor o sistema mesh
-  - (Pendiente definición de proceso Eternet Plus)
+- Incorporar repetidor (Eternet Plus) o sistema mesh
 - Optimización de configuración:
   - Cambio de canal Wi-Fi
   - Revisión de banda 2.4 / 5 GHz
