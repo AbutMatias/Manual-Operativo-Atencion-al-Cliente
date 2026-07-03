@@ -40,7 +40,7 @@ Importante:
 
 ---
 
-### Servicio WiFi
+### Servicio WiFi (Eternet Plus)
 Instalación de un router adicional dentro del domicilio.
 
 Casos:
