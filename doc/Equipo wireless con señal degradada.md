@@ -1,52 +1,5 @@
 # Equipo cliente con calidad degradada (Wireless)
 
-## Contexto
-
-Actualmente existe documentación vinculada al criterio de calidad degradada, pero la comparativa integral del diagnóstico **"Equipo cliente con calidad degradada"** muestra que en la práctica todavía hay diferencias operativas entre casos similares.
-
-Se observan variaciones en:
-
-- validaciones previas a derivar
-- profundidad del diagnóstico remoto
-- forma de documentar el síntoma del cliente
-- evidencia solicitada
-- criterios de derivación
-- trazabilidad entre atención, registro y escalamiento
-- registro de contacto, disponibilidad y continuidad del caso
-
-Esto hace que casos equivalentes puedan gestionarse con distinto nivel de validación y con distinto nivel de detalle al momento de derivar.
-
----
-
-# Necesidad de actualización
-
-Hoy no queda unificado en un mismo flujo:
-
-- qué validar antes de derivar
-- qué pruebas remotas realizar
-- qué información técnica registrar
-- cómo documentar el síntoma y el hallazgo
-- cómo escalar correctamente el reclamo
-- cómo tratar los casos con cobertura de Fibra Óptica
-
----
-
-# Objetivo
-
-Actualizar la documentación actual con un criterio más operativo para el diagnóstico **"Equipo cliente con calidad degradada"**.
-
-La actualización busca:
-
-- conservar los umbrales técnicos vigentes
-- ordenar las validaciones mínimas
-- formalizar las pruebas remotas obligatorias
-- unificar criterios de derivación
-- dejar más claro qué registrar en cada caso
-- incorporar el tratamiento operativo cuando el cliente tiene cobertura de Fibra Óptica
-
----
-
-# Equipo cliente con calidad degradada
 
 Cuando el equipo cliente presenta degradación en la calidad del servicio y se observan señales por lo general inferiores a **-70 dBm** (por ejemplo, **-80 dBm**) o una **calidad de transferencia inferior al 50%**, se debe generar un reclamo de:
 
