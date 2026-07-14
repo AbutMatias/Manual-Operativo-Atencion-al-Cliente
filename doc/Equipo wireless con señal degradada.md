@@ -1,4 +1,4 @@
-# Protocolo Operativo — Equipo cliente con calidad degradada (Wireless)
+# Equipo cliente con calidad degradada (Wireless)
 
 ## Objetivo
 
