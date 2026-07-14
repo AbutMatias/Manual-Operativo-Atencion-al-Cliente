@@ -1,181 +1,239 @@
 # Equipo cliente desenlazándose
 
-## Contexto
+## Objetivo
 
-Se observan variaciones en:
-
-- validaciones previas a derivar
-- profundidad del diagnóstico remoto
-- forma de documentar el síntoma del cliente
-- evidencia técnica utilizada
-- criterios de derivación
-- trazabilidad entre atención, registro y escalamiento
-- tratamiento de casos con cobertura de Fibra Óptica
-
-Esto hace que casos equivalentes puedan gestionarse con distinto nivel de validación y con distinto nivel de detalle al momento de derivar.
+Establecer un procedimiento único para diagnosticar y gestionar reclamos donde un equipo wireless pierde el enlace con el Access Point (AP) de manera intermitente.
 
 ---
 
-# Necesidad de actualización
+# ¿Cuándo corresponde este diagnóstico?
 
-Hoy no queda unificado en un mismo flujo:
-
-- qué validar antes de derivar
-- qué pruebas remotas realizar
-- qué información técnica registrar
-- cómo documentar el síntoma y el hallazgo
-- cómo escalar correctamente el reclamo
-- cómo tratar los casos con cobertura de Fibra Óptica
-
----
-
-# Objetivo
-
-Actualizar la documentación actual con un criterio más operativo para el diagnóstico **"Equipo cliente desenlazándose"**.
-
-La actualización busca:
-
-- conservar el criterio técnico vigente
-- ordenar las validaciones mínimas
-- formalizar las pruebas remotas obligatorias
-- unificar criterios de derivación
-- dejar más claro qué registrar en cada caso
-- incorporar el tratamiento operativo cuando el cliente tiene cobertura de Fibra Óptica
-
----
-
-# Equipo cliente desenlazándose
-
-Cuando un equipo wireless presenta desconexiones constantes del AP, se debe generar el reclamo:
+Generar el reclamo:
 
 **"Equipo cliente desenlazándose"**
 
----
+Cuando el equipo del cliente:
 
-# 1. Validación inicial
-
-Antes de avanzar, confirmar que el inconveniente corresponda únicamente al cliente y no a una afectación general del AP.
-
-## Verificación
-
-Revisar si otros clientes conectados al mismo AP presentan el mismo comportamiento.
-
-### Si afecta a varios clientes
-
-- posible falla general del AP
-- no corresponde tratarlo como un inconveniente individual del cliente
+- pierde el enlace con el AP de forma intermitente
+- vuelve a enlazar sin reiniciarse
+- el uptime permanece activo (no vuelve a cero)
+- los logs muestran eventos repetitivos de desconexión y reconexión
 
 ---
 
-# 2. Identificación del problema
+# Protocolo paso a paso
 
-Este tipo de falla suele detectarse cuando:
+## Paso 1 — Verificar si existe una afectación general
 
-- se pierde la gestión del equipo de forma intermitente
-- el equipo vuelve a responder sin reiniciarse
-- el uptime no vuelve a cero
+Antes de analizar el equipo del cliente, confirmar que el inconveniente no corresponda al Access Point (AP).
 
-Este comportamiento indica que el equipo no se está reiniciando, sino que pierde el enlace con el AP.
+### Verificar
 
-Antes de derivar registrar:
+- Clientes conectados al mismo AP.
+- Reclamos recientes del mismo AP.
+- Alarmas o fallas generales del AP.
 
-- desde cuándo ocurre
-- si el problema es permanente o intermitente
-- si el equipo vuelve a responder sin intervención
-- antecedentes de reclamos similares
-- si el comportamiento coincide con lo informado por el cliente
+### Si el inconveniente afecta a varios clientes
+
+No corresponde continuar con este protocolo.
+
+Derivar el caso como una posible afectación general del AP según el procedimiento vigente.
+
+### Si solamente afecta al cliente
+
+Continuar con el siguiente paso.
 
 ---
 
-# 3. Confirmación desde el AP
+## Paso 2 — Confirmar que el equipo se está desenlazando
 
-La validación principal debe realizarse revisando los logs del AP.
+Desde las herramientas de gestión verificar:
+
+- El equipo deja de responder de forma intermitente.
+- Luego vuelve a responder.
+- El uptime permanece activo.
+- No existen reinicios del equipo.
+
+Si se cumplen estas condiciones, el problema corresponde a un **desenlace del equipo cliente**.
+
+---
+
+## Paso 3 — Obtener información del cliente
+
+Consultar y registrar:
+
+- ¿Desde cuándo ocurre?
+- ¿Con qué frecuencia sucede?
+- ¿Sucede todos los días?
+- ¿En determinados horarios?
+- ¿Se recupera solo?
+- ¿Comenzó luego de tormentas o fuertes vientos?
+- ¿Se realizaron movimientos del equipo o de la antena?
+- ¿Ya ocurrió anteriormente?
+
+Registrar toda la información en el reclamo.
+
+---
+
+## Paso 4 — Revisar los logs del AP
+
+Ingresar al Access Point donde se encuentra asociado el cliente.
 
 Verificar:
 
-- desconexiones del cliente
-- reconexiones del cliente
-- repetición del patrón de desenlace
+- Eventos de desconexión.
+- Eventos de reconexión.
+- Cantidad de desenlaces.
+- Frecuencia del problema.
+- Horarios en los que ocurre.
+- Repetición del patrón.
 
-Siempre que sea posible registrar también:
-
-- frecuencia aproximada del evento
-- si el comportamiento continúa durante la revisión
-- si coincide con el horario informado por el cliente
-
----
-
-# 4. Pruebas con el cliente
-
-## 4.1 Reinicio eléctrico del equipo
-
-Solicitar al cliente un reinicio eléctrico del equipo wireless.
-
-Luego verificar nuevamente:
-
-- si el equipo vuelve a enlazar
-- si mantiene estabilidad
-- si reaparecen las desconexiones
-- si continúa la pérdida intermitente de gestión
+Confirmar que los eventos coincidan con lo informado por el cliente.
 
 ---
 
-# 5. Resolución del caso
+## Paso 5 — Verificar la calidad del enlace
 
-## Si el problema persiste
+Revisar el estado actual del enlace.
 
-Derivar para revisión técnica cuando continúe el patrón de desenlace luego de las validaciones remotas.
+Controlar:
 
-Solicitar verificación en sitio.
+- RSSI.
+- CCQ.
+- TX Rate.
+- RX Rate.
+- MCS o Data Rate.
+- Noise Floor (si la tecnología lo permite).
+- Tiempo de enlace.
+- Calidad general del enlace.
 
-## Si el problema se soluciona
-
-- mantener monitoreo durante un período prudencial
-- confirmar que la falla no vuelva a repetirse
-
----
-
-# 6. Información obligatoria a registrar
-
-Registrar en el reclamo:
-
-- síntoma reportado por el cliente
-- desde cuándo ocurre
-- si el problema es permanente o intermitente
-- pruebas remotas realizadas
-- resultado de cada prueba
-- hallazgo técnico observado
-- disponibilidad horaria
-- contacto principal
-- contacto alternativo
-- motivo de derivación
-- siguiente paso informado al cliente
+Registrar cualquier valor fuera de los parámetros normales.
 
 ---
 
-# 7. Clientes con cobertura de Fibra Óptica
+## Paso 6 — Verificar la estabilidad del equipo
 
-**Siempre verificar cobertura de Fibra Óptica antes de derivar.**
+Mientras se monitorea el equipo comprobar si:
 
-Si el cliente posee cobertura:
+- responde correctamente
+- pierde la gestión
+- vuelve a responder sin reiniciarse
+- presenta nuevos desenlaces
 
-- no derivar a Redes por desenlace wireless
-- generar la Actualización Tecnológica (AFO), según el procedimiento vigente
-- vincular la AFO con el reclamo
-- vincular el reclamo con la AFO
-- solicitar prioridad a Coordinación según el circuito establecido
+Registrar el comportamiento observado.
 
 ---
 
-# 8. Comunicación con el cliente
+## Paso 7 — Solicitar reinicio eléctrico
 
-Informar de manera clara:
+Solicitar al cliente:
 
-- qué verificaciones se realizaron
-- cuál fue el hallazgo
-- por qué se deriva el caso
-- cuál será el siguiente paso
+1. Desconectar la alimentación eléctrica del equipo.
+2. Esperar aproximadamente 30 segundos.
+3. Volver a conectar la alimentación.
 
-No informar plazos que no estén confirmados por el circuito operativo correspondiente.
+Esperar que el equipo vuelva a enlazar.
+
+---
+
+## Paso 8 — Verificar nuevamente
+
+Una vez que el equipo vuelva a enlazar comprobar:
+
+- Si enlazó correctamente.
+- Si mantiene estabilidad.
+- Si reaparecen desenlaces.
+- Si continúan registrándose eventos en los logs.
+
+---
+
+## Paso 9 — Verificar cobertura de Fibra Óptica
+
+Antes de generar cualquier derivación verificar si el domicilio posee cobertura de Fibra Óptica.
+
+### Si posee cobertura
+
+No derivar el caso a Redes por desenlace wireless.
+
+Realizar:
+
+- Actualización Tecnológica (AFO).
+- Vincular la AFO al reclamo.
+- Vincular el reclamo con la AFO.
+- Solicitar prioridad a Coordinación según el procedimiento vigente.
+
+Finalizar el diagnóstico.
+
+### Si NO posee cobertura
+
+Continuar con la derivación técnica.
+
+---
+
+## Paso 10 — Resolver el caso
+
+### Si el inconveniente desapareció
+
+Registrar:
+
+- pruebas realizadas
+- resultados obtenidos
+- estabilidad posterior al reinicio
+
+Mantener monitoreo cuando corresponda.
+
+Cerrar el reclamo si el problema no vuelve a repetirse.
+
+### Si el inconveniente continúa
+
+Derivar para revisión técnica.
+
+Solicitar la verificación de:
+
+- Equipo cliente.
+- Orientación de la antena.
+- Soporte.
+- Cableado.
+- Conectores.
+- Fuente de alimentación.
+- Reemplazo del equipo si corresponde.
+
+---
+
+# Información obligatoria del reclamo
+
+Antes de finalizar verificar que el reclamo incluya:
+
+- Síntoma informado por el cliente.
+- Fecha aproximada de inicio.
+- Frecuencia del inconveniente.
+- Horarios en los que ocurre.
+- Validación del AP.
+- Revisión de logs.
+- Estado del uptime.
+- Calidad del enlace.
+- Pruebas realizadas.
+- Resultado de cada prueba.
+- Hallazgos técnicos.
+- Disponibilidad horaria.
+- Contacto principal.
+- Contacto alternativo.
+- Motivo de la derivación.
+- Próximo paso informado al cliente.
+- Validación de cobertura de Fibra Óptica.
+- Número de AFO (si corresponde).
+
+---
+
+# Comunicación al cliente
+
+Informar siempre:
+
+- Qué verificaciones se realizaron.
+- Qué se detectó durante el diagnóstico.
+- Qué acción se tomó.
+- Cuál será el siguiente paso.
+
+No informar plazos que no hayan sido confirmados por el circuito operativo correspondiente.
 
 
