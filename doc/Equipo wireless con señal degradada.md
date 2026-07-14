@@ -1,7 +1,14 @@
-# Equipo cliente con calidad degradada (Wireless)
+# Protocolo Operativo — Equipo cliente con calidad degradada (Wireless)
 
+## Objetivo
 
-Cuando el equipo cliente presenta degradación en la calidad del servicio y se observan señales por lo general inferiores a **-70 dBm** (por ejemplo, **-80 dBm**) o una **calidad de transferencia inferior al 50%**, se debe generar un reclamo de:
+Establecer un procedimiento único para diagnosticar y gestionar reclamos donde el enlace wireless del cliente presenta degradación de calidad, afectando el funcionamiento normal del servicio.
+
+---
+
+# ¿Cuándo corresponde este diagnóstico?
+
+Generar el reclamo:
 
 - **"Equipo cliente con calidad degradada"**
 - **"Equipo cliente con señal degradada"**
@@ -9,294 +16,299 @@ Cuando el equipo cliente presenta degradación en la calidad del servicio y se o
 
 (según la nomenclatura utilizada por el sistema).
 
-Este criterio también aplica cuando el cliente informa:
+Este diagnóstico corresponde cuando se observa una degradación del enlace wireless, por ejemplo:
 
-- lentitud
-- cortes
-- microcortes
-- intermitencia
-- mala señal
-- falta de conexión
+- Señal inferior a **-70 dBm** (ejemplo: **-80 dBm**).
+- Calidad de transferencia inferior al **50 %**.
+- Cadenas degradadas.
+- Pérdidas elevadas.
+- Enlace inestable.
 
-siempre que el problema esté asociado al enlace wireless, al CPE o a la calidad del servicio.
+También aplica cuando el cliente informa:
 
----
+- Lentitud.
+- Cortes.
+- Microcortes.
+- Intermitencia.
+- Mala señal.
+- Falta de conexión.
 
-# 1. Identificación del problema
-
-La degradación puede detectarse por señal, calidad o comportamiento del servicio, pero **el diagnóstico nunca debe basarse únicamente en la potencia de señal**.
-
-Siempre se debe diferenciar entre:
-
-- síntoma reportado por el cliente
-- pruebas realizadas
-- hallazgo técnico
-- motivo de derivación
-
-Antes de continuar registrar:
-
-- desde cuándo ocurre
-- si es permanente o intermitente
-- si afecta a todos los dispositivos o solamente a uno
-- si ocurre cerca y lejos del router
-- si afecta WiFi, cableado o ambos
-- dispositivos involucrados
+> **Importante:** La potencia de señal por sí sola no determina el diagnóstico. Siempre debe evaluarse el estado general del enlace.
 
 ---
 
-# 2. Verificaciones obligatorias
+# Protocolo paso a paso
 
-## 2.1 Validación inicial con el cliente
+## Paso 1 — Confirmar que no exista una afectación general
 
-Registrar:
+Antes de analizar el cliente verificar el estado del Access Point (AP).
 
-- descripción del síntoma
-- teléfono de contacto (WhatsApp u otro alternativo)
-- antecedentes de visitas
-- antecedentes de reclamos similares
+### Verificar
 
----
+- Otros clientes conectados al mismo AP.
+- Reclamos recientes del mismo AP.
+- Alarmas o afectaciones generales.
 
-## 2.2 Verificación física guiada
+### Si varios clientes presentan el mismo inconveniente
 
-Cuando corresponda solicitar al cliente:
+No continuar con este protocolo.
 
-- revisión de puertos
-- revisión del POE
-- revisión del cable UTP
-- revisión del adaptador de corriente
-- revisión del esquema de conexión
-- reconexión de cables
-- reinicio eléctrico del router o antena
+Derivar el caso como una posible afectación general del AP según el procedimiento vigente.
 
-Cuando aporte valor al diagnóstico solicitar:
+### Si solamente afecta al cliente
 
-- foto del router
-- foto de conexiones
-- captura del error
-- captura de redes WiFi visibles
+Continuar con el diagnóstico.
 
 ---
 
-## 2.3 Ping en corto (AP ↔ Cliente)
+## Paso 2 — Obtener información del cliente
 
-Realizar un ping directo desde el AP hacia:
+Consultar y registrar:
 
-- el cliente afectado
-- otros clientes pertenecientes al mismo AP
+- Desde cuándo ocurre.
+- Si el problema es permanente o intermitente.
+- Si afecta a todos los dispositivos o solamente a uno.
+- Si ocurre cerca o lejos del router.
+- Si afecta conexiones WiFi, cableadas o ambas.
+- Dispositivos involucrados.
+- Antecedentes de reclamos similares.
+- Antecedentes de visitas técnicas.
+
+Registrar también un teléfono de contacto alternativo.
+
+---
+
+## Paso 3 — Realizar una verificación física guiada
+
+Solicitar al cliente revisar:
+
+- Cable UTP.
+- Inyector PoE.
+- Adaptador de corriente.
+- Puertos del router.
+- Conexiones.
+- Esquema de cableado.
+
+Si corresponde, solicitar:
+
+- Reinicio eléctrico del router.
+- Reinicio del equipo wireless.
+
+Cuando aporte valor al diagnóstico solicitar evidencia:
+
+- Fotografía del router.
+- Fotografía del PoE.
+- Fotografía de conexiones.
+- Captura del error.
+- Captura de las redes WiFi visibles.
+
+---
+
+## Paso 4 — Realizar un Ping en corto (AP ↔ Cliente)
+
+Desde el Access Point realizar un ping hacia:
+
+- El cliente afectado.
+- Otros clientes del mismo AP.
 
 ### Interpretación
 
-**Si solamente falla el cliente afectado:**
+#### Si solamente falla el cliente
 
-- posible problema puntual del enlace
-- probable necesidad de visita técnica
-- evaluar migración a Fibra Óptica como solución (verificar cobertura)
+Posible:
 
-**Si fallan varios clientes:**
+- Enlace degradado.
+- Problema puntual del CPE.
+- Necesidad de revisión técnica.
 
-- posible problema general del AP
+Evaluar cobertura de Fibra Óptica antes de derivar.
+
+#### Si fallan varios clientes
+
+Posible afectación general del AP.
+
+No continuar con este protocolo individual.
 
 ---
 
-### IMPORTANTE: ARP del AP
+## Paso 5 — Verificar el ARP del AP
 
-Para que el ping sea válido:
+Antes de interpretar el ping confirmar que:
 
-- la MAC del cliente debe encontrarse correctamente registrada en el ARP del AP
+- La MAC del cliente se encuentre correctamente registrada en el ARP del AP.
 
-Esto garantiza que el tráfico sea realmente:
+Esto garantiza que el tráfico corresponda realmente a:
 
 **AP ↔ Cliente**
 
-Si la MAC no está registrada:
+### Si la MAC no está registrada
 
-- el tráfico puede pasar por el CRF
-- los valores de pérdida o latencia dejan de ser representativos
+No es posible realizar una prueba representativa desde el AP.
 
-#### Estado de la MAC
+Realizar las pruebas desde el equipo frontend hacia:
 
-- Dinámica → aparece con **D**
-- Estática → no posee **D**
+- AP.
+- Cliente.
 
-#### Si la MAC no corresponde o no existe
+Registrar expresamente:
 
-No es posible realizar un ping directo desde el AP.
-
-En ese caso realizar las pruebas desde el equipo frontend hacia:
-
-- AP
-- Cliente
-
-Registrar expresamente en el reclamo:
-
-- el ARP del CPE no está correctamente cargado en el AP
-- no fue posible realizar pruebas directas desde el AP
-
-#### Ejemplo
-
-Cliente wireless
-
-- IP: `10.150.160.197`
-- MAC: `E4:8D:8C:E4:8C:39`
+- El ARP del cliente no está correctamente cargado.
+- No fue posible realizar pruebas directas desde el AP.
 
 ---
 
-## 2.4 Bandwidth Test
+## Paso 6 — Realizar un Bandwidth Test
 
-Realizar un test de ancho de banda.
+Ejecutar un test de ancho de banda.
 
 Verificar:
 
-- si alcanza la velocidad contratada
-- si existen pérdidas durante la prueba
-- comportamiento general del enlace
+- Velocidad alcanzada.
+- Existencia de pérdidas.
+- Estabilidad durante la prueba.
+- Comportamiento general del enlace.
+
+Registrar los resultados.
 
 ---
 
-## 2.5 Validaciones técnicas adicionales
+## Paso 7 — Revisar el estado técnico del enlace
 
-Siempre que sea posible revisar y registrar:
+Siempre que sea posible verificar:
 
-- cadenas degradadas
-- pérdida en corto
-- pérdida hacia host
-- valores Tx/Rx
-- uptime del equipo
-- interfaz utilizada
-- señal de instalación
-- calidad de transferencia
-- comparación con otros clientes del mismo AP
-- comportamiento anómalo del CPE
-- comportamiento anómalo del enlace
+- RSSI.
+- Calidad de transferencia.
+- CCQ.
+- Tx Rate.
+- Rx Rate.
+- Cadenas degradadas.
+- Pérdida en corto.
+- Pérdida hacia host.
+- Uptime.
+- Interfaz utilizada.
+- Señal registrada durante la instalación.
+- Comparación con otros clientes del mismo AP.
+- Comportamiento general del CPE.
+- Comportamiento general del enlace.
+
+Registrar todos los hallazgos relevantes.
 
 ---
 
-## 2.6 Revisión de historial y contexto
+## Paso 8 — Revisar el historial del cliente
 
 Antes de derivar revisar:
 
-- reclamos anteriores
-- visitas técnicas previas
-- presencia de árboles u obstáculos
-- construcciones nuevas
-- necesidad de poda
-- tormentas
-- viento
-- sobrecalentamiento del router
-- condiciones previamente diagnosticadas
-- señal históricamente aceptada
-- afectaciones generales en curso
+- Reclamos anteriores.
+- Visitas técnicas previas.
+- Señal histórica.
+- Condiciones aceptadas durante la instalación.
+- Obstáculos nuevos.
+- Árboles.
+- Construcciones.
+- Necesidad de poda.
+- Tormentas.
+- Vientos fuertes.
+- Sobrecalentamiento del router.
+- Afectaciones generales en curso.
+
+Analizar el contexto antes de decidir la derivación.
 
 ---
 
-# 3. Criterios de derivación
+## Paso 9 — Verificar cobertura de Fibra Óptica
 
-## 3.1 Cuándo derivar
+Antes de generar cualquier derivación verificar si el domicilio posee cobertura de Fibra Óptica.
 
-Derivar cuando la calidad del servicio realmente se encuentre degradada y requiera intervención técnica.
+### Si posee cobertura
 
-La derivación puede sustentarse en:
+No derivar el caso a Diagnóstico de Redes por degradación wireless.
 
-- maniobras remotas sin resultado
-- mala señal
-- calidad inferior al 50 %
-- cadenas degradadas
-- pérdida en corto
-- pérdida hacia host
-- enlace degradado
-- necesidad de revisión domiciliaria
-- contexto físico que afecte el enlace
+Realizar:
 
----
+- Actualización Tecnológica (AFO).
+- Vincular la AFO al reclamo.
+- Vincular el reclamo con la AFO.
+- Solicitar prioridad a Coordinación según el procedimiento vigente.
 
-## 3.2 Casos donde no corresponde este diagnóstico
+Finalizar el diagnóstico.
 
-No utilizar este diagnóstico cuando:
+### Si NO posee cobertura
 
-- el inconveniente pertenece únicamente al dispositivo del cliente
-- el problema corresponde solamente al WiFi interno
-- existe una configuración incorrecta del equipo local sin degradación del enlace
+Continuar con la derivación técnica.
 
 ---
 
-## 3.3 Casos con factores externos
+## Paso 10 — Resolver el caso
 
-Si existen factores externos que afectan el servicio:
+### Si el problema quedó resuelto
 
-- derivar según corresponda
-- dejar documentado el factor detectado
-- evaluar baja técnica cuando aplique
+Registrar:
 
-### Ejemplo
+- Pruebas realizadas.
+- Resultados obtenidos.
+- Evidencia recopilada.
+- Confirmación de estabilidad.
 
-Cliente rural con señal de **-72 dBm** desde la instalación, condición conocida y aceptada previamente. En estos casos deberá analizarse el contexto antes de derivar automáticamente.
+Cerrar el reclamo según el procedimiento vigente.
 
----
+### Si el problema continúa
 
-# 4. Información obligatoria a registrar
+Derivar para revisión técnica.
 
-El reclamo debe contener:
+Solicitar la verificación de:
 
-- síntoma informado
-- desde cuándo ocurre
-- alcance del problema
-- dispositivos afectados
-- tipo de conexión involucrada
-- pruebas remotas realizadas
-- resultado de cada prueba
-- hallazgo técnico
-- evidencia recibida
-- disponibilidad horaria
-- contacto principal
-- contacto alternativo
-- motivo de derivación
-- siguiente paso informado al cliente
+- Equipo cliente.
+- Orientación de la antena.
+- Calidad del enlace.
+- Cableado.
+- Conectores.
+- Obstáculos físicos.
+- Estado del soporte.
+- Reemplazo del equipo si corresponde.
 
 ---
 
-# 5. Evidencia
+# Información obligatoria del reclamo
 
-Cuando sea necesaria evidencia registrar:
+Antes de finalizar verificar que el reclamo incluya:
 
-- qué evidencia fue solicitada
-- si fue recibida
-- qué información aportó
-
-Puede solicitarse:
-
-- foto del router
-- foto del POE
-- foto de conexiones
-- captura del error
-- captura de redes WiFi
-- SSID
-- banda utilizada (2.4 GHz o 5 GHz)
-- dispositivo utilizado para la prueba
-
----
-
-# 6. Clientes con cobertura de Fibra Óptica
-
-**Siempre verificar cobertura de Fibra Óptica antes de derivar.**
-
-Si el cliente posee cobertura:
-
-- no derivar a Diagnóstico de Redes por degradación wireless
-- generar la Actualización a Fibra Óptica (AFO / Actualización Tecnológica, según el procedimiento vigente)
-- vincular la AFO con el reclamo
-- vincular el reclamo con la AFO
-- solicitar prioridad a Coordinación según el circuito establecido
+- Síntoma informado por el cliente.
+- Fecha aproximada de inicio.
+- Alcance del problema.
+- Dispositivos afectados.
+- Tipo de conexión involucrada.
+- Validación del AP.
+- Resultado del Ping en corto.
+- Estado del ARP.
+- Resultado del Bandwidth Test.
+- Calidad del enlace.
+- Señal.
+- CCQ.
+- Calidad de transferencia.
+- Evidencia técnica observada.
+- Evidencia visual solicitada o recibida.
+- Pruebas realizadas.
+- Resultado de cada prueba.
+- Hallazgos técnicos.
+- Disponibilidad horaria.
+- Contacto principal.
+- Contacto alternativo.
+- Motivo de la derivación o resolución.
+- Próximo paso informado al cliente.
+- Validación de cobertura de Fibra Óptica.
+- Número de AFO (si corresponde).
 
 ---
 
-# 7. Comunicación con el cliente
+# Comunicación al cliente
 
-Informar de manera clara:
+Informar siempre:
 
-- qué verificaciones se realizaron
-- cuál fue el hallazgo
-- por qué se deriva el caso
-- cuál será el siguiente paso
+- Qué verificaciones se realizaron.
+- Qué se detectó durante el diagnóstico.
+- Qué acción se tomó.
+- Si el problema quedó resuelto o será derivado.
+- Cuál será el siguiente paso.
 
-No informar plazos que no estén confirmados por el circuito operativo correspondiente.
+No informar plazos que no hayan sido confirmados por el circuito operativo correspondiente.
