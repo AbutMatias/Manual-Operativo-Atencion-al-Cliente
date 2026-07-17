@@ -1,8 +1,16 @@
 # Equipo cliente reiniciándose
 
-## Objetivo
+## Contexto
 
-Establecer un procedimiento único para diagnosticar y gestionar reclamos donde el equipo wireless del cliente presenta reinicios constantes.
+Actualmente existen diferencias en la forma de diagnosticar y documentar los casos de **"Equipo cliente reiniciándose"**, lo que genera distintos criterios de validación, derivación y registro para situaciones similares.
+
+Este procedimiento unifica las verificaciones técnicas, las pruebas remotas y la documentación obligatoria antes de derivar el caso.
+
+---
+
+# Objetivo
+
+Establecer un procedimiento único para diagnosticar y gestionar reclamos donde el equipo wireless del cliente presenta reinicios constantes, descartando previamente una pérdida de enlace, una afectación general del punto de acceso (AP) o una falla de la red interna del cliente.
 
 ---
 
@@ -12,242 +20,226 @@ Generar el reclamo:
 
 **"Equipo cliente reiniciándose"**
 
-Cuando el equipo del cliente:
+Cuando el equipo cliente:
 
-- pierde gestión y vuelve a responder con el uptime reiniciado
-- reinicia de forma constante o intermitente
-- presenta cortes de servicio ocasionados por el reinicio del equipo
-- el cliente informa que la antena o el router que la alimenta se reinicia repetidamente
+- pierde gestión y vuelve a responder con el **Uptime** reiniciado;
+- reinicia de forma constante o intermitente;
+- presenta cortes de servicio ocasionados por el reinicio del equipo;
+- el cliente informa que la antena o el router que la alimenta se reinicia repetidamente.
 
-> **Importante:** Si el equipo vuelve a responder sin reiniciarse y el uptime permanece activo, no corresponde este diagnóstico. Evaluar si se trata de un **Equipo cliente desenlazándose** u otro tipo de inconveniente.
-
----
-
-# Protocolo paso a paso
-
-## Paso 1 — Verificar si existe una afectación general
-
-Antes de analizar el equipo del cliente, confirmar que el inconveniente no corresponda a una falla del Access Point (AP).
-
-### Verificar
-
-- Clientes conectados al mismo AP.
-- Reclamos recientes del mismo AP.
-- Alarmas o fallas generales del AP.
-
-### Si el inconveniente afecta a varios clientes
-
-No continuar con este protocolo.
-
-Derivar el caso como una posible afectación general del AP según el procedimiento vigente.
-
-### Si solamente afecta al cliente
-
-Continuar con el siguiente paso.
+> **Importante:** Si el equipo vuelve a responder sin reiniciarse y el **Uptime** permanece continuo, evaluar el diagnóstico **"Equipo cliente desenlazándose"**.
 
 ---
 
-## Paso 2 — Confirmar que se trata de un reinicio real
+# Protocolo de verificación
 
-Desde las herramientas de gestión verificar:
+## Paso 1 - Verificar una posible afectación general
 
-- El equipo deja de responder.
-- Luego vuelve a responder.
-- El uptime vuelve a cero.
-- El contador de tiempo comienza nuevamente desde el inicio.
+Antes de analizar el equipo cliente, confirmar que el inconveniente no corresponda a una falla del AP.
 
-Confirmar además con el cliente:
+Verificar:
 
-- Desde cuándo ocurre.
-- Cada cuánto tiempo sucede.
-- Si el equipo se apaga completamente o simplemente pierde conexión.
-- Si el servicio vuelve automáticamente.
-- Si hubo tormentas, problemas eléctricos o cambios de fuente recientemente.
+- clientes conectados al mismo AP;
+- reclamos recientes del mismo AP;
+- alarmas o incidencias generales.
 
-Si el uptime no se reinicia, evaluar otro diagnóstico.
+**Si el inconveniente afecta a varios clientes, no continuar con este procedimiento y gestionar el caso como una afectación general del AP.**
 
 ---
 
-## Paso 3 — Identificar el tipo de alimentación
+## Paso 2 - Confirmar el reinicio
 
-Determinar cómo recibe alimentación el equipo.
+Verificar desde las herramientas de gestión:
 
-Las opciones habituales son:
+- pérdida de gestión del equipo;
+- recuperación del equipo;
+- **Uptime** reiniciado;
+- reinicio del contador de tiempo.
 
-- Adaptador PoE (Inyector PoE).
-- PoE Out desde un router MikroTik.
-- Otro sistema de alimentación utilizado por la empresa.
+Confirmar con el cliente:
 
-Esta información determinará las pruebas a realizar.
+- desde cuándo ocurre;
+- frecuencia del problema;
+- si el equipo se apaga o solamente pierde conexión;
+- si el servicio vuelve automáticamente;
+- si hubo tormentas, cortes de energía, reemplazo de fuente o problemas eléctricos.
 
----
-
-## Paso 4 — Confirmar el reinicio mediante evidencia técnica
-
-Siempre que sea posible verificar:
-
-- Reinicio del uptime.
-- Hora aproximada del reinicio.
-- Frecuencia de los eventos.
-- Repetición del problema durante la observación.
-- Dirección IP y demás información técnica disponible.
-- Compatibilidad de la fuente, si fue reemplazada.
-
-Registrar toda la evidencia observada.
+Si el **Uptime** no se reinicia, evaluar otro diagnóstico.
 
 ---
 
-## Paso 5 — Realizar validaciones comunes
+## Paso 3 - Identificar el tipo de alimentación
+
+Determinar cómo recibe alimentación el equipo:
+
+- inyector PoE;
+- router MikroTik con **PoE Out**;
+- otro sistema autorizado por la empresa.
+
+---
+
+## Paso 4 - Confirmación técnica
+
+Siempre que sea posible registrar:
+
+- valor del **Uptime**;
+- frecuencia de los reinicios;
+- hora aproximada del evento;
+- repetición durante el monitoreo;
+- dirección IP;
+- información técnica disponible.
+
+Si el cliente reemplazó la fuente de alimentación, verificar que sea compatible con el equipo instalado.
+
+---
+
+## Paso 5 - Validaciones comunes
 
 Solicitar al cliente:
 
-- Fotografías del equipo si fueran necesarias.
-- Fotografías de la fuente o transformador.
-- Fotografías de las conexiones.
-- Fotografías de los LEDs del equipo cuando corresponda.
-
-Solicitar además:
-
-- Conectar el equipo a otra toma de corriente.
-- Confirmar el resultado de cada prueba antes de continuar.
+- probar otra toma de corriente;
+- fotografías del equipo, conexiones, fuente o LEDs, cuando sean necesarias;
+- confirmar el resultado de cada prueba.
 
 ---
 
-## Paso 6 — Equipos alimentados mediante Adaptador PoE
+## Paso 6 - Equipos con inyector PoE
 
-Verificar con el cliente:
+Verificar:
 
-- Que el cable proveniente de la antena esté conectado al puerto **PoE** del inyector.
-- Que el cable hacia el router esté conectado al puerto **LAN**.
-- Que las conexiones estén firmes.
-- Cambiar el inyector PoE a otra toma de corriente.
-- Si reemplazó la fuente, validar que sea compatible.
-
-Luego verificar desde gestión:
-
-- Si el equipo vuelve a enlazar.
-- Si mantiene estabilidad.
-- Si el uptime vuelve a reiniciarse.
-- Si reaparecen nuevos reinicios.
-
----
-
-## Paso 7 — Equipos alimentados mediante PoE Out (MikroTik)
-
-Solicitar al cliente:
-
-- Desconectar y volver a conectar el cable de bajada del puerto **PoE Out** correspondiente.
-- Cambiar el transformador del MikroTik a otra toma de corriente.
-
-Recordar que:
-
-> Si el MikroTik se reinicia, la antena también se reiniciará.
+- conexión del cable proveniente de la antena al puerto **PoE**;
+- conexión del cable hacia el router al puerto **LAN**;
+- estado del cable UTP;
+- estado del inyector PoE;
+- estado de la fuente de alimentación;
+- cambio del inyector a otra toma de corriente.
 
 Luego verificar:
 
-- Si el router continúa reiniciándose.
-- Si la antena continúa reiniciándose.
-- Si el servicio permanece estable.
-- Si el comportamiento persiste.
+- si el equipo vuelve a enlazar;
+- si mantiene estabilidad;
+- si el **Uptime** vuelve a reiniciarse;
+- si reaparecen los reinicios.
 
 ---
 
-## Paso 8 — Realizar validaciones complementarias
+## Paso 7 - Equipos con PoE Out (MikroTik)
 
-Revisar cuando corresponda:
+Solicitar al cliente:
 
-- Estado del cableado.
-- Existencia de empalmes.
-- Estado de conectores.
-- Estado de los puertos.
-- Posibles falsos contactos.
-- Síntomas en otros equipos eléctricos.
-- Problemas en el router.
-- Evidencia visual recibida.
-- Si es necesario realizar maniobras remotas que interrumpan el servicio, solicitar autorización al cliente antes de efectuarlas.
+- desconectar y volver a conectar el cable del puerto **PoE Out** (habitualmente el puerto 5);
+- cambiar el transformador del router a otra toma de corriente.
+
+> Si el router MikroTik se reinicia, la antena también se reiniciará.
+
+Luego verificar:
+
+- si el router continúa reiniciándose;
+- si la antena continúa reiniciándose;
+- si el servicio permanece estable.
 
 ---
 
-## Paso 9 — Verificar cobertura de Fibra Óptica
+## Paso 8 - Validaciones complementarias
 
-Antes de generar cualquier derivación verificar si el domicilio posee cobertura de Fibra Óptica.
+Cuando corresponda revisar:
+
+- estado del cableado;
+- empalmes;
+- conectores;
+- puertos;
+- fuente de alimentación;
+- dispositivos conectados;
+- síntomas en televisión, telefonía u otros equipos;
+- evidencia visual recibida.
+
+Si es necesario realizar maniobras remotas que interrumpan momentáneamente el servicio, informar previamente al cliente y solicitar su conformidad.
+
+---
+
+## Paso 9 - Evaluación del diagnóstico
+
+El diagnóstico **"Equipo cliente reiniciándose"** corresponde únicamente cuando exista evidencia de reinicios reales del equipo, confirmados mediante el reinicio del **Uptime** y luego de descartar:
+
+- pérdida de enlace;
+- afectación general del AP;
+- problemas de la red interna del cliente.
+
+El diagnóstico debe sustentarse en el conjunto de las verificaciones realizadas y no en un único evento aislado.
+
+---
+
+## Paso 10 - Cobertura de Fibra Óptica
+
+Antes de derivar el reclamo, verificar si el domicilio posee cobertura de Fibra Óptica.
 
 ### Si posee cobertura
 
-No derivar el caso a Redes por reinicios del enlace wireless.
+- no derivar el caso a Redes por reinicios del enlace wireless;
+- generar la Actualización Tecnológica (AFO);
+- vincular la AFO con el reclamo;
+- vincular el reclamo con la AFO;
+- solicitar prioridad según el circuito vigente.
 
-Realizar:
-
-- Actualización Tecnológica (AFO).
-- Vincular la AFO al reclamo.
-- Vincular el reclamo con la AFO.
-- Solicitar prioridad a Coordinación según el procedimiento vigente.
-
-Finalizar el diagnóstico.
-
-### Si NO posee cobertura
+### Si no posee cobertura
 
 Continuar con la derivación técnica.
 
 ---
 
-## Paso 10 — Resolver el caso
+## Paso 11 - Resolución
 
-### Si el inconveniente desapareció
+### Si el problema se resolvió
 
-Registrar:
+- registrar todas las pruebas realizadas;
+- monitorear durante un período superior al intervalo habitual de reinicio informado;
+- confirmar que la falla no vuelva a repetirse;
+- registrar la resolución según el procedimiento vigente.
 
-- Todas las pruebas realizadas.
-- Resultados obtenidos.
-- Tiempo monitoreado.
-- Confirmación de estabilidad.
+### Si el problema persiste
 
-Mantener monitoreo durante un período superior al intervalo habitual de reinicio informado por el cliente.
+Derivar para verificación técnica en sitio cuando:
 
-Si el problema no vuelve a repetirse, cerrar el reclamo según el procedimiento vigente.
+- persistan los reinicios luego de las pruebas remotas;
+- existan indicios de falla en la alimentación o el hardware;
+- sea necesaria una revisión presencial.
 
-### Si el inconveniente continúa
+---
 
-Derivar para revisión técnica en sitio.
+# Casos en los que no corresponde este diagnóstico
 
-Solicitar la verificación de:
+No utilizar este diagnóstico cuando:
 
-- Equipo cliente.
-- Fuente de alimentación.
-- Inyector PoE.
-- Router (cuando corresponda).
-- Cableado.
-- Conectores.
-- Alimentación eléctrica.
-- Reemplazo del equipo si corresponde.
+- el **Uptime** permanece continuo;
+- el problema corresponde a un desenlace del equipo;
+- varios clientes del mismo AP presentan el mismo comportamiento;
+- el inconveniente pertenece únicamente al router interno o a la red doméstica;
+- no existe evidencia técnica de reinicios reales.
 
 ---
 
 # Información obligatoria del reclamo
 
-Antes de finalizar verificar que el reclamo incluya:
+Registrar:
 
-- Síntoma informado por el cliente.
-- Fecha aproximada de inicio.
-- Frecuencia de los reinicios.
-- Si son constantes o intermitentes.
-- Confirmación de reinicio del uptime.
-- Tipo de alimentación.
-- Validación del AP.
-- Evidencia técnica observada.
-- Evidencia visual solicitada o recibida.
-- Pruebas remotas realizadas.
-- Pruebas realizadas con el cliente.
-- Resultado de cada prueba.
-- Validaciones complementarias.
-- Hallazgos técnicos.
-- Motivo de la derivación o resolución.
-- Disponibilidad horaria.
-- Contacto principal.
-- Contacto alternativo.
-- Próximo paso informado al cliente.
-- Validación de cobertura de Fibra Óptica.
-- Número de AFO (si corresponde).
+- síntoma reportado;
+- fecha aproximada de inicio;
+- frecuencia de los reinicios;
+- comportamiento constante o intermitente;
+- valor del **Uptime**;
+- tipo de alimentación;
+- validación del AP;
+- pruebas remotas realizadas;
+- pruebas realizadas con el cliente;
+- resultado de cada prueba;
+- evidencia técnica y visual;
+- hallazgo técnico;
+- motivo de la derivación o resolución;
+- contacto principal o alternativo;
+- disponibilidad horaria;
+- acción informada al cliente;
+- validación de cobertura de Fibra Óptica;
+- número de AFO, cuando corresponda.
 
 ---
 
@@ -255,10 +247,10 @@ Antes de finalizar verificar que el reclamo incluya:
 
 Informar siempre:
 
-- Qué verificaciones se realizaron.
-- Qué se detectó durante el diagnóstico.
-- Qué acción se tomó.
-- Si el problema quedó resuelto o será derivado.
-- Cuál será el siguiente paso.
+- qué verificaciones se realizaron;
+- cuál fue el hallazgo técnico;
+- qué acción se tomó;
+- si el inconveniente quedó resuelto o será derivado;
+- cuál será el siguiente paso.
 
-No informar plazos que no hayan sido confirmados por el circuito operativo correspondiente.
+No informar plazos que no hayan sido confirmados por el circuito operativo vigente.
