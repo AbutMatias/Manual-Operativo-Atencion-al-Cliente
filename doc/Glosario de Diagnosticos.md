@@ -43,7 +43,7 @@ Este documento agrupa los tipos de incidencias más comunes en Eternet para faci
 
 ## Fibra óptica (FUTURA)
 
-- [Sin conexión FUTURA](https://github.com/AbutMatias/Manual-Operativo-Atencion-al-Cliente/blob/main/doc/Sin%20conexión.md)  
+- [Sin conexión FUTURA](https://github.com/AbutMatias/Manual-Operativo-Atencion-al-Cliente/blob/main/doc/Sin%20conexión%20FUTURA.md)  
   Sin respuesta óptica desde la ONU.
 
 - [ONU con mala señal](https://github.com/AbutMatias/Manual-Operativo-Atencion-al-Cliente/blob/main/doc/Acceso%20a%20OLTs.md) 
