@@ -1,164 +1,94 @@
-# Guía paso a paso: Sin conexión – Eternet Plus (Router repetidor)
+# Sin conexión – Eternet Plus (Router Repetidor)
 
-## Introducción
+Se utiliza cuando el **router principal tiene Internet**, pero el **Eternet Plus (repetidor) no funciona correctamente**.
 
-Este caso se refiere a clientes que contratan **Eternet Plus** es un servicio de router repetidor (equipo secundario) y si presentan problemas de:
+## Paso 1. Verificar el router principal
 
-- Sin conexión a internet
-- Sin acceso desde el repetidor
-- WiFi visible pero sin navegación
-- Corte total del servicio en el equipo repetidor
+Confirmar con el cliente:
 
-El objetivo es determinar si el problema está en:
-- El router principal (host)
-- El repetidor (Eternet Plus)
-- La conexión entre ambos equipos
-- La red del cliente
+- ¿El router principal tiene Internet?
+- ¿Puede navegar conectado a esa red?
+
+> Si el router principal no tiene Internet, utilizar el procedimiento de **Sin conexión**.
 
 ---
 
-# Paso a paso de diagnóstico
+## Paso 2. Verificar el Eternet Plus
 
-## Paso 1: Identificar el escenario
+Consultar:
 
-Preguntar al cliente:
+- ¿Está encendido?
+- ¿Tiene luces?
+- ¿La red Wi-Fi del EP aparece?
+- ¿Puede conectarse a esa red?
 
-- ¿El WiFi del repetidor aparece conectado?
-- ¿Hay internet en el router principal?
-
----
-
-## Paso 2: Verificar router principal (host)
-
-Antes de revisar el repetidor:
-
-- Confirmar si el router principal tiene internet
-- Pedir al cliente que pruebe:
-  - Conectarse al WiFi principal
-  - Probar navegación desde un celular o PC
-
-### Resultado posible:
-- Si el router principal NO tiene internet → el problema NO es del repetidor
-- Si el router principal SÍ tiene internet → continuar con el repetidor
+Registrar el síntoma informado.
 
 ---
 
-## Paso 3: Verificar estado del repetidor (Eternet Plus)
+## Paso 3. Verificar alimentación y cableado
 
-Solicitar al cliente:
+Solicitar al cliente que revise:
 
-- Revisar si el repetidor está encendido
-- Verificar luces de estado:
-  - Power
-  - Internet
-  - WiFi
+- Fuente conectada.
+- Tomacorriente con energía.
+- Cables correctamente conectados.
+- Sin daños visibles en cables o conectores.
 
-### Interpretación:
-
-- Sin luces o apagado → problema eléctrico o equipo
-- Luz roja o error → no hay enlace con el router principal
-- Luz normal pero sin navegación → problema de sincronización o red
+Si es posible, probar otro tomacorriente.
 
 ---
 
-## Paso 4: Verificar conexión entre router y repetidor
+## Paso 4. Verificar el enlace
 
 Confirmar:
 
-- Distancia entre equipos
-- Si hay obstáculos (paredes gruesas, pisos, interferencias)
-- Si el repetidor está dentro del alcance del router principal
+- Que el EP esté dentro del alcance del router.
+- Que no haya sido movido.
+- Que no existan obstáculos importantes.
 
-Acciones:
-
-- Acercar el repetidor al router principal
-- Reiniciar ambos equipos
+> En equipos **LB-Link**, **no modificar la configuración Mesh**.
 
 ---
 
-## Paso 5: Reinicio controlado
+## Paso 5. Reiniciar los equipos
 
-Indicar al cliente:
-
-1. Apagar router principal
-2. Apagar repetidor
-3. Esperar 2 minutos
-4. Encender primero el router principal
-5. Luego encender el repetidor
-
----
-
-## Paso 6: Verificar red WiFi del repetidor
-
-- Confirmar que el WiFi del repetidor aparece en dispositivos
-- Intentar conexión desde celular o PC
-- Probar navegación
+1. Desconectar el router principal y el EP.
+2. Esperar **2 minutos**.
+3. Encender primero el router principal.
+4. Esperar que inicie completamente.
+5. Encender el EP.
+6. Verificar si recupera la conexión.
 
 ---
 
-## Paso 7: Pruebas de aislamiento
+## Paso 6. Probar la conexión
 
-Si el problema continúa:
+Solicitar al cliente:
 
-- Probar conexión directa al router principal
-- Si funciona → el problema es el repetidor
-- Si no funciona → problema de línea o servicio general
-
----
-
-## Paso 8: Verificación de configuración
-
-Si el equipo lo permite:
-
-- Verificar que el repetidor esté vinculado al SSID correcto
-- Confirmar que no haya cambio de contraseña reciente
-- Revisar si el equipo perdió sincronización con el host
+- Buscar la red Wi-Fi del EP.
+- Conectarse.
+- Probar navegación.
+- Si es posible, realizar la prueba desde otro dispositivo.
 
 ---
 
-# Casos comunes
+## Paso 7. Derivar
 
-## Caso 1: Router principal sin internet
-- Problema ajeno al repetidor
-- Escalar como problema de línea
+Derivar cuando:
 
----
+- El router principal funciona, pero el EP no.
+- El EP permanece apagado o con luz de error.
+- La red Wi-Fi del EP no aparece.
+- No hay navegación luego de las pruebas.
+- Se detectan daños en cables, puertos o el equipo.
 
-## Caso 2: Repetidor desconectado o fuera de rango
-- Reubicar el equipo
-- Acercarlo al router principal
+Registrar siempre:
 
----
-
-## Caso 3: Repetidor conectado pero sin navegación
-- Reinicio completo
-- Reconfiguración del enlace
-
----
-
-## Caso 4: Interferencia WiFi
-- Cambiar ubicación
-- Alejar de microondas, paredes gruesas, etc.
-
----
-
-# Derivación a Redes
-
-Escalar si:
-
-- El repetidor no sincroniza después de reinicios
-- El equipo no responde o está dañado
-- El problema persiste con señal correcta y router funcional
-
----
-
-## Resumen rápido
-
-1. Verificar router principal
-2. Verificar estado del repetidor
-3. Revisar enlace entre equipos
-4. Reiniciar ambos dispositivos
-5. Probar conexión directa
-6. Escalar si persiste el problema
-
----
+- Síntoma informado.
+- Estado del router principal.
+- Estado del EP.
+- Pruebas realizadas.
+- Resultado del reinicio.
+- Evidencia recibida.
+- Motivo de la derivación.
