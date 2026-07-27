@@ -1,0 +1,18 @@
+# Proceso para ingresar una venta de línea móvil:
+- Abrir aplicación Líneas Móviles  (PowerApps) [App Lineas Moviles](https://apps.powerapps.com/play/e/default-ecd40e14-b48a-4861-9586-38cdc9ee127d/a/b483c003-1f97-49bc-89e5-206f407d7733?tenantId=ecd40e14-b48a-4861-9586-38cdc9ee127d&source=portal&screenColor=rgba(221%2C%2079%2C%2014%2C%201)#)
+- Seleccionar la opción `Alta de líneas móviles`
+- Ingresamos el  `número de cliente `,  `razón social ` , en  `cantidad de líneas `, `Localidad ` colocamos cuantas líneas nos haya solicitado ingresar el cliente y por ultimo la localidad.
+   - En el cuadro de  `Asociar Numero de cliente a trámites existentes ` vamos a tildar si ya cargamos en algún otro momento al cliente y le vamos a sumar una nueva línea al mismo usuario.
+- Siguiente
+- Colocamos la compañía Actual del usuario o la opción de `línea nueva ` si corresponde.
+-  Ingresamos la nueva compañía (Claro o Movistar)
+- Ingresamos el número de línea que va a ingresar al corporativo.
+- Colocamos el titular de la línea que estamos cargando (NO CONFUNDIR CON EL TITULAR DEL SERVICIO DE INTERNET)
+- En  `Plan anterior ` ingresamos el plan que nos indico el cliente que tenía previo al catit
+- Colocamos el plan que eligió el cliente.
+- En observaciones ponemos las aclaraciones que tenga que saber Javier que es quien va a llamar al cliente para validar datos. Por ejemplo: horario disponible para realizar llamado)
+- Nos aseguramos que el cliente no haya adquirido ningún equipo a contra factura y no tenga ningún saldo pendiente, en la compañía actual y que no venga de una cuenta corporativa y marcamos los tildes que correspondan segun el caso.
+- Siguiente
+   - Si vamos a ingresar varias líneas, vamos a cargar todos los datos de todas las líneas solicitadas
+- Finalizamos y vamos a poder ver el tramite cargado en la sección  `Gestión de altas `
+   - Cuando hay más de una línea por cargar a un mismo cliente (varios numeros a nombre de la misma persona), tenemos que tener en cuenta poner en observaciones el número del titular para que Javier sepa a quien debe llamar para validar los datos.
