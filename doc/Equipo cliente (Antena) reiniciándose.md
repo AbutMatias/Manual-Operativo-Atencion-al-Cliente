@@ -1,19 +1,5 @@
 # Equipo cliente reiniciándose
 
-## Contexto
-
-Actualmente existen diferencias en la forma de diagnosticar y documentar los casos de **"Equipo cliente reiniciándose"**, lo que genera distintos criterios de validación, derivación y registro para situaciones similares.
-
-Este procedimiento unifica las verificaciones técnicas, las pruebas remotas y la documentación obligatoria antes de derivar el caso.
-
----
-
-# Objetivo
-
-Establecer un procedimiento único para diagnosticar y gestionar reclamos donde el equipo wireless del cliente presenta reinicios constantes, descartando previamente una pérdida de enlace, una afectación general del punto de acceso (AP) o una falla de la red interna del cliente.
-
----
-
 # ¿Cuándo corresponde este diagnóstico?
 
 Generar el reclamo:
@@ -86,7 +72,6 @@ Siempre que sea posible registrar:
 - frecuencia de los reinicios;
 - hora aproximada del evento;
 - repetición durante el monitoreo;
-- dirección IP;
 - información técnica disponible.
 
 Si el cliente reemplazó la fuente de alimentación, verificar que sea compatible con el equipo instalado.
@@ -108,7 +93,7 @@ Solicitar al cliente:
 Verificar:
 
 - conexión del cable proveniente de la antena al puerto **PoE**;
-- conexión del cable hacia el router al puerto **LAN**;
+- conexión del cable hacia el router al puerto **WAN**;
 - estado del cable UTP;
 - estado del inyector PoE;
 - estado de la fuente de alimentación;
@@ -238,8 +223,7 @@ Registrar:
 - contacto principal o alternativo;
 - disponibilidad horaria;
 - acción informada al cliente;
-- validación de cobertura de Fibra Óptica;
-- número de AFO, cuando corresponda.
+- validación de cobertura de Fibra Óptica.
 
 ---
 
