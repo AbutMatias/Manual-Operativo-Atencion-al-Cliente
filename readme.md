@@ -16,7 +16,10 @@ Repositorio de documentación técnica, soporte y diagnóstico de red.
 - [Procedimiento de atención de reclamos](./doc/Procedimiento%20para%20atención%20de%20reclamos%20(Atención%20al%20Cliente).md) 
 - [Procedimiento reclamos VIP](./doc/Procedimiento%20para%20atención%20de%20reclamos%20de%20clientes%20VIP.md) 
 - [Notificación de cierre de reclamos](./doc/Notificación%20de%20cierre%20de%20reclamos%20a%20clientes.md) 
-
+- [Actualización a Fibra Óptica](./doc/Actualizacion%20a%20Fibra%20Optica.md)
+- [Gestión de correos electrónicos (MailServer)](./doc/Gestión%20de%20correos%20electrónicos%20(MailServer).md)
+- [Reconexion Temporal (72hs)](./doc/Reconexión%20Temporal.md)
+- [Cambio de Abono (Upgrade / Downgrade)](./doc/Cambio%20de%20Abono.md)
 ---
 
 ## 🌐 Diagnóstico de red 
