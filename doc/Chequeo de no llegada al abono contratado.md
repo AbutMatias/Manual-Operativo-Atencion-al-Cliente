@@ -2,217 +2,256 @@
 
 ## Objetivo
 
-Establecer un procedimiento único para diagnosticar reclamos donde el cliente informa una velocidad inferior a la correspondiente a su abono contratado, descartando las causas más frecuentes antes de derivar el caso.
+Diagnosticar reclamos donde el cliente informa una velocidad inferior a la correspondiente a su abono contratado, descartando problemas en la prueba, el dispositivo, la red interna, el WiFi, el cableado o la configuración antes de derivar el caso.
 
 ---
 
-# ¿Cuándo aplicar este procedimiento?
-
-Utilizar este protocolo cuando el cliente indique que **no alcanza la velocidad contratada**, tanto en servicios de **Fibra Óptica** como **Wireless**, y no exista una incidencia general en la zona.
-
----
-
-# Protocolo de verificación
-
-## Paso 1 - Confirmar el reclamo
+# Paso 1. Confirmar el reclamo
 
 Verificar:
 
-- velocidad del abono contratado;
-- tecnología del servicio (Fibra Óptica o Wireless);
-- modelo de la ONU y del router;
-- existencia de incidencias generales.
+- Velocidad del abono contratado.
+- Tecnología del servicio (Fibra Óptica o Wireless).
+- Modelo de ONU/CPE y router.
+- Si existe una incidencia general.
+- Si el problema afecta a todos los dispositivos o solo a uno.
+- Si el inconveniente es permanente o intermitente.
+- Si hubo cambios recientes de equipos, cableado o configuración.
 
-> Si existe una afectación general, gestionar el caso según el procedimiento correspondiente.
-
----
-
-## Paso 2 - Validar la prueba de velocidad
-
-Confirmar con el cliente:
-
-- si la prueba fue realizada por cable o por WiFi;
-- dispositivo utilizado;
-- si había otros equipos consumiendo Internet;
-- servidor utilizado para la medición.
-
-Si la prueba fue por WiFi:
-
-- verificar que el dispositivo esté conectado a la red **5 GHz**;
-- solicitar una nueva prueba cerca del router.
-
-> No considerar válida una prueba realizada en **2.4 GHz** para velocidades superiores a **100 Mbps**.
+> Si existe una incidencia general, informar al cliente y continuar con el procedimiento correspondiente.
 
 ---
 
-## Paso 3 - Verificar el dispositivo del cliente
+# Paso 2. Verificar cómo se realizó la prueba
 
-Comprobar que el equipo utilizado soporte la velocidad contratada:
+Preguntar al cliente:
 
-- placa de red **Gigabit (1000 Mbps)**;
-- adaptador WiFi compatible con **WiFi 5 (802.11ac)** o superior;
-- ausencia de limitaciones de hardware o sistema operativo.
+- ¿La prueba fue por cable o por WiFi?
+- ¿Qué aplicación utilizó? (Fast.com, Speedtest, etc.).
+- ¿Qué dispositivo utilizó?
+- ¿A qué hora realizó la prueba?
+- ¿Había otros dispositivos utilizando Internet?
+- ¿Cuál fue el resultado obtenido?
 
-> Un dispositivo con interfaz **Fast Ethernet (100 Mbps)** no superará aproximadamente los **94 Mbps**.
+Solicitar una captura del test cuando sea posible.
 
----
-
-## Paso 4 - Verificar la negociación Ethernet
-
-Controlar remotamente:
-
-### ONU
-
-- negociación a **1000 Mbps Full Duplex**.
-
-### Router
-
-- puerto WAN a **1 Gbps**;
-- puerto LAN utilizado a **1 Gbps**.
-
-Si algún enlace negocia a **100 Mbps**, revisar:
-
-- cable UTP;
-- conectores;
-- puerto utilizado;
-- estado físico del cable.
+Registrar todas las condiciones de la prueba.
 
 ---
 
-## Paso 5 - Reiniciar los equipos
+# Paso 3. Si la prueba fue por WiFi
 
 Solicitar al cliente:
 
-1. Apagar la ONU y el router.
-2. Desconectar el cable UTP entre ambos.
-3. Esperar aproximadamente un minuto.
-4. Volver a conectar el cable.
-5. Encender la ONU y esperar su sincronización.
-6. Encender el router.
-
-Luego repetir la prueba de velocidad.
-
----
-
-## Paso 6 - Confirmar el reinicio
-
-Verificar remotamente el **Uptime** de la ONU y del router.
-
-Si los tiempos de actividad no se reiniciaron, solicitar nuevamente el procedimiento antes de continuar.
-
----
-
-## Paso 7 - Revisar la configuración del router
+- Conectarse a la red **5 GHz**.
+- Ubicarse cerca del router.
+- Cerrar descargas y aplicaciones que consuman Internet.
+- Repetir la prueba.
 
 Verificar:
 
-- acceso remoto al equipo;
-- firmware actualizado;
-- en MikroTik, RouterOS y firmware actualizados;
-- configuración correcta de interfaces;
-- ausencia de errores o configuraciones anómalas.
+- Banda utilizada.
+- Intensidad de señal.
+- Distancia al router.
+- Obstáculos o interferencias.
+- Tx Rate y Rx Rate (si están disponibles).
+- Resultado de la nueva prueba.
+- Resultado en otro dispositivo compatible, si es posible.
+
+> No utilizar como referencia una prueba realizada en 2.4 GHz para velocidades superiores a 100 Mbps.
 
 ---
 
-## Paso 8 - Verificar la red WiFi
+# Paso 4. Si la prueba fue por cable
 
-Si el inconveniente ocurre únicamente por WiFi, revisar:
+Verificar:
 
-- conexión en **5 GHz**;
-- intensidad de señal;
-- interferencias o canal utilizado;
-- **Tx Rate** y **Rx Rate**.
+- Cable conectado directamente al router.
+- Estado del cable y conectores.
+- Puerto utilizado.
+- Que no existan adaptadores o extensiones.
+- Que el equipo soporte la velocidad contratada.
+- Negociación de la placa de red.
 
----
+Si es posible:
 
-## Paso 9 - Verificar el consumo de la red
-
-Comprobar:
-
-- cantidad de dispositivos conectados;
-- descargas o actualizaciones activas;
-- streaming;
-- cámaras IP;
-- consolas;
-- televisores u otros equipos que puedan saturar el ancho de banda.
+- Probar otro cable.
+- Repetir la prueba desde otro dispositivo compatible.
 
 ---
 
-## Paso 10 - Revisar limitaciones de configuración
+# Paso 5. Verificar el dispositivo
 
-Verificar que no existan:
+Confirmar que el equipo utilizado soporte la velocidad contratada.
 
-- reglas QoS;
-- limitadores de velocidad;
-- colas en CRF;
-- colas en Q_workers;
-- otras configuraciones que restrinjan el ancho de banda.
+Verificar:
 
----
+- Placa de red Gigabit.
+- Adaptador WiFi compatible con WiFi 5 (802.11ac) o superior.
+- Drivers de red actualizados.
+- Resultado de la prueba en otro dispositivo.
 
-## Paso 11 - Ejecutar pruebas de diagnóstico
-
-Realizar:
-
-- Ping;
-- Traceroute;
-- Bandwidth Test;
-- revisión del historial de pruebas de velocidad.
-
-Analizar:
-
-- latencia;
-- pérdida de paquetes;
-- estabilidad;
-- rendimiento general del servicio.
+Registrar el resultado.
 
 ---
 
-# Criterios de derivación
+# Paso 6. Verificar negociación y cableado
 
-Derivar el reclamo únicamente cuando se haya verificado que:
+## ONU / CPE
 
-- el abono contratado es correcto;
-- la prueba de velocidad fue realizada correctamente;
-- el dispositivo soporta la velocidad contratada;
-- la ONU y el router negocian a **1 Gbps**;
-- el cableado no presenta fallas;
-- el reinicio de los equipos fue realizado y verificado;
-- el firmware está actualizado;
-- las pruebas WiFi se realizaron en **5 GHz** con buena señal;
-- no existen limitaciones por QoS u otras configuraciones;
-- las pruebas de diagnóstico no evidencian otra causa del inconveniente.
+Verificar:
+
+- Estado del servicio.
+- Estado de los puertos Ethernet.
+- Velocidad de negociación.
+- Tabla MAC, si corresponde.
+
+## Router
+
+Verificar:
+
+- Puerto WAN a 1 Gbps.
+- Puerto LAN a 1 Gbps.
+- Estado de interfaces.
+- Cableado.
+
+Si algún enlace negocia a **100 Mbps**, revisar:
+
+- Cable UTP.
+- Conectores.
+- Puerto utilizado.
+- Estado físico del cable.
+
+> En abonos inferiores a 100 Mbps esto puede ser normal, dependiendo del modelo de router instalado.
+
+Registrar el resultado.
 
 ---
 
-# Información obligatoria del reclamo
+# Paso 7. Reiniciar los equipos
+
+Solicitar al cliente:
+
+1. Apagar la ONU/CPE y el router.
+2. Desconectar el cable UTP entre ambos.
+3. Esperar 1 minuto.
+4. Volver a conectar el cable.
+5. Encender la ONU/CPE.
+6. Esperar que sincronice.
+7. Encender el router.
+8. Repetir la prueba de velocidad.
+
+Verificar el **Uptime** para confirmar que el reinicio se realizó correctamente.
 
 Registrar:
 
-- velocidad contratada;
-- tecnología del servicio;
-- método utilizado para la prueba (cable o WiFi);
-- dispositivo utilizado;
-- resultados de las pruebas de velocidad;
-- negociación de la ONU y del router;
-- estado del cableado;
-- versión de firmware;
-- cantidad de dispositivos conectados;
-- resultados de Ping, Traceroute y Bandwidth Test;
-- hallazgos técnicos;
-- motivo de la derivación;
-- contacto y disponibilidad del cliente.
+- Equipos reiniciados.
+- Resultado del reinicio.
+- Resultado de la nueva prueba.
 
 ---
 
-# Comunicación al cliente
+# Paso 8. Revisar la configuración del router
 
-Informar:
+Verificar:
 
-- qué verificaciones se realizaron;
-- cuáles fueron los resultados obtenidos;
-- si se detectó alguna limitación;
-- si el caso quedó resuelto o será derivado;
-- cuál será el siguiente paso.
+- Acceso remoto.
+- Firmware actualizado.
+- Configuración de interfaces.
+- QoS.
+- Limitadores de velocidad.
+- CRF.
+- Q_workers.
+- Otras configuraciones que puedan limitar el ancho de banda.
 
-No informar plazos que no hayan sido confirmados por el circuito operativo vigente.
+Registrar el resultado.
+
+---
+
+# Paso 9. Verificar el consumo de la red
+
+Comprobar:
+
+- Cantidad de dispositivos conectados.
+- Descargas activas.
+- Streaming.
+- Consolas.
+- Cámaras IP.
+- Televisores.
+- Otros consumos elevados.
+
+Si existen consumos importantes:
+
+- Solicitar detenerlos.
+- Repetir la prueba de velocidad.
+
+Registrar el resultado.
+
+---
+
+# Paso 10. Ejecutar pruebas de diagnóstico
+
+Realizar, según corresponda:
+
+- Ping.
+- Traceroute.
+- Bandwidth Test.
+- Verificación de AP.
+- Verificación de HS.
+- Verificación de ONU.
+- Verificación de Host.
+- Historial de pruebas de velocidad.
+
+Registrar:
+
+- Herramienta utilizada.
+- Resultado obtenido.
+- Relación con el inconveniente informado.
+
+---
+
+# Paso 11. Solicitar evidencia
+
+Solicitar, cuando sea necesario:
+
+- Captura del test de velocidad.
+- Foto del cableado.
+- Foto de puertos y conectores.
+- Foto del router.
+- Captura del error.
+- Evidencia de daños físicos.
+
+Registrar:
+
+- Evidencia recibida.
+- Componente observado.
+- Resultado obtenido.
+- Motivo si no fue posible obtener evidencia.
+
+---
+
+# Paso 12. Derivar el reclamo
+
+Derivar únicamente cuando se confirme que:
+
+- El abono contratado es correcto.
+- No existe una incidencia general.
+- La prueba fue realizada correctamente.
+- El dispositivo utilizado soporta la velocidad contratada.
+- El cableado y la negociación Ethernet son correctos.
+- Se realizó el reinicio de los equipos.
+- No existen consumos elevados.
+- No existen limitaciones por configuración.
+- La velocidad continúa siendo inferior a la contratada.
+- Las pruebas técnicas indican una condición que requiere intervención de Redes.
+
+La derivación debe incluir:
+
+- Diagnóstico.
+- Velocidad contratada.
+- Dispositivo utilizado.
+- Tipo de conexión.
+- Resultado de las pruebas.
+- Estado del cableado y negociación.
+- Evidencia disponible.
+- Motivo técnico de la derivación.
