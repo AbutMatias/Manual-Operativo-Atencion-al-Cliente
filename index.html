@@ -727,49 +727,46 @@ async function iniciar() {
         document.getElementById("status").textContent =
             "Buscando archivos en /doc...";
 
-
-        /*
-            PRIMERO:
-
-            Obtener todos los archivos
-            directamente desde /doc.
-        */
-
+        // Cargar documentos independientemente del README
         await cargarDocumentos();
 
-
-        /*
-            SEGUNDO:
-
-            Leer README para obtener
-            las categorías.
-        */
-
-        await cargarCategorias();
-
-
+        // Mostrar inmediatamente la cantidad real
         document.getElementById(
             "cantidad-documentos"
-        ).textContent =
-            documentos.length;
-
-
-        document.getElementById(
-            "cantidad-categorias"
-        ).textContent =
-            categorias.length;
-
+        ).textContent = documentos.length;
 
         document.getElementById(
             "estado"
-        ).textContent =
-            "OK";
-
+        ).textContent = "OK";
 
         document.getElementById(
             "status"
         ).textContent =
             `${documentos.length} documentos disponibles`;
+
+
+        // Intentar cargar categorías
+        try {
+
+            await cargarCategorias();
+
+            document.getElementById(
+                "cantidad-categorias"
+            ).textContent =
+                categorias.length;
+
+        } catch (error) {
+
+            console.warn(
+                "No se pudieron cargar las categorías:",
+                error
+            );
+
+            document.getElementById(
+                "cantidad-categorias"
+            ).textContent = "—";
+
+        }
 
 
     } catch (error) {
@@ -778,15 +775,12 @@ async function iniciar() {
 
         document.getElementById(
             "estado"
-        ).textContent =
-            "ERROR";
-
+        ).textContent = "ERROR";
 
         document.getElementById(
             "status"
         ).textContent =
             error.message;
-
 
         document.getElementById(
             "resultados"
@@ -804,7 +798,7 @@ async function iniciar() {
 
                 <br><br>
 
-                ${error.message}
+                ${escapeHTML(error.message)}
 
             </div>
 
@@ -813,7 +807,6 @@ async function iniciar() {
     }
 
 }
-
 
 
 /* =========================================================
