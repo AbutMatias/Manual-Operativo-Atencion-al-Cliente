@@ -1,0 +1,468 @@
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Manual Operativo - Buscador</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+            color: #222;
+        }
+
+        header {
+            background: #1f2937;
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0 0 10px;
+            font-size: 28px;
+        }
+
+        header p {
+            margin: 0;
+            color: #d1d5db;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        .search-box {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 15px;
+            font-size: 17px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            outline: none;
+        }
+
+        .search-box input:focus {
+            border-color: #2563eb;
+        }
+
+        #status {
+            margin-top: 15px;
+            color: #666;
+        }
+
+        .result {
+            background: white;
+            margin-top: 15px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+
+        .result h3 {
+            margin: 0 0 8px;
+            color: #2563eb;
+        }
+
+        .path {
+            font-size: 13px;
+            color: #777;
+            margin-bottom: 10px;
+        }
+
+        .result p {
+            line-height: 1.5;
+        }
+
+        .result a {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 8px 12px;
+            background: #2563eb;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+        }
+
+        .result a:hover {
+            background: #1d4ed8;
+        }
+
+        mark {
+            background: yellow;
+        }
+
+        .empty {
+            text-align: center;
+            padding: 40px;
+            color: #777;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Manual Operativo - Atención al Cliente</h1>
+    <p>Buscador de documentación técnica</p>
+</header>
+
+<div class="container">
+
+    <div class="search-box">
+
+        <input
+            type="text"
+            id="search"
+            placeholder="Buscar en el manual..."
+            autocomplete="off"
+        >
+
+        <div id="status">
+            Cargando documentación...
+        </div>
+
+    </div>
+
+    <div id="results"></div>
+
+</div>
+
+<script>
+
+const OWNER = "AbutMatias";
+const REPOSITORY = "Manual-Operativo-Atencion-al-Cliente";
+const BRANCH = "main";
+
+let documents = [];
+
+
+/*
+    Obtiene todos los archivos del repositorio
+*/
+async function cargarRepositorio() {
+
+    const url =
+        `https://api.github.com/repos/${OWNER}/${REPOSITORY}/git/trees/${BRANCH}?recursive=1`;
+
+    try {
+
+        const response = await fetch(url);
+
+        if (!response.ok) {
+            throw new Error("No se pudo acceder al repositorio.");
+        }
+
+        const data = await response.json();
+
+        const archivos = data.tree.filter(file =>
+            file.type === "blob" &&
+            file.path.toLowerCase().endsWith(".md")
+        );
+
+        document.getElementById("status").textContent =
+            `Cargando ${archivos.length} documentos...`;
+
+        for (const archivo of archivos) {
+
+            try {
+
+                const contenidoURL =
+                    `https://raw.githubusercontent.com/${OWNER}/${REPOSITORY}/${BRANCH}/${archivo.path}`;
+
+                const contenidoResponse =
+                    await fetch(contenidoURL);
+
+                const contenido =
+                    await contenidoResponse.text();
+
+                documents.push({
+                    path: archivo.path,
+                    content: contenido
+                });
+
+            } catch (error) {
+
+                console.error(
+                    "Error cargando:",
+                    archivo.path,
+                    error
+                );
+
+            }
+        }
+
+        document.getElementById("status").textContent =
+            `${documents.length} documentos disponibles para buscar.`;
+
+    } catch (error) {
+
+        console.error(error);
+
+        document.getElementById("status").textContent =
+            "Error al cargar la documentación.";
+    }
+}
+
+
+/*
+    Busca dentro de los documentos
+*/
+function buscar() {
+
+    const texto =
+        document
+            .getElementById("search")
+            .value
+            .trim()
+            .toLowerCase();
+
+    const results =
+        document.getElementById("results");
+
+    results.innerHTML = "";
+
+    if (!texto) {
+        return;
+    }
+
+    const palabras =
+        texto.split(/\s+/);
+
+    const encontrados = documents
+        .map(documento => {
+
+            const contenido =
+                documento.content.toLowerCase();
+
+            let coincidencias = 0;
+
+            palabras.forEach(palabra => {
+
+                if (contenido.includes(palabra)) {
+                    coincidencias++;
+                }
+
+            });
+
+            return {
+                ...documento,
+                coincidencias
+            };
+
+        })
+        .filter(documento =>
+            documento.coincidencias > 0
+        )
+        .sort((a, b) =>
+            b.coincidencias - a.coincidencias
+        );
+
+
+    if (encontrados.length === 0) {
+
+        results.innerHTML = `
+            <div class="empty">
+                No se encontraron resultados.
+            </div>
+        `;
+
+        return;
+    }
+
+
+    document.getElementById("status").textContent =
+        `${encontrados.length} resultados encontrados.`;
+
+
+    encontrados.forEach(documento => {
+
+        const fragmento =
+            obtenerFragmento(
+                documento.content,
+                texto
+            );
+
+        const githubURL =
+            `https://github.com/${OWNER}/${REPOSITORY}/blob/${BRANCH}/${documento.path}`;
+
+
+        const resultado =
+            document.createElement("div");
+
+        resultado.className = "result";
+
+
+        resultado.innerHTML = `
+            <h3>${obtenerNombre(documento.path)}</h3>
+
+            <div class="path">
+                📁 ${documento.path}
+            </div>
+
+            <p>
+                ${resaltar(fragmento, palabras)}
+            </p>
+
+            <a
+                href="${githubURL}"
+                target="_blank"
+            >
+                Abrir documentación
+            </a>
+        `;
+
+
+        results.appendChild(resultado);
+
+    });
+
+}
+
+
+/*
+    Obtiene un fragmento cercano a la coincidencia
+*/
+function obtenerFragmento(contenido, texto) {
+
+    const contenidoMinuscula =
+        contenido.toLowerCase();
+
+    const posicion =
+        contenidoMinuscula.indexOf(
+            texto.toLowerCase()
+        );
+
+    if (posicion === -1) {
+
+        return contenido.substring(0, 300);
+    }
+
+
+    const inicio =
+        Math.max(0, posicion - 150);
+
+    const fin =
+        Math.min(
+            contenido.length,
+            posicion + texto.length + 250
+        );
+
+
+    return contenido.substring(inicio, fin);
+}
+
+
+/*
+    Resalta las palabras buscadas
+*/
+function resaltar(texto, palabras) {
+
+    let resultado =
+        escaparHTML(texto);
+
+
+    palabras.forEach(palabra => {
+
+        if (!palabra) return;
+
+        const regex =
+            new RegExp(
+                `(${escapeRegex(palabra)})`,
+                "gi"
+            );
+
+        resultado =
+            resultado.replace(
+                regex,
+                "<mark>$1</mark>"
+            );
+
+    });
+
+
+    return resultado;
+}
+
+
+/*
+    Escapa HTML
+*/
+function escaparHTML(texto) {
+
+    return texto
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+}
+
+
+/*
+    Escapa expresiones regulares
+*/
+function escapeRegex(texto) {
+
+    return texto.replace(
+        /[.*+?^${}()|[\]\\]/g,
+        "\\$&"
+    );
+}
+
+
+/*
+    Obtiene nombre del archivo
+*/
+function obtenerNombre(path) {
+
+    const partes =
+        path.split("/");
+
+    const archivo =
+        partes[partes.length - 1];
+
+    return archivo
+        .replace(".md", "")
+        .replace(/[-_]/g, " ");
+
+}
+
+
+/*
+    Ejecutar búsqueda al escribir
+*/
+document
+    .getElementById("search")
+    .addEventListener(
+        "input",
+        buscar
+    );
+
+
+/*
+    Iniciar
+*/
+cargarRepositorio();
+
+</script>
+
+</body>
+</html>
+```
