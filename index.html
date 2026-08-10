@@ -1,138 +1,672 @@
 ```html
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Manual Operativo - Buscador</title>
+    <title>Manual Operativo - Atención al Cliente</title>
 
     <style>
+
+        :root {
+            --orange: #f97316;
+            --orange-dark: #ea580c;
+            --orange-light: #fff7ed;
+
+            --background: #f5f6f8;
+            --card: #ffffff;
+
+            --text: #1f2937;
+            --text-light: #6b7280;
+
+            --border: #e5e7eb;
+
+            --shadow:
+                0 4px 15px rgba(0, 0, 0, 0.06);
+        }
+
+
         * {
             box-sizing: border-box;
         }
 
+
         body {
+
             margin: 0;
-            font-family: Arial, sans-serif;
-            background: #f4f6f8;
-            color: #222;
+
+            font-family:
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                Arial,
+                sans-serif;
+
+            background: var(--background);
+
+            color: var(--text);
         }
+
+
+        /* =========================
+           HEADER
+        ========================= */
 
         header {
-            background: #1f2937;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #111827,
+                    #1f2937
+                );
+
             color: white;
-            padding: 30px 20px;
-            text-align: center;
+
+            padding: 45px 20px 55px;
+
+            position: relative;
+
+            overflow: hidden;
         }
+
+
+        header::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 350px;
+            height: 350px;
+
+            background: var(--orange);
+
+            opacity: 0.08;
+
+            border-radius: 50%;
+
+            right: -100px;
+            top: -150px;
+        }
+
+
+        .header-content {
+
+            max-width: 1000px;
+
+            margin: auto;
+
+            position: relative;
+
+            z-index: 2;
+        }
+
+
+        .brand {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 14px;
+
+            margin-bottom: 15px;
+        }
+
+
+        .brand-icon {
+
+            width: 48px;
+            height: 48px;
+
+            background: var(--orange);
+
+            border-radius: 12px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 24px;
+
+            box-shadow:
+                0 5px 15px rgba(249, 115, 22, 0.3);
+        }
+
 
         header h1 {
-            margin: 0 0 10px;
-            font-size: 28px;
+
+            margin: 0;
+
+            font-size: 30px;
+
+            font-weight: 700;
         }
+
 
         header p {
-            margin: 0;
+
+            margin: 5px 0 0;
+
             color: #d1d5db;
+
+            font-size: 15px;
         }
+
+
+        /* =========================
+           CONTENEDOR
+        ========================= */
 
         .container {
+
             max-width: 1000px;
-            margin: 30px auto;
+
+            margin: -30px auto 50px;
+
             padding: 0 20px;
+
+            position: relative;
+
+            z-index: 5;
         }
+
+
+        /* =========================
+           BUSCADOR
+        ========================= */
 
         .search-box {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+
+            background: var(--card);
+
+            padding: 25px;
+
+            border-radius: 14px;
+
+            box-shadow: var(--shadow);
+
+            border: 1px solid var(--border);
         }
 
-        .search-box input {
-            width: 100%;
-            padding: 15px;
-            font-size: 17px;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            outline: none;
-        }
 
-        .search-box input:focus {
-            border-color: #2563eb;
-        }
+        .search-title {
 
-        #status {
-            margin-top: 15px;
-            color: #666;
-        }
+            font-size: 15px;
 
-        .result {
-            background: white;
-            margin-top: 15px;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-        }
+            font-weight: 600;
 
-        .result h3 {
-            margin: 0 0 8px;
-            color: #2563eb;
-        }
-
-        .path {
-            font-size: 13px;
-            color: #777;
             margin-bottom: 10px;
         }
 
-        .result p {
-            line-height: 1.5;
+
+        .input-container {
+
+            position: relative;
         }
+
+
+        .search-icon {
+
+            position: absolute;
+
+            left: 16px;
+
+            top: 50%;
+
+            transform:
+                translateY(-50%);
+
+            color: var(--text-light);
+
+            font-size: 18px;
+        }
+
+
+        .search-box input {
+
+            width: 100%;
+
+            padding:
+                15px
+                15px
+                15px
+                48px;
+
+            font-size: 16px;
+
+            border:
+                1px solid
+                var(--border);
+
+            border-radius: 9px;
+
+            outline: none;
+
+            transition:
+                0.2s;
+
+            color: var(--text);
+        }
+
+
+        .search-box input:focus {
+
+            border-color:
+                var(--orange);
+
+            box-shadow:
+                0 0 0 3px
+                rgba(249, 115, 22, 0.12);
+        }
+
+
+        .search-box input::placeholder {
+
+            color: #9ca3af;
+        }
+
+
+        #status {
+
+            margin-top: 12px;
+
+            font-size: 13px;
+
+            color: var(--text-light);
+        }
+
+
+        /* =========================
+           RESULTADOS
+        ========================= */
+
+        #results {
+
+            margin-top: 22px;
+        }
+
+
+        .result {
+
+            background: var(--card);
+
+            margin-bottom: 14px;
+
+            padding: 20px;
+
+            border-radius: 12px;
+
+            border:
+                1px solid
+                var(--border);
+
+            box-shadow: var(--shadow);
+
+            transition:
+                transform 0.15s,
+                box-shadow 0.15s,
+                border-color 0.15s;
+        }
+
+
+        .result:hover {
+
+            transform:
+                translateY(-2px);
+
+            border-color:
+                rgba(249, 115, 22, 0.35);
+
+            box-shadow:
+                0 7px 20px
+                rgba(0, 0, 0, 0.08);
+        }
+
+
+        .result-header {
+
+            display: flex;
+
+            align-items: flex-start;
+
+            gap: 12px;
+        }
+
+
+        .document-icon {
+
+            width: 38px;
+            height: 38px;
+
+            flex-shrink: 0;
+
+            border-radius: 8px;
+
+            background:
+                var(--orange-light);
+
+            color:
+                var(--orange);
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 18px;
+        }
+
+
+        .result h3 {
+
+            margin: 0 0 4px;
+
+            color: var(--text);
+
+            font-size: 17px;
+
+            text-transform: capitalize;
+        }
+
+
+        .path {
+
+            font-size: 12px;
+
+            color: var(--text-light);
+
+            word-break: break-word;
+        }
+
+
+        .result p {
+
+            line-height: 1.6;
+
+            color: #4b5563;
+
+            font-size: 14px;
+
+            margin:
+                15px 0 0;
+
+            padding:
+                12px 14px;
+
+            background:
+                #f9fafb;
+
+            border-radius: 7px;
+
+            border-left:
+                3px solid
+                var(--orange);
+        }
+
+
+        .result-actions {
+
+            margin-top: 15px;
+        }
+
 
         .result a {
-            display: inline-block;
-            margin-top: 10px;
-            padding: 8px 12px;
-            background: #2563eb;
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 7px;
+
+            padding:
+                9px 14px;
+
+            background:
+                var(--orange);
+
             color: white;
+
             text-decoration: none;
-            border-radius: 6px;
+
+            border-radius: 7px;
+
+            font-size: 13px;
+
+            font-weight: 600;
+
+            transition:
+                background 0.2s,
+                transform 0.1s;
         }
+
 
         .result a:hover {
-            background: #1d4ed8;
+
+            background:
+                var(--orange-dark);
+
+            transform:
+                translateY(-1px);
         }
+
+
+        /* =========================
+           HIGHLIGHT
+        ========================= */
 
         mark {
-            background: yellow;
+
+            background:
+                #fed7aa;
+
+            color:
+                #9a3412;
+
+            padding:
+                1px 3px;
+
+            border-radius: 3px;
+
+            font-weight: 600;
         }
 
+
+        /* =========================
+           SIN RESULTADOS
+        ========================= */
+
         .empty {
-            text-align: center;
-            padding: 40px;
-            color: #777;
+
+            background:
+                white;
+
+            border:
+                1px solid
+                var(--border);
+
+            border-radius:
+                12px;
+
+            padding:
+                55px 20px;
+
+            text-align:
+                center;
+
+            color:
+                var(--text-light);
+
+            box-shadow:
+                var(--shadow);
         }
+
+
+        .empty-icon {
+
+            font-size: 38px;
+
+            margin-bottom: 12px;
+        }
+
+
+        .empty strong {
+
+            display: block;
+
+            color:
+                var(--text);
+
+            margin-bottom: 5px;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+
+            text-align: center;
+
+            padding: 25px;
+
+            color: #9ca3af;
+
+            font-size: 12px;
+        }
+
+
+        .footer-orange {
+
+            color:
+                var(--orange);
+
+            font-weight: 600;
+        }
+
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 600px) {
+
+            header {
+
+                padding:
+                    35px 20px 50px;
+            }
+
+
+            header h1 {
+
+                font-size: 23px;
+            }
+
+
+            .container {
+
+                padding:
+                    0 12px;
+            }
+
+
+            .search-box {
+
+                padding:
+                    18px;
+            }
+
+
+            .result {
+
+                padding:
+                    16px;
+            }
+
+        }
+
     </style>
+
 </head>
+
 
 <body>
 
+
+<!-- =========================
+     HEADER
+========================= -->
+
 <header>
-    <h1>Manual Operativo - Atención al Cliente</h1>
-    <p>Buscador de documentación técnica</p>
+
+    <div class="header-content">
+
+        <div class="brand">
+
+            <div class="brand-icon">
+                📘
+            </div>
+
+            <div>
+
+                <h1>
+                    Manual Operativo
+                </h1>
+
+                <p>
+                    Atención al Cliente
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
 </header>
+
+
+<!-- =========================
+     CONTENIDO
+========================= -->
 
 <div class="container">
 
+
+    <!-- BUSCADOR -->
+
     <div class="search-box">
 
-        <input
-            type="text"
-            id="search"
-            placeholder="Buscar en el manual..."
-            autocomplete="off"
-        >
+        <div class="search-title">
+            Buscar en la documentación
+        </div>
+
+
+        <div class="input-container">
+
+            <span class="search-icon">
+                🔎
+            </span>
+
+            <input
+                type="text"
+                id="search"
+                placeholder="Ej: router sin conexión, WiFi, ONU, CPE..."
+                autocomplete="off"
+            >
+
+        </div>
+
 
         <div id="status">
             Cargando documentación...
@@ -140,44 +674,89 @@
 
     </div>
 
+
+    <!-- RESULTADOS -->
+
     <div id="results"></div>
+
 
 </div>
 
+
+<footer>
+
+    Manual Operativo
+    <span class="footer-orange">
+        • Atención al Cliente
+    </span>
+
+</footer>
+
+
+
 <script>
 
-const OWNER = "AbutMatias";
-const REPOSITORY = "Manual-Operativo-Atencion-al-Cliente";
-const BRANCH = "main";
+
+const OWNER =
+    "AbutMatias";
+
+
+const REPOSITORY =
+    "Manual-Operativo-Atencion-al-Cliente";
+
+
+const BRANCH =
+    "main";
+
 
 let documents = [];
 
 
-/*
-    Obtiene todos los archivos del repositorio
-*/
+
+/* =========================
+   CARGAR REPOSITORIO
+========================= */
+
 async function cargarRepositorio() {
 
     const url =
         `https://api.github.com/repos/${OWNER}/${REPOSITORY}/git/trees/${BRANCH}?recursive=1`;
 
+
     try {
 
-        const response = await fetch(url);
+        const response =
+            await fetch(url);
+
 
         if (!response.ok) {
-            throw new Error("No se pudo acceder al repositorio.");
+
+            throw new Error(
+                "No se pudo acceder al repositorio."
+            );
+
         }
 
-        const data = await response.json();
 
-        const archivos = data.tree.filter(file =>
-            file.type === "blob" &&
-            file.path.toLowerCase().endsWith(".md")
-        );
+        const data =
+            await response.json();
+
+
+        const archivos =
+            data.tree.filter(file =>
+
+                file.type === "blob" &&
+
+                file.path
+                    .toLowerCase()
+                    .endsWith(".md")
+
+            );
+
 
         document.getElementById("status").textContent =
             `Cargando ${archivos.length} documentos...`;
+
 
         for (const archivo of archivos) {
 
@@ -186,16 +765,25 @@ async function cargarRepositorio() {
                 const contenidoURL =
                     `https://raw.githubusercontent.com/${OWNER}/${REPOSITORY}/${BRANCH}/${archivo.path}`;
 
+
                 const contenidoResponse =
                     await fetch(contenidoURL);
+
 
                 const contenido =
                     await contenidoResponse.text();
 
+
                 documents.push({
-                    path: archivo.path,
-                    content: contenido
+
+                    path:
+                        archivo.path,
+
+                    content:
+                        contenido
+
                 });
+
 
             } catch (error) {
 
@@ -206,25 +794,34 @@ async function cargarRepositorio() {
                 );
 
             }
+
         }
+
 
         document.getElementById("status").textContent =
             `${documents.length} documentos disponibles para buscar.`;
+
 
     } catch (error) {
 
         console.error(error);
 
+
         document.getElementById("status").textContent =
             "Error al cargar la documentación.";
+
     }
+
 }
 
 
-/*
-    Busca dentro de los documentos
-*/
+
+/* =========================
+   BUSCAR
+========================= */
+
 function buscar() {
+
 
     const texto =
         document
@@ -233,221 +830,404 @@ function buscar() {
             .trim()
             .toLowerCase();
 
+
     const results =
         document.getElementById("results");
 
+
     results.innerHTML = "";
 
+
     if (!texto) {
+
+        document.getElementById("status").textContent =
+            `${documents.length} documentos disponibles para buscar.`;
+
         return;
+
     }
+
 
     const palabras =
         texto.split(/\s+/);
 
-    const encontrados = documents
-        .map(documento => {
 
-            const contenido =
-                documento.content.toLowerCase();
+    const encontrados =
+        documents
 
-            let coincidencias = 0;
-
-            palabras.forEach(palabra => {
-
-                if (contenido.includes(palabra)) {
-                    coincidencias++;
-                }
-
-            });
-
-            return {
-                ...documento,
-                coincidencias
-            };
-
-        })
-        .filter(documento =>
-            documento.coincidencias > 0
-        )
-        .sort((a, b) =>
-            b.coincidencias - a.coincidencias
-        );
+            .map(documento => {
 
 
-    if (encontrados.length === 0) {
+                const contenido =
+                    documento.content
+                        .toLowerCase();
+
+
+                let coincidencias =
+                    0;
+
+
+                palabras.forEach(
+                    palabra => {
+
+                        if (
+                            contenido.includes(
+                                palabra
+                            )
+                        ) {
+
+                            coincidencias++;
+
+                        }
+
+                    }
+                );
+
+
+                return {
+
+                    ...documento,
+
+                    coincidencias
+
+                };
+
+            })
+
+
+            .filter(documento =>
+                documento.coincidencias > 0
+            )
+
+
+            .sort(
+                (a, b) =>
+                    b.coincidencias -
+                    a.coincidencias
+            );
+
+
+
+    /* SIN RESULTADOS */
+
+    if (
+        encontrados.length === 0
+    ) {
 
         results.innerHTML = `
+
             <div class="empty">
-                No se encontraron resultados.
+
+                <div class="empty-icon">
+                    🔎
+                </div>
+
+                <strong>
+                    No encontramos resultados
+                </strong>
+
+                Probá con otra palabra o término.
+
             </div>
+
         `;
 
+
+        document.getElementById("status").textContent =
+            "0 resultados encontrados.";
+
         return;
+
     }
+
 
 
     document.getElementById("status").textContent =
         `${encontrados.length} resultados encontrados.`;
 
 
-    encontrados.forEach(documento => {
 
-        const fragmento =
-            obtenerFragmento(
-                documento.content,
-                texto
+    /* MOSTRAR RESULTADOS */
+
+    encontrados.forEach(
+        documento => {
+
+
+            const fragmento =
+                obtenerFragmento(
+                    documento.content,
+                    texto
+                );
+
+
+            const githubURL =
+                `https://github.com/${OWNER}/${REPOSITORY}/blob/${BRANCH}/${documento.path}`;
+
+
+            const resultado =
+                document.createElement("div");
+
+
+            resultado.className =
+                "result";
+
+
+            resultado.innerHTML = `
+
+                <div class="result-header">
+
+                    <div class="document-icon">
+                        📄
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            ${obtenerNombre(documento.path)}
+                        </h3>
+
+                        <div class="path">
+                            📁 ${documento.path}
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <p>
+                    ${resaltar(
+                        fragmento,
+                        palabras
+                    )}
+                </p>
+
+
+                <div class="result-actions">
+
+                    <a
+                        href="${githubURL}"
+                        target="_blank"
+                    >
+
+                        🔗
+                        Abrir documentación
+
+                    </a>
+
+                </div>
+
+            `;
+
+
+            results.appendChild(
+                resultado
             );
 
-        const githubURL =
-            `https://github.com/${OWNER}/${REPOSITORY}/blob/${BRANCH}/${documento.path}`;
-
-
-        const resultado =
-            document.createElement("div");
-
-        resultado.className = "result";
-
-
-        resultado.innerHTML = `
-            <h3>${obtenerNombre(documento.path)}</h3>
-
-            <div class="path">
-                📁 ${documento.path}
-            </div>
-
-            <p>
-                ${resaltar(fragmento, palabras)}
-            </p>
-
-            <a
-                href="${githubURL}"
-                target="_blank"
-            >
-                Abrir documentación
-            </a>
-        `;
-
-
-        results.appendChild(resultado);
-
-    });
+        }
+    );
 
 }
 
 
-/*
-    Obtiene un fragmento cercano a la coincidencia
-*/
-function obtenerFragmento(contenido, texto) {
+
+/* =========================
+   FRAGMENTO
+========================= */
+
+function obtenerFragmento(
+    contenido,
+    texto
+) {
+
 
     const contenidoMinuscula =
         contenido.toLowerCase();
+
 
     const posicion =
         contenidoMinuscula.indexOf(
             texto.toLowerCase()
         );
 
-    if (posicion === -1) {
 
-        return contenido.substring(0, 300);
+    if (
+        posicion === -1
+    ) {
+
+        return contenido.substring(
+            0,
+            300
+        );
+
     }
 
 
     const inicio =
-        Math.max(0, posicion - 150);
+        Math.max(
+            0,
+            posicion - 150
+        );
+
 
     const fin =
         Math.min(
             contenido.length,
-            posicion + texto.length + 250
+            posicion +
+            texto.length +
+            250
         );
 
 
-    return contenido.substring(inicio, fin);
+    return contenido.substring(
+        inicio,
+        fin
+    );
+
 }
 
 
-/*
-    Resalta las palabras buscadas
-*/
-function resaltar(texto, palabras) {
+
+/* =========================
+   RESALTAR
+========================= */
+
+function resaltar(
+    texto,
+    palabras
+) {
+
 
     let resultado =
         escaparHTML(texto);
 
 
-    palabras.forEach(palabra => {
+    palabras.forEach(
+        palabra => {
 
-        if (!palabra) return;
 
-        const regex =
-            new RegExp(
-                `(${escapeRegex(palabra)})`,
-                "gi"
-            );
+            if (!palabra)
+                return;
 
-        resultado =
-            resultado.replace(
-                regex,
-                "<mark>$1</mark>"
-            );
 
-    });
+            const regex =
+                new RegExp(
+                    `(${escapeRegex(palabra)})`,
+                    "gi"
+                );
+
+
+            resultado =
+                resultado.replace(
+                    regex,
+                    "<mark>$1</mark>"
+                );
+
+        }
+    );
 
 
     return resultado;
+
 }
 
 
-/*
-    Escapa HTML
-*/
-function escaparHTML(texto) {
+
+/* =========================
+   ESCAPAR HTML
+========================= */
+
+function escaparHTML(
+    texto
+) {
 
     return texto
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
-        .replace(/'/g, "&#039;");
+
+        .replace(
+            /&/g,
+            "&amp;"
+        )
+
+        .replace(
+            /</g,
+            "&lt;"
+        )
+
+        .replace(
+            />/g,
+            "&gt;"
+        )
+
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+
+        .replace(
+            /'/g,
+            "&#039;"
+        );
+
 }
 
 
-/*
-    Escapa expresiones regulares
-*/
-function escapeRegex(texto) {
+
+/* =========================
+   ESCAPAR REGEX
+========================= */
+
+function escapeRegex(
+    texto
+) {
 
     return texto.replace(
         /[.*+?^${}()|[\]\\]/g,
         "\\$&"
     );
+
 }
 
 
-/*
-    Obtiene nombre del archivo
-*/
-function obtenerNombre(path) {
+
+/* =========================
+   NOMBRE ARCHIVO
+========================= */
+
+function obtenerNombre(
+    path
+) {
+
 
     const partes =
         path.split("/");
 
+
     const archivo =
-        partes[partes.length - 1];
+        partes[
+            partes.length - 1
+        ];
+
 
     return archivo
-        .replace(".md", "")
-        .replace(/[-_]/g, " ");
+
+        .replace(
+            ".md",
+            ""
+        )
+
+        .replace(
+            /[-_]/g,
+            " "
+        );
 
 }
 
 
-/*
-    Ejecutar búsqueda al escribir
-*/
+
+/* =========================
+   BUSCAR AL ESCRIBIR
+========================= */
+
 document
     .getElementById("search")
     .addEventListener(
@@ -456,13 +1236,19 @@ document
     );
 
 
-/*
-    Iniciar
-*/
+
+/* =========================
+   INICIAR
+========================= */
+
 cargarRepositorio();
+
 
 </script>
 
+
 </body>
+
 </html>
 ```
+
