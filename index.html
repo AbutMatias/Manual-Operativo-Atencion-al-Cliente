@@ -6,27 +6,41 @@
 
     <meta charset="UTF-8">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-    <title>Manual Operativo - Atención al Cliente</title>
+    <title>
+        Manual Operativo - Atención al Cliente
+    </title>
+
 
     <style>
 
         :root {
+
             --orange: #f97316;
             --orange-dark: #ea580c;
             --orange-light: #fff7ed;
+            --orange-border: #fed7aa;
+
+            --dark: #111827;
+            --dark-2: #1f2937;
 
             --background: #f5f6f8;
-            --card: #ffffff;
+
+            --white: #ffffff;
 
             --text: #1f2937;
             --text-light: #6b7280;
 
             --border: #e5e7eb;
 
+            --sidebar-width: 260px;
+
             --shadow:
-                0 4px 15px rgba(0, 0, 0, 0.06);
+                0 4px 18px rgba(0, 0, 0, 0.06);
         }
 
 
@@ -35,9 +49,16 @@
         }
 
 
+        html,
         body {
 
             margin: 0;
+
+            padding: 0;
+
+            width: 100%;
+
+            min-height: 100%;
 
             font-family:
                 -apple-system,
@@ -46,309 +67,883 @@
                 Arial,
                 sans-serif;
 
-            background: var(--background);
+            background:
+                var(--background);
 
-            color: var(--text);
+            color:
+                var(--text);
         }
 
 
-        /* =========================
-           HEADER
-        ========================= */
+        /* =====================================
+           SIDEBAR
+        ===================================== */
 
-        header {
+        .sidebar {
+
+            position: fixed;
+
+            left: 0;
+
+            top: 0;
+
+            bottom: 0;
+
+            width:
+                var(--sidebar-width);
 
             background:
-                linear-gradient(
-                    135deg,
-                    #111827,
-                    #1f2937
-                );
+                var(--dark);
 
             color: white;
 
-            padding: 45px 20px 55px;
+            display:
+                flex;
 
-            position: relative;
+            flex-direction:
+                column;
 
-            overflow: hidden;
+            z-index: 100;
+
+            overflow-y: auto;
         }
 
 
-        header::after {
+        .sidebar-header {
 
-            content: "";
+            padding:
+                25px 20px;
 
-            position: absolute;
-
-            width: 350px;
-            height: 350px;
-
-            background: var(--orange);
-
-            opacity: 0.08;
-
-            border-radius: 50%;
-
-            right: -100px;
-            top: -150px;
-        }
-
-
-        .header-content {
-
-            max-width: 1000px;
-
-            margin: auto;
-
-            position: relative;
-
-            z-index: 2;
+            border-bottom:
+                1px solid
+                rgba(255,255,255,0.08);
         }
 
 
         .brand {
 
-            display: flex;
-
-            align-items: center;
-
-            gap: 14px;
-
-            margin-bottom: 15px;
-        }
-
-
-        .brand-icon {
-
-            width: 48px;
-            height: 48px;
-
-            background: var(--orange);
-
-            border-radius: 12px;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            font-size: 24px;
-
-            box-shadow:
-                0 5px 15px rgba(249, 115, 22, 0.3);
-        }
-
-
-        header h1 {
-
-            margin: 0;
-
-            font-size: 30px;
-
-            font-weight: 700;
-        }
-
-
-        header p {
-
-            margin: 5px 0 0;
-
-            color: #d1d5db;
-
-            font-size: 15px;
-        }
-
-
-        /* =========================
-           CONTENEDOR
-        ========================= */
-
-        .container {
-
-            max-width: 1000px;
-
-            margin: -30px auto 50px;
-
-            padding: 0 20px;
-
-            position: relative;
-
-            z-index: 5;
-        }
-
-
-        /* =========================
-           BUSCADOR
-        ========================= */
-
-        .search-box {
-
-            background: var(--card);
-
-            padding: 25px;
-
-            border-radius: 14px;
-
-            box-shadow: var(--shadow);
-
-            border: 1px solid var(--border);
-        }
-
-
-        .search-title {
-
-            font-size: 15px;
-
-            font-weight: 600;
-
-            margin-bottom: 10px;
-        }
-
-
-        .input-container {
-
-            position: relative;
-        }
-
-
-        .search-icon {
-
-            position: absolute;
-
-            left: 16px;
-
-            top: 50%;
-
-            transform:
-                translateY(-50%);
-
-            color: var(--text-light);
-
-            font-size: 18px;
-        }
-
-
-        .search-box input {
-
-            width: 100%;
-
-            padding:
-                15px
-                15px
-                15px
-                48px;
-
-            font-size: 16px;
-
-            border:
-                1px solid
-                var(--border);
-
-            border-radius: 9px;
-
-            outline: none;
-
-            transition:
-                0.2s;
-
-            color: var(--text);
-        }
-
-
-        .search-box input:focus {
-
-            border-color:
-                var(--orange);
-
-            box-shadow:
-                0 0 0 3px
-                rgba(249, 115, 22, 0.12);
-        }
-
-
-        .search-box input::placeholder {
-
-            color: #9ca3af;
-        }
-
-
-        #status {
-
-            margin-top: 12px;
-
-            font-size: 13px;
-
-            color: var(--text-light);
-        }
-
-
-        /* =========================
-           RESULTADOS
-        ========================= */
-
-        #results {
-
-            margin-top: 22px;
-        }
-
-
-        .result {
-
-            background: var(--card);
-
-            margin-bottom: 14px;
-
-            padding: 20px;
-
-            border-radius: 12px;
-
-            border:
-                1px solid
-                var(--border);
-
-            box-shadow: var(--shadow);
-
-            transition:
-                transform 0.15s,
-                box-shadow 0.15s,
-                border-color 0.15s;
-        }
-
-
-        .result:hover {
-
-            transform:
-                translateY(-2px);
-
-            border-color:
-                rgba(249, 115, 22, 0.35);
-
-            box-shadow:
-                0 7px 20px
-                rgba(0, 0, 0, 0.08);
-        }
-
-
-        .result-header {
-
-            display: flex;
-
-            align-items: flex-start;
+            display:
+                flex;
+
+            align-items:
+                center;
 
             gap: 12px;
         }
 
 
-        .document-icon {
+        .brand-icon {
+
+            width: 42px;
+
+            height: 42px;
+
+            background:
+                var(--orange);
+
+            border-radius:
+                10px;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            font-size:
+                21px;
+
+            box-shadow:
+                0 4px 12px
+                rgba(249,115,22,0.25);
+        }
+
+
+        .brand-title {
+
+            font-size:
+                15px;
+
+            font-weight:
+                700;
+
+            line-height:
+                1.2;
+        }
+
+
+        .brand-subtitle {
+
+            font-size:
+                11px;
+
+            color:
+                #9ca3af;
+
+            margin-top:
+                3px;
+        }
+
+
+        .sidebar-section {
+
+            padding:
+                20px 12px 8px;
+
+            font-size:
+                10px;
+
+            font-weight:
+                700;
+
+            color:
+                #6b7280;
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                0.08em;
+        }
+
+
+        .nav-item {
+
+            margin:
+                2px 10px;
+
+            padding:
+                10px 12px;
+
+            border-radius:
+                8px;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            gap: 10px;
+
+            cursor:
+                pointer;
+
+            color:
+                #d1d5db;
+
+            font-size:
+                13px;
+
+            transition:
+                0.15s;
+
+            user-select:
+                none;
+        }
+
+
+        .nav-item:hover {
+
+            background:
+                rgba(255,255,255,0.06);
+
+            color:
+                white;
+        }
+
+
+        .nav-item.active {
+
+            background:
+                var(--orange);
+
+            color:
+                white;
+
+            box-shadow:
+                0 4px 12px
+                rgba(249,115,22,0.2);
+        }
+
+
+        .nav-icon {
+
+            width:
+                22px;
+
+            text-align:
+                center;
+
+            font-size:
+                15px;
+        }
+
+
+        .category-count {
+
+            margin-left:
+                auto;
+
+            font-size:
+                10px;
+
+            color:
+                #9ca3af;
+        }
+
+
+        .nav-item.active
+        .category-count {
+
+            color:
+                rgba(255,255,255,0.8);
+        }
+
+
+        .sidebar-footer {
+
+            margin-top:
+                auto;
+
+            padding:
+                15px;
+
+            border-top:
+                1px solid
+                rgba(255,255,255,0.08);
+
+            font-size:
+                11px;
+
+            color:
+                #6b7280;
+
+            text-align:
+                center;
+        }
+
+
+        /* =====================================
+           MAIN
+        ===================================== */
+
+        .main {
+
+            margin-left:
+                var(--sidebar-width);
+
+            min-height:
+                100vh;
+        }
+
+
+        /* =====================================
+           TOPBAR
+        ===================================== */
+
+        .topbar {
+
+            height:
+                70px;
+
+            background:
+                white;
+
+            border-bottom:
+                1px solid
+                var(--border);
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                space-between;
+
+            padding:
+                0 30px;
+
+            position:
+                sticky;
+
+            top: 0;
+
+            z-index:
+                50;
+        }
+
+
+        .mobile-menu {
+
+            display:
+                none;
+
+            border: 0;
+
+            background:
+                var(--orange);
+
+            color:
+                white;
 
             width: 38px;
+
             height: 38px;
 
-            flex-shrink: 0;
+            border-radius:
+                8px;
 
-            border-radius: 8px;
+            cursor:
+                pointer;
+
+            font-size:
+                18px;
+        }
+
+
+        .topbar-title {
+
+            font-size:
+                14px;
+
+            font-weight:
+                600;
+        }
+
+
+        .repo-link {
+
+            text-decoration:
+                none;
+
+            color:
+                var(--text-light);
+
+            font-size:
+                12px;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            gap: 6px;
+        }
+
+
+        .repo-link:hover {
+
+            color:
+                var(--orange);
+        }
+
+
+        /* =====================================
+           CONTENT
+        ===================================== */
+
+        .content {
+
+            max-width:
+                1200px;
+
+            margin:
+                auto;
+
+            padding:
+                35px;
+        }
+
+
+        /* =====================================
+           WELCOME
+        ===================================== */
+
+        .welcome {
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--dark),
+                    var(--dark-2)
+                );
+
+            border-radius:
+                16px;
+
+            padding:
+                35px;
+
+            color:
+                white;
+
+            position:
+                relative;
+
+            overflow:
+                hidden;
+
+            margin-bottom:
+                25px;
+        }
+
+
+        .welcome::after {
+
+            content:
+                "";
+
+            position:
+                absolute;
+
+            width:
+                300px;
+
+            height:
+                300px;
+
+            right:
+                -100px;
+
+            top:
+                -140px;
+
+            border-radius:
+                50%;
+
+            background:
+                var(--orange);
+
+            opacity:
+                0.12;
+        }
+
+
+        .welcome-content {
+
+            position:
+                relative;
+
+            z-index:
+                2;
+        }
+
+
+        .welcome h1 {
+
+            margin:
+                0 0 8px;
+
+            font-size:
+                28px;
+        }
+
+
+        .welcome p {
+
+            margin:
+                0;
+
+            color:
+                #d1d5db;
+
+            font-size:
+                14px;
+        }
+
+
+        /* =====================================
+           SEARCH
+        ===================================== */
+
+        .search-wrapper {
+
+            margin-top:
+                25px;
+
+            position:
+                relative;
+
+            max-width:
+                750px;
+        }
+
+
+        .search-wrapper input {
+
+            width:
+                100%;
+
+            padding:
+                16px
+                18px
+                16px
+                50px;
+
+            border:
+                0;
+
+            border-radius:
+                10px;
+
+            font-size:
+                15px;
+
+            outline:
+                none;
+
+            box-shadow:
+                0 5px 20px
+                rgba(0,0,0,0.15);
+        }
+
+
+        .search-icon {
+
+            position:
+                absolute;
+
+            left:
+                17px;
+
+            top:
+                50%;
+
+            transform:
+                translateY(-50%);
+
+            font-size:
+                18px;
+
+            color:
+                #9ca3af;
+
+            z-index:
+                2;
+        }
+
+
+        /* =====================================
+           STATS
+        ===================================== */
+
+        .stats {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap:
+                15px;
+
+            margin-bottom:
+                25px;
+        }
+
+
+        .stat {
+
+            background:
+                white;
+
+            border:
+                1px solid
+                var(--border);
+
+            border-radius:
+                12px;
+
+            padding:
+                18px;
+
+            box-shadow:
+                var(--shadow);
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            gap:
+                14px;
+        }
+
+
+        .stat-icon {
+
+            width:
+                40px;
+
+            height:
+                40px;
+
+            border-radius:
+                9px;
+
+            background:
+                var(--orange-light);
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            color:
+                var(--orange);
+
+            font-size:
+                18px;
+        }
+
+
+        .stat-number {
+
+            font-size:
+                20px;
+
+            font-weight:
+                700;
+        }
+
+
+        .stat-label {
+
+            color:
+                var(--text-light);
+
+            font-size:
+                11px;
+
+            margin-top:
+                2px;
+        }
+
+
+        /* =====================================
+           QUICK ACCESS
+        ===================================== */
+
+        .section-title {
+
+            font-size:
+                17px;
+
+            font-weight:
+                700;
+
+            margin:
+                0 0 15px;
+        }
+
+
+        .quick-grid {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap:
+                12px;
+
+            margin-bottom:
+                30px;
+        }
+
+
+        .quick-card {
+
+            background:
+                white;
+
+            border:
+                1px solid
+                var(--border);
+
+            border-radius:
+                10px;
+
+            padding:
+                17px;
+
+            cursor:
+                pointer;
+
+            transition:
+                0.15s;
+        }
+
+
+        .quick-card:hover {
+
+            border-color:
+                var(--orange);
+
+            transform:
+                translateY(-2px);
+
+            box-shadow:
+                var(--shadow);
+        }
+
+
+        .quick-icon {
+
+            font-size:
+                21px;
+
+            margin-bottom:
+                10px;
+        }
+
+
+        .quick-card strong {
+
+            display:
+                block;
+
+            font-size:
+                13px;
+        }
+
+
+        .quick-card span {
+
+            display:
+                block;
+
+            color:
+                var(--text-light);
+
+            font-size:
+                11px;
+
+            margin-top:
+                3px;
+        }
+
+
+        /* =====================================
+           RESULTS HEADER
+        ===================================== */
+
+        .results-header {
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                space-between;
+
+            margin-bottom:
+                15px;
+        }
+
+
+        .results-title {
+
+            font-size:
+                17px;
+
+            font-weight:
+                700;
+        }
+
+
+        #status {
+
+            color:
+                var(--text-light);
+
+            font-size:
+                12px;
+        }
+
+
+        /* =====================================
+           RESULT
+        ===================================== */
+
+        .result {
+
+            background:
+                white;
+
+            border:
+                1px solid
+                var(--border);
+
+            border-radius:
+                12px;
+
+            padding:
+                20px;
+
+            margin-bottom:
+                13px;
+
+            box-shadow:
+                var(--shadow);
+
+            transition:
+                0.15s;
+        }
+
+
+        .result:hover {
+
+            border-color:
+                var(--orange-border);
+
+            transform:
+                translateY(-1px);
+        }
+
+
+        .result-header {
+
+            display:
+                flex;
+
+            gap:
+                12px;
+
+            align-items:
+                flex-start;
+        }
+
+
+        .document-icon {
+
+            width:
+                40px;
+
+            height:
+                40px;
+
+            flex-shrink:
+                0;
+
+            border-radius:
+                9px;
 
             background:
                 var(--orange-light);
@@ -356,112 +951,74 @@
             color:
                 var(--orange);
 
-            display: flex;
+            display:
+                flex;
 
-            align-items: center;
+            align-items:
+                center;
 
-            justify-content: center;
+            justify-content:
+                center;
 
-            font-size: 18px;
+            font-size:
+                18px;
         }
 
 
         .result h3 {
 
-            margin: 0 0 4px;
+            margin:
+                0 0 5px;
 
-            color: var(--text);
+            font-size:
+                16px;
 
-            font-size: 17px;
-
-            text-transform: capitalize;
+            text-transform:
+                capitalize;
         }
 
 
         .path {
 
-            font-size: 12px;
+            font-size:
+                11px;
 
-            color: var(--text-light);
+            color:
+                var(--text-light);
 
-            word-break: break-word;
+            word-break:
+                break-word;
         }
 
 
         .result p {
 
-            line-height: 1.6;
-
-            color: #4b5563;
-
-            font-size: 14px;
-
             margin:
                 15px 0 0;
 
             padding:
-                12px 14px;
+                13px 15px;
 
             background:
                 #f9fafb;
 
-            border-radius: 7px;
-
             border-left:
                 3px solid
                 var(--orange);
+
+            border-radius:
+                5px;
+
+            font-size:
+                13px;
+
+            line-height:
+                1.6;
+
+            color:
+                #4b5563;
         }
 
-
-        .result-actions {
-
-            margin-top: 15px;
-        }
-
-
-        .result a {
-
-            display: inline-flex;
-
-            align-items: center;
-
-            gap: 7px;
-
-            padding:
-                9px 14px;
-
-            background:
-                var(--orange);
-
-            color: white;
-
-            text-decoration: none;
-
-            border-radius: 7px;
-
-            font-size: 13px;
-
-            font-weight: 600;
-
-            transition:
-                background 0.2s,
-                transform 0.1s;
-        }
-
-
-        .result a:hover {
-
-            background:
-                var(--orange-dark);
-
-            transform:
-                translateY(-1px);
-        }
-
-
-        /* =========================
-           HIGHLIGHT
-        ========================= */
 
         mark {
 
@@ -474,15 +1031,68 @@
             padding:
                 1px 3px;
 
-            border-radius: 3px;
+            border-radius:
+                3px;
 
-            font-weight: 600;
+            font-weight:
+                600;
         }
 
 
-        /* =========================
-           SIN RESULTADOS
-        ========================= */
+        .result-actions {
+
+            margin-top:
+                14px;
+        }
+
+
+        .open-button {
+
+            display:
+                inline-flex;
+
+            align-items:
+                center;
+
+            gap:
+                7px;
+
+            padding:
+                8px 12px;
+
+            border-radius:
+                7px;
+
+            background:
+                var(--orange);
+
+            color:
+                white;
+
+            text-decoration:
+                none;
+
+            font-size:
+                12px;
+
+            font-weight:
+                600;
+
+            transition:
+                0.15s;
+        }
+
+
+        .open-button:hover {
+
+            background:
+                var(--orange-dark);
+        }
+
+
+        /* =====================================
+           EMPTY
+        ===================================== */
 
         .empty {
 
@@ -497,100 +1107,235 @@
                 12px;
 
             padding:
-                55px 20px;
+                60px 20px;
 
             text-align:
                 center;
 
-            color:
-                var(--text-light);
-
             box-shadow:
                 var(--shadow);
+
+            color:
+                var(--text-light);
         }
 
 
         .empty-icon {
 
-            font-size: 38px;
+            font-size:
+                40px;
 
-            margin-bottom: 12px;
+            margin-bottom:
+                10px;
         }
 
 
         .empty strong {
 
-            display: block;
+            display:
+                block;
 
             color:
                 var(--text);
 
-            margin-bottom: 5px;
+            font-size:
+                15px;
+
+            margin-bottom:
+                5px;
         }
 
 
-        /* =========================
+        /* =====================================
+           LOADING
+        ===================================== */
+
+        .loading {
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            gap:
+                10px;
+
+            color:
+                var(--text-light);
+
+            font-size:
+                13px;
+        }
+
+
+        .spinner {
+
+            width:
+                16px;
+
+            height:
+                16px;
+
+            border:
+                2px solid
+                #e5e7eb;
+
+            border-top-color:
+                var(--orange);
+
+            border-radius:
+                50%;
+
+            animation:
+                spin 0.7s linear infinite;
+        }
+
+
+        @keyframes spin {
+
+            to {
+                transform:
+                    rotate(360deg);
+            }
+
+        }
+
+
+        /* =====================================
            FOOTER
-        ========================= */
+        ===================================== */
 
         footer {
 
-            text-align: center;
+            text-align:
+                center;
 
-            padding: 25px;
-
-            color: #9ca3af;
-
-            font-size: 12px;
-        }
-
-
-        .footer-orange {
+            padding:
+                30px;
 
             color:
-                var(--orange);
+                #9ca3af;
 
-            font-weight: 600;
+            font-size:
+                11px;
         }
 
 
-        /* =========================
-           RESPONSIVE
-        ========================= */
+        /* =====================================
+           MOBILE
+        ===================================== */
 
-        @media (max-width: 600px) {
+        @media (
+            max-width: 900px
+        ) {
 
-            header {
+            .quick-grid {
 
-                padding:
-                    35px 20px 50px;
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+        }
+
+
+        @media (
+            max-width: 700px
+        ) {
+
+            .sidebar {
+
+                transform:
+                    translateX(-100%);
+
+                transition:
+                    0.2s;
             }
 
 
-            header h1 {
+            .sidebar.open {
 
-                font-size: 23px;
+                transform:
+                    translateX(0);
             }
 
 
-            .container {
+            .main {
 
-                padding:
-                    0 12px;
+                margin-left:
+                    0;
             }
 
 
-            .search-box {
+            .mobile-menu {
 
-                padding:
-                    18px;
+                display:
+                    block;
             }
 
 
-            .result {
+            .topbar {
 
                 padding:
-                    16px;
+                    0 15px;
+
+                gap:
+                    12px;
+            }
+
+
+            .topbar-title {
+
+                display:
+                    none;
+            }
+
+
+            .content {
+
+                padding:
+                    20px 15px;
+            }
+
+
+            .welcome {
+
+                padding:
+                    25px 20px;
+            }
+
+
+            .welcome h1 {
+
+                font-size:
+                    23px;
+            }
+
+
+            .stats {
+
+                grid-template-columns:
+                    1fr;
+            }
+
+
+            .quick-grid {
+
+                grid-template-columns:
+                    1fr 1fr;
+            }
+
+        }
+
+
+        @media (
+            max-width: 450px
+        ) {
+
+            .quick-grid {
+
+                grid-template-columns:
+                    1fr;
             }
 
         }
@@ -603,13 +1348,17 @@
 <body>
 
 
-<!-- =========================
-     HEADER
-========================= -->
+<!-- =========================================
+     SIDEBAR
+========================================= -->
 
-<header>
+<aside
+    class="sidebar"
+    id="sidebar"
+>
 
-    <div class="header-content">
+
+    <div class="sidebar-header">
 
         <div class="brand">
 
@@ -619,13 +1368,13 @@
 
             <div>
 
-                <h1>
+                <div class="brand-title">
                     Manual Operativo
-                </h1>
+                </div>
 
-                <p>
+                <div class="brand-subtitle">
                     Atención al Cliente
-                </p>
+                </div>
 
             </div>
 
@@ -633,69 +1382,402 @@
 
     </div>
 
-</header>
+
+    <div class="sidebar-section">
+        Navegación
+    </div>
 
 
-<!-- =========================
-     CONTENIDO
-========================= -->
+    <div
+        class="nav-item active"
+        data-category="all"
+        onclick="seleccionarCategoria('all', this)"
+    >
 
-<div class="container">
+        <span class="nav-icon">
+            🏠
+        </span>
+
+        <span>
+            Inicio
+        </span>
+
+        <span
+            class="category-count"
+            id="count-all"
+        >
+            -
+        </span>
+
+    </div>
 
 
-    <!-- BUSCADOR -->
+    <div class="nav-item"
+        data-category="search"
+        onclick="activarBuscador()"
+    >
 
-    <div class="search-box">
+        <span class="nav-icon">
+            🔎
+        </span>
 
-        <div class="search-title">
-            Buscar en la documentación
-        </div>
+        Buscar
+
+    </div>
 
 
-        <div class="input-container">
+    <div class="sidebar-section">
+        Categorías
+    </div>
 
-            <span class="search-icon">
-                🔎
+
+    <div id="categories">
+
+        <div class="nav-item">
+
+            <span class="nav-icon">
+                ⏳
             </span>
 
-            <input
-                type="text"
-                id="search"
-                placeholder="Ej: router sin conexión, WiFi, ONU, CPE..."
-                autocomplete="off"
-            >
+            Cargando...
 
-        </div>
-
-
-        <div id="status">
-            Cargando documentación...
         </div>
 
     </div>
 
 
-    <!-- RESULTADOS -->
+    <div class="sidebar-footer">
 
-    <div id="results"></div>
+        Manual Operativo
+
+        <br>
+
+        <span style="color:#f97316;">
+            Eternet
+        </span>
+
+    </div>
 
 
-</div>
+</aside>
 
 
-<footer>
 
-    Manual Operativo
-    <span class="footer-orange">
-        • Atención al Cliente
-    </span>
+<!-- =========================================
+     MAIN
+========================================= -->
 
-</footer>
+<main class="main">
+
+
+    <!-- TOPBAR -->
+
+    <div class="topbar">
+
+        <button
+            class="mobile-menu"
+            onclick="toggleSidebar()"
+        >
+            ☰
+        </button>
+
+
+        <div class="topbar-title">
+
+            Manual Operativo -
+            Atención al Cliente
+
+        </div>
+
+
+        <a
+            class="repo-link"
+            href="https://github.com/AbutMatias/Manual-Operativo-Atencion-al-Cliente"
+            target="_blank"
+        >
+
+            🔗
+
+            Ver repositorio
+
+        </a>
+
+    </div>
+
+
+
+    <!-- CONTENT -->
+
+    <div class="content">
+
+
+        <!-- WELCOME -->
+
+        <section
+            class="welcome"
+            id="welcome"
+        >
+
+            <div class="welcome-content">
+
+                <h1>
+                    ¿Qué necesitás consultar?
+                </h1>
+
+                <p>
+                    Buscá procedimientos,
+                    diagnósticos y documentación
+                    del Manual Operativo.
+                </p>
+
+
+                <div class="search-wrapper">
+
+                    <span class="search-icon">
+                        🔎
+                    </span>
+
+                    <input
+                        type="text"
+                        id="search"
+                        placeholder="Ej: router sin conexión, ONU, WiFi, CPE..."
+                        autocomplete="off"
+                    >
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- STATS -->
+
+        <section
+            class="stats"
+            id="stats"
+        >
+
+            <div class="stat">
+
+                <div class="stat-icon">
+                    📚
+                </div>
+
+                <div>
+
+                    <div
+                        class="stat-number"
+                        id="total-documents"
+                    >
+                        -
+                    </div>
+
+                    <div class="stat-label">
+                        Documentos
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="stat">
+
+                <div class="stat-icon">
+                    📁
+                </div>
+
+                <div>
+
+                    <div
+                        class="stat-number"
+                        id="total-categories"
+                    >
+                        -
+                    </div>
+
+                    <div class="stat-label">
+                        Categorías
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="stat">
+
+                <div class="stat-icon">
+                    ⚡
+                </div>
+
+                <div>
+
+                    <div
+                        class="stat-number"
+                        id="status-online"
+                    >
+                        ...
+                    </div>
+
+                    <div class="stat-label">
+                        Estado
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- QUICK ACCESS -->
+
+        <section id="quick-section">
+
+            <h2 class="section-title">
+                Accesos rápidos
+            </h2>
+
+
+            <div class="quick-grid">
+
+                <div
+                    class="quick-card"
+                    onclick="buscarRapido('sin conexión')"
+                >
+
+                    <div class="quick-icon">
+                        📡
+                    </div>
+
+                    <strong>
+                        Sin conexión
+                    </strong>
+
+                    <span>
+                        Problemas de conectividad
+                    </span>
+
+                </div>
+
+
+                <div
+                    class="quick-card"
+                    onclick="buscarRapido('wifi')"
+                >
+
+                    <div class="quick-icon">
+                        📶
+                    </div>
+
+                    <strong>
+                        WiFi
+                    </strong>
+
+                    <span>
+                        Redes inalámbricas
+                    </span>
+
+                </div>
+
+
+                <div
+                    class="quick-card"
+                    onclick="buscarRapido('ONU')"
+                >
+
+                    <div class="quick-icon">
+                        💡
+                    </div>
+
+                    <strong>
+                        ONU / Fibra
+                    </strong>
+
+                    <span>
+                        Diagnóstico de fibra
+                    </span>
+
+                </div>
+
+
+                <div
+                    class="quick-card"
+                    onclick="buscarRapido('CPE')"
+                >
+
+                    <div class="quick-icon">
+                        🔧
+                    </div>
+
+                    <strong>
+                        CPE
+                    </strong>
+
+                    <span>
+                        Equipos del cliente
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- RESULTS -->
+
+        <section>
+
+            <div class="results-header">
+
+                <div class="results-title">
+                    Documentación
+                </div>
+
+                <div id="status">
+
+                    Cargando...
+
+                </div>
+
+            </div>
+
+
+            <div id="results"></div>
+
+        </section>
+
+
+    </div>
+
+
+
+    <footer>
+
+        Manual Operativo
+        <span style="color:#f97316;">
+            • Atención al Cliente
+        </span>
+
+    </footer>
+
+
+</main>
 
 
 
 <script>
 
+
+/* =========================================
+   CONFIGURACIÓN
+========================================= */
 
 const OWNER =
     "AbutMatias";
@@ -711,19 +1793,23 @@ const BRANCH =
 
 let documents = [];
 
+let categories = {};
 
 
-/* =========================
+
+/* =========================================
    CARGAR REPOSITORIO
-========================= */
+========================================= */
 
 async function cargarRepositorio() {
 
-    const url =
-        `https://api.github.com/repos/${OWNER}/${REPOSITORY}/git/trees/${BRANCH}?recursive=1`;
-
 
     try {
+
+
+        const url =
+            `https://api.github.com/repos/${OWNER}/${REPOSITORY}/git/trees/${BRANCH}?recursive=1`;
+
 
         const response =
             await fetch(url);
@@ -732,7 +1818,7 @@ async function cargarRepositorio() {
         if (!response.ok) {
 
             throw new Error(
-                "No se pudo acceder al repositorio."
+                "Error accediendo a GitHub"
             );
 
         }
@@ -754,61 +1840,120 @@ async function cargarRepositorio() {
             );
 
 
-        document.getElementById("status").textContent =
-            `Cargando ${archivos.length} documentos...`;
+        document.getElementById("status").innerHTML = `
+
+            <div class="loading">
+
+                <div class="spinner"></div>
+
+                Cargando
+                ${archivos.length}
+                documentos...
+
+            </div>
+
+        `;
 
 
-        for (const archivo of archivos) {
+        /*
+            Descargar documentos
+        */
 
-            try {
-
-                const contenidoURL =
-                    `https://raw.githubusercontent.com/${OWNER}/${REPOSITORY}/${BRANCH}/${archivo.path}`;
-
-
-                const contenidoResponse =
-                    await fetch(contenidoURL);
+        const promesas =
+            archivos.map(
+                async archivo => {
 
 
-                const contenido =
-                    await contenidoResponse.text();
+                    try {
 
 
-                documents.push({
-
-                    path:
-                        archivo.path,
-
-                    content:
-                        contenido
-
-                });
+                        const url =
+                            `https://raw.githubusercontent.com/${OWNER}/${REPOSITORY}/${BRANCH}/${archivo.path}`;
 
 
-            } catch (error) {
-
-                console.error(
-                    "Error cargando:",
-                    archivo.path,
-                    error
-                );
-
-            }
-
-        }
+                        const response =
+                            await fetch(url);
 
 
-        document.getElementById("status").textContent =
-            `${documents.length} documentos disponibles para buscar.`;
+                        if (!response.ok)
+                            return null;
+
+
+                        const content =
+                            await response.text();
+
+
+                        return {
+
+                            path:
+                                archivo.path,
+
+                            content:
+                                content
+
+                        };
+
+
+                    } catch {
+
+                        return null;
+
+                    }
+
+                }
+            );
+
+
+        const resultados =
+            await Promise.all(
+                promesas
+            );
+
+
+        documents =
+            resultados.filter(
+                documento =>
+                    documento !== null
+            );
+
+
+        construirCategorias();
+
+
+        actualizarEstadisticas();
+
+
+        document.getElementById(
+            "status-online"
+        ).textContent =
+            "Online";
+
+
+        document.getElementById(
+            "status"
+        ).textContent =
+            `${documents.length} documentos disponibles`;
+
+
+        mostrarInicio();
 
 
     } catch (error) {
 
+
         console.error(error);
 
 
-        document.getElementById("status").textContent =
-            "Error al cargar la documentación.";
+        document.getElementById(
+            "status"
+        ).textContent =
+            "Error al cargar el manual.";
+
+
+        document.getElementById(
+            "status-online"
+        ).textContent =
+            "Error";
 
     }
 
@@ -816,9 +1961,267 @@ async function cargarRepositorio() {
 
 
 
-/* =========================
-   BUSCAR
-========================= */
+/* =========================================
+   CATEGORÍAS
+========================================= */
+
+function construirCategorias() {
+
+
+    categories = {};
+
+
+    documents.forEach(
+        documento => {
+
+
+            const partes =
+                documento.path.split("/");
+
+
+            let categoria =
+                partes.length > 1
+                    ? partes[0]
+                    : "General";
+
+
+            categoria =
+                categoria
+                    .replace(
+                        /[-_]/g,
+                        " "
+                    );
+
+
+            if (!categories[categoria]) {
+
+                categories[categoria] = [];
+
+            }
+
+
+            categories[categoria]
+                .push(documento);
+
+        }
+    );
+
+
+    const container =
+        document.getElementById(
+            "categories"
+        );
+
+
+    container.innerHTML = "";
+
+
+    Object.keys(categories)
+        .sort()
+        .forEach(
+            categoria => {
+
+
+                const item =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                item.className =
+                    "nav-item";
+
+
+                item.dataset.category =
+                    categoria;
+
+
+                item.onclick =
+                    function () {
+
+                        seleccionarCategoria(
+                            categoria,
+                            this
+                        );
+
+                    };
+
+
+                const cantidad =
+                    categories[categoria]
+                        .length;
+
+
+                item.innerHTML = `
+
+                    <span class="nav-icon">
+                        📁
+                    </span>
+
+                    <span>
+                        ${capitalizar(categoria)}
+                    </span>
+
+                    <span class="category-count">
+                        ${cantidad}
+                    </span>
+
+                `;
+
+
+                container.appendChild(
+                    item
+                );
+
+            }
+        );
+
+
+    document.getElementById(
+        "count-all"
+    ).textContent =
+        documents.length;
+
+
+}
+
+
+
+/* =========================================
+   ESTADÍSTICAS
+========================================= */
+
+function actualizarEstadisticas() {
+
+
+    document.getElementById(
+        "total-documents"
+    ).textContent =
+        documents.length;
+
+
+    document.getElementById(
+        "total-categories"
+    ).textContent =
+        Object.keys(categories).length;
+
+}
+
+
+
+/* =========================================
+   MOSTRAR INICIO
+========================================= */
+
+function mostrarInicio() {
+
+
+    document.getElementById(
+        "welcome"
+    ).style.display =
+        "block";
+
+
+    document.getElementById(
+        "quick-section"
+    ).style.display =
+        "block";
+
+
+    document.getElementById(
+        "search"
+    ).value = "";
+
+
+    document.getElementById(
+        "results"
+    ).innerHTML = "";
+
+
+    document.getElementById(
+        "status"
+    ).textContent =
+        `${documents.length} documentos disponibles`;
+
+}
+
+
+
+/* =========================================
+   CATEGORÍA
+========================================= */
+
+function seleccionarCategoria(
+    categoria,
+    elemento
+) {
+
+
+    document
+        .querySelectorAll(
+            ".nav-item"
+        )
+        .forEach(
+            item =>
+                item.classList.remove(
+                    "active"
+                )
+        );
+
+
+    elemento.classList.add(
+        "active"
+    );
+
+
+    if (categoria === "all") {
+
+        mostrarInicio();
+
+        cerrarSidebar();
+
+        return;
+
+    }
+
+
+    const documentos =
+        categories[categoria] || [];
+
+
+    document.getElementById(
+        "welcome"
+    ).style.display =
+        "none";
+
+
+    document.getElementById(
+        "quick-section"
+    ).style.display =
+        "none";
+
+
+    document.getElementById(
+        "status"
+    ).textContent =
+        `${documentos.length} documentos`;
+
+
+    mostrarResultados(
+        documentos,
+        ""
+    );
+
+
+    cerrarSidebar();
+
+}
+
+
+
+/* =========================================
+   BUSCADOR
+========================================= */
 
 function buscar() {
 
@@ -831,21 +2234,25 @@ function buscar() {
             .toLowerCase();
 
 
-    const results =
-        document.getElementById("results");
-
-
-    results.innerHTML = "";
-
-
     if (!texto) {
 
-        document.getElementById("status").textContent =
-            `${documents.length} documentos disponibles para buscar.`;
+        mostrarInicio();
 
         return;
 
     }
+
+
+    document.getElementById(
+        "welcome"
+    ).style.display =
+        "block";
+
+
+    document.getElementById(
+        "quick-section"
+    ).style.display =
+        "none";
 
 
     const palabras =
@@ -855,48 +2262,52 @@ function buscar() {
     const encontrados =
         documents
 
-            .map(documento => {
+            .map(
+                documento => {
 
 
-                const contenido =
-                    documento.content
-                        .toLowerCase();
+                    const contenido =
+                        documento.content
+                            .toLowerCase();
 
 
-                let coincidencias =
-                    0;
+                    let coincidencias =
+                        0;
 
 
-                palabras.forEach(
-                    palabra => {
+                    palabras.forEach(
+                        palabra => {
 
-                        if (
-                            contenido.includes(
-                                palabra
-                            )
-                        ) {
 
-                            coincidencias++;
+                            if (
+                                contenido.includes(
+                                    palabra
+                                )
+                            ) {
+
+                                coincidencias++;
+
+                            }
 
                         }
-
-                    }
-                );
+                    );
 
 
-                return {
+                    return {
 
-                    ...documento,
+                        ...documento,
 
-                    coincidencias
+                        coincidencias
 
-                };
+                    };
 
-            })
+                }
+            )
 
 
-            .filter(documento =>
-                documento.coincidencias > 0
+            .filter(
+                documento =>
+                    documento.coincidencias > 0
             )
 
 
@@ -907,12 +2318,38 @@ function buscar() {
             );
 
 
+    mostrarResultados(
+        encontrados,
+        texto
+    );
 
-    /* SIN RESULTADOS */
+}
+
+
+
+/* =========================================
+   MOSTRAR RESULTADOS
+========================================= */
+
+function mostrarResultados(
+    encontrados,
+    texto
+) {
+
+
+    const results =
+        document.getElementById(
+            "results"
+        );
+
+
+    results.innerHTML = "";
+
 
     if (
         encontrados.length === 0
     ) {
+
 
         results.innerHTML = `
 
@@ -933,39 +2370,34 @@ function buscar() {
         `;
 
 
-        document.getElementById("status").textContent =
-            "0 resultados encontrados.";
-
         return;
 
     }
 
-
-
-    document.getElementById("status").textContent =
-        `${encontrados.length} resultados encontrados.`;
-
-
-
-    /* MOSTRAR RESULTADOS */
 
     encontrados.forEach(
         documento => {
 
 
             const fragmento =
-                obtenerFragmento(
-                    documento.content,
-                    texto
-                );
+                texto
+                    ? obtenerFragmento(
+                        documento.content,
+                        texto
+                    )
+                    : obtenerInicio(
+                        documento.content
+                    );
 
 
-            const githubURL =
+            const url =
                 `https://github.com/${OWNER}/${REPOSITORY}/blob/${BRANCH}/${documento.path}`;
 
 
             const resultado =
-                document.createElement("div");
+                document.createElement(
+                    "div"
+                );
 
 
             resultado.className =
@@ -983,7 +2415,9 @@ function buscar() {
                     <div>
 
                         <h3>
-                            ${obtenerNombre(documento.path)}
+                            ${obtenerNombre(
+                                documento.path
+                            )}
                         </h3>
 
                         <div class="path">
@@ -996,17 +2430,26 @@ function buscar() {
 
 
                 <p>
-                    ${resaltar(
-                        fragmento,
-                        palabras
-                    )}
+
+                    ${
+                        texto
+                            ? resaltar(
+                                fragmento,
+                                texto.split(/\s+/)
+                            )
+                            : escaparHTML(
+                                fragmento
+                            )
+                    }
+
                 </p>
 
 
                 <div class="result-actions">
 
                     <a
-                        href="${githubURL}"
+                        class="open-button"
+                        href="${url}"
                         target="_blank"
                     >
 
@@ -1031,9 +2474,9 @@ function buscar() {
 
 
 
-/* =========================
+/* =========================================
    FRAGMENTO
-========================= */
+========================================= */
 
 function obtenerFragmento(
     contenido,
@@ -1041,12 +2484,12 @@ function obtenerFragmento(
 ) {
 
 
-    const contenidoMinuscula =
+    const lower =
         contenido.toLowerCase();
 
 
     const posicion =
-        contenidoMinuscula.indexOf(
+        lower.indexOf(
             texto.toLowerCase()
         );
 
@@ -1055,9 +2498,8 @@ function obtenerFragmento(
         posicion === -1
     ) {
 
-        return contenido.substring(
-            0,
-            300
+        return obtenerInicio(
+            contenido
         );
 
     }
@@ -1066,7 +2508,7 @@ function obtenerFragmento(
     const inicio =
         Math.max(
             0,
-            posicion - 150
+            posicion - 180
         );
 
 
@@ -1075,7 +2517,7 @@ function obtenerFragmento(
             contenido.length,
             posicion +
             texto.length +
-            250
+            280
         );
 
 
@@ -1088,9 +2530,32 @@ function obtenerFragmento(
 
 
 
-/* =========================
+/* =========================================
+   INICIO DOCUMENTO
+========================================= */
+
+function obtenerInicio(
+    contenido
+) {
+
+    return contenido
+        .replace(
+            /^#+/gm,
+            ""
+        )
+        .trim()
+        .substring(
+            0,
+            350
+        );
+
+}
+
+
+
+/* =========================================
    RESALTAR
-========================= */
+========================================= */
 
 function resaltar(
     texto,
@@ -1099,7 +2564,9 @@ function resaltar(
 
 
     let resultado =
-        escaparHTML(texto);
+        escaparHTML(
+            texto
+        );
 
 
     palabras.forEach(
@@ -1133,9 +2600,9 @@ function resaltar(
 
 
 
-/* =========================
+/* =========================================
    ESCAPAR HTML
-========================= */
+========================================= */
 
 function escaparHTML(
     texto
@@ -1172,9 +2639,9 @@ function escaparHTML(
 
 
 
-/* =========================
+/* =========================================
    ESCAPAR REGEX
-========================= */
+========================================= */
 
 function escapeRegex(
     texto
@@ -1189,9 +2656,9 @@ function escapeRegex(
 
 
 
-/* =========================
-   NOMBRE ARCHIVO
-========================= */
+/* =========================================
+   NOMBRE
+========================================= */
 
 function obtenerNombre(
     path
@@ -1202,13 +2669,9 @@ function obtenerNombre(
         path.split("/");
 
 
-    const archivo =
-        partes[
-            partes.length - 1
-        ];
-
-
-    return archivo
+    return partes[
+        partes.length - 1
+    ]
 
         .replace(
             ".md",
@@ -1224,9 +2687,121 @@ function obtenerNombre(
 
 
 
-/* =========================
-   BUSCAR AL ESCRIBIR
-========================= */
+/* =========================================
+   CAPITALIZAR
+========================================= */
+
+function capitalizar(
+    texto
+) {
+
+    return texto
+        .charAt(0)
+        .toUpperCase() +
+        texto.slice(1);
+
+}
+
+
+
+/* =========================================
+   BÚSQUEDA RÁPIDA
+========================================= */
+
+function buscarRapido(
+    texto
+) {
+
+
+    const input =
+        document.getElementById(
+            "search"
+        );
+
+
+    input.value =
+        texto;
+
+
+    buscar();
+
+
+    input.focus();
+
+}
+
+
+
+/* =========================================
+   ACTIVAR BUSCADOR
+========================================= */
+
+function activarBuscador() {
+
+
+    document.getElementById(
+        "search"
+    ).focus();
+
+
+    document.getElementById(
+        "welcome"
+    ).style.display =
+        "block";
+
+
+    document.getElementById(
+        "quick-section"
+    ).style.display =
+        "none";
+
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+
+    cerrarSidebar();
+
+}
+
+
+
+/* =========================================
+   SIDEBAR MOBILE
+========================================= */
+
+function toggleSidebar() {
+
+    document
+        .getElementById(
+            "sidebar"
+        )
+        .classList.toggle(
+            "open"
+        );
+
+}
+
+
+function cerrarSidebar() {
+
+    document
+        .getElementById(
+            "sidebar"
+        )
+        .classList.remove(
+            "open"
+        );
+
+}
+
+
+
+/* =========================================
+   EVENTOS
+========================================= */
 
 document
     .getElementById("search")
@@ -1237,9 +2812,9 @@ document
 
 
 
-/* =========================
+/* =========================================
    INICIAR
-========================= */
+========================================= */
 
 cargarRepositorio();
 
@@ -1251,4 +2826,3 @@ cargarRepositorio();
 
 </html>
 ```
-
