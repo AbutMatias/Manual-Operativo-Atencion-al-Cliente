@@ -2691,14 +2691,21 @@ function mostrarCategoria(
    BUSCADOR
 ====================================================== */
 
+let cacheDocumentos = new Map();
+let temporizadorBusqueda = null;
+
+
+/* ======================================================
+   BUSCADOR
+====================================================== */
+
 function buscar() {
 
+    clearTimeout(temporizadorBusqueda);
 
     const texto =
         document
-            .getElementById(
-                "search"
-            )
+            .getElementById("search")
             .value
             .trim()
             .toLowerCase();
@@ -2706,81 +2713,23 @@ function buscar() {
 
     if (!texto) {
 
-        mostrarInicio();
+        document.getElementById("results").innerHTML = "";
+
+        document.getElementById("status").textContent =
+            `${documents.length} documentos disponibles`;
 
         return;
-
     }
 
 
-    const palabras =
-        texto.split(/\s+/);
-
-
-    const encontrados =
-        documents
-
-            .map(
-                documento => {
-
-
-                    const contenido =
-                        documento.title
-                            .toLowerCase();
-
-
-                    let coincidencias =
-                        0;
-
-
-                    /*
-                        Buscar en título
-                    */
-
-                    palabras.forEach(
-                        palabra => {
-
-
-                            if (
-                                contenido.includes(
-                                    palabra
-                                )
-                            ) {
-
-                                coincidencias += 5;
-
-                            }
-
-                        }
-                    );
-
-
-                    return {
-
-                        ...documento,
-
-                        coincidencias
-
-                    };
-
-                }
-            );
-
-
     /*
-        Como todavía no descargamos
-        todo el contenido, buscamos
-        primero por nombre.
-
-        Luego descargamos los documentos
-        encontrados para comprobar
-        contenido.
+        Esperamos un poco para evitar
+        hacer una búsqueda por cada tecla.
     */
 
-
-    buscarEnContenido(
-        texto,
-        palabras
+    temporizadorBusqueda = setTimeout(
+        () => ejecutarBusqueda(texto),
+        300
     );
 
 }
@@ -2788,19 +2737,13 @@ function buscar() {
 
 
 /* ======================================================
-   BUSCAR EN CONTENIDO
+   EJECUTAR BÚSQUEDA
 ====================================================== */
 
-async function buscarEnContenido(
-    texto,
-    palabras
-) {
-
+async function ejecutarBusqueda(texto) {
 
     const results =
-        document.getElementById(
-            "results"
-        );
+        document.getElementById("results");
 
 
     results.innerHTML = `
@@ -2821,46 +2764,93 @@ async function buscarEnContenido(
     `;
 
 
+    const palabras =
+        texto
+            .split(/\s+/)
+            .filter(Boolean);
+
+
     const encontrados = [];
 
+
+    /*
+        Buscar en cada documento.
+    */
 
     for (
         const documento of documents
     ) {
 
-
         try {
 
-
-            const contenido =
-                await cargarDocumento(
+            let contenido =
+                cacheDocumentos.get(
                     documento.path
                 );
 
 
-            const textoCompleto =
-                (
-                    documento.title +
-                    " " +
+            /*
+                Si todavía no está en memoria,
+                lo descargamos.
+            */
+
+            if (
+                contenido === undefined
+            ) {
+
+                contenido =
+                    await cargarDocumento(
+                        documento.path
+                    );
+
+
+                cacheDocumentos.set(
+                    documento.path,
                     contenido
-                ).toLowerCase();
+                );
+
+            }
 
 
-            let coincidencias =
-                0;
+            const titulo =
+                documento.title
+                    .toLowerCase();
 
+
+            const contenidoLower =
+                contenido
+                    .toLowerCase();
+
+
+            let coincidencias = 0;
+
+
+            /*
+                Cada palabra encontrada
+                suma puntos.
+            */
 
             palabras.forEach(
                 palabra => {
 
-
                     if (
-                        textoCompleto.includes(
+                        titulo.includes(
                             palabra
                         )
                     ) {
 
-                        coincidencias++;
+                        coincidencias += 10;
+
+                    }
+
+
+                    if (
+                        contenidoLower.includes(
+                            palabra
+                        )
+                    ) {
+
+                        coincidencias += 1;
 
                     }
 
@@ -2868,10 +2858,14 @@ async function buscarEnContenido(
             );
 
 
+            /*
+                Solamente mostramos documentos
+                donde encontramos algo.
+            */
+
             if (
                 coincidencias > 0
             ) {
-
 
                 encontrados.push({
 
@@ -2887,14 +2881,22 @@ async function buscarEnContenido(
             }
 
 
-        } catch {
+        } catch (error) {
 
-            continue;
+            console.warn(
+                "No se pudo leer:",
+                documento.path,
+                error
+            );
 
         }
 
     }
 
+
+    /*
+        Ordenar por relevancia.
+    */
 
     encontrados.sort(
         (a, b) =>
@@ -2909,8 +2911,12 @@ async function buscarEnContenido(
     );
 
 
-}
+    document.getElementById(
+        "status"
+    ).textContent =
+        `${encontrados.length} resultado(s) para "${texto}"`;
 
+}
 
 
 /* ======================================================
