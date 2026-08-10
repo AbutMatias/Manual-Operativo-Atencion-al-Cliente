@@ -1242,45 +1242,25 @@ async function buscarDocumentos(
 const cache = new Map();
 
 
-async function obtenerContenido(
-    documento
-) {
+async function obtenerContenido(documento) {
 
+    // Si ya está en caché, no lo descargamos nuevamente
+    if (cache.has(documento.path)) {
 
-    /*
-        Si ya lo tenemos guardado,
-        no volver a descargarlo.
-    */
-
-    if (
-        cache.has(
-            documento.path
-        )
-    ) {
-
-        return cache.get(
-            documento.path
-        );
+        return cache.get(documento.path);
 
     }
 
 
+    // Usamos directamente la URL que entrega GitHub
     const respuesta =
-        await fetch(
-            `${RAW}${documento.path
-                .split("/")
-                .map(
-                    encodeURIComponent
-                )
-                .join("/")
-            }`
-        );
+        await fetch(documento.url);
 
 
     if (!respuesta.ok) {
 
         throw new Error(
-            `No se pudo leer ${documento.path}`
+            `No se pudo leer ${documento.path} (${respuesta.status})`
         );
 
     }
@@ -1290,6 +1270,7 @@ async function obtenerContenido(
         await respuesta.text();
 
 
+    // Guardar en caché
     cache.set(
         documento.path,
         contenido
@@ -1299,7 +1280,6 @@ async function obtenerContenido(
     return contenido;
 
 }
-
 
 
 /* =========================================================
