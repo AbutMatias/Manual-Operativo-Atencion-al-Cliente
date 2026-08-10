@@ -4,1636 +4,425 @@
 
 <head>
 
-    <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
-    <title>
-        Manual Operativo - Atención al Cliente
-    </title>
-
-
-    <!--
-        Librería para convertir Markdown a HTML
-    -->
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-
-
-    <style>
-
-        :root {
-
-            --orange: #f97316;
-            --orange-dark: #ea580c;
-            --orange-light: #fff7ed;
-            --orange-border: #fed7aa;
-
-            --dark: #111827;
-            --dark-2: #1f2937;
-
-            --background: #f5f6f8;
-
-            --white: #ffffff;
-
-            --text: #1f2937;
-            --text-light: #6b7280;
-
-            --border: #e5e7eb;
-
-            --sidebar-width: 280px;
-
-            --shadow:
-                0 4px 18px rgba(0, 0, 0, 0.06);
-        }
-
-
-        * {
-            box-sizing: border-box;
-        }
-
-
-        html,
-        body {
-
-            margin: 0;
-
-            padding: 0;
-
-            min-height: 100%;
-
-            font-family:
-                -apple-system,
-                BlinkMacSystemFont,
-                "Segoe UI",
-                Arial,
-                sans-serif;
-
-            background:
-                var(--background);
-
-            color:
-                var(--text);
-        }
-
-
-        /* ==================================================
-           SIDEBAR
-        ================================================== */
-
-        .sidebar {
-
-            position: fixed;
-
-            top: 0;
-            bottom: 0;
-            left: 0;
-
-            width:
-                var(--sidebar-width);
-
-            background:
-                var(--dark);
-
-            color: white;
-
-            display:
-                flex;
-
-            flex-direction:
-                column;
-
-            z-index: 100;
-
-            overflow-y: auto;
-
-            transition:
-                transform 0.25s ease;
-        }
-
-
-        .sidebar-header {
-
-            padding:
-                22px 20px;
-
-            border-bottom:
-                1px solid
-                rgba(255,255,255,0.08);
-        }
-
-
-        .brand {
-
-            display:
-                flex;
-
-            align-items:
-                center;
-
-            gap:
-                12px;
-        }
-
-
-        .brand-icon {
-
-            width:
-                43px;
-
-            height:
-                43px;
-
-            border-radius:
-                10px;
-
-            background:
-                var(--orange);
-
-            display:
-                flex;
-
-            align-items:
-                center;
-
-            justify-content:
-                center;
-
-            font-size:
-                21px;
-
-            box-shadow:
-                0 4px 12px
-                rgba(249,115,22,0.25);
-        }
-
-
-        .brand-title {
-
-            font-size:
-                15px;
-
-            font-weight:
-                700;
-        }
-
-
-        .brand-subtitle {
-
-            margin-top:
-                3px;
-
-            color:
-                #9ca3af;
-
-            font-size:
-                11px;
-        }
-
-
-        .sidebar-section {
-
-            padding:
-                20px 15px 8px;
-
-            color:
-                #6b7280;
-
-            font-size:
-                10px;
-
-            font-weight:
-                700;
-
-            text-transform:
-                uppercase;
-
-            letter-spacing:
-                0.08em;
-        }
-
-
-        .nav-item {
-
-            margin:
-                2px 10px;
-
-            padding:
-                10px 11px;
-
-            border-radius:
-                8px;
-
-            display:
-                flex;
-
-            align-items:
-                center;
-
-            gap:
-                9px;
-
-            color:
-                #d1d5db;
-
-            cursor:
-                pointer;
-
-            font-size:
-                12px;
-
-            transition:
-                0.15s;
-
-            user-select:
-                none;
-        }
-
-
-        .nav-item:hover {
-
-            background:
-                rgba(255,255,255,0.06);
-
-            color:
-                white;
-        }
-
-
-        .nav-item.active {
-
-            background:
-                var(--orange);
-
-            color:
-                white;
-
-            box-shadow:
-                0 4px 12px
-                rgba(249,115,22,0.2);
-        }
-
-
-        .nav-icon {
-
-            width:
-                22px;
-
-            text-align:
-                center;
-
-            flex-shrink:
-                0;
-
-            font-size:
-                15px;
-        }
-
-
-        .category-count {
-
-            margin-left:
-                auto;
-
-            color:
-                #9ca3af;
-
-            font-size:
-                10px;
-        }
-
-
-        .nav-item.active
-        .category-count {
-
-            color:
-                rgba(255,255,255,0.8);
-        }
-
-
-        .sidebar-footer {
-
-            margin-top:
-                auto;
-
-            padding:
-                15px;
-
-            border-top:
-                1px solid
-                rgba(255,255,255,0.08);
-
-            color:
-                #6b7280;
-
-            text-align:
-                center;
-
-            font-size:
-                10px;
-        }
-
-
-        /* ==================================================
-           MAIN
-        ================================================== */
-
-        .main {
-
-            margin-left:
-                var(--sidebar-width);
-
-            min-height:
-                100vh;
-        }
-
-
-        /* ==================================================
-           TOPBAR
-        ================================================== */
-
-        .topbar {
-
-            height:
-                64px;
-
-            padding:
-                0 28px;
-
-            background:
-                white;
-
-            border-bottom:
-                1px solid
-                var(--border);
-
-            display:
-                flex;
-
-            align-items:
-                center;
-
-            justify-content:
-                space-between;
-
-            position:
-                sticky;
-
-            top: 0;
-
-            z-index:
-                50;
-        }
-
-
-        .topbar-left {
-
-            display:
-                flex;
-
-            align-items:
-                center;
-
-            gap:
-                12px;
-        }
-
-
-        .mobile-menu {
-
-            display:
-                none;
-
-            border:
-                0;
-
-            background:
-                var(--orange);
-
-            color:
-                white;
-
-            width:
-                38px;
-
-            height:
-                38px;
-
-            border-radius:
-                8px;
-
-            cursor:
-                pointer;
-
-            font-size:
-                18px;
-        }
-
-
-        .topbar-title {
-
-            font-size:
-                13px;
-
-            font-weight:
-                600;
-        }
-
-
-        .github-button {
-
-            color:
-                var(--text-light);
-
-            text-decoration:
-                none;
-
-            font-size:
-                12px;
-
-            display:
-                flex;
-
-            align-items:
-                center;
-
-            gap:
-                6px;
-        }
-
-
-        .github-button:hover {
-
-            color:
-                var(--orange);
-        }
-
-
-        /* ==================================================
-           CONTENT
-        ================================================== */
-
-        .content {
-
-            max-width:
-                1200px;
-
-            margin:
-                auto;
-
-            padding:
-                30px;
-        }
-
-
-        /* ==================================================
-           HOME HERO
-        ================================================== */
-
-        .hero {
-
-            padding:
-                35px;
-
-            border-radius:
-                16px;
-
-            color:
-                white;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    var(--dark),
-                    var(--dark-2)
-                );
-
-            position:
-                relative;
-
-            overflow:
-                hidden;
-
-            margin-bottom:
-                24px;
-        }
-
-
-        .hero::after {
-
-            content:
-                "";
-
-            position:
-                absolute;
-
-            width:
-                360px;
-
-            height:
-                360px;
-
-            right:
-                -140px;
-
-            top:
-                -170px;
-
-            border-radius:
-                50%;
-
-            background:
-                var(--orange);
-
-            opacity:
-                0.12;
-        }
-
-
-        .hero-content {
-
-            position:
-                relative;
-
-            z-index:
-                2;
-        }
-
-
-        .hero h1 {
-
-            margin:
-                0 0 8px;
-
-            font-size:
-                28px;
-        }
-
-
-        .hero p {
-
-            margin:
-                0;
-
-            color:
-                #d1d5db;
-
-            font-size:
-                14px;
-        }
-
-
-        /* ==================================================
-           SEARCH
-        ================================================== */
-
-        .search-wrapper {
-
-            position:
-                relative;
-
-            max-width:
-                800px;
-
-            margin-top:
-                25px;
-        }
-
-
-        .search-wrapper input {
-
-            width:
-                100%;
-
-            padding:
-                16px 18px 16px 50px;
-
-            border:
-                0;
-
-            border-radius:
-                10px;
-
-            outline:
-                none;
-
-            font-size:
-                15px;
-
-            box-shadow:
-                0 5px 20px
-                rgba(0,0,0,0.15);
-        }
-
-
-        .search-icon {
-
-            position:
-                absolute;
-
-            left:
-                17px;
-
-            top:
-                50%;
-
-            transform:
-                translateY(-50%);
-
-            color:
-                #9ca3af;
-
-            font-size:
-                18px;
-
-            z-index:
-                2;
-        }
-
-
-        /* ==================================================
-           STATS
-        ================================================== */
-
-        .stats {
-
-            display:
-                grid;
-
-            grid-template-columns:
-                repeat(3, 1fr);
-
-            gap:
-                14px;
-
-            margin-bottom:
-                25px;
-        }
-
-
-        .stat {
-
-            padding:
-                18px;
-
-            border:
-                1px solid
-                var(--border);
-
-            background:
-                white;
-
-            border-radius:
-                12px;
-
-            box-shadow:
-                var(--shadow);
-
-            display:
-                flex;
-
-            align-items:
-                center;
-
-            gap:
-                13px;
-        }
-
-
-        .stat-icon {
-
-            width:
-                40px;
-
-            height:
-                40px;
-
-            background:
-                var(--orange-light);
-
-            color:
-                var(--orange);
-
-            border-radius:
-                9px;
-
-            display:
-                flex;
-
-            align-items:
-                center;
-
-            justify-content:
-                center;
-        }
-
-
-        .stat-number {
-
-            font-size:
-                20px;
-
-            font-weight:
-                700;
-        }
-
-
-        .stat-label {
-
-            margin-top:
-                2px;
-
-            color:
-                var(--text-light);
-
-            font-size:
-                11px;
-        }
-
-
-        /* ==================================================
-           SECTION
-        ================================================== */
-
-        .section-title {
-
-            margin:
-                0 0 15px;
-
-            font-size:
-                17px;
-        }
-
-
-        /* ==================================================
-           QUICK ACCESS
-        ================================================== */
-
-        .quick-grid {
-
-            display:
-                grid;
-
-            grid-template-columns:
-                repeat(4, 1fr);
-
-            gap:
-                12px;
-
-            margin-bottom:
-                28px;
-        }
-
-
-        .quick-card {
-
-            padding:
-                17px;
-
-            background:
-                white;
-
-            border:
-                1px solid
-                var(--border);
-
-            border-radius:
-                10px;
-
-            cursor:
-                pointer;
-
-            transition:
-                0.15s;
-        }
-
-
-        .quick-card:hover {
-
-            border-color:
-                var(--orange);
-
-            transform:
-                translateY(-2px);
-
-            box-shadow:
-                var(--shadow);
-        }
-
-
-        .quick-icon {
-
-            font-size:
-                21px;
-
-            margin-bottom:
-                8px;
-        }
-
-
-        .quick-card strong {
-
-            display:
-                block;
-
-            font-size:
-                13px;
-        }
-
-
-        .quick-card span {
-
-            display:
-                block;
-
-            margin-top:
-                3px;
-
-            color:
-                var(--text-light);
-
-            font-size:
-                11px;
-        }
-
-
-        /* ==================================================
-           RESULTS
-        ================================================== */
-
-        .results-header {
-
-            display:
-                flex;
-
-            align-items:
-                center;
-
-            justify-content:
-                space-between;
-
-            margin-bottom:
-                14px;
-        }
-
-
-        .results-title {
-
-            font-size:
-                17px;
-
-            font-weight:
-                700;
-        }
-
-
-        #status {
-
-            color:
-                var(--text-light);
-
-            font-size:
-                12px;
-        }
-
-
-        .result {
-
-            background:
-                white;
-
-            border:
-                1px solid
-                var(--border);
-
-            border-radius:
-                12px;
-
-            padding:
-                19px;
-
-            margin-bottom:
-                12px;
-
-            box-shadow:
-                var(--shadow);
-
-            transition:
-                0.15s;
-        }
-
-
-        .result:hover {
-
-            border-color:
-                var(--orange-border);
-
-            transform:
-                translateY(-1px);
-        }
-
-
-        .result-header {
-
-            display:
-                flex;
-
-            align-items:
-                flex-start;
-
-            gap:
-                12px;
-        }
-
-
-        .document-icon {
-
-            width:
-                40px;
-
-            height:
-                40px;
-
-            border-radius:
-                9px;
-
-            flex-shrink:
-                0;
-
-            background:
-                var(--orange-light);
-
-            color:
-                var(--orange);
-
-            display:
-                flex;
-
-            align-items:
-                center;
-
-            justify-content:
-                center;
-        }
-
-
-        .result h3 {
-
-            margin:
-                0 0 4px;
-
-            font-size:
-                16px;
-
-            text-transform:
-                capitalize;
-        }
-
-
-        .path {
-
-            color:
-                var(--text-light);
-
-            font-size:
-                11px;
-
-            word-break:
-                break-word;
-        }
-
-
-        .result p {
-
-            margin:
-                14px 0 0;
-
-            padding:
-                12px 14px;
-
-            background:
-                #f9fafb;
-
-            border-left:
-                3px solid
-                var(--orange);
-
-            border-radius:
-                5px;
-
-            color:
-                #4b5563;
-
-            font-size:
-                13px;
-
-            line-height:
-                1.6;
-        }
-
-
-        mark {
-
-            background:
-                #fed7aa;
-
-            color:
-                #9a3412;
-
-            padding:
-                1px 3px;
-
-            border-radius:
-                3px;
-
-            font-weight:
-                600;
-        }
-
-
-        .result-actions {
-
-            margin-top:
-                13px;
-
-            display:
-                flex;
-
-            gap:
-                8px;
-
-            flex-wrap:
-                wrap;
-        }
-
-
-        .button {
-
-            display:
-                inline-flex;
-
-            align-items:
-                center;
-
-            gap:
-                6px;
-
-            padding:
-                8px 12px;
-
-            border-radius:
-                7px;
-
-            text-decoration:
-                none;
-
-            font-size:
-                12px;
-
-            font-weight:
-                600;
-
-            cursor:
-                pointer;
-
-            border:
-                0;
-        }
-
-
-        .button-primary {
-
-            background:
-                var(--orange);
-
-            color:
-                white;
-        }
-
-
-        .button-primary:hover {
-
-            background:
-                var(--orange-dark);
-        }
-
-
-        .button-secondary {
-
-            background:
-                #f3f4f6;
-
-            color:
-                var(--text);
-        }
-
-
-        .button-secondary:hover {
-
-            background:
-                #e5e7eb;
-        }
-
-
-        /* ==================================================
-           DOCUMENT VIEWER
-        ================================================== */
-
-        #document-viewer {
-
-            display:
-                none;
-        }
-
-
-        .document-container {
-
-            background:
-                white;
-
-            border:
-                1px solid
-                var(--border);
-
-            border-radius:
-                14px;
-
-            box-shadow:
-                var(--shadow);
-
-            overflow:
-                hidden;
-        }
-
-
-        .document-toolbar {
-
-            padding:
-                14px 18px;
-
-            background:
-                #fafafa;
-
-            border-bottom:
-                1px solid
-                var(--border);
-
-            display:
-                flex;
-
-            align-items:
-                center;
-
-            justify-content:
-                space-between;
-
-            gap:
-                10px;
-
-            flex-wrap:
-                wrap;
-        }
-
-
-        .document-location {
-
-            color:
-                var(--text-light);
-
-            font-size:
-                12px;
-        }
-
-
-        .markdown {
-
-            padding:
-                35px 45px;
-
-            max-width:
-                900px;
-
-            margin:
-                auto;
-
-            line-height:
-                1.7;
-
-            font-size:
-                14px;
-        }
-
-
-        .markdown h1 {
-
-            font-size:
-                28px;
-
-            border-bottom:
-                2px solid
-                var(--orange);
-
-            padding-bottom:
-                10px;
-
-            margin-top:
-                0;
-        }
-
-
-        .markdown h2 {
-
-            margin-top:
-                35px;
-
-            padding-bottom:
-                7px;
-
-            border-bottom:
-                1px solid
-                var(--border);
-
-            color:
-                var(--dark);
-        }
-
-
-        .markdown h3 {
-
-            margin-top:
-                25px;
-
-            color:
-                var(--orange-dark);
-        }
-
-
-        .markdown a {
-
-            color:
-                var(--orange-dark);
-
-            font-weight:
-                600;
-        }
-
-
-        .markdown img {
-
-            max-width:
-                100%;
-
-            height:
-                auto;
-
-            border-radius:
-                8px;
-        }
-
-
-        .markdown table {
-
-            width:
-                100%;
-
-            border-collapse:
-                collapse;
-
-            margin:
-                20px 0;
-
-            display:
-                block;
-
-            overflow-x:
-                auto;
-        }
-
-
-        .markdown th,
-        .markdown td {
-
-            border:
-                1px solid
-                var(--border);
-
-            padding:
-                9px 12px;
-
-            text-align:
-                left;
-        }
-
-
-        .markdown th {
-
-            background:
-                var(--orange-light);
-
-            color:
-                #9a3412;
-        }
-
-
-        .markdown blockquote {
-
-            margin:
-                20px 0;
-
-            padding:
-                12px 16px;
-
-            border-left:
-                4px solid
-                var(--orange);
-
-            background:
-                var(--orange-light);
-
-            color:
-                #7c2d12;
-        }
-
-
-        .markdown code {
-
-            background:
-                #f3f4f6;
-
-            padding:
-                2px 5px;
-
-            border-radius:
-                4px;
-
-            font-size:
-                12px;
-        }
-
-
-        .markdown pre {
-
-            background:
-                #111827;
-
-            color:
-                #e5e7eb;
-
-            padding:
-                18px;
-
-            border-radius:
-                8px;
-
-            overflow-x:
-                auto;
-        }
-
-
-        .markdown pre code {
-
-            background:
-                transparent;
-
-            padding:
-                0;
-
-            color:
-                inherit;
-        }
-
-
-        /* ==================================================
-           EMPTY
-        ================================================== */
-
-        .empty {
-
-            background:
-                white;
-
-            border:
-                1px solid
-                var(--border);
-
-            border-radius:
-                12px;
-
-            padding:
-                55px 20px;
-
-            text-align:
-                center;
-
-            color:
-                var(--text-light);
-
-            box-shadow:
-                var(--shadow);
-        }
-
-
-        .empty-icon {
-
-            font-size:
-                38px;
-
-            margin-bottom:
-                10px;
-        }
-
-
-        .empty strong {
-
-            display:
-                block;
-
-            color:
-                var(--text);
-
-            margin-bottom:
-                5px;
-        }
-
-
-        /* ==================================================
-           LOADING
-        ================================================== */
-
-        .loading {
-
-            display:
-                flex;
-
-            align-items:
-                center;
-
-            gap:
-                10px;
-
-            color:
-                var(--text-light);
-
-            font-size:
-                13px;
-        }
-
-
-        .spinner {
-
-            width:
-                16px;
-
-            height:
-                16px;
-
-            border:
-                2px solid
-                #e5e7eb;
-
-            border-top-color:
-                var(--orange);
-
-            border-radius:
-                50%;
-
-            animation:
-                spin 0.7s linear infinite;
-        }
-
-
-        @keyframes spin {
-
-            to {
-                transform:
-                    rotate(360deg);
-            }
-
-        }
-
-
-        /* ==================================================
-           RESPONSIVE
-        ================================================== */
-
-        @media (
-            max-width: 950px
-        ) {
-
-            .quick-grid {
-
-                grid-template-columns:
-                    repeat(2, 1fr);
-            }
-
-        }
-
-
-        @media (
-            max-width: 700px
-        ) {
-
-            .sidebar {
-
-                transform:
-                    translateX(-100%);
-            }
-
-
-            .sidebar.open {
-
-                transform:
-                    translateX(0);
-            }
-
-
-            .main {
-
-                margin-left:
-                    0;
-            }
-
-
-            .mobile-menu {
-
-                display:
-                    block;
-            }
-
-
-            .topbar {
-
-                padding:
-                    0 15px;
-            }
-
-
-            .topbar-title {
-
-                display:
-                    none;
-            }
-
-
-            .content {
-
-                padding:
-                    18px 12px;
-            }
-
-
-            .hero {
-
-                padding:
-                    25px 20px;
-            }
-
-
-            .hero h1 {
-
-                font-size:
-                    23px;
-            }
-
-
-            .stats {
-
-                grid-template-columns:
-                    1fr;
-            }
-
-
-            .quick-grid {
-
-                grid-template-columns:
-                    1fr 1fr;
-            }
-
-
-            .markdown {
-
-                padding:
-                    25px 18px;
-            }
-
-        }
-
-
-        @media (
-            max-width: 450px
-        ) {
-
-            .quick-grid {
-
-                grid-template-columns:
-                    1fr;
-            }
-
-        }
-
-    </style>
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Manual Operativo - Atención al Cliente</title>
+
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+<style>
+
+:root {
+    --orange: #f97316;
+    --orange-dark: #ea580c;
+    --orange-light: #fff7ed;
+    --dark: #111827;
+    --dark2: #1f2937;
+    --background: #f5f6f8;
+    --white: #ffffff;
+    --text: #1f2937;
+    --muted: #6b7280;
+    --border: #e5e7eb;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: var(--background);
+    color: var(--text);
+}
+
+
+/* =========================
+   SIDEBAR
+========================= */
+
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 280px;
+    background: var(--dark);
+    color: white;
+    overflow-y: auto;
+}
+
+.logo {
+    padding: 22px;
+    border-bottom: 1px solid #374151;
+}
+
+.logo-title {
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.logo-subtitle {
+    color: #9ca3af;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.sidebar-title {
+    padding: 20px 15px 8px;
+    color: #6b7280;
+    font-size: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.nav {
+    padding: 0 10px;
+}
+
+.nav-item {
+    padding: 10px;
+    border-radius: 7px;
+    color: #d1d5db;
+    cursor: pointer;
+    font-size: 12px;
+    margin-bottom: 3px;
+}
+
+.nav-item:hover {
+    background: #1f2937;
+    color: white;
+}
+
+.nav-item.active {
+    background: var(--orange);
+    color: white;
+}
+
+
+/* =========================
+   MAIN
+========================= */
+
+.main {
+    margin-left: 280px;
+    min-height: 100vh;
+}
+
+.header {
+    height: 64px;
+    background: white;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 30px;
+}
+
+.header-title {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.github {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 12px;
+}
+
+.github:hover {
+    color: var(--orange);
+}
+
+
+/* =========================
+   CONTENT
+========================= */
+
+.content {
+    max-width: 1200px;
+    margin: auto;
+    padding: 30px;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    background: linear-gradient(
+        135deg,
+        var(--dark),
+        var(--dark2)
+    );
+
+    padding: 35px;
+
+    border-radius: 15px;
+
+    color: white;
+
+    margin-bottom: 25px;
+}
+
+.hero h1 {
+    margin: 0 0 8px;
+    font-size: 28px;
+}
+
+.hero p {
+    margin: 0;
+    color: #d1d5db;
+    font-size: 14px;
+}
+
+
+/* =========================
+   SEARCH
+========================= */
+
+.search {
+    margin-top: 25px;
+    position: relative;
+}
+
+.search input {
+    width: 100%;
+    padding: 17px 20px;
+    border: none;
+    border-radius: 9px;
+    font-size: 15px;
+    outline: none;
+}
+
+.search input:focus {
+    box-shadow: 0 0 0 3px rgba(249,115,22,.3);
+}
+
+
+/* =========================
+   STATS
+========================= */
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.stat {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 18px;
+}
+
+.stat-number {
+    font-size: 22px;
+    font-weight: bold;
+    color: var(--orange);
+}
+
+.stat-label {
+    color: var(--muted);
+    font-size: 11px;
+    margin-top: 4px;
+}
+
+
+/* =========================
+   RESULTS
+========================= */
+
+.results-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.results-title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.status {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.result {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 18px;
+    margin-bottom: 12px;
+}
+
+.result:hover {
+    border-color: #fdba74;
+}
+
+.result-title {
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--orange-dark);
+}
+
+.result-category {
+    color: var(--muted);
+    font-size: 11px;
+    margin-top: 4px;
+}
+
+.result-text {
+    margin-top: 12px;
+    padding: 12px;
+    background: #f9fafb;
+    border-left: 3px solid var(--orange);
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.result button {
+    margin-top: 12px;
+    border: none;
+    background: var(--orange);
+    color: white;
+    padding: 9px 13px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.result button:hover {
+    background: var(--orange-dark);
+}
+
+
+/* =========================
+   DOCUMENT
+========================= */
+
+.document {
+    display: none;
+    background: white;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+}
+
+.document-header {
+    padding: 15px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+}
+
+.back {
+    border: none;
+    background: #f3f4f6;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.markdown {
+    max-width: 900px;
+    margin: auto;
+    padding: 35px;
+    line-height: 1.7;
+}
+
+.markdown h1 {
+    border-bottom: 2px solid var(--orange);
+    padding-bottom: 10px;
+}
+
+.markdown h2 {
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 8px;
+    margin-top: 35px;
+}
+
+.markdown h3 {
+    color: var(--orange-dark);
+}
+
+.markdown a {
+    color: var(--orange-dark);
+}
+
+.markdown img {
+    max-width: 100%;
+}
+
+.markdown table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.markdown th,
+.markdown td {
+    border: 1px solid var(--border);
+    padding: 8px;
+}
+
+.markdown th {
+    background: var(--orange-light);
+}
+
+.markdown pre {
+    background: #111827;
+    color: white;
+    padding: 15px;
+    border-radius: 8px;
+    overflow-x: auto;
+}
+
+
+/* =========================
+   EMPTY
+========================= */
+
+.empty {
+    background: white;
+    border: 1px solid var(--border);
+    padding: 50px;
+    text-align: center;
+    border-radius: 10px;
+    color: var(--muted);
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width: 700px) {
+
+    .sidebar {
+        position: static;
+        width: 100%;
+        height: auto;
+    }
+
+    .main {
+        margin-left: 0;
+    }
+
+    .stats {
+        grid-template-columns: 1fr;
+    }
+
+    .content {
+        padding: 15px;
+    }
+
+}
+
+</style>
 
 </head>
 
@@ -1641,104 +430,62 @@
 <body>
 
 
-<!-- ======================================================
+<!-- =========================
      SIDEBAR
-====================================================== -->
+========================= -->
 
-<aside
-    class="sidebar"
-    id="sidebar"
->
+<aside class="sidebar">
 
+    <div class="logo">
 
-    <div class="sidebar-header">
+        <div class="logo-title">
+            📘 Manual Operativo
+        </div>
 
-        <div class="brand">
-
-            <div class="brand-icon">
-                📘
-            </div>
-
-            <div>
-
-                <div class="brand-title">
-                    Manual Operativo
-                </div>
-
-                <div class="brand-subtitle">
-                    Atención al Cliente
-                </div>
-
-            </div>
-
+        <div class="logo-subtitle">
+            Atención al Cliente
         </div>
 
     </div>
 
 
-    <div class="sidebar-section">
+    <div class="sidebar-title">
         Navegación
     </div>
 
 
-    <div
-        class="nav-item active"
-        id="nav-home"
-        onclick="mostrarInicio()"
-    >
+    <div class="nav">
 
-        <span class="nav-icon">
-            🏠
-        </span>
+        <div
+            class="nav-item active"
+            onclick="inicio()"
+        >
+            🏠 Inicio
+        </div>
 
-        Inicio
-
-    </div>
-
-
-    <div
-        class="nav-item"
-        onclick="activarBuscador()"
-    >
-
-        <span class="nav-icon">
-            🔎
-        </span>
-
-        Buscar
-
-    </div>
-
-
-    <div class="sidebar-section">
-        Categorías
-    </div>
-
-
-    <div id="categories">
-
-        <div class="nav-item">
-
-            <span class="nav-icon">
-                ⏳
-            </span>
-
-            Cargando índice...
-
+        <div
+            class="nav-item"
+            onclick="activarBusqueda()"
+        >
+            🔎 Buscar
         </div>
 
     </div>
 
 
-    <div class="sidebar-footer">
+    <div class="sidebar-title">
+        Categorías
+    </div>
 
-        Índice sincronizado desde README.md
 
-        <br><br>
+    <div
+        class="nav"
+        id="categorias"
+    >
 
-        <span style="color:#f97316;">
-            Eternet
-        </span>
+        <div class="nav-item">
+            Cargando...
+        </div>
 
     </div>
 
@@ -1746,120 +493,81 @@
 
 
 
-<!-- ======================================================
+<!-- =========================
      MAIN
-====================================================== -->
+========================= -->
 
 <main class="main">
 
 
-    <div class="topbar">
+    <header class="header">
 
-
-        <div class="topbar-left">
-
-            <button
-                class="mobile-menu"
-                onclick="toggleSidebar()"
-            >
-                ☰
-            </button>
-
-
-            <div class="topbar-title">
-                Manual Operativo - Atención al Cliente
-            </div>
-
+        <div class="header-title">
+            Manual Operativo - Atención al Cliente
         </div>
 
-
         <a
-            class="github-button"
+            class="github"
             href="https://github.com/AbutMatias/Manual-Operativo-Atencion-al-Cliente"
             target="_blank"
         >
-
-            🔗
-
-            Repositorio
-
+            🔗 GitHub
         </a>
 
-    </div>
+    </header>
 
 
 
     <div class="content">
 
 
-        <!-- ==================================================
+        <!-- =========================
              HOME
-        ================================================== -->
+        ========================= -->
 
-        <section id="home-view">
+        <section id="home">
 
 
             <div class="hero">
 
-                <div class="hero-content">
+                <h1>
+                    ¿Qué necesitás consultar?
+                </h1>
 
-                    <h1>
-                        ¿Qué necesitás consultar?
-                    </h1>
-
-                    <p>
-                        Buscá procedimientos,
-                        diagnósticos y documentación
-                        del Manual Operativo.
-                    </p>
+                <p>
+                    Buscá procedimientos,
+                    diagnósticos y documentación
+                    técnica.
+                </p>
 
 
-                    <div class="search-wrapper">
+                <div class="search">
 
-                        <span class="search-icon">
-                            🔎
-                        </span>
-
-
-                        <input
-                            type="text"
-                            id="search"
-                            placeholder="Ej: router sin conexión, ONU, WiFi, CPE..."
-                            autocomplete="off"
-                        >
-
-                    </div>
+                    <input
+                        id="buscador"
+                        type="text"
+                        placeholder="Buscar por ejemplo: router, ONU, WiFi, ping..."
+                    >
 
                 </div>
 
             </div>
 
 
-
-            <!-- STATS -->
 
             <div class="stats">
 
-
                 <div class="stat">
 
-                    <div class="stat-icon">
-                        📚
+                    <div
+                        class="stat-number"
+                        id="cantidad-documentos"
+                    >
+                        0
                     </div>
 
-                    <div>
-
-                        <div
-                            class="stat-number"
-                            id="total-documents"
-                        >
-                            -
-                        </div>
-
-                        <div class="stat-label">
-                            Documentos
-                        </div>
-
+                    <div class="stat-label">
+                        Documentos encontrados
                     </div>
 
                 </div>
@@ -1867,23 +575,15 @@
 
                 <div class="stat">
 
-                    <div class="stat-icon">
-                        📁
+                    <div
+                        class="stat-number"
+                        id="cantidad-categorias"
+                    >
+                        0
                     </div>
 
-                    <div>
-
-                        <div
-                            class="stat-number"
-                            id="total-categories"
-                        >
-                            -
-                        </div>
-
-                        <div class="stat-label">
-                            Categorías
-                        </div>
-
+                    <div class="stat-label">
+                        Categorías
                     </div>
 
                 </div>
@@ -1891,219 +591,90 @@
 
                 <div class="stat">
 
-                    <div class="stat-icon">
-                        ⚡
+                    <div
+                        class="stat-number"
+                        id="estado"
+                    >
+                        ...
                     </div>
 
-                    <div>
-
-                        <div
-                            class="stat-number"
-                            id="status-online"
-                        >
-                            ...
-                        </div>
-
-                        <div class="stat-label">
-                            Estado
-                        </div>
-
+                    <div class="stat-label">
+                        Estado del buscador
                     </div>
 
                 </div>
-
 
             </div>
 
 
-
-            <!-- QUICK ACCESS -->
-
-            <h2 class="section-title">
-                Accesos rápidos
-            </h2>
-
-
-            <div class="quick-grid">
-
-
-                <div
-                    class="quick-card"
-                    onclick="buscarRapido('sin conexión')"
-                >
-
-                    <div class="quick-icon">
-                        📡
-                    </div>
-
-                    <strong>
-                        Sin conexión
-                    </strong>
-
-                    <span>
-                        Problemas de conectividad
-                    </span>
-
-                </div>
-
-
-                <div
-                    class="quick-card"
-                    onclick="buscarRapido('wifi')"
-                >
-
-                    <div class="quick-icon">
-                        📶
-                    </div>
-
-                    <strong>
-                        WiFi
-                    </strong>
-
-                    <span>
-                        Redes inalámbricas
-                    </span>
-
-                </div>
-
-
-                <div
-                    class="quick-card"
-                    onclick="buscarRapido('ONU')"
-                >
-
-                    <div class="quick-icon">
-                        💡
-                    </div>
-
-                    <strong>
-                        ONU / Fibra
-                    </strong>
-
-                    <span>
-                        Diagnóstico de fibra
-                    </span>
-
-                </div>
-
-
-                <div
-                    class="quick-card"
-                    onclick="buscarRapido('CPE')"
-                >
-
-                    <div class="quick-icon">
-                        🔧
-                    </div>
-
-                    <strong>
-                        CPE
-                    </strong>
-
-                    <span>
-                        Equipos del cliente
-                    </span>
-
-                </div>
-
-
-            </div>
-
-
-
-            <!-- RESULTS -->
 
             <div class="results-header">
 
                 <div class="results-title">
-                    Documentación
+                    Resultados
                 </div>
 
-                <div id="status">
-                    Cargando índice...
+                <div
+                    class="status"
+                    id="status"
+                >
+                    Cargando documentación...
                 </div>
 
             </div>
 
 
-            <div id="results"></div>
+            <div id="resultados">
+
+            </div>
 
 
         </section>
 
 
 
-        <!-- ==================================================
+        <!-- =========================
              DOCUMENT VIEWER
-        ================================================== -->
+        ========================= -->
 
         <section
-            id="document-viewer"
+            class="document"
+            id="documento"
         >
 
-            <div class="document-container">
 
+            <div class="document-header">
 
-                <div class="document-toolbar">
-
-
-                    <button
-                        class="button button-secondary"
-                        onclick="mostrarInicio()"
-                    >
-
-                        ← Volver
-
-                    </button>
-
-
-                    <div
-                        class="document-location"
-                        id="document-location"
-                    >
-                    </div>
-
-
-                    <a
-                        class="button button-primary"
-                        id="github-document"
-                        target="_blank"
-                    >
-
-                        🔗 GitHub
-
-                    </a>
-
-
-                </div>
-
-
-                <article
-                    class="markdown"
-                    id="markdown-content"
+                <button
+                    class="back"
+                    onclick="inicio()"
                 >
-                </article>
+                    ← Volver
+                </button>
 
+
+                <a
+                    id="linkGithub"
+                    class="github"
+                    target="_blank"
+                >
+                    🔗 Abrir en GitHub
+                </a>
 
             </div>
+
+
+            <article
+                class="markdown"
+                id="contenidoDocumento"
+            >
+            </article>
+
 
         </section>
 
 
     </div>
-
-
-
-    <footer>
-
-        Manual Operativo
-
-        <span style="color:#f97316;">
-            • Atención al Cliente
-        </span>
-
-    </footer>
-
 
 </main>
 
@@ -2112,104 +683,132 @@
 <script>
 
 
-/* ======================================================
-   CONFIGURACIÓN
-====================================================== */
+/* =========================================================
+   CONFIGURACIÓN DEL REPOSITORIO
+========================================================= */
 
 const OWNER =
     "AbutMatias";
 
-
-const REPOSITORY =
+const REPO =
     "Manual-Operativo-Atencion-al-Cliente";
-
 
 const BRANCH =
     "main";
 
+const API =
+    `https://api.github.com/repos/${OWNER}/${REPO}/contents/doc`;
 
-const README_URL =
-    `https://raw.githubusercontent.com/${OWNER}/${REPOSITORY}/${BRANCH}/README.md`;
-
-
-let documents = [];
-
-let categories = [];
+const RAW =
+    `https://raw.githubusercontent.com/${OWNER}/${REPO}/${BRANCH}/`;
 
 
 
-/* ======================================================
-   ICONOS DE CATEGORÍAS
-====================================================== */
+/* =========================================================
+   VARIABLES
+========================================================= */
 
-const categoryIcons = {
+let documentos = [];
 
-    "Atención al cliente y reclamos": "🎫",
+let categorias = [];
 
-    "Diagnóstico de red": "🌐",
-
-    "Equipos de red": "📡",
-
-    "Wireless / AP / CPE": "📶",
-
-    "Infraestructura / core / fibra": "🏗️",
-
-    "Infraestructura física": "⚡",
-
-    "Sistemas internos": "🧩",
-
-    "Procesos y operación": "⚙️",
-
-    "Dispositivos del cliente": "🖥️",
-
-    "Glosario y conceptos": "📚"
-
-};
+let cargando = false;
 
 
 
-/* ======================================================
-   CARGAR README
-====================================================== */
+/* =========================================================
+   INICIO
+========================================================= */
 
-async function cargarREADME() {
-
+async function iniciar() {
 
     try {
 
-
-        const response =
-            await fetch(README_URL);
-
-
-        if (!response.ok) {
-
-            throw new Error(
-                "No se pudo cargar el README."
-            );
-
-        }
+        document.getElementById("status").textContent =
+            "Buscando archivos en /doc...";
 
 
-        const markdown =
-            await response.text();
+        /*
+            PRIMERO:
+
+            Obtener todos los archivos
+            directamente desde /doc.
+        */
+
+        await cargarDocumentos();
 
 
-        interpretarREADME(
-            markdown
-        );
+        /*
+            SEGUNDO:
+
+            Leer README para obtener
+            las categorías.
+        */
+
+        await cargarCategorias();
 
 
-    } catch (error) {
+        document.getElementById(
+            "cantidad-documentos"
+        ).textContent =
+            documentos.length;
 
 
-        console.error(error);
+        document.getElementById(
+            "cantidad-categorias"
+        ).textContent =
+            categorias.length;
+
+
+        document.getElementById(
+            "estado"
+        ).textContent =
+            "OK";
 
 
         document.getElementById(
             "status"
         ).textContent =
-            "No se pudo cargar el índice.";
+            `${documentos.length} documentos disponibles`;
+
+
+    } catch (error) {
+
+        console.error(error);
+
+        document.getElementById(
+            "estado"
+        ).textContent =
+            "ERROR";
+
+
+        document.getElementById(
+            "status"
+        ).textContent =
+            error.message;
+
+
+        document.getElementById(
+            "resultados"
+        ).innerHTML = `
+
+            <div class="empty">
+
+                ❌
+
+                <br><br>
+
+                <strong>
+                    No se pudo cargar la documentación
+                </strong>
+
+                <br><br>
+
+                ${error.message}
+
+            </div>
+
+        `;
 
     }
 
@@ -2217,551 +816,309 @@ async function cargarREADME() {
 
 
 
-/* ======================================================
-   INTERPRETAR README
-====================================================== */
+/* =========================================================
+   OBTENER ARCHIVOS DE /DOC
+========================================================= */
 
-function interpretarREADME(
+async function cargarDocumentos() {
+
+
+    const respuesta =
+        await fetch(API);
+
+
+    if (!respuesta.ok) {
+
+        throw new Error(
+            `GitHub API respondió ${respuesta.status}`
+        );
+
+    }
+
+
+    const archivos =
+        await respuesta.json();
+
+
+    /*
+        Solamente Markdown.
+    */
+
+    documentos =
+        archivos
+
+            .filter(
+                archivo =>
+                    archivo.type === "file" &&
+                    archivo.name
+                        .toLowerCase()
+                        .endsWith(".md")
+            )
+
+            .map(
+                archivo => ({
+
+                    nombre:
+                        archivo.name
+                            .replace(
+                                /\.md$/i,
+                                ""
+                            ),
+
+                    path:
+                        archivo.path,
+
+                    url:
+                        archivo.download_url
+
+                })
+            );
+
+
+    /*
+        Orden alfabético
+    */
+
+    documentos.sort(
+        (a, b) =>
+            a.nombre.localeCompare(
+                b.nombre,
+                "es"
+            )
+    );
+
+
+}
+
+
+
+/* =========================================================
+   LEER README Y CATEGORÍAS
+========================================================= */
+
+async function cargarCategorias() {
+
+
+    const url =
+        `https://raw.githubusercontent.com/${OWNER}/${REPO}/${BRANCH}/README.md`;
+
+
+    const respuesta =
+        await fetch(url);
+
+
+    if (!respuesta.ok) {
+
+        throw new Error(
+            "No se pudo cargar README.md"
+        );
+
+    }
+
+
+    const markdown =
+        await respuesta.text();
+
+
+    categorias =
+        obtenerCategorias(
+            markdown
+        );
+
+
+    mostrarCategorias();
+
+}
+
+
+
+/* =========================================================
+   EXTRAER CATEGORÍAS
+========================================================= */
+
+function obtenerCategorias(
     markdown
 ) {
 
+
+    const resultado = [];
 
     const lineas =
         markdown.split("\n");
 
 
-    let categoriaActual =
-        null;
+    for (
+        const linea of lineas
+    ) {
 
 
-    const mapa =
-        new Map();
+        /*
+            Solo H2:
+
+            ## Diagnóstico de red
+        */
+
+        const match =
+            linea.match(
+                /^##\s+(.+)$/
+            );
 
 
-    lineas.forEach(
-        linea => {
+        if (!match)
+            continue;
 
 
-            /*
-                Detectar títulos H2
+        let nombre =
+            match[1]
+                .trim();
 
-                Ej:
-                ## Diagnóstico de red
-            */
 
-            const heading =
-                linea.match(
-                    /^##\s+(.+)$/
+        /*
+            Quitar emojis del nombre
+            solamente para comparar.
+        */
+
+        const documentosCategoria =
+            [];
+
+
+        resultado.push({
+
+            nombre,
+
+            documentos:
+                documentosCategoria
+
+        });
+
+    }
+
+
+    return resultado;
+
+}
+
+
+
+/* =========================================================
+   MOSTRAR CATEGORÍAS
+========================================================= */
+
+function mostrarCategorias() {
+
+
+    const contenedor =
+        document.getElementById(
+            "categorias"
+        );
+
+
+    contenedor.innerHTML = "";
+
+
+    categorias.forEach(
+        categoria => {
+
+
+            const elemento =
+                document.createElement(
+                    "div"
                 );
 
 
-            if (heading) {
+            elemento.className =
+                "nav-item";
 
 
-                const titulo =
-                    limpiarMarkdown(
-                        heading[1]
+            elemento.textContent =
+                "📁 " +
+                limpiarEmoji(
+                    categoria.nombre
+                );
+
+
+            elemento.onclick =
+                () =>
+                    filtrarCategoria(
+                        categoria
                     );
 
 
-                categoriaActual =
-                    {
+            contenedor.appendChild(
+                elemento
+            );
 
-                        title:
-                            titulo,
+        }
+    );
 
-                        documents:
-                            []
-
-                    };
+}
 
 
-                categories.push(
-                    categoriaActual
-                );
+
+/* =========================================================
+   BUSCADOR
+========================================================= */
+
+document
+    .getElementById(
+        "buscador"
+    )
+    .addEventListener(
+        "input",
+        function () {
+
+            const texto =
+                this.value
+                    .trim()
+                    .toLowerCase();
 
 
-                mapa.set(
-                    titulo,
-                    categoriaActual
-                );
+            if (!texto) {
 
+                document.getElementById(
+                    "resultados"
+                ).innerHTML = "";
+
+
+                document.getElementById(
+                    "status"
+                ).textContent =
+                    `${documentos.length} documentos disponibles`;
 
                 return;
 
             }
 
 
-            /*
-                Detectar enlaces Markdown
-
-                Ej:
-
-                - [Sin conexión](./doc/Sin%20conexión.md)
-            */
-
-            const link =
-                linea.match(
-                    /^-\s+\[([^\]]+)\]\(([^)]+)\)/
-                );
-
-
-            if (
-                link &&
-                categoriaActual
-            ) {
-
-
-                const titulo =
-                    limpiarMarkdown(
-                        link[1]
-                    );
-
-
-                const ruta =
-                    limpiarRuta(
-                        link[2]
-                    );
-
-
-                /*
-                    Evitar duplicados
-                */
-
-                const existe =
-                    categoriaActual
-                        .documents
-                        .some(
-                            documento =>
-                                documento.path ===
-                                ruta
-                        );
-
-
-                if (!existe) {
-
-
-                    categoriaActual
-                        .documents
-                        .push({
-
-                            title:
-                                titulo,
-
-                            path:
-                                ruta,
-
-                            category:
-                                categoriaActual
-                                    .title
-
-                        });
-
-                }
-
-            }
-
-        }
-    );
-
-
-    /*
-        Construir lista global
-    */
-
-    documents = [];
-
-
-    categories.forEach(
-        categoria => {
-
-            categoria.documents.forEach(
-                documento => {
-
-                    /*
-                        Puede aparecer en varias
-                        categorías.
-                    */
-
-                    documents.push(
-                        documento
-                    );
-
-                }
+            buscarDocumentos(
+                texto
             );
 
         }
     );
 
 
-    /*
-        Eliminar duplicados globales
-        manteniendo el primer título.
-    */
 
-    const unicos =
-        new Map();
+/* =========================================================
+   BUSCAR DOCUMENTOS
+========================================================= */
 
-
-    documents.forEach(
-        documento => {
-
-
-            if (
-                !unicos.has(
-                    documento.path
-                )
-            ) {
-
-                unicos.set(
-                    documento.path,
-                    documento
-                );
-
-            }
-
-        }
-    );
-
-
-    documents =
-        Array.from(
-            unicos.values()
-        );
-
-
-    construirMenu();
-
-
-    actualizarEstadisticas();
-
-
-    document.getElementById(
-        "status-online"
-    ).textContent =
-        "Online";
-
-
-    document.getElementById(
-        "status"
-    ).textContent =
-        `${documents.length} documentos disponibles`;
-
-
-    mostrarInicio();
-
-
-}
-
-
-
-/* ======================================================
-   CONSTRUIR MENU
-====================================================== */
-
-function construirMenu() {
-
-
-    const container =
-        document.getElementById(
-            "categories"
-        );
-
-
-    container.innerHTML = "";
-
-
-    categories.forEach(
-        categoria => {
-
-
-            const item =
-                document.createElement(
-                    "div"
-                );
-
-
-            item.className =
-                "nav-item";
-
-
-            const icono =
-                categoryIcons[
-                    categoria.title
-                ] || "📁";
-
-
-            item.innerHTML = `
-
-                <span class="nav-icon">
-                    ${icono}
-                </span>
-
-                <span>
-                    ${escapeHTML(
-                        categoria.title
-                    )}
-                </span>
-
-                <span class="category-count">
-                    ${categoria.documents.length}
-                </span>
-
-            `;
-
-
-            item.onclick =
-                function () {
-
-                    mostrarCategoria(
-                        categoria
-                    );
-
-                };
-
-
-            container.appendChild(
-                item
-            );
-
-        }
-    );
-
-
-}
-
-
-
-/* ======================================================
-   ESTADÍSTICAS
-====================================================== */
-
-function actualizarEstadisticas() {
-
-
-    document.getElementById(
-        "total-documents"
-    ).textContent =
-        documents.length;
-
-
-    document.getElementById(
-        "total-categories"
-    ).textContent =
-        categories.length;
-
-}
-
-
-
-/* ======================================================
-   MOSTRAR INICIO
-====================================================== */
-
-function mostrarInicio() {
-
-
-    document.getElementById(
-        "home-view"
-    ).style.display =
-        "block";
-
-
-    document.getElementById(
-        "document-viewer"
-    ).style.display =
-        "none";
-
-
-    document.getElementById(
-        "search"
-    ).value = "";
-
-
-    document.getElementById(
-        "results"
-    ).innerHTML = "";
-
-
-    document.getElementById(
-        "status"
-    ).textContent =
-        `${documents.length} documentos disponibles`;
-
-
-    document
-        .querySelectorAll(
-            ".nav-item"
-        )
-        .forEach(
-            item =>
-                item.classList.remove(
-                    "active"
-                )
-        );
-
-
-    document.getElementById(
-        "nav-home"
-    ).classList.add(
-        "active"
-    );
-
-
-    cerrarSidebar();
-
-
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-    });
-
-}
-
-
-
-/* ======================================================
-   MOSTRAR CATEGORÍA
-====================================================== */
-
-function mostrarCategoria(
-    categoria
+async function buscarDocumentos(
+    texto
 ) {
 
 
-    document.getElementById(
-        "home-view"
-    ).style.display =
-        "block";
+    if (cargando)
+        return;
 
 
-    document.getElementById(
-        "document-viewer"
-    ).style.display =
-        "none";
-
-
-    document.getElementById(
-        "search"
-    ).value = "";
-
-
-    document.getElementById(
-        "results"
-    ).innerHTML = "";
-
-
-    mostrarResultados(
-        categoria.documents,
-        ""
-    );
+    cargando = true;
 
 
     document.getElementById(
         "status"
     ).textContent =
-        `${categoria.documents.length} documentos en ${categoria.title}`;
-
-
-    document
-        .querySelectorAll(
-            ".nav-item"
-        )
-        .forEach(
-            item =>
-                item.classList.remove(
-                    "active"
-                )
-        );
-
-
-    cerrarSidebar();
-
-
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-    });
-
-}
-
-
-
-/* ======================================================
-   BUSCADOR
-====================================================== */
-
-let cacheDocumentos = new Map();
-let temporizadorBusqueda = null;
-
-
-/* ======================================================
-   BUSCADOR
-====================================================== */
-
-function buscar() {
-
-    clearTimeout(temporizadorBusqueda);
-
-    const texto =
-        document
-            .getElementById("search")
-            .value
-            .trim()
-            .toLowerCase();
-
-
-    if (!texto) {
-
-        document.getElementById("results").innerHTML = "";
-
-        document.getElementById("status").textContent =
-            `${documents.length} documentos disponibles`;
-
-        return;
-    }
-
-
-    /*
-        Esperamos un poco para evitar
-        hacer una búsqueda por cada tecla.
-    */
-
-    temporizadorBusqueda = setTimeout(
-        () => ejecutarBusqueda(texto),
-        300
-    );
-
-}
-
-
-
-/* ======================================================
-   EJECUTAR BÚSQUEDA
-====================================================== */
-
-async function ejecutarBusqueda(texto) {
-
-    const results =
-        document.getElementById("results");
-
-
-    results.innerHTML = `
-
-        <div class="empty">
-
-            <div class="loading"
-                 style="justify-content:center;">
-
-                <div class="spinner"></div>
-
-                Buscando en la documentación...
-
-            </div>
-
-        </div>
-
-    `;
+        "Buscando...";
 
 
     const palabras =
@@ -2770,111 +1127,74 @@ async function ejecutarBusqueda(texto) {
             .filter(Boolean);
 
 
-    const encontrados = [];
+    const resultados = [];
 
 
     /*
-        Buscar en cada documento.
+        Revisar TODOS los documentos
+        de /doc.
     */
 
     for (
-        const documento of documents
+        const documento of documentos
     ) {
+
 
         try {
 
-            let contenido =
-                cacheDocumentos.get(
-                    documento.path
+
+            const contenido =
+                await obtenerContenido(
+                    documento
                 );
+
+
+            const textoBusqueda =
+                (
+                    documento.nombre +
+                    " " +
+                    contenido
+                ).toLowerCase();
+
+
+            let puntos = 0;
 
 
             /*
-                Si todavía no está en memoria,
-                lo descargamos.
+                Todas las palabras
+                tienen que aparecer.
             */
 
-            if (
-                contenido === undefined
+            for (
+                const palabra of palabras
             ) {
 
-                contenido =
-                    await cargarDocumento(
-                        documento.path
-                    );
 
+                if (
+                    textoBusqueda.includes(
+                        palabra
+                    )
+                ) {
 
-                cacheDocumentos.set(
-                    documento.path,
-                    contenido
-                );
+                    puntos++;
+
+                }
 
             }
 
 
-            const titulo =
-                documento.title
-                    .toLowerCase();
-
-
-            const contenidoLower =
-                contenido
-                    .toLowerCase();
-
-
-            let coincidencias = 0;
-
-
-            /*
-                Cada palabra encontrada
-                suma puntos.
-            */
-
-            palabras.forEach(
-                palabra => {
-
-                    if (
-                        titulo.includes(
-                            palabra
-                        )
-                    ) {
-
-                        coincidencias += 10;
-
-                    }
-
-
-                    if (
-                        contenidoLower.includes(
-                            palabra
-                        )
-                    ) {
-
-                        coincidencias += 1;
-
-                    }
-
-                }
-            );
-
-
-            /*
-                Solamente mostramos documentos
-                donde encontramos algo.
-            */
-
             if (
-                coincidencias > 0
+                puntos === palabras.length
             ) {
 
-                encontrados.push({
 
-                    ...documento,
+                resultados.push({
 
-                    content:
-                        contenido,
+                    documento,
 
-                    coincidencias
+                    contenido,
+
+                    puntos
 
                 });
 
@@ -2884,7 +1204,6 @@ async function ejecutarBusqueda(texto) {
         } catch (error) {
 
             console.warn(
-                "No se pudo leer:",
                 documento.path,
                 error
             );
@@ -2895,18 +1214,18 @@ async function ejecutarBusqueda(texto) {
 
 
     /*
-        Ordenar por relevancia.
+        Mostrar resultados
     */
 
-    encontrados.sort(
+    resultados.sort(
         (a, b) =>
-            b.coincidencias -
-            a.coincidencias
+            b.puntos -
+            a.puntos
     );
 
 
     mostrarResultados(
-        encontrados,
+        resultados,
         texto
     );
 
@@ -2914,48 +1233,128 @@ async function ejecutarBusqueda(texto) {
     document.getElementById(
         "status"
     ).textContent =
-        `${encontrados.length} resultado(s) para "${texto}"`;
+        `${resultados.length} resultado(s)`;
+
+
+    cargando = false;
 
 }
 
 
-/* ======================================================
+
+/* =========================================================
+   OBTENER CONTENIDO DEL MD
+========================================================= */
+
+const cache = new Map();
+
+
+async function obtenerContenido(
+    documento
+) {
+
+
+    /*
+        Si ya lo tenemos guardado,
+        no volver a descargarlo.
+    */
+
+    if (
+        cache.has(
+            documento.path
+        )
+    ) {
+
+        return cache.get(
+            documento.path
+        );
+
+    }
+
+
+    const respuesta =
+        await fetch(
+            `${RAW}${documento.path
+                .split("/")
+                .map(
+                    encodeURIComponent
+                )
+                .join("/")
+            }`
+        );
+
+
+    if (!respuesta.ok) {
+
+        throw new Error(
+            `No se pudo leer ${documento.path}`
+        );
+
+    }
+
+
+    const contenido =
+        await respuesta.text();
+
+
+    cache.set(
+        documento.path,
+        contenido
+    );
+
+
+    return contenido;
+
+}
+
+
+
+/* =========================================================
    MOSTRAR RESULTADOS
-====================================================== */
+========================================================= */
 
 function mostrarResultados(
-    encontrados,
+    resultados,
     texto
 ) {
 
 
-    const results =
+    const contenedor =
         document.getElementById(
-            "results"
+            "resultados"
         );
 
 
-    results.innerHTML = "";
+    contenedor.innerHTML = "";
 
 
     if (
-        encontrados.length === 0
+        resultados.length === 0
     ) {
 
 
-        results.innerHTML = `
+        contenedor.innerHTML = `
 
             <div class="empty">
 
-                <div class="empty-icon">
-                    🔎
-                </div>
+                🔎
+
+                <br><br>
 
                 <strong>
                     No encontramos resultados
                 </strong>
 
-                Probá con otro término.
+                <br>
+
+                No existe ningún documento
+                que contenga:
+
+                <br><br>
+
+                <strong>
+                    "${escapeHTML(texto)}"
+                </strong>
 
             </div>
 
@@ -2967,118 +1366,78 @@ function mostrarResultados(
     }
 
 
-    encontrados.forEach(
-        documento => {
-
-
-            const contenido =
-                documento.content || "";
+    resultados.forEach(
+        resultado => {
 
 
             const fragmento =
-                texto
-                    ? obtenerFragmento(
-                        contenido,
-                        texto
-                    )
-                    : obtenerInicio(
-                        contenido
-                    );
+                obtenerFragmento(
+                    resultado.contenido,
+                    texto
+                );
 
 
-            const githubURL =
-                `https://github.com/${OWNER}/${REPOSITORY}/blob/${BRANCH}/${encodePath(documento.path)}`;
-
-
-            const resultado =
+            const elemento =
                 document.createElement(
                     "div"
                 );
 
 
-            resultado.className =
+            elemento.className =
                 "result";
 
 
-            resultado.innerHTML = `
+            elemento.innerHTML = `
 
-                <div class="result-header">
+                <div class="result-title">
 
-                    <div class="document-icon">
-                        📄
-                    </div>
+                    📄
 
-                    <div>
-
-                        <h3>
-                            ${escapeHTML(
-                                documento.title
-                            )}
-                        </h3>
-
-                        <div class="path">
-
-                            📁
-                            ${escapeHTML(
-                                documento.path
-                            )}
-
-                        </div>
-
-                    </div>
+                    ${escapeHTML(
+                        resultado.documento.nombre
+                    )}
 
                 </div>
 
 
-                <p>
+                <div class="result-category">
 
-                    ${
+                    📁
+
+                    ${escapeHTML(
+                        resultado.documento.path
+                    )}
+
+                </div>
+
+
+                <div class="result-text">
+
+                    ${resaltar(
+                        fragmento,
                         texto
-                            ? resaltar(
-                                fragmento,
-                                texto.split(/\s+/)
-                            )
-                            : escapeHTML(
-                                fragmento
-                            )
-                    }
-
-                </p>
-
-
-                <div class="result-actions">
-
-
-                    <button
-                        class="button button-primary"
-                        onclick="abrirDocumento('${encodeURIComponent(documento.path)}')"
-                    >
-
-                        📖
-                        Leer documento
-
-                    </button>
-
-
-                    <a
-                        class="button button-secondary"
-                        href="${githubURL}"
-                        target="_blank"
-                    >
-
-                        🔗
-                        GitHub
-
-                    </a>
-
+                    )}
 
                 </div>
+
+
+                <button
+                    onclick="abrirDocumento(
+                        '${escapeJS(
+                            resultado.documento.path
+                        )}'
+                    )"
+                >
+
+                    📖 Leer documento
+
+                </button>
 
             `;
 
 
-            results.appendChild(
-                resultado
+            contenedor.appendChild(
+                elemento
             );
 
         }
@@ -3088,395 +1447,9 @@ function mostrarResultados(
 
 
 
-/* ======================================================
-   ABRIR DOCUMENTO
-====================================================== */
-
-async function abrirDocumento(
-    encodedPath
-) {
-
-
-    const path =
-        decodeURIComponent(
-            encodedPath
-        );
-
-
-    const documento =
-        documents.find(
-            item =>
-                item.path === path
-        );
-
-
-    if (!documento)
-        return;
-
-
-    document.getElementById(
-        "home-view"
-    ).style.display =
-        "none";
-
-
-    document.getElementById(
-        "document-viewer"
-    ).style.display =
-        "block";
-
-
-    document.getElementById(
-        "markdown-content"
-    ).innerHTML = `
-
-        <div class="empty">
-
-            <div class="loading"
-                 style="justify-content:center;">
-
-                <div class="spinner"></div>
-
-                Cargando documentación...
-
-            </div>
-
-        </div>
-
-    `;
-
-
-    document.getElementById(
-        "document-location"
-    ).textContent =
-        documento.path;
-
-
-    const githubURL =
-        `https://github.com/${OWNER}/${REPOSITORY}/blob/${BRANCH}/${encodePath(path)}`;
-
-
-    document.getElementById(
-        "github-document"
-    ).href =
-        githubURL;
-
-
-    try {
-
-
-        const markdown =
-            await cargarDocumento(
-                path
-            );
-
-
-        /*
-            Configuración básica
-            de marked
-        */
-
-        marked.setOptions({
-
-            breaks: true,
-
-            gfm: true
-
-        });
-
-
-        let html =
-            marked.parse(
-                markdown
-            );
-
-
-        /*
-            Corregir imágenes relativas
-        */
-
-        html =
-            corregirImagenes(
-                html,
-                path
-            );
-
-
-        /*
-            Corregir enlaces relativos
-        */
-
-        html =
-            corregirEnlaces(
-                html,
-                path
-            );
-
-
-        document.getElementById(
-            "markdown-content"
-        ).innerHTML =
-            html;
-
-
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
-
-
-    } catch (error) {
-
-
-        console.error(error);
-
-
-        document.getElementById(
-            "markdown-content"
-        ).innerHTML = `
-
-            <div class="empty">
-
-                <div class="empty-icon">
-                    ⚠️
-                </div>
-
-                <strong>
-                    No se pudo cargar el documento
-                </strong>
-
-                Intentá abrirlo directamente
-                desde GitHub.
-
-            </div>
-
-        `;
-
-    }
-
-}
-
-
-
-/* ======================================================
-   CARGAR DOCUMENTO
-====================================================== */
-
-async function cargarDocumento(
-    path
-) {
-
-
-    const url =
-        `https://raw.githubusercontent.com/${OWNER}/${REPOSITORY}/${BRANCH}/${encodePath(path)}`;
-
-
-    const response =
-        await fetch(url);
-
-
-    if (!response.ok) {
-
-        throw new Error(
-            "No se pudo cargar el documento."
-        );
-
-    }
-
-
-    return await response.text();
-
-}
-
-
-
-/* ======================================================
-   IMÁGENES
-====================================================== */
-
-function corregirImagenes(
-    html,
-    documentoPath
-) {
-
-
-    const carpeta =
-        documentoPath.includes("/")
-            ? documentoPath.substring(
-                0,
-                documentoPath.lastIndexOf("/")
-            )
-            : "";
-
-
-    const temp =
-        document.createElement(
-            "div"
-        );
-
-
-    temp.innerHTML =
-        html;
-
-
-    temp.querySelectorAll(
-        "img"
-    ).forEach(
-        img => {
-
-
-            const src =
-                img.getAttribute(
-                    "src"
-                );
-
-
-            if (
-                !src ||
-                src.startsWith(
-                    "http"
-                )
-            ) {
-
-                return;
-
-            }
-
-
-            const ruta =
-                normalizarRuta(
-                    carpeta,
-                    src
-                );
-
-
-            img.src =
-                `https://raw.githubusercontent.com/${OWNER}/${REPOSITORY}/${BRANCH}/${encodePath(ruta)}`;
-
-        }
-    );
-
-
-    return temp.innerHTML;
-
-}
-
-
-
-/* ======================================================
-   ENLACES
-====================================================== */
-
-function corregirEnlaces(
-    html,
-    documentoPath
-) {
-
-
-    const carpeta =
-        documentoPath.includes("/")
-            ? documentoPath.substring(
-                0,
-                documentoPath.lastIndexOf("/")
-            )
-            : "";
-
-
-    const temp =
-        document.createElement(
-            "div"
-        );
-
-
-    temp.innerHTML =
-        html;
-
-
-    temp.querySelectorAll(
-        "a"
-    ).forEach(
-        link => {
-
-
-            const href =
-                link.getAttribute(
-                    "href"
-                );
-
-
-            if (
-                !href ||
-                href.startsWith(
-                    "http"
-                ) ||
-                href.startsWith(
-                    "#"
-                )
-            ) {
-
-                return;
-
-            }
-
-
-            if (
-                href.toLowerCase()
-                    .endsWith(".md")
-            ) {
-
-
-                const ruta =
-                    normalizarRuta(
-                        carpeta,
-                        href
-                    );
-
-
-                const existe =
-                    documents.some(
-                        documento =>
-                            documento.path ===
-                            ruta
-                    );
-
-
-                if (existe) {
-
-
-                    link.href =
-                        "#";
-
-
-                    link.onclick =
-                        function (event) {
-
-                            event.preventDefault();
-
-                            abrirDocumento(
-                                encodeURIComponent(
-                                    ruta
-                                )
-                            );
-
-                        };
-
-                }
-
-            }
-
-        }
-    );
-
-
-    return temp.innerHTML;
-
-}
-
-
-
-/* ======================================================
+/* =========================================================
    FRAGMENTO
-====================================================== */
+========================================================= */
 
 function obtenerFragmento(
     contenido,
@@ -3484,22 +1457,33 @@ function obtenerFragmento(
 ) {
 
 
-    const lower =
-        contenido.toLowerCase();
+    const limpio =
+        contenido
+            .replace(
+                /[#>*_`]/g,
+                " "
+            )
+            .replace(
+                /\s+/g,
+                " "
+            );
 
 
     const posicion =
-        lower.indexOf(
-            texto.toLowerCase()
-        );
+        limpio
+            .toLowerCase()
+            .indexOf(
+                texto.toLowerCase()
+            );
 
 
     if (
         posicion === -1
     ) {
 
-        return obtenerInicio(
-            contenido
+        return limpio.substring(
+            0,
+            300
         );
 
     }
@@ -3508,59 +1492,28 @@ function obtenerFragmento(
     const inicio =
         Math.max(
             0,
-            posicion - 180
+            posicion - 120
         );
 
 
-    const fin =
-        Math.min(
-            contenido.length,
-            posicion +
-            texto.length +
-            280
-        );
-
-
-    return contenido.substring(
+    return limpio.substring(
         inicio,
-        fin
+        posicion +
+        texto.length +
+        250
     );
 
 }
 
 
 
-/* ======================================================
-   INICIO DOCUMENTO
-====================================================== */
-
-function obtenerInicio(
-    contenido
-) {
-
-
-    return contenido
-        .replace(
-            /^#+/gm,
-            ""
-        )
-        .trim()
-        .substring(
-            0,
-            350
-        );
-
-}
-
-
-
-/* ======================================================
+/* =========================================================
    RESALTAR
-====================================================== */
+========================================================= */
 
 function resaltar(
     texto,
-    palabras
+    busqueda
 ) {
 
 
@@ -3570,17 +1523,21 @@ function resaltar(
         );
 
 
+    const palabras =
+        busqueda
+            .split(/\s+/)
+            .filter(Boolean);
+
+
     palabras.forEach(
         palabra => {
 
 
-            if (!palabra)
-                return;
-
-
             const regex =
                 new RegExp(
-                    `(${escapeRegex(palabra)})`,
+                    `(${escapeRegex(
+                        palabra
+                    )})`,
                     "gi"
                 );
 
@@ -3601,207 +1558,427 @@ function resaltar(
 
 
 
-/* ======================================================
-   LIMPIAR MARKDOWN
-====================================================== */
+/* =========================================================
+   ABRIR DOCUMENTO
+========================================================= */
 
-function limpiarMarkdown(
-    texto
+async function abrirDocumento(
+    path
 ) {
 
 
-    return texto
+    document.getElementById(
+        "home"
+    ).style.display =
+        "none";
 
+
+    document.getElementById(
+        "documento"
+    ).style.display =
+        "block";
+
+
+    const contenido =
+        document.getElementById(
+            "contenidoDocumento"
+        );
+
+
+    contenido.innerHTML =
+        "<p>Cargando...</p>";
+
+
+    try {
+
+
+        const documento =
+            documentos.find(
+                item =>
+                    item.path === path
+            );
+
+
+        const markdown =
+            await obtenerContenido(
+                documento
+            );
+
+
+        contenido.innerHTML =
+            marked.parse(
+                markdown
+            );
+
+
+        document.getElementById(
+            "linkGithub"
+        ).href =
+            `https://github.com/${OWNER}/${REPO}/blob/${BRANCH}/${path
+                .split("/")
+                .map(
+                    encodeURIComponent
+                )
+                .join("/")
+            }`;
+
+
+        window.scrollTo(
+            0,
+            0
+        );
+
+
+    } catch (error) {
+
+
+        contenido.innerHTML = `
+
+            <div class="empty">
+
+                ❌
+
+                <br><br>
+
+                No se pudo cargar
+                el documento.
+
+            </div>
+
+        `;
+
+    }
+
+}
+
+
+
+/* =========================================================
+   FILTRAR CATEGORÍA
+========================================================= */
+
+async function filtrarCategoria(
+    categoria
+) {
+
+
+    /*
+        Por ahora buscamos los documentos
+        que aparecen en el README
+        dentro de esta categoría.
+    */
+
+    const resultados = [];
+
+
+    const lineas =
+        await obtenerREADME();
+
+
+    const documentosCategoria =
+        obtenerDocumentosDeCategoria(
+            lineas,
+            categoria.nombre
+        );
+
+
+    for (
+        const ruta of documentosCategoria
+    ) {
+
+
+        const documento =
+            documentos.find(
+                item =>
+                    item.path
+                        .toLowerCase() ===
+                    ruta.toLowerCase()
+            );
+
+
+        if (!documento)
+            continue;
+
+
+        try {
+
+
+            const contenido =
+                await obtenerContenido(
+                    documento
+                );
+
+
+            resultados.push({
+
+                documento,
+
+                contenido,
+
+                puntos: 1
+
+            });
+
+
+        } catch {
+
+        }
+
+    }
+
+
+    document.getElementById(
+        "buscador"
+    ).value = "";
+
+
+    mostrarResultados(
+        resultados,
+        ""
+    );
+
+
+    document.getElementById(
+        "status"
+    ).textContent =
+        `${resultados.length} documentos en ${limpiarEmoji(categoria.nombre)}`;
+
+}
+
+
+
+/* =========================================================
+   README
+========================================================= */
+
+let readmeCache = null;
+
+
+async function obtenerREADME() {
+
+
+    if (
+        readmeCache
+    ) {
+
+        return readmeCache;
+
+    }
+
+
+    const respuesta =
+        await fetch(
+            `https://raw.githubusercontent.com/${OWNER}/${REPO}/${BRANCH}/README.md`
+        );
+
+
+    if (!respuesta.ok) {
+
+        throw new Error(
+            "No se pudo leer README.md"
+        );
+
+    }
+
+
+    readmeCache =
+        await respuesta.text();
+
+
+    return readmeCache;
+
+}
+
+
+
+/* =========================================================
+   OBTENER DOCUMENTOS DE CATEGORÍA
+========================================================= */
+
+function obtenerDocumentosDeCategoria(
+    markdown,
+    categoria
+) {
+
+
+    const lineas =
+        markdown.split("\n");
+
+
+    let dentro = false;
+
+    const rutas = [];
+
+
+    for (
+        const linea of lineas
+    ) {
+
+
+        const heading =
+            linea.match(
+                /^##\s+(.+)$/
+            );
+
+
+        if (heading) {
+
+
+            const titulo =
+                heading[1]
+                    .trim();
+
+
+            dentro =
+                titulo === categoria;
+
+
+            continue;
+
+        }
+
+
+        if (!dentro)
+            continue;
+
+
+        const enlace =
+            linea.match(
+                /^-\s+\[([^\]]+)\]\((.+)\)$/
+            );
+
+
+        if (!enlace)
+            continue;
+
+
+        let ruta =
+            enlace[2]
+                .trim();
+
+
+        ruta =
+            ruta
+                .replace(
+                    /^\.\//,
+                    ""
+                )
+                .replace(
+                    /\\([()])/g,
+                    "$1"
+                );
+
+
+        try {
+
+            ruta =
+                decodeURIComponent(
+                    ruta
+                );
+
+        } catch {
+
+        }
+
+
+        rutas.push(
+            ruta
+        );
+
+    }
+
+
+    return rutas;
+
+}
+
+
+
+/* =========================================================
+   INICIO
+========================================================= */
+
+function inicio() {
+
+
+    document.getElementById(
+        "home"
+    ).style.display =
+        "block";
+
+
+    document.getElementById(
+        "documento"
+    ).style.display =
+        "none";
+
+
+    window.scrollTo(
+        0,
+        0
+    );
+
+}
+
+
+
+/* =========================================================
+   ACTIVAR BÚSQUEDA
+========================================================= */
+
+function activarBusqueda() {
+
+    inicio();
+
+    document
+        .getElementById(
+            "buscador"
+        )
+        .focus();
+
+}
+
+
+
+/* =========================================================
+   UTILIDADES
+========================================================= */
+
+function limpiarEmoji(
+    texto
+) {
+
+    return texto
         .replace(
-            /[*_`]/g,
+            /[\u{1F300}-\u{1FAFF}]/gu,
             ""
         )
-
         .trim();
 
 }
 
 
-
-/* ======================================================
-   LIMPIAR RUTA DEL README
-====================================================== */
-
-function limpiarRuta(
-    ruta
-) {
-
-
-    /*
-        Quitar parámetros
-    */
-
-    ruta =
-        ruta.split("#")[0];
-
-
-    /*
-        Quitar ./ inicial
-    */
-
-    ruta =
-        ruta.replace(
-            /^\.\//,
-            ""
-        );
-
-
-    /*
-        Decodificar URL
-    */
-
-    try {
-
-        ruta =
-            decodeURIComponent(
-                ruta
-            );
-
-    } catch {
-
-        // Mantener ruta original
-
-    }
-
-
-    /*
-        Corregir escapes Markdown
-    */
-
-    ruta =
-        ruta.replace(
-            /\\([()])/g,
-            "$1"
-        );
-
-
-    return ruta;
-
-}
-
-
-
-/* ======================================================
-   NORMALIZAR RUTA
-====================================================== */
-
-function normalizarRuta(
-    carpeta,
-    ruta
-) {
-
-
-    try {
-
-        ruta =
-            decodeURIComponent(
-                ruta
-            );
-
-    } catch {
-
-    }
-
-
-    ruta =
-        ruta.replace(
-            /^\.\/+/,
-            ""
-        );
-
-
-    if (
-        ruta.startsWith("/")
-    ) {
-
-        return ruta.substring(
-            1
-        );
-
-    }
-
-
-    if (
-        ruta.startsWith("doc/")
-    ) {
-
-        return ruta;
-
-    }
-
-
-    if (!carpeta) {
-
-        return ruta;
-
-    }
-
-
-    return `${carpeta}/${ruta}`;
-
-}
-
-
-
-/* ======================================================
-   ENCODE PATH
-====================================================== */
-
-function encodePath(
-    path
-) {
-
-
-    return path
-        .split("/")
-        .map(
-            parte =>
-                encodeURIComponent(
-                    parte
-                )
-        )
-        .join("/");
-
-}
-
-
-
-/* ======================================================
-   ESCAPE HTML
-====================================================== */
-
 function escapeHTML(
     texto
 ) {
 
-
     return String(texto)
-
         .replace(
             /&/g,
             "&amp;"
         )
-
         .replace(
             /</g,
             "&lt;"
         )
-
         .replace(
             />/g,
             "&gt;"
         )
-
         .replace(
             /"/g,
             "&quot;"
         )
-
         .replace(
             /'/g,
             "&#039;"
@@ -3810,138 +1987,44 @@ function escapeHTML(
 }
 
 
+function escapeJS(
+    texto
+) {
 
-/* ======================================================
-   ESCAPE REGEX
-====================================================== */
+    return String(texto)
+        .replace(
+            /\\/g,
+            "\\\\"
+        )
+        .replace(
+            /'/g,
+            "\\'"
+        );
+
+}
+
 
 function escapeRegex(
     texto
 ) {
 
-
-    return texto.replace(
-        /[.*+?^${}()|[\]\\]/g,
-        "\\$&"
-    );
-
-}
-
-
-
-/* ======================================================
-   BÚSQUEDA RÁPIDA
-====================================================== */
-
-function buscarRapido(
-    texto
-) {
-
-
-    const input =
-        document.getElementById(
-            "search"
-        );
-
-
-    input.value =
-        texto;
-
-
-    buscar();
-
-
-    input.focus();
-
-}
-
-
-
-/* ======================================================
-   ACTIVAR BUSCADOR
-====================================================== */
-
-function activarBuscador() {
-
-
-    const input =
-        document.getElementById(
-            "search"
-        );
-
-
-    input.focus();
-
-
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-    });
-
-
-    cerrarSidebar();
-
-}
-
-
-
-/* ======================================================
-   MOBILE
-====================================================== */
-
-function toggleSidebar() {
-
-
-    document
-        .getElementById(
-            "sidebar"
-        )
-        .classList.toggle(
-            "open"
-        );
-
-}
-
-
-function cerrarSidebar() {
-
-
-    document
-        .getElementById(
-            "sidebar"
-        )
-        .classList.remove(
-            "open"
+    return String(texto)
+        .replace(
+            /[.*+?^${}()|[\]\\]/g,
+            "\\$&"
         );
 
 }
 
 
 
-/* ======================================================
-   EVENTOS
-====================================================== */
+/* =========================================================
+   ARRANCAR
+========================================================= */
 
-document
-    .getElementById(
-        "search"
-    )
-    .addEventListener(
-        "input",
-        buscar
-    );
-
-
-
-/* ======================================================
-   INICIAR
-====================================================== */
-
-cargarREADME();
-
+iniciar();
 
 </script>
-
 
 </body>
 
