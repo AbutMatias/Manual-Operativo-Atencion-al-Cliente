@@ -2,7 +2,6 @@ name: Asignar imágenes locales
 
 on:
   workflow_dispatch:
-
   push:
     branches:
       - main
@@ -12,255 +11,206 @@ permissions:
 
 jobs:
   asignar-imagenes:
-
     runs-on: ubuntu-latest
 
     steps:
 
-      # =====================================================
-      # DESCARGAR REPOSITORIO
-      # =====================================================
-
       - name: Descargar repositorio
         uses: actions/checkout@v5
-        with:
-          fetch-depth: 0
 
-
-      # =====================================================
-      # PROCESAR DOCUMENTOS
-      # =====================================================
-
-      - name: Asignar imágenes
+      - name: Procesar imágenes
         shell: bash
         run: |
+          python3 <<'PY'
+          import re
+          from pathlib import Path
 
-          echo "=============================================="
-          echo "      ASIGNACIÓN DE IMÁGENES LOCALES"
-          echo "=============================================="
-          echo ""
+          DOCS = Path("doc")
+          IMAGENES = DOCS / "imagenes"
 
-          mkdir -p doc/imagenes
+          IMAGENES.mkdir(parents=True, exist_ok=True)
 
+          extensiones = [
+              ".png",
+              ".jpg",
+              ".jpeg",
+              ".gif",
+              ".webp",
+              ".svg",
+              ".PNG",
+              ".JPG",
+              ".JPEG",
+              ".GIF",
+              ".WEBP",
+              ".SVG",
+          ]
 
-          # =================================================
-          # RECORRER TODOS LOS MARKDOWN
-          # =================================================
-
-          find doc -type f -name "*.md" -print0 |
-          while IFS= read -r -d '' archivo
-          do
-
-            echo ""
-            echo "Documento:"
-            echo "$archivo"
-
-
-            # =================================================
-            # BUSCAR IDs DE USER-ATTACHMENTS
-            # =================================================
-
-            grep -oE \
-              'https://github\.com/user-attachments/assets/[a-zA-Z0-9-]+' \
-              "$archivo" 2>/dev/null |
-            sort -u |
-            while IFS= read -r url
-            do
-
-              if [ -z "$url" ]; then
-                continue
-              fi
-
-
-              # =================================================
-              # OBTENER ID
-              # =================================================
-
-              id="${url##*/}"
-
-
-              echo ""
-              echo "Imagen detectada:"
-              echo "$id"
-
-
-              # =================================================
-              # BUSCAR ARCHIVO LOCAL
-              # =================================================
-
-              imagen=""
-
-
-              for extension in png jpg jpeg gif webp svg PNG JPG JPEG GIF WEBP SVG
-              do
-
-                archivo_imagen="doc/imagenes/${id}.${extension}"
-
-                if [ -f "$archivo_imagen" ]; then
-
-                  imagen="$archivo_imagen"
-
-                  break
-
-                fi
-
-              done
-
-
-              # =================================================
-              # SI EXISTE LA IMAGEN
-              # =================================================
-
-              if [ -n "$imagen" ]; then
-
-                nombre=$(basename "$imagen")
-
-                echo "Encontrada:"
-                echo "$nombre"
-
-
-                # =================================================
-                # REEMPLAZAR TODAS LAS VARIANTES
-                # =================================================
-
-                sed -i \
-                  "s|$url|./imagenes/$nombre|g" \
-                  "$archivo"
-
-
-                # =================================================
-                # ELIMINAR FORMATO MARKDOWN
-                #
-                # [URL](URL)
-                # =================================================
-
-                sed -i \
-                  "s|\[\.\/imagenes\/$nombre\](\.\/imagenes\/$nombre)|./imagenes/$nombre|g" \
-                  "$archivo"
-
-
-                echo "Referencia corregida."
-
-
-              else
-
-                echo "NO encontrada localmente:"
-                echo "doc/imagenes/${id}.*"
-
-              fi
-
-            done
-
-          done
-
-
-      # =====================================================
-      # MOSTRAR RESULTADO
-      # =====================================================
-
-      - name: Mostrar resultado
-        shell: bash
-        run: |
-
-          echo ""
-          echo "=============================================="
-          echo "           IMÁGENES LOCALES"
-          echo "=============================================="
-          echo ""
-
-          find doc/imagenes \
-            -type f \
-            -print |
-            sort
-
-          echo ""
-
-          echo "=============================================="
-          echo "           CAMBIOS REALIZADOS"
-          echo "=============================================="
-          echo ""
-
-          git diff --stat
-
-          echo ""
-
-
-      # =====================================================
-      # MOSTRAR DOCUMENTOS CON REFERENCIAS EXTERNAS
-      # =====================================================
-
-      - name: Verificar referencias pendientes
-        shell: bash
-        run: |
-
-          echo ""
-          echo "=============================================="
-          echo "       REFERENCIAS PENDIENTES"
-          echo "=============================================="
-          echo ""
-
-
-          pendientes=$(
-            grep -RhoE \
-              'https://github\.com/user-attachments/assets/[a-zA-Z0-9-]+' \
-              doc \
-              --include="*.md" \
-              2>/dev/null |
-            sort -u
+          patron = re.compile(
+              r"https://github\.com/user-attachments/assets/([a-zA-Z0-9-]+)"
           )
 
+          documentos = list(DOCS.rglob("*.md"))
 
-          if [ -z "$pendientes" ]; then
+          encontrados = 0
+          corregidos = 0
+          pendientes = 0
 
-            echo "OK."
-            echo "No quedan URLs externas."
+          print("==============================================")
+          print("      ASIGNACIÓN DE IMÁGENES LOCALES")
+          print("==============================================")
+          print()
 
-          else
+          for archivo in documentos:
 
-            echo "Todavía quedan:"
-            echo ""
+              print("----------------------------------------------")
+              print(f"Documento: {archivo}")
+              print("----------------------------------------------")
 
-            echo "$pendientes"
+              try:
+                  texto = archivo.read_text(encoding="utf-8")
+              except Exception as e:
+                  print(f"ERROR leyendo documento: {e}")
+                  continue
 
-          fi
+              urls = sorted(set(patron.findall(texto)))
+
+              if not urls:
+                  print("Sin imágenes externas.")
+                  print()
+                  continue
+
+              for image_id in urls:
+
+                  encontrados += 1
+
+                  print()
+                  print(f"Imagen encontrada: {image_id}")
+
+                  imagen_local = None
+
+                  for extension in extensiones:
+
+                      candidato = IMAGENES / f"{image_id}{extension}"
+
+                      if candidato.exists():
+                          imagen_local = candidato
+                          break
+
+                  if imagen_local is None:
+
+                      print("NO encontrada localmente.")
+                      print(f"Esperada: doc/imagenes/{image_id}.*")
+
+                      pendientes += 1
+
+                      continue
+
+                  nombre = imagen_local.name
+
+                  print(f"Imagen local: {nombre}")
+
+                  ruta = f"./imagenes/{nombre}"
+
+                  # -------------------------------------------------
+                  # CASO 1
+                  # <img src="URL">
+                  # -------------------------------------------------
+
+                  texto_nuevo = re.sub(
+                      rf'src="\[?{re.escape("https://github.com/user-attachments/assets/" + image_id)}\]?'
+                      rf'(?:\({re.escape("https://github.com/user-attachments/assets/" + image_id)}\))?"',
+                      f'src="{ruta}"',
+                      texto
+                  )
+
+                  # -------------------------------------------------
+                  # CASO 2
+                  # [URL](URL)
+                  # -------------------------------------------------
+
+                  url_completa = (
+                      "https://github.com/user-attachments/assets/"
+                      + image_id
+                  )
+
+                  texto_nuevo = texto_nuevo.replace(
+                      f"[{url_completa}]({url_completa})",
+                      ruta
+                  )
+
+                  # -------------------------------------------------
+                  # CASO 3
+                  # URL directa
+                  # -------------------------------------------------
+
+                  texto_nuevo = texto_nuevo.replace(
+                      url_completa,
+                      ruta
+                  )
+
+                  if texto_nuevo != texto:
+
+                      texto = texto_nuevo
+                      corregidos += 1
+
+                      print("Referencia corregida.")
+
+              try:
+                  archivo.write_text(
+                      texto,
+                      encoding="utf-8"
+                  )
+              except Exception as e:
+                  print(f"ERROR guardando documento: {e}")
+
+              print()
+
+          print("==============================================")
+          print("                 RESUMEN")
+          print("==============================================")
+          print()
+          print(f"URLs encontradas: {encontrados}")
+          print(f"Documentos corregidos: {corregidos}")
+          print(f"Imágenes pendientes: {pendientes}")
+          print()
+
+          print("==============================================")
+          print("             IMÁGENES LOCALES")
+          print("==============================================")
+          print()
+
+          for imagen in sorted(IMAGENES.iterdir()):
+              if imagen.is_file():
+                  print(imagen)
+
+          PY
 
 
-      # =====================================================
-      # GUARDAR CAMBIOS
-      # =====================================================
+      - name: Mostrar cambios
+        shell: bash
+        run: |
+          echo "=============================================="
+          echo "              CAMBIOS"
+          echo "=============================================="
+          echo ""
+
+          git status
+
+          echo ""
+          git diff --stat || true
+
 
       - name: Guardar cambios
         shell: bash
         run: |
-
-          echo ""
-          echo "=============================================="
-          echo "             GUARDANDO CAMBIOS"
-          echo "=============================================="
-          echo ""
-
-
           git config user.name "github-actions[bot]"
-
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-
 
           git add doc/
 
-
-          if git diff --cached --quiet
-          then
-
-            echo "No hay cambios."
-
+          if git diff --cached --quiet; then
+            echo "No hay cambios para guardar."
           else
-
-            git commit \
-              -m "Asignar imágenes locales"
-
+            git commit -m "Asignar imágenes locales a documentación"
             git push
-
-            echo ""
-            echo "Cambios guardados correctamente."
-
           fi
