@@ -1,9 +1,11 @@
+
 name: Descargar imágenes de documentación
 
 on:
   push:
     branches:
       - main
+
   workflow_dispatch:
 
 permissions:
@@ -11,188 +13,382 @@ permissions:
 
 jobs:
   descargar-imagenes:
+
     runs-on: ubuntu-latest
 
     steps:
+
+      # =========================================================
+      # DESCARGAR REPOSITORIO
+      # =========================================================
 
       - name: Descargar repositorio
         uses: actions/checkout@v5
         with:
           fetch-depth: 0
 
+
+      # =========================================================
+      # INSTALAR HERRAMIENTAS
+      # =========================================================
+
       - name: Instalar herramientas
         run: |
           sudo apt-get update
-          sudo apt-get install -y wget file
+          sudo apt-get install -y curl file
 
-      - name: Procesar imágenes
+
+      # =========================================================
+      # PROCESAR IMÁGENES
+      # =========================================================
+
+      - name: Descargar y reemplazar imágenes
         shell: bash
         run: |
+
+          set -u
+
           mkdir -p doc/imagenes
 
-          echo "======================================"
-          echo " BUSCANDO IMAGENES"
-          echo "======================================"
+          echo ""
+          echo "=============================================="
+          echo " DESCARGA DE IMÁGENES"
+          echo "=============================================="
+          echo ""
 
-          find doc -type f -name "*.md" -print0 | while IFS= read -r -d '' archivo
+
+          # =====================================================
+          # BUSCAR TODOS LOS DOCUMENTOS MARKDOWN
+          # =====================================================
+
+          find doc \
+            -type f \
+            -name "*.md" \
+            -print0 |
+          while IFS= read -r -d '' archivo
           do
+
             echo ""
+            echo "----------------------------------------------"
             echo "Documento: $archivo"
+            echo "----------------------------------------------"
 
-            grep -oE 'https://github\.com/user-attachments/assets/[a-zA-Z0-9-]+' "$archivo" 2>/dev/null | sort -u > /tmp/imagenes.txt || true
 
+            # =================================================
+            # BUSCAR URLs DE GITHUB USER ATTACHMENTS
+            # =================================================
+
+            grep -oE \
+              'https://github\.com/user-attachments/assets/[a-zA-Z0-9-]+' \
+              "$archivo" 2>/dev/null |
+            sort -u |
             while IFS= read -r url
             do
+
               [ -z "$url" ] && continue
 
+
+              # =================================================
+              # OBTENER ID
+              # =================================================
+
               id=$(basename "$url")
+
 
               echo ""
               echo "Imagen encontrada:"
               echo "$url"
 
-              existente=$(find doc/imagenes -type f -name "${id}.*" | head -n 1 || true)
+
+              # =================================================
+              # VERIFICAR SI YA EXISTE
+              # =================================================
+
+              existente=$(find doc/imagenes \
+                -type f \
+                -name "${id}.*" \
+                2>/dev/null |
+                head -n 1 || true)
+
 
               if [ -n "$existente" ]; then
-                echo "La imagen ya existe: $existente"
+
+                echo "Ya existe:"
+                echo "$existente"
+
 
                 nombre=$(basename "$existente")
 
+
+                # Reemplazar URL por imagen local
                 sed -i "s|$url|./imagenes/$nombre|g" "$archivo"
 
+
                 continue
+
               fi
+
+
+              # =================================================
+              # ARCHIVO TEMPORAL
+              # =================================================
 
               temporal="doc/imagenes/${id}.download"
 
+
               echo "Descargando..."
 
-              wget \
-                --quiet \
-                --timeout=30 \
-                --tries=3 \
-                --user-agent="Mozilla/5.0" \
-                "$url" \
-                -O "$temporal"
 
-              if [ $? -ne 0 ]; then
-                echo "ERROR: No se pudo descargar:"
+              # =================================================
+              # DESCARGAR
+              # =================================================
+
+              if curl \
+                -L \
+                --fail \
+                --silent \
+                --show-error \
+                --retry 3 \
+                --retry-delay 2 \
+                --connect-timeout 30 \
+                --max-time 120 \
+                -A "Mozilla/5.0" \
+                "$url" \
+                -o "$temporal"
+              then
+
+                echo "Descarga correcta."
+
+
+                # =============================================
+                # DETECTAR TIPO
+                # =============================================
+
+                tipo=$(file \
+                  --brief \
+                  --mime-type \
+                  "$temporal" \
+                  2>/dev/null ||
+                  echo "unknown")
+
+
+                echo "Tipo detectado: $tipo"
+
+
+                # =============================================
+                # DETERMINAR EXTENSIÓN
+                # =============================================
+
+                case "$tipo" in
+
+                  image/jpeg)
+                    extension="jpg"
+                    ;;
+
+                  image/png)
+                    extension="png"
+                    ;;
+
+                  image/gif)
+                    extension="gif"
+                    ;;
+
+                  image/webp)
+                    extension="webp"
+                    ;;
+
+                  image/svg+xml)
+                    extension="svg"
+                    ;;
+
+                  *)
+                    echo "ERROR: formato no compatible."
+                    echo "Tipo: $tipo"
+
+                    rm -f "$temporal"
+
+                    continue
+                    ;;
+
+                esac
+
+
+                # =============================================
+                # NOMBRE FINAL
+                # =============================================
+
+                nuevo="doc/imagenes/${id}.${extension}"
+
+
+                mv "$temporal" "$nuevo"
+
+
+                nombre=$(basename "$nuevo")
+
+
+                echo "Imagen guardada:"
+                echo "$nuevo"
+
+
+                # =============================================
+                # REEMPLAZAR URL EN MARKDOWN
+                # =============================================
+
+                sed -i "s|$url|./imagenes/$nombre|g" "$archivo"
+
+
+                echo "Referencia actualizada."
+
+
+              else
+
+                echo ""
+                echo "=============================================="
+                echo "ERROR AL DESCARGAR"
+                echo "=============================================="
                 echo "$url"
+                echo ""
 
                 rm -f "$temporal"
 
-                continue
               fi
 
-              tipo=$(file --brief --mime-type "$temporal" 2>/dev/null || echo "unknown")
-
-              echo "Tipo detectado: $tipo"
-
-              case "$tipo" in
-
-                image/jpeg)
-                  extension="jpg"
-                  ;;
-
-                image/png)
-                  extension="png"
-                  ;;
-
-                image/gif)
-                  extension="gif"
-                  ;;
-
-                image/webp)
-                  extension="webp"
-                  ;;
-
-                image/svg+xml)
-                  extension="svg"
-                  ;;
-
-                *)
-                  echo "Formato no compatible: $tipo"
-
-                  rm -f "$temporal"
-
-                  continue
-                  ;;
-
-              esac
-
-              nuevo="doc/imagenes/${id}.${extension}"
-
-              mv "$temporal" "$nuevo"
-
-              nombre=$(basename "$nuevo")
-
-              echo ""
-              echo "Imagen guardada:"
-              echo "$nuevo"
-
-              sed -i "s|$url|./imagenes/$nombre|g" "$archivo"
-
-              echo "Referencia actualizada."
-
-            done < /tmp/imagenes.txt
+            done
 
           done
 
+
+      # =========================================================
+      # VERIFICAR IMÁGENES
+      # =========================================================
+
       - name: Verificar imágenes
+        shell: bash
         run: |
-          echo "======================================"
-          echo " IMAGENES DESCARGADAS"
-          echo "======================================"
-
-          find doc/imagenes -type f -print | sort
-
-          cantidad=$(find doc/imagenes -type f | wc -l)
 
           echo ""
-          echo "Total de imagenes: $cantidad"
+          echo "=============================================="
+          echo " IMÁGENES DESCARGADAS"
+          echo "=============================================="
+          echo ""
+
+
+          find doc/imagenes \
+            -type f \
+            -print |
+            sort
+
+
+          cantidad=$(find doc/imagenes \
+            -type f |
+            wc -l)
+
+
+          echo ""
+          echo "Total de imágenes: $cantidad"
+
+
+      # =========================================================
+      # VERIFICAR URLs EXTERNAS
+      # =========================================================
 
       - name: Verificar URLs pendientes
+        shell: bash
         run: |
-          echo "======================================"
-          echo " VERIFICANDO URLS EXTERNAS"
-          echo "======================================"
 
-          pendientes=$(grep -RhoE 'https://github\.com/user-attachments/assets/[a-zA-Z0-9-]+' doc --include="*.md" 2>/dev/null | sort -u || true)
+          echo ""
+          echo "=============================================="
+          echo " VERIFICANDO URLs EXTERNAS"
+          echo "=============================================="
+          echo ""
+
+
+          pendientes=$(grep -RhoE \
+            'https://github\.com/user-attachments/assets/[a-zA-Z0-9-]+' \
+            doc \
+            --include="*.md" \
+            2>/dev/null |
+            sort -u ||
+            true)
+
 
           if [ -z "$pendientes" ]; then
-            echo "OK: No quedan imagenes externas."
+
+            echo "OK."
+            echo "No quedan imágenes externas."
+
           else
-            echo "ADVERTENCIA:"
+
+            echo "ADVERTENCIA."
+            echo ""
+            echo "Todavía quedan estas URLs:"
             echo ""
             echo "$pendientes"
+
           fi
 
+
+      # =========================================================
+      # MOSTRAR CAMBIOS
+      # =========================================================
+
       - name: Mostrar cambios
+        shell: bash
         run: |
-          echo "======================================"
+
+          echo ""
+          echo "=============================================="
           echo " CAMBIOS DETECTADOS"
-          echo "======================================"
+          echo "=============================================="
+          echo ""
+
 
           git status
 
+
           echo ""
           echo "Resumen:"
+          echo ""
+
+
           git diff --stat || true
 
+
+      # =========================================================
+      # GUARDAR CAMBIOS
+      # =========================================================
+
       - name: Guardar cambios
+        shell: bash
         run: |
+
           git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git config user.email \
+            "41898282+github-actions[bot]@users.noreply.github.com"
+
 
           git add doc/
 
+
           if git diff --cached --quiet
           then
-            echo "No hay cambios para guardar."
-          else
-            echo "Guardando cambios..."
 
-            git commit -m "Descargar y corregir imagenes de documentacion"
+            echo ""
+            echo "No hay cambios para guardar."
+            echo ""
+
+          else
+
+            echo ""
+            echo "Guardando cambios..."
+            echo ""
+
+
+            git commit \
+              -m "Descargar y corregir imágenes de documentación"
+
 
             git push
+
           fi
