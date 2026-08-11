@@ -10,15 +10,13 @@
         content="width=device-width, initial-scale=1.0"
     >
 
-    <title>Ethernet App - Manual Operativo</title>
+    <title>
+        Ethernet App - Manual Operativo
+    </title>
 
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 
     <style>
-
-        /* =========================================================
-           VARIABLES
-        ========================================================= */
 
         :root {
 
@@ -26,33 +24,21 @@
             --sidebar: #ffffff;
             --header: #ffffff;
             --panel: #ffffff;
-            --panel-hover: #f7f9fb;
+            --panel-hover: #f1f4f7;
             --input: #f1f3f5;
-
             --border: #dfe3e8;
-            --border-light: #edf0f2;
-
             --text: #202124;
-            --text-secondary: #606770;
-            --text-muted: #7b8188;
+            --text-secondary: #687078;
+            --text-muted: #8a9299;
 
-            --blue: #1683c7;
-            --blue-dark: #0d6fa8;
-            --blue-light: rgba(22, 131, 199, .12);
-
-            --danger: #e55353;
-
-            --shadow:
-                0 2px 8px rgba(0, 0, 0, .06);
+            --blue: #0088cc;
+            --blue-dark: #006fa6;
+            --blue-light: rgba(0, 136, 204, .12);
 
         }
 
 
-        /* =========================================================
-           DARK MODE
-        ========================================================= */
-
-        html.dark {
+        body.dark {
 
             --background: #272727;
             --sidebar: #1b1b1b;
@@ -60,10 +46,7 @@
             --panel: #292929;
             --panel-hover: #303030;
             --input: #343434;
-
             --border: #454545;
-            --border-light: #505050;
-
             --text: #f5f5f5;
             --text-secondary: #a0a0a0;
             --text-muted: #777777;
@@ -72,15 +55,8 @@
             --blue-dark: #3ca8d1;
             --blue-light: rgba(91, 192, 235, .12);
 
-            --shadow:
-                0 2px 8px rgba(0, 0, 0, .25);
-
         }
 
-
-        /* =========================================================
-           RESET
-        ========================================================= */
 
         * {
             box-sizing: border-box;
@@ -116,20 +92,9 @@
 
         button,
         input {
-
             font-family: inherit;
-
         }
 
-
-        button {
-            cursor: pointer;
-        }
-
-
-        /* =========================================================
-           SCROLLBAR
-        ========================================================= */
 
         ::-webkit-scrollbar {
 
@@ -158,18 +123,6 @@
         }
 
 
-        ::-webkit-scrollbar-thumb:hover {
-
-            background:
-                #999;
-
-        }
-
-
-        /* =========================================================
-           HEADER
-        ========================================================= */
-
         .header {
 
             position: fixed;
@@ -192,13 +145,11 @@
 
             align-items: center;
 
-            justify-content: space-between;
+            justify-content:
+                space-between;
 
             padding:
                 0 18px;
-
-            transition:
-                background .2s;
 
         }
 
@@ -214,7 +165,8 @@
         }
 
 
-        .menu-button {
+        .menu-button,
+        .theme-button {
 
             width: 40px;
             height: 40px;
@@ -224,26 +176,26 @@
             border-radius: 6px;
 
             background:
-                var(--input);
+                var(--panel-hover);
 
             color:
                 var(--text);
 
-            font-size: 20px;
+            font-size: 18px;
 
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
+            cursor: pointer;
 
         }
 
 
-        .menu-button:hover {
+        .menu-button:hover,
+        .theme-button:hover {
 
             background:
-                var(--panel-hover);
+                var(--blue);
+
+            color:
+                white;
 
         }
 
@@ -275,9 +227,6 @@
 
             font-weight: bold;
 
-            color:
-                var(--text);
-
         }
 
 
@@ -287,7 +236,7 @@
 
             align-items: center;
 
-            gap: 8px;
+            gap: 10px;
 
         }
 
@@ -295,7 +244,7 @@
         .header-status {
 
             padding:
-                8px 12px;
+                9px 13px;
 
             border-radius: 6px;
 
@@ -305,18 +254,17 @@
             color:
                 white;
 
-            font-size: 11px;
+            font-size: 12px;
 
             font-weight: bold;
 
         }
 
 
-        .github-button,
-        .theme-button {
+        .github-button {
 
             padding:
-                8px 12px;
+                9px 13px;
 
             border:
                 1px solid var(--border);
@@ -327,20 +275,16 @@
                 var(--panel);
 
             color:
-                var(--text-secondary);
+                var(--text);
 
             text-decoration: none;
 
-            font-size: 11px;
-
-            transition:
-                .15s;
+            font-size: 12px;
 
         }
 
 
-        .github-button:hover,
-        .theme-button:hover {
+        .github-button:hover {
 
             border-color:
                 var(--blue);
@@ -351,25 +295,12 @@
         }
 
 
-        .theme-button {
-
-            cursor: pointer;
-
-        }
-
-
-        /* =========================================================
-           SIDEBAR
-        ========================================================= */
-
         .sidebar {
 
             position: fixed;
 
             left: 0;
-
             top: 66px;
-
             bottom: 0;
 
             width: 270px;
@@ -385,8 +316,7 @@
             overflow-y: auto;
 
             transition:
-                transform .2s ease,
-                background .2s;
+                transform .2s ease;
 
         }
 
@@ -406,9 +336,6 @@
             text-transform:
                 uppercase;
 
-            letter-spacing:
-                .3px;
-
         }
 
 
@@ -427,8 +354,7 @@
             padding:
                 9px 10px;
 
-            border:
-                1px solid var(--border);
+            border: none;
 
             outline: none;
 
@@ -439,24 +365,6 @@
 
             color:
                 var(--text);
-
-            font-size: 13px;
-
-        }
-
-
-        .sidebar-search input::placeholder {
-
-            color:
-                var(--text-muted);
-
-        }
-
-
-        .sidebar-search input:focus {
-
-            border-color:
-                var(--blue);
 
         }
 
@@ -491,9 +399,6 @@
 
             cursor: pointer;
 
-            transition:
-                .15s;
-
         }
 
 
@@ -523,29 +428,10 @@
 
             width: 17px;
 
-            text-align:
-                center;
+            text-align: center;
 
         }
 
-
-        .favorite-nav {
-
-            margin-left:
-                auto;
-
-            color:
-                #e0a51a;
-
-            font-size:
-                12px;
-
-        }
-
-
-        /* =========================================================
-           MAIN
-        ========================================================= */
 
         .main {
 
@@ -575,10 +461,6 @@
         }
 
 
-        /* =========================================================
-           HERO
-        ========================================================= */
-
         .hero {
 
             background:
@@ -596,22 +478,15 @@
             margin-bottom:
                 18px;
 
-            box-shadow:
-                var(--shadow);
-
         }
 
 
         .hero-title {
 
-            margin:
-                0;
+            margin: 0;
 
             font-size:
                 25px;
-
-            color:
-                var(--text);
 
         }
 
@@ -633,10 +508,6 @@
         }
 
 
-        /* =========================================================
-           SEARCH
-        ========================================================= */
-
         .main-search {
 
             margin-top:
@@ -653,39 +524,14 @@
         }
 
 
-        .main-search-icon {
-
-            position:
-                absolute;
-
-            left:
-                14px;
-
-            top:
-                50%;
-
-            transform:
-                translateY(-50%);
-
-            color:
-                var(--text-muted);
-
-            pointer-events:
-                none;
-
-        }
-
-
         .main-search input {
 
-            width:
-                100%;
+            width: 100%;
 
-            height:
-                48px;
+            height: 48px;
 
             padding:
-                0 80px 0 45px;
+                0 45px;
 
             border:
                 1px solid var(--border);
@@ -693,8 +539,7 @@
             border-radius:
                 6px;
 
-            outline:
-                none;
+            outline: none;
 
             background:
                 var(--input);
@@ -714,39 +559,23 @@
                 var(--blue);
 
             box-shadow:
-                0 0 0 2px var(--blue-light);
+                0 0 0 2px
+                var(--blue-light);
 
         }
 
 
-        .search-shortcut {
+        .main-search-icon {
 
             position:
                 absolute;
 
-            right:
-                42px;
+            left: 14px;
 
-            top:
-                50%;
+            top: 50%;
 
             transform:
                 translateY(-50%);
-
-            font-size:
-                10px;
-
-            color:
-                var(--text-muted);
-
-            border:
-                1px solid var(--border);
-
-            padding:
-                3px 5px;
-
-            border-radius:
-                4px;
 
         }
 
@@ -756,26 +585,17 @@
             position:
                 absolute;
 
-            right:
-                8px;
+            right: 10px;
 
-            top:
-                50%;
+            top: 50%;
 
             transform:
                 translateY(-50%);
 
-            width:
-                28px;
+            width: 28px;
+            height: 28px;
 
-            height:
-                28px;
-
-            border:
-                none;
-
-            border-radius:
-                5px;
+            border: none;
 
             background:
                 transparent;
@@ -783,37 +603,21 @@
             color:
                 var(--text-muted);
 
-            display:
-                none;
+            cursor: pointer;
+
+            display: none;
 
         }
 
-
-        .clear-search:hover {
-
-            background:
-                var(--panel-hover);
-
-            color:
-                var(--text);
-
-        }
-
-
-        /* =========================================================
-           STATS
-        ========================================================= */
 
         .stats {
 
-            display:
-                grid;
+            display: grid;
 
             grid-template-columns:
                 repeat(3, 1fr);
 
-            gap:
-                12px;
+            gap: 12px;
 
             margin-bottom:
                 22px;
@@ -834,9 +638,6 @@
 
             padding:
                 16px;
-
-            box-shadow:
-                var(--shadow);
 
         }
 
@@ -869,14 +670,9 @@
         }
 
 
-        /* =========================================================
-           RESULTS
-        ========================================================= */
-
         .results-header {
 
-            display:
-                flex;
+            display: flex;
 
             align-items:
                 center;
@@ -929,10 +725,6 @@
             margin-bottom:
                 9px;
 
-            transition:
-                border-color .15s,
-                background .15s;
-
         }
 
 
@@ -940,23 +732,6 @@
 
             background:
                 var(--panel-hover);
-
-            border-color:
-                var(--blue);
-
-        }
-
-
-        .result-title-row {
-
-            display:
-                flex;
-
-            align-items:
-                center;
-
-            gap:
-                8px;
 
         }
 
@@ -969,12 +744,6 @@
             font-weight:
                 bold;
 
-            color:
-                var(--text);
-
-            flex:
-                1;
-
         }
 
 
@@ -982,34 +751,6 @@
 
             color:
                 var(--blue);
-
-        }
-
-
-        .favorite-button {
-
-            border:
-                none;
-
-            background:
-                transparent;
-
-            color:
-                var(--text-muted);
-
-            font-size:
-                18px;
-
-            padding:
-                2px 5px;
-
-        }
-
-
-        .favorite-button.active {
-
-            color:
-                #e0a51a;
 
         }
 
@@ -1028,43 +769,6 @@
         }
 
 
-        .result-tags {
-
-            display:
-                flex;
-
-            flex-wrap:
-                wrap;
-
-            gap:
-                5px;
-
-            margin-top:
-                8px;
-
-        }
-
-
-        .tag {
-
-            padding:
-                3px 6px;
-
-            border-radius:
-                4px;
-
-            background:
-                var(--blue-light);
-
-            color:
-                var(--blue);
-
-            font-size:
-                9px;
-
-        }
-
-
         .result-text {
 
             margin-top:
@@ -1079,9 +783,6 @@
             border-left:
                 3px solid var(--blue);
 
-            border-radius:
-                0 4px 4px 0;
-
             color:
                 var(--text-secondary);
 
@@ -1094,24 +795,12 @@
         }
 
 
-        .result-actions {
+        .result button {
 
             margin-top:
                 12px;
 
-            display:
-                flex;
-
-            gap:
-                7px;
-
-        }
-
-
-        .result button.read-button {
-
-            border:
-                none;
+            border: none;
 
             border-radius:
                 5px;
@@ -1131,13 +820,7 @@
             font-weight:
                 bold;
 
-        }
-
-
-        .result button.read-button:hover {
-
-            background:
-                var(--blue-dark);
+            cursor: pointer;
 
         }
 
@@ -1150,18 +833,8 @@
             color:
                 var(--blue);
 
-            border-radius:
-                2px;
-
-            padding:
-                1px 2px;
-
         }
 
-
-        /* =========================================================
-           DOCUMENT
-        ========================================================= */
 
         .document {
 
@@ -1179,9 +852,6 @@
 
             overflow:
                 hidden;
-
-            box-shadow:
-                var(--shadow);
 
         }
 
@@ -1206,34 +876,19 @@
             justify-content:
                 space-between;
 
-            gap:
-                10px;
-
         }
 
 
-        .document-header-actions {
-
-            display:
-                flex;
-
-            gap:
-                7px;
-
-        }
-
-
-        .back,
-        .copy-button {
+        .back {
 
             border:
                 1px solid var(--border);
 
             background:
-                var(--input);
+                var(--panel-hover);
 
             color:
-                var(--text-secondary);
+                var(--text);
 
             padding:
                 7px 11px;
@@ -1241,20 +896,8 @@
             border-radius:
                 5px;
 
-            font-size:
-                11px;
-
-        }
-
-
-        .back:hover,
-        .copy-button:hover {
-
-            border-color:
-                var(--blue);
-
-            color:
-                var(--blue);
+            cursor:
+                pointer;
 
         }
 
@@ -1272,18 +915,6 @@
 
         }
 
-
-        .document-github:hover {
-
-            text-decoration:
-                underline;
-
-        }
-
-
-        /* =========================================================
-           MARKDOWN
-        ========================================================= */
 
         .markdown {
 
@@ -1339,9 +970,6 @@
             color:
                 var(--text);
 
-            font-size:
-                21px;
-
         }
 
 
@@ -1352,25 +980,6 @@
 
             color:
                 var(--blue);
-
-            font-size:
-                17px;
-
-        }
-
-
-        .markdown h4 {
-
-            color:
-                var(--text);
-
-        }
-
-
-        .markdown p {
-
-            color:
-                var(--text-secondary);
 
         }
 
@@ -1391,33 +1000,25 @@
         }
 
 
-        .markdown blockquote {
-
-            margin:
-                15px 0;
-
-            padding:
-                10px 15px;
-
-            border-left:
-                3px solid var(--blue);
-
-            background:
-                var(--input);
-
-            color:
-                var(--text-muted);
-
-        }
-
-
         .markdown img {
+
+            display:
+                block;
 
             max-width:
                 100%;
 
+            height:
+                auto;
+
+            margin:
+                20px auto;
+
             border-radius:
-                5px;
+                6px;
+
+            border:
+                1px solid var(--border);
 
         }
 
@@ -1490,10 +1091,7 @@
         .markdown pre {
 
             background:
-                #181818;
-
-            border:
-                1px solid var(--border);
+                #111;
 
             padding:
                 15px;
@@ -1506,38 +1104,6 @@
 
         }
 
-
-        .markdown pre code {
-
-            background:
-                transparent;
-
-            color:
-                #ddd;
-
-            padding:
-                0;
-
-        }
-
-
-        .markdown hr {
-
-            border:
-                none;
-
-            border-top:
-                1px solid var(--border);
-
-            margin:
-                30px 0;
-
-        }
-
-
-        /* =========================================================
-           EMPTY
-        ========================================================= */
 
         .empty {
 
@@ -1559,9 +1125,6 @@
             color:
                 var(--text-muted);
 
-            font-size:
-                13px;
-
         }
 
 
@@ -1576,212 +1139,14 @@
         }
 
 
-        /* =========================================================
-           HISTORY
-        ========================================================= */
-
-        .history-item {
-
-            display:
-                flex;
-
-            align-items:
-                center;
-
-            gap:
-                8px;
-
-        }
-
-
-        .history-icon {
-
-            color:
-                var(--text-muted);
-
-        }
-
-
-        /* =========================================================
-           COMMAND PALETTE
-        ========================================================= */
-
-        .command-overlay {
-
-            position:
-                fixed;
-
-            inset:
-                0;
-
-            z-index:
-                500;
-
-            background:
-                rgba(0, 0, 0, .55);
-
-            display:
-                none;
-
-            align-items:
-                flex-start;
-
-            justify-content:
-                center;
-
-            padding-top:
-                90px;
-
-        }
-
-
-        .command-overlay.open {
-
-            display:
-                flex;
-
-        }
-
-
-        .command-box {
-
-            width:
-                min(700px, calc(100% - 30px));
-
-            background:
-                var(--panel);
-
-            border:
-                1px solid var(--border);
-
-            border-radius:
-                9px;
-
-            box-shadow:
-                0 15px 50px rgba(0,0,0,.3);
-
-            overflow:
-                hidden;
-
-        }
-
-
-        .command-input {
-
-            width:
-                100%;
-
-            height:
-                52px;
-
-            border:
-                none;
-
-            border-bottom:
-                1px solid var(--border);
-
-            outline:
-                none;
-
-            padding:
-                0 18px;
-
-            background:
-                var(--panel);
-
-            color:
-                var(--text);
-
-            font-size:
-                15px;
-
-        }
-
-
-        .command-results {
-
-            max-height:
-                400px;
-
-            overflow-y:
-                auto;
-
-            padding:
-                6px;
-
-        }
-
-
-        .command-result {
-
-            padding:
-                10px 12px;
-
-            border-radius:
-                5px;
-
-            color:
-                var(--text-secondary);
-
-            cursor:
-                pointer;
-
-        }
-
-
-        .command-result:hover {
-
-            background:
-                var(--panel-hover);
-
-            color:
-                var(--blue);
-
-        }
-
-
-        .command-result-name {
-
-            font-size:
-                13px;
-
-            font-weight:
-                bold;
-
-        }
-
-
-        .command-result-path {
-
-            margin-top:
-                3px;
-
-            color:
-                var(--text-muted);
-
-            font-size:
-                10px;
-
-        }
-
-
-        /* =========================================================
-           LOADING
-        ========================================================= */
-
         .loading-bar {
 
             position:
                 fixed;
 
-            left:
-                0;
-
-            right:
-                0;
-
-            top:
-                66px;
+            left: 0;
+            right: 0;
+            top: 66px;
 
             height:
                 3px;
@@ -1796,7 +1161,7 @@
                 hidden;
 
             background:
-                var(--input);
+                var(--border);
 
         }
 
@@ -1821,7 +1186,8 @@
                 var(--blue);
 
             animation:
-                loading 1s infinite ease-in-out;
+                loading 1s
+                infinite ease-in-out;
 
         }
 
@@ -1840,10 +1206,6 @@
 
         }
 
-
-        /* =========================================================
-           MOBILE
-        ========================================================= */
 
         @media(max-width: 800px) {
 
@@ -1903,26 +1265,10 @@
             }
 
 
-            .hero-title {
-
-                font-size:
-                    22px;
-
-            }
-
-
             .markdown {
 
                 padding:
                     20px;
-
-            }
-
-
-            .search-shortcut {
-
-                display:
-                    none;
 
             }
 
@@ -1935,2285 +1281,466 @@
 
 <body>
 
+<header class="header">
 
-    <!-- =========================================================
-         HEADER
-    ========================================================== -->
+    <div class="header-left">
 
-    <header class="header">
-
-        <div class="header-left">
-
-            <button
-                class="menu-button"
-                id="menuButton"
-                type="button"
-                aria-label="Abrir menú"
-            >
-                ☰
-            </button>
-
-
-            <div class="brand">
-
-                <img
-                    src="logo_ethernet.png"
-                    alt="Ethernet"
-                    class="brand-logo"
-                >
-
-                <span class="brand-name">
-                    Ethernet App
-                </span>
-
-            </div>
-
-        </div>
-
-
-        <div class="header-right">
-
-            <div
-                class="header-status"
-                id="headerStatus"
-            >
-                Cargando...
-            </div>
-
-
-            <button
-                class="theme-button"
-                id="themeButton"
-                type="button"
-            >
-                ☀️ Claro
-            </button>
-
-
-            <a
-                class="github-button"
-                href="https://github.com/AbutMatias/Manual-Operativo-Atencion-al-Cliente"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                GitHub
-            </a>
-
-        </div>
-
-    </header>
-
-
-    <!-- =========================================================
-         LOADING
-    ========================================================== -->
-
-    <div
-        class="loading-bar"
-        id="loadingBar"
-    >
-
-        <div class="loading-progress"></div>
-
-    </div>
-
-
-    <!-- =========================================================
-         SIDEBAR
-    ========================================================== -->
-
-    <aside
-        class="sidebar"
-        id="sidebar"
-    >
-
-        <div class="sidebar-section">
-            Navegación
-        </div>
-
-
-        <div class="sidebar-search">
-
-            <input
-                id="sidebarSearch"
-                type="text"
-                placeholder="Buscar opción..."
-                autocomplete="off"
-            >
-
-        </div>
-
-
-        <div class="nav">
-
-            <div
-                class="nav-item active"
-                id="navInicio"
-                onclick="inicio()"
-            >
-
-                <span class="category-icon">
-                    🏠
-                </span>
-
-                Inicio
-
-            </div>
-
-
-            <div
-                class="nav-item"
-                onclick="activarBusqueda()"
-            >
-
-                <span class="category-icon">
-                    🔎
-                </span>
-
-                Buscar
-
-            </div>
-
-
-            <div
-                class="nav-item"
-                onclick="mostrarFavoritos()"
-            >
-
-                <span class="category-icon">
-                    ⭐
-                </span>
-
-                Favoritos
-
-            </div>
-
-        </div>
-
-
-        <div class="sidebar-section">
-            Historial
-        </div>
-
-
-        <div
-            class="nav"
-            id="historial"
+        <button
+            class="menu-button"
+            id="menuButton"
+            type="button"
         >
-
-            <div class="nav-item">
-                No hay documentos recientes
-            </div>
-
-        </div>
-
-
-        <div class="sidebar-section">
-            Documentación
-        </div>
-
-
-        <div
-            class="nav"
-            id="categorias"
-        >
-
-            <div class="nav-item">
-                Cargando categorías...
-            </div>
-
-        </div>
-
-    </aside>
-
-
-    <!-- =========================================================
-         MAIN
-    ========================================================== -->
-
-    <main class="main">
-
-        <div class="content">
-
-
-            <!-- =================================================
-                 HOME
-            ================================================== -->
-
-            <section id="home">
-
-
-                <div class="hero">
-
-                    <h1 class="hero-title">
-                        Manual Operativo
-                    </h1>
-
-
-                    <p class="hero-subtitle">
-
-                        Documentación técnica y procedimientos
-                        de Atención al Cliente.
-
-                        Buscá rápidamente cualquier procedimiento,
-                        diagnóstico o herramienta.
-
-                    </p>
-
-
-                    <div class="main-search">
-
-                        <div class="main-search-wrapper">
-
-                            <span
-                                class="main-search-icon"
-                            >
-                                🔎
-                            </span>
-
-
-                            <input
-                                id="buscador"
-                                type="text"
-                                autocomplete="off"
-                                placeholder="Buscar router, ONU, WiFi, ping..."
-                            >
-
-
-                            <span
-                                class="search-shortcut"
-                            >
-                                Ctrl K
-                            </span>
-
-
-                            <button
-                                id="clearSearch"
-                                class="clear-search"
-                                type="button"
-                            >
-                                ✕
-                            </button>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <!-- =================================================
-                     STATS
-                ================================================== -->
-
-                <div class="stats">
-
-
-                    <div class="stat">
-
-                        <div
-                            class="stat-number"
-                            id="cantidad-documentos"
-                        >
-                            0
-                        </div>
-
-                        <div class="stat-label">
-                            Documentos
-                        </div>
-
-                    </div>
-
-
-                    <div class="stat">
-
-                        <div
-                            class="stat-number"
-                            id="cantidad-categorias"
-                        >
-                            0
-                        </div>
-
-                        <div class="stat-label">
-                            Categorías
-                        </div>
-
-                    </div>
-
-
-                    <div class="stat">
-
-                        <div
-                            class="stat-number"
-                            id="estado"
-                        >
-                            ...
-                        </div>
-
-                        <div class="stat-label">
-                            Estado del buscador
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <!-- =================================================
-                     RESULTS HEADER
-                ================================================== -->
-
-                <div class="results-header">
-
-                    <div
-                        class="results-title"
-                        id="resultsTitle"
-                    >
-                        Documentación
-                    </div>
-
-
-                    <div
-                        class="status"
-                        id="status"
-                    >
-                        Cargando...
-                    </div>
-
-                </div>
-
-
-                <div id="resultados"></div>
-
-
-            </section>
-
-
-            <!-- =================================================
-                 DOCUMENT VIEWER
-            ================================================== -->
-
-            <section
-                class="document"
-                id="documento"
+            ☰
+        </button>
+
+        <div class="brand">
+
+            <img
+                src="logo_ethernet.png"
+                alt="Ethernet"
+                class="brand-logo"
             >
 
-                <div class="document-header">
-
-                    <div class="document-header-actions">
-
-                        <button
-                            class="back"
-                            onclick="inicio()"
-                            type="button"
-                        >
-                            ← Volver
-                        </button>
-
-
-                        <button
-                            class="copy-button"
-                            id="copyButton"
-                            type="button"
-                        >
-                            📋 Copiar
-                        </button>
-
-                    </div>
-
-
-                    <a
-                        id="linkGithub"
-                        class="document-github"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        Abrir en GitHub
-                    </a>
-
-                </div>
-
-
-                <article
-                    class="markdown"
-                    id="contenidoDocumento"
-                >
-                </article>
-
-            </section>
-
-
-        </div>
-
-    </main>
-
-
-    <!-- =========================================================
-         COMMAND PALETTE
-    ========================================================== -->
-
-    <div
-        class="command-overlay"
-        id="commandOverlay"
-    >
-
-        <div class="command-box">
-
-            <input
-                class="command-input"
-                id="commandInput"
-                type="text"
-                autocomplete="off"
-                placeholder="Buscar documento..."
-            >
-
-
-            <div
-                class="command-results"
-                id="commandResults"
-            >
-            </div>
+            <span class="brand-name">
+                Ethernet App
+            </span>
 
         </div>
 
     </div>
 
 
-    <!-- =========================================================
-         JAVASCRIPT
-    ========================================================== -->
+    <div class="header-right">
 
-    <script>
+        <button
+            class="theme-button"
+            id="themeButton"
+            type="button"
+            title="Cambiar tema"
+        >
+            ☀
+        </button>
 
+        <div
+            class="header-status"
+            id="headerStatus"
+        >
+            Cargando...
+        </div>
 
-        /* =========================================================
-           CONFIGURACIÓN
-        ========================================================= */
+        <a
+            class="github-button"
+            href="https://github.com/AbutMatias/Manual-Operativo-Atencion-al-Cliente"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            GitHub
+        </a>
 
-        const OWNER =
-            "AbutMatias";
+    </div>
 
+</header>
 
-        const REPO =
-            "Manual-Operativo-Atencion-al-Cliente";
 
+<div
+    class="loading-bar"
+    id="loadingBar"
+>
 
-        const BRANCH =
-            "main";
+    <div class="loading-progress"></div>
 
+</div>
 
-        const API =
-            `https://api.github.com/repos/${OWNER}/${REPO}/contents/doc`;
 
+<aside
+    class="sidebar"
+    id="sidebar"
+>
 
-        const README_URL =
-            `https://raw.githubusercontent.com/${OWNER}/${REPO}/${BRANCH}/README.md`;
+    <div class="sidebar-section">
+        Navegación
+    </div>
 
 
-        const GITHUB_URL =
-            `https://github.com/${OWNER}/${REPO}/blob/${BRANCH}/`;
+    <div class="sidebar-search">
 
+        <input
+            id="sidebarSearch"
+            type="text"
+            placeholder="Buscar categoría..."
+            autocomplete="off"
+        >
 
-        const INDEX_URL =
-            "./index.json";
+    </div>
 
 
-        /* =========================================================
-           VARIABLES
-        ========================================================= */
+    <div class="nav">
 
-        let documentos = [];
+        <div
+            class="nav-item active"
+            id="navInicio"
+            onclick="inicio()"
+        >
 
-        let categorias = [];
+            <span class="category-icon">
+                🏠
+            </span>
 
-        let readmeCache = null;
+            Inicio
 
-        let searchTimer = null;
+        </div>
 
-        let favoritos =
-            JSON.parse(
-                localStorage.getItem(
-                    "manual_favoritos"
-                ) || "[]"
-            );
 
-        let historial =
-            JSON.parse(
-                localStorage.getItem(
-                    "manual_historial"
-                ) || "[]"
-            );
+        <div
+            class="nav-item"
+            onclick="activarBusqueda()"
+        >
 
+            <span class="category-icon">
+                🔎
+            </span>
 
-        /* =========================================================
-           TEMA
-        ========================================================= */
+            Buscar
 
-        function cargarTema() {
+        </div>
 
-            const tema =
-                localStorage.getItem(
-                    "manual_tema"
-                );
+    </div>
 
 
-            if (tema === "dark") {
+    <div class="sidebar-section">
+        Documentación
+    </div>
 
-                document.documentElement
-                    .classList
-                    .add("dark");
 
-            }
+    <div
+        class="nav"
+        id="categorias"
+    >
 
+        <div class="nav-item">
+            Cargando categorías...
+        </div>
 
-            actualizarBotonTema();
+    </div>
 
-        }
+</aside>
 
 
-        function cambiarTema() {
+<main class="main">
 
-            document.documentElement
-                .classList
-                .toggle("dark");
+    <div class="content">
 
 
-            const oscuro =
-                document.documentElement
-                    .classList
-                    .contains("dark");
+        <section id="home">
 
+            <div class="hero">
 
-            localStorage.setItem(
-                "manual_tema",
-                oscuro
-                    ? "dark"
-                    : "light"
-            );
+                <h1 class="hero-title">
+                    Manual Operativo
+                </h1>
 
+                <p class="hero-subtitle">
 
-            actualizarBotonTema();
+                    Documentación técnica y procedimientos
+                    de Atención al Cliente.
 
-        }
+                    Buscá rápidamente cualquier procedimiento,
+                    diagnóstico o herramienta.
 
+                </p>
 
-        function actualizarBotonTema() {
 
-            const boton =
-                document.getElementById(
-                    "themeButton"
-                );
+                <div class="main-search">
 
+                    <div class="main-search-wrapper">
 
-            if (
-                document.documentElement
-                    .classList
-                    .contains("dark")
-            ) {
+                        <span class="main-search-icon">
+                            🔎
+                        </span>
 
-                boton.textContent =
-                    "☀️ Claro";
+                        <input
+                            id="buscador"
+                            type="text"
+                            autocomplete="off"
+                            placeholder="Buscar router, ONU, WiFi, ping..."
+                        >
 
-            } else {
-
-                boton.textContent =
-                    "🌙 Oscuro";
-
-            }
-
-        }
-
-
-        document
-            .getElementById("themeButton")
-            .addEventListener(
-                "click",
-                cambiarTema
-            );
-
-
-        cargarTema();
-
-
-        /* =========================================================
-           INICIAR
-        ========================================================= */
-
-        async function iniciar() {
-
-            const status =
-                document.getElementById(
-                    "status"
-                );
-
-
-            const estado =
-                document.getElementById(
-                    "estado"
-                );
-
-
-            const loading =
-                document.getElementById(
-                    "loadingBar"
-                );
-
-
-            const headerStatus =
-                document.getElementById(
-                    "headerStatus"
-                );
-
-
-            try {
-
-                loading.classList.add(
-                    "active"
-                );
-
-
-                status.textContent =
-                    "Cargando documentación...";
-
-
-                headerStatus.textContent =
-                    "Cargando...";
-
-
-                let cargadoDesdeIndex =
-                    await cargarDesdeIndex();
-
-
-                if (!cargadoDesdeIndex) {
-
-                    await cargarDocumentosGitHub();
-
-                }
-
-
-                try {
-
-                    await cargarCategorias();
-
-                } catch (error) {
-
-                    console.warn(
-                        "No se pudo cargar README:",
-                        error
-                    );
-
-                    categorias = [];
-
-                }
-
-
-                document.getElementById(
-                    "cantidad-documentos"
-                ).textContent =
-                    documentos.length;
-
-
-                document.getElementById(
-                    "cantidad-categorias"
-                ).textContent =
-                    categorias.length;
-
-
-                estado.textContent =
-                    "OK";
-
-
-                headerStatus.textContent =
-                    `${documentos.length} documentos`;
-
-
-                status.textContent =
-                    `${documentos.length} documentos disponibles`;
-
-
-                mostrarHistorial();
-
-                mostrarDocumentosIniciales();
-
-            } catch (error) {
-
-                console.error(error);
-
-
-                estado.textContent =
-                    "ERROR";
-
-
-                headerStatus.textContent =
-                    "Error";
-
-
-                status.textContent =
-                    "Error al cargar";
-
-
-                document.getElementById(
-                    "resultados"
-                ).innerHTML = `
-
-                    <div class="empty">
-
-                        <div class="empty-title">
-                            No se pudo cargar la documentación
-                        </div>
-
-                        <br>
-
-                        ${escapeHTML(
-                            error.message
-                        )}
+                        <button
+                            id="clearSearch"
+                            class="clear-search"
+                            type="button"
+                        >
+                            ✕
+                        </button>
 
                     </div>
 
-                `;
+                </div>
 
-            } finally {
+            </div>
 
-                loading.classList.remove(
-                    "active"
-                );
 
-            }
+            <div class="stats">
 
-        }
+                <div class="stat">
 
-
-        /* =========================================================
-           INDEX.JSON
-        ========================================================= */
-
-        async function cargarDesdeIndex() {
-
-            try {
-
-                const respuesta =
-                    await fetch(
-                        `${INDEX_URL}?v=${Date.now()}`
-                    );
-
-
-                if (!respuesta.ok) {
-
-                    return false;
-
-                }
-
-
-                const data =
-                    await respuesta.json();
-
-
-                if (!Array.isArray(data)) {
-
-                    return false;
-
-                }
-
-
-                documentos =
-                    data.map(
-                        documento => ({
-
-                            nombre:
-                                documento.nombre,
-
-                            path:
-                                documento.path,
-
-                            contenido:
-                                documento.contenido || "",
-
-                            tags:
-                                Array.isArray(
-                                    documento.tags
-                                )
-                                    ? documento.tags
-                                    : [],
-
-                            url:
-                                documento.url ||
-                                `https://raw.githubusercontent.com/${OWNER}/${REPO}/${BRANCH}/${documento.path}`
-
-                        })
-                    );
-
-
-                documentos.sort(
-                    (a, b) =>
-                        a.nombre.localeCompare(
-                            b.nombre,
-                            "es"
-                        )
-                );
-
-
-                console.log(
-                    "Documentación cargada desde index.json"
-                );
-
-
-                return true;
-
-            } catch (error) {
-
-                console.warn(
-                    "index.json no disponible."
-                );
-
-                return false;
-
-            }
-
-        }
-
-
-        /* =========================================================
-           GITHUB FALLBACK
-        ========================================================= */
-
-        async function cargarDocumentosGitHub() {
-
-            const respuesta =
-                await fetch(API);
-
-
-            if (!respuesta.ok) {
-
-                throw new Error(
-                    `GitHub API respondió ${respuesta.status}`
-                );
-
-            }
-
-
-            const archivos =
-                await respuesta.json();
-
-
-            documentos = [];
-
-
-            await recorrerCarpeta(
-                archivos
-            );
-
-
-            await Promise.all(
-
-                documentos.map(
-                    async documento => {
-
-                        try {
-
-                            const respuesta =
-                                await fetch(
-                                    documento.url
-                                );
-
-
-                            if (!respuesta.ok) {
-
-                                throw new Error(
-                                    respuesta.status
-                                );
-
-                            }
-
-
-                            documento.contenido =
-                                await respuesta.text();
-
-                        } catch (error) {
-
-                            console.warn(
-                                "No se pudo cargar:",
-                                documento.path
-                            );
-
-                            documento.contenido =
-                                "";
-
-                        }
-
-                    }
-                )
-
-            );
-
-
-            documentos.sort(
-                (a, b) =>
-                    a.nombre.localeCompare(
-                        b.nombre,
-                        "es"
-                    )
-            );
-
-        }
-
-
-        async function recorrerCarpeta(
-            archivos
-        ) {
-
-            for (
-                const archivo of archivos
-            ) {
-
-                if (
-
-                    archivo.type === "file" &&
-
-                    archivo.name
-                        .toLowerCase()
-                        .endsWith(".md")
-
-                ) {
-
-                    documentos.push({
-
-                        nombre:
-                            archivo.name.replace(
-                                /\.md$/i,
-                                ""
-                            ),
-
-                        path:
-                            archivo.path,
-
-                        url:
-                            archivo.download_url,
-
-                        contenido:
-                            null,
-
-                        tags:
-                            []
-
-                    });
-
-                    continue;
-
-                }
-
-
-                if (
-                    archivo.type === "dir"
-                ) {
-
-                    try {
-
-                        const respuesta =
-                            await fetch(
-                                archivo.url
-                            );
-
-
-                        if (!respuesta.ok)
-                            continue;
-
-
-                        const contenido =
-                            await respuesta.json();
-
-
-                        await recorrerCarpeta(
-                            contenido
-                        );
-
-                    } catch (error) {
-
-                        console.warn(
-                            "No se pudo leer:",
-                            archivo.path
-                        );
-
-                    }
-
-                }
-
-            }
-
-        }
-
-
-        /* =========================================================
-           CATEGORÍAS DESDE README
-        ========================================================= */
-
-        async function cargarCategorias() {
-
-            const respuesta =
-                await fetch(
-                    `${README_URL}?v=${Date.now()}`
-                );
-
-
-            if (!respuesta.ok) {
-
-                throw new Error(
-                    "No se pudo cargar README.md"
-                );
-
-            }
-
-
-            readmeCache =
-                await respuesta.text();
-
-
-            categorias =
-                obtenerCategorias(
-                    readmeCache
-                );
-
-
-            mostrarCategorias();
-
-        }
-
-
-        function obtenerCategorias(
-            markdown
-        ) {
-
-            const resultado = [];
-
-            const lineas =
-                markdown.split("\n");
-
-
-            for (
-                const linea of lineas
-            ) {
-
-                const match =
-                    linea.match(
-                        /^##\s+(.+)$/
-                    );
-
-
-                if (!match)
-                    continue;
-
-
-                resultado.push({
-
-                    nombre:
-                        match[1].trim()
-
-                });
-
-            }
-
-
-            return resultado;
-
-        }
-
-
-        function mostrarCategorias() {
-
-            const contenedor =
-                document.getElementById(
-                    "categorias"
-                );
-
-
-            contenedor.innerHTML = "";
-
-
-            if (
-                categorias.length === 0
-            ) {
-
-                contenedor.innerHTML = `
-
-                    <div class="nav-item">
-                        Sin categorías
+                    <div
+                        class="stat-number"
+                        id="cantidad-documentos"
+                    >
+                        0
                     </div>
 
-                `;
-
-                return;
-
-            }
-
-
-            categorias.forEach(
-                categoria => {
-
-                    const elemento =
-                        document.createElement(
-                            "div"
-                        );
-
-
-                    elemento.className =
-                        "nav-item";
-
-
-                    elemento.innerHTML = `
-
-                        <span class="category-icon">
-                            📁
-                        </span>
-
-                        <span>
-                            ${escapeHTML(
-                                limpiarEmoji(
-                                    categoria.nombre
-                                )
-                            )}
-                        </span>
-
-                    `;
-
-
-                    elemento.onclick =
-                        () =>
-                            filtrarCategoria(
-                                categoria
-                            );
-
-
-                    contenedor.appendChild(
-                        elemento
-                    );
-
-                }
-            );
-
-        }
-
-
-        /* =========================================================
-           DOCUMENTOS INICIALES
-        ========================================================= */
-
-        function mostrarDocumentosIniciales() {
-
-            const resultados =
-                documentos.map(
-                    documento => ({
-
-                        documento,
-
-                        contenido:
-                            documento.contenido || "",
-
-                        puntos:
-                            0
-
-                    })
-                );
-
-
-            mostrarResultados(
-                resultados.slice(0, 20),
-                ""
-            );
-
-        }
-
-
-        /* =========================================================
-           BUSCADOR
-        ========================================================= */
-
-        const buscador =
-            document.getElementById(
-                "buscador"
-            );
-
-
-        const clearSearch =
-            document.getElementById(
-                "clearSearch"
-            );
-
-
-        buscador.addEventListener(
-            "input",
-            function () {
-
-                const texto =
-                    this.value
-                        .trim()
-                        .toLowerCase();
-
-
-                clearSearch.style.display =
-                    texto
-                        ? "block"
-                        : "none";
-
-
-                clearTimeout(
-                    searchTimer
-                );
-
-
-                searchTimer =
-                    setTimeout(
-                        () => {
-
-                            if (!texto) {
-
-                                mostrarDocumentosIniciales();
-
-                                document.getElementById(
-                                    "status"
-                                ).textContent =
-                                    `${documentos.length} documentos disponibles`;
-
-                                return;
-
-                            }
-
-
-                            buscarDocumentos(
-                                texto
-                            );
-
-                        },
-                        80
-                    );
-
-            }
-        );
-
-
-        clearSearch.addEventListener(
-            "click",
-            () => {
-
-                buscador.value = "";
-
-                clearSearch.style.display =
-                    "none";
-
-                mostrarDocumentosIniciales();
-
-                document.getElementById(
-                    "status"
-                ).textContent =
-                    `${documentos.length} documentos disponibles`;
-
-                buscador.focus();
-
-            }
-        );
-
-
-        /* =========================================================
-           BÚSQUEDA INTELIGENTE
-        ========================================================= */
-
-        function buscarDocumentos(
-            texto
-        ) {
-
-            const palabras =
-                texto
-                    .split(/\s+/)
-                    .filter(Boolean);
-
-
-            const resultados = [];
-
-
-            for (
-                const documento of documentos
-            ) {
-
-                const nombre =
-                    (
-                        documento.nombre || ""
-                    ).toLowerCase();
-
-
-                const path =
-                    (
-                        documento.path || ""
-                    ).toLowerCase();
-
-
-                const contenido =
-                    (
-                        documento.contenido || ""
-                    ).toLowerCase();
-
-
-                const tags =
-                    (
-                        documento.tags || []
-                    )
-                    .join(" ")
-                    .toLowerCase();
-
-
-                let puntos = 0;
-
-                let palabrasEncontradas = 0;
-
-
-                for (
-                    const palabra of palabras
-                ) {
-
-                    let encontrada =
-                        false;
-
-
-                    if (
-                        nombre.includes(
-                            palabra
-                        )
-                    ) {
-
-                        puntos += 100;
-                        encontrada = true;
-
-                    }
-
-
-                    if (
-                        tags.includes(
-                            palabra
-                        )
-                    ) {
-
-                        puntos += 50;
-                        encontrada = true;
-
-                    }
-
-
-                    if (
-                        path.includes(
-                            palabra
-                        )
-                    ) {
-
-                        puntos += 20;
-                        encontrada = true;
-
-                    }
-
-
-                    if (
-                        contenido.includes(
-                            palabra
-                        )
-                    ) {
-
-                        puntos += 10;
-                        encontrada = true;
-
-                    }
-
-
-                    if (encontrada) {
-
-                        palabrasEncontradas++;
-
-                    }
-
-                }
-
-
-                if (
-                    palabrasEncontradas ===
-                    palabras.length
-                ) {
-
-                    resultados.push({
-
-                        documento,
-
-                        contenido:
-                            documento.contenido || "",
-
-                        puntos
-
-                    });
-
-                }
-
-            }
-
-
-            resultados.sort(
-                (a, b) =>
-                    b.puntos -
-                    a.puntos
-            );
-
-
-            mostrarResultados(
-                resultados,
-                texto
-            );
-
-
-            document.getElementById(
-                "status"
-            ).textContent =
-                `${resultados.length} resultado(s)`;
-
-        }
-
-
-        /* =========================================================
-           RESULTADOS
-        ========================================================= */
-
-        function mostrarResultados(
-            resultados,
-            texto
-        ) {
-
-            const contenedor =
-                document.getElementById(
-                    "resultados"
-                );
-
-
-            contenedor.innerHTML = "";
-
-
-            if (
-                resultados.length === 0
-            ) {
-
-                contenedor.innerHTML = `
-
-                    <div class="empty">
-
-                        🔎
-
-                        <br><br>
-
-                        <div class="empty-title">
-                            No encontramos resultados
-                        </div>
-
-                        <br>
-
-                        No existe ningún documento
-                        que contenga:
-
-                        <br><br>
-
-                        <strong>
-                            "${escapeHTML(texto)}"
-                        </strong>
-
+                    <div class="stat-label">
+                        Documentos
                     </div>
 
-                `;
+                </div>
 
-                return;
 
-            }
+                <div class="stat">
 
-
-            resultados.forEach(
-                resultado => {
-
-                    const documento =
-                        resultado.documento;
-
-
-                    const fragmento =
-                        obtenerFragmento(
-                            resultado.contenido,
-                            texto
-                        );
-
-
-                    const elemento =
-                        document.createElement(
-                            "div"
-                        );
-
-
-                    elemento.className =
-                        "result";
-
-
-                    const favorito =
-                        esFavorito(
-                            documento.path
-                        );
-
-
-                    const tags =
-                        documento.tags || [];
-
-
-                    elemento.innerHTML = `
-
-                        <div class="result-title-row">
-
-                            <span
-                                class="result-title-icon"
-                            >
-                                📄
-                            </span>
-
-
-                            <div class="result-title">
-
-                                ${escapeHTML(
-                                    documento.nombre
-                                )}
-
-                            </div>
-
-
-                            <button
-                                class="favorite-button ${favorito ? "active" : ""}"
-                                title="Favorito"
-                                type="button"
-                            >
-                                ${favorito ? "★" : "☆"}
-                            </button>
-
-                        </div>
-
-
-                        <div class="result-category">
-
-                            📁
-
-                            ${escapeHTML(
-                                documento.path
-                            )}
-
-                        </div>
-
-
-                        ${
-                            tags.length
-                                ? `
-                                    <div class="result-tags">
-
-                                        ${tags
-                                            .map(
-                                                tag =>
-                                                    `<span class="tag">${escapeHTML(tag)}</span>`
-                                            )
-                                            .join("")}
-
-                                    </div>
-                                `
-                                : ""
-                        }
-
-
-                        <div class="result-text">
-
-                            ${resaltar(
-                                fragmento,
-                                texto
-                            )}
-
-                        </div>
-
-
-                        <div class="result-actions">
-
-                            <button
-                                class="read-button"
-                                type="button"
-                            >
-                                Leer documento
-                            </button>
-
-                        </div>
-
-                    `;
-
-
-                    elemento
-                        .querySelector(
-                            ".read-button"
-                        )
-                        .addEventListener(
-                            "click",
-                            () =>
-                                abrirDocumento(
-                                    documento.path
-                                )
-                        );
-
-
-                    elemento
-                        .querySelector(
-                            ".favorite-button"
-                        )
-                        .addEventListener(
-                            "click",
-                            () =>
-                                alternarFavorito(
-                                    documento.path
-                                )
-                        );
-
-
-                    contenedor.appendChild(
-                        elemento
-                    );
-
-                }
-            );
-
-        }
-
-
-        /* =========================================================
-           FRAGMENTO
-        ========================================================= */
-
-        function obtenerFragmento(
-            contenido,
-            texto
-        ) {
-
-            const limpio =
-                contenido
-                    .replace(
-                        /[#>*_`]/g,
-                        " "
-                    )
-                    .replace(
-                        /\s+/g,
-                        " "
-                    )
-                    .trim();
-
-
-            if (!texto) {
-
-                return limpio.substring(
-                    0,
-                    300
-                );
-
-            }
-
-
-            const posicion =
-                limpio
-                    .toLowerCase()
-                    .indexOf(
-                        texto.toLowerCase()
-                    );
-
-
-            if (
-                posicion === -1
-            ) {
-
-                return limpio.substring(
-                    0,
-                    300
-                );
-
-            }
-
-
-            const inicio =
-                Math.max(
-                    0,
-                    posicion - 120
-                );
-
-
-            return limpio.substring(
-                inicio,
-                posicion +
-                texto.length +
-                250
-            );
-
-        }
-
-
-        /* =========================================================
-           RESALTAR
-        ========================================================= */
-
-        function resaltar(
-            texto,
-            busqueda
-        ) {
-
-            let resultado =
-                escapeHTML(texto);
-
-
-            if (!busqueda)
-                return resultado;
-
-
-            const palabras =
-                busqueda
-                    .split(/\s+/)
-                    .filter(Boolean);
-
-
-            palabras.forEach(
-                palabra => {
-
-                    const regex =
-                        new RegExp(
-                            `(${escapeRegex(
-                                palabra
-                            )})`,
-                            "gi"
-                        );
-
-
-                    resultado =
-                        resultado.replace(
-                            regex,
-                            "<mark>$1</mark>"
-                        );
-
-                }
-            );
-
-
-            return resultado;
-
-        }
-
-
-        /* =========================================================
-           FAVORITOS
-        ========================================================= */
-
-        function esFavorito(
-            path
-        ) {
-
-            return favoritos.includes(
-                path
-            );
-
-        }
-
-
-        function alternarFavorito(
-            path
-        ) {
-
-            if (
-                esFavorito(path)
-            ) {
-
-                favoritos =
-                    favoritos.filter(
-                        item =>
-                            item !== path
-                    );
-
-            } else {
-
-                favoritos.push(
-                    path
-                );
-
-            }
-
-
-            localStorage.setItem(
-                "manual_favoritos",
-                JSON.stringify(
-                    favoritos
-                )
-            );
-
-
-            if (
-                buscador.value.trim()
-            ) {
-
-                buscarDocumentos(
-                    buscador.value
-                        .trim()
-                        .toLowerCase()
-                );
-
-            } else {
-
-                mostrarDocumentosIniciales();
-
-            }
-
-        }
-
-
-        function mostrarFavoritos() {
-
-            inicio();
-
-
-            const resultados =
-                documentos
-                    .filter(
-                        documento =>
-                            esFavorito(
-                                documento.path
-                            )
-                    )
-                    .map(
-                        documento => ({
-
-                            documento,
-
-                            contenido:
-                                documento.contenido || "",
-
-                            puntos:
-                                1
-
-                        })
-                    );
-
-
-            document.getElementById(
-                "resultsTitle"
-            ).textContent =
-                "Favoritos";
-
-
-            mostrarResultados(
-                resultados,
-                ""
-            );
-
-
-            document.getElementById(
-                "status"
-            ).textContent =
-                `${resultados.length} favorito(s)`;
-
-        }
-
-
-        /* =========================================================
-           HISTORIAL
-        ========================================================= */
-
-        function agregarHistorial(
-            path
-        ) {
-
-            historial =
-                historial.filter(
-                    item =>
-                        item !== path
-                );
-
-
-            historial.unshift(
-                path
-            );
-
-
-            historial =
-                historial.slice(
-                    0,
-                    5
-                );
-
-
-            localStorage.setItem(
-                "manual_historial",
-                JSON.stringify(
-                    historial
-                )
-            );
-
-
-            mostrarHistorial();
-
-        }
-
-
-        function mostrarHistorial() {
-
-            const contenedor =
-                document.getElementById(
-                    "historial"
-                );
-
-
-            contenedor.innerHTML = "";
-
-
-            if (
-                historial.length === 0
-            ) {
-
-                contenedor.innerHTML = `
-
-                    <div class="nav-item">
-                        No hay documentos recientes
+                    <div
+                        class="stat-number"
+                        id="cantidad-categorias"
+                    >
+                        0
                     </div>
 
-                `;
+                    <div class="stat-label">
+                        Categorías
+                    </div>
 
-                return;
-
-            }
-
-
-            historial.forEach(
-                path => {
-
-                    const documento =
-                        documentos.find(
-                            item =>
-                                item.path ===
-                                path
-                        );
+                </div>
 
 
-                    if (!documento)
-                        return;
+                <div class="stat">
+
+                    <div
+                        class="stat-number"
+                        id="estado"
+                    >
+                        ...
+                    </div>
+
+                    <div class="stat-label">
+                        Estado del buscador
+                    </div>
+
+                </div>
+
+            </div>
 
 
-                    const elemento =
-                        document.createElement(
-                            "div"
-                        );
+            <div class="results-header">
+
+                <div class="results-title">
+                    Documentación
+                </div>
+
+                <div
+                    class="status"
+                    id="status"
+                >
+                    Cargando...
+                </div>
+
+            </div>
 
 
-                    elemento.className =
-                        "nav-item";
+            <div id="resultados"></div>
+
+        </section>
 
 
-                    elemento.innerHTML = `
+        <section
+            class="document"
+            id="documento"
+        >
 
-                        <span class="history-icon">
-                            🕘
-                        </span>
+            <div class="document-header">
 
-                        <span>
-                            ${escapeHTML(
-                                documento.nombre
-                            )}
-                        </span>
+                <button
+                    class="back"
+                    onclick="inicio()"
+                >
+                    ← Volver
+                </button>
 
-                    `;
+                <a
+                    id="linkGithub"
+                    class="document-github"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Abrir en GitHub
+                </a>
 
-
-                    elemento.onclick =
-                        () =>
-                            abrirDocumento(
-                                documento.path
-                            );
-
-
-                    contenedor.appendChild(
-                        elemento
-                    );
-
-                }
-            );
-
-        }
+            </div>
 
 
-        /* =========================================================
-           ABRIR DOCUMENTO
-        ========================================================= */
+            <article
+                class="markdown"
+                id="contenidoDocumento"
+            ></article>
 
-       function abrirDocumento(path) {
+        </section>
 
-    document.getElementById("home").style.display = "none";
-    document.getElementById("documento").style.display = "block";
+    </div>
 
-    const contenido = document.getElementById("contenidoDocumento");
+</main>
 
-    contenido.innerHTML = "<p>Cargando documento...</p>";
 
-    const documento = documentos.find(
-        item => item.path === path
+<script>
+
+const OWNER =
+    "AbutMatias";
+
+const REPO =
+    "Manual-Operativo-Atencion-al-Cliente";
+
+const BRANCH =
+    "main";
+
+const INDEX_URL =
+    "./index.json";
+
+const README_URL =
+    `https://raw.githubusercontent.com/${OWNER}/${REPO}/${BRANCH}/README.md`;
+
+const GITHUB_URL =
+    `https://github.com/${OWNER}/${REPO}/blob/${BRANCH}/`;
+
+
+let documentos = [];
+
+let categorias = [];
+
+let readmeCache = null;
+
+let searchTimer = null;
+
+
+const buscador =
+    document.getElementById(
+        "buscador"
     );
 
-    if (!documento) {
+const clearSearch =
+    document.getElementById(
+        "clearSearch"
+    );
 
-        contenido.innerHTML = `
-            <div class="empty">
-                <div class="empty-title">
-                    Documento no encontrado
-                </div>
-            </div>
-        `;
 
-        return;
-    }
+async function iniciar() {
+
+    const loading =
+        document.getElementById(
+            "loadingBar"
+        );
 
     try {
 
-        const markdown = documento.contenido || "";
-
-        /*
-         * Convertimos el Markdown a HTML
-         */
-        contenido.innerHTML = marked.parse(markdown);
+        loading.classList.add(
+            "active"
+        );
 
 
-        /*
-         * =====================================================
-         * CORREGIR IMÁGENES DEL DOCUMENTO
-         * =====================================================
-         *
-         * Las imágenes se buscan dentro de GitHub,
-         * respetando la ubicación del archivo .md.
-         */
-
-        const carpetaDocumento =
-            path.substring(
-                0,
-                path.lastIndexOf("/") + 1
+        const respuesta =
+            await fetch(
+                `${INDEX_URL}?v=${Date.now()}`
             );
 
 
-        contenido
-            .querySelectorAll("img")
-            .forEach(img => {
+        if (!respuesta.ok) {
 
-                const src = img.getAttribute("src");
+            throw new Error(
+                `No se pudo cargar index.json (${respuesta.status})`
+            );
 
-                if (!src)
-                    return;
-
-
-                /*
-                 * No modificar imágenes externas.
-                 */
-
-                if (
-                    src.startsWith("http://") ||
-                    src.startsWith("https://") ||
-                    src.startsWith("data:") ||
-                    src.startsWith("//")
-                ) {
-
-                    return;
-
-                }
+        }
 
 
-                /*
-                 * Eliminar ./ inicial
-                 */
-
-                let rutaImagen =
-                    src.replace(
-                        /^\.\/+/,
-                        ""
-                    );
+        documentos =
+            await respuesta.json();
 
 
-                /*
-                 * Si la imagen es relativa,
-                 * la ubicamos respecto al .md.
-                 */
+        if (!Array.isArray(documentos)) {
 
-                if (
-                    !rutaImagen.startsWith("doc/")
-                ) {
+            throw new Error(
+                "index.json no contiene una lista válida"
+            );
 
-                    rutaImagen =
-                        carpetaDocumento +
-                        rutaImagen;
-
-                }
+        }
 
 
-                /*
-                 * Convertimos espacios y caracteres
-                 * especiales correctamente.
-                 */
+        await cargarCategorias();
 
-                const partes =
-                    rutaImagen
-                        .split("/")
-                        .map(
-                            parte =>
-                                encodeURIComponent(
-                                    parte
-                                )
-                        );
-
-
-                /*
-                 * URL RAW de GitHub
-                 */
-
-                img.src =
-                    `https://raw.githubusercontent.com/${OWNER}/${REPO}/${BRANCH}/${partes.join("/")}`;
-
-
-                /*
-                 * Evita que una imagen rota
-                 * ocupe un espacio innecesario.
-                 */
-
-                img.loading = "lazy";
-
-
-                img.onerror = function () {
-
-                    console.warn(
-                        "No se pudo cargar la imagen:",
-                        img.src
-                    );
-
-                };
-
-            });
-
-
-        /*
-         * =====================================================
-         * ENLACES RELATIVOS
-         * =====================================================
-         *
-         * También corregimos los enlaces internos
-         * del Markdown.
-         */
-
-        contenido
-            .querySelectorAll("a")
-            .forEach(enlace => {
-
-                const href =
-                    enlace.getAttribute("href");
-
-                if (!href)
-                    return;
-
-
-                /*
-                 * No modificar enlaces externos.
-                 */
-
-                if (
-                    href.startsWith("http://") ||
-                    href.startsWith("https://") ||
-                    href.startsWith("#") ||
-                    href.startsWith("mailto:")
-                ) {
-
-                    enlace.target = "_blank";
-                    enlace.rel =
-                        "noopener noreferrer";
-
-                    return;
-
-                }
-
-
-                /*
-                 * Si apunta a otro .md,
-                 * intentamos abrirlo dentro
-                 * de la aplicación.
-                 */
-
-                if (
-                    href
-                        .toLowerCase()
-                        .endsWith(".md")
-                ) {
-
-                    const ruta =
-                        decodeURIComponent(
-                            href
-                        )
-                        .replace(
-                            /^\.\/+/,
-                            ""
-                        );
-
-
-                    const rutaFinal =
-                        ruta.startsWith("doc/")
-                            ? ruta
-                            : carpetaDocumento + ruta;
-
-
-                    enlace.addEventListener(
-                        "click",
-                        function (event) {
-
-                            event.preventDefault();
-
-                            abrirDocumento(
-                                normalizarRuta(
-                                    rutaFinal
-                                )
-                            );
-
-                        }
-                    );
-
-                }
-
-            });
-
-
-        /*
-         * =====================================================
-         * LINK DE GITHUB
-         * =====================================================
-         */
 
         document.getElementById(
-            "linkGithub"
-        ).href =
-            GITHUB_URL +
-            path
-                .split("/")
-                .map(
-                    encodeURIComponent
-                )
-                .join("/");
+            "cantidad-documentos"
+        ).textContent =
+            documentos.length;
 
 
-        /*
-         * Volver arriba
-         */
+        document.getElementById(
+            "cantidad-categorias"
+        ).textContent =
+            categorias.length;
 
-        window.scrollTo(
-            0,
-            0
-        );
+
+        document.getElementById(
+            "estado"
+        ).textContent =
+            "OK";
+
+
+        document.getElementById(
+            "headerStatus"
+        ).textContent =
+            `${documentos.length} documentos`;
+
+
+        document.getElementById(
+            "status"
+        ).textContent =
+            `${documentos.length} documentos disponibles`;
+
+
+        mostrarDocumentosIniciales();
 
 
     } catch (error) {
 
         console.error(error);
 
-        contenido.innerHTML = `
+
+        document.getElementById(
+            "estado"
+        ).textContent =
+            "ERROR";
+
+
+        document.getElementById(
+            "headerStatus"
+        ).textContent =
+            "Error";
+
+
+        document.getElementById(
+            "status"
+        ).textContent =
+            "Error al cargar";
+
+
+        document.getElementById(
+            "resultados"
+        ).innerHTML = `
 
             <div class="empty">
 
                 <div class="empty-title">
-                    No se pudo cargar el documento
+                    No se pudo cargar la documentación
                 </div>
 
                 <br>
@@ -4226,743 +1753,1051 @@
 
         `;
 
+    } finally {
+
+        loading.classList.remove(
+            "active"
+        );
+
     }
 
 }
 
-        /* =========================================================
-           COPIAR DOCUMENTO
-        ========================================================= */
 
-        document
-            .getElementById(
-                "copyButton"
-            )
-            .addEventListener(
-                "click",
-                async () => {
+async function cargarCategorias() {
 
-                    const path =
-                        historial[0];
+    const respuesta =
+        await fetch(
+            `${README_URL}?v=${Date.now()}`
+        );
 
 
-                    const documento =
-                        documentos.find(
-                            item =>
-                                item.path ===
-                                path
-                        );
+    if (!respuesta.ok) {
+
+        throw new Error(
+            "No se pudo cargar README.md"
+        );
+
+    }
 
 
-                    if (!documento)
-                        return;
+    readmeCache =
+        await respuesta.text();
 
 
-                    try {
-
-                        await navigator
-                            .clipboard
-                            .writeText(
-                                documento.contenido
-                            );
+    categorias =
+        obtenerCategorias(
+            readmeCache
+        );
 
 
-                        const boton =
-                            document.getElementById(
-                                "copyButton"
-                            );
+    mostrarCategorias();
+
+}
 
 
-                        boton.textContent =
-                            "✓ Copiado";
+function obtenerCategorias(markdown) {
+
+    const resultado = [];
+
+    const lineas =
+        markdown.split("\n");
 
 
-                        setTimeout(
-                            () => {
+    for (const linea of lineas) {
 
-                                boton.textContent =
-                                    "📋 Copiar";
-
-                            },
-                            1500
-                        );
-
-                    } catch (error) {
-
-                        console.error(
-                            error
-                        );
-
-                    }
-
-                }
+        const match =
+            linea.match(
+                /^##\s+(.+)$/
             );
 
 
-        /* =========================================================
-           FILTRAR CATEGORÍA
-        ========================================================= */
-
-        function filtrarCategoria(
-            categoria
-        ) {
-
-            if (!readmeCache)
-                return;
+        if (!match)
+            continue;
 
 
-            const rutas =
-                obtenerDocumentosDeCategoria(
-                    readmeCache,
-                    categoria.nombre
+        resultado.push({
+
+            nombre:
+                match[1].trim()
+
+        });
+
+    }
+
+
+    return resultado;
+
+}
+
+
+function mostrarCategorias() {
+
+    const contenedor =
+        document.getElementById(
+            "categorias"
+        );
+
+
+    contenedor.innerHTML = "";
+
+
+    categorias.forEach(
+        categoria => {
+
+            const elemento =
+                document.createElement(
+                    "div"
                 );
 
 
-            const resultados = [];
+            elemento.className =
+                "nav-item";
 
 
-            for (
-                const ruta of rutas
-            ) {
+            elemento.innerHTML = `
 
-                const documento =
-                    documentos.find(
-                        item =>
-                            normalizarRuta(
-                                item.path
-                            ) ===
-                            normalizarRuta(
-                                ruta
-                            )
+                <span class="category-icon">
+                    📁
+                </span>
+
+                <span>
+                    ${escapeHTML(
+                        limpiarEmoji(
+                            categoria.nombre
+                        )
+                    )}
+                </span>
+
+            `;
+
+
+            elemento.onclick =
+                () =>
+                    filtrarCategoria(
+                        categoria
                     );
 
 
-                if (!documento)
-                    continue;
+            contenedor.appendChild(
+                elemento
+            );
+
+        }
+    );
+
+}
 
 
-                resultados.push({
+function mostrarDocumentosIniciales() {
 
-                    documento,
+    const resultados =
+        documentos.map(
+            documento => ({
 
-                    contenido:
-                        documento.contenido || "",
+                documento,
 
-                    puntos:
-                        1
+                contenido:
+                    documento.contenido || "",
 
-                });
+                puntos: 0
+
+            })
+        );
+
+
+    mostrarResultados(
+        resultados.slice(0, 20),
+        ""
+    );
+
+}
+
+
+buscador.addEventListener(
+    "input",
+    function () {
+
+        const texto =
+            this.value
+                .trim()
+                .toLowerCase();
+
+
+        clearSearch.style.display =
+            texto
+                ? "block"
+                : "none";
+
+
+        clearTimeout(
+            searchTimer
+        );
+
+
+        searchTimer =
+            setTimeout(
+                () => {
+
+                    if (!texto) {
+
+                        mostrarDocumentosIniciales();
+
+                        document.getElementById(
+                            "status"
+                        ).textContent =
+                            `${documentos.length} documentos disponibles`;
+
+                        return;
+
+                    }
+
+
+                    buscarDocumentos(
+                        texto
+                    );
+
+                },
+                80
+            );
+
+    }
+);
+
+
+clearSearch.addEventListener(
+    "click",
+    () => {
+
+        buscador.value = "";
+
+        clearSearch.style.display =
+            "none";
+
+        mostrarDocumentosIniciales();
+
+        document.getElementById(
+            "status"
+        ).textContent =
+            `${documentos.length} documentos disponibles`;
+
+        buscador.focus();
+
+    }
+);
+
+
+function buscarDocumentos(texto) {
+
+    const palabras =
+        texto
+            .split(/\s+/)
+            .filter(Boolean);
+
+
+    const resultados = [];
+
+
+    for (const documento of documentos) {
+
+        const textoBusqueda = (
+
+            documento.nombre +
+            " " +
+            documento.path +
+            " " +
+            (documento.contenido || "")
+
+        ).toLowerCase();
+
+
+        let puntos = 0;
+
+
+        for (const palabra of palabras) {
+
+            if (
+                textoBusqueda.includes(
+                    palabra
+                )
+            ) {
+
+                puntos++;
 
             }
 
-
-            inicio();
-
-
-            buscador.value = "";
-
-            clearSearch.style.display =
-                "none";
+        }
 
 
-            document.getElementById(
-                "resultsTitle"
-            ).textContent =
-                limpiarEmoji(
-                    categoria.nombre
+        if (
+            puntos === palabras.length
+        ) {
+
+            resultados.push({
+
+                documento,
+
+                contenido:
+                    documento.contenido || "",
+
+                puntos
+
+            });
+
+        }
+
+    }
+
+
+    resultados.sort(
+        (a, b) =>
+            b.puntos - a.puntos
+    );
+
+
+    mostrarResultados(
+        resultados,
+        texto
+    );
+
+
+    document.getElementById(
+        "status"
+    ).textContent =
+        `${resultados.length} resultado(s)`;
+
+}
+
+
+function mostrarResultados(
+    resultados,
+    texto
+) {
+
+    const contenedor =
+        document.getElementById(
+            "resultados"
+        );
+
+
+    contenedor.innerHTML = "";
+
+
+    if (
+        resultados.length === 0
+    ) {
+
+        contenedor.innerHTML = `
+
+            <div class="empty">
+
+                <div class="empty-title">
+                    No encontramos resultados
+                </div>
+
+                <br>
+
+                No existe ningún documento
+                que contenga:
+
+                <br><br>
+
+                <strong>
+                    "${escapeHTML(texto)}"
+                </strong>
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    resultados.forEach(
+        resultado => {
+
+            const fragmento =
+                obtenerFragmento(
+                    resultado.contenido,
+                    texto
                 );
 
 
-            mostrarResultados(
-                resultados,
+            const elemento =
+                document.createElement(
+                    "div"
+                );
+
+
+            elemento.className =
+                "result";
+
+
+            elemento.innerHTML = `
+
+                <div class="result-title">
+
+                    <span class="result-title-icon">
+                        📄
+                    </span>
+
+                    ${escapeHTML(
+                        resultado.documento.nombre
+                    )}
+
+                </div>
+
+
+                <div class="result-category">
+
+                    📁
+
+                    ${escapeHTML(
+                        resultado.documento.path
+                    )}
+
+                </div>
+
+
+                <div class="result-text">
+
+                    ${resaltar(
+                        fragmento,
+                        texto
+                    )}
+
+                </div>
+
+
+                <button
+                    type="button"
+                >
+                    Leer documento
+                </button>
+
+            `;
+
+
+            elemento
+                .querySelector("button")
+                .addEventListener(
+                    "click",
+                    () =>
+                        abrirDocumento(
+                            resultado.documento.path
+                        )
+                );
+
+
+            contenedor.appendChild(
+                elemento
+            );
+
+        }
+    );
+
+}
+
+
+function obtenerFragmento(
+    contenido,
+    texto
+) {
+
+    const limpio =
+        contenido
+            .replace(
+                /[#>*_`]/g,
+                " "
+            )
+            .replace(
+                /\s+/g,
+                " "
+            )
+            .trim();
+
+
+    if (!texto) {
+
+        return limpio.substring(
+            0,
+            300
+        );
+
+    }
+
+
+    const posicion =
+        limpio
+            .toLowerCase()
+            .indexOf(
+                texto.toLowerCase()
+            );
+
+
+    if (
+        posicion === -1
+    ) {
+
+        return limpio.substring(
+            0,
+            300
+        );
+
+    }
+
+
+    const inicio =
+        Math.max(
+            0,
+            posicion - 120
+        );
+
+
+    return limpio.substring(
+        inicio,
+        posicion +
+        texto.length +
+        250
+    );
+
+}
+
+
+function resaltar(
+    texto,
+    busqueda
+) {
+
+    let resultado =
+        escapeHTML(
+            texto
+        );
+
+
+    const palabras =
+        busqueda
+            .split(/\s+/)
+            .filter(Boolean);
+
+
+    palabras.forEach(
+        palabra => {
+
+            const regex =
+                new RegExp(
+                    `(${escapeRegex(
+                        palabra
+                    )})`,
+                    "gi"
+                );
+
+
+            resultado =
+                resultado.replace(
+                    regex,
+                    "<mark>$1</mark>"
+                );
+
+        }
+    );
+
+
+    return resultado;
+
+}
+
+
+function abrirDocumento(path) {
+
+    document.getElementById(
+        "home"
+    ).style.display =
+        "none";
+
+
+    document.getElementById(
+        "documento"
+    ).style.display =
+        "block";
+
+
+    const contenido =
+        document.getElementById(
+            "contenidoDocumento"
+        );
+
+
+    const documento =
+        documentos.find(
+            item =>
+                normalizarRuta(
+                    item.path
+                ) ===
+                normalizarRuta(
+                    path
+                )
+        );
+
+
+    if (!documento) {
+
+        contenido.innerHTML = `
+
+            <div class="empty">
+
+                <div class="empty-title">
+                    Documento no encontrado
+                </div>
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    contenido.innerHTML =
+        marked.parse(
+            documento.contenido || ""
+        );
+
+
+    document.getElementById(
+        "linkGithub"
+    ).href =
+        GITHUB_URL +
+        path
+            .split("/")
+            .map(
+                encodeURIComponent
+            )
+            .join("/");
+
+
+    /*
+     * Las imágenes ya fueron convertidas
+     * automáticamente por generar-index.yml.
+     */
+
+    contenido
+        .querySelectorAll("img")
+        .forEach(
+            img => {
+
+                img.loading =
+                    "lazy";
+
+                img.addEventListener(
+                    "click",
+                    () => {
+
+                        window.open(
+                            img.src,
+                            "_blank"
+                        );
+
+                    }
+                );
+
+                img.style.cursor =
+                    "zoom-in";
+
+            }
+        );
+
+
+    window.scrollTo(
+        0,
+        0
+    );
+
+}
+
+
+async function filtrarCategoria(
+    categoria
+) {
+
+    if (!readmeCache)
+        return;
+
+
+    const rutas =
+        obtenerDocumentosDeCategoria(
+            readmeCache,
+            categoria.nombre
+        );
+
+
+    const resultados = [];
+
+
+    for (const ruta of rutas) {
+
+        const documento =
+            documentos.find(
+                item =>
+                    normalizarRuta(
+                        item.path
+                    ) ===
+                    normalizarRuta(
+                        ruta
+                    )
+            );
+
+
+        if (!documento)
+            continue;
+
+
+        resultados.push({
+
+            documento,
+
+            contenido:
+                documento.contenido || "",
+
+            puntos: 1
+
+        });
+
+    }
+
+
+    buscador.value = "";
+
+    clearSearch.style.display =
+        "none";
+
+
+    mostrarResultados(
+        resultados,
+        ""
+    );
+
+
+    document.getElementById(
+        "status"
+    ).textContent =
+        `${resultados.length} documentos en ${limpiarEmoji(categoria.nombre)}`;
+
+}
+
+
+function obtenerDocumentosDeCategoria(
+    markdown,
+    categoria
+) {
+
+    const lineas =
+        markdown.split("\n");
+
+
+    let dentro = false;
+
+    const rutas = [];
+
+
+    for (const linea of lineas) {
+
+        const heading =
+            linea.match(
+                /^##\s+(.+)$/
+            );
+
+
+        if (heading) {
+
+            const titulo =
+                heading[1].trim();
+
+
+            dentro =
+                titulo === categoria;
+
+
+            continue;
+
+        }
+
+
+        if (!dentro)
+            continue;
+
+
+        const enlace =
+            linea.match(
+                /^\s*-\s+\[([^\]]+)\]\(([^)]+)\)/
+            );
+
+
+        if (!enlace)
+            continue;
+
+
+        let ruta =
+            enlace[2].trim();
+
+
+        ruta =
+            ruta.replace(
+                /^\.\/+/,
                 ""
             );
 
 
-            document.getElementById(
-                "status"
-            ).textContent =
-                `${resultados.length} documentos en ${limpiarEmoji(
-                    categoria.nombre
-                )}`;
-
-        }
-
-
-        function obtenerDocumentosDeCategoria(
-            markdown,
-            categoria
-        ) {
-
-            const lineas =
-                markdown.split("\n");
-
-
-            let dentro = false;
-
-            const rutas = [];
-
-
-            for (
-                const linea of lineas
-            ) {
-
-                const heading =
-                    linea.match(
-                        /^##\s+(.+)$/
-                    );
-
-
-                if (heading) {
-
-                    const titulo =
-                        heading[1].trim();
-
-
-                    dentro =
-                        titulo === categoria;
-
-
-                    continue;
-
-                }
-
-
-                if (!dentro)
-                    continue;
-
-
-                const enlace =
-                    linea.match(
-                        /^\s*-\s+\[([^\]]+)\]\(([^)]+)\)/
-                    );
-
-
-                if (!enlace)
-                    continue;
-
-
-                let ruta =
-                    enlace[2].trim();
-
-
-                ruta =
-                    ruta.replace(
-                        /^\.\/+/,
-                        ""
-                    );
-
-
-                ruta =
-                    ruta.replace(
-                        /\\([()[\]])/g,
-                        "$1"
-                    );
-
-
-                rutas.push(
-                    ruta
-                );
-
-            }
-
-
-            return rutas;
-
-        }
-
-
-        /* =========================================================
-           INICIO
-        ========================================================= */
-
-        function inicio() {
-
-            document.getElementById(
-                "home"
-            ).style.display =
-                "block";
-
-
-            document.getElementById(
-                "documento"
-            ).style.display =
-                "none";
-
-
-            document.getElementById(
-                "navInicio"
-            ).classList.add(
-                "active"
+        ruta =
+            ruta.replace(
+                /\\([()[\]])/g,
+                "$1"
             );
 
 
-            document.getElementById(
-                "resultsTitle"
-            ).textContent =
-                "Documentación";
-
-
-            window.scrollTo(
-                0,
-                0
-            );
-
-        }
-
-
-        /* =========================================================
-           ACTIVAR BÚSQUEDA
-        ========================================================= */
-
-        function activarBusqueda() {
-
-            inicio();
-
-            buscador.focus();
-
-        }
-
-
-        /* =========================================================
-           NORMALIZAR RUTA
-        ========================================================= */
-
-        function normalizarRuta(
+        rutas.push(
             ruta
-        ) {
+        );
 
-            return String(ruta)
+    }
 
-                .replace(
-                    /^\.\/+/,
-                    ""
+
+    return rutas;
+
+}
+
+
+function inicio() {
+
+    document.getElementById(
+        "home"
+    ).style.display =
+        "block";
+
+
+    document.getElementById(
+        "documento"
+    ).style.display =
+        "none";
+
+
+    window.scrollTo(
+        0,
+        0
+    );
+
+}
+
+
+function activarBusqueda() {
+
+    inicio();
+
+    buscador.focus();
+
+}
+
+
+function normalizarRuta(ruta) {
+
+    return String(ruta)
+
+        .replace(
+            /^\.\/+/,
+            ""
+        )
+
+        .replace(
+            /\\/g,
+            ""
+        )
+
+        .trim()
+
+        .toLowerCase();
+
+}
+
+
+function limpiarEmoji(texto) {
+
+    return String(texto)
+
+        .replace(
+            /[\u{1F300}-\u{1FAFF}]/gu,
+            ""
+        )
+
+        .trim();
+
+}
+
+
+function escapeHTML(texto) {
+
+    return String(texto)
+
+        .replace(
+            /&/g,
+            "&amp;"
+        )
+
+        .replace(
+            /</g,
+            "&lt;"
+        )
+
+        .replace(
+            />/g,
+            "&gt;"
+        )
+
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+
+        .replace(
+            /'/g,
+            "&#039;"
+        );
+
+}
+
+
+function escapeRegex(texto) {
+
+    return String(texto)
+        .replace(
+            /[.*+?^${}()|[\]\\]/g,
+            "\\$&"
+        );
+
+}
+
+
+document
+    .getElementById(
+        "menuButton"
+    )
+    .addEventListener(
+        "click",
+        () => {
+
+            document
+                .getElementById(
+                    "sidebar"
                 )
-
-                .replace(
-                    /\\/g,
-                    ""
-                )
-
-                .trim()
-
-                .toLowerCase();
-
-        }
-
-
-        /* =========================================================
-           LIMPIAR EMOJIS
-        ========================================================= */
-
-        function limpiarEmoji(
-            texto
-        ) {
-
-            return String(texto)
-
-                .replace(
-                    /[\u{1F300}-\u{1FAFF}]/gu,
-                    ""
-                )
-
-                .trim();
-
-        }
-
-
-        /* =========================================================
-           ESCAPE HTML
-        ========================================================= */
-
-        function escapeHTML(
-            texto
-        ) {
-
-            return String(texto)
-
-                .replace(
-                    /&/g,
-                    "&amp;"
-                )
-
-                .replace(
-                    /</g,
-                    "&lt;"
-                )
-
-                .replace(
-                    />/g,
-                    "&gt;"
-                )
-
-                .replace(
-                    /"/g,
-                    "&quot;"
-                )
-
-                .replace(
-                    /'/g,
-                    "&#039;"
+                .classList
+                .toggle(
+                    "open"
                 );
 
         }
+    );
 
 
-        /* =========================================================
-           ESCAPE REGEX
-        ========================================================= */
+document
+    .getElementById(
+        "sidebarSearch"
+    )
+    .addEventListener(
+        "input",
+        function () {
 
-        function escapeRegex(
-            texto
-        ) {
-
-            return String(texto)
-                .replace(
-                    /[.*+?^${}()|[\]\\]/g,
-                    "\\$&"
-                );
-
-        }
+            const texto =
+                this.value
+                    .toLowerCase()
+                    .trim();
 
 
-        /* =========================================================
-           COMMAND PALETTE - CTRL K
-        ========================================================= */
-
-        const commandOverlay =
-            document.getElementById(
-                "commandOverlay"
-            );
-
-
-        const commandInput =
-            document.getElementById(
-                "commandInput"
-            );
-
-
-        const commandResults =
-            document.getElementById(
-                "commandResults"
-            );
-
-
-        function abrirCommandPalette() {
-
-            commandOverlay.classList.add(
-                "open"
-            );
-
-
-            commandInput.value = "";
-
-
-            mostrarCommandResultados(
-                documentos.slice(
-                    0,
-                    15
+            document
+                .querySelectorAll(
+                    "#categorias .nav-item"
                 )
-            );
-
-
-            setTimeout(
-                () =>
-                    commandInput.focus(),
-                50
-            );
-
-        }
-
-
-        function cerrarCommandPalette() {
-
-            commandOverlay.classList.remove(
-                "open"
-            );
-
-        }
-
-
-        function mostrarCommandResultados(
-            lista
-        ) {
-
-            commandResults.innerHTML =
-                "";
-
-
-            if (
-                lista.length === 0
-            ) {
-
-                commandResults.innerHTML = `
-
-                    <div class="command-result">
-                        No se encontraron documentos
-                    </div>
-
-                `;
-
-                return;
-
-            }
-
-
-            lista
-                .slice(0, 30)
                 .forEach(
-                    documento => {
+                    item => {
 
-                        const elemento =
-                            document.createElement(
-                                "div"
-                            );
-
-
-                        elemento.className =
-                            "command-result";
-
-
-                        elemento.innerHTML = `
-
-                            <div class="command-result-name">
-
-                                📄
-
-                                ${escapeHTML(
-                                    documento.nombre
-                                )}
-
-                            </div>
-
-                            <div class="command-result-path">
-
-                                ${escapeHTML(
-                                    documento.path
-                                )}
-
-                            </div>
-
-                        `;
-
-
-                        elemento.onclick =
-                            () => {
-
-                                cerrarCommandPalette();
-
-                                abrirDocumento(
-                                    documento.path
-                                );
-
-                            };
-
-
-                        commandResults.appendChild(
-                            elemento
-                        );
+                        item.style.display =
+                            item.textContent
+                                .toLowerCase()
+                                .includes(texto)
+                                ? "flex"
+                                : "none";
 
                     }
                 );
 
         }
+    );
 
 
-        commandInput.addEventListener(
-            "input",
-            () => {
+document
+    .getElementById(
+        "themeButton"
+    )
+    .addEventListener(
+        "click",
+        () => {
 
-                const texto =
-                    commandInput.value
-                        .trim()
-                        .toLowerCase();
-
-
-                if (!texto) {
-
-                    mostrarCommandResultados(
-                        documentos.slice(
-                            0,
-                            15
-                        )
-                    );
-
-                    return;
-
-                }
+            document.body.classList.toggle(
+                "dark"
+            );
 
 
-                const resultados =
-                    documentos.filter(
-                        documento => {
-
-                            const buscar =
-                                (
-                                    documento.nombre +
-                                    " " +
-                                    documento.path +
-                                    " " +
-                                    (
-                                        documento.tags ||
-                                        []
-                                    ).join(" ")
-                                ).toLowerCase();
-
-
-                            return buscar.includes(
-                                texto
-                            );
-
-                        }
-                    );
-
-
-                mostrarCommandResultados(
-                    resultados
+            const oscuro =
+                document.body.classList.contains(
+                    "dark"
                 );
 
-            }
-        );
 
-
-        commandOverlay.addEventListener(
-            "click",
-            event => {
-
-                if (
-                    event.target ===
-                    commandOverlay
-                ) {
-
-                    cerrarCommandPalette();
-
-                }
-
-            }
-        );
-
-
-        document.addEventListener(
-            "keydown",
-            event => {
-
-                if (
-                    (event.ctrlKey ||
-                        event.metaKey) &&
-                    event.key.toLowerCase() ===
-                        "k"
-                ) {
-
-                    event.preventDefault();
-
-                    abrirCommandPalette();
-
-                }
-
-
-                if (
-                    event.key === "Escape"
-                ) {
-
-                    cerrarCommandPalette();
-
-                }
-
-
-                if (
-                    event.key === "/" &&
-                    document.activeElement.tagName !==
-                        "INPUT"
-                ) {
-
-                    event.preventDefault();
-
-                    activarBusqueda();
-
-                }
-
-            }
-        );
-
-
-        /* =========================================================
-           MENÚ MÓVIL
-        ========================================================= */
-
-        document
-            .getElementById(
-                "menuButton"
-            )
-            .addEventListener(
-                "click",
-                () => {
-
-                    document
-                        .getElementById(
-                            "sidebar"
-                        )
-                        .classList
-                        .toggle(
-                            "open"
-                        );
-
-                }
+            localStorage.setItem(
+                "tema",
+                oscuro
+                    ? "dark"
+                    : "light"
             );
 
 
-        /* =========================================================
-           BUSCAR EN MENÚ
-        ========================================================= */
+            document.getElementById(
+                "themeButton"
+            ).textContent =
+                oscuro
+                    ? "☀"
+                    : "🌙";
 
-        document
-            .getElementById(
-                "sidebarSearch"
-            )
-            .addEventListener(
-                "input",
-                function () {
-
-                    const texto =
-                        this.value
-                            .toLowerCase()
-                            .trim();
+        }
+    );
 
 
-                    document
-                        .querySelectorAll(
-                            "#categorias .nav-item"
-                        )
-                        .forEach(
-                            item => {
-
-                                const visible =
-                                    item.textContent
-                                        .toLowerCase()
-                                        .includes(
-                                            texto
-                                        );
+const temaGuardado =
+    localStorage.getItem(
+        "tema"
+    );
 
 
-                                item.style.display =
-                                    visible
-                                        ? "flex"
-                                        : "none";
+if (
+    temaGuardado === "dark"
+) {
 
-                            }
-                        );
+    document.body.classList.add(
+        "dark"
+    );
 
-                }
-            );
+    document.getElementById(
+        "themeButton"
+    ).textContent =
+        "☀";
+
+}
 
 
-        /* =========================================================
-           ARRANCAR
-        ========================================================= */
+iniciar();
 
-        iniciar();
-
-    </script>
+</script>
 
 </body>
 
