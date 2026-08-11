@@ -11,7 +11,9 @@ on:
 permissions:
   contents: write
 
+
 jobs:
+
   descargar-imagenes:
 
     runs-on: ubuntu-latest
@@ -50,6 +52,7 @@ jobs:
 
           mkdir -p doc/imagenes
 
+
           echo ""
           echo "=============================================="
           echo " DESCARGA DE IMÁGENES"
@@ -58,7 +61,7 @@ jobs:
 
 
           # =====================================================
-          # BUSCAR TODOS LOS DOCUMENTOS MARKDOWN
+          # RECORRER TODOS LOS ARCHIVOS MARKDOWN
           # =====================================================
 
           find doc \
@@ -75,17 +78,46 @@ jobs:
 
 
             # =================================================
-            # BUSCAR URLs DE GITHUB USER ATTACHMENTS
+            # BUSCAR URLS DE USER-ATTACHMENTS
             # =================================================
 
-            grep -oE \
+            imagenes=$(grep -oE \
               'https://github\.com/user-attachments/assets/[a-zA-Z0-9-]+' \
-              "$archivo" 2>/dev/null |
-            sort -u |
+              "$archivo" \
+              2>/dev/null ||
+              true)
+
+
+            # =================================================
+            # SI NO HAY IMÁGENES
+            # =================================================
+
+            if [ -z "$imagenes" ]; then
+
+              echo "No contiene imágenes."
+
+              continue
+
+            fi
+
+
+            # =================================================
+            # ELIMINAR DUPLICADOS
+            # =================================================
+
+            imagenes=$(printf '%s\n' "$imagenes" | sort -u)
+
+
+            # =================================================
+            # PROCESAR CADA IMAGEN
+            # =================================================
+
             while IFS= read -r url
             do
 
-              [ -z "$url" ] && continue
+              if [ -z "$url" ]; then
+                continue
+              fi
 
 
               # =================================================
@@ -101,28 +133,40 @@ jobs:
 
 
               # =================================================
-              # VERIFICAR SI YA EXISTE
+              # BUSCAR IMAGEN EXISTENTE
               # =================================================
 
               existente=$(find doc/imagenes \
                 -type f \
                 -name "${id}.*" \
                 2>/dev/null |
-                head -n 1 || true)
+                head -n 1 ||
+                true)
 
+
+              # =================================================
+              # SI YA EXISTE
+              # =================================================
 
               if [ -n "$existente" ]; then
 
-                echo "Ya existe:"
+                echo "La imagen ya existe:"
                 echo "$existente"
 
 
                 nombre=$(basename "$existente")
 
 
-                # Reemplazar URL por imagen local
-                sed -i "s|$url|./imagenes/$nombre|g" "$archivo"
+                # ---------------------------------------------
+                # REEMPLAZAR URL
+                # ---------------------------------------------
 
+                sed -i \
+                  "s|$url|./imagenes/$nombre|g" \
+                  "$archivo"
+
+
+                echo "Referencia actualizada."
 
                 continue
 
@@ -136,11 +180,15 @@ jobs:
               temporal="doc/imagenes/${id}.download"
 
 
+              rm -f "$temporal"
+
+
+              echo ""
               echo "Descargando..."
 
 
               # =================================================
-              # DESCARGAR
+              # DESCARGAR IMAGEN
               # =================================================
 
               if curl \
@@ -158,6 +206,21 @@ jobs:
               then
 
                 echo "Descarga correcta."
+
+
+                # =============================================
+                # VERIFICAR QUE EL ARCHIVO NO ESTÉ VACÍO
+                # =============================================
+
+                if [ ! -s "$temporal" ]; then
+
+                  echo "ERROR: La imagen descargada está vacía."
+
+                  rm -f "$temporal"
+
+                  continue
+
+                fi
 
 
                 # =============================================
@@ -202,8 +265,11 @@ jobs:
                     ;;
 
                   *)
-                    echo "ERROR: formato no compatible."
-                    echo "Tipo: $tipo"
+                    echo ""
+                    echo "ERROR: Formato no compatible."
+                    echo "Tipo detectado: $tipo"
+                    echo "URL: $url"
+                    echo ""
 
                     rm -f "$temporal"
 
@@ -220,12 +286,17 @@ jobs:
                 nuevo="doc/imagenes/${id}.${extension}"
 
 
+                # =============================================
+                # MOVER IMAGEN
+                # =============================================
+
                 mv "$temporal" "$nuevo"
 
 
                 nombre=$(basename "$nuevo")
 
 
+                echo ""
                 echo "Imagen guardada:"
                 echo "$nuevo"
 
@@ -234,26 +305,40 @@ jobs:
                 # REEMPLAZAR URL EN MARKDOWN
                 # =============================================
 
-                sed -i "s|$url|./imagenes/$nombre|g" "$archivo"
+                sed -i \
+                  "s|$url|./imagenes/$nombre|g" \
+                  "$archivo"
 
 
+                echo ""
                 echo "Referencia actualizada."
+                echo ""
 
 
               else
 
                 echo ""
                 echo "=============================================="
-                echo "ERROR AL DESCARGAR"
+                echo " ERROR AL DESCARGAR IMAGEN"
                 echo "=============================================="
+                echo ""
+                echo "Documento:"
+                echo "$archivo"
+                echo ""
+                echo "URL:"
                 echo "$url"
                 echo ""
+                echo "La ejecución continuará con la siguiente imagen."
+                echo ""
+
 
                 rm -f "$temporal"
 
               fi
 
-            done
+
+            done <<< "$imagenes"
+
 
           done
 
@@ -273,19 +358,31 @@ jobs:
           echo ""
 
 
-          find doc/imagenes \
-            -type f \
-            -print |
-            sort
+          if [ -d "doc/imagenes" ]; then
+
+            find doc/imagenes \
+              -type f \
+              -print |
+              sort
+
+          else
+
+            echo "No existe la carpeta doc/imagenes."
+
+          fi
 
 
           cantidad=$(find doc/imagenes \
-            -type f |
+            -type f \
+            2>/dev/null |
             wc -l)
 
 
           echo ""
-          echo "Total de imágenes: $cantidad"
+          echo "=============================================="
+          echo " TOTAL DE IMÁGENES: $cantidad"
+          echo "=============================================="
+          echo ""
 
 
       # =========================================================
@@ -314,16 +411,20 @@ jobs:
 
           if [ -z "$pendientes" ]; then
 
+            echo ""
             echo "OK."
             echo "No quedan imágenes externas."
+            echo ""
 
           else
 
+            echo ""
             echo "ADVERTENCIA."
             echo ""
             echo "Todavía quedan estas URLs:"
             echo ""
             echo "$pendientes"
+            echo ""
 
           fi
 
@@ -347,7 +448,9 @@ jobs:
 
 
           echo ""
-          echo "Resumen:"
+          echo "=============================================="
+          echo " RESUMEN"
+          echo "=============================================="
           echo ""
 
 
@@ -362,6 +465,13 @@ jobs:
         shell: bash
         run: |
 
+          echo ""
+          echo "=============================================="
+          echo " GUARDANDO CAMBIOS"
+          echo "=============================================="
+          echo ""
+
+
           git config user.name "github-actions[bot]"
 
           git config user.email \
@@ -370,6 +480,10 @@ jobs:
 
           git add doc/
 
+
+          # =====================================================
+          # VERIFICAR SI HAY CAMBIOS
+          # =====================================================
 
           if git diff --cached --quiet
           then
@@ -381,7 +495,15 @@ jobs:
           else
 
             echo ""
-            echo "Guardando cambios..."
+            echo "Cambios encontrados."
+            echo ""
+
+
+            git diff --cached --stat
+
+
+            echo ""
+            echo "Creando commit..."
             echo ""
 
 
@@ -389,6 +511,19 @@ jobs:
               -m "Descargar y corregir imágenes de documentación"
 
 
+            echo ""
+            echo "Enviando cambios a GitHub..."
+            echo ""
+
+
             git push
 
+
+            echo ""
+            echo "=============================================="
+            echo " PROCESO COMPLETADO"
+            echo "=============================================="
+            echo ""
+
           fi
+
