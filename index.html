@@ -5,104 +5,366 @@
 
     <meta charset="UTF-8">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-    <title>Manual Operativo - Atención al Cliente</title>
+    <title>
+        Ethernet App - Manual Operativo
+    </title>
 
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 
     <style>
 
+        /* =========================================================
+           VARIABLES
+        ========================================================= */
+
         :root {
-            --orange: #f97316;
-            --orange-dark: #ea580c;
-            --orange-light: #fff7ed;
 
-            --dark: #111827;
-            --dark2: #1f2937;
+            --background: #272727;
 
-            --background: #f5f6f8;
-            --white: #ffffff;
+            --sidebar: #1b1b1b;
 
-            --text: #1f2937;
-            --muted: #6b7280;
-            --border: #e5e7eb;
+            --header: #191919;
+
+            --panel: #292929;
+
+            --panel-hover: #303030;
+
+            --input: #343434;
+
+            --border: #454545;
+
+            --border-light: #505050;
+
+            --text: #f5f5f5;
+
+            --text-secondary: #a0a0a0;
+
+            --text-muted: #777777;
+
+            --blue: #5bc0eb;
+
+            --blue-dark: #3ca8d1;
+
+            --blue-light: rgba(91, 192, 235, .12);
+
+            --orange: #f15a3a;
+
+            --danger: #ef5350;
+
         }
 
 
+        /* =========================================================
+           RESET
+        ========================================================= */
+
         * {
+
             box-sizing: border-box;
+
+        }
+
+
+        html {
+
+            scroll-behavior: smooth;
+
         }
 
 
         body {
+
             margin: 0;
 
             font-family:
                 Arial,
+                Helvetica,
                 sans-serif;
 
-            background: var(--background);
+            background:
+                var(--background);
 
-            color: var(--text);
+            color:
+                var(--text);
+
         }
 
 
-        /* =========================
+        button,
+        input {
+
+            font-family: inherit;
+
+        }
+
+
+        /* =========================================================
+           SCROLLBAR
+        ========================================================= */
+
+        ::-webkit-scrollbar {
+
+            width: 7px;
+
+            height: 7px;
+
+        }
+
+
+        ::-webkit-scrollbar-track {
+
+            background:
+                #1e1e1e;
+
+        }
+
+
+        ::-webkit-scrollbar-thumb {
+
+            background:
+                #555;
+
+            border-radius: 10px;
+
+        }
+
+
+        ::-webkit-scrollbar-thumb:hover {
+
+            background:
+                #666;
+
+        }
+
+
+        /* =========================================================
+           HEADER
+        ========================================================= */
+
+        .header {
+
+            position: fixed;
+
+            left: 0;
+
+            right: 0;
+
+            top: 0;
+
+            height: 66px;
+
+            z-index: 100;
+
+            background:
+                var(--header);
+
+            border-bottom:
+                1px solid #3b3b3b;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            padding:
+                0 18px;
+
+        }
+
+
+        .header-left {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+        }
+
+
+        .menu-button {
+
+            width: 40px;
+
+            height: 40px;
+
+            border: none;
+
+            border-radius: 6px;
+
+            background:
+                #303030;
+
+            color: white;
+
+            font-size: 20px;
+
+            cursor: pointer;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+        }
+
+
+        .menu-button:hover {
+
+            background:
+                #3a3a3a;
+
+        }
+
+
+        .brand {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+        }
+
+
+        .brand-logo {
+
+            width: 32px;
+
+            height: 32px;
+
+            object-fit: contain;
+
+        }
+
+
+        .brand-name {
+
+            font-size: 16px;
+
+            font-weight: bold;
+
+            color: white;
+
+        }
+
+
+        .header-right {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+        }
+
+
+        .header-status {
+
+            padding:
+                9px 13px;
+
+            border-radius: 6px;
+
+            background:
+                var(--blue);
+
+            color:
+                #10202a;
+
+            font-size: 12px;
+
+            font-weight: bold;
+
+        }
+
+
+        .github-button {
+
+            padding:
+                9px 13px;
+
+            border:
+                1px solid var(--border);
+
+            border-radius: 6px;
+
+            background:
+                #292929;
+
+            color:
+                #d5d5d5;
+
+            text-decoration: none;
+
+            font-size: 12px;
+
+            transition:
+                .15s;
+
+        }
+
+
+        .github-button:hover {
+
+            border-color:
+                var(--blue);
+
+            color:
+                var(--blue);
+
+        }
+
+
+        /* =========================================================
            SIDEBAR
-        ========================= */
+        ========================================================= */
 
         .sidebar {
 
             position: fixed;
 
             left: 0;
-            top: 0;
+
+            top: 66px;
+
             bottom: 0;
 
-            width: 280px;
+            width: 270px;
 
-            background: var(--dark);
+            z-index: 90;
 
-            color: white;
+            background:
+                var(--sidebar);
+
+            border-right:
+                1px solid #3d3d3d;
 
             overflow-y: auto;
+
+            transition:
+                transform .2s ease;
+
         }
 
 
-        .logo {
-
-            padding: 22px;
-
-            border-bottom:
-                1px solid #374151;
-        }
-
-
-        .logo-title {
-
-            font-size: 17px;
-
-            font-weight: bold;
-        }
-
-
-        .logo-subtitle {
-
-            color: #9ca3af;
-
-            font-size: 12px;
-
-            margin-top: 5px;
-        }
-
-
-        .sidebar-title {
+        .sidebar-section {
 
             padding:
-                20px 15px 8px;
+                20px 14px 8px;
 
-            color: #6b7280;
+            color:
+                #777;
 
             font-size: 10px;
 
@@ -110,460 +372,686 @@
 
             text-transform:
                 uppercase;
+
+            letter-spacing:
+                .3px;
+
+        }
+
+
+        .sidebar-search {
+
+            padding:
+                0 14px 12px;
+
+        }
+
+
+        .sidebar-search input {
+
+            width: 100%;
+
+            padding:
+                9px 10px;
+
+            border: none;
+
+            outline: none;
+
+            border-radius: 5px;
+
+            background:
+                #343434;
+
+            color:
+                #eee;
+
+            font-size: 13px;
+
+        }
+
+
+        .sidebar-search input::placeholder {
+
+            color:
+                #777;
+
+        }
+
+
+        .sidebar-search input:focus {
+
+            box-shadow:
+                0 0 0 1px var(--blue);
+
         }
 
 
         .nav {
 
             padding:
-                0 10px;
+                0 8px;
+
         }
 
 
         .nav-item {
 
-            padding: 10px;
+            display: flex;
 
-            border-radius: 7px;
+            align-items: center;
 
-            color: #d1d5db;
+            gap: 8px;
 
-            cursor: pointer;
+            padding:
+                9px 10px;
+
+            margin-bottom: 2px;
+
+            border-radius: 5px;
+
+            color:
+                #d0d0d0;
 
             font-size: 12px;
 
-            margin-bottom: 3px;
+            cursor: pointer;
 
             transition:
-                background .15s,
-                color .15s;
+                .15s;
+
         }
 
 
         .nav-item:hover {
 
             background:
-                #1f2937;
+                #292929;
 
             color: white;
+
         }
 
 
         .nav-item.active {
 
             background:
-                var(--orange);
+                rgba(
+                    91,
+                    192,
+                    235,
+                    .16
+                );
 
-            color: white;
+            color:
+                var(--blue);
+
         }
 
 
-        /* =========================
+        .category-icon {
+
+            width: 17px;
+
+            text-align: center;
+
+            opacity: .9;
+
+        }
+
+
+        /* =========================================================
            MAIN
-        ========================= */
+        ========================================================= */
 
         .main {
 
-            margin-left: 280px;
+            margin-left: 270px;
+
+            padding-top: 66px;
 
             min-height: 100vh;
+
+            transition:
+                margin-left .2s ease;
+
         }
 
-
-        .header {
-
-            height: 64px;
-
-            background: white;
-
-            border-bottom:
-                1px solid var(--border);
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content:
-                space-between;
-
-            padding:
-                0 30px;
-        }
-
-
-        .header-title {
-
-            font-size: 14px;
-
-            font-weight: bold;
-        }
-
-
-        .github {
-
-            color: var(--muted);
-
-            text-decoration: none;
-
-            font-size: 12px;
-        }
-
-
-        .github:hover {
-
-            color:
-                var(--orange);
-        }
-
-
-        /* =========================
-           CONTENT
-        ========================= */
 
         .content {
 
             max-width: 1200px;
 
-            margin: auto;
+            margin: 0 auto;
 
-            padding: 30px;
+            padding:
+                32px;
+
         }
 
 
-        /* =========================
+        /* =========================================================
            HERO
-        ========================= */
+        ========================================================= */
 
         .hero {
 
             background:
-                linear-gradient(
-                    135deg,
-                    var(--dark),
-                    var(--dark2)
-                );
+                var(--panel);
 
-            padding: 35px;
+            border:
+                1px solid var(--border);
 
-            border-radius: 15px;
+            border-radius: 8px;
 
-            color: white;
+            padding:
+                30px;
 
-            margin-bottom: 25px;
+            margin-bottom: 18px;
+
         }
 
 
-        .hero h1 {
-
-            margin:
-                0 0 8px;
-
-            font-size: 28px;
-        }
-
-
-        .hero p {
+        .hero-title {
 
             margin: 0;
 
-            color:
-                #d1d5db;
+            font-size: 25px;
 
-            font-size: 14px;
+            color: white;
+
         }
 
 
-        /* =========================
+        .hero-subtitle {
+
+            margin:
+                8px 0 0;
+
+            color:
+                var(--text-secondary);
+
+            font-size: 13px;
+
+            line-height: 1.5;
+
+        }
+
+
+        /* =========================================================
            SEARCH
-        ========================= */
+        ========================================================= */
 
-        .search {
+        .main-search {
 
-            margin-top: 25px;
+            margin-top: 22px;
+
+        }
+
+
+        .main-search-wrapper {
 
             position: relative;
+
         }
 
 
-        .search input {
+        .main-search-icon {
+
+            position: absolute;
+
+            left: 14px;
+
+            top: 50%;
+
+            transform:
+                translateY(-50%);
+
+            color:
+                #777;
+
+            pointer-events: none;
+
+        }
+
+
+        .main-search input {
 
             width: 100%;
 
+            height: 48px;
+
             padding:
-                17px 20px;
+                0 45px;
+
+            border:
+                1px solid var(--border);
+
+            border-radius: 6px;
+
+            outline: none;
+
+            background:
+                var(--input);
+
+            color:
+                white;
+
+            font-size: 14px;
+
+        }
+
+
+        .main-search input::placeholder {
+
+            color:
+                #777;
+
+        }
+
+
+        .main-search input:focus {
+
+            border-color:
+                var(--blue);
+
+            box-shadow:
+                0 0 0 2px
+                var(--blue-light);
+
+        }
+
+
+        .clear-search {
+
+            position: absolute;
+
+            right: 10px;
+
+            top: 50%;
+
+            transform:
+                translateY(-50%);
+
+            width: 28px;
+
+            height: 28px;
 
             border: none;
 
-            border-radius: 9px;
+            border-radius: 5px;
 
-            font-size: 15px;
+            background:
+                transparent;
 
-            outline: none;
+            color:
+                #777;
+
+            cursor: pointer;
+
+            display: none;
+
         }
 
 
-        .search input:focus {
+        .clear-search:hover {
 
-            box-shadow:
-                0 0 0 3px
-                rgba(
-                    249,
-                    115,
-                    22,
-                    .3
-                );
+            background:
+                #444;
+
+            color: white;
+
         }
 
 
-        /* =========================
+        /* =========================================================
            STATS
-        ========================= */
+        ========================================================= */
 
         .stats {
 
             display: grid;
 
             grid-template-columns:
-                repeat(
-                    3,
-                    1fr
-                );
+                repeat(3, 1fr);
 
-            gap: 15px;
+            gap: 12px;
 
-            margin-bottom: 25px;
+            margin-bottom: 22px;
+
         }
 
 
         .stat {
 
-            background: white;
+            background:
+                var(--panel);
 
             border:
                 1px solid var(--border);
 
-            border-radius: 10px;
+            border-radius: 7px;
 
-            padding: 18px;
+            padding:
+                16px;
+
         }
 
 
         .stat-number {
 
-            font-size: 22px;
+            font-size: 20px;
 
             font-weight: bold;
 
             color:
-                var(--orange);
+                var(--blue);
+
         }
 
 
         .stat-label {
 
+            margin-top: 4px;
+
             color:
-                var(--muted);
+                var(--text-muted);
 
             font-size: 11px;
 
-            margin-top: 4px;
         }
 
 
-        /* =========================
-           RESULTS
-        ========================= */
+        /* =========================================================
+           RESULTS HEADER
+        ========================================================= */
 
         .results-header {
 
             display: flex;
 
-            justify-content:
-                space-between;
+            align-items: center;
 
-            margin-bottom: 15px;
+            justify-content: space-between;
+
+            margin-bottom: 10px;
+
         }
 
 
         .results-title {
 
-            font-size: 18px;
+            font-size: 15px;
 
             font-weight: bold;
+
         }
 
 
         .status {
 
             color:
-                var(--muted);
+                var(--text-muted);
 
-            font-size: 12px;
+            font-size: 11px;
+
         }
 
 
+        /* =========================================================
+           RESULT
+        ========================================================= */
+
         .result {
 
-            background: white;
+            background:
+                var(--panel);
 
             border:
                 1px solid var(--border);
 
-            border-radius: 10px;
+            border-radius: 7px;
 
-            padding: 18px;
+            padding:
+                16px;
 
-            margin-bottom: 12px;
+            margin-bottom: 9px;
 
             transition:
-                border .15s;
+                border-color .15s,
+                background .15s;
+
         }
 
 
         .result:hover {
 
+            background:
+                var(--panel-hover);
+
             border-color:
-                #fdba74;
+                #555;
+
         }
 
 
         .result-title {
 
-            font-size: 16px;
+            font-size: 14px;
 
             font-weight: bold;
 
             color:
-                var(--orange-dark);
+                white;
+
+        }
+
+
+        .result-title-icon {
+
+            color:
+                var(--blue);
+
         }
 
 
         .result-category {
 
+            margin-top: 5px;
+
             color:
-                var(--muted);
+                var(--text-muted);
 
-            font-size: 11px;
+            font-size: 10px;
 
-            margin-top: 4px;
         }
 
 
         .result-text {
 
-            margin-top: 12px;
+            margin-top: 11px;
 
-            padding: 12px;
+            padding:
+                11px;
 
             background:
-                #f9fafb;
+                #303030;
 
             border-left:
-                3px solid var(--orange);
+                3px solid var(--blue);
 
-            font-size: 13px;
+            border-radius:
+                0 4px 4px 0;
 
-            line-height: 1.5;
+            color:
+                #c9c9c9;
+
+            font-size: 12px;
+
+            line-height: 1.6;
+
+        }
+
+
+        .result-actions {
+
+            margin-top: 12px;
+
         }
 
 
         .result button {
 
-            margin-top: 12px;
-
             border: none;
 
-            background:
-                var(--orange);
-
-            color: white;
+            border-radius: 5px;
 
             padding:
-                9px 13px;
+                8px 12px;
 
-            border-radius: 6px;
+            background:
+                var(--blue);
+
+            color:
+                #10202a;
+
+            font-size: 11px;
+
+            font-weight: bold;
 
             cursor: pointer;
+
         }
 
 
         .result button:hover {
 
             background:
-                var(--orange-dark);
+                var(--blue-dark);
+
+            color: white;
+
         }
 
 
         mark {
 
             background:
-                #fed7aa;
+                rgba(
+                    91,
+                    192,
+                    235,
+                    .25
+                );
 
             color:
-                #7c2d12;
+                #8edcff;
+
+            border-radius: 2px;
 
             padding:
                 1px 2px;
 
-            border-radius: 2px;
         }
 
 
-        /* =========================
+        /* =========================================================
            DOCUMENT
-        ========================= */
+        ========================================================= */
 
         .document {
 
             display: none;
 
-            background: white;
-
-            border-radius: 12px;
+            background:
+                var(--panel);
 
             border:
                 1px solid var(--border);
+
+            border-radius: 8px;
+
+            overflow: hidden;
+
         }
 
 
         .document-header {
 
-            padding: 15px;
+            height: 52px;
+
+            padding:
+                0 14px;
 
             border-bottom:
                 1px solid var(--border);
 
             display: flex;
 
+            align-items: center;
+
             justify-content:
                 space-between;
 
-            align-items: center;
         }
 
 
         .back {
 
-            border: none;
+            border:
+                1px solid var(--border);
 
             background:
-                #f3f4f6;
+                #303030;
+
+            color:
+                #ddd;
 
             padding:
-                8px 12px;
+                7px 11px;
 
-            border-radius: 6px;
+            border-radius: 5px;
 
             cursor: pointer;
+
+            font-size: 11px;
+
         }
 
 
         .back:hover {
 
             background:
-                #e5e7eb;
+                #3a3a3a;
+
+            color: white;
+
         }
 
+
+        .document-github {
+
+            color:
+                var(--blue);
+
+            text-decoration: none;
+
+            font-size: 11px;
+
+        }
+
+
+        .document-github:hover {
+
+            text-decoration:
+                underline;
+
+        }
+
+
+        /* =========================================================
+           MARKDOWN
+        ========================================================= */
 
         .markdown {
 
@@ -571,49 +1059,125 @@
 
             margin: auto;
 
-            padding: 35px;
+            padding:
+                32px;
+
+            color:
+                #d8d8d8;
+
+            font-size: 14px;
 
             line-height: 1.7;
+
         }
 
 
         .markdown h1 {
 
-            border-bottom:
-                2px solid var(--orange);
+            color: white;
+
+            font-size: 27px;
 
             padding-bottom: 10px;
+
+            border-bottom:
+                2px solid var(--blue);
+
         }
 
 
         .markdown h2 {
 
+            margin-top: 35px;
+
+            padding-bottom: 7px;
+
             border-bottom:
                 1px solid var(--border);
 
-            padding-bottom: 8px;
+            color: white;
 
-            margin-top: 35px;
+            font-size: 21px;
+
         }
 
 
         .markdown h3 {
 
+            margin-top: 25px;
+
             color:
-                var(--orange-dark);
+                var(--blue);
+
+            font-size: 17px;
+
+        }
+
+
+        .markdown h4 {
+
+            color: #ddd;
+
+        }
+
+
+        .markdown p {
+
+            color:
+                #ccc;
+
+        }
+
+
+        .markdown strong {
+
+            color: white;
+
         }
 
 
         .markdown a {
 
             color:
-                var(--orange-dark);
+                var(--blue);
+
+        }
+
+
+        .markdown a:hover {
+
+            color:
+                #8edcff;
+
+        }
+
+
+        .markdown blockquote {
+
+            margin:
+                15px 0;
+
+            padding:
+                10px 15px;
+
+            border-left:
+                3px solid var(--blue);
+
+            background:
+                #303030;
+
+            color:
+                #aaa;
+
         }
 
 
         .markdown img {
 
             max-width: 100%;
+
+            border-radius: 5px;
+
         }
 
 
@@ -623,6 +1187,10 @@
 
             border-collapse:
                 collapse;
+
+            margin:
+                18px 0;
+
         }
 
 
@@ -632,148 +1200,234 @@
             border:
                 1px solid var(--border);
 
-            padding: 8px;
+            padding:
+                8px 10px;
+
+            text-align: left;
+
         }
 
 
         .markdown th {
 
             background:
-                var(--orange-light);
+                #333;
+
+            color:
+                white;
+
         }
 
 
-        .markdown pre {
+        .markdown td {
 
             background:
-                #111827;
+                #2c2c2c;
 
-            color: white;
-
-            padding: 15px;
-
-            border-radius: 8px;
-
-            overflow-x: auto;
         }
 
 
         .markdown code {
 
             background:
-                #f3f4f6;
+                #333;
+
+            color:
+                #8edcff;
 
             padding:
                 2px 5px;
 
-            border-radius: 4px;
+            border-radius: 3px;
+
+        }
+
+
+        .markdown pre {
+
+            background:
+                #181818;
+
+            border:
+                1px solid #333;
+
+            padding:
+                15px;
+
+            border-radius: 6px;
+
+            overflow-x: auto;
+
         }
 
 
         .markdown pre code {
 
-            background: transparent;
+            background:
+                transparent;
+
+            color:
+                #ddd;
 
             padding: 0;
+
         }
 
 
-        /* =========================
+        .markdown hr {
+
+            border: none;
+
+            border-top:
+                1px solid var(--border);
+
+            margin:
+                30px 0;
+
+        }
+
+
+        /* =========================================================
            EMPTY
-        ========================= */
+        ========================================================= */
 
         .empty {
 
-            background: white;
+            background:
+                var(--panel);
 
             border:
                 1px solid var(--border);
 
-            padding: 50px;
+            border-radius: 7px;
+
+            padding:
+                45px 20px;
 
             text-align: center;
 
-            border-radius: 10px;
-
             color:
-                var(--muted);
+                var(--text-muted);
+
+            font-size: 13px;
+
         }
 
 
-        /* =========================
+        .empty-title {
+
+            color:
+                #ddd;
+
+            font-weight: bold;
+
+        }
+
+
+        /* =========================================================
            LOADING
-        ========================= */
+        ========================================================= */
 
         .loading-bar {
 
-            width: 100%;
+            position: fixed;
 
-            height: 4px;
+            left: 0;
 
-            background:
-                #e5e7eb;
+            right: 0;
+
+            top: 66px;
+
+            height: 3px;
+
+            z-index: 200;
+
+            display: none;
 
             overflow: hidden;
 
-            display: none;
+            background:
+                #333;
+
         }
 
 
         .loading-bar.active {
 
             display: block;
+
         }
 
 
         .loading-progress {
 
-            height: 100%;
-
             width: 30%;
 
+            height: 100%;
+
             background:
-                var(--orange);
+                var(--blue);
 
             animation:
                 loading 1s
                 infinite ease-in-out;
+
         }
 
 
         @keyframes loading {
 
-            0% {
+            from {
+
                 transform:
-                    translateX(-100%);
+                    translateX(-120%);
+
             }
 
-            100% {
+            to {
+
                 transform:
                     translateX(400%);
+
             }
 
         }
 
 
-        /* =========================
+        /* =========================================================
            MOBILE
-        ========================= */
+        ========================================================= */
 
-        @media(max-width: 700px) {
+        @media(max-width: 800px) {
 
             .sidebar {
 
-                position: static;
+                transform:
+                    translateX(-100%);
 
-                width: 100%;
+            }
 
-                height: auto;
+
+            .sidebar.open {
+
+                transform:
+                    translateX(0);
+
             }
 
 
             .main {
 
                 margin-left: 0;
+
+            }
+
+
+            .content {
+
+                padding:
+                    18px;
+
             }
 
 
@@ -781,46 +1435,41 @@
 
                 grid-template-columns:
                     1fr;
+
             }
 
 
-            .content {
-
-                padding: 15px;
-            }
-
-
-            .header {
-
-                padding:
-                    0 15px;
-            }
-
-
-            .github {
+            .header-right {
 
                 display: none;
+
             }
 
 
             .hero {
 
-                padding: 25px;
+                padding:
+                    22px;
+
             }
 
 
-            .hero h1 {
+            .hero-title {
 
-                font-size: 23px;
+                font-size: 22px;
+
             }
 
 
             .markdown {
 
-                padding: 20px;
+                padding:
+                    20px;
+
             }
 
         }
+
 
     </style>
 
@@ -830,38 +1479,124 @@
 <body>
 
 
-    <!-- =========================
-         SIDEBAR
-    ========================= -->
+    <!-- =========================================================
+         HEADER
+    ========================================================== -->
 
-    <aside class="sidebar">
+    <header class="header">
 
-        <div class="logo">
+        <div class="header-left">
 
-            <div class="logo-title">
-                Manual Operativo
-            </div>
+            <button
+                class="menu-button"
+                id="menuButton"
+                type="button"
+                aria-label="Abrir menú"
+            >
+                ☰
+            </button>
 
-            <div class="logo-subtitle">
-                Atención al Cliente
+
+            <div class="brand">
+
+                <img
+                    src="logo_ethernet.png"
+                    alt="Ethernet"
+                    class="brand-logo"
+                >
+
+
+                <span class="brand-name">
+                    Ethernet App
+                </span>
+
             </div>
 
         </div>
 
 
-        <div class="sidebar-title">
+        <div class="header-right">
+
+            <div
+                class="header-status"
+                id="headerStatus"
+            >
+                Cargando manual...
+            </div>
+
+
+            <a
+                class="github-button"
+                href="https://github.com/AbutMatias/Manual-Operativo-Atencion-al-Cliente"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                GitHub
+            </a>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =========================================================
+         LOADING
+    ========================================================== -->
+
+    <div
+        class="loading-bar"
+        id="loadingBar"
+    >
+
+        <div class="loading-progress"></div>
+
+    </div>
+
+
+
+    <!-- =========================================================
+         SIDEBAR
+    ========================================================== -->
+
+    <aside
+        class="sidebar"
+        id="sidebar"
+    >
+
+
+        <div class="sidebar-section">
             Navegación
         </div>
 
 
+        <div class="sidebar-search">
+
+            <input
+                id="sidebarSearch"
+                type="text"
+                placeholder="Buscar opción..."
+                autocomplete="off"
+            >
+
+        </div>
+
+
         <div class="nav">
+
 
             <div
                 class="nav-item active"
                 id="navInicio"
                 onclick="inicio()"
             >
+
+                <span class="category-icon">
+                    🏠
+                </span>
+
                 Inicio
+
             </div>
 
 
@@ -869,14 +1604,21 @@
                 class="nav-item"
                 onclick="activarBusqueda()"
             >
+
+                <span class="category-icon">
+                    🔎
+                </span>
+
                 Buscar
+
             </div>
+
 
         </div>
 
 
-        <div class="sidebar-title">
-            Categorías
+        <div class="sidebar-section">
+            Documentación
         </div>
 
 
@@ -886,107 +1628,95 @@
         >
 
             <div class="nav-item">
-                Cargando...
+
+                Cargando categorías...
+
             </div>
 
         </div>
+
 
     </aside>
 
 
 
-    <!-- =========================
+    <!-- =========================================================
          MAIN
-    ========================= -->
+    ========================================================== -->
 
     <main class="main">
-
-
-<header class="header">
-
-    <div class="header-brand">
-
-        <img
-            src="logo_ethernet.png"
-            alt="Ethernet"
-            class="header-logo"
-        >
-
-        <span>
-            Ethernet App
-        </span>
-
-    </div>
-
-    <div class="header-right">
-
-        <span class="connection-status">
-            Manual Operativo
-        </span>
-
-        <a
-            href="https://github.com/AbutMatias/Manual-Operativo-Atencion-al-Cliente"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="github"
-        >
-            GitHub
-        </a>
-
-    </div>
-
-</header>
-
-
-        <div
-            class="loading-bar"
-            id="loadingBar"
-        >
-
-            <div class="loading-progress"></div>
-
-        </div>
-
 
 
         <div class="content">
 
 
-            <!-- =========================
+            <!-- =====================================================
                  HOME
-            ========================= -->
+            ====================================================== -->
 
             <section id="home">
 
 
                 <div class="hero">
 
-                    <h1>
-                        ¿Qué necesitás consultar?
+
+                    <h1 class="hero-title">
+                        Manual Operativo
                     </h1>
 
 
-                    <p>
-                        Buscá procedimientos,
-                        diagnósticos y documentación
-                        técnica.
+                    <p class="hero-subtitle">
+
+                        Documentación técnica y procedimientos
+                        de Atención al Cliente.
+
+                        Buscá rápidamente cualquier procedimiento,
+                        diagnóstico o herramienta.
+
                     </p>
 
 
-                    <div class="search">
+                    <div class="main-search">
 
-                        <input
-                            id="buscador"
-                            type="text"
-                            autocomplete="off"
-                            placeholder="Buscar: router, ONU, WiFi, ping..."
+                        <div
+                            class="main-search-wrapper"
                         >
 
+                            <span
+                                class="main-search-icon"
+                            >
+                                🔎
+                            </span>
+
+
+                            <input
+                                id="buscador"
+                                type="text"
+                                autocomplete="off"
+                                placeholder="Buscar router, ONU, WiFi, ping..."
+                            >
+
+
+                            <button
+                                id="clearSearch"
+                                class="clear-search"
+                                type="button"
+                            >
+                                ✕
+                            </button>
+
+                        </div>
+
                     </div>
+
 
                 </div>
 
 
+
+                <!-- =================================================
+                     STATS
+                ================================================== -->
 
                 <div class="stats">
 
@@ -1002,7 +1732,7 @@
 
 
                         <div class="stat-label">
-                            Documentos encontrados
+                            Documentos
                         </div>
 
                     </div>
@@ -1043,14 +1773,20 @@
 
                     </div>
 
+
                 </div>
 
 
 
+                <!-- =================================================
+                     RESULTS HEADER
+                ================================================== -->
+
                 <div class="results-header">
 
+
                     <div class="results-title">
-                        Resultados
+                        Documentación
                     </div>
 
 
@@ -1058,8 +1794,9 @@
                         class="status"
                         id="status"
                     >
-                        Cargando documentación...
+                        Cargando...
                     </div>
+
 
                 </div>
 
@@ -1071,9 +1808,9 @@
 
 
 
-            <!-- =========================
+            <!-- =====================================================
                  DOCUMENT VIEWER
-            ========================= -->
+            ====================================================== -->
 
             <section
                 class="document"
@@ -1094,12 +1831,13 @@
 
                     <a
                         id="linkGithub"
-                        class="github"
+                        class="document-github"
                         target="_blank"
                         rel="noopener noreferrer"
                     >
                         Abrir en GitHub
                     </a>
+
 
                 </div>
 
@@ -1116,43 +1854,59 @@
 
         </div>
 
+
     </main>
 
 
+
+    <!-- =========================================================
+         JAVASCRIPT
+    ========================================================== -->
 
     <script>
 
 
         /* =========================================================
            CONFIGURACIÓN
-        ========================================================= */
+        ========================================================== */
 
         const OWNER =
             "AbutMatias";
 
+
         const REPO =
             "Manual-Operativo-Atencion-al-Cliente";
+
 
         const BRANCH =
             "main";
 
+
         const API =
             `https://api.github.com/repos/${OWNER}/${REPO}/contents/doc`;
 
-        const RAW =
-            `https://raw.githubusercontent.com/${OWNER}/${REPO}/${BRANCH}/`;
-
-        const GITHUB =
-            `https://github.com/${OWNER}/${REPO}/blob/${BRANCH}/`;
 
         const README_URL =
             `https://raw.githubusercontent.com/${OWNER}/${REPO}/${BRANCH}/README.md`;
 
 
+        const GITHUB_URL =
+            `https://github.com/${OWNER}/${REPO}/blob/${BRANCH}/`;
+
+
+        /*
+         * index.json queda preparado para una futura
+         * carga todavía más rápida.
+         */
+
+        const INDEX_URL =
+            "./index.json";
+
+
 
         /* =========================================================
            VARIABLES
-        ========================================================= */
+        ========================================================== */
 
         let documentos = [];
 
@@ -1160,48 +1914,93 @@
 
         let readmeCache = null;
 
-        let busquedaTimer = null;
+        let searchTimer = null;
 
 
 
         /* =========================================================
-           INICIO
-        ========================================================= */
+           INICIAR
+        ========================================================== */
 
         async function iniciar() {
 
             const status =
                 document.getElementById("status");
 
+
             const estado =
                 document.getElementById("estado");
 
-            const loadingBar =
+
+            const loading =
                 document.getElementById("loadingBar");
+
+
+            const headerStatus =
+                document.getElementById(
+                    "headerStatus"
+                );
 
 
             try {
 
-                loadingBar.classList.add("active");
+                loading.classList.add(
+                    "active"
+                );
 
-                estado.textContent = "...";
 
                 status.textContent =
                     "Cargando documentación...";
 
 
+                headerStatus.textContent =
+                    "Cargando...";
+
+
+                estado.textContent =
+                    "...";
+
+
                 /*
-                 * Cargamos documentos y README
-                 * al mismo tiempo.
+                 * Intentamos primero index.json.
+                 *
+                 * Si existe, es el método más rápido.
                  */
 
-                await Promise.all([
+                let cargadoDesdeIndex =
+                    await cargarDesdeIndex();
 
-                    cargarDocumentos(),
 
-                    cargarCategorias()
+                /*
+                 * Si no existe index.json,
+                 * usamos GitHub como respaldo.
+                 */
 
-                ]);
+                if (!cargadoDesdeIndex) {
+
+                    await cargarDocumentosGitHub();
+
+                }
+
+
+                /*
+                 * README y documentos en paralelo.
+                 */
+
+                try {
+
+                    await cargarCategorias();
+
+                } catch (error) {
+
+                    console.warn(
+                        "No se pudo cargar README:",
+                        error
+                    );
+
+                    categorias = [];
+
+                }
 
 
                 document.getElementById(
@@ -1220,6 +2019,10 @@
                     "OK";
 
 
+                headerStatus.textContent =
+                    `${documentos.length} documentos`;
+
+
                 status.textContent =
                     `${documentos.length} documentos disponibles`;
 
@@ -1236,8 +2039,12 @@
                     "ERROR";
 
 
+                headerStatus.textContent =
+                    "Error";
+
+
                 status.textContent =
-                    "No se pudo cargar la documentación";
+                    "Error al cargar";
 
 
                 document.getElementById(
@@ -1246,17 +2053,15 @@
 
                     <div class="empty">
 
-                        <strong>
+                        <div class="empty-title">
                             No se pudo cargar la documentación
-                        </strong>
+                        </div>
 
-                        <br><br>
+                        <br>
 
-                        ${escapeHTML(error.message)}
-
-                        <br><br>
-
-                        Revisá la conexión o intentá nuevamente.
+                        ${escapeHTML(
+                            error.message
+                        )}
 
                     </div>
 
@@ -1264,7 +2069,7 @@
 
             } finally {
 
-                loadingBar.classList.remove(
+                loading.classList.remove(
                     "active"
                 );
 
@@ -1275,18 +2080,102 @@
 
 
         /* =========================================================
-           CARGAR DOCUMENTOS
-        ========================================================= */
+           CARGAR INDEX.JSON
+        ========================================================== */
 
-        async function cargarDocumentos() {
+        async function cargarDesdeIndex() {
 
-            /*
-             * Primera consulta:
-             * obtenemos solamente la lista de archivos.
-             */
+            try {
+
+                const respuesta =
+                    await fetch(
+                        `${INDEX_URL}?v=${Date.now()}`
+                    );
+
+
+                if (!respuesta.ok) {
+
+                    return false;
+
+                }
+
+
+                const data =
+                    await respuesta.json();
+
+
+                if (
+                    !Array.isArray(data)
+                ) {
+
+                    return false;
+
+                }
+
+
+                documentos =
+                    data.map(
+                        documento => ({
+
+                            nombre:
+                                documento.nombre,
+
+                            path:
+                                documento.path,
+
+                            contenido:
+                                documento.contenido || "",
+
+                            url:
+                                documento.url ||
+                                `https://raw.githubusercontent.com/${OWNER}/${REPO}/${BRANCH}/${documento.path}`
+
+                        })
+                    );
+
+
+                documentos.sort(
+                    (a, b) =>
+                        a.nombre.localeCompare(
+                            b.nombre,
+                            "es"
+                        )
+                );
+
+
+                console.log(
+                    "Documentación cargada desde index.json"
+                );
+
+
+                return true;
+
+
+            } catch (error) {
+
+                console.warn(
+                    "index.json no disponible."
+                );
+
+
+                return false;
+
+            }
+
+        }
+
+
+
+        /* =========================================================
+           CARGAR DESDE GITHUB
+        ========================================================== */
+
+        async function cargarDocumentosGitHub() {
 
             const respuesta =
-                await fetch(API);
+                await fetch(
+                    API
+                );
 
 
             if (!respuesta.ok) {
@@ -1302,13 +2191,12 @@
                 await respuesta.json();
 
 
-            /*
-             * Si /doc tiene subcarpetas,
-             * las recorremos también.
-             */
-
             documentos = [];
 
+
+            /*
+             * Cargar archivos y carpetas.
+             */
 
             await recorrerCarpeta(
                 archivos
@@ -1316,21 +2204,8 @@
 
 
             /*
-             * Orden alfabético.
-             */
-
-            documentos.sort(
-                (a, b) =>
-                    a.nombre.localeCompare(
-                        b.nombre,
-                        "es"
-                    )
-            );
-
-
-            /*
-             * Descargar TODOS los documentos
-             * simultáneamente.
+             * Descargar los documentos
+             * en paralelo.
              */
 
             await Promise.all(
@@ -1349,7 +2224,7 @@
                             if (!respuesta.ok) {
 
                                 throw new Error(
-                                    `${respuesta.status}`
+                                    respuesta.status
                                 );
 
                             }
@@ -1363,8 +2238,7 @@
 
                             console.warn(
                                 "No se pudo cargar:",
-                                documento.path,
-                                error
+                                documento.path
                             );
 
 
@@ -1378,13 +2252,22 @@
 
             );
 
+
+            documentos.sort(
+                (a, b) =>
+                    a.nombre.localeCompare(
+                        b.nombre,
+                        "es"
+                    )
+            );
+
         }
 
 
 
         /* =========================================================
            RECORRER CARPETAS
-        ========================================================= */
+        ========================================================== */
 
         async function recorrerCarpeta(
             archivos
@@ -1394,10 +2277,6 @@
                 const archivo of archivos
             ) {
 
-
-                /*
-                 * Archivo Markdown
-                 */
 
                 if (
 
@@ -1435,10 +2314,6 @@
                 }
 
 
-                /*
-                 * Subcarpeta
-                 */
-
                 if (
                     archivo.type === "dir"
                 ) {
@@ -1466,7 +2341,7 @@
                     } catch (error) {
 
                         console.warn(
-                            "No se pudo leer carpeta:",
+                            "No se pudo leer:",
                             archivo.path
                         );
 
@@ -1482,13 +2357,13 @@
 
         /* =========================================================
            CATEGORÍAS
-        ========================================================= */
+        ========================================================== */
 
         async function cargarCategorias() {
 
             const respuesta =
                 await fetch(
-                    README_URL
+                    `${README_URL}?v=${Date.now()}`
                 );
 
 
@@ -1516,10 +2391,6 @@
         }
 
 
-
-        /* =========================================================
-           OBTENER CATEGORÍAS
-        ========================================================= */
 
         function obtenerCategorias(
             markdown
@@ -1563,7 +2434,7 @@
 
         /* =========================================================
            MOSTRAR CATEGORÍAS
-        ========================================================= */
+        ========================================================== */
 
         function mostrarCategorias() {
 
@@ -1583,7 +2454,9 @@
                 contenedor.innerHTML = `
 
                     <div class="nav-item">
+
                         Sin categorías
+
                     </div>
 
                 `;
@@ -1606,11 +2479,21 @@
                         "nav-item";
 
 
-                    elemento.textContent =
-                        "📁 " +
-                        limpiarEmoji(
-                            categoria.nombre
-                        );
+                    elemento.innerHTML = `
+
+                        <span class="category-icon">
+                            📁
+                        </span>
+
+                        <span>
+                            ${escapeHTML(
+                                limpiarEmoji(
+                                    categoria.nombre
+                                )
+                            )}
+                        </span>
+
+                    `;
 
 
                     elemento.onclick =
@@ -1632,8 +2515,8 @@
 
 
         /* =========================================================
-           MOSTRAR DOCUMENTOS INICIALES
-        ========================================================= */
+           DOCUMENTOS INICIALES
+        ========================================================== */
 
         function mostrarDocumentosIniciales() {
 
@@ -1652,8 +2535,15 @@
                 );
 
 
+            /*
+             * Mostramos máximo 20 inicialmente.
+             */
+
             mostrarResultados(
-                resultados.slice(0, 20),
+                resultados.slice(
+                    0,
+                    20
+                ),
                 ""
             );
 
@@ -1663,67 +2553,102 @@
 
         /* =========================================================
            BUSCADOR
-        ========================================================= */
+        ========================================================== */
 
-        document
-            .getElementById(
+        const buscador =
+            document.getElementById(
                 "buscador"
-            )
-            .addEventListener(
-                "input",
-                function () {
+            );
 
 
-                    const texto =
-                        this.value
-                            .trim()
-                            .toLowerCase();
+        const clearSearch =
+            document.getElementById(
+                "clearSearch"
+            );
 
 
-                    clearTimeout(
-                        busquedaTimer
+        buscador.addEventListener(
+            "input",
+            function () {
+
+                const texto =
+                    this.value
+                        .trim()
+                        .toLowerCase();
+
+
+                clearSearch.style.display =
+                    texto
+                        ? "block"
+                        : "none";
+
+
+                clearTimeout(
+                    searchTimer
+                );
+
+
+                searchTimer =
+                    setTimeout(
+                        () => {
+
+                            if (!texto) {
+
+                                mostrarDocumentosIniciales();
+
+                                document.getElementById(
+                                    "status"
+                                ).textContent =
+                                    `${documentos.length} documentos disponibles`;
+
+                                return;
+
+                            }
+
+
+                            buscarDocumentos(
+                                texto
+                            );
+
+                        },
+                        80
                     );
 
-
-                    /*
-                     * Pequeño debounce.
-                     * Evita buscar en cada tecla.
-                     */
-
-                    busquedaTimer =
-                        setTimeout(
-                            () => {
-
-                                if (!texto) {
-
-                                    mostrarDocumentosIniciales();
-
-                                    document.getElementById(
-                                        "status"
-                                    ).textContent =
-                                        `${documentos.length} documentos disponibles`;
-
-                                    return;
-
-                                }
-
-
-                                buscarDocumentos(
-                                    texto
-                                );
-
-                            },
-                            120
-                        );
-
-                }
-            );
+            }
+        );
 
 
 
         /* =========================================================
-           BUSCAR DOCUMENTOS
-        ========================================================= */
+           LIMPIAR BUSCADOR
+        ========================================================== */
+
+        clearSearch.addEventListener(
+            "click",
+            () => {
+
+                buscador.value = "";
+
+                clearSearch.style.display =
+                    "none";
+
+                mostrarDocumentosIniciales();
+
+                document.getElementById(
+                    "status"
+                ).textContent =
+                    `${documentos.length} documentos disponibles`;
+
+                buscador.focus();
+
+            }
+        );
+
+
+
+        /* =========================================================
+           BUSCAR
+        ========================================================== */
 
         function buscarDocumentos(
             texto
@@ -1739,18 +2664,14 @@
 
 
             /*
-             * IMPORTANTE:
+             * La búsqueda es 100% local.
              *
-             * Acá NO hacemos fetch.
-             *
-             * Todos los documentos ya están
-             * cargados en memoria.
+             * NO se consulta GitHub.
              */
 
             for (
                 const documento of documentos
             ) {
-
 
                 const contenido =
                     documento.contenido || "";
@@ -1809,10 +2730,6 @@
             resultados.sort(
                 (a, b) => {
 
-                    /*
-                     * Primero cantidad de palabras.
-                     */
-
                     if (
                         b.puntos !==
                         a.puntos
@@ -1825,10 +2742,6 @@
 
                     }
 
-
-                    /*
-                     * Después orden alfabético.
-                     */
 
                     return a.documento.nombre
                         .localeCompare(
@@ -1857,7 +2770,7 @@
 
         /* =========================================================
            MOSTRAR RESULTADOS
-        ========================================================= */
+        ========================================================== */
 
         function mostrarResultados(
             resultados,
@@ -1885,11 +2798,11 @@
 
                         <br><br>
 
-                        <strong>
+                        <div class="empty-title">
                             No encontramos resultados
-                        </strong>
+                        </div>
 
-                        <br><br>
+                        <br>
 
                         No existe ningún documento
                         que contenga:
@@ -1912,7 +2825,6 @@
             resultados.forEach(
                 resultado => {
 
-
                     const fragmento =
                         obtenerFragmento(
                             resultado.contenido,
@@ -1930,30 +2842,30 @@
                         "result";
 
 
-                    const titulo =
-                        escapeHTML(
-                            resultado.documento.nombre
-                        );
-
-
-                    const path =
-                        escapeHTML(
-                            resultado.documento.path
-                        );
-
-
                     elemento.innerHTML = `
 
                         <div class="result-title">
 
-                            📄 ${titulo}
+                            <span
+                                class="result-title-icon"
+                            >
+                                📄
+                            </span>
+
+                            ${escapeHTML(
+                                resultado.documento.nombre
+                            )}
 
                         </div>
 
 
                         <div class="result-category">
 
-                            📁 ${path}
+                            📁
+
+                            ${escapeHTML(
+                                resultado.documento.path
+                            )}
 
                         </div>
 
@@ -1968,11 +2880,15 @@
                         </div>
 
 
-                        <button
-                            type="button"
-                        >
-                            📖 Leer documento
-                        </button>
+                        <div class="result-actions">
+
+                            <button
+                                type="button"
+                            >
+                                Leer documento
+                            </button>
+
+                        </div>
 
                     `;
 
@@ -2001,7 +2917,7 @@
 
         /* =========================================================
            FRAGMENTO
-        ========================================================= */
+        ========================================================== */
 
         function obtenerFragmento(
             contenido,
@@ -2021,11 +2937,14 @@
                     .trim();
 
 
-            if (!texto)
+            if (!texto) {
+
                 return limpio.substring(
                     0,
                     300
                 );
+
+            }
 
 
             const posicion =
@@ -2068,7 +2987,7 @@
 
         /* =========================================================
            RESALTAR
-        ========================================================= */
+        ========================================================== */
 
         function resaltar(
             texto,
@@ -2117,7 +3036,7 @@
 
         /* =========================================================
            ABRIR DOCUMENTO
-        ========================================================= */
+        ========================================================== */
 
         function abrirDocumento(
             path
@@ -2142,7 +3061,7 @@
 
 
             contenido.innerHTML =
-                "<p>Cargando...</p>";
+                "<p>Cargando documento...</p>";
 
 
             const documento =
@@ -2158,7 +3077,9 @@
 
                     <div class="empty">
 
-                        No se encontró el documento.
+                        <div class="empty-title">
+                            Documento no encontrado
+                        </div>
 
                     </div>
 
@@ -2170,11 +3091,6 @@
 
 
             try {
-
-                /*
-                 * Ya está en memoria.
-                 * No hacemos fetch.
-                 */
 
                 const markdown =
                     documento.contenido || "";
@@ -2189,7 +3105,7 @@
                 document.getElementById(
                     "linkGithub"
                 ).href =
-                    GITHUB +
+                    GITHUB_URL +
                     path
                         .split("/")
                         .map(
@@ -2213,12 +3129,9 @@
 
                     <div class="empty">
 
-                        ❌
-
-                        <br><br>
-
-                        No se pudo cargar
-                        el documento.
+                        <div class="empty-title">
+                            No se pudo cargar el documento
+                        </div>
 
                     </div>
 
@@ -2232,7 +3145,7 @@
 
         /* =========================================================
            FILTRAR CATEGORÍA
-        ========================================================= */
+        ========================================================== */
 
         async function filtrarCategoria(
             categoria
@@ -2251,11 +3164,6 @@
 
             const resultados = [];
 
-
-            /*
-             * Buscamos en los documentos
-             * que ya tenemos en memoria.
-             */
 
             for (
                 const ruta of rutas
@@ -2291,9 +3199,10 @@
             }
 
 
-            document.getElementById(
-                "buscador"
-            ).value = "";
+            buscador.value = "";
+
+            clearSearch.style.display =
+                "none";
 
 
             mostrarResultados(
@@ -2314,8 +3223,8 @@
 
 
         /* =========================================================
-           OBTENER DOCUMENTOS DE CATEGORÍA
-        ========================================================= */
+           LEER CATEGORÍAS DEL README
+        ========================================================== */
 
         function obtenerDocumentosDeCategoria(
             markdown,
@@ -2344,8 +3253,7 @@
                 if (heading) {
 
                     const titulo =
-                        heading[1]
-                            .trim();
+                        heading[1].trim();
 
 
                     dentro =
@@ -2361,13 +3269,6 @@
                     continue;
 
 
-                /*
-                 * Soporta:
-                 *
-                 * - [Nombre](doc/archivo.md)
-                 * - [Nombre](./doc/archivo.md)
-                 */
-
                 const enlace =
                     linea.match(
                         /^\s*-\s+\[([^\]]+)\]\(([^)]+)\)/
@@ -2379,13 +3280,8 @@
 
 
                 let ruta =
-                    enlace[2]
-                        .trim();
+                    enlace[2].trim();
 
-
-                /*
-                 * Quitar ./ inicial.
-                 */
 
                 ruta =
                     ruta.replace(
@@ -2394,53 +3290,11 @@
                     );
 
 
-                /*
-                 * Quitar posibles escapes.
-                 */
-
                 ruta =
                     ruta.replace(
                         /\\([()[\]])/g,
                         "$1"
                     );
-
-
-                /*
-                 * Si el enlace contiene
-                 * una URL completa no sirve
-                 * para buscar localmente.
-                 */
-
-                if (
-                    ruta.startsWith(
-                        "http://"
-                    ) ||
-                    ruta.startsWith(
-                        "https://"
-                    )
-                ) {
-
-                    try {
-
-                        const url =
-                            new URL(ruta);
-
-
-                        ruta =
-                            url.pathname
-                                .split("/blob/")
-                                .pop()
-                                ?.split("/")
-                                .slice(1)
-                                .join("/");
-
-                    } catch {
-
-                        continue;
-
-                    }
-
-                }
 
 
                 rutas.push(
@@ -2457,32 +3311,8 @@
 
 
         /* =========================================================
-           NORMALIZAR RUTAS
-        ========================================================= */
-
-        function normalizarRuta(
-            ruta
-        ) {
-
-            return String(ruta)
-                .replace(
-                    /^\.\/+/,
-                    ""
-                )
-                .replace(
-                    /\\/g,
-                    ""
-                )
-                .trim()
-                .toLowerCase();
-
-        }
-
-
-
-        /* =========================================================
            INICIO
-        ========================================================= */
+        ========================================================== */
 
         function inicio() {
 
@@ -2516,23 +3346,42 @@
 
         /* =========================================================
            ACTIVAR BÚSQUEDA
-        ========================================================= */
+        ========================================================== */
 
         function activarBusqueda() {
 
             inicio();
 
 
-            const buscador =
-                document.getElementById(
-                    "buscador"
-                );
-
-
             buscador.focus();
 
+        }
 
-            buscador.select();
+
+
+        /* =========================================================
+           NORMALIZAR RUTA
+        ========================================================== */
+
+        function normalizarRuta(
+            ruta
+        ) {
+
+            return String(ruta)
+
+                .replace(
+                    /^\.\/+/,
+                    ""
+                )
+
+                .replace(
+                    /\\/g,
+                    ""
+                )
+
+                .trim()
+
+                .toLowerCase();
 
         }
 
@@ -2540,17 +3389,19 @@
 
         /* =========================================================
            LIMPIAR EMOJIS
-        ========================================================= */
+        ========================================================== */
 
         function limpiarEmoji(
             texto
         ) {
 
             return String(texto)
+
                 .replace(
                     /[\u{1F300}-\u{1FAFF}]/gu,
                     ""
                 )
+
                 .trim();
 
         }
@@ -2559,7 +3410,7 @@
 
         /* =========================================================
            ESCAPE HTML
-        ========================================================= */
+        ========================================================== */
 
         function escapeHTML(
             texto
@@ -2598,7 +3449,7 @@
 
         /* =========================================================
            ESCAPE REGEX
-        ========================================================= */
+        ========================================================== */
 
         function escapeRegex(
             texto
@@ -2615,8 +3466,80 @@
 
 
         /* =========================================================
+           MENÚ MÓVIL
+        ========================================================== */
+
+        document
+            .getElementById(
+                "menuButton"
+            )
+            .addEventListener(
+                "click",
+                () => {
+
+                    document
+                        .getElementById(
+                            "sidebar"
+                        )
+                        .classList
+                        .toggle(
+                            "open"
+                        );
+
+                }
+            );
+
+
+
+        /* =========================================================
+           BUSCAR EN MENÚ
+        ========================================================== */
+
+        document
+            .getElementById(
+                "sidebarSearch"
+            )
+            .addEventListener(
+                "input",
+                function () {
+
+                    const texto =
+                        this.value
+                            .toLowerCase()
+                            .trim();
+
+
+                    document
+                        .querySelectorAll(
+                            "#categorias .nav-item"
+                        )
+                        .forEach(
+                            item => {
+
+                                const visible =
+                                    item.textContent
+                                        .toLowerCase()
+                                        .includes(
+                                            texto
+                                        );
+
+
+                                item.style.display =
+                                    visible
+                                        ? "flex"
+                                        : "none";
+
+                            }
+                        );
+
+                }
+            );
+
+
+
+        /* =========================================================
            ARRANCAR
-        ========================================================= */
+        ========================================================== */
 
         iniciar();
 
