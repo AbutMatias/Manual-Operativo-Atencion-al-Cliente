@@ -1,4 +1,3 @@
-
 name: Descargar imágenes de documentación
 
 on:
@@ -11,9 +10,7 @@ on:
 permissions:
   contents: write
 
-
 jobs:
-
   descargar-imagenes:
 
     runs-on: ubuntu-latest
@@ -37,25 +34,24 @@ jobs:
       - name: Instalar herramientas
         run: |
           sudo apt-get update
-          sudo apt-get install -y curl file
+          sudo apt-get install -y wget file
 
 
       # =========================================================
       # PROCESAR IMÁGENES
       # =========================================================
 
-      - name: Descargar y reemplazar imágenes
+      - name: Descargar y corregir imágenes
         shell: bash
         run: |
 
-          set -u
+          set +e
 
           mkdir -p doc/imagenes
 
-
           echo ""
           echo "=============================================="
-          echo " DESCARGA DE IMÁGENES"
+          echo " BUSCANDO IMÁGENES EN /doc"
           echo "=============================================="
           echo ""
 
@@ -78,34 +74,25 @@ jobs:
 
 
             # =================================================
-            # BUSCAR URLS DE USER-ATTACHMENTS
+            # EXTRAER TODAS LAS URL DE GITHUB USER ATTACHMENTS
             # =================================================
 
-            imagenes=$(grep -oE \
+            imagenes=$(
+              grep -oE \
               'https://github\.com/user-attachments/assets/[a-zA-Z0-9-]+' \
               "$archivo" \
-              2>/dev/null ||
-              true)
+              2>/dev/null |
+              sort -u
+            )
 
-
-            # =================================================
-            # SI NO HAY IMÁGENES
-            # =================================================
 
             if [ -z "$imagenes" ]; then
 
-              echo "No contiene imágenes."
+              echo "No contiene imágenes externas."
 
               continue
 
             fi
-
-
-            # =================================================
-            # ELIMINAR DUPLICADOS
-            # =================================================
-
-            imagenes=$(printf '%s\n' "$imagenes" | sort -u)
 
 
             # =================================================
@@ -115,14 +102,8 @@ jobs:
             while IFS= read -r url
             do
 
-              if [ -z "$url" ]; then
-                continue
-              fi
+              [ -z "$url" ] && continue
 
-
-              # =================================================
-              # OBTENER ID
-              # =================================================
 
               id=$(basename "$url")
 
@@ -133,88 +114,52 @@ jobs:
 
 
               # =================================================
-              # BUSCAR IMAGEN EXISTENTE
+              # BUSCAR SI YA EXISTE
               # =================================================
 
-              existente=$(find doc/imagenes \
-                -type f \
-                -name "${id}.*" \
-                2>/dev/null |
-                head -n 1 ||
-                true)
+              existente=$(
+                find doc/imagenes \
+                  -type f \
+                  -name "${id}.*" \
+                  2>/dev/null |
+                head -n 1
+              )
 
-
-              # =================================================
-              # SI YA EXISTE
-              # =================================================
 
               if [ -n "$existente" ]; then
 
                 echo "La imagen ya existe:"
                 echo "$existente"
 
-
                 nombre=$(basename "$existente")
 
-
-                # ---------------------------------------------
-                # REEMPLAZAR URL
-                # ---------------------------------------------
-
-                sed -i \
-                  "s|$url|./imagenes/$nombre|g" \
-                  "$archivo"
-
-
-                echo "Referencia actualizada."
-
-                continue
-
-              fi
-
-
-              # =================================================
-              # ARCHIVO TEMPORAL
-              # =================================================
-
-              temporal="doc/imagenes/${id}.download"
-
-
-              rm -f "$temporal"
-
-
-              echo ""
-              echo "Descargando..."
-
-
-              # =================================================
-              # DESCARGAR IMAGEN
-              # =================================================
-
-              if curl \
-                -L \
-                --fail \
-                --silent \
-                --show-error \
-                --retry 3 \
-                --retry-delay 2 \
-                --connect-timeout 30 \
-                --max-time 120 \
-                -A "Mozilla/5.0" \
-                "$url" \
-                -o "$temporal"
-              then
-
-                echo "Descarga correcta."
-
+              else
 
                 # =============================================
-                # VERIFICAR QUE EL ARCHIVO NO ESTÉ VACÍO
+                # ARCHIVO TEMPORAL
                 # =============================================
 
-                if [ ! -s "$temporal" ]; then
+                temporal="doc/imagenes/${id}.download"
 
-                  echo "ERROR: La imagen descargada está vacía."
+
+                echo "Descargando..."
+
+
+                wget \
+                  --timeout=30 \
+                  --tries=3 \
+                  --user-agent="Mozilla/5.0" \
+                  --referer="https://github.com/" \
+                  "$url" \
+                  -O "$temporal"
+
+
+                if [ $? -ne 0 ]; then
+
+                  echo ""
+                  echo "ERROR: No se pudo descargar:"
+                  echo "$url"
+                  echo ""
 
                   rm -f "$temporal"
 
@@ -227,12 +172,13 @@ jobs:
                 # DETECTAR TIPO
                 # =============================================
 
-                tipo=$(file \
-                  --brief \
-                  --mime-type \
-                  "$temporal" \
-                  2>/dev/null ||
-                  echo "unknown")
+                tipo=$(
+                  file \
+                    --brief \
+                    --mime-type \
+                    "$temporal" \
+                    2>/dev/null
+                )
 
 
                 echo "Tipo detectado: $tipo"
@@ -265,11 +211,7 @@ jobs:
                     ;;
 
                   *)
-                    echo ""
-                    echo "ERROR: Formato no compatible."
-                    echo "Tipo detectado: $tipo"
-                    echo "URL: $url"
-                    echo ""
+                    echo "Formato no compatible: $tipo"
 
                     rm -f "$temporal"
 
@@ -280,15 +222,11 @@ jobs:
 
 
                 # =============================================
-                # NOMBRE FINAL
+                # GUARDAR IMAGEN
                 # =============================================
 
                 nuevo="doc/imagenes/${id}.${extension}"
 
-
-                # =============================================
-                # MOVER IMAGEN
-                # =============================================
 
                 mv "$temporal" "$nuevo"
 
@@ -300,41 +238,120 @@ jobs:
                 echo "Imagen guardada:"
                 echo "$nuevo"
 
-
-                # =============================================
-                # REEMPLAZAR URL EN MARKDOWN
-                # =============================================
-
-                sed -i \
-                  "s|$url|./imagenes/$nombre|g" \
-                  "$archivo"
-
-
-                echo ""
-                echo "Referencia actualizada."
-                echo ""
-
-
-              else
-
-                echo ""
-                echo "=============================================="
-                echo " ERROR AL DESCARGAR IMAGEN"
-                echo "=============================================="
-                echo ""
-                echo "Documento:"
-                echo "$archivo"
-                echo ""
-                echo "URL:"
-                echo "$url"
-                echo ""
-                echo "La ejecución continuará con la siguiente imagen."
-                echo ""
-
-
-                rm -f "$temporal"
-
               fi
+
+
+              # =================================================
+              # CORREGIR EL DOCUMENTO
+              # =================================================
+
+              python3 - "$archivo" "$url" "$nombre" <<'PY'
+
+import sys
+from pathlib import Path
+import re
+
+archivo = Path(sys.argv[1])
+url = sys.argv[2]
+nombre = sys.argv[3]
+
+texto = archivo.read_text(encoding="utf-8")
+
+ruta = f"./imagenes/{nombre}"
+
+
+# =========================================================
+# 1. CORREGIR IMG SRC
+#
+# Convierte:
+#
+# <img src="URL">
+#
+# o:
+#
+# <img src="[URL](URL)">
+#
+# en:
+#
+# <img src="./imagenes/imagen.png">
+# =========================================================
+
+patron_img = re.compile(
+    r'(<img\b[^>]*?\bsrc\s*=\s*["\'])(.*?)(["\'])',
+    re.IGNORECASE
+)
+
+
+def corregir_img(match):
+
+    inicio = match.group(1)
+    contenido = match.group(2)
+    cierre = match.group(3)
+
+    if url in contenido:
+        return inicio + ruta + cierre
+
+    return match.group(0)
+
+
+texto = patron_img.sub(corregir_img, texto)
+
+
+# =========================================================
+# 2. CORREGIR MARKDOWN
+#
+# Convierte:
+#
+# ![imagen](URL)
+#
+# en:
+#
+# ![imagen](./imagenes/imagen.png)
+# =========================================================
+
+texto = texto.replace(
+    f"]({url})",
+    f"]({ruta})"
+)
+
+
+# =========================================================
+# 3. CORREGIR URL SIMPLE
+#
+# Por si todavía quedó la URL en otro lugar
+# =========================================================
+
+texto = texto.replace(
+    url,
+    ruta
+)
+
+
+# =========================================================
+# 4. CORREGIR EL CASO:
+#
+# [URL](URL)
+#
+# =========================================================
+
+texto = texto.replace(
+    f"[{ruta}]({ruta})",
+    ruta
+)
+
+
+archivo.write_text(
+    texto,
+    encoding="utf-8"
+)
+
+print(f"Documento corregido: {archivo}")
+print(f"Imagen: {ruta}")
+
+PY
+
+
+              echo "Referencia actualizada."
 
 
             done <<< "$imagenes"
@@ -358,35 +375,25 @@ jobs:
           echo ""
 
 
-          if [ -d "doc/imagenes" ]; then
-
-            find doc/imagenes \
-              -type f \
-              -print |
-              sort
-
-          else
-
-            echo "No existe la carpeta doc/imagenes."
-
-          fi
-
-
-          cantidad=$(find doc/imagenes \
+          find doc/imagenes \
             -type f \
-            2>/dev/null |
-            wc -l)
+            -print |
+          sort
+
+
+          cantidad=$(
+            find doc/imagenes \
+              -type f |
+            wc -l
+          )
 
 
           echo ""
-          echo "=============================================="
-          echo " TOTAL DE IMÁGENES: $cantidad"
-          echo "=============================================="
-          echo ""
+          echo "Total de imágenes: $cantidad"
 
 
       # =========================================================
-      # VERIFICAR URLs EXTERNAS
+      # BUSCAR URLS EXTERNAS RESTANTES
       # =========================================================
 
       - name: Verificar URLs pendientes
@@ -395,36 +402,33 @@ jobs:
 
           echo ""
           echo "=============================================="
-          echo " VERIFICANDO URLs EXTERNAS"
+          echo " VERIFICANDO URLS EXTERNAS"
           echo "=============================================="
           echo ""
 
 
-          pendientes=$(grep -RhoE \
+          pendientes=$(
+            grep -RhoE \
             'https://github\.com/user-attachments/assets/[a-zA-Z0-9-]+' \
             doc \
             --include="*.md" \
             2>/dev/null |
-            sort -u ||
-            true)
+            sort -u
+          )
 
 
           if [ -z "$pendientes" ]; then
 
-            echo ""
-            echo "OK."
-            echo "No quedan imágenes externas."
-            echo ""
+            echo "OK: No quedan imágenes externas."
 
           else
 
             echo ""
-            echo "ADVERTENCIA."
+            echo "ADVERTENCIA:"
             echo ""
             echo "Todavía quedan estas URLs:"
             echo ""
             echo "$pendientes"
-            echo ""
 
           fi
 
@@ -448,9 +452,7 @@ jobs:
 
 
           echo ""
-          echo "=============================================="
-          echo " RESUMEN"
-          echo "=============================================="
+          echo "Resumen:"
           echo ""
 
 
@@ -465,13 +467,6 @@ jobs:
         shell: bash
         run: |
 
-          echo ""
-          echo "=============================================="
-          echo " GUARDANDO CAMBIOS"
-          echo "=============================================="
-          echo ""
-
-
           git config user.name "github-actions[bot]"
 
           git config user.email \
@@ -480,10 +475,6 @@ jobs:
 
           git add doc/
 
-
-          # =====================================================
-          # VERIFICAR SI HAY CAMBIOS
-          # =====================================================
 
           if git diff --cached --quiet
           then
@@ -495,15 +486,7 @@ jobs:
           else
 
             echo ""
-            echo "Cambios encontrados."
-            echo ""
-
-
-            git diff --cached --stat
-
-
-            echo ""
-            echo "Creando commit..."
+            echo "Guardando cambios..."
             echo ""
 
 
@@ -511,19 +494,6 @@ jobs:
               -m "Descargar y corregir imágenes de documentación"
 
 
-            echo ""
-            echo "Enviando cambios a GitHub..."
-            echo ""
-
-
             git push
 
-
-            echo ""
-            echo "=============================================="
-            echo " PROCESO COMPLETADO"
-            echo "=============================================="
-            echo ""
-
           fi
-
