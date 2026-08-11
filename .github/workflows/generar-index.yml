@@ -1,29 +1,21 @@
 name: Generar índice de documentación
 
 on:
-
   push:
-
     branches:
       - main
-
     paths:
-      - "doc/**/*.md"
-      - "generar_index.py"
+      - "doc/**"
+      - "README.md"
       - ".github/workflows/generar-index.yml"
 
   workflow_dispatch:
 
-
 permissions:
-
   contents: write
 
-
 jobs:
-
-  generar-index:
-
+  generar-indice:
     runs-on: ubuntu-latest
 
     steps:
@@ -31,20 +23,178 @@ jobs:
       - name: Descargar repositorio
         uses: actions/checkout@v4
 
-
-      - name: Configurar Python
-        uses: actions/setup-python@v5
-
-        with:
-          python-version: "3.x"
-
-
       - name: Generar index.json
-        run: python generar_index.py
+        shell: python
+        run: |
+
+          import os
+          import json
+          import re
+
+          OWNER = "AbutMatias"
+          REPO = "Manual-Operativo-Atencion-al-Cliente"
+          BRANCH = "main"
+
+          BASE_RAW = (
+              f"https://raw.githubusercontent.com/"
+              f"{OWNER}/{REPO}/{BRANCH}/"
+          )
+
+          documentos = []
 
 
-      - name: Verificar cambios
-        run: git diff --stat
+          def corregir_imagenes(markdown, archivo):
+
+              carpeta = os.path.dirname(archivo)
+
+              if carpeta:
+                  carpeta += "/"
+
+              def reemplazar(match):
+
+                  texto = match.group(1)
+                  ruta = match.group(2).strip()
+
+                  # No tocar URLs externas
+                  if (
+                      ruta.startswith("http://")
+                      or ruta.startswith("https://")
+                      or ruta.startswith("data:")
+                      or ruta.startswith("//")
+                  ):
+                      return match.group(0)
+
+                  # Quitar < > si existen
+                  ruta = ruta.strip("<>")
+
+                  # Decodificar algunos caracteres
+                  ruta = ruta.replace("%20", " ")
+
+                  # Resolver ruta absoluta del repositorio
+                  if ruta.startswith("/"):
+
+                      ruta_final = ruta.lstrip("/")
+
+                  else:
+
+                      ruta_final = os.path.normpath(
+                          os.path.join(carpeta, ruta)
+                      )
+
+                  ruta_final = ruta_final.replace("\\", "/")
+
+                  # Codificar espacios y caracteres especiales
+                  partes = ruta_final.split("/")
+
+                  partes_codificadas = []
+
+                  for parte in partes:
+
+                      parte = (
+                          parte
+                          .replace(" ", "%20")
+                          .replace("#", "%23")
+                          .replace("?", "%3F")
+                          .replace("[", "%5B")
+                          .replace("]", "%5D")
+                      )
+
+                      partes_codificadas.append(parte)
+
+                  url = (
+                      BASE_RAW
+                      + "/".join(partes_codificadas)
+                  )
+
+                  return f"![{texto}]({url})"
+
+
+              # Markdown:
+              # ![texto](ruta)
+              markdown = re.sub(
+                  r'!\[([^\]]*)\]\(([^)]+)\)',
+                  reemplazar,
+                  markdown
+              )
+
+              return markdown
+
+
+          def leer_documentos(carpeta):
+
+              for raiz, directorios, archivos in os.walk(carpeta):
+
+                  directorios.sort()
+                  archivos.sort()
+
+                  for archivo in archivos:
+
+                      if not archivo.lower().endswith(".md"):
+                          continue
+
+                      ruta = os.path.join(
+                          raiz,
+                          archivo
+                      )
+
+                      ruta = ruta.replace("\\", "/")
+
+                      with open(
+                          ruta,
+                          "r",
+                          encoding="utf-8"
+                      ) as f:
+
+                          contenido = f.read()
+
+                      contenido = corregir_imagenes(
+                          contenido,
+                          ruta
+                      )
+
+                      nombre = os.path.splitext(
+                          archivo
+                      )[0]
+
+                      documentos.append({
+
+                          "nombre": nombre,
+
+                          "path": ruta,
+
+                          "contenido": contenido,
+
+                          "url":
+                              BASE_RAW + ruta
+
+                      })
+
+
+          leer_documentos("doc")
+
+
+          documentos.sort(
+              key=lambda x: x["nombre"].lower()
+          )
+
+
+          with open(
+              "index.json",
+              "w",
+              encoding="utf-8"
+          ) as f:
+
+              json.dump(
+                  documentos,
+                  f,
+                  ensure_ascii=False,
+                  indent=2
+              )
+
+
+          print(
+              f"Documentos encontrados: {len(documentos)}"
+          )
 
 
       - name: Guardar index.json
@@ -52,10 +202,12 @@ jobs:
 
           git config user.name "github-actions[bot]"
 
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config user.email \
+            "41898282+github-actions[bot]@users.noreply.github.com"
 
           git add index.json
 
-          git diff --cached --quiet || git commit -m "Actualizar índice de documentación"
+          git diff --cached --quiet || \
+            git commit -m "Actualizar índice de documentación"
 
           git push
