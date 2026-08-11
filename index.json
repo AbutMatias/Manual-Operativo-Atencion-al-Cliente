@@ -1,0 +1,17 @@
+[
+  {
+    "nombre": "DNS",
+    "path": "doc/DNS.md",
+    "contenido": "Contenido completo del documento DNS..."
+  },
+  {
+    "nombre": "ONU",
+    "path": "doc/ONU.md",
+    "contenido": "Contenido completo del documento ONU..."
+  },
+  {
+    "nombre": "WiFi",
+    "path": "doc/WiFi.md",
+    "contenido": "Contenido completo del documento WiFi..."
+  }
+]
