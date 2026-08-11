@@ -17,15 +17,29 @@ jobs:
 
     steps:
 
+      # =========================================================
+      # DESCARGAR REPOSITORIO
+      # =========================================================
+
       - name: Descargar repositorio
         uses: actions/checkout@v5
         with:
           fetch-depth: 0
 
+
+      # =========================================================
+      # INSTALAR HERRAMIENTAS
+      # =========================================================
+
       - name: Instalar herramientas
         run: |
           sudo apt-get update
           sudo apt-get install -y wget file
+
+
+      # =========================================================
+      # PROCESAR IMÁGENES
+      # =========================================================
 
       - name: Procesar imágenes
         shell: bash
@@ -33,9 +47,11 @@ jobs:
 
           mkdir -p doc/imagenes
 
+          echo ""
           echo "======================================"
           echo " BUSCANDO IMÁGENES"
           echo "======================================"
+          echo ""
 
           find doc -type f -name "*.md" -print0 | while IFS= read -r -d '' archivo
           do
@@ -45,7 +61,28 @@ jobs:
             echo "Documento: $archivo"
             echo "--------------------------------------"
 
-            grep -oE 'https://github\.com/user-attachments/assets/[a-zA-Z0-9-]+' "$archivo" |
+            # =================================================
+            # BUSCAR IMÁGENES
+            # =================================================
+
+            imagenes=$(grep -oE 'https://github\.com/user-attachments/assets/[a-zA-Z0-9-]+' "$archivo" || true)
+
+            # Si el documento no tiene imágenes,
+            # simplemente continuamos con el siguiente.
+
+            if [ -z "$imagenes" ]; then
+
+              echo "No contiene imágenes."
+              continue
+
+            fi
+
+
+            # =================================================
+            # PROCESAR CADA IMAGEN
+            # =================================================
+
+            echo "$imagenes" |
             sort -u |
             while read -r url
             do
@@ -54,16 +91,28 @@ jobs:
                 continue
               fi
 
+
+              # -----------------------------------------------
+              # ID DE LA IMAGEN
+              # -----------------------------------------------
+
               id=$(basename "$url")
 
+
               temporal="doc/imagenes/$id"
+
 
               echo ""
               echo "Imagen encontrada:"
               echo "$url"
 
-              # Buscar si ya existe
-              existente=$(find doc/imagenes -type f -name "$id.*" | head -n 1)
+
+              # =================================================
+              # VERIFICAR SI YA EXISTE
+              # =================================================
+
+              existente=$(find doc/imagenes -type f -name "$id.*" | head -n 1 || true)
+
 
               if [ -n "$existente" ]; then
 
@@ -72,13 +121,21 @@ jobs:
 
                 nombre=$(basename "$existente")
 
-                sed -i "s|$url|./imagenes/$nombre|g" "$archivo"
+                sed -i \
+                  "s|$url|./imagenes/$nombre|g" \
+                  "$archivo"
 
                 continue
 
               fi
 
+
+              # =================================================
+              # DESCARGAR
+              # =================================================
+
               echo "Descargando..."
+
 
               if wget \
                 --quiet \
@@ -90,44 +147,60 @@ jobs:
 
                 tipo=$(file --brief --mime-type "$temporal")
 
+
                 echo "Tipo detectado: $tipo"
+
+
+                # =================================================
+                # DETERMINAR EXTENSIÓN
+                # =================================================
 
                 case "$tipo" in
 
                   image/jpeg)
 
                     nuevo="$temporal.jpg"
+
                     mv "$temporal" "$nuevo"
 
                     ;;
+
 
                   image/png)
 
                     nuevo="$temporal.png"
+
                     mv "$temporal" "$nuevo"
 
                     ;;
+
 
                   image/gif)
 
                     nuevo="$temporal.gif"
+
                     mv "$temporal" "$nuevo"
 
                     ;;
+
 
                   image/webp)
 
                     nuevo="$temporal.webp"
+
                     mv "$temporal" "$nuevo"
 
                     ;;
+
 
                   image/svg+xml)
 
                     nuevo="$temporal.svg"
+
                     mv "$temporal" "$nuevo"
 
                     ;;
+
 
                   *)
 
@@ -141,20 +214,33 @@ jobs:
 
                 esac
 
+
+                # =================================================
+                # NOMBRE FINAL
+                # =================================================
+
                 nombre=$(basename "$nuevo")
+
 
                 echo "Imagen guardada:"
                 echo "doc/imagenes/$nombre"
 
-                # Reemplazar URL original por ruta local
+
+                # =================================================
+                # REEMPLAZAR URL EN MARKDOWN
+                # =================================================
+
                 sed -i \
                   "s|$url|./imagenes/$nombre|g" \
                   "$archivo"
 
+
               else
 
+                echo ""
                 echo "ERROR: No se pudo descargar:"
                 echo "$url"
+                echo ""
 
                 rm -f "$temporal"
 
@@ -164,6 +250,11 @@ jobs:
 
           done
 
+
+      # =========================================================
+      # MOSTRAR CAMBIOS
+      # =========================================================
+
       - name: Mostrar cambios
         run: |
 
@@ -171,26 +262,44 @@ jobs:
           echo "======================================"
           echo " CAMBIOS DETECTADOS"
           echo "======================================"
+          echo ""
 
           git status
 
           echo ""
-          git diff --stat
+          echo "Resumen:"
+          echo ""
+
+          git diff --stat || true
+
+
+      # =========================================================
+      # GUARDAR CAMBIOS
+      # =========================================================
 
       - name: Guardar cambios
         run: |
 
           git config user.name "github-actions[bot]"
+
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
+
           git add doc/
+
 
           if git diff --cached --quiet
           then
 
+            echo ""
             echo "No hay cambios para guardar."
+            echo ""
 
           else
+
+            echo ""
+            echo "Guardando cambios..."
+            echo ""
 
             git commit \
               -m "Descargar imágenes de documentación"
