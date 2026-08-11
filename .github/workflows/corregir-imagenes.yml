@@ -1,0 +1,152 @@
+name: Corregir referencias de imágenes
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  corregir:
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Descargar repositorio
+        uses: actions/checkout@v5
+
+      - name: Corregir imágenes
+        run: |
+          python3 <<'PY'
+          from pathlib import Path
+          import re
+
+          doc = Path("doc")
+          imagenes = doc / "imagenes"
+
+          print("==========================================")
+          print(" CORRECCIÓN DE IMÁGENES")
+          print("==========================================")
+
+          if not imagenes.exists():
+              print("ERROR: no existe doc/imagenes")
+              raise SystemExit(1)
+
+          archivos_imagenes = {}
+
+          for archivo in imagenes.iterdir():
+              if archivo.is_file():
+                  archivos_imagenes[archivo.stem] = archivo.name
+
+          print(f"Imágenes locales encontradas: {len(archivos_imagenes)}")
+
+          cambios = 0
+
+          for archivo in doc.rglob("*.md"):
+
+              texto = archivo.read_text(encoding="utf-8")
+
+              original = texto
+
+              # Buscar IDs de GitHub user-attachments
+              patron = r'https://github\.com/user-attachments/assets/([a-zA-Z0-9-]+)'
+
+              ids = set(re.findall(patron, texto))
+
+              if not ids:
+                  continue
+
+              print("")
+              print("Documento:", archivo)
+
+              for image_id in ids:
+
+                  if image_id not in archivos_imagenes:
+                      print("  NO encontrada:", image_id)
+                      continue
+
+                  nombre = archivos_imagenes[image_id]
+
+                  ruta_local = f"./imagenes/{nombre}"
+
+                  print("  Encontrada:", nombre)
+
+                  url = (
+                      "https://github.com/user-attachments/assets/"
+                      + image_id
+                  )
+
+                  # ------------------------------------------
+                  # FORMATO:
+                  #
+                  # [URL](URL)
+                  # ------------------------------------------
+
+                  texto = texto.replace(
+                      f"[{url}]({url})",
+                      ruta_local
+                  )
+
+                  # ------------------------------------------
+                  # FORMATO:
+                  #
+                  # <img src="[URL](URL)" ...>
+                  # ------------------------------------------
+
+                  texto = texto.replace(
+                      f'src="[{url}]({url})"',
+                      f'src="{ruta_local}"'
+                  )
+
+                  # ------------------------------------------
+                  # URL directa restante
+                  # ------------------------------------------
+
+                  texto = texto.replace(
+                      url,
+                      ruta_local
+                  )
+
+              if texto != original:
+
+                  archivo.write_text(
+                      texto,
+                      encoding="utf-8"
+                  )
+
+                  cambios += 1
+
+                  print("  Documento corregido.")
+
+          print("")
+          print("==========================================")
+          print(" RESUMEN")
+          print("==========================================")
+          print("Documentos modificados:", cambios)
+
+          PY
+
+      - name: Mostrar cambios
+        run: |
+          echo "=========================================="
+          echo " CAMBIOS"
+          echo "=========================================="
+
+          git status
+
+          echo ""
+          git diff --stat
+
+      - name: Guardar cambios
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add doc/
+
+          if git diff --cached --quiet; then
+            echo "No hay cambios."
+          else
+            git commit -m "Corregir referencias de imágenes"
+            git push
+          fi
