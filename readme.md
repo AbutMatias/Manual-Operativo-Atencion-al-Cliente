@@ -18,12 +18,12 @@ Repositorio de documentación técnica, soporte y diagnóstico de red.
 - [Notificación de cierre de reclamos](./doc/Notificación%20de%20cierre%20de%20reclamos%20a%20clientes.md)
 - [Actualización a Fibra Óptica](./doc/Actualizacion%20a%20Fibra%20Optica.md)
 - [Gestión de correos electrónicos (MailServer)](./doc/Gestión%20de%20correos%20electrónicos%20(MailServer).md)
-- [Reconexion Temporal (72hs)](https://github.com/Eternet/Atencion.Clientes/blob/main/Documentacion/Manual-Operativo-Atencion-al-Cliente/doc/Reconexión%20Temporal.md)
-- [Cambio de Abono (Upgrade / Downgrade)](https://github.com/Eternet/Atencion.Clientes/blob/main/Documentacion/Manual-Operativo-Atencion-al-Cliente/doc/Cambio%20de%20Abono.md)
+- [Reconexion Temporal (72hs)](./doc/Reconexión%20Temporal.md)
+- [Cambio de Abono (Upgrade / Downgrade)](./doc/Cambio%20de%20Abono.md)
 
   
 > [!Important]
-> [Gestión de ventas fuera del horario Comercial](https://github.com/Eternet/Atencion.Clientes/blob/main/Documentacion/Manual-Operativo-Atencion-al-Cliente/doc/Gestión%20de%20ventas%20fuera%20del%20horario%20Comercial.md)
+> [Gestión de ventas fuera del horario Comercial](https://github.com/AbutMatias/Manual-Operativo-Atencion-al-Cliente/blob/main/doc/Gestión%20de%20ventas%20fuera%20del%20horario%20Comercial.md)
 ---
 
 ## 🌐 Diagnóstico de red 
@@ -32,24 +32,24 @@ Repositorio de documentación técnica, soporte y diagnóstico de red.
 - [Saturación de ancho de banda](./doc/Saturación%20de%20ancho%20de%20banda.md)
 - [Degradación de señal](./doc/Degradación%20de%20señal.md)
 - [Ping](./doc/Ping.md)
-- [Bandwidth Test (Prueba de ancho de banda en MikroTik) ](https://github.com/Eternet/Atencion.Clientes/blob/main/Documentacion/Manual-Operativo-Atencion-al-Cliente/doc/Bandwidth%20Test%20(Prueba%20de%20ancho%20de%20banda%20en%20MikroTik).md)
+- [Bandwidth Test (Prueba de ancho de banda en MikroTik) ](./doc/Bandwidth%20Test%20(Prueba%20de%20ancho%20de%20banda%20en%20MikroTik).md)
 - [Traceroute (Traza de red)](./doc/Traceroute%20(Traza%20de%20red).md)
 - [Prueba de velocidad (SpeedTest)](./doc/Prueba%20de%20velocidad.md)
 - [Chequeo de sitio web o servidor](./doc/Chequeo%20de%20acceso%20a%20un%20sitio%20web%20o%20servidor.md)
 - [Diagnóstico de cobertura](./doc/Diagnósticos%20por%20problemas%20de%20cobertura.md)
 - [Problemas en juegos online](./doc/Problemas%20en%20Juegos%20Online.md)
-- [Photon](https://github.com/Eternet/Atencion.Clientes/blob/main/Documentacion/Manual-Operativo-Atencion-al-Cliente/doc/Photon.md)
-- [LB-Link](https://github.com/Eternet/Atencion.Clientes/blob/main/Documentacion/Manual-Operativo-Atencion-al-Cliente/doc/LB-Link.md)
-- [Vilo](https://github.com/Eternet/Atencion.Clientes/blob/main/Documentacion/Manual-Operativo-Atencion-al-Cliente/doc/Vilo.md)
-- [GLC Apolo W7](https://github.com/Eternet/Atencion.Clientes/blob/main/Documentacion/Manual-Operativo-Atencion-al-Cliente/GLC%20APOLO%20W7.md)
+- [Photon](./doc/Photon.md)
+- [LB-Link](./doc/LB-Link.md)
+- [Vilo](./doc/Vilo.md)
+- [GLC Apolo W7](./doc/GLC%20APOLO%20W7.md)
 
 > [!Important]
-> [Glosario de Diagnosticos](https://github.com/Eternet/Atencion.Clientes/blob/main/Documentacion/Manual-Operativo-Atencion-al-Cliente/doc/Glosario%20de%20Diagnosticos.md)
+> [Glosario de Diagnosticos](./doc/Glosario%20de%20Diagnosticos.md)
 
 
 ---
 ## 🖥️ Problemas de conectividad en dispositivos del cliente 
-- [Consolas y PC conectividad](https://github.com/Eternet/Atencion.Clientes/blob/main/Documentacion/Manual-Operativo-Atencion-al-Cliente/doc/Detectar%20y%20resolver%20problemas%20de%20conectividad%20en%20Consolas%20de%20Videojuegos%20y%20PC.md)
+- [Consolas y PC conectividad](./doc/Detectar%20y%20resolver%20problemas%20de%20conectividad%20en%20Consolas%20de%20Videojuegos%20y%20PC.md)
 - [Impresoras](./doc/Detectar%20y%20resolver%20Problemas%20en%20Impresoras.md)
 - [Smart TVs](./doc/Detectar%20y%20resolver%20Problemas%20en%20Smart%20TVs.md)
 - [Celulares](./doc/Detectar%20y%20resolver%20problemas%20con%20celulares.md)
@@ -57,7 +57,7 @@ Repositorio de documentación técnica, soporte y diagnóstico de red.
 
 ---
 ## 📡 Equipos de red
-- [Tipos de conexion](https://github.com/Eternet/Atencion.Clientes/blob/main/Documentacion/Manual-Operativo-Atencion-al-Cliente/doc/Tipos%20de%20Conexion.md)
+- [Tipos de conexion](./doc/Tipos%20de%20Conexion.md)
 - [Winbox](./doc/Winbox.md)
 - [WinBox no conecta por ROMON](./doc/WinBox%20no%20conecta%20por%20ROMON.md)
 - [Acceso a equipos MikroTik mediante MAC-Telnet y RoMON](./doc/Acceso%20a%20equipos%20MikroTik%20mediante%20MAC-Telnet%20y%20RoMON.md)
@@ -66,7 +66,7 @@ Repositorio de documentación técnica, soporte y diagnóstico de red.
 - [Cambio router HOST](./doc/Cambio%20de%20Router%20HOST.md)
 - [The Dude](./doc/The%20Dude.md)
 - [NetMap](./doc/NetMap.md)
-- [Esquemas de conexion](https://github.com/Eternet/Atencion.Clientes/blob/main/Documentacion/Manual-Operativo-Atencion-al-Cliente/doc/Esquemas%20de%20conexion.md)
+- [Esquemas de conexion](./doc/Esquemas%20de%20conexion.md)
 ---
 
 ## 📶 Wireless / AP / CPE
@@ -92,8 +92,8 @@ Repositorio de documentación técnica, soporte y diagnóstico de red.
 
 ## ⚡ Infraestructura física
 - [Energía shelters y torres](./doc/Energia%20electrica%20shelters%20y%20torres.md)
-- [Power Monitor (Cortes de luz)](https://github.com/Eternet/Atencion.Clientes/blob/main/Documentacion/Manual-Operativo-Atencion-al-Cliente/doc/Power%20Monitor%20(Grafana).md)
-- [Verificacion desde EDES (Cortes de luz en area Bahia Blanca)](https://github.com/Eternet/Atencion.Clientes/blob/main/Documentacion/Manual-Operativo-Atencion-al-Cliente/doc/EDES.md)
+- [Power Monitor (Cortes de luz)](./doc/Power%20Monitor%20(Grafana).md)
+- [Verificacion desde EDES (Cortes de luz en area Bahia Blanca)](./doc/EDES.md)
 - [Suministros EDES (Planilla de NIS)](./doc/Suministros%20EDES.md)
 - [Cables colgando](./doc/Cables%20colgando.md)
 - [CELTA Tres Arroyos](./doc/Suministros%20eléctricos%20de%20CELTA%20en%20Tres%20Arroyos.md)
