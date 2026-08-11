@@ -1,11 +1,9 @@
-
 name: Descargar imágenes de documentación
 
 on:
   push:
     branches:
       - main
-
   workflow_dispatch:
 
 permissions:
@@ -13,7 +11,6 @@ permissions:
 
 jobs:
   descargar-imagenes:
-
     runs-on: ubuntu-latest
 
     steps:
@@ -31,34 +28,22 @@ jobs:
       - name: Procesar imágenes
         shell: bash
         run: |
-
           mkdir -p doc/imagenes
 
           echo "======================================"
-          echo " BUSCANDO IMÁGENES"
+          echo " BUSCANDO IMAGENES"
           echo "======================================"
 
           find doc -type f -name "*.md" -print0 | while IFS= read -r -d '' archivo
           do
-
             echo ""
-            echo "--------------------------------------"
             echo "Documento: $archivo"
-            echo "--------------------------------------"
 
-            imagenes=$(grep -oE 'https://github\.com/user-attachments/assets/[a-zA-Z0-9-]+' "$archivo" 2>/dev/null | sort -u || true)
-
-            if [ -z "$imagenes" ]; then
-              echo "No contiene imágenes externas."
-              continue
-            fi
+            grep -oE 'https://github\.com/user-attachments/assets/[a-zA-Z0-9-]+' "$archivo" 2>/dev/null | sort -u > /tmp/imagenes.txt || true
 
             while IFS= read -r url
             do
-
-              if [ -z "$url" ]; then
-                continue
-              fi
+              [ -z "$url" ] && continue
 
               id=$(basename "$url")
 
@@ -66,35 +51,14 @@ jobs:
               echo "Imagen encontrada:"
               echo "$url"
 
-              existente=$(find doc/imagenes -type f -name "${id}.*" 2>/dev/null | head -n 1 || true)
+              existente=$(find doc/imagenes -type f -name "${id}.*" | head -n 1 || true)
 
               if [ -n "$existente" ]; then
-
-                echo "La imagen ya existe:"
-                echo "$existente"
+                echo "La imagen ya existe: $existente"
 
                 nombre=$(basename "$existente")
 
-                python3 - "$archivo" "$url" "$nombre" <<'PY'
-import sys
-from pathlib import Path
-
-archivo = Path(sys.argv[1])
-url = sys.argv[2]
-nombre = sys.argv[3]
-
-texto = archivo.read_text(encoding="utf-8")
-
-texto = texto.replace(
-    url,
-    f"./imagenes/{nombre}"
-)
-
-archivo.write_text(
-    texto,
-    encoding="utf-8"
-)
-PY
+                sed -i "s|$url|./imagenes/$nombre|g" "$archivo"
 
                 continue
               fi
@@ -103,102 +67,81 @@ PY
 
               echo "Descargando..."
 
-              if wget \
+              wget \
                 --quiet \
                 --timeout=30 \
                 --tries=3 \
                 --user-agent="Mozilla/5.0" \
                 "$url" \
                 -O "$temporal"
-              then
 
-                tipo=$(file --brief --mime-type "$temporal" 2>/dev/null || echo "unknown")
-
-                echo "Tipo detectado: $tipo"
-
-                case "$tipo" in
-
-                  image/jpeg)
-                    extension="jpg"
-                    ;;
-
-                  image/png)
-                    extension="png"
-                    ;;
-
-                  image/gif)
-                    extension="gif"
-                    ;;
-
-                  image/webp)
-                    extension="webp"
-                    ;;
-
-                  image/svg+xml)
-                    extension="svg"
-                    ;;
-
-                  *)
-                    echo "Formato no compatible: $tipo"
-                    rm -f "$temporal"
-                    continue
-                    ;;
-
-                esac
-
-                nuevo="doc/imagenes/${id}.${extension}"
-
-                mv "$temporal" "$nuevo"
-
-                nombre=$(basename "$nuevo")
-
-                echo ""
-                echo "Imagen guardada:"
-                echo "$nuevo"
-
-                python3 - "$archivo" "$url" "$nombre" <<'PY'
-import sys
-from pathlib import Path
-
-archivo = Path(sys.argv[1])
-url = sys.argv[2]
-nombre = sys.argv[3]
-
-texto = archivo.read_text(encoding="utf-8")
-
-texto = texto.replace(
-    url,
-    f"./imagenes/{nombre}"
-)
-
-archivo.write_text(
-    texto,
-    encoding="utf-8"
-)
-
-print(f"URL reemplazada en: {archivo}")
-PY
-
-                echo "Referencia actualizada."
-
-              else
-
+              if [ $? -ne 0 ]; then
                 echo "ERROR: No se pudo descargar:"
                 echo "$url"
 
                 rm -f "$temporal"
 
+                continue
               fi
 
-            done <<< "$imagenes"
+              tipo=$(file --brief --mime-type "$temporal" 2>/dev/null || echo "unknown")
+
+              echo "Tipo detectado: $tipo"
+
+              case "$tipo" in
+
+                image/jpeg)
+                  extension="jpg"
+                  ;;
+
+                image/png)
+                  extension="png"
+                  ;;
+
+                image/gif)
+                  extension="gif"
+                  ;;
+
+                image/webp)
+                  extension="webp"
+                  ;;
+
+                image/svg+xml)
+                  extension="svg"
+                  ;;
+
+                *)
+                  echo "Formato no compatible: $tipo"
+
+                  rm -f "$temporal"
+
+                  continue
+                  ;;
+
+              esac
+
+              nuevo="doc/imagenes/${id}.${extension}"
+
+              mv "$temporal" "$nuevo"
+
+              nombre=$(basename "$nuevo")
+
+              echo ""
+              echo "Imagen guardada:"
+              echo "$nuevo"
+
+              sed -i "s|$url|./imagenes/$nombre|g" "$archivo"
+
+              echo "Referencia actualizada."
+
+            done < /tmp/imagenes.txt
 
           done
 
       - name: Verificar imágenes
         run: |
-
           echo "======================================"
-          echo " IMÁGENES DESCARGADAS"
+          echo " IMAGENES DESCARGADAS"
           echo "======================================"
 
           find doc/imagenes -type f -print | sort
@@ -206,27 +149,26 @@ PY
           cantidad=$(find doc/imagenes -type f | wc -l)
 
           echo ""
-          echo "Total de imágenes: $cantidad"
+          echo "Total de imagenes: $cantidad"
 
       - name: Verificar URLs pendientes
         run: |
-
           echo "======================================"
-          echo " VERIFICANDO URLs EXTERNAS"
+          echo " VERIFICANDO URLS EXTERNAS"
           echo "======================================"
 
           pendientes=$(grep -RhoE 'https://github\.com/user-attachments/assets/[a-zA-Z0-9-]+' doc --include="*.md" 2>/dev/null | sort -u || true)
 
           if [ -z "$pendientes" ]; then
-            echo "OK: No quedan imágenes externas."
+            echo "OK: No quedan imagenes externas."
           else
-            echo "ADVERTENCIA: todavía quedan estas URLs:"
+            echo "ADVERTENCIA:"
+            echo ""
             echo "$pendientes"
           fi
 
       - name: Mostrar cambios
         run: |
-
           echo "======================================"
           echo " CAMBIOS DETECTADOS"
           echo "======================================"
@@ -239,7 +181,6 @@ PY
 
       - name: Guardar cambios
         run: |
-
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
@@ -251,8 +192,7 @@ PY
           else
             echo "Guardando cambios..."
 
-            git commit -m "Descargar y corregir imágenes de documentación"
+            git commit -m "Descargar y corregir imagenes de documentacion"
 
             git push
           fi
-
