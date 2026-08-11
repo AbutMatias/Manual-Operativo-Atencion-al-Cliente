@@ -8,14 +8,14 @@ Este documento agrupa los tipos de incidencias más comunes en Eternet para faci
 
 ## Wireless
 
-- [Sin conexión (wireless OK)](./doc/Sin%20conexión%20(wireless%20ok).md)  
+- [Sin conexión (wireless OK)](./Sin%20conexión%20(wireless%20ok).md)  
   La antena funciona correctamente, pero el router del cliente no responde.
 
 ---
 
 ## Fibra óptica (FUTURA)
 
-- [Sin conexión FUTURA (ONU OK)](./doc/Sin%20conexión%20FUTURA%20(ONU%20OK).md) 
+- [Sin conexión FUTURA (ONU OK)](./Sin%20conexión%20FUTURA%20(ONU%20OK).md) 
   La ONU responde correctamente, pero el router del cliente no tiene conexión.
 
 ---
@@ -24,10 +24,10 @@ Este documento agrupa los tipos de incidencias más comunes en Eternet para faci
 
 ## Wireless
 
-- [Equipo cliente sin respuesta](./doc/Equipo%20wireless%20del%20cliente%20sin%20respuesta.md)  
+- [Equipo cliente sin respuesta](./Equipo%20wireless%20del%20cliente%20sin%20respuesta.md)  
   La antena no responde.
 
-- [Equipo cliente desenlazándose](./doc/Equipo%20cliente%20(Antena)%20desenlazándose.md)  
+- [Equipo cliente desenlazándose](./Equipo%20cliente%20(Antena)%20desenlazándose.md)  
   Desconexiones constantes del equipo wireless.
 
 - [Equipo cliente reiniciándose](./doc/Equipo%20cliente%20(Antena)%20reiniciándose.md)  
