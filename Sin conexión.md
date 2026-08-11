@@ -1,0 +1,255 @@
+# Sin conexión
+
+Cuando un cliente está sin conexión, primero debemos identificar dónde está la falla:
+
+1. Router host del cliente
+2. CPE (ONU o equipo wireless)
+3. Nodo completo
+
+---
+
+# Procedimiento
+
+## 1. Verificar router host
+
+Si el router no responde pero el CPE está activo:
+
+### 1.1 Verificar link entre router y CPE
+
+#### Si es ONU (fibra)
+- Ir a Netmap > Obtener estado
+- Verificar que la interfaz ethernet esté activa
+<img width="1781" height="560" alt="image" src="https://github.com/user-attachments/assets/d8867011-3cd8-4d09-b687-554b0fb820d2" />
+
+
+---
+
+#### Si es equipo wireless
+
+#### MikroTik
+- Acceder con Winbox con IP de el CPE (Antena)
+- Verificar interfaz ether1 (Doble click en ether1 > ... > Status)
+<img width="1156" height="805" alt="image" src="https://github.com/user-attachments/assets/91ba5eed-2076-4c01-8b9a-3db2c222f20b" />
+
+- Debe estar en estado registrado y con negociación correcta (100 Mbps o 1 Gbps)
+
+<img width="1807" height="908" alt="image" src="https://github.com/user-attachments/assets/d8206285-53a2-4df7-b762-17851d064410" />
+
+
+---
+
+#### Ubiquiti Nanostation
+- Acceder por web
+- Verificar interfaces LAN0 o LAN1
+- Deben tener link (no estar en “Unplugged”)
+
+---
+
+### 1.2 Si no hay link físico
+Verificar:
+
+- Router encendido
+- Cableado correcto:
+  - CPE → puerto WAN del router o en puerto PoE (Cuando no tiene data + power)
+  - Fuente → puerto Power
+
+---
+
+### 1.3 Identificar dispositivo conectado
+
+#### Si es ONU
+- Ver tabla MAC en la ONU
+- En este ejemplo se verifica la MAC del router con el que esta conectado la ONU.
+
+<img width="1544" height="589" alt="image" src="https://github.com/user-attachments/assets/5bbc8b29-b9cf-449a-8f97-05072555f1a0" />
+
+
+---
+
+#### Si es MikroTik wireless
+- Bridge → Hosts
+- Buscar MAC de ether1
+
+---
+
+#### Si es Nanostation
+- Bridge → Table
+- Buscar registros en LAN0 o LAN1
+
+---
+
+### 1.4 Verificación física
+- Confirmar estado de luces
+- Conexiones WAN - LAN - PoE - Data + Power
+- Conexion Electrica (Toma Corriente).
+
+---
+
+### 1.5 Si todo está OK pero no navega
+
+Verificar en Hotspot:
+
+- IP → Hotspot
+  - Debe existir registro con IP y MAC en estado “A” (autorizado)
+<img width="1327" height="667" alt="image" src="https://github.com/user-attachments/assets/8a77e195-9233-4d37-a8da-6dc0f253a994" />
+
+- IP → Routes
+  - Debe existir ruta para la IP del cliente
+<img width="1092" height="652" alt="image" src="https://github.com/user-attachments/assets/f8a0dfa2-d011-4cf7-908f-82e62bf17ea7" />
+
+- IP → ARP
+  - Debe existir entrada IP/MAC
+<img width="822" height="620" alt="image" src="https://github.com/user-attachments/assets/9dd0d04c-ac76-4329-8821-9daaa785eb15" />
+
+- IP → Firewall → Address List
+  - Verificar que no esté bloqueado
+<img width="1617" height="627" alt="image" src="https://github.com/user-attachments/assets/8a43aa4e-cd2a-4bae-a5c9-a2c75d5bb5ef" />
+
+- IP → DHCP Server → Leases
+  - Buscar por MAC
+  - Estado debe ser “Bound”
+<img width="1155" height="637" alt="image" src="https://github.com/user-attachments/assets/a5c3e8ff-e415-44bc-b633-5cfa64f6b1df" />
+
+---
+
+### IMPORTANTE
+
+Si no toma IP por DHCP:
+
+- MikroTik:
+  - Intentar acceso por MAC Telnet o RoMON
+
+- Router en comodato:
+  - Ofrecer reemplazo de host
+
+- Si no se resuelve:
+  - Derivar a Redes
+
+- Si el cliente rechaza reemplazo:
+  - Informar posible costo de visita si el problema es su equipo
+
+---
+
+## 2. Verificar CPE sin respuesta
+
+- Fibra (ONU):
+# Verificación de estado de ONU (Online / Offline)
+
+## Introducción
+
+Para verificar el estado de una ONU existen dos métodos:
+
+- Netmap (interfaz gráfica)
+  https://github.com/Eternet/Atencion.Clientes/blob/main/Documentacion/Manual-Operativo-Atencion-al-Cliente/doc/NetMap.md
+
+- OLT (por Grafana)
+  https://github.com/Eternet/Atencion.Clientes/blob/main/Documentacion/Manual-Operativo-Atencion-al-Cliente/doc/Acceso%20a%20OLTs.md
+
+---
+
+# 1. Identificar host en Netmap
+
+## 1.1 Buscar cliente
+- Ir a “Buscar Host”
+- Ingresar IP pública del cliente
+- Presionar Enter
+
+## 1.2 Abrir mapa
+- Doble clic en el resultado
+- Se abre el árbol de red del cliente
+
+---
+
+# 2. Obtener estado de la subred
+
+## 2.1 Acceder a CD
+- Seleccionar la CD correspondiente
+- Clic derecho
+- “Obtener estado de la subred”
+
+---
+
+# 3. Obtener estado de la ONU
+
+## 3.1 Abrir propiedades
+- Clic derecho sobre el equipo del cliente
+- “Propiedades”
+- Ir a “Datos de la ONU”
+- Clic en “Obtener estado”
+
+---
+
+## 3.2 Estados posibles
+
+### Estado correcto
+- Estado óptico: Activo
+- Señal: OK (ejemplo -18 dBm)
+- Interfaz Ethernet: Activa
+
+---
+
+### Estado óptico sin respuesta
+- La ONU no responde en la red óptica
+
+---
+
+### Estado óptico activo pero Ethernet sin respuesta
+- La ONU está online
+- Falla entre ONU y router del cliente
+
+---
+
+# 4. Diagnóstico
+
+## 4.1 ONU sin respuesta óptica
+
+### Verificar alimentación
+- Confirmar que la ONU esté encendida
+- Si no tiene luces:
+  - Verificar corriente
+  - Probar otro toma
+  - Verificar botón de encendido (si existe)
+  - Si no enciende → derivar a Redes
+
+### Si tiene luces pero no responde
+- Verificar luz LOS (Loss of Signal)
+  - Si está encendida:
+    - Reinicio eléctrico
+    - Si no vuelve → derivar a Redes
+
+- Verificar luz PON / Active / REG
+  - Si está apagada:
+    - Reinicio eléctrico
+    - Si no vuelve → derivar a Redes
+c
+---
+
+## 4.2 ONU responde pero Ethernet no levanta
+
+- Seguir procedimiento de “Sin conexión”
+
+---
+
+## 4.3 ONU activa pero router no responde
+
+- Verificar tabla MAC de la ONU
+
+<img width="1286" height="518" alt="image" src="https://github.com/user-attachments/assets/6ec0119c-e7fc-45c8-97d8-d490d06b1ce1" />
+
+Tiene que ser la misma MAC que la del Router. Esto confirma si el router está correctamente conectado. 
+
+- Wireless:
+https://github.com/Eternet/Atencion.Clientes/tree/main/Documentacion/Diagnosticos/Verificacion%20de%20un%20equipo%20wireless
+
+---
+
+## 3. Verificar nodo sin respuesta
+
+- Wireless (AP):
+- [Equipo wireless del cliente sin respuesta](https://github.com/Eternet/Atencion.Clientes/blob/main/Documentacion/Manual-Operativo-Atencion-al-Cliente/doc/Equipo%20wireless%20del%20cliente%20sin%20respuesta.md)
+- [Equipo wireless con señal degradada](https://github.com/Eternet/Atencion.Clientes/blob/main/Documentacion/Manual-Operativo-Atencion-al-Cliente/doc/Equipo%20wireless%20con%20señal%20degradada.md)
+- [Equipo cliente (Antena) desenlazándose](https://github.com/Eternet/Atencion.Clientes/blob/main/Documentacion/Manual-Operativo-Atencion-al-Cliente/doc/Equipo%20cliente%20(Antena)%20desenlazándose.md)
+- [Equipo cliente (Antena) reiniciándose](https://github.com/Eternet/Atencion.Clientes/blob/main/Documentacion/Manual-Operativo-Atencion-al-Cliente/doc/Equipo%20cliente%20(Antena)%20reiniciándose.md)
+
+- Fibra (ONU):
+[https://github.com/Eternet/General/blob/main/docs/Atencion%20al%20Cliente/readme.md#routers](https://github.com/Eternet/Atencion.Clientes/blob/main/Documentacion/Manual-Operativo-Atencion-al-Cliente/doc/Acceso%20a%20OLTs.md)
