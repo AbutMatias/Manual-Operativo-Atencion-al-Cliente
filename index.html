@@ -2,22 +2,20 @@
 <html lang="es">
 
 <head>
-
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
-    <title>Eternet Asistant</title>
+    <title>Ethernet App - Manual Operativo</title>
 
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 
     <style>
 
-        :root {
+        /* =========================================================
+           VARIABLES - MODO OSCURO
+        ========================================================= */
 
+        :root {
             --background: #272727;
             --sidebar: #1b1b1b;
             --header: #191919;
@@ -37,36 +35,82 @@
 
             --danger: #ef5350;
 
+            --scrollbar-track: #1e1e1e;
+            --scrollbar-thumb: #555;
+
+            --header-border: #3b3b3b;
+            --sidebar-border: #3d3d3d;
+
+            --button-bg: #303030;
+            --button-hover: #3a3a3a;
+
+            --markdown-code: #333;
+            --markdown-pre: #181818;
+            --markdown-table: #2c2c2c;
         }
 
+
+        /* =========================================================
+           MODO CLARO
+        ========================================================= */
+
+        body.light-mode {
+            --background: #f1f3f5;
+            --sidebar: #ffffff;
+            --header: #ffffff;
+
+            --panel: #ffffff;
+            --panel-hover: #f5f7f9;
+
+            --input: #f1f3f5;
+
+            --border: #d9dee3;
+            --border-light: #c8ced4;
+
+            --text: #222222;
+            --text-secondary: #5f6368;
+            --text-muted: #777777;
+
+            --blue: #168ac0;
+            --blue-dark: #0879aa;
+            --blue-light: rgba(22, 138, 192, .12);
+
+            --scrollbar-track: #e8eaed;
+            --scrollbar-thumb: #b7bdc3;
+
+            --header-border: #d9dee3;
+            --sidebar-border: #d9dee3;
+
+            --button-bg: #f0f2f4;
+            --button-hover: #e3e7ea;
+
+            --markdown-code: #eef1f3;
+            --markdown-pre: #f4f5f6;
+            --markdown-table: #f8f9fa;
+        }
+
+
+        /* =========================================================
+           RESET
+        ========================================================= */
 
         * {
             box-sizing: border-box;
         }
 
-
         html {
             scroll-behavior: smooth;
         }
 
-
         body {
-
             margin: 0;
-
-            font-family:
-                Arial,
-                Helvetica,
-                sans-serif;
-
-            background:
-                var(--background);
-
-            color:
-                var(--text);
-
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--background);
+            color: var(--text);
+            transition:
+                background .2s ease,
+                color .2s ease;
         }
-
 
         button,
         input {
@@ -83,23 +127,17 @@
             height: 7px;
         }
 
-
         ::-webkit-scrollbar-track {
-            background: #1e1e1e;
+            background: var(--scrollbar-track);
         }
-
 
         ::-webkit-scrollbar-thumb {
-
-            background: #555;
-
+            background: var(--scrollbar-thumb);
             border-radius: 10px;
-
         }
 
-
         ::-webkit-scrollbar-thumb:hover {
-            background: #666;
+            opacity: .8;
         }
 
 
@@ -108,174 +146,150 @@
         ========================================================= */
 
         .header {
-
             position: fixed;
-
             left: 0;
             right: 0;
             top: 0;
-
             height: 66px;
-
             z-index: 100;
 
-            background:
-                var(--header);
+            background: var(--header);
 
             border-bottom:
-                1px solid #3b3b3b;
+                1px solid var(--header-border);
 
             display: flex;
-
             align-items: center;
-
             justify-content: space-between;
 
-            padding:
-                0 18px;
+            padding: 0 18px;
 
+            transition:
+                background .2s ease,
+                border-color .2s ease;
         }
-
 
         .header-left {
-
             display: flex;
-
             align-items: center;
-
             gap: 12px;
-
         }
 
-
         .menu-button {
-
             width: 40px;
             height: 40px;
 
             border: none;
-
             border-radius: 6px;
 
-            background: #303030;
-
-            color: white;
+            background: var(--button-bg);
+            color: var(--text);
 
             font-size: 20px;
-
             cursor: pointer;
 
             display: flex;
-
             align-items: center;
-
             justify-content: center;
 
+            transition: .15s;
         }
-
 
         .menu-button:hover {
-            background: #3a3a3a;
+            background: var(--button-hover);
         }
-
 
         .brand {
-
             display: flex;
-
             align-items: center;
-
             gap: 10px;
-
         }
-
 
         .brand-logo {
-
             width: 32px;
             height: 32px;
-
             object-fit: contain;
-
         }
-
 
         .brand-name {
-
             font-size: 16px;
-
             font-weight: bold;
+            color: var(--text);
+        }
 
-            color: white;
-
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
 
-        .header-right {
+        /* =========================================================
+           BOTÓN MODO OSCURO / CLARO
+        ========================================================= */
+
+        .theme-button {
+            width: 40px;
+            height: 36px;
+
+            border: 1px solid var(--border);
+            border-radius: 6px;
+
+            background: var(--button-bg);
+            color: var(--text);
+
+            cursor: pointer;
+
+            font-size: 17px;
 
             display: flex;
-
             align-items: center;
+            justify-content: center;
 
-            gap: 10px;
+            transition:
+                background .15s,
+                border-color .15s,
+                color .15s;
+        }
 
+        .theme-button:hover {
+            background: var(--button-hover);
+            border-color: var(--blue);
+            color: var(--blue);
         }
 
 
         .header-status {
-
-            padding:
-                9px 13px;
+            padding: 9px 13px;
 
             border-radius: 6px;
 
-            background:
-                var(--blue);
-
-            color:
-                #10202a;
+            background: var(--blue);
+            color: #10202a;
 
             font-size: 12px;
-
             font-weight: bold;
-
         }
 
-
         .github-button {
+            padding: 9px 13px;
 
-            padding:
-                9px 13px;
-
-            border:
-                1px solid var(--border);
-
+            border: 1px solid var(--border);
             border-radius: 6px;
 
-            background:
-                #292929;
-
-            color:
-                #d5d5d5;
+            background: var(--panel);
+            color: var(--text);
 
             text-decoration: none;
 
             font-size: 12px;
 
-            transition:
-                .15s;
-
+            transition: .15s;
         }
 
-
         .github-button:hover {
-
-            border-color:
-                var(--blue);
-
-            color:
-                var(--blue);
-
+            border-color: var(--blue);
+            color: var(--blue);
         }
 
 
@@ -284,171 +298,109 @@
         ========================================================= */
 
         .sidebar {
-
             position: fixed;
 
             left: 0;
-
             top: 66px;
-
             bottom: 0;
 
             width: 270px;
 
             z-index: 90;
 
-            background:
-                var(--sidebar);
+            background: var(--sidebar);
 
             border-right:
-                1px solid #3d3d3d;
+                1px solid var(--sidebar-border);
 
             overflow-y: auto;
 
             transition:
-                transform .2s ease;
-
+                transform .2s ease,
+                background .2s ease;
         }
-
 
         .sidebar-section {
+            padding: 20px 14px 8px;
 
-            padding:
-                20px 14px 8px;
-
-            color:
-                #777;
+            color: var(--text-muted);
 
             font-size: 10px;
-
             font-weight: bold;
 
-            text-transform:
-                uppercase;
+            text-transform: uppercase;
 
-            letter-spacing:
-                .3px;
-
+            letter-spacing: .3px;
         }
-
 
         .sidebar-search {
-
-            padding:
-                0 14px 12px;
-
+            padding: 0 14px 12px;
         }
 
-
         .sidebar-search input {
-
             width: 100%;
 
-            padding:
-                9px 10px;
+            padding: 9px 10px;
 
             border: none;
-
             outline: none;
 
             border-radius: 5px;
 
-            background:
-                #343434;
-
-            color:
-                #eee;
+            background: var(--input);
+            color: var(--text);
 
             font-size: 13px;
-
         }
-
 
         .sidebar-search input::placeholder {
-            color: #777;
+            color: var(--text-muted);
         }
-
 
         .sidebar-search input:focus {
-
             box-shadow:
                 0 0 0 1px var(--blue);
-
         }
-
 
         .nav {
-
-            padding:
-                0 8px;
-
+            padding: 0 8px;
         }
 
-
         .nav-item {
-
             display: flex;
-
             align-items: center;
 
             gap: 8px;
 
-            padding:
-                9px 10px;
-
+            padding: 9px 10px;
             margin-bottom: 2px;
 
             border-radius: 5px;
 
-            color:
-                #d0d0d0;
+            color: var(--text);
 
             font-size: 12px;
 
             cursor: pointer;
 
-            transition:
-                .15s;
-
+            transition: .15s;
         }
-
 
         .nav-item:hover {
-
-            background:
-                #292929;
-
-            color: white;
-
+            background: var(--panel-hover);
+            color: var(--text);
         }
-
 
         .nav-item.active {
-
-            background:
-                rgba(
-                    91,
-                    192,
-                    235,
-                    .16
-                );
-
-            color:
-                var(--blue);
-
+            background: var(--blue-light);
+            color: var(--blue);
         }
 
-
         .category-icon {
-
             width: 17px;
-
             min-width: 17px;
-
             text-align: center;
-
             opacity: .9;
-
         }
 
 
@@ -457,28 +409,21 @@
         ========================================================= */
 
         .main {
-
             margin-left: 270px;
-
             padding-top: 66px;
 
             min-height: 100vh;
 
             transition:
                 margin-left .2s ease;
-
         }
 
-
         .content {
-
             max-width: 1200px;
 
             margin: 0 auto;
 
-            padding:
-                32px;
-
+            padding: 32px;
         }
 
 
@@ -487,46 +432,33 @@
         ========================================================= */
 
         .hero {
-
-            background:
-                var(--panel);
+            background: var(--panel);
 
             border:
                 1px solid var(--border);
 
             border-radius: 8px;
 
-            padding:
-                30px;
+            padding: 30px;
 
             margin-bottom: 18px;
-
         }
 
-
         .hero-title {
-
             margin: 0;
 
             font-size: 25px;
 
-            color: white;
-
+            color: var(--text);
         }
 
-
         .hero-subtitle {
+            margin: 8px 0 0;
 
-            margin:
-                8px 0 0;
-
-            color:
-                var(--text-secondary);
+            color: var(--text-secondary);
 
             font-size: 13px;
-
             line-height: 1.5;
-
         }
 
 
@@ -535,46 +467,31 @@
         ========================================================= */
 
         .main-search {
-
             margin-top: 22px;
-
         }
-
 
         .main-search-wrapper {
-
             position: relative;
-
         }
 
-
         .main-search-icon {
-
             position: absolute;
 
             left: 14px;
-
             top: 50%;
 
-            transform:
-                translateY(-50%);
+            transform: translateY(-50%);
 
-            color:
-                #777;
+            color: var(--text-muted);
 
             pointer-events: none;
-
         }
 
-
         .main-search input {
-
             width: 100%;
-
             height: 48px;
 
-            padding:
-                0 45px;
+            padding: 0 45px;
 
             border:
                 1px solid var(--border);
@@ -583,44 +500,30 @@
 
             outline: none;
 
-            background:
-                var(--input);
-
-            color:
-                white;
+            background: var(--input);
+            color: var(--text);
 
             font-size: 14px;
-
         }
-
 
         .main-search input::placeholder {
-            color: #777;
+            color: var(--text-muted);
         }
-
 
         .main-search input:focus {
-
-            border-color:
-                var(--blue);
+            border-color: var(--blue);
 
             box-shadow:
-                0 0 0 2px
-                var(--blue-light);
-
+                0 0 0 2px var(--blue-light);
         }
 
-
         .clear-search {
-
             position: absolute;
 
             right: 10px;
-
             top: 50%;
 
-            transform:
-                translateY(-50%);
+            transform: translateY(-50%);
 
             width: 28px;
             height: 28px;
@@ -629,26 +532,18 @@
 
             border-radius: 5px;
 
-            background:
-                transparent;
+            background: transparent;
 
-            color:
-                #777;
+            color: var(--text-muted);
 
             cursor: pointer;
 
             display: none;
-
         }
 
-
         .clear-search:hover {
-
-            background:
-                #444;
-
-            color: white;
-
+            background: var(--button-hover);
+            color: var(--text);
         }
 
 
@@ -657,7 +552,6 @@
         ========================================================= */
 
         .stats {
-
             display: grid;
 
             grid-template-columns:
@@ -666,47 +560,33 @@
             gap: 12px;
 
             margin-bottom: 22px;
-
         }
 
-
         .stat {
-
-            background:
-                var(--panel);
+            background: var(--panel);
 
             border:
                 1px solid var(--border);
 
             border-radius: 7px;
 
-            padding:
-                16px;
-
+            padding: 16px;
         }
 
-
         .stat-number {
-
             font-size: 20px;
 
             font-weight: bold;
 
-            color:
-                var(--blue);
-
+            color: var(--blue);
         }
 
-
         .stat-label {
-
             margin-top: 4px;
 
-            color:
-                var(--text-muted);
+            color: var(--text-muted);
 
             font-size: 11px;
-
         }
 
 
@@ -715,34 +595,22 @@
         ========================================================= */
 
         .results-header {
-
             display: flex;
 
             align-items: center;
-
             justify-content: space-between;
 
             margin-bottom: 10px;
-
         }
-
 
         .results-title {
-
             font-size: 15px;
-
             font-weight: bold;
-
         }
 
-
         .status {
-
-            color:
-                var(--text-muted);
-
+            color: var(--text-muted);
             font-size: 11px;
-
         }
 
 
@@ -751,79 +619,52 @@
         ========================================================= */
 
         .result {
-
-            background:
-                var(--panel);
+            background: var(--panel);
 
             border:
                 1px solid var(--border);
 
             border-radius: 7px;
 
-            padding:
-                16px;
+            padding: 16px;
 
             margin-bottom: 9px;
 
             transition:
                 border-color .15s,
                 background .15s;
-
         }
-
 
         .result:hover {
-
-            background:
-                var(--panel-hover);
-
-            border-color:
-                #555;
-
+            background: var(--panel-hover);
+            border-color: var(--border-light);
         }
-
 
         .result-title {
-
             font-size: 14px;
-
             font-weight: bold;
 
-            color:
-                white;
-
+            color: var(--text);
         }
-
 
         .result-title-icon {
-
-            color:
-                var(--blue);
-
+            color: var(--blue);
         }
-
 
         .result-category {
-
             margin-top: 5px;
 
-            color:
-                var(--text-muted);
+            color: var(--text-muted);
 
             font-size: 10px;
-
         }
 
-
         .result-text {
-
             margin-top: 11px;
 
-            padding:
-                11px;
+            padding: 11px;
 
-            background:
-                #303030;
+            background: var(--button-bg);
 
             border-left:
                 3px solid var(--blue);
@@ -831,75 +672,48 @@
             border-radius:
                 0 4px 4px 0;
 
-            color:
-                #c9c9c9;
+            color: var(--text-secondary);
 
             font-size: 12px;
 
             line-height: 1.6;
-
         }
-
 
         .result-actions {
-
             margin-top: 12px;
-
         }
 
-
         .result button {
-
             border: none;
 
             border-radius: 5px;
 
-            padding:
-                8px 12px;
+            padding: 8px 12px;
 
-            background:
-                var(--blue);
+            background: var(--blue);
 
-            color:
-                #10202a;
+            color: #10202a;
 
             font-size: 11px;
 
             font-weight: bold;
 
             cursor: pointer;
-
         }
-
 
         .result button:hover {
-
-            background:
-                var(--blue-dark);
-
+            background: var(--blue-dark);
             color: white;
-
         }
 
-
         mark {
+            background: rgba(91, 192, 235, .25);
 
-            background:
-                rgba(
-                    91,
-                    192,
-                    235,
-                    .25
-                );
-
-            color:
-                #8edcff;
+            color: var(--blue);
 
             border-radius: 2px;
 
-            padding:
-                1px 2px;
-
+            padding: 1px 2px;
         }
 
 
@@ -908,11 +722,9 @@
         ========================================================= */
 
         .document {
-
             display: none;
 
-            background:
-                var(--panel);
+            background: var(--panel);
 
             border:
                 1px solid var(--border);
@@ -920,16 +732,12 @@
             border-radius: 8px;
 
             overflow: hidden;
-
         }
 
-
         .document-header {
-
             height: 52px;
 
-            padding:
-                0 14px;
+            padding: 0 14px;
 
             border-bottom:
                 1px solid var(--border);
@@ -937,57 +745,38 @@
             display: flex;
 
             align-items: center;
-
-            justify-content:
-                space-between;
-
+            justify-content: space-between;
         }
 
-
         .back {
-
             border:
                 1px solid var(--border);
 
-            background:
-                #303030;
+            background: var(--button-bg);
 
-            color:
-                #ddd;
+            color: var(--text);
 
-            padding:
-                7px 11px;
+            padding: 7px 11px;
 
             border-radius: 5px;
 
             cursor: pointer;
 
             font-size: 11px;
-
         }
-
 
         .back:hover {
-
-            background:
-                #3a3a3a;
-
-            color: white;
-
+            background: var(--button-hover);
+            color: var(--text);
         }
 
-
         .document-github {
-
-            color:
-                var(--blue);
+            color: var(--blue);
 
             text-decoration: none;
 
             font-size: 11px;
-
         }
-
 
         .document-github:hover {
             text-decoration: underline;
@@ -999,27 +788,21 @@
         ========================================================= */
 
         .markdown {
-
             max-width: 900px;
 
             margin: auto;
 
-            padding:
-                32px;
+            padding: 32px;
 
-            color:
-                #d8d8d8;
+            color: var(--text-secondary);
 
             font-size: 14px;
 
             line-height: 1.7;
-
         }
 
-
         .markdown h1 {
-
-            color: white;
+            color: var(--text);
 
             font-size: 27px;
 
@@ -1027,12 +810,9 @@
 
             border-bottom:
                 2px solid var(--blue);
-
         }
 
-
         .markdown h2 {
-
             margin-top: 35px;
 
             padding-bottom: 7px;
@@ -1040,185 +820,122 @@
             border-bottom:
                 1px solid var(--border);
 
-            color: white;
+            color: var(--text);
 
             font-size: 21px;
-
         }
-
 
         .markdown h3 {
-
             margin-top: 25px;
 
-            color:
-                var(--blue);
+            color: var(--blue);
 
             font-size: 17px;
-
         }
-
 
         .markdown h4 {
-            color: #ddd;
+            color: var(--text);
         }
-
 
         .markdown p {
-            color: #ccc;
+            color: var(--text-secondary);
         }
-
 
         .markdown strong {
-            color: white;
+            color: var(--text);
         }
-
 
         .markdown a {
             color: var(--blue);
         }
 
-
         .markdown a:hover {
-            color: #8edcff;
+            color: var(--blue-dark);
         }
 
-
         .markdown blockquote {
+            margin: 15px 0;
 
-            margin:
-                15px 0;
-
-            padding:
-                10px 15px;
+            padding: 10px 15px;
 
             border-left:
                 3px solid var(--blue);
 
-            background:
-                #303030;
+            background: var(--button-bg);
 
-            color:
-                #aaa;
-
+            color: var(--text-secondary);
         }
-
 
         .markdown img {
-
             max-width: 100%;
-
             border-radius: 5px;
-
         }
-
 
         .markdown table {
-
             width: 100%;
 
-            border-collapse:
-                collapse;
+            border-collapse: collapse;
 
-            margin:
-                18px 0;
-
+            margin: 18px 0;
         }
-
 
         .markdown th,
         .markdown td {
+            border:
+                1px solid var(--border);
+
+            padding: 8px 10px;
+
+            text-align: left;
+        }
+
+        .markdown th {
+            background: var(--button-bg);
+            color: var(--text);
+        }
+
+        .markdown td {
+            background: var(--markdown-table);
+        }
+
+        .markdown code {
+            background: var(--markdown-code);
+
+            color: var(--blue);
+
+            padding: 2px 5px;
+
+            border-radius: 3px;
+        }
+
+        .markdown pre {
+            background: var(--markdown-pre);
 
             border:
                 1px solid var(--border);
 
-            padding:
-                8px 10px;
+            padding: 15px;
 
-            text-align: left;
+            border-radius: 6px;
 
+            overflow-x: auto;
         }
-
-
-        .markdown th {
-
-            background:
-                #333;
-
-            color:
-                white;
-
-        }
-
-
-        .markdown td {
-
-            background:
-                #2c2c2c;
-
-        }
-
-
-        .markdown code {
-
-            background:
-                #333;
-
-            color:
-                #8edcff;
-
-            padding:
-                2px 5px;
-
-            border-radius:
-                3px;
-
-        }
-
-
-        .markdown pre {
-
-            background:
-                #181818;
-
-            border:
-                1px solid #333;
-
-            padding:
-                15px;
-
-            border-radius:
-                6px;
-
-            overflow-x:
-                auto;
-
-        }
-
 
         .markdown pre code {
+            background: transparent;
 
-            background:
-                transparent;
-
-            color:
-                #ddd;
+            color: var(--text-secondary);
 
             padding: 0;
-
         }
 
-
         .markdown hr {
-
             border: none;
 
             border-top:
                 1px solid var(--border);
 
-            margin:
-                30px 0;
-
+            margin: 30px 0;
         }
 
 
@@ -1227,39 +944,25 @@
         ========================================================= */
 
         .empty {
-
-            background:
-                var(--panel);
+            background: var(--panel);
 
             border:
                 1px solid var(--border);
 
-            border-radius:
-                7px;
+            border-radius: 7px;
 
-            padding:
-                45px 20px;
+            padding: 45px 20px;
 
-            text-align:
-                center;
+            text-align: center;
 
-            color:
-                var(--text-muted);
+            color: var(--text-muted);
 
-            font-size:
-                13px;
-
+            font-size: 13px;
         }
 
-
         .empty-title {
-
-            color:
-                #ddd;
-
-            font-weight:
-                bold;
-
+            color: var(--text);
+            font-weight: bold;
         }
 
 
@@ -1268,12 +971,11 @@
         ========================================================= */
 
         .loading-bar {
-
-            position:
-                fixed;
+            position: fixed;
 
             left: 0;
             right: 0;
+
             top: 66px;
 
             height: 3px;
@@ -1284,47 +986,32 @@
 
             overflow: hidden;
 
-            background:
-                #333;
-
+            background: var(--button-bg);
         }
-
 
         .loading-bar.active {
             display: block;
         }
 
-
         .loading-progress {
-
             width: 30%;
-
             height: 100%;
 
-            background:
-                var(--blue);
+            background: var(--blue);
 
             animation:
                 loading 1s
                 infinite ease-in-out;
-
         }
-
 
         @keyframes loading {
 
             from {
-
-                transform:
-                    translateX(-120%);
-
+                transform: translateX(-120%);
             }
 
             to {
-
-                transform:
-                    translateX(400%);
-
+                transform: translateX(400%);
             }
 
         }
@@ -1337,83 +1024,49 @@
         @media(max-width: 800px) {
 
             .sidebar {
-
-                transform:
-                    translateX(-100%);
-
+                transform: translateX(-100%);
             }
-
 
             .sidebar.open {
-
-                transform:
-                    translateX(0);
-
+                transform: translateX(0);
             }
-
 
             .main {
-
                 margin-left: 0;
-
             }
-
 
             .content {
-
-                padding:
-                    18px;
-
+                padding: 18px;
             }
-
 
             .stats {
-
-                grid-template-columns:
-                    1fr;
-
+                grid-template-columns: 1fr;
             }
 
-
-            .header-right {
-
+            .header-status,
+            .github-button {
                 display: none;
-
             }
-
 
             .hero {
-
-                padding:
-                    22px;
-
+                padding: 22px;
             }
-
 
             .hero-title {
-
-                font-size:
-                    22px;
-
+                font-size: 22px;
             }
 
-
             .markdown {
-
-                padding:
-                    20px;
-
+                padding: 20px;
             }
 
         }
 
     </style>
-
 </head>
 
 
 <body>
-
 
     <!-- =========================================================
          HEADER
@@ -1432,7 +1085,6 @@
                 ☰
             </button>
 
-
             <div class="brand">
 
                 <img
@@ -1442,7 +1094,7 @@
                 >
 
                 <span class="brand-name">
-                    Eternet Asistant
+                    Ethernet App
                 </span>
 
             </div>
@@ -1451,6 +1103,19 @@
 
 
         <div class="header-right">
+
+            <!-- BOTÓN MODO OSCURO / CLARO -->
+
+            <button
+                class="theme-button"
+                id="themeButton"
+                type="button"
+                title="Cambiar tema"
+                aria-label="Cambiar tema"
+            >
+                🌙
+            </button>
+
 
             <div
                 class="header-status"
@@ -1526,9 +1191,7 @@
                     🏠
                 </span>
 
-                <span>
-                    Inicio
-                </span>
+                Inicio
 
             </div>
 
@@ -1543,9 +1206,7 @@
                     🔎
                 </span>
 
-                <span>
-                    Buscar
-                </span>
+                Buscar
 
             </div>
 
@@ -1580,9 +1241,9 @@
         <div class="content">
 
 
-            <!-- =================================================
+            <!-- =====================================================
                  HOME
-            ================================================== -->
+            ====================================================== -->
 
             <section id="home">
 
@@ -1606,9 +1267,7 @@
 
                     <div class="main-search">
 
-                        <div
-                            class="main-search-wrapper"
-                        >
+                        <div class="main-search-wrapper">
 
                             <span
                                 class="main-search-icon"
@@ -1655,7 +1314,6 @@
                             0
                         </div>
 
-
                         <div class="stat-label">
                             Documentos
                         </div>
@@ -1671,7 +1329,6 @@
                         >
                             0
                         </div>
-
 
                         <div class="stat-label">
                             Categorías
@@ -1689,7 +1346,6 @@
                             ...
                         </div>
 
-
                         <div class="stat-label">
                             Estado del buscador
                         </div>
@@ -1705,13 +1361,9 @@
 
                 <div class="results-header">
 
-                    <div
-                        class="results-title"
-                        id="resultsTitle"
-                    >
+                    <div class="results-title">
                         Documentación
                     </div>
-
 
                     <div
                         class="status"
@@ -1728,9 +1380,9 @@
             </section>
 
 
-            <!-- =================================================
+            <!-- =====================================================
                  DOCUMENT VIEWER
-            ================================================== -->
+            ====================================================== -->
 
             <section
                 class="document"
@@ -1780,133 +1432,245 @@
 
         /* =========================================================
            CONFIGURACIÓN
-        ========================================================== */
+        ========================================================= */
 
         const OWNER =
             "AbutMatias";
 
-
         const REPO =
             "Manual-Operativo-Atencion-al-Cliente";
-
 
         const BRANCH =
             "main";
 
+        const API =
+            `https://api.github.com/repos/${OWNER}/${REPO}/contents/doc`;
+
+        const README_URL =
+            `https://raw.githubusercontent.com/${OWNER}/${REPO}/${BRANCH}/README.md`;
+
+        const GITHUB_URL =
+            `https://github.com/${OWNER}/${REPO}/blob/${BRANCH}/`;
+
+        /*
+         * IMPORTANTE:
+         *
+         * index.json debe estar en la misma carpeta
+         * que index.html.
+         */
 
         const INDEX_URL =
             "./index.json";
 
 
-        const README_URL =
-            `https://raw.githubusercontent.com/${OWNER}/${REPO}/${BRANCH}/README.md`;
-
-
-        const GITHUB_URL =
-            `https://github.com/${OWNER}/${REPO}/blob/${BRANCH}/`;
-
-
         /* =========================================================
            VARIABLES
-        ========================================================== */
+        ========================================================= */
 
         let documentos = [];
 
         let categorias = [];
 
-        let readmeCache = "";
+        let readmeCache = null;
 
         let searchTimer = null;
 
 
         /* =========================================================
-           ELEMENTOS
-        ========================================================== */
+           TEMA
+        ========================================================= */
 
-        const buscador =
-            document.getElementById(
-                "buscador"
+        const themeButton =
+            document.getElementById("themeButton");
+
+
+        function cargarTema() {
+
+            const tema =
+                localStorage.getItem("temaManual");
+
+
+            if (tema === "light") {
+
+                document.body.classList.add(
+                    "light-mode"
+                );
+
+                actualizarBotonTema();
+
+                return;
+
+            }
+
+
+            document.body.classList.remove(
+                "light-mode"
+            );
+
+            actualizarBotonTema();
+
+        }
+
+
+        function cambiarTema() {
+
+            document.body.classList.toggle(
+                "light-mode"
             );
 
 
-        const clearSearch =
-            document.getElementById(
-                "clearSearch"
+            const esClaro =
+                document.body.classList.contains(
+                    "light-mode"
+                );
+
+
+            localStorage.setItem(
+                "temaManual",
+                esClaro
+                    ? "light"
+                    : "dark"
             );
 
 
-        const resultados =
-            document.getElementById(
-                "resultados"
-            );
+            actualizarBotonTema();
+
+        }
 
 
-        const status =
-            document.getElementById(
-                "status"
-            );
+        function actualizarBotonTema() {
+
+            const esClaro =
+                document.body.classList.contains(
+                    "light-mode"
+                );
 
 
-        const estado =
-            document.getElementById(
-                "estado"
-            );
+            if (esClaro) {
+
+                themeButton.textContent =
+                    "☀️";
+
+                themeButton.title =
+                    "Cambiar a modo oscuro";
+
+                themeButton.setAttribute(
+                    "aria-label",
+                    "Cambiar a modo oscuro"
+                );
+
+            } else {
+
+                themeButton.textContent =
+                    "🌙";
+
+                themeButton.title =
+                    "Cambiar a modo claro";
+
+                themeButton.setAttribute(
+                    "aria-label",
+                    "Cambiar a modo claro"
+                );
+
+            }
+
+        }
 
 
-        const loading =
-            document.getElementById(
-                "loadingBar"
-            );
+        themeButton.addEventListener(
+            "click",
+            cambiarTema
+        );
 
 
-        const headerStatus =
-            document.getElementById(
-                "headerStatus"
-            );
+        /*
+         * Aplicar tema inmediatamente.
+         */
+
+        cargarTema();
 
 
         /* =========================================================
            INICIAR
-        ========================================================== */
+        ========================================================= */
 
         async function iniciar() {
 
+            const status =
+                document.getElementById("status");
+
+            const estado =
+                document.getElementById("estado");
+
+            const loading =
+                document.getElementById("loadingBar");
+
+            const headerStatus =
+                document.getElementById("headerStatus");
+
+
             try {
 
-                loading.classList.add("active");
+                loading.classList.add(
+                    "active"
+                );
+
 
                 status.textContent =
                     "Cargando documentación...";
 
+
                 headerStatus.textContent =
                     "Cargando...";
+
 
                 estado.textContent =
                     "...";
 
 
                 /*
-                 * Primero cargamos index.json.
+                 * PRIMERO:
+                 * intentamos cargar index.json.
                  *
-                 * Este archivo contiene todos los documentos
-                 * de la carpeta /doc.
+                 * Esta es la opción rápida.
                  */
 
-                await cargarIndex();
+                let cargadoDesdeIndex =
+                    await cargarDesdeIndex();
 
 
                 /*
-                 * Luego cargamos README.md.
-                 *
-                 * De aquí obtenemos las categorías.
+                 * SEGUNDO:
+                 * si no existe index.json,
+                 * usamos GitHub como respaldo.
                  */
 
-                await cargarCategorias();
+                if (!cargadoDesdeIndex) {
+
+                    await cargarDocumentosGitHub();
+
+                }
 
 
                 /*
-                 * Actualizamos estadísticas.
+                 * Cargar categorías desde README.
                  */
+
+                try {
+
+                    await cargarCategorias();
+
+                } catch (error) {
+
+                    console.warn(
+                        "No se pudo cargar README:",
+                        error
+                    );
+
+                    categorias = [];
+
+                }
+
 
                 document.getElementById(
                     "cantidad-documentos"
@@ -1952,7 +1716,9 @@
                     "Error al cargar";
 
 
-                resultados.innerHTML = `
+                document.getElementById(
+                    "resultados"
+                ).innerHTML = `
 
                     <div class="empty">
 
@@ -1972,7 +1738,9 @@
 
             } finally {
 
-                loading.classList.remove("active");
+                loading.classList.remove(
+                    "active"
+                );
 
             }
 
@@ -1981,64 +1749,183 @@
 
         /* =========================================================
            CARGAR INDEX.JSON
-        ========================================================== */
+        ========================================================= */
 
-        async function cargarIndex() {
+        async function cargarDesdeIndex() {
+
+            try {
+
+                const respuesta =
+                    await fetch(
+                        `${INDEX_URL}?v=${Date.now()}`
+                    );
+
+
+                if (!respuesta.ok) {
+
+                    return false;
+
+                }
+
+
+                const data =
+                    await respuesta.json();
+
+
+                if (
+                    !Array.isArray(data)
+                ) {
+
+                    return false;
+
+                }
+
+
+                documentos =
+                    data
+                        .filter(documento =>
+                            documento &&
+                            documento.path &&
+                            String(documento.path)
+                                .toLowerCase()
+                                .startsWith("doc/")
+                        )
+                        .map(
+                            documento => ({
+
+                                nombre:
+                                    documento.nombre ||
+                                    obtenerNombreArchivo(
+                                        documento.path
+                                    ),
+
+                                path:
+                                    documento.path,
+
+                                contenido:
+                                    documento.contenido || "",
+
+                                url:
+                                    documento.url ||
+                                    `https://raw.githubusercontent.com/${OWNER}/${REPO}/${BRANCH}/${documento.path}`
+
+                            })
+                        );
+
+
+                documentos.sort(
+                    (a, b) =>
+                        a.nombre.localeCompare(
+                            b.nombre,
+                            "es"
+                        )
+                );
+
+
+                console.log(
+                    `Documentación cargada desde index.json: ${documentos.length} documentos`
+                );
+
+
+                return true;
+
+
+            } catch (error) {
+
+                console.warn(
+                    "index.json no disponible.",
+                    error
+                );
+
+
+                return false;
+
+            }
+
+        }
+
+
+        /* =========================================================
+           CARGAR DESDE GITHUB - RESPALDO
+        ========================================================= */
+
+        async function cargarDocumentosGitHub() {
 
             const respuesta =
                 await fetch(
-                    `${INDEX_URL}?v=${Date.now()}`
+                    API
                 );
 
 
             if (!respuesta.ok) {
 
                 throw new Error(
-                    `No se pudo cargar index.json (${respuesta.status})`
+                    `GitHub API respondió ${respuesta.status}`
                 );
 
             }
 
 
-            const data =
+            const archivos =
                 await respuesta.json();
 
 
-            if (!Array.isArray(data)) {
-
-                throw new Error(
-                    "index.json no contiene una lista válida"
-                );
-
-            }
+            documentos = [];
 
 
-            documentos =
-                data
-                    .filter(
-                        documento =>
-                            documento &&
-                            documento.path &&
-                            documento.nombre
-                    )
-                    .map(
-                        documento => ({
+            await recorrerCarpeta(
+                archivos
+            );
 
-                            nombre:
-                                documento.nombre,
 
-                            path:
-                                normalizarRuta(
-                                    documento.path
-                                ),
+            /*
+             * Descargar los documentos
+             * en paralelo.
+             */
 
-                            contenido:
-                                String(
-                                    documento.contenido || ""
-                                )
+            await Promise.all(
 
-                        })
-                    );
+                documentos.map(
+                    async documento => {
+
+                        try {
+
+                            const respuesta =
+                                await fetch(
+                                    documento.url
+                                );
+
+
+                            if (!respuesta.ok) {
+
+                                throw new Error(
+                                    respuesta.status
+                                );
+
+                            }
+
+
+                            documento.contenido =
+                                await respuesta.text();
+
+
+                        } catch (error) {
+
+                            console.warn(
+                                "No se pudo cargar:",
+                                documento.path
+                            );
+
+
+                            documento.contenido =
+                                "";
+
+                        }
+
+                    }
+                )
+
+            );
 
 
             documentos.sort(
@@ -2053,8 +1940,97 @@
 
 
         /* =========================================================
-           CARGAR README
-        ========================================================== */
+           RECORRER CARPETAS
+        ========================================================= */
+
+        async function recorrerCarpeta(
+            archivos
+        ) {
+
+            for (
+                const archivo of archivos
+            ) {
+
+                if (
+
+                    archivo.type === "file" &&
+
+                    archivo.name
+                        .toLowerCase()
+                        .endsWith(".md")
+
+                ) {
+
+                    documentos.push({
+
+                        nombre:
+                            archivo.name
+                                .replace(
+                                    /\.md$/i,
+                                    ""
+                                ),
+
+                        path:
+                            archivo.path,
+
+                        url:
+                            archivo.download_url,
+
+                        contenido:
+                            null
+
+                    });
+
+
+                    continue;
+
+                }
+
+
+                if (
+                    archivo.type === "dir"
+                ) {
+
+                    try {
+
+                        const respuesta =
+                            await fetch(
+                                archivo.url
+                            );
+
+
+                        if (!respuesta.ok)
+                            continue;
+
+
+                        const contenido =
+                            await respuesta.json();
+
+
+                        await recorrerCarpeta(
+                            contenido
+                        );
+
+
+                    } catch (error) {
+
+                        console.warn(
+                            "No se pudo leer:",
+                            archivo.path
+                        );
+
+                    }
+
+                }
+
+            }
+
+        }
+
+
+        /* =========================================================
+           CATEGORÍAS DESDE README
+        ========================================================= */
 
         async function cargarCategorias() {
 
@@ -2088,11 +2064,9 @@
         }
 
 
-        /* =========================================================
-           OBTENER CATEGORÍAS
-        ========================================================== */
-
-        function obtenerCategorias(markdown) {
+        function obtenerCategorias(
+            markdown
+        ) {
 
             const resultado = [];
 
@@ -2100,12 +2074,15 @@
                 markdown.split(/\r?\n/);
 
 
-            for (const linea of lineas) {
+            for (
+                const linea of lineas
+            ) {
 
                 /*
                  * Busca títulos:
                  *
-                 * ## Categoría
+                 * ## Atención al cliente
+                 * ## Diagnóstico de red
                  */
 
                 const match =
@@ -2120,25 +2097,26 @@
 
                 const nombre =
                     limpiarEmoji(
-                        match[1]
+                        match[1].trim()
                     );
 
 
                 /*
-                 * Evitamos duplicados.
+                 * Evitar categorías duplicadas.
                  */
 
                 if (
                     !resultado.some(
                         categoria =>
-                            categoria.nombre
-                                .toLowerCase() ===
-                            nombre.toLowerCase()
+                            categoria.nombre ===
+                            nombre
                     )
                 ) {
 
                     resultado.push({
+
                         nombre
+
                     });
 
                 }
@@ -2153,7 +2131,7 @@
 
         /* =========================================================
            MOSTRAR CATEGORÍAS
-        ========================================================== */
+        ========================================================= */
 
         function mostrarCategorias() {
 
@@ -2174,9 +2152,7 @@
 
                     <div class="nav-item">
 
-                        <span>
-                            Sin categorías
-                        </span>
+                        Sin categorías
 
                     </div>
 
@@ -2200,10 +2176,6 @@
                         "nav-item";
 
 
-                    elemento.dataset.categoria =
-                        categoria.nombre;
-
-
                     elemento.innerHTML = `
 
                         <span class="category-icon">
@@ -2219,16 +2191,11 @@
                     `;
 
 
-                    elemento.addEventListener(
-                        "click",
-                        () => {
-
+                    elemento.onclick =
+                        () =>
                             filtrarCategoria(
-                                categoria.nombre
+                                categoria
                             );
-
-                        }
-                    );
 
 
                     contenedor.appendChild(
@@ -2243,38 +2210,30 @@
 
         /* =========================================================
            DOCUMENTOS INICIALES
-        ========================================================== */
+        ========================================================= */
 
         function mostrarDocumentosIniciales() {
 
-            const lista =
-                documentos
-                    .slice(
-                        0,
-                        20
-                    )
-                    .map(
-                        documento => ({
+            const resultados =
+                documentos.map(
+                    documento => ({
 
-                            documento,
+                        documento,
 
-                            contenido:
-                                documento.contenido,
+                        contenido:
+                            documento.contenido || "",
 
-                            puntos: 0
+                        puntos: 0
 
-                        })
-                    );
-
-
-            document.getElementById(
-                "resultsTitle"
-            ).textContent =
-                "Documentación";
+                    })
+                );
 
 
             mostrarResultados(
-                lista,
+                resultados.slice(
+                    0,
+                    20
+                ),
                 ""
             );
 
@@ -2283,7 +2242,19 @@
 
         /* =========================================================
            BUSCADOR
-        ========================================================== */
+        ========================================================= */
+
+        const buscador =
+            document.getElementById(
+                "buscador"
+            );
+
+
+        const clearSearch =
+            document.getElementById(
+                "clearSearch"
+            );
+
 
         buscador.addEventListener(
             "input",
@@ -2314,7 +2285,9 @@
 
                                 mostrarDocumentosIniciales();
 
-                                status.textContent =
+                                document.getElementById(
+                                    "status"
+                                ).textContent =
                                     `${documentos.length} documentos disponibles`;
 
                                 return;
@@ -2336,7 +2309,7 @@
 
         /* =========================================================
            LIMPIAR BUSCADOR
-        ========================================================== */
+        ========================================================= */
 
         clearSearch.addEventListener(
             "click",
@@ -2347,13 +2320,12 @@
                 clearSearch.style.display =
                     "none";
 
-
                 mostrarDocumentosIniciales();
 
-
-                status.textContent =
+                document.getElementById(
+                    "status"
+                ).textContent =
                     `${documentos.length} documentos disponibles`;
-
 
                 buscador.focus();
 
@@ -2363,9 +2335,11 @@
 
         /* =========================================================
            BUSCAR DOCUMENTOS
-        ========================================================== */
+        ========================================================= */
 
-        function buscarDocumentos(texto) {
+        function buscarDocumentos(
+            texto
+        ) {
 
             const palabras =
                 texto
@@ -2373,13 +2347,16 @@
                     .filter(Boolean);
 
 
-            const resultadosEncontrados = [];
+            const resultados = [];
 
 
             /*
-             * La búsqueda es completamente LOCAL.
+             * Búsqueda 100% local.
              *
-             * No se consulta GitHub.
+             * No consulta GitHub.
+             *
+             * Busca dentro de los documentos
+             * cargados desde index.json.
              */
 
             for (
@@ -2421,15 +2398,11 @@
                 }
 
 
-                /*
-                 * Todas las palabras tienen que aparecer.
-                 */
-
                 if (
                     puntos === palabras.length
                 ) {
 
-                    resultadosEncontrados.push({
+                    resultados.push({
 
                         documento,
 
@@ -2444,7 +2417,7 @@
             }
 
 
-            resultadosEncontrados.sort(
+            resultados.sort(
                 (a, b) => {
 
                     if (
@@ -2470,41 +2443,43 @@
             );
 
 
-            document.getElementById(
-                "resultsTitle"
-            ).textContent =
-                "Resultados de búsqueda";
-
-
             mostrarResultados(
-                resultadosEncontrados,
+                resultados,
                 texto
             );
 
 
-            status.textContent =
-                `${resultadosEncontrados.length} resultado(s)`;
+            document.getElementById(
+                "status"
+            ).textContent =
+                `${resultados.length} resultado(s)`;
 
         }
 
 
         /* =========================================================
            MOSTRAR RESULTADOS
-        ========================================================== */
+        ========================================================= */
 
         function mostrarResultados(
-            resultadosLista,
+            resultados,
             texto
         ) {
 
-            resultados.innerHTML = "";
+            const contenedor =
+                document.getElementById(
+                    "resultados"
+                );
+
+
+            contenedor.innerHTML = "";
 
 
             if (
-                resultadosLista.length === 0
+                resultados.length === 0
             ) {
 
-                resultados.innerHTML = `
+                contenedor.innerHTML = `
 
                     <div class="empty">
 
@@ -2536,7 +2511,7 @@
             }
 
 
-            resultadosLista.forEach(
+            resultados.forEach(
                 resultado => {
 
                     const fragmento =
@@ -2618,7 +2593,7 @@
                         );
 
 
-                    resultados.appendChild(
+                    contenedor.appendChild(
                         elemento
                     );
 
@@ -2629,8 +2604,8 @@
 
 
         /* =========================================================
-           OBTENER FRAGMENTO
-        ========================================================== */
+           FRAGMENTO
+        ========================================================= */
 
         function obtenerFragmento(
             contenido,
@@ -2661,42 +2636,22 @@
 
 
             /*
-             * Buscamos cualquiera de las palabras.
+             * Para varias palabras,
+             * buscamos la primera.
              */
 
-            const palabras =
+            const primeraPalabra =
                 texto
                     .split(/\s+/)
-                    .filter(Boolean);
+                    .filter(Boolean)[0];
 
 
-            let posicion = -1;
-
-
-            for (
-                const palabra of palabras
-            ) {
-
-                const encontrada =
-                    limpio
-                        .toLowerCase()
-                        .indexOf(
-                            palabra.toLowerCase()
-                        );
-
-
-                if (
-                    encontrada !== -1
-                ) {
-
-                    posicion =
-                        encontrada;
-
-                    break;
-
-                }
-
-            }
+            const posicion =
+                limpio
+                    .toLowerCase()
+                    .indexOf(
+                        primeraPalabra.toLowerCase()
+                    );
 
 
             if (
@@ -2720,7 +2675,9 @@
 
             return limpio.substring(
                 inicio,
-                posicion + 380
+                posicion +
+                primeraPalabra.length +
+                250
             );
 
         }
@@ -2728,7 +2685,7 @@
 
         /* =========================================================
            RESALTAR
-        ========================================================== */
+        ========================================================= */
 
         function resaltar(
             texto,
@@ -2739,10 +2696,6 @@
                 escapeHTML(
                     texto
                 );
-
-
-            if (!busqueda)
-                return resultado;
 
 
             const palabras =
@@ -2780,9 +2733,11 @@
 
         /* =========================================================
            ABRIR DOCUMENTO
-        ========================================================== */
+        ========================================================= */
 
-        function abrirDocumento(path) {
+        function abrirDocumento(
+            path
+        ) {
 
             document.getElementById(
                 "home"
@@ -2839,9 +2794,13 @@
 
             try {
 
+                const markdown =
+                    documento.contenido || "";
+
+
                 contenido.innerHTML =
                     marked.parse(
-                        documento.contenido || ""
+                        markdown
                     );
 
 
@@ -2849,7 +2808,7 @@
                     "linkGithub"
                 ).href =
                     GITHUB_URL +
-                    documento.path
+                    path
                         .split("/")
                         .map(
                             encodeURIComponent
@@ -2887,181 +2846,127 @@
 
         /* =========================================================
            FILTRAR CATEGORÍA
-        ========================================================== */
+        ========================================================= */
 
-       function filtrarCategoria(categoria) {
+        async function filtrarCategoria(
+            categoria
+        ) {
 
-    if (!readmeCache) return;
-
-    const rutas = obtenerDocumentosDeCategoria(
-        readmeCache,
-        categoria.nombre
-    );
-
-    const resultados = [];
-
-    for (const ruta of rutas) {
-
-        const documento = documentos.find(
-            item =>
-                normalizarRuta(item.path) ===
-                normalizarRuta(ruta)
-        );
-
-        if (!documento) continue;
-
-        resultados.push({
-            documento,
-            contenido: documento.contenido || "",
-            puntos: 1
-        });
-    }
-
-    buscador.value = "";
-    clearSearch.style.display = "none";
-
-    mostrarResultados(resultados, "");
-
-    document.getElementById("status").textContent =
-        `${resultados.length} documentos en ${limpiarEmoji(categoria.nombre)}`;
-
-    // Mostrar nuevamente la pantalla principal
-    document.getElementById("home").style.display = "block";
-    document.getElementById("documento").style.display = "none";
-
-    // Marcar categoría
-    document
-        .querySelectorAll("#categorias .nav-item")
-        .forEach(item => {
-            item.classList.remove("active");
-        });
-
-    const categoriaSeleccionada =
-        [...document.querySelectorAll("#categorias .nav-item")]
-            .find(item =>
-                item.textContent.includes(
-                    limpiarEmoji(categoria.nombre)
-                )
-            );
-
-    if (categoriaSeleccionada) {
-        categoriaSeleccionada.classList.add("active");
-    }
-
-    window.scrollTo(0, 0);
-}
+            if (!readmeCache)
+                return;
 
 
-function obtenerDocumentosDeCategoria(
-    markdown,
-    categoria
-) {
+            const rutas =
+                obtenerDocumentosDeCategoria(
+                    readmeCache,
+                    categoria.nombre
+                );
 
-    const lineas = markdown.split(/\r?\n/);
 
-    let dentroDeCategoria = false;
+            const resultados = [];
 
-    const rutas = [];
 
-    for (const linea of lineas) {
+            for (
+                const ruta of rutas
+            ) {
 
-        // Detectar títulos ## del README
-        const heading = linea.match(
-            /^##\s+(.+?)\s*$/
-        );
-
-        if (heading) {
-
-            const titulo = heading[1].trim();
-
-            dentroDeCategoria =
-                titulo === categoria;
-
-            continue;
-        }
-
-        if (!dentroDeCategoria) {
-            continue;
-        }
-
-        /*
-         * Detectar:
-         *
-         * - [Nombre](./doc/archivo.md)
-         *
-         * También funciona con URLs de GitHub.
-         */
-        const enlace = linea.match(
-            /^\s*-\s+\[([^\]]+)\]\((.+?)\)\s*$/
-        );
-
-        if (!enlace) {
-            continue;
-        }
-
-        let ruta = enlace[2].trim();
-
-        /*
-         * Si es una URL de GitHub, obtener solamente
-         * la parte correspondiente a /doc/
-         */
-        if (ruta.includes("/blob/")) {
-
-            const posicion =
-                ruta.indexOf("/doc/");
-
-            if (posicion !== -1) {
-                ruta =
-                    ruta.substring(
-                        posicion + 1
+                const documento =
+                    documentos.find(
+                        item =>
+                            normalizarRuta(
+                                item.path
+                            ) ===
+                            normalizarRuta(
+                                ruta
+                            )
                     );
+
+
+                if (!documento)
+                    continue;
+
+
+                resultados.push({
+
+                    documento,
+
+                    contenido:
+                        documento.contenido || "",
+
+                    puntos: 1
+
+                });
+
             }
-        }
 
-        /*
-         * Convertir:
-         *
-         * ./doc/Archivo.md
-         *
-         * en:
-         *
-         * doc/Archivo.md
-         */
-        ruta = ruta.replace(
-            /^\.\/+/,
-            ""
-        );
 
-        /*
-         * Decodificar espacios y caracteres
-         * especiales de las URLs.
-         */
-        try {
-            ruta = decodeURIComponent(ruta);
-        } catch (error) {
-            console.warn(
-                "No se pudo decodificar:",
-                ruta
+            buscador.value = "";
+
+            clearSearch.style.display =
+                "none";
+
+
+            /*
+             * Volver a inicio para mostrar
+             * los resultados de categoría.
+             */
+
+            document.getElementById(
+                "home"
+            ).style.display =
+                "block";
+
+
+            document.getElementById(
+                "documento"
+            ).style.display =
+                "none";
+
+
+            mostrarResultados(
+                resultados,
+                ""
             );
+
+
+            document.getElementById(
+                "status"
+            ).textContent =
+                `${resultados.length} documentos en ${categoria.nombre}`;
+
+
+            /*
+             * Marcar categoría activa.
+             */
+
+            document
+                .querySelectorAll(
+                    "#categorias .nav-item"
+                )
+                .forEach(
+                    item =>
+                        item.classList.remove(
+                            "active"
+                        )
+                );
+
+
+            /*
+             * Cerrar sidebar en móvil.
+             */
+
+            document
+                .getElementById("sidebar")
+                .classList.remove(
+                    "open"
+                );
+
         }
 
-        /*
-         * Quitar escapes de Markdown.
-         */
-        ruta = ruta.replace(
-            /\\([()[\]])/g,
-            "$1"
-        );
-
-        rutas.push(ruta);
-    }
-
-    return rutas;
-}
 
         /* =========================================================
            LEER DOCUMENTOS DE CATEGORÍA
-        ========================================================== */
+        ========================================================= */
 
         function obtenerDocumentosDeCategoria(
             markdown,
@@ -3082,7 +2987,7 @@ function obtenerDocumentosDeCategoria(
             ) {
 
                 /*
-                 * Detectar categoría.
+                 * Detectar ## categoría
                  */
 
                 const heading =
@@ -3095,15 +3000,13 @@ function obtenerDocumentosDeCategoria(
 
                     const titulo =
                         limpiarEmoji(
-                            heading[1]
+                            heading[1].trim()
                         );
 
 
                     dentro =
-                        titulo.trim()
-                            .toLowerCase() ===
-                        categoria.trim()
-                            .toLowerCase();
+                        titulo ===
+                        categoria;
 
 
                     continue;
@@ -3111,19 +3014,17 @@ function obtenerDocumentosDeCategoria(
                 }
 
 
-                /*
-                 * Si todavía no estamos dentro
-                 * de la categoría, seguimos.
-                 */
-
                 if (!dentro)
                     continue;
 
 
                 /*
-                 * Detectar:
+                 * Buscar enlaces Markdown:
                  *
-                 * - [DNS](doc/DNS.md)
+                 * - [Nombre](./doc/archivo.md)
+                 *
+                 * También admite enlaces
+                 * de GitHub.
                  */
 
                 const enlace =
@@ -3141,32 +3042,81 @@ function obtenerDocumentosDeCategoria(
 
 
                 /*
-                 * Eliminar ./ inicial.
+                 * Quitar URL de GitHub y dejar
+                 * solamente la ruta del documento.
+                 */
+
+                const githubMatch =
+                    ruta.match(
+                        /\/blob\/[^/]+\/(.+)$/
+                    );
+
+
+                if (githubMatch) {
+
+                    ruta =
+                        githubMatch[1];
+
+                }
+
+
+                /*
+                 * Quitar ./ inicial.
                  */
 
                 ruta =
                     ruta.replace(
-                        /^\.?\//,
+                        /^\.\//,
                         ""
                     );
 
 
                 /*
-                 * Eliminar posibles parámetros
-                 * de URL.
+                 * Decodificar URL.
+                 */
+
+                try {
+
+                    ruta =
+                        decodeURIComponent(
+                            ruta
+                        );
+
+                } catch (error) {
+
+                    /* mantener ruta original */
+
+                }
+
+
+                /*
+                 * Desescapar caracteres
+                 * especiales de Markdown.
                  */
 
                 ruta =
-                    ruta.split("#")[0];
+                    ruta.replace(
+                        /\\([()[\]])/g,
+                        "$1"
+                    );
 
 
-                ruta =
-                    ruta.split("?")[0];
+                /*
+                 * Solo aceptar documentos
+                 * dentro de doc/.
+                 */
 
+                if (
+                    normalizarRuta(
+                        ruta
+                    ).startsWith("doc/")
+                ) {
 
-                rutas.push(
-                    ruta
-                );
+                    rutas.push(
+                        ruta
+                    );
+
+                }
 
             }
 
@@ -3178,7 +3128,7 @@ function obtenerDocumentosDeCategoria(
 
         /* =========================================================
            INICIO
-        ========================================================== */
+        ========================================================= */
 
         function inicio() {
 
@@ -3201,11 +3151,16 @@ function obtenerDocumentosDeCategoria(
             );
 
 
-            document.getElementById(
-                "navBuscar"
-            ).classList.remove(
-                "active"
-            );
+            document
+                .querySelectorAll(
+                    "#categorias .nav-item"
+                )
+                .forEach(
+                    item =>
+                        item.classList.remove(
+                            "active"
+                        )
+                );
 
 
             window.scrollTo(
@@ -3218,18 +3173,11 @@ function obtenerDocumentosDeCategoria(
 
         /* =========================================================
            ACTIVAR BÚSQUEDA
-        ========================================================== */
+        ========================================================= */
 
         function activarBusqueda() {
 
             inicio();
-
-            document.getElementById(
-                "navBuscar"
-            ).classList.add(
-                "active"
-            );
-
 
             buscador.focus();
 
@@ -3238,39 +3186,79 @@ function obtenerDocumentosDeCategoria(
 
         /* =========================================================
            NORMALIZAR RUTA
-        ========================================================== */
+        ========================================================= */
 
-      function normalizarRuta(ruta) {
+        function normalizarRuta(
+            ruta
+        ) {
 
-    let resultado = String(ruta)
-        .trim();
+            return String(ruta)
 
-    resultado = resultado.replace(
-        /^\.\/+/,
-        ""
-    );
+                .replace(
+                    /^\.\//,
+                    ""
+                )
 
-    resultado = resultado.replace(
-        /\\/g,
-        ""
-    );
+                .replace(
+                    /\\/g,
+                    ""
+                )
 
-    try {
-        resultado = decodeURIComponent(resultado);
-    } catch (error) {
-        // Si no se puede decodificar,
-        // dejamos la ruta original.
-    }
+                .trim()
 
-    return resultado
-        .trim()
-        .toLowerCase();
-}
+                .toLowerCase();
+
+        }
+
+
+        /* =========================================================
+           OBTENER NOMBRE DE ARCHIVO
+        ========================================================= */
+
+        function obtenerNombreArchivo(
+            ruta
+        ) {
+
+            const partes =
+                String(ruta)
+                    .split("/");
+
+
+            let nombre =
+                partes[
+                    partes.length - 1
+                ];
+
+
+            nombre =
+                nombre.replace(
+                    /\.md$/i,
+                    ""
+                );
+
+
+            try {
+
+                nombre =
+                    decodeURIComponent(
+                        nombre
+                    );
+
+            } catch (error) {
+
+                /* mantener nombre */
+
+            }
+
+
+            return nombre;
+
+        }
 
 
         /* =========================================================
            LIMPIAR EMOJIS
-        ========================================================== */
+        ========================================================= */
 
         function limpiarEmoji(
             texto
@@ -3290,7 +3278,7 @@ function obtenerDocumentosDeCategoria(
 
         /* =========================================================
            ESCAPE HTML
-        ========================================================== */
+        ========================================================= */
 
         function escapeHTML(
             texto
@@ -3328,7 +3316,7 @@ function obtenerDocumentosDeCategoria(
 
         /* =========================================================
            ESCAPE REGEX
-        ========================================================== */
+        ========================================================= */
 
         function escapeRegex(
             texto
@@ -3345,7 +3333,7 @@ function obtenerDocumentosDeCategoria(
 
         /* =========================================================
            MENÚ MÓVIL
-        ========================================================== */
+        ========================================================= */
 
         document
             .getElementById(
@@ -3370,7 +3358,7 @@ function obtenerDocumentosDeCategoria(
 
         /* =========================================================
            BUSCAR EN MENÚ
-        ========================================================== */
+        ========================================================= */
 
         document
             .getElementById(
@@ -3415,7 +3403,7 @@ function obtenerDocumentosDeCategoria(
 
         /* =========================================================
            ARRANCAR
-        ========================================================== */
+        ========================================================= */
 
         iniciar();
 
