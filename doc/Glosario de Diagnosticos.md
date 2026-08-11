@@ -8,7 +8,7 @@ Este documento agrupa los tipos de incidencias más comunes en Eternet para faci
 
 ## Wireless
 
-- [Sin conexión (wireless OK)](h./doc/Sin%20conexión%20(wireless%20ok).md)  
+- [Sin conexión (wireless OK)](./doc/Sin%20conexión%20(wireless%20ok).md)  
   La antena funciona correctamente, pero el router del cliente no responde.
 
 ---
