@@ -124,7 +124,7 @@
 
 - ### Esquema:
 
-![Nano+MK+PowerActive](https://user-images.githubusercontent.com/88723629/164240992-294c4974-e789-4efe-ab7e-516bd96ebcf7.jpg)
+![Nano+MK+PowerActive](./imagenes/164240992-294c4974-e789-4efe-ab7e-516bd96ebcf7.jpg)
 
 ---
 
