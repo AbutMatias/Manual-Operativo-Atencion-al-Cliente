@@ -243,3 +243,12 @@ body {
 
     line-height: 1.5;
 }
+
+.markdown img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 20px auto;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+}
