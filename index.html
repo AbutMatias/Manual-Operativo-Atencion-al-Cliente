@@ -3939,103 +3939,296 @@
            ABRIR DOCUMENTO
         ========================================================= */
 
-        function abrirDocumento(
-            path
-        ) {
+       function abrirDocumento(path) {
 
-            const documento =
-                documentos.find(
-                    item =>
-                        item.path ===
-                        path
-                );
+    document.getElementById("home").style.display = "none";
+    document.getElementById("documento").style.display = "block";
+
+    const contenido = document.getElementById("contenidoDocumento");
+
+    contenido.innerHTML = "<p>Cargando documento...</p>";
+
+    const documento = documentos.find(
+        item => item.path === path
+    );
+
+    if (!documento) {
+
+        contenido.innerHTML = `
+            <div class="empty">
+                <div class="empty-title">
+                    Documento no encontrado
+                </div>
+            </div>
+        `;
+
+        return;
+    }
+
+    try {
+
+        const markdown = documento.contenido || "";
+
+        /*
+         * Convertimos el Markdown a HTML
+         */
+        contenido.innerHTML = marked.parse(markdown);
 
 
-            if (!documento) {
+        /*
+         * =====================================================
+         * CORREGIR IMÁGENES DEL DOCUMENTO
+         * =====================================================
+         *
+         * Las imágenes se buscan dentro de GitHub,
+         * respetando la ubicación del archivo .md.
+         */
 
-                return;
-
-            }
-
-
-            agregarHistorial(
-                path
+        const carpetaDocumento =
+            path.substring(
+                0,
+                path.lastIndexOf("/") + 1
             );
 
 
-            document.getElementById(
-                "home"
-            ).style.display =
-                "none";
+        contenido
+            .querySelectorAll("img")
+            .forEach(img => {
+
+                const src = img.getAttribute("src");
+
+                if (!src)
+                    return;
 
 
-            document.getElementById(
-                "documento"
-            ).style.display =
-                "block";
+                /*
+                 * No modificar imágenes externas.
+                 */
+
+                if (
+                    src.startsWith("http://") ||
+                    src.startsWith("https://") ||
+                    src.startsWith("data:") ||
+                    src.startsWith("//")
+                ) {
+
+                    return;
+
+                }
 
 
-            const contenido =
-                document.getElementById(
-                    "contenidoDocumento"
-                );
+                /*
+                 * Eliminar ./ inicial
+                 */
 
-
-            contenido.innerHTML =
-                "<p>Cargando documento...</p>";
-
-
-            try {
-
-                const markdown =
-                    documento.contenido || "";
-
-
-                contenido.innerHTML =
-                    marked.parse(
-                        markdown
+                let rutaImagen =
+                    src.replace(
+                        /^\.\/+/,
+                        ""
                     );
 
 
-                document.getElementById(
-                    "linkGithub"
-                ).href =
-                    GITHUB_URL +
-                    path
+                /*
+                 * Si la imagen es relativa,
+                 * la ubicamos respecto al .md.
+                 */
+
+                if (
+                    !rutaImagen.startsWith("doc/")
+                ) {
+
+                    rutaImagen =
+                        carpetaDocumento +
+                        rutaImagen;
+
+                }
+
+
+                /*
+                 * Convertimos espacios y caracteres
+                 * especiales correctamente.
+                 */
+
+                const partes =
+                    rutaImagen
                         .split("/")
                         .map(
-                            encodeURIComponent
+                            parte =>
+                                encodeURIComponent(
+                                    parte
+                                )
+                        );
+
+
+                /*
+                 * URL RAW de GitHub
+                 */
+
+                img.src =
+                    `https://raw.githubusercontent.com/${OWNER}/${REPO}/${BRANCH}/${partes.join("/")}`;
+
+
+                /*
+                 * Evita que una imagen rota
+                 * ocupe un espacio innecesario.
+                 */
+
+                img.loading = "lazy";
+
+
+                img.onerror = function () {
+
+                    console.warn(
+                        "No se pudo cargar la imagen:",
+                        img.src
+                    );
+
+                };
+
+            });
+
+
+        /*
+         * =====================================================
+         * ENLACES RELATIVOS
+         * =====================================================
+         *
+         * También corregimos los enlaces internos
+         * del Markdown.
+         */
+
+        contenido
+            .querySelectorAll("a")
+            .forEach(enlace => {
+
+                const href =
+                    enlace.getAttribute("href");
+
+                if (!href)
+                    return;
+
+
+                /*
+                 * No modificar enlaces externos.
+                 */
+
+                if (
+                    href.startsWith("http://") ||
+                    href.startsWith("https://") ||
+                    href.startsWith("#") ||
+                    href.startsWith("mailto:")
+                ) {
+
+                    enlace.target = "_blank";
+                    enlace.rel =
+                        "noopener noreferrer";
+
+                    return;
+
+                }
+
+
+                /*
+                 * Si apunta a otro .md,
+                 * intentamos abrirlo dentro
+                 * de la aplicación.
+                 */
+
+                if (
+                    href
+                        .toLowerCase()
+                        .endsWith(".md")
+                ) {
+
+                    const ruta =
+                        decodeURIComponent(
+                            href
                         )
-                        .join("/");
+                        .replace(
+                            /^\.\/+/,
+                            ""
+                        );
 
 
-                window.scrollTo(
-                    0,
-                    0
-                );
+                    const rutaFinal =
+                        ruta.startsWith("doc/")
+                            ? ruta
+                            : carpetaDocumento + ruta;
 
 
-            } catch (error) {
+                    enlace.addEventListener(
+                        "click",
+                        function (event) {
 
-                console.error(error);
+                            event.preventDefault();
+
+                            abrirDocumento(
+                                normalizarRuta(
+                                    rutaFinal
+                                )
+                            );
+
+                        }
+                    );
+
+                }
+
+            });
 
 
-                contenido.innerHTML = `
+        /*
+         * =====================================================
+         * LINK DE GITHUB
+         * =====================================================
+         */
 
-                    <div class="empty">
+        document.getElementById(
+            "linkGithub"
+        ).href =
+            GITHUB_URL +
+            path
+                .split("/")
+                .map(
+                    encodeURIComponent
+                )
+                .join("/");
 
-                        <div class="empty-title">
-                            No se pudo cargar el documento
-                        </div>
 
-                    </div>
+        /*
+         * Volver arriba
+         */
 
-                `;
+        window.scrollTo(
+            0,
+            0
+        );
 
-            }
 
-        }
+    } catch (error) {
 
+        console.error(error);
+
+        contenido.innerHTML = `
+
+            <div class="empty">
+
+                <div class="empty-title">
+                    No se pudo cargar el documento
+                </div>
+
+                <br>
+
+                ${escapeHTML(
+                    error.message
+                )}
+
+            </div>
+
+        `;
+
+    }
+
+}
 
         /* =========================================================
            COPIAR DOCUMENTO
