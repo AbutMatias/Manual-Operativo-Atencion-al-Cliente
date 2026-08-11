@@ -12,19 +12,20 @@ permissions:
 
 jobs:
   descargar-imagenes:
+
     runs-on: ubuntu-latest
 
     steps:
 
       - name: Descargar repositorio
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           fetch-depth: 0
 
-      - name: Instalar dependencias
+      - name: Instalar herramientas
         run: |
           sudo apt-get update
-          sudo apt-get install -y wget
+          sudo apt-get install -y wget file
 
       - name: Procesar imágenes
         shell: bash
@@ -32,15 +33,21 @@ jobs:
 
           mkdir -p doc/imagenes
 
-          echo "Buscando imágenes..."
+          echo "======================================"
+          echo " BUSCANDO IMÁGENES"
+          echo "======================================"
 
           find doc -type f -name "*.md" -print0 | while IFS= read -r -d '' archivo
           do
 
             echo ""
-            echo "Procesando: $archivo"
+            echo "--------------------------------------"
+            echo "Documento: $archivo"
+            echo "--------------------------------------"
 
-            grep -oE 'https://github\.com/user-attachments/assets/[a-zA-Z0-9-]+' "$archivo" | sort -u | while read -r url
+            grep -oE 'https://github\.com/user-attachments/assets/[a-zA-Z0-9-]+' "$archivo" |
+            sort -u |
+            while read -r url
             do
 
               if [ -z "$url" ]; then
@@ -49,63 +56,107 @@ jobs:
 
               id=$(basename "$url")
 
-              archivo_imagen="doc/imagenes/$id"
+              temporal="doc/imagenes/$id"
 
+              echo ""
               echo "Imagen encontrada:"
               echo "$url"
 
-              if [ -f "$archivo_imagen.png" ]; then
-                echo "Ya existe. Se omite."
+              # Buscar si ya existe
+              existente=$(find doc/imagenes -type f -name "$id.*" | head -n 1)
+
+              if [ -n "$existente" ]; then
+
+                echo "La imagen ya existe:"
+                echo "$existente"
+
+                nombre=$(basename "$existente")
+
+                sed -i "s|$url|./imagenes/$nombre|g" "$archivo"
+
                 continue
+
               fi
 
               echo "Descargando..."
 
-              if wget -q "$url" -O "$archivo_imagen"; then
+              if wget \
+                --quiet \
+                --timeout=30 \
+                --tries=3 \
+                "$url" \
+                -O "$temporal"
+              then
 
-                tipo=$(file --brief --mime-type "$archivo_imagen")
+                tipo=$(file --brief --mime-type "$temporal")
+
+                echo "Tipo detectado: $tipo"
 
                 case "$tipo" in
 
                   image/jpeg)
-                    mv "$archivo_imagen" "$archivo_imagen.jpg"
-                    nuevo="$archivo_imagen.jpg"
+
+                    nuevo="$temporal.jpg"
+                    mv "$temporal" "$nuevo"
+
                     ;;
 
                   image/png)
-                    mv "$archivo_imagen" "$archivo_imagen.png"
-                    nuevo="$archivo_imagen.png"
+
+                    nuevo="$temporal.png"
+                    mv "$temporal" "$nuevo"
+
                     ;;
 
                   image/gif)
-                    mv "$archivo_imagen" "$archivo_imagen.gif"
-                    nuevo="$archivo_imagen.gif"
+
+                    nuevo="$temporal.gif"
+                    mv "$temporal" "$nuevo"
+
                     ;;
 
                   image/webp)
-                    mv "$archivo_imagen" "$archivo_imagen.webp"
-                    nuevo="$archivo_imagen.webp"
+
+                    nuevo="$temporal.webp"
+                    mv "$temporal" "$nuevo"
+
+                    ;;
+
+                  image/svg+xml)
+
+                    nuevo="$temporal.svg"
+                    mv "$temporal" "$nuevo"
+
                     ;;
 
                   *)
-                    echo "Formato desconocido: $tipo"
-                    rm -f "$archivo_imagen"
+
+                    echo "Formato no compatible: $tipo"
+
+                    rm -f "$temporal"
+
                     continue
+
                     ;;
 
                 esac
 
                 nombre=$(basename "$nuevo")
 
-                echo "Guardada como: $nombre"
+                echo "Imagen guardada:"
+                echo "doc/imagenes/$nombre"
 
-                ruta_relativa=$(realpath --relative-to="$(dirname "$archivo")" "$nuevo")
-
-                sed -i "s|$url|./$(basename "$ruta_relativa")|g" "$archivo"
+                # Reemplazar URL original por ruta local
+                sed -i \
+                  "s|$url|./imagenes/$nombre|g" \
+                  "$archivo"
 
               else
 
-                echo "ERROR: No se pudo descargar $url"
+                echo "ERROR: No se pudo descargar:"
+                echo "$url"
+
+                rm -f "$temporal"
 
               fi
 
@@ -115,7 +166,15 @@ jobs:
 
       - name: Mostrar cambios
         run: |
+
+          echo ""
+          echo "======================================"
+          echo " CAMBIOS DETECTADOS"
+          echo "======================================"
+
           git status
+
+          echo ""
           git diff --stat
 
       - name: Guardar cambios
@@ -126,13 +185,16 @@ jobs:
 
           git add doc/
 
-          if git diff --cached --quiet; then
+          if git diff --cached --quiet
+          then
 
-            echo "No hay cambios."
+            echo "No hay cambios para guardar."
 
           else
 
-            git commit -m "Actualizar imágenes de documentación"
+            git commit \
+              -m "Descargar imágenes de documentación"
+
             git push
 
           fi
