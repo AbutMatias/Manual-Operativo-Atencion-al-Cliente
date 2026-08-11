@@ -2889,121 +2889,175 @@
            FILTRAR CATEGORÍA
         ========================================================== */
 
-        function filtrarCategoria(
-            categoria
-        ) {
+       function filtrarCategoria(categoria) {
 
-            const rutas =
-                obtenerDocumentosDeCategoria(
-                    readmeCache,
-                    categoria
-                );
+    if (!readmeCache) return;
 
+    const rutas = obtenerDocumentosDeCategoria(
+        readmeCache,
+        categoria.nombre
+    );
 
-            const resultadosCategoria = [];
+    const resultados = [];
 
+    for (const ruta of rutas) {
 
-            /*
-             * Buscamos los documentos de la categoría
-             * dentro de index.json.
-             */
+        const documento = documentos.find(
+            item =>
+                normalizarRuta(item.path) ===
+                normalizarRuta(ruta)
+        );
 
-            for (
-                const ruta of rutas
-            ) {
+        if (!documento) continue;
 
-                const documento =
-                    documentos.find(
-                        item =>
-                            normalizarRuta(
-                                item.path
-                            ) ===
-                            normalizarRuta(
-                                ruta
-                            )
-                    );
+        resultados.push({
+            documento,
+            contenido: documento.contenido || "",
+            puntos: 1
+        });
+    }
 
+    buscador.value = "";
+    clearSearch.style.display = "none";
 
-                if (!documento)
-                    continue;
+    mostrarResultados(resultados, "");
 
+    document.getElementById("status").textContent =
+        `${resultados.length} documentos en ${limpiarEmoji(categoria.nombre)}`;
 
-                resultadosCategoria.push({
+    // Mostrar nuevamente la pantalla principal
+    document.getElementById("home").style.display = "block";
+    document.getElementById("documento").style.display = "none";
 
-                    documento,
+    // Marcar categoría
+    document
+        .querySelectorAll("#categorias .nav-item")
+        .forEach(item => {
+            item.classList.remove("active");
+        });
 
-                    contenido:
-                        documento.contenido || "",
-
-                    puntos: 1
-
-                });
-
-            }
-
-
-            /*
-             * Limpiar búsqueda.
-             */
-
-            buscador.value = "";
-
-            clearSearch.style.display =
-                "none";
-
-
-            document.getElementById(
-                "resultsTitle"
-            ).textContent =
-                categoria;
-
-
-            mostrarResultados(
-                resultadosCategoria,
-                ""
-            );
-
-
-            status.textContent =
-                `${resultadosCategoria.length} documentos en ${categoria}`;
-
-
-            /*
-             * Volvemos a la página principal
-             * por si estábamos viendo un documento.
-             */
-
-            document.getElementById(
-                "home"
-            ).style.display =
-                "block";
-
-
-            document.getElementById(
-                "documento"
-            ).style.display =
-                "none";
-
-
-            window.scrollTo(
-                0,
-                0
-            );
-
-
-            /*
-             * Cerrar menú en móvil.
-             */
-
-            document
-                .getElementById(
-                    "sidebar"
+    const categoriaSeleccionada =
+        [...document.querySelectorAll("#categorias .nav-item")]
+            .find(item =>
+                item.textContent.includes(
+                    limpiarEmoji(categoria.nombre)
                 )
-                .classList
-                .remove("open");
+            );
 
+    if (categoriaSeleccionada) {
+        categoriaSeleccionada.classList.add("active");
+    }
+
+    window.scrollTo(0, 0);
+}
+
+
+function obtenerDocumentosDeCategoria(
+    markdown,
+    categoria
+) {
+
+    const lineas = markdown.split(/\r?\n/);
+
+    let dentroDeCategoria = false;
+
+    const rutas = [];
+
+    for (const linea of lineas) {
+
+        // Detectar títulos ## del README
+        const heading = linea.match(
+            /^##\s+(.+?)\s*$/
+        );
+
+        if (heading) {
+
+            const titulo = heading[1].trim();
+
+            dentroDeCategoria =
+                titulo === categoria;
+
+            continue;
         }
 
+        if (!dentroDeCategoria) {
+            continue;
+        }
+
+        /*
+         * Detectar:
+         *
+         * - [Nombre](./doc/archivo.md)
+         *
+         * También funciona con URLs de GitHub.
+         */
+        const enlace = linea.match(
+            /^\s*-\s+\[([^\]]+)\]\((.+?)\)\s*$/
+        );
+
+        if (!enlace) {
+            continue;
+        }
+
+        let ruta = enlace[2].trim();
+
+        /*
+         * Si es una URL de GitHub, obtener solamente
+         * la parte correspondiente a /doc/
+         */
+        if (ruta.includes("/blob/")) {
+
+            const posicion =
+                ruta.indexOf("/doc/");
+
+            if (posicion !== -1) {
+                ruta =
+                    ruta.substring(
+                        posicion + 1
+                    );
+            }
+        }
+
+        /*
+         * Convertir:
+         *
+         * ./doc/Archivo.md
+         *
+         * en:
+         *
+         * doc/Archivo.md
+         */
+        ruta = ruta.replace(
+            /^\.\/+/,
+            ""
+        );
+
+        /*
+         * Decodificar espacios y caracteres
+         * especiales de las URLs.
+         */
+        try {
+            ruta = decodeURIComponent(ruta);
+        } catch (error) {
+            console.warn(
+                "No se pudo decodificar:",
+                ruta
+            );
+        }
+
+        /*
+         * Quitar escapes de Markdown.
+         */
+        ruta = ruta.replace(
+            /\\([()[\]])/g,
+            "$1"
+        );
+
+        rutas.push(ruta);
+    }
+
+    return rutas;
+}
 
         /* =========================================================
            LEER DOCUMENTOS DE CATEGORÍA
