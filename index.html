@@ -10,70 +10,43 @@
         content="width=device-width, initial-scale=1.0"
     >
 
-    <title>
-        Eternet Assistant
-    </title>
+    <title>Ethernet App - Manual Operativo</title>
 
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 
     <style>
 
-        /* =========================================================
-           VARIABLES
-        ========================================================= */
-
         :root {
 
             --background: #272727;
-
             --sidebar: #1b1b1b;
-
             --header: #191919;
-
             --panel: #292929;
-
             --panel-hover: #303030;
-
             --input: #343434;
-
             --border: #454545;
-
             --border-light: #505050;
 
             --text: #f5f5f5;
-
             --text-secondary: #a0a0a0;
-
             --text-muted: #777777;
 
             --blue: #5bc0eb;
-
             --blue-dark: #3ca8d1;
-
             --blue-light: rgba(91, 192, 235, .12);
-
-            --orange: #f15a3a;
 
             --danger: #ef5350;
 
         }
 
 
-        /* =========================================================
-           RESET
-        ========================================================= */
-
         * {
-
             box-sizing: border-box;
-
         }
 
 
         html {
-
             scroll-behavior: smooth;
-
         }
 
 
@@ -97,9 +70,7 @@
 
         button,
         input {
-
             font-family: inherit;
-
         }
 
 
@@ -108,26 +79,19 @@
         ========================================================= */
 
         ::-webkit-scrollbar {
-
             width: 7px;
-
             height: 7px;
-
         }
 
 
         ::-webkit-scrollbar-track {
-
-            background:
-                #1e1e1e;
-
+            background: #1e1e1e;
         }
 
 
         ::-webkit-scrollbar-thumb {
 
-            background:
-                #555;
+            background: #555;
 
             border-radius: 10px;
 
@@ -135,10 +99,7 @@
 
 
         ::-webkit-scrollbar-thumb:hover {
-
-            background:
-                #666;
-
+            background: #666;
         }
 
 
@@ -151,9 +112,7 @@
             position: fixed;
 
             left: 0;
-
             right: 0;
-
             top: 0;
 
             height: 66px;
@@ -192,15 +151,13 @@
         .menu-button {
 
             width: 40px;
-
             height: 40px;
 
             border: none;
 
             border-radius: 6px;
 
-            background:
-                #303030;
+            background: #303030;
 
             color: white;
 
@@ -218,10 +175,7 @@
 
 
         .menu-button:hover {
-
-            background:
-                #3a3a3a;
-
+            background: #3a3a3a;
         }
 
 
@@ -239,7 +193,6 @@
         .brand-logo {
 
             width: 32px;
-
             height: 32px;
 
             object-fit: contain;
@@ -412,10 +365,7 @@
 
 
         .sidebar-search input::placeholder {
-
-            color:
-                #777;
-
+            color: #777;
         }
 
 
@@ -492,6 +442,8 @@
         .category-icon {
 
             width: 17px;
+
+            min-width: 17px;
 
             text-align: center;
 
@@ -643,10 +595,7 @@
 
 
         .main-search input::placeholder {
-
-            color:
-                #777;
-
+            color: #777;
         }
 
 
@@ -674,7 +623,6 @@
                 translateY(-50%);
 
             width: 28px;
-
             height: 28px;
 
             border: none;
@@ -1042,10 +990,7 @@
 
 
         .document-github:hover {
-
-            text-decoration:
-                underline;
-
+            text-decoration: underline;
         }
 
 
@@ -1115,40 +1060,27 @@
 
 
         .markdown h4 {
-
             color: #ddd;
-
         }
 
 
         .markdown p {
-
-            color:
-                #ccc;
-
+            color: #ccc;
         }
 
 
         .markdown strong {
-
             color: white;
-
         }
 
 
         .markdown a {
-
-            color:
-                var(--blue);
-
+            color: var(--blue);
         }
 
 
         .markdown a:hover {
-
-            color:
-                #8edcff;
-
+            color: #8edcff;
         }
 
 
@@ -1238,7 +1170,8 @@
             padding:
                 2px 5px;
 
-            border-radius: 3px;
+            border-radius:
+                3px;
 
         }
 
@@ -1254,9 +1187,11 @@
             padding:
                 15px;
 
-            border-radius: 6px;
+            border-radius:
+                6px;
 
-            overflow-x: auto;
+            overflow-x:
+                auto;
 
         }
 
@@ -1299,17 +1234,20 @@
             border:
                 1px solid var(--border);
 
-            border-radius: 7px;
+            border-radius:
+                7px;
 
             padding:
                 45px 20px;
 
-            text-align: center;
+            text-align:
+                center;
 
             color:
                 var(--text-muted);
 
-            font-size: 13px;
+            font-size:
+                13px;
 
         }
 
@@ -1319,7 +1257,8 @@
             color:
                 #ddd;
 
-            font-weight: bold;
+            font-weight:
+                bold;
 
         }
 
@@ -1330,12 +1269,11 @@
 
         .loading-bar {
 
-            position: fixed;
+            position:
+                fixed;
 
             left: 0;
-
             right: 0;
-
             top: 66px;
 
             height: 3px;
@@ -1353,9 +1291,7 @@
 
 
         .loading-bar.active {
-
             display: block;
-
         }
 
 
@@ -1456,7 +1392,8 @@
 
             .hero-title {
 
-                font-size: 22px;
+                font-size:
+                    22px;
 
             }
 
@@ -1469,7 +1406,6 @@
             }
 
         }
-
 
     </style>
 
@@ -1505,7 +1441,6 @@
                     class="brand-logo"
                 >
 
-
                 <span class="brand-name">
                     Ethernet App
                 </span>
@@ -1539,7 +1474,6 @@
     </header>
 
 
-
     <!-- =========================================================
          LOADING
     ========================================================== -->
@@ -1554,7 +1488,6 @@
     </div>
 
 
-
     <!-- =========================================================
          SIDEBAR
     ========================================================== -->
@@ -1563,7 +1496,6 @@
         class="sidebar"
         id="sidebar"
     >
-
 
         <div class="sidebar-section">
             Navegación
@@ -1584,7 +1516,6 @@
 
         <div class="nav">
 
-
             <div
                 class="nav-item active"
                 id="navInicio"
@@ -1595,13 +1526,16 @@
                     🏠
                 </span>
 
-                Inicio
+                <span>
+                    Inicio
+                </span>
 
             </div>
 
 
             <div
                 class="nav-item"
+                id="navBuscar"
                 onclick="activarBusqueda()"
             >
 
@@ -1609,10 +1543,11 @@
                     🔎
                 </span>
 
-                Buscar
+                <span>
+                    Buscar
+                </span>
 
             </div>
-
 
         </div>
 
@@ -1628,16 +1563,12 @@
         >
 
             <div class="nav-item">
-
                 Cargando categorías...
-
             </div>
 
         </div>
 
-
     </aside>
-
 
 
     <!-- =========================================================
@@ -1646,19 +1577,16 @@
 
     <main class="main">
 
-
         <div class="content">
 
 
-            <!-- =====================================================
+            <!-- =================================================
                  HOME
-            ====================================================== -->
+            ================================================== -->
 
             <section id="home">
 
-
                 <div class="hero">
-
 
                     <h1 class="hero-title">
                         Manual Operativo
@@ -1709,9 +1637,7 @@
 
                     </div>
 
-
                 </div>
-
 
 
                 <!-- =================================================
@@ -1719,7 +1645,6 @@
                 ================================================== -->
 
                 <div class="stats">
-
 
                     <div class="stat">
 
@@ -1736,7 +1661,6 @@
                         </div>
 
                     </div>
-
 
 
                     <div class="stat">
@@ -1756,7 +1680,6 @@
                     </div>
 
 
-
                     <div class="stat">
 
                         <div
@@ -1773,9 +1696,7 @@
 
                     </div>
 
-
                 </div>
-
 
 
                 <!-- =================================================
@@ -1784,8 +1705,10 @@
 
                 <div class="results-header">
 
-
-                    <div class="results-title">
+                    <div
+                        class="results-title"
+                        id="resultsTitle"
+                    >
                         Documentación
                     </div>
 
@@ -1797,29 +1720,24 @@
                         Cargando...
                     </div>
 
-
                 </div>
 
 
                 <div id="resultados"></div>
 
-
             </section>
 
 
-
-            <!-- =====================================================
+            <!-- =================================================
                  DOCUMENT VIEWER
-            ====================================================== -->
+            ================================================== -->
 
             <section
                 class="document"
                 id="documento"
             >
 
-
                 <div class="document-header">
-
 
                     <button
                         class="back"
@@ -1838,7 +1756,6 @@
                         Abrir en GitHub
                     </a>
 
-
                 </div>
 
 
@@ -1848,15 +1765,11 @@
                 >
                 </article>
 
-
             </section>
-
 
         </div>
 
-
     </main>
-
 
 
     <!-- =========================================================
@@ -1864,7 +1777,6 @@
     ========================================================== -->
 
     <script>
-
 
         /* =========================================================
            CONFIGURACIÓN
@@ -1882,8 +1794,8 @@
             "main";
 
 
-        const API =
-            `https://api.github.com/repos/${OWNER}/${REPO}/contents/doc`;
+        const INDEX_URL =
+            "./index.json";
 
 
         const README_URL =
@@ -1894,16 +1806,6 @@
             `https://github.com/${OWNER}/${REPO}/blob/${BRANCH}/`;
 
 
-        /*
-         * index.json queda preparado para una futura
-         * carga todavía más rápida.
-         */
-
-        const INDEX_URL =
-            "./index.json";
-
-
-
         /* =========================================================
            VARIABLES
         ========================================================== */
@@ -1912,10 +1814,55 @@
 
         let categorias = [];
 
-        let readmeCache = null;
+        let readmeCache = "";
 
         let searchTimer = null;
 
+
+        /* =========================================================
+           ELEMENTOS
+        ========================================================== */
+
+        const buscador =
+            document.getElementById(
+                "buscador"
+            );
+
+
+        const clearSearch =
+            document.getElementById(
+                "clearSearch"
+            );
+
+
+        const resultados =
+            document.getElementById(
+                "resultados"
+            );
+
+
+        const status =
+            document.getElementById(
+                "status"
+            );
+
+
+        const estado =
+            document.getElementById(
+                "estado"
+            );
+
+
+        const loading =
+            document.getElementById(
+                "loadingBar"
+            );
+
+
+        const headerStatus =
+            document.getElementById(
+                "headerStatus"
+            );
 
 
         /* =========================================================
@@ -1924,84 +1871,42 @@
 
         async function iniciar() {
 
-            const status =
-                document.getElementById("status");
-
-
-            const estado =
-                document.getElementById("estado");
-
-
-            const loading =
-                document.getElementById("loadingBar");
-
-
-            const headerStatus =
-                document.getElementById(
-                    "headerStatus"
-                );
-
-
             try {
 
-                loading.classList.add(
-                    "active"
-                );
-
+                loading.classList.add("active");
 
                 status.textContent =
                     "Cargando documentación...";
 
-
                 headerStatus.textContent =
                     "Cargando...";
-
 
                 estado.textContent =
                     "...";
 
 
                 /*
-                 * Intentamos primero index.json.
+                 * Primero cargamos index.json.
                  *
-                 * Si existe, es el método más rápido.
+                 * Este archivo contiene todos los documentos
+                 * de la carpeta /doc.
                  */
 
-                let cargadoDesdeIndex =
-                    await cargarDesdeIndex();
+                await cargarIndex();
 
 
                 /*
-                 * Si no existe index.json,
-                 * usamos GitHub como respaldo.
+                 * Luego cargamos README.md.
+                 *
+                 * De aquí obtenemos las categorías.
                  */
 
-                if (!cargadoDesdeIndex) {
-
-                    await cargarDocumentosGitHub();
-
-                }
+                await cargarCategorias();
 
 
                 /*
-                 * README y documentos en paralelo.
+                 * Actualizamos estadísticas.
                  */
-
-                try {
-
-                    await cargarCategorias();
-
-                } catch (error) {
-
-                    console.warn(
-                        "No se pudo cargar README:",
-                        error
-                    );
-
-                    categorias = [];
-
-                }
-
 
                 document.getElementById(
                     "cantidad-documentos"
@@ -2047,9 +1952,7 @@
                     "Error al cargar";
 
 
-                document.getElementById(
-                    "resultados"
-                ).innerHTML = `
+                resultados.innerHTML = `
 
                     <div class="empty">
 
@@ -2069,188 +1972,73 @@
 
             } finally {
 
-                loading.classList.remove(
-                    "active"
-                );
+                loading.classList.remove("active");
 
             }
 
         }
-
 
 
         /* =========================================================
            CARGAR INDEX.JSON
         ========================================================== */
 
-        async function cargarDesdeIndex() {
-
-            try {
-
-                const respuesta =
-                    await fetch(
-                        `${INDEX_URL}?v=${Date.now()}`
-                    );
-
-
-                if (!respuesta.ok) {
-
-                    return false;
-
-                }
-
-
-                const data =
-                    await respuesta.json();
-
-
-                if (
-                    !Array.isArray(data)
-                ) {
-
-                    return false;
-
-                }
-
-
-                documentos =
-                    data.map(
-                        documento => ({
-
-                            nombre:
-                                documento.nombre,
-
-                            path:
-                                documento.path,
-
-                            contenido:
-                                documento.contenido || "",
-
-                            url:
-                                documento.url ||
-                                `https://raw.githubusercontent.com/${OWNER}/${REPO}/${BRANCH}/${documento.path}`
-
-                        })
-                    );
-
-
-                documentos.sort(
-                    (a, b) =>
-                        a.nombre.localeCompare(
-                            b.nombre,
-                            "es"
-                        )
-                );
-
-
-                console.log(
-                    "Documentación cargada desde index.json"
-                );
-
-
-                return true;
-
-
-            } catch (error) {
-
-                console.warn(
-                    "index.json no disponible."
-                );
-
-
-                return false;
-
-            }
-
-        }
-
-
-
-        /* =========================================================
-           CARGAR DESDE GITHUB
-        ========================================================== */
-
-        async function cargarDocumentosGitHub() {
+        async function cargarIndex() {
 
             const respuesta =
                 await fetch(
-                    API
+                    `${INDEX_URL}?v=${Date.now()}`
                 );
 
 
             if (!respuesta.ok) {
 
                 throw new Error(
-                    `GitHub API respondió ${respuesta.status}`
+                    `No se pudo cargar index.json (${respuesta.status})`
                 );
 
             }
 
 
-            const archivos =
+            const data =
                 await respuesta.json();
 
 
-            documentos = [];
+            if (!Array.isArray(data)) {
+
+                throw new Error(
+                    "index.json no contiene una lista válida"
+                );
+
+            }
 
 
-            /*
-             * Cargar archivos y carpetas.
-             */
+            documentos =
+                data
+                    .filter(
+                        documento =>
+                            documento &&
+                            documento.path &&
+                            documento.nombre
+                    )
+                    .map(
+                        documento => ({
 
-            await recorrerCarpeta(
-                archivos
-            );
+                            nombre:
+                                documento.nombre,
 
+                            path:
+                                normalizarRuta(
+                                    documento.path
+                                ),
 
-            /*
-             * Descargar los documentos
-             * en paralelo.
-             */
+                            contenido:
+                                String(
+                                    documento.contenido || ""
+                                )
 
-            await Promise.all(
-
-                documentos.map(
-                    async documento => {
-
-                        try {
-
-                            const respuesta =
-                                await fetch(
-                                    documento.url
-                                );
-
-
-                            if (!respuesta.ok) {
-
-                                throw new Error(
-                                    respuesta.status
-                                );
-
-                            }
-
-
-                            documento.contenido =
-                                await respuesta.text();
-
-
-                        } catch (error) {
-
-                            console.warn(
-                                "No se pudo cargar:",
-                                documento.path
-                            );
-
-
-                            documento.contenido =
-                                "";
-
-                        }
-
-                    }
-                )
-
-            );
+                        })
+                    );
 
 
             documentos.sort(
@@ -2264,99 +2052,8 @@
         }
 
 
-
         /* =========================================================
-           RECORRER CARPETAS
-        ========================================================== */
-
-        async function recorrerCarpeta(
-            archivos
-        ) {
-
-            for (
-                const archivo of archivos
-            ) {
-
-
-                if (
-
-                    archivo.type === "file" &&
-
-                    archivo.name
-                        .toLowerCase()
-                        .endsWith(".md")
-
-                ) {
-
-                    documentos.push({
-
-                        nombre:
-                            archivo.name
-                                .replace(
-                                    /\.md$/i,
-                                    ""
-                                ),
-
-                        path:
-                            archivo.path,
-
-                        url:
-                            archivo.download_url,
-
-                        contenido:
-                            null
-
-                    });
-
-
-                    continue;
-
-                }
-
-
-                if (
-                    archivo.type === "dir"
-                ) {
-
-                    try {
-
-                        const respuesta =
-                            await fetch(
-                                archivo.url
-                            );
-
-
-                        if (!respuesta.ok)
-                            continue;
-
-
-                        const contenido =
-                            await respuesta.json();
-
-
-                        await recorrerCarpeta(
-                            contenido
-                        );
-
-                    } catch (error) {
-
-                        console.warn(
-                            "No se pudo leer:",
-                            archivo.path
-                        );
-
-                    }
-
-                }
-
-            }
-
-        }
-
-
-
-        /* =========================================================
-           CATEGORÍAS
+           CARGAR README
         ========================================================== */
 
         async function cargarCategorias() {
@@ -2391,24 +2088,29 @@
         }
 
 
+        /* =========================================================
+           OBTENER CATEGORÍAS
+        ========================================================== */
 
-        function obtenerCategorias(
-            markdown
-        ) {
+        function obtenerCategorias(markdown) {
 
             const resultado = [];
 
             const lineas =
-                markdown.split("\n");
+                markdown.split(/\r?\n/);
 
 
-            for (
-                const linea of lineas
-            ) {
+            for (const linea of lineas) {
+
+                /*
+                 * Busca títulos:
+                 *
+                 * ## Categoría
+                 */
 
                 const match =
                     linea.match(
-                        /^##\s+(.+)$/
+                        /^##\s+(.+?)\s*$/
                     );
 
 
@@ -2416,12 +2118,30 @@
                     continue;
 
 
-                resultado.push({
+                const nombre =
+                    limpiarEmoji(
+                        match[1]
+                    );
 
-                    nombre:
-                        match[1].trim()
 
-                });
+                /*
+                 * Evitamos duplicados.
+                 */
+
+                if (
+                    !resultado.some(
+                        categoria =>
+                            categoria.nombre
+                                .toLowerCase() ===
+                            nombre.toLowerCase()
+                    )
+                ) {
+
+                    resultado.push({
+                        nombre
+                    });
+
+                }
 
             }
 
@@ -2429,7 +2149,6 @@
             return resultado;
 
         }
-
 
 
         /* =========================================================
@@ -2455,7 +2174,9 @@
 
                     <div class="nav-item">
 
-                        Sin categorías
+                        <span>
+                            Sin categorías
+                        </span>
 
                     </div>
 
@@ -2479,6 +2200,10 @@
                         "nav-item";
 
 
+                    elemento.dataset.categoria =
+                        categoria.nombre;
+
+
                     elemento.innerHTML = `
 
                         <span class="category-icon">
@@ -2487,20 +2212,23 @@
 
                         <span>
                             ${escapeHTML(
-                                limpiarEmoji(
-                                    categoria.nombre
-                                )
+                                categoria.nombre
                             )}
                         </span>
 
                     `;
 
 
-                    elemento.onclick =
-                        () =>
+                    elemento.addEventListener(
+                        "click",
+                        () => {
+
                             filtrarCategoria(
-                                categoria
+                                categoria.nombre
                             );
+
+                        }
+                    );
 
 
                     contenedor.appendChild(
@@ -2513,59 +2241,49 @@
         }
 
 
-
         /* =========================================================
            DOCUMENTOS INICIALES
         ========================================================== */
 
         function mostrarDocumentosIniciales() {
 
-            const resultados =
-                documentos.map(
-                    documento => ({
+            const lista =
+                documentos
+                    .slice(
+                        0,
+                        20
+                    )
+                    .map(
+                        documento => ({
 
-                        documento,
+                            documento,
 
-                        contenido:
-                            documento.contenido || "",
+                            contenido:
+                                documento.contenido,
 
-                        puntos: 0
+                            puntos: 0
 
-                    })
-                );
+                        })
+                    );
 
 
-            /*
-             * Mostramos máximo 20 inicialmente.
-             */
+            document.getElementById(
+                "resultsTitle"
+            ).textContent =
+                "Documentación";
+
 
             mostrarResultados(
-                resultados.slice(
-                    0,
-                    20
-                ),
+                lista,
                 ""
             );
 
         }
 
 
-
         /* =========================================================
            BUSCADOR
         ========================================================== */
-
-        const buscador =
-            document.getElementById(
-                "buscador"
-            );
-
-
-        const clearSearch =
-            document.getElementById(
-                "clearSearch"
-            );
-
 
         buscador.addEventListener(
             "input",
@@ -2596,9 +2314,7 @@
 
                                 mostrarDocumentosIniciales();
 
-                                document.getElementById(
-                                    "status"
-                                ).textContent =
+                                status.textContent =
                                     `${documentos.length} documentos disponibles`;
 
                                 return;
@@ -2618,7 +2334,6 @@
         );
 
 
-
         /* =========================================================
            LIMPIAR BUSCADOR
         ========================================================== */
@@ -2632,12 +2347,13 @@
                 clearSearch.style.display =
                     "none";
 
+
                 mostrarDocumentosIniciales();
 
-                document.getElementById(
-                    "status"
-                ).textContent =
+
+                status.textContent =
                     `${documentos.length} documentos disponibles`;
+
 
                 buscador.focus();
 
@@ -2645,14 +2361,11 @@
         );
 
 
-
         /* =========================================================
-           BUSCAR
+           BUSCAR DOCUMENTOS
         ========================================================== */
 
-        function buscarDocumentos(
-            texto
-        ) {
+        function buscarDocumentos(texto) {
 
             const palabras =
                 texto
@@ -2660,13 +2373,13 @@
                     .filter(Boolean);
 
 
-            const resultados = [];
+            const resultadosEncontrados = [];
 
 
             /*
-             * La búsqueda es 100% local.
+             * La búsqueda es completamente LOCAL.
              *
-             * NO se consulta GitHub.
+             * No se consulta GitHub.
              */
 
             for (
@@ -2708,11 +2421,15 @@
                 }
 
 
+                /*
+                 * Todas las palabras tienen que aparecer.
+                 */
+
                 if (
                     puntos === palabras.length
                 ) {
 
-                    resultados.push({
+                    resultadosEncontrados.push({
 
                         documento,
 
@@ -2727,7 +2444,7 @@
             }
 
 
-            resultados.sort(
+            resultadosEncontrados.sort(
                 (a, b) => {
 
                     if (
@@ -2753,19 +2470,22 @@
             );
 
 
+            document.getElementById(
+                "resultsTitle"
+            ).textContent =
+                "Resultados de búsqueda";
+
+
             mostrarResultados(
-                resultados,
+                resultadosEncontrados,
                 texto
             );
 
 
-            document.getElementById(
-                "status"
-            ).textContent =
-                `${resultados.length} resultado(s)`;
+            status.textContent =
+                `${resultadosEncontrados.length} resultado(s)`;
 
         }
-
 
 
         /* =========================================================
@@ -2773,24 +2493,18 @@
         ========================================================== */
 
         function mostrarResultados(
-            resultados,
+            resultadosLista,
             texto
         ) {
 
-            const contenedor =
-                document.getElementById(
-                    "resultados"
-                );
-
-
-            contenedor.innerHTML = "";
+            resultados.innerHTML = "";
 
 
             if (
-                resultados.length === 0
+                resultadosLista.length === 0
             ) {
 
-                contenedor.innerHTML = `
+                resultados.innerHTML = `
 
                     <div class="empty">
 
@@ -2822,7 +2536,7 @@
             }
 
 
-            resultados.forEach(
+            resultadosLista.forEach(
                 resultado => {
 
                     const fragmento =
@@ -2904,7 +2618,7 @@
                         );
 
 
-                    contenedor.appendChild(
+                    resultados.appendChild(
                         elemento
                     );
 
@@ -2914,9 +2628,8 @@
         }
 
 
-
         /* =========================================================
-           FRAGMENTO
+           OBTENER FRAGMENTO
         ========================================================== */
 
         function obtenerFragmento(
@@ -2925,7 +2638,7 @@
         ) {
 
             const limpio =
-                contenido
+                String(contenido)
                     .replace(
                         /[#>*_`]/g,
                         " "
@@ -2947,12 +2660,43 @@
             }
 
 
-            const posicion =
-                limpio
-                    .toLowerCase()
-                    .indexOf(
-                        texto.toLowerCase()
-                    );
+            /*
+             * Buscamos cualquiera de las palabras.
+             */
+
+            const palabras =
+                texto
+                    .split(/\s+/)
+                    .filter(Boolean);
+
+
+            let posicion = -1;
+
+
+            for (
+                const palabra of palabras
+            ) {
+
+                const encontrada =
+                    limpio
+                        .toLowerCase()
+                        .indexOf(
+                            palabra.toLowerCase()
+                        );
+
+
+                if (
+                    encontrada !== -1
+                ) {
+
+                    posicion =
+                        encontrada;
+
+                    break;
+
+                }
+
+            }
 
 
             if (
@@ -2976,13 +2720,10 @@
 
             return limpio.substring(
                 inicio,
-                posicion +
-                texto.length +
-                250
+                posicion + 380
             );
 
         }
-
 
 
         /* =========================================================
@@ -2998,6 +2739,10 @@
                 escapeHTML(
                     texto
                 );
+
+
+            if (!busqueda)
+                return resultado;
 
 
             const palabras =
@@ -3033,14 +2778,11 @@
         }
 
 
-
         /* =========================================================
            ABRIR DOCUMENTO
         ========================================================== */
 
-        function abrirDocumento(
-            path
-        ) {
+        function abrirDocumento(path) {
 
             document.getElementById(
                 "home"
@@ -3067,7 +2809,12 @@
             const documento =
                 documentos.find(
                     item =>
-                        item.path === path
+                        normalizarRuta(
+                            item.path
+                        ) ===
+                        normalizarRuta(
+                            path
+                        )
                 );
 
 
@@ -3092,13 +2839,9 @@
 
             try {
 
-                const markdown =
-                    documento.contenido || "";
-
-
                 contenido.innerHTML =
                     marked.parse(
-                        markdown
+                        documento.contenido || ""
                     );
 
 
@@ -3106,7 +2849,7 @@
                     "linkGithub"
                 ).href =
                     GITHUB_URL +
-                    path
+                    documento.path
                         .split("/")
                         .map(
                             encodeURIComponent
@@ -3142,28 +2885,28 @@
         }
 
 
-
         /* =========================================================
            FILTRAR CATEGORÍA
         ========================================================== */
 
-        async function filtrarCategoria(
+        function filtrarCategoria(
             categoria
         ) {
-
-            if (!readmeCache)
-                return;
-
 
             const rutas =
                 obtenerDocumentosDeCategoria(
                     readmeCache,
-                    categoria.nombre
+                    categoria
                 );
 
 
-            const resultados = [];
+            const resultadosCategoria = [];
 
+
+            /*
+             * Buscamos los documentos de la categoría
+             * dentro de index.json.
+             */
 
             for (
                 const ruta of rutas
@@ -3185,7 +2928,7 @@
                     continue;
 
 
-                resultados.push({
+                resultadosCategoria.push({
 
                     documento,
 
@@ -3199,31 +2942,71 @@
             }
 
 
+            /*
+             * Limpiar búsqueda.
+             */
+
             buscador.value = "";
 
             clearSearch.style.display =
                 "none";
 
 
+            document.getElementById(
+                "resultsTitle"
+            ).textContent =
+                categoria;
+
+
             mostrarResultados(
-                resultados,
+                resultadosCategoria,
                 ""
             );
 
 
+            status.textContent =
+                `${resultadosCategoria.length} documentos en ${categoria}`;
+
+
+            /*
+             * Volvemos a la página principal
+             * por si estábamos viendo un documento.
+             */
+
             document.getElementById(
-                "status"
-            ).textContent =
-                `${resultados.length} documentos en ${limpiarEmoji(
-                    categoria.nombre
-                )}`;
+                "home"
+            ).style.display =
+                "block";
+
+
+            document.getElementById(
+                "documento"
+            ).style.display =
+                "none";
+
+
+            window.scrollTo(
+                0,
+                0
+            );
+
+
+            /*
+             * Cerrar menú en móvil.
+             */
+
+            document
+                .getElementById(
+                    "sidebar"
+                )
+                .classList
+                .remove("open");
 
         }
 
 
-
         /* =========================================================
-           LEER CATEGORÍAS DEL README
+           LEER DOCUMENTOS DE CATEGORÍA
         ========================================================== */
 
         function obtenerDocumentosDeCategoria(
@@ -3232,7 +3015,7 @@
         ) {
 
             const lineas =
-                markdown.split("\n");
+                markdown.split(/\r?\n/);
 
 
             let dentro = false;
@@ -3244,20 +3027,29 @@
                 const linea of lineas
             ) {
 
+                /*
+                 * Detectar categoría.
+                 */
+
                 const heading =
                     linea.match(
-                        /^##\s+(.+)$/
+                        /^##\s+(.+?)\s*$/
                     );
 
 
                 if (heading) {
 
                     const titulo =
-                        heading[1].trim();
+                        limpiarEmoji(
+                            heading[1]
+                        );
 
 
                     dentro =
-                        titulo === categoria;
+                        titulo.trim()
+                            .toLowerCase() ===
+                        categoria.trim()
+                            .toLowerCase();
 
 
                     continue;
@@ -3265,9 +3057,20 @@
                 }
 
 
+                /*
+                 * Si todavía no estamos dentro
+                 * de la categoría, seguimos.
+                 */
+
                 if (!dentro)
                     continue;
 
+
+                /*
+                 * Detectar:
+                 *
+                 * - [DNS](doc/DNS.md)
+                 */
 
                 const enlace =
                     linea.match(
@@ -3283,18 +3086,28 @@
                     enlace[2].trim();
 
 
+                /*
+                 * Eliminar ./ inicial.
+                 */
+
                 ruta =
                     ruta.replace(
-                        /^\.\/+/,
+                        /^\.?\//,
                         ""
                     );
 
 
+                /*
+                 * Eliminar posibles parámetros
+                 * de URL.
+                 */
+
                 ruta =
-                    ruta.replace(
-                        /\\([()[\]])/g,
-                        "$1"
-                    );
+                    ruta.split("#")[0];
+
+
+                ruta =
+                    ruta.split("?")[0];
 
 
                 rutas.push(
@@ -3307,7 +3120,6 @@
             return rutas;
 
         }
-
 
 
         /* =========================================================
@@ -3335,13 +3147,19 @@
             );
 
 
+            document.getElementById(
+                "navBuscar"
+            ).classList.remove(
+                "active"
+            );
+
+
             window.scrollTo(
                 0,
                 0
             );
 
         }
-
 
 
         /* =========================================================
@@ -3352,11 +3170,16 @@
 
             inicio();
 
+            document.getElementById(
+                "navBuscar"
+            ).classList.add(
+                "active"
+            );
+
 
             buscador.focus();
 
         }
-
 
 
         /* =========================================================
@@ -3370,13 +3193,23 @@
             return String(ruta)
 
                 .replace(
-                    /^\.\/+/,
+                    /^\.?\//,
+                    ""
+                )
+
+                .replace(
+                    /^\/+/,
                     ""
                 )
 
                 .replace(
                     /\\/g,
-                    ""
+                    "/"
+                )
+
+                .replace(
+                    /\/+/g,
+                    "/"
                 )
 
                 .trim()
@@ -3384,7 +3217,6 @@
                 .toLowerCase();
 
         }
-
 
 
         /* =========================================================
@@ -3405,7 +3237,6 @@
                 .trim();
 
         }
-
 
 
         /* =========================================================
@@ -3446,7 +3277,6 @@
         }
 
 
-
         /* =========================================================
            ESCAPE REGEX
         ========================================================== */
@@ -3462,7 +3292,6 @@
                 );
 
         }
-
 
 
         /* =========================================================
@@ -3488,7 +3317,6 @@
 
                 }
             );
-
 
 
         /* =========================================================
@@ -3534,7 +3362,6 @@
 
                 }
             );
-
 
 
         /* =========================================================
