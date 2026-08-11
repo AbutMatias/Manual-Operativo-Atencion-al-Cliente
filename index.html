@@ -3240,37 +3240,32 @@ function obtenerDocumentosDeCategoria(
            NORMALIZAR RUTA
         ========================================================== */
 
-        function normalizarRuta(
-            ruta
-        ) {
+      function normalizarRuta(ruta) {
 
-            return String(ruta)
+    let resultado = String(ruta)
+        .trim();
 
-                .replace(
-                    /^\.?\//,
-                    ""
-                )
+    resultado = resultado.replace(
+        /^\.\/+/,
+        ""
+    );
 
-                .replace(
-                    /^\/+/,
-                    ""
-                )
+    resultado = resultado.replace(
+        /\\/g,
+        ""
+    );
 
-                .replace(
-                    /\\/g,
-                    "/"
-                )
+    try {
+        resultado = decodeURIComponent(resultado);
+    } catch (error) {
+        // Si no se puede decodificar,
+        // dejamos la ruta original.
+    }
 
-                .replace(
-                    /\/+/g,
-                    "/"
-                )
-
-                .trim()
-
-                .toLowerCase();
-
-        }
+    return resultado
+        .trim()
+        .toLowerCase();
+}
 
 
         /* =========================================================
