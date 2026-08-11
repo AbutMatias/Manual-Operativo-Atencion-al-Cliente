@@ -1,0 +1,138 @@
+name: Descargar imágenes de documentación
+
+on:
+  push:
+    branches:
+      - main
+
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  descargar-imagenes:
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Descargar repositorio
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Instalar dependencias
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y wget
+
+      - name: Procesar imágenes
+        shell: bash
+        run: |
+
+          mkdir -p doc/imagenes
+
+          echo "Buscando imágenes..."
+
+          find doc -type f -name "*.md" -print0 | while IFS= read -r -d '' archivo
+          do
+
+            echo ""
+            echo "Procesando: $archivo"
+
+            grep -oE 'https://github\.com/user-attachments/assets/[a-zA-Z0-9-]+' "$archivo" | sort -u | while read -r url
+            do
+
+              if [ -z "$url" ]; then
+                continue
+              fi
+
+              id=$(basename "$url")
+
+              archivo_imagen="doc/imagenes/$id"
+
+              echo "Imagen encontrada:"
+              echo "$url"
+
+              if [ -f "$archivo_imagen.png" ]; then
+                echo "Ya existe. Se omite."
+                continue
+              fi
+
+              echo "Descargando..."
+
+              if wget -q "$url" -O "$archivo_imagen"; then
+
+                tipo=$(file --brief --mime-type "$archivo_imagen")
+
+                case "$tipo" in
+
+                  image/jpeg)
+                    mv "$archivo_imagen" "$archivo_imagen.jpg"
+                    nuevo="$archivo_imagen.jpg"
+                    ;;
+
+                  image/png)
+                    mv "$archivo_imagen" "$archivo_imagen.png"
+                    nuevo="$archivo_imagen.png"
+                    ;;
+
+                  image/gif)
+                    mv "$archivo_imagen" "$archivo_imagen.gif"
+                    nuevo="$archivo_imagen.gif"
+                    ;;
+
+                  image/webp)
+                    mv "$archivo_imagen" "$archivo_imagen.webp"
+                    nuevo="$archivo_imagen.webp"
+                    ;;
+
+                  *)
+                    echo "Formato desconocido: $tipo"
+                    rm -f "$archivo_imagen"
+                    continue
+                    ;;
+
+                esac
+
+                nombre=$(basename "$nuevo")
+
+                echo "Guardada como: $nombre"
+
+                ruta_relativa=$(realpath --relative-to="$(dirname "$archivo")" "$nuevo")
+
+                sed -i "s|$url|./$(basename "$ruta_relativa")|g" "$archivo"
+
+              else
+
+                echo "ERROR: No se pudo descargar $url"
+
+              fi
+
+            done
+
+          done
+
+      - name: Mostrar cambios
+        run: |
+          git status
+          git diff --stat
+
+      - name: Guardar cambios
+        run: |
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add doc/
+
+          if git diff --cached --quiet; then
+
+            echo "No hay cambios."
+
+          else
+
+            git commit -m "Actualizar imágenes de documentación"
+            git push
+
+          fi
