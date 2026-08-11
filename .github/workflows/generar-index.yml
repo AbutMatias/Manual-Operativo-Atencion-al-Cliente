@@ -1,68 +1,61 @@
 name: Generar índice de documentación
 
 on:
+
   push:
+
     branches:
       - main
+
     paths:
       - "doc/**/*.md"
-      - "doc/*.md"
+      - "generar_index.py"
       - ".github/workflows/generar-index.yml"
 
+  workflow_dispatch:
+
+
 permissions:
+
   contents: write
 
+
 jobs:
+
   generar-index:
+
     runs-on: ubuntu-latest
 
     steps:
+
       - name: Descargar repositorio
         uses: actions/checkout@v4
 
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+
+        with:
+          python-version: "3.x"
+
+
       - name: Generar index.json
-        run: |
-          python3 <<'PY'
-          import json
-          from pathlib import Path
+        run: python generar_index.py
 
-          carpeta = Path("doc")
-          documentos = []
 
-          for archivo in sorted(carpeta.rglob("*.md")):
-              contenido = archivo.read_text(encoding="utf-8")
+      - name: Verificar cambios
+        run: git diff --stat
 
-              nombre = archivo.stem
-              ruta = archivo.as_posix()
-
-              documentos.append({
-                  "nombre": nombre,
-                  "path": ruta,
-                  "contenido": contenido
-              })
-
-          Path("index.json").write_text(
-              json.dumps(
-                  documentos,
-                  ensure_ascii=False,
-                  indent=2
-              ),
-              encoding="utf-8"
-          )
-
-          print(f"Documentos encontrados: {len(documentos)}")
-          PY
 
       - name: Guardar index.json
         run: |
+
           git config user.name "github-actions[bot]"
+
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
           git add index.json
 
-          if git diff --cached --quiet; then
-            echo "No hay cambios en index.json"
-          else
-            git commit -m "Actualizar índice de documentación"
-            git push
-          fi
+          git diff --cached --quiet || git commit -m "Actualizar índice de documentación"
+
+          git push
