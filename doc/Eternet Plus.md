@@ -59,9 +59,9 @@ Ayuda a disminuir los efectos producidos por elementos que atenúan la señal in
 - Muebles voluminosos.
 - Redes Wi-Fi vecinas.
 
-<img width="450" height="350" alt="image" src="https://github.com/user-attachments/assets/ab0aa16c-760a-4978-b916-3d10c25a11f4" />
+<img width="450" height="350" alt="image" src="./imagenes/ab0aa16c-760a-4978-b916-3d10c25a11f4.png" />
   
-<img width="450" height="350" alt="image" src="https://github.com/user-attachments/assets/bc7a3fec-adc8-4d50-95e3-571435b1e016" />
+<img width="450" height="350" alt="image" src="./imagenes/bc7a3fec-adc8-4d50-95e3-571435b1e016.png" />
 
 ---
 

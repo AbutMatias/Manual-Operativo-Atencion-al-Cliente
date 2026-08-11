@@ -14,7 +14,7 @@ Dentro de la App:
 
 - Ingresar a: **Clientes → Gestionar**
 
-<img width="1855" height="803" alt="image" src="https://github.com/user-attachments/assets/1db10cd0-c743-42ff-8274-608d0c989e0d" />
+<img width="1855" height="803" alt="image" src="./imagenes/1db10cd0-c743-42ff-8274-608d0c989e0d.png" />
 
 
 ---
@@ -23,7 +23,7 @@ Dentro de la App:
 
 - Ingresar el **N° de cliente** a consultar
 
-<img width="1721" height="657" alt="image" src="https://github.com/user-attachments/assets/4f46f1fa-13e1-4213-9567-9f116eedf270" />
+<img width="1721" height="657" alt="image" src="./imagenes/4f46f1fa-13e1-4213-9567-9f116eedf270.png" />
 
 
 ---
@@ -32,7 +32,7 @@ Dentro de la App:
 
 ## 1. Agregar o eliminar contacto
 
-<img width="1770" height="869" alt="image" src="https://github.com/user-attachments/assets/1b5a46d4-1367-4d90-abbb-e26af06bf48a" />
+<img width="1770" height="869" alt="image" src="./imagenes/1b5a46d4-1367-4d90-abbb-e26af06bf48a.png" />
 
 
 - Ir a la solapa **Medios de contacto**
@@ -49,7 +49,7 @@ Importante:
 
 ## 2. Débito automático
 
-<img width="1770" height="889" alt="image" src="https://github.com/user-attachments/assets/7cbb7c05-3d8d-4e7b-92fe-2fed9888e2a4" />
+<img width="1770" height="889" alt="image" src="./imagenes/7cbb7c05-3d8d-4e7b-92fe-2fed9888e2a4.png" />
 
 
 Desde esta sección se puede:
@@ -72,8 +72,8 @@ La App también muestra:
 - Servicio contratado por el cliente
 - Estado del firewall
 
-<img width="1824" height="810" alt="image" src="https://github.com/user-attachments/assets/04c0afd1-7f65-452e-9501-da46283d3c80" />
-<img width="1742" height="821" alt="image" src="https://github.com/user-attachments/assets/aa081392-d270-49d3-a628-3b4740b0b43c" />
+<img width="1824" height="810" alt="image" src="./imagenes/04c0afd1-7f65-452e-9501-da46283d3c80.png" />
+<img width="1742" height="821" alt="image" src="./imagenes/aa081392-d270-49d3-a628-3b4740b0b43c.png" />
 
 
 ---

@@ -38,7 +38,7 @@ Una vez dentro, verificar:
 - Calidad del enlace (CCQ)
 - Interfaces LAN0 / LAN1
 
-<img width="1470" height="850" alt="image" src="https://github.com/user-attachments/assets/17449644-5197-46e5-b87b-f3c08bf28afc" />
+<img width="1470" height="850" alt="image" src="./imagenes/17449644-5197-46e5-b87b-f3c08bf28afc.png" />
 
 ---
 
@@ -75,7 +75,7 @@ Permite ver:
 - Velocidad de enlace
 - Uptime del cliente
 
-<img width="940" height="827" alt="image" src="https://github.com/user-attachments/assets/0e5993aa-eee8-4126-849c-462e229729bc" />
+<img width="940" height="827" alt="image" src="./imagenes/0e5993aa-eee8-4126-849c-462e229729bc.png" />
 
 ---
 
@@ -116,7 +116,7 @@ Muestra las MAC detectadas por interfaz:
 Ubicación:
 - Menú superior derecho → Tools → Ping
 
-<img width="1784" height="820" alt="image" src="https://github.com/user-attachments/assets/b2992550-5e90-4e83-bcd2-8c5e137667bb" />
+<img width="1784" height="820" alt="image" src="./imagenes/b2992550-5e90-4e83-bcd2-8c5e137667bb.png" />
 
 ---
 
@@ -156,7 +156,7 @@ Permite ver y modificar:
 - Solo modificar si se indica por soporte técnico
 - Cambios incorrectos pueden degradar el enlace
 
-<img width="993" height="720" alt="image" src="https://github.com/user-attachments/assets/6a96c101-5996-4585-8dd0-f33e0222ab6f" />
+<img width="993" height="720" alt="image" src="./imagenes/6a96c101-5996-4585-8dd0-f33e0222ab6f.png" />
 
 ---
 
@@ -170,7 +170,7 @@ Permite ver y modificar:
 - Cambio de nombre del dispositivo
 - Cambio de credenciales
   
-<img width="1105" height="849" alt="image" src="https://github.com/user-attachments/assets/9284cea1-df18-420b-90bd-25c7db4e6eeb" />
+<img width="1105" height="849" alt="image" src="./imagenes/9284cea1-df18-420b-90bd-25c7db4e6eeb.png" />
 
 ---
 

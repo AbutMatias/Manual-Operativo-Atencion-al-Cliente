@@ -18,7 +18,7 @@ Disponemos de 2 plataformas principales para registro y comunicación interna:
   - Carga de reclamos
   - Seguimiento interno
  
-    <img width="1917" height="1010" alt="image" src="https://github.com/user-attachments/assets/d95e0cff-21ec-4834-91eb-82d1a73a2ee8" />
+    <img width="1917" height="1010" alt="image" src="./imagenes/d95e0cff-21ec-4834-91eb-82d1a73a2ee8.png" />
 
 ---
 
@@ -31,7 +31,7 @@ Disponemos de 2 plataformas principales para registro y comunicación interna:
   - Adjuntar evidencia (capturas, logs, etc.)
   - Seguimiento de casos
 
-<img width="1529" height="916" alt="image" src="https://github.com/user-attachments/assets/64dba8c3-1a9a-43f3-95f1-c537353c837a" />
+<img width="1529" height="916" alt="image" src="./imagenes/64dba8c3-1a9a-43f3-95f1-c537353c837a.png" />
 
 
 ---
@@ -63,7 +63,7 @@ Importante:
 
 Instructivo:
 https://github.com/Eternet/Atencion.Clientes/blob/main/Documentacion/Manual-Operativo-Atencion-al-Cliente/doc/Carga%20de%20reclamos.md
-<img width="1661" height="869" alt="image" src="https://github.com/user-attachments/assets/f446db79-9a8d-442a-b4ec-acf772d2927b" />
+<img width="1661" height="869" alt="image" src="./imagenes/f446db79-9a8d-442a-b4ec-acf772d2927b.png" />
 
 ---
 
@@ -75,7 +75,7 @@ https://github.com/Eternet/Atencion.Clientes/blob/main/Documentacion/Manual-Oper
 Importante:
 - Estas notas pueden ser utilizadas por otros técnicos o sectores
 - Deben ser claras y completas
-<img width="1578" height="883" alt="image" src="https://github.com/user-attachments/assets/994826f2-2f25-4194-9f3b-1697ae9c3fe5" />
+<img width="1578" height="883" alt="image" src="./imagenes/994826f2-2f25-4194-9f3b-1697ae9c3fe5.png" />
 
 ---
 

@@ -105,7 +105,7 @@ Pueden existir variaciones en la ruta:
 ### Localidades con iBGP
 - Puede aparecer un salto adicional antes del BGP principal
 
-<img width="1635" height="642" alt="image" src="https://github.com/user-attachments/assets/af39b9d5-a281-4e7b-84bd-00e89cf2d43d" />
+<img width="1635" height="642" alt="image" src="./imagenes/af39b9d5-a281-4e7b-84bd-00e89cf2d43d.png" />
 
 ---
 ### Tipos de trazas que pueden encontrarse

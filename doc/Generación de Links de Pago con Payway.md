@@ -16,7 +16,7 @@ https://mi.payway.com.ar
 
 Desde el menú principal seleccionamos **Generar Link de Pago**.
 
-<img width="347" height="67" alt="image" src="https://github.com/user-attachments/assets/7f2aa180-39e2-4f85-9a21-8b8cf6871e40" />
+<img width="347" height="67" alt="image" src="./imagenes/7f2aa180-39e2-4f85-9a21-8b8cf6871e40.png" />
 
 
 ---
@@ -25,7 +25,7 @@ Desde el menú principal seleccionamos **Generar Link de Pago**.
 
 Completar el importe correspondiente al pago que realizará el cliente.
 
-<img width="305" height="115" alt="image" src="https://github.com/user-attachments/assets/b302b4ed-22d7-4eea-ba25-3486425a2592" />
+<img width="305" height="115" alt="image" src="./imagenes/b302b4ed-22d7-4eea-ba25-3486425a2592.png" />
 
 
 ---
@@ -40,7 +40,7 @@ Se debe completar:
 - Correo electrónico
 - Información solicitada por el sistema
 
-<img width="312" height="96" alt="image" src="https://github.com/user-attachments/assets/3e991f85-9be2-4404-8b12-830ca2fc7f65" />
+<img width="312" height="96" alt="image" src="./imagenes/3e991f85-9be2-4404-8b12-830ca2fc7f65.png" />
 
 
 ---
@@ -57,7 +57,7 @@ Tarjetas habilitadas:
 > [!IMPORTANT]
 > No se utilizan tarjetas de débito mediante este procedimiento.
 
-<img width="229" height="159" alt="image" src="https://github.com/user-attachments/assets/874f32b1-6057-49fa-9cda-17761d98366f" />
+<img width="229" height="159" alt="image" src="./imagenes/874f32b1-6057-49fa-9cda-17761d98366f.png" />
 
 
 ---
@@ -68,7 +68,7 @@ El sistema mostrará automáticamente el establecimiento correspondiente según 
 
 Normalmente aparecerá una única opción disponible.
 
-<img width="321" height="84" alt="image" src="https://github.com/user-attachments/assets/e2feee54-5e18-47e4-a9f6-ef1cabbcab28" />
+<img width="321" height="84" alt="image" src="./imagenes/e2feee54-5e18-47e4-a9f6-ef1cabbcab28.png" />
 
 
 ---
@@ -77,7 +77,7 @@ Normalmente aparecerá una única opción disponible.
 
 Elegir la cantidad de cuotas acordada con el cliente.
 
-<img width="327" height="93" alt="image" src="https://github.com/user-attachments/assets/7264b129-fb60-47ec-8bbe-b77e8c4da09a" />
+<img width="327" height="93" alt="image" src="./imagenes/7264b129-fb60-47ec-8bbe-b77e8c4da09a.png" />
 
 ---
 
@@ -85,7 +85,7 @@ Elegir la cantidad de cuotas acordada con el cliente.
 
 Una vez completados todos los campos, presionar **Crear Link**.
 
-<img width="174" height="77" alt="image" src="https://github.com/user-attachments/assets/e2f1fd0b-f096-429b-9fd1-a4a33844249f" />
+<img width="174" height="77" alt="image" src="./imagenes/e2f1fd0b-f096-429b-9fd1-a4a33844249f.png" />
 
 ---
 
@@ -95,7 +95,7 @@ Payway mostrará una pantalla desde donde podremos copiar el enlace y enviarlo a
 
 La opción más práctica es utilizar **Copiar Link**.
 
-<img width="340" height="521" alt="image" src="https://github.com/user-attachments/assets/6a5031df-af3f-4478-90e6-85d34aa14509" />
+<img width="340" height="521" alt="image" src="./imagenes/6a5031df-af3f-4478-90e6-85d34aa14509.png" />
 
 
 ---
@@ -112,7 +112,7 @@ La única diferencia es que:
 > [!IMPORTANT]
 > El pago solo debe registrarse cuando el estado figure como **APROBADO**.
 
-<img width="799" height="83" alt="image" src="https://github.com/user-attachments/assets/6f1fab16-69cc-43bf-8c2a-0510b3431085" />
+<img width="799" height="83" alt="image" src="./imagenes/6f1fab16-69cc-43bf-8c2a-0510b3431085.png" />
 
 
 ---
@@ -125,7 +125,7 @@ Los links pueden encontrarse en distintos estados.
 
 El cliente aún no abrió el link o no inició el pago.
 
-<img width="80" height="30" alt="image" src="https://github.com/user-attachments/assets/449067ec-33e1-4e0d-bab5-e7f73f54b5de" />
+<img width="80" height="30" alt="image" src="./imagenes/449067ec-33e1-4e0d-bab5-e7f73f54b5de.png" />
 
 
 ---
@@ -134,7 +134,7 @@ El cliente aún no abrió el link o no inició el pago.
 
 El pago fue procesado correctamente.
 
-<img width="79" height="29" alt="image" src="https://github.com/user-attachments/assets/4258ae15-3f97-48bb-96e0-2b33b6d10556" />
+<img width="79" height="29" alt="image" src="./imagenes/4258ae15-3f97-48bb-96e0-2b33b6d10556.png" />
 
 
 ---
@@ -143,7 +143,7 @@ El pago fue procesado correctamente.
 
 La entidad emisora o la tarjeta rechazó la operación.
 
-<img width="81" height="29" alt="image" src="https://github.com/user-attachments/assets/be59b425-d7ca-4168-aa6a-ac423e98b8d1" />
+<img width="81" height="29" alt="image" src="./imagenes/be59b425-d7ca-4168-aa6a-ac423e98b8d1.png" />
 
 
 ---
@@ -152,7 +152,7 @@ La entidad emisora o la tarjeta rechazó la operación.
 
 El cliente no abrió el link o dejó vencer el tiempo disponible para completar el pago.
 
-<img width="76" height="30" alt="image" src="https://github.com/user-attachments/assets/93625170-eb4c-43ba-b71d-3b8ba1da92fd" />
+<img width="76" height="30" alt="image" src="./imagenes/93625170-eb4c-43ba-b71d-3b8ba1da92fd.png" />
 
 
 ---
@@ -167,13 +167,13 @@ Para ello:
 2. Seleccionar el link correspondiente.
 3. Visualizar el detalle de la operación.
 
-<img width="1839" height="282" alt="image" src="https://github.com/user-attachments/assets/d060c110-c69b-4615-8ecd-ecf93fc77ba4" />
+<img width="1839" height="282" alt="image" src="./imagenes/d060c110-c69b-4615-8ecd-ecf93fc77ba4.png" />
 
 
-<img width="357" height="444" alt="image" src="https://github.com/user-attachments/assets/21dc3e16-33f6-4334-803a-da5d85748781" />
+<img width="357" height="444" alt="image" src="./imagenes/21dc3e16-33f6-4334-803a-da5d85748781.png" />
 
 
-<img width="1152" height="648" alt="image" src="https://github.com/user-attachments/assets/8140d632-eb24-4770-87f3-6a9406dc2a3e" />
+<img width="1152" height="648" alt="image" src="./imagenes/8140d632-eb24-4770-87f3-6a9406dc2a3e.png" />
 
 
 ---

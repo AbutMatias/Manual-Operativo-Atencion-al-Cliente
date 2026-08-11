@@ -65,7 +65,7 @@ Contiene:
 
 ## Vista General
 
-<img width="1917" height="974" alt="image" src="https://github.com/user-attachments/assets/ffdd08d1-a157-45e4-8bad-df9a3895ca66" />
+<img width="1917" height="974" alt="image" src="./imagenes/ffdd08d1-a157-45e4-8bad-df9a3895ca66.png" />
 
 
 ---
@@ -97,7 +97,7 @@ Dentro del listado podemos visualizar:
 
 Cuando un chat se encuentra asignado, se muestran las iniciales del representante.
 
-<img width="202" height="71" alt="image" src="https://github.com/user-attachments/assets/ff55d87e-4c41-4abc-a32a-82f3d15e2839" />
+<img width="202" height="71" alt="image" src="./imagenes/ff55d87e-4c41-4abc-a32a-82f3d15e2839.png" />
 
 
 ---
@@ -106,7 +106,7 @@ Cuando un chat se encuentra asignado, se muestran las iniciales del representant
 
 Cuando el chatbot está apagado aparece un indicador rojo.
 
-<img width="100" height="100" alt="image" src="https://github.com/user-attachments/assets/76b400b5-0865-446b-863b-68c709dd0770" />
+<img width="100" height="100" alt="image" src="./imagenes/76b400b5-0865-446b-863b-68c709dd0770.png" />
 
 ---
 
@@ -129,7 +129,7 @@ Procedimiento:
 +549XXXXXXXXXX
 ```
 
-<img width="661" height="233" alt="image" src="https://github.com/user-attachments/assets/ddb63c11-3977-419e-80a9-bc16e177b5e1" />
+<img width="661" height="233" alt="image" src="./imagenes/ddb63c11-3977-419e-80a9-bc16e177b5e1.png" />
 
 
 ---
@@ -155,21 +155,21 @@ En la parte superior de cada conversación se muestran distintos accesos rápido
 
 ### Desuscribir cliente
 
-<img width="100" height="100" alt="image" src="https://github.com/user-attachments/assets/eb6a1104-9aa5-45d2-852e-84431d5eef14" />
+<img width="100" height="100" alt="image" src="./imagenes/eb6a1104-9aa5-45d2-852e-84431d5eef14.png" />
 
 
 ---
 
 ### Cliente corporativo
 
-<img width="100" height="100" alt="image" src="https://github.com/user-attachments/assets/cdd9e965-139f-4a38-80db-c856e266f76a" />
+<img width="100" height="100" alt="image" src="./imagenes/cdd9e965-139f-4a38-80db-c856e266f76a.png" />
 
 
 ---
 
 ### Coordinar visita
 
-<img width="100" height="100" alt="image" src="https://github.com/user-attachments/assets/0beb3fa5-ca21-4ee7-87af-52802bb72fb9" />
+<img width="100" height="100" alt="image" src="./imagenes/0beb3fa5-ca21-4ee7-87af-52802bb72fb9.png" />
 
 
 ---
@@ -192,15 +192,15 @@ Imagen: 183988090-d3dd1fe8-f499-4961-bb8a-fac37edcd31e
 
 ### Activar / Desactivar Bot
 
-<img width="100" height="100" alt="image" src="https://github.com/user-attachments/assets/6b3a3720-eae0-4e82-a860-8cf29aea3712" />
-<img width="100" height="100" alt="image" src="https://github.com/user-attachments/assets/3762534b-d52e-4a8a-b1a6-f35dcbecfe2c" />
+<img width="100" height="100" alt="image" src="./imagenes/6b3a3720-eae0-4e82-a860-8cf29aea3712.png" />
+<img width="100" height="100" alt="image" src="./imagenes/3762534b-d52e-4a8a-b1a6-f35dcbecfe2c.png" />
 
 
 ---
 
 ### Menú de opciones
 
-<img width="100" height="100" alt="image" src="https://github.com/user-attachments/assets/18e7fd97-8fe4-4c7f-9139-68ec5fc86da4" />
+<img width="100" height="100" alt="image" src="./imagenes/18e7fd97-8fe4-4c7f-9139-68ec5fc86da4.png" />
 
 
 ---
@@ -217,7 +217,7 @@ Botmaker permite enviar:
 - Emojis
 - Stickers
 
-<img width="279" height="28" alt="image" src="https://github.com/user-attachments/assets/e8b54063-bd7f-4b2b-b237-962fc338df98" />
+<img width="279" height="28" alt="image" src="./imagenes/e8b54063-bd7f-4b2b-b237-962fc338df98.png" />
 
 
 ---
@@ -326,7 +326,7 @@ Cuando un cliente inicia conversación:
 
 ## Ejemplo de autenticación
 
-<img width="1133" height="477" alt="image" src="https://github.com/user-attachments/assets/70f56007-16b2-4231-b12d-a648d697d63b" />
+<img width="1133" height="477" alt="image" src="./imagenes/70f56007-16b2-4231-b12d-a648d697d63b.png" />
 
 
 ---
@@ -374,10 +374,10 @@ Una vez realizado este paso, el sistema ejecutará automáticamente el proceso d
 
 ---
 
-<img width="1196" height="760" alt="image" src="https://github.com/user-attachments/assets/103e57da-de44-481d-a5ef-e5b31afa5759" />
+<img width="1196" height="760" alt="image" src="./imagenes/103e57da-de44-481d-a5ef-e5b31afa5759.png" />
 
 
-<img width="400" height="439" alt="image" src="https://github.com/user-attachments/assets/e5030d45-b7af-4123-8367-a3a2b480069d" />
+<img width="400" height="439" alt="image" src="./imagenes/e5030d45-b7af-4123-8367-a3a2b480069d.png" />
 
 
 ---
@@ -411,7 +411,7 @@ Para simplificar estos casos, se incorporó un acceso rápido dentro de Botmaker
 
 Dentro del chat veremos un ícono con forma de **lápiz**.
 
-<img width="1196" height="760" alt="image" src="https://github.com/user-attachments/assets/7f0089da-4c20-4fe9-9076-a667b4914a73" />
+<img width="1196" height="760" alt="image" src="./imagenes/7f0089da-4c20-4fe9-9076-a667b4914a73.png" />
 
 
 Para registrar correctamente al cliente:
@@ -440,7 +440,7 @@ Botmaker realizará automáticamente el proceso de identificación y actualizar�
 
 ---
 
-<img width="400" height="439" alt="image" src="https://github.com/user-attachments/assets/32eba67a-8fb8-4b05-8479-c5d15f103191" />
+<img width="400" height="439" alt="image" src="./imagenes/32eba67a-8fb8-4b05-8479-c5d15f103191.png" />
 
 
 ---
@@ -474,7 +474,7 @@ Para acceder a las respuestas rápidas:
 2. Entrar en **Conversaciones**.
 3. Seleccionar **Respuestas rápidas y Stickers**.
 
-<img width="437" height="284" alt="image" src="https://github.com/user-attachments/assets/fdfee7ad-6ce2-4b82-8827-ec5a000e8841" />
+<img width="437" height="284" alt="image" src="./imagenes/fdfee7ad-6ce2-4b82-8827-ec5a000e8841.png" />
 
 
 ---
@@ -486,7 +486,7 @@ Para crear un nuevo mensaje:
 1. Hacer clic en el botón **+ Agregar**.
 2. Completar el formulario correspondiente.
 
-<img width="550" height="436" alt="image" src="https://github.com/user-attachments/assets/7d6c398a-9708-40a4-a0a9-7a145e3f2fa9" />
+<img width="550" height="436" alt="image" src="./imagenes/7d6c398a-9708-40a4-a0a9-7a145e3f2fa9.png" />
 
 ---
 
@@ -543,7 +543,7 @@ Cada cola representa un área específica de la empresa.
 
 Disponible para todos los sectores.
 
-<img width="549" height="496" alt="image" src="https://github.com/user-attachments/assets/baaf9b37-be27-4f18-80e5-c7c317cf3f5e" />
+<img width="549" height="496" alt="image" src="./imagenes/baaf9b37-be27-4f18-80e5-c7c317cf3f5e.png" />
 
 
 ---
@@ -552,7 +552,7 @@ Disponible para todos los sectores.
 
 Visible únicamente para el usuario que lo creó.
 
-<img width="552" height="440" alt="image" src="https://github.com/user-attachments/assets/7d101f86-be6d-4744-b542-5fd6d47fb046" />
+<img width="552" height="440" alt="image" src="./imagenes/7d101f86-be6d-4744-b542-5fd6d47fb046.png" />
 
 ---
 
@@ -606,7 +606,7 @@ El archivo debe incluir:
 - Variables adicionales necesarias para la notificación
 
 Estas variables se utilizan luego para completar la plantilla de mensajes.
-<img width="954" height="624" alt="image" src="https://github.com/user-attachments/assets/53b8e498-c7eb-4e0c-be73-3fc182315641" />
+<img width="954" height="624" alt="image" src="./imagenes/53b8e498-c7eb-4e0c-be73-3fc182315641.png" />
 
 ---
 
@@ -634,9 +634,9 @@ Esto permite que cada usuario reciba el mensaje personalizado correctamente.
 
 Se adjunta el archivo Excel y el sistema genera una **vista previa** de los datos.
 
-<img width="956" height="707" alt="image" src="https://github.com/user-attachments/assets/fabd131f-54b9-42a1-b1ce-cd87d2a2b17c" />
+<img width="956" height="707" alt="image" src="./imagenes/fabd131f-54b9-42a1-b1ce-cd87d2a2b17c.png" />
 
-<img width="931" height="638" alt="image" src="https://github.com/user-attachments/assets/51f30505-12fd-43bf-85f6-870e1893565b" />
+<img width="931" height="638" alt="image" src="./imagenes/51f30505-12fd-43bf-85f6-870e1893565b.png" />
 
 ---
 
@@ -696,7 +696,7 @@ Si no existe una campaña adecuada:
 - Hacer clic en **+ Nueva Campaña** (esquina superior derecha).
 - Completar los datos solicitados.
 
-<img width="603" height="491" alt="image" src="https://github.com/user-attachments/assets/48a85cbf-e6be-4c7a-9d11-c815216a0112" />
+<img width="603" height="491" alt="image" src="./imagenes/48a85cbf-e6be-4c7a-9d11-c815216a0112.png" />
 
 
 ---
@@ -742,7 +742,7 @@ En esta sección:
 
 ⚠️ Si faltan datos en el grupo de usuarios, aparecerá una advertencia en rojo.
 
-<img width="424" height="120" alt="image" src="https://github.com/user-attachments/assets/2b165c77-320c-424e-a130-8195d3419d6c" />
+<img width="424" height="120" alt="image" src="./imagenes/2b165c77-320c-424e-a130-8195d3419d6c.png" />
 
 
 ---
@@ -787,7 +787,7 @@ Una vez enviada, se puede monitorear en tiempo real:
 - Leídos
 - Fallidos
 
-<img width="975" height="397" alt="image" src="https://github.com/user-attachments/assets/c062e7c7-417b-4629-9868-01d02d48babe" />
+<img width="975" height="397" alt="image" src="./imagenes/c062e7c7-417b-4629-9868-01d02d48babe.png" />
 
 
 ---

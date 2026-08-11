@@ -49,7 +49,7 @@ Para dar de baja el servicio de Telefonía IP:
    - `El cliente tiene Servicio de Telefonía`
 4. Ir a **Datos Personales**
 5. Guardar los cambios
-<img width="1141" height="608" alt="image" src="https://github.com/user-attachments/assets/9e581d8a-5c44-42ff-814a-f8a3f08098a1" />
+<img width="1141" height="608" alt="image" src="./imagenes/9e581d8a-5c44-42ff-814a-f8a3f08098a1.png" />
 
 ---
 
@@ -68,7 +68,7 @@ Para gestionar la recuperación de equipos:
 Ejemplo de pantalla:
 
 ![Baja servicio](https://github.com/user-attachments/assets/c536c5fa-0540-43ea-846f-1e18f0d6764c)
-<img width="766" height="324" alt="image" src="https://github.com/user-attachments/assets/42783477-623d-4eda-887b-b74e918a16f6" />
+<img width="766" height="324" alt="image" src="./imagenes/42783477-623d-4eda-887b-b74e918a16f6.png" />
 
 
 3. Seleccionar los equipos a retirar:
@@ -78,7 +78,7 @@ Ejemplo de pantalla:
   - ONU
   - Otros equipos instalados
 
-<img width="842" height="234" alt="image" src="https://github.com/user-attachments/assets/0106f65e-8422-49d5-a1b0-dff318465a06" />
+<img width="842" height="234" alt="image" src="./imagenes/0106f65e-8422-49d5-a1b0-dff318465a06.png" />
 
 
 ---

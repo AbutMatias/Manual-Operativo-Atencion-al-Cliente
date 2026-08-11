@@ -142,7 +142,7 @@ Consultar:
 >
 > `Relacionar la instalación con una baja`.
 
-<img width="697" height="672" alt="image" src="https://github.com/user-attachments/assets/fb31c7b1-0022-4f12-ac6f-e37748f90217" />
+<img width="697" height="672" alt="image" src="./imagenes/fb31c7b1-0022-4f12-ac6f-e37748f90217.png" />
 
 
 ---

@@ -16,7 +16,7 @@ Como resultado, WinBox intenta conectarse utilizando esa configuración y la con
 2. Activar la opción **Advanced Mode**.
 
 > Se recomienda mantener siempre habilitado el modo avanzado para disponer de todas las opciones de configuración.
-<img width="864" height="419" alt="image" src="https://github.com/user-attachments/assets/d1f66d26-77e1-4e10-950e-0cd65e5af145" />
+<img width="864" height="419" alt="image" src="./imagenes/d1f66d26-77e1-4e10-950e-0cd65e5af145.png" />
 
 ---
 
@@ -25,7 +25,7 @@ Como resultado, WinBox intenta conectarse utilizando esa configuración y la con
 1. Buscar el campo **RoMON Agent**.
 2. Verificar si contiene una dirección o dispositivo configurado.
 3. Borrar el contenido del campo para dejarlo vacío.
-<img width="821" height="529" alt="image" src="https://github.com/user-attachments/assets/8eba9128-c6cc-4c43-978e-9ba6aaa8e020" />
+<img width="821" height="529" alt="image" src="./imagenes/8eba9128-c6cc-4c43-978e-9ba6aaa8e020.png" />
 
 ---
 

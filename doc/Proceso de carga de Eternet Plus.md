@@ -79,7 +79,7 @@ En todos los campos anteriores:
 2. Valor:
    - U$S 14,80 (convertido a pesos)
 
-<img width="1723" height="499" alt="image" src="https://github.com/user-attachments/assets/f6da0c82-b192-4136-91ee-fe6fd5bfaa0e" />
+<img width="1723" height="499" alt="image" src="./imagenes/f6da0c82-b192-4136-91ee-fe6fd5bfaa0e.png" />
 
 
 ---

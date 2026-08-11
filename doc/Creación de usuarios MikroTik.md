@@ -36,7 +36,7 @@ Una vez dentro del sitio, completar los siguientes campos:
 - Hacer clic en el botón **“Sign up”**
 - Esperar la confirmación del sistema
 
-<img width="296" height="394" alt="image" src="https://github.com/user-attachments/assets/3e11288b-a309-4cb7-b497-727619fc1a26" />
+<img width="296" height="394" alt="image" src="./imagenes/3e11288b-a309-4cb7-b497-727619fc1a26.png" />
 
 ---
 

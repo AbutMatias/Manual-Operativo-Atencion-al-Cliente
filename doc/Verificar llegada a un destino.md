@@ -22,7 +22,7 @@ La primera prueba consiste en comprobar si existe conectividad IP entre el orige
 ping IP_O_DOMINIO
 ```
 
-<img width="554" height="142" alt="image" src="https://github.com/user-attachments/assets/872b2377-f066-4156-b39b-2aedd4b8168d" />
+<img width="554" height="142" alt="image" src="./imagenes/872b2377-f066-4156-b39b-2aedd4b8168d.png" />
 
 
 ### Desde MikroTik
@@ -30,7 +30,7 @@ ping IP_O_DOMINIO
 ```bash
 /tool ping IP_O_DOMINIO
 ```
-<img width="611" height="215" alt="image" src="https://github.com/user-attachments/assets/a4a87b8c-6763-4014-af50-27f06e83105d" />
+<img width="611" height="215" alt="image" src="./imagenes/a4a87b8c-6763-4014-af50-27f06e83105d.png" />
 
 ### Interpretación
 
@@ -59,14 +59,14 @@ La traza permite visualizar el recorrido que realizan los paquetes desde el orig
 ```cmd
 tracert IP_O_DOMINIO
 ```
-<img width="763" height="253" alt="image" src="https://github.com/user-attachments/assets/3ad8fc3a-2f64-4368-af1d-50c85166911d" />
+<img width="763" height="253" alt="image" src="./imagenes/3ad8fc3a-2f64-4368-af1d-50c85166911d.png" />
 
 ### Desde MikroTik
 
 ```bash
 /tool traceroute IP_O_DOMINIO
 ```
-<img width="802" height="398" alt="image" src="https://github.com/user-attachments/assets/5a1aa9d9-0729-4bd0-a912-524a6a893ac3" />
+<img width="802" height="398" alt="image" src="./imagenes/5a1aa9d9-0729-4bd0-a912-524a6a893ac3.png" />
 
 ### ¿Para qué sirve?
 
@@ -125,7 +125,7 @@ Ejemplo:
 ```cmd
 telnet 181.224.xxx.xxx 443
 ```
-<img width="601" height="391" alt="image" src="https://github.com/user-attachments/assets/d12f911e-b2b7-412c-8842-f5e797676455" />
+<img width="601" height="391" alt="image" src="./imagenes/d12f911e-b2b7-412c-8842-f5e797676455.png" />
 
 ### Interpretación
 

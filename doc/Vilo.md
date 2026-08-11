@@ -8,7 +8,7 @@ Para identificar el equipo en sistema:
 
 - Buscar por **MAC address**
 - Confirmar que corresponda al cliente
-<img width="959" height="299" alt="image" src="https://github.com/user-attachments/assets/1bc4b066-54e1-46f2-a0ab-7eda5fc2e67e" />
+<img width="959" height="299" alt="image" src="./imagenes/1bc4b066-54e1-46f2-a0ab-7eda5fc2e67e.png" />
 
 ---
 
@@ -92,8 +92,8 @@ El uptime indica el tiempo encendido del equipo.
 - No siempre indica interrupciones reales de internet
 - Puede reiniciarse por cortes eléctricos
 - Útil para detectar posibles problemas eléctricos
-<img width="1383" height="309" alt="image" src="https://github.com/user-attachments/assets/c1102320-d63d-43fe-979c-d8a66aed2b5a" />
-<img width="931" height="595" alt="image" src="https://github.com/user-attachments/assets/b708d4fe-892d-47b2-8d29-94562fc9e6e4" />
+<img width="1383" height="309" alt="image" src="./imagenes/c1102320-d63d-43fe-979c-d8a66aed2b5a.png" />
+<img width="931" height="595" alt="image" src="./imagenes/b708d4fe-892d-47b2-8d29-94562fc9e6e4.png" />
 
 ---
 
@@ -104,7 +104,7 @@ El uptime indica el tiempo encendido del equipo.
 ### Requisito:
 
 - 12V 1A
-<img width="696" height="227" alt="image" src="https://github.com/user-attachments/assets/b8b16532-31a5-4854-9954-f1ac7c19c8a0" />
+<img width="696" height="227" alt="image" src="./imagenes/b8b16532-31a5-4854-9954-f1ac7c19c8a0.png" />
 
 ---
 
@@ -124,7 +124,7 @@ Permite ver:
 - Nombre del dispositivo
 - Señal
 - Tipo de conexión (2.4 GHz / 5 GHz)
-<img width="1487" height="456" alt="image" src="https://github.com/user-attachments/assets/d45b019e-20e2-49ff-8868-b8ec62fd3094" />
+<img width="1487" height="456" alt="image" src="./imagenes/d45b019e-20e2-49ff-8868-b8ec62fd3094.png" />
 
 ---
 
@@ -143,8 +143,8 @@ Permite ver:
 
 - Usar menú Firmware Update
 - Mantener todos los equipos en la misma versión
-<img width="1316" height="212" alt="image" src="https://github.com/user-attachments/assets/092e6137-d34f-487d-befb-3891f2794ea9" />
-<img width="409" height="375" alt="image" src="https://github.com/user-attachments/assets/0356e12b-2886-41b1-ad28-8e8a86d66881" />
+<img width="1316" height="212" alt="image" src="./imagenes/092e6137-d34f-487d-befb-3891f2794ea9.png" />
+<img width="409" height="375" alt="image" src="./imagenes/0356e12b-2886-41b1-ad28-8e8a86d66881.png" />
 
 ---
 
@@ -157,7 +157,7 @@ Permite ver:
 ---
 
 ## 8. Prueba de velocidad interna
-<img width="1605" height="191" alt="image" src="https://github.com/user-attachments/assets/c0922147-43d3-4a12-affe-1fd24e81d03e" />
+<img width="1605" height="191" alt="image" src="./imagenes/c0922147-43d3-4a12-affe-1fd24e81d03e.png" />
 
 ---
 
@@ -183,12 +183,12 @@ Permite ver:
 
 - Si la subida falla:
   - El servicio puede estar severamente afectado
-<img width="859" height="347" alt="image" src="https://github.com/user-attachments/assets/8807c7e0-638f-46b8-9d31-0b4b72bb2b62" />
+<img width="859" height="347" alt="image" src="./imagenes/8807c7e0-638f-46b8-9d31-0b4b72bb2b62.png" />
 
 ---
 
 ## 9. Redes WiFi
-<img width="430" height="521" alt="image" src="https://github.com/user-attachments/assets/42f2e529-74f7-4105-a980-2d237aa3814e" />
+<img width="430" height="521" alt="image" src="./imagenes/42f2e529-74f7-4105-a980-2d237aa3814e.png" />
 
 ---
 
@@ -207,7 +207,7 @@ Permite ver:
 ---
 
 ## 10. Canales WiFi
-<img width="379" height="858" alt="image" src="https://github.com/user-attachments/assets/dbcfcfd7-df9e-4616-b6c8-788287fa5dae" />
+<img width="379" height="858" alt="image" src="./imagenes/dbcfcfd7-df9e-4616-b6c8-788287fa5dae.png" />
 
 ---
 
@@ -238,7 +238,7 @@ Permite ver:
 ---
 
 ## 11. Reinicio del equipo
-<img width="641" height="306" alt="image" src="https://github.com/user-attachments/assets/613bcf87-0588-439e-8d19-65c07382d42e" />
+<img width="641" height="306" alt="image" src="./imagenes/613bcf87-0588-439e-8d19-65c07382d42e.png" />
 
 ---
 
@@ -272,7 +272,7 @@ Permite ver:
 ---
 
 ## 13. Conexión cableada (Windows)
-<img width="417" height="213" alt="image" src="https://github.com/user-attachments/assets/3594ba22-2930-4bb3-9cce-e573b22e2455" />
+<img width="417" height="213" alt="image" src="./imagenes/3594ba22-2930-4bb3-9cce-e573b22e2455.png" />
 
 ---
 
@@ -281,8 +281,8 @@ Permite ver:
 - Ejecutar: `ncpa.cpl`
 - Abrir estado de conexión
 - Revisar velocidad de enlace
-<img width="985" height="591" alt="image" src="https://github.com/user-attachments/assets/ab6aa05e-282e-4e2b-af45-7f6106eaec92" />
-<img width="985" height="591" alt="image" src="https://github.com/user-attachments/assets/f2047e1a-df24-4c2f-9435-2959e71c8bed" />
+<img width="985" height="591" alt="image" src="./imagenes/ab6aa05e-282e-4e2b-af45-7f6106eaec92.png" />
+<img width="985" height="591" alt="image" src="./imagenes/f2047e1a-df24-4c2f-9435-2959e71c8bed.png" />
 
 
 
@@ -298,8 +298,8 @@ Permite ver:
 ## 14. Reset de fábrica
 
 ---
-<img width="1653" height="303" alt="image" src="https://github.com/user-attachments/assets/a1998f30-25a3-47cb-8aee-8dd7b0efd599" />
-<img width="443" height="168" alt="image" src="https://github.com/user-attachments/assets/738621b0-d184-4a1e-a31e-aea0b4244e6a" />
+<img width="1653" height="303" alt="image" src="./imagenes/a1998f30-25a3-47cb-8aee-8dd7b0efd599.png" />
+<img width="443" height="168" alt="image" src="./imagenes/738621b0-d184-4a1e-a31e-aea0b4244e6a.png" />
 
 
 ### IMPORTANTE:
@@ -312,7 +312,7 @@ Permite ver:
 ## 15. Consumo en tiempo real
 
 ---
-<img width="768" height="531" alt="image" src="https://github.com/user-attachments/assets/5f401ea8-0214-4d35-81a0-75a3b5409eec" />
+<img width="768" height="531" alt="image" src="./imagenes/5f401ea8-0214-4d35-81a0-75a3b5409eec.png" />
 
 - Se puede visualizar tráfico desde el sistema Hotspot
 - Permite ver consumo del cliente en vivo
@@ -325,13 +325,13 @@ Permite ver:
 ## 1. Ingresar al sistema
 - Abrir la web: https://isp.viloliving.com/
 - Iniciar sesión con el usuario asignado.
-<img width="960" height="433" alt="image" src="https://github.com/user-attachments/assets/b5d55786-ae1d-42bc-a487-909b230c048e" />
+<img width="960" height="433" alt="image" src="./imagenes/b5d55786-ae1d-42bc-a487-909b230c048e.png" />
 
 ---
 
 ## 2. Pantalla principal (Wi-Fi Networks)
 Al ingresar vas a ver todos los clientes activos.
-<img width="1877" height="708" alt="image" src="https://github.com/user-attachments/assets/66f96e5e-bffa-4704-af29-3e0b53db99d7" />
+<img width="1877" height="708" alt="image" src="./imagenes/66f96e5e-bffa-4704-af29-3e0b53db99d7.png" />
 
 **Campos importantes:**
 - Customer ID: identifica al cliente
@@ -343,7 +343,7 @@ Al ingresar vas a ver todos los clientes activos.
 
 ## 3. Entrar a un cliente
 - Hacer clic en **“View”** sobre el cliente
-<img width="1631" height="364" alt="image" src="https://github.com/user-attachments/assets/8a490498-d00f-41da-bc5b-13ac4a146e7d" />
+<img width="1631" height="364" alt="image" src="./imagenes/8a490498-d00f-41da-bc5b-13ac4a146e7d.png" />
 
 Esto abre la administración del cliente.
 
@@ -373,7 +373,7 @@ Lista de dispositivos conectados:
 - Connection: 2.4 GHz / 5 GHz / cable
 - IP Address: IP del dispositivo
 - MAC Address: identificador del dispositivo
-<img width="1644" height="652" alt="image" src="https://github.com/user-attachments/assets/c886f92b-e7dc-46d8-9ef7-25bcdfe7f06b" />
+<img width="1644" height="652" alt="image" src="./imagenes/c886f92b-e7dc-46d8-9ef7-25bcdfe7f06b.png" />
 
 ---
 
@@ -382,7 +382,7 @@ Muestra consumo de internet:
 
 - Wi-Fi Network: consumo total
 - Devices: consumo por dispositivo
-<img width="1628" height="500" alt="image" src="https://github.com/user-attachments/assets/e83bb0d4-b298-42e5-8ebf-c42906958a30" />
+<img width="1628" height="500" alt="image" src="./imagenes/e83bb0d4-b298-42e5-8ebf-c42906958a30.png" />
 
 ---
 
@@ -391,28 +391,28 @@ Configuración de red:
 
 - Band Steering: une o separa 2.4 GHz y 5 GHz
 - Channels: selección manual de canal Wi-Fi
-<img width="418" height="813" alt="image" src="https://github.com/user-attachments/assets/f4a4fa0b-c3fc-49ea-9679-9b8e60246f62" />
+<img width="418" height="813" alt="image" src="./imagenes/f4a4fa0b-c3fc-49ea-9679-9b8e60246f62.png" />
 
 ---
 
 ## 8. Wi-Fi Interference
 - Muestra canal actual
 - Permite optimizar Wi-Fi automáticamente
-<img width="420" height="985" alt="image" src="https://github.com/user-attachments/assets/c03148f2-9a8a-4b2e-8df8-b1eea1f65b40" />
+<img width="420" height="985" alt="image" src="./imagenes/c03148f2-9a8a-4b2e-8df8-b1eea1f65b40.png" />
 
 
 ---
 
 ## 9. Restart Vilos
 - Permite reiniciar los equipos del cliente
-<img width="504" height="369" alt="image" src="https://github.com/user-attachments/assets/8ac5e37b-7b28-4317-b5a5-fa6a67cba0c0" />
+<img width="504" height="369" alt="image" src="./imagenes/8ac5e37b-7b28-4317-b5a5-fa6a67cba0c0.png" />
 
 ---
 
 ## 10. Schedule Regular Restarts
 - Permite programar reinicios automáticos
-<img width="880" height="237" alt="image" src="https://github.com/user-attachments/assets/5a13581c-fb59-4e82-be99-1e73925f9f7a" />
-<img width="424" height="359" alt="image" src="https://github.com/user-attachments/assets/d6d8b2a1-4770-4865-8515-9f6cd84b8e00" />
+<img width="880" height="237" alt="image" src="./imagenes/5a13581c-fb59-4e82-be99-1e73925f9f7a.png" />
+<img width="424" height="359" alt="image" src="./imagenes/d6d8b2a1-4770-4865-8515-9f6cd84b8e00.png" />
 
 ---
 
@@ -420,9 +420,9 @@ Configuración de red:
 - Prueba de velocidad por equipo
 - Se puede programar
 - Guarda historial de resultados
-<img width="1646" height="541" alt="image" src="https://github.com/user-attachments/assets/53b740ce-8151-4093-a52b-2279d42f9fe2" />
-<img width="737" height="367" alt="image" src="https://github.com/user-attachments/assets/6766b9df-05d8-48da-b8f1-c0077facb2a6" />
-<img width="951" height="244" alt="image" src="https://github.com/user-attachments/assets/4c56a581-ecf9-420f-b555-5287de1dca48" />
+<img width="1646" height="541" alt="image" src="./imagenes/53b740ce-8151-4093-a52b-2279d42f9fe2.png" />
+<img width="737" height="367" alt="image" src="./imagenes/6766b9df-05d8-48da-b8f1-c0077facb2a6.png" />
+<img width="951" height="244" alt="image" src="./imagenes/4c56a581-ecf9-420f-b555-5287de1dca48.png" />
 
 ---
 
@@ -430,15 +430,15 @@ Configuración de red:
 - Permite actualizar equipos
 - O programar actualizaciones
 - Puede hacerse automático o manual
-<img width="1130" height="598" alt="image" src="https://github.com/user-attachments/assets/2ddbe5ee-d1ad-4990-89a0-e4f71925e42b" />
-<img width="443" height="709" alt="image" src="https://github.com/user-attachments/assets/97fe224d-6929-4c01-9a36-6c24eca514bd" />
-<img width="546" height="314" alt="image" src="https://github.com/user-attachments/assets/528b0ead-1ec5-440b-a68b-7c46dd289f22" />
+<img width="1130" height="598" alt="image" src="./imagenes/2ddbe5ee-d1ad-4990-89a0-e4f71925e42b.png" />
+<img width="443" height="709" alt="image" src="./imagenes/97fe224d-6929-4c01-9a36-6c24eca514bd.png" />
+<img width="546" height="314" alt="image" src="./imagenes/528b0ead-1ec5-440b-a68b-7c46dd289f22.png" />
 
 ---
 
 ## 13. WAN Settings
 - Configuración del internet principal
-<img width="1259" height="550" alt="image" src="https://github.com/user-attachments/assets/7c27b278-d854-4dc4-8f7b-16a7eafd83f3" />
+<img width="1259" height="550" alt="image" src="./imagenes/7c27b278-d854-4dc4-8f7b-16a7eafd83f3.png" />
 
 ---
 
@@ -447,35 +447,35 @@ Modos disponibles:
 - Automatic: configuración por defecto
 - Manual IP: configuración personalizada
 - Bridge Mode: evita doble NAT
-<img width="1369" height="331" alt="image" src="https://github.com/user-attachments/assets/0bc031d1-9d58-4bea-ba11-9f0f0abb940a" />
-<img width="436" height="354" alt="image" src="https://github.com/user-attachments/assets/2d6b3276-719e-4c49-bda0-f8b6866ff307" />
-<img width="436" height="609" alt="image" src="https://github.com/user-attachments/assets/8e146429-b101-4391-bb5a-fe7757dcdda3" />
+<img width="1369" height="331" alt="image" src="./imagenes/0bc031d1-9d58-4bea-ba11-9f0f0abb940a.png" />
+<img width="436" height="354" alt="image" src="./imagenes/2d6b3276-719e-4c49-bda0-f8b6866ff307.png" />
+<img width="436" height="609" alt="image" src="./imagenes/8e146429-b101-4391-bb5a-fe7757dcdda3.png" />
 
 ---
 
 ## 15. DHCP Reservations
 - Asigna IP fija a un dispositivo
-<img width="1639" height="166" alt="image" src="https://github.com/user-attachments/assets/3e4d3b3b-a150-4899-b21d-e07f934fb0f1" />
-<img width="444" height="326" alt="image" src="https://github.com/user-attachments/assets/36f5a073-b3aa-48a5-9f0e-2c5578157630" />
+<img width="1639" height="166" alt="image" src="./imagenes/3e4d3b3b-a150-4899-b21d-e07f934fb0f1.png" />
+<img width="444" height="326" alt="image" src="./imagenes/36f5a073-b3aa-48a5-9f0e-2c5578157630.png" />
 
 ---
 
 ## 16. Port Forwarding
 - Abre puertos hacia un dispositivo específico
-<img width="1647" height="184" alt="image" src="https://github.com/user-attachments/assets/eea45c91-e1b3-4768-af4a-34fd9a00b98d" />
-<img width="746" height="543" alt="image" src="https://github.com/user-attachments/assets/1d39df25-8e32-4855-af8e-76cba1a6e5d7" />
+<img width="1647" height="184" alt="image" src="./imagenes/eea45c91-e1b3-4768-af4a-34fd9a00b98d.png" />
+<img width="746" height="543" alt="image" src="./imagenes/1d39df25-8e32-4855-af8e-76cba1a6e5d7.png" />
 
 ---
 
 ## 17. Operation Logs
 - Registra acciones del sistema
-<img width="1649" height="387" alt="image" src="https://github.com/user-attachments/assets/ae77e67e-6690-4b2f-b471-9e843bdae134" />
+<img width="1649" height="387" alt="image" src="./imagenes/ae77e67e-6690-4b2f-b471-9e843bdae134.png" />
 
 ---
 
 ## 18. Submit a Firmware Log
 - Envía logs para diagnóstico de errores
-<img width="1655" height="579" alt="image" src="https://github.com/user-attachments/assets/9442faf4-ed65-4e02-8240-f9e09516e159" />
+<img width="1655" height="579" alt="image" src="./imagenes/9442faf4-ed65-4e02-8240-f9e09516e159.png" />
 
 ---
 

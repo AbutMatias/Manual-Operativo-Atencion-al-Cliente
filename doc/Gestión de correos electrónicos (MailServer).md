@@ -17,7 +17,7 @@ Para gestionar cuentas:
 - Ingresar a **SSAK**
 - Ir a: `Relaciones > Listado de correos (MailServer)`
 
-<img width="1251" height="633" alt="image" src="https://github.com/user-attachments/assets/43dd25fe-9aec-47cd-a0d9-16d57386fa11" />
+<img width="1251" height="633" alt="image" src="./imagenes/43dd25fe-9aec-47cd-a0d9-16d57386fa11.png" />
 
 
 ---
@@ -44,7 +44,7 @@ Desde este panel podemos:
 
 1. Completar todos los campos del formulario
 
-<img width="493" height="360" alt="image" src="https://github.com/user-attachments/assets/7eff51d8-0809-44d3-8156-3cd201da6bcf" />
+<img width="493" height="360" alt="image" src="./imagenes/7eff51d8-0809-44d3-8156-3cd201da6bcf.png" />
 
 2. Es obligatorio completar el campo **Cliente**
    - Esto permite vincular la cuenta con los datos del cliente
@@ -108,7 +108,7 @@ Si no lo tiene:
 - Capacidad por defecto: 80 MB
 - Máximo permitido: 300 MB
 
-<img width="1893" height="582" alt="image" src="https://github.com/user-attachments/assets/aa81493a-3fe0-4436-81fc-3b5cf4883491" />
+<img width="1893" height="582" alt="image" src="./imagenes/aa81493a-3fe0-4436-81fc-3b5cf4883491.png" />
 
 
 ### Recomendación
@@ -132,7 +132,7 @@ Si no lo tiene:
 - Activa: opciones marcadas
 - Inactiva: opciones desmarcadas
 
-<img width="1869" height="598" alt="image" src="https://github.com/user-attachments/assets/ae5574c2-a5db-4fd1-a802-01e26fe672ca" />
+<img width="1869" height="598" alt="image" src="./imagenes/ae5574c2-a5db-4fd1-a802-01e26fe672ca.png" />
 
 
 

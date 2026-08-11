@@ -34,14 +34,14 @@ Utilizamos:
 
 ## 🟢 Dentro de zona de cobertura (Rosa)
 
-<img width="1351" height="899" alt="image" src="https://github.com/user-attachments/assets/cd96d625-e508-44c6-b4a6-5647a704de06" />
+<img width="1351" height="899" alt="image" src="./imagenes/cd96d625-e508-44c6-b4a6-5647a704de06.png" />
 
 
 ---
 
 ## 🔴 Fuera de zona de cobertura (Sin Color)
 
-<img width="1135" height="816" alt="image" src="https://github.com/user-attachments/assets/cf88fd13-e26e-4249-937a-2cd7ee8b01b5" />
+<img width="1135" height="816" alt="image" src="./imagenes/cf88fd13-e26e-4249-937a-2cd7ee8b01b5.png" />
 
 
 ---
@@ -57,14 +57,14 @@ Utilizamos:
 
 ## 🟢 Dentro de zona de cobertura (Dentro del circulo)
 
-<img width="1425" height="929" alt="image" src="https://github.com/user-attachments/assets/40c96625-0905-490a-8ce1-7b9ac009e60b" />
+<img width="1425" height="929" alt="image" src="./imagenes/40c96625-0905-490a-8ce1-7b9ac009e60b.png" />
 
 
 ---
 
 ## 🔴 Fuera de zona de cobertura (Fuera del circulo)
 
-<img width="1425" height="929" alt="image" src="https://github.com/user-attachments/assets/fab68500-94cb-4c9f-9180-b702f3446cc9" />
+<img width="1425" height="929" alt="image" src="./imagenes/fab68500-94cb-4c9f-9180-b702f3446cc9.png" />
 
 ---
 

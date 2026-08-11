@@ -33,7 +33,7 @@ Existen tres formas principales de búsqueda:
 
 El sistema ubicará automáticamente al cliente o nodo dentro del árbol de red.
 
-<img width="1862" height="892" alt="image" src="https://github.com/user-attachments/assets/330eac41-4c99-48ba-a8b3-5d69b630f140" />
+<img width="1862" height="892" alt="image" src="./imagenes/330eac41-4c99-48ba-a8b3-5d69b630f140.png" />
 
 ---
 
@@ -52,7 +52,7 @@ Host → CPE → CD → Splitter → OLT → Switch → Core
 
 Siguiendo el árbol hacia arriba podemos determinar dónde se origina una falla.
 
-<img width="1485" height="923" alt="image" src="https://github.com/user-attachments/assets/9060dc05-c0b4-4955-a387-4574e4401137" />
+<img width="1485" height="923" alt="image" src="./imagenes/9060dc05-c0b4-4955-a387-4574e4401137.png" />
 
 
 ---
@@ -66,9 +66,9 @@ Siguiendo el árbol hacia arriba podemos determinar dónde se origina una falla.
 
 Esta opción realiza pruebas sobre todos los clientes dependientes del nodo.
 
-<img width="1872" height="915" alt="image" src="https://github.com/user-attachments/assets/c1c25e65-6fae-48b9-835c-1c06d95c5ae4" />
+<img width="1872" height="915" alt="image" src="./imagenes/c1c25e65-6fae-48b9-835c-1c06d95c5ae4.png" />
 
-<img width="1861" height="893" alt="image" src="https://github.com/user-attachments/assets/c96abc41-f362-4e14-aee4-ba87d673666f" />
+<img width="1861" height="893" alt="image" src="./imagenes/c96abc41-f362-4e14-aee4-ba87d673666f.png" />
 
 
 ---
@@ -79,7 +79,7 @@ Esta opción realiza pruebas sobre todos los clientes dependientes del nodo.
 
 Permite visualizar datos de los equipos asociados al cliente o nodo.
 
-<img width="1861" height="894" alt="image" src="https://github.com/user-attachments/assets/be1d0e05-9557-467a-911d-cc44b9c3cce3" />
+<img width="1861" height="894" alt="image" src="./imagenes/be1d0e05-9557-467a-911d-cc44b9c3cce3.png" />
 
 ---
 
@@ -87,11 +87,11 @@ Permite visualizar datos de los equipos asociados al cliente o nodo.
 
 Permite generar un ping desde NetMap a los dispositivos de Red (Router/CPE (Antena)
 
-<img width="1377" height="364" alt="image" src="https://github.com/user-attachments/assets/377782a9-8d87-43ee-a590-f0f4a1a1281a" />
+<img width="1377" height="364" alt="image" src="./imagenes/377782a9-8d87-43ee-a590-f0f4a1a1281a.png" />
 
 Ejemplo: Ping continuo de 1500. Resultado 100% Equipo Cliente Sin Respuesta.
 
-<img width="1509" height="921" alt="image" src="https://github.com/user-attachments/assets/bb958b7b-0cd6-43f1-9a49-a430afa31102" />
+<img width="1509" height="921" alt="image" src="./imagenes/bb958b7b-0cd6-43f1-9a49-a430afa31102.png" />
 
 
 

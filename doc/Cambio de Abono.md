@@ -48,9 +48,9 @@ Antes de realizar cualquier cambio se debe:
 3. Clic derecho sobre la línea
 4. Seleccionar “Cambio de Abono”
 
-<img width="982" height="462" alt="image" src="https://github.com/user-attachments/assets/d06cca5b-70ac-471a-bdfe-d4a6f434dce0" />
+<img width="982" height="462" alt="image" src="./imagenes/d06cca5b-70ac-471a-bdfe-d4a6f434dce0.png" />
 
-<img width="1371" height="875" alt="image" src="https://github.com/user-attachments/assets/60361ab9-66d6-4858-911f-3ae71f533bda" />
+<img width="1371" height="875" alt="image" src="./imagenes/60361ab9-66d6-4858-911f-3ae71f533bda.png" />
 
 ---
 
@@ -58,7 +58,7 @@ Antes de realizar cualquier cambio se debe:
 
 Se abrirá una nueva ventana con la línea ya seleccionada.
 
-<img width="1008" height="575" alt="image" src="https://github.com/user-attachments/assets/7b9bf717-b821-4dc1-948c-b7bc36344ae3" />
+<img width="1008" height="575" alt="image" src="./imagenes/7b9bf717-b821-4dc1-948c-b7bc36344ae3.png" />
 
 ---
 
@@ -112,7 +112,7 @@ Define desde cuándo se factura el nuevo servicio.
 * Presionar “Aceptar”
 * Confirmar el cambio
 
-<img width="407" height="146" alt="image" src="https://github.com/user-attachments/assets/122708de-9104-4e80-80eb-9cdac313c7aa" />
+<img width="407" height="146" alt="image" src="./imagenes/122708de-9104-4e80-80eb-9cdac313c7aa.png" />
 
 ---
 
@@ -123,7 +123,7 @@ Luego de aplicar el procedimiento:
 * Verificar que el nuevo plan figure correctamente en sistema
 * Confirmar velocidad y segmento actualizado
 
-<img width="526" height="127" alt="image" src="https://github.com/user-attachments/assets/903db1a9-ccf2-4b61-b7a3-3c86219ff1fa" />
+<img width="526" height="127" alt="image" src="./imagenes/903db1a9-ccf2-4b61-b7a3-3c86219ff1fa.png" />
 
 ---
 

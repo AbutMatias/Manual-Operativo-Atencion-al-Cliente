@@ -19,7 +19,7 @@ Si el router no responde pero el CPE está activo:
 #### Si es ONU (fibra)
 - Ir a Netmap > Obtener estado
 - Verificar que la interfaz ethernet esté activa
-<img width="1781" height="560" alt="image" src="https://github.com/user-attachments/assets/d8867011-3cd8-4d09-b687-554b0fb820d2" />
+<img width="1781" height="560" alt="image" src="./imagenes/d8867011-3cd8-4d09-b687-554b0fb820d2.png" />
 
 
 ---
@@ -29,11 +29,11 @@ Si el router no responde pero el CPE está activo:
 #### MikroTik
 - Acceder con Winbox con IP de el CPE (Antena)
 - Verificar interfaz ether1 (Doble click en ether1 > ... > Status)
-<img width="1156" height="805" alt="image" src="https://github.com/user-attachments/assets/91ba5eed-2076-4c01-8b9a-3db2c222f20b" />
+<img width="1156" height="805" alt="image" src="./imagenes/91ba5eed-2076-4c01-8b9a-3db2c222f20b.png" />
 
 - Debe estar en estado registrado y con negociación correcta (100 Mbps o 1 Gbps)
 
-<img width="1807" height="908" alt="image" src="https://github.com/user-attachments/assets/d8206285-53a2-4df7-b762-17851d064410" />
+<img width="1807" height="908" alt="image" src="./imagenes/d8206285-53a2-4df7-b762-17851d064410.png" />
 
 
 ---
@@ -61,7 +61,7 @@ Verificar:
 - Ver tabla MAC en la ONU
 - En este ejemplo se verifica la MAC del router con el que esta conectado la ONU.
 
-<img width="1544" height="589" alt="image" src="https://github.com/user-attachments/assets/5bbc8b29-b9cf-449a-8f97-05072555f1a0" />
+<img width="1544" height="589" alt="image" src="./imagenes/5bbc8b29-b9cf-449a-8f97-05072555f1a0.png" />
 
 
 ---
@@ -91,24 +91,24 @@ Verificar en Hotspot:
 
 - IP → Hotspot
   - Debe existir registro con IP y MAC en estado “A” (autorizado)
-<img width="1327" height="667" alt="image" src="https://github.com/user-attachments/assets/8a77e195-9233-4d37-a8da-6dc0f253a994" />
+<img width="1327" height="667" alt="image" src="./imagenes/8a77e195-9233-4d37-a8da-6dc0f253a994.png" />
 
 - IP → Routes
   - Debe existir ruta para la IP del cliente
-<img width="1092" height="652" alt="image" src="https://github.com/user-attachments/assets/f8a0dfa2-d011-4cf7-908f-82e62bf17ea7" />
+<img width="1092" height="652" alt="image" src="./imagenes/f8a0dfa2-d011-4cf7-908f-82e62bf17ea7.png" />
 
 - IP → ARP
   - Debe existir entrada IP/MAC
-<img width="822" height="620" alt="image" src="https://github.com/user-attachments/assets/9dd0d04c-ac76-4329-8821-9daaa785eb15" />
+<img width="822" height="620" alt="image" src="./imagenes/9dd0d04c-ac76-4329-8821-9daaa785eb15.png" />
 
 - IP → Firewall → Address List
   - Verificar que no esté bloqueado
-<img width="1617" height="627" alt="image" src="https://github.com/user-attachments/assets/8a43aa4e-cd2a-4bae-a5c9-a2c75d5bb5ef" />
+<img width="1617" height="627" alt="image" src="./imagenes/8a43aa4e-cd2a-4bae-a5c9-a2c75d5bb5ef.png" />
 
 - IP → DHCP Server → Leases
   - Buscar por MAC
   - Estado debe ser “Bound”
-<img width="1155" height="637" alt="image" src="https://github.com/user-attachments/assets/a5c3e8ff-e415-44bc-b633-5cfa64f6b1df" />
+<img width="1155" height="637" alt="image" src="./imagenes/a5c3e8ff-e415-44bc-b633-5cfa64f6b1df.png" />
 
 ---
 
@@ -234,7 +234,7 @@ c
 
 - Verificar tabla MAC de la ONU
 
-<img width="1286" height="518" alt="image" src="https://github.com/user-attachments/assets/6ec0119c-e7fc-45c8-97d8-d490d06b1ce1" />
+<img width="1286" height="518" alt="image" src="./imagenes/6ec0119c-e7fc-45c8-97d8-d490d06b1ce1.png" />
 
 Tiene que ser la misma MAC que la del Router. Esto confirma si el router está correctamente conectado. 
 

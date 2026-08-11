@@ -28,7 +28,7 @@ Existen dos formas de acceder al listado:
 1. Ingresar a la pantalla de Atención al Cliente  
 2. Hacer clic en **“Retiro Equipos”**
 
-<img width="104" height="74" alt="image" src="https://github.com/user-attachments/assets/98a29d39-7256-49be-a3b2-ba94711ab78f" />
+<img width="104" height="74" alt="image" src="./imagenes/98a29d39-7256-49be-a3b2-ba94711ab78f.png" />
 
 
 ---
@@ -38,7 +38,7 @@ Existen dos formas de acceder al listado:
 1. Ir a **Equipos de red**
 2. Entrar en **Listado de equipos a Recuperar**
 
-<img width="914" height="374" alt="image" src="https://github.com/user-attachments/assets/ad15eb37-2ce8-4b5e-9fd3-b99633f146f3" />
+<img width="914" height="374" alt="image" src="./imagenes/ad15eb37-2ce8-4b5e-9fd3-b99633f146f3.png" />
 
 
 ---
@@ -59,7 +59,7 @@ En la grilla se pueden visualizar:
 - Datos del cliente
 - Notas del retiro (solo si está coordinado)
 
-<img width="958" height="719" alt="image" src="https://github.com/user-attachments/assets/78de9a68-3e04-47a4-9556-7a57bc2a65a9" />
+<img width="958" height="719" alt="image" src="./imagenes/78de9a68-3e04-47a4-9556-7a57bc2a65a9.png" />
 
 
 ---
@@ -81,7 +81,7 @@ En la grilla se pueden visualizar:
 2. Seleccionar **“Coordinar Retiro Equipo”**
 3. Agregar observación con fecha y hora
 
-<img width="814" height="358" alt="image" src="https://github.com/user-attachments/assets/18e2cdcf-28dc-4a64-8bec-65d76f458ef4" />
+<img width="814" height="358" alt="image" src="./imagenes/18e2cdcf-28dc-4a64-8bec-65d76f458ef4.png" />
 
 
 ---

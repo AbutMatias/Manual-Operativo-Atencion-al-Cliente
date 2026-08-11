@@ -51,7 +51,7 @@ Diferencias:
 - Usuario
 - Password
 
-<img width="365" height="133" alt="image" src="https://github.com/user-attachments/assets/71911608-6d7a-4b24-9dd3-43edb8b98304" />
+<img width="365" height="133" alt="image" src="./imagenes/71911608-6d7a-4b24-9dd3-43edb8b98304.png" />
 
 
 ---
@@ -68,7 +68,7 @@ Luego ingresar:
 Usuario
 Password
 
-<img width="462" height="74" alt="image" src="https://github.com/user-attachments/assets/0cdbf221-35a7-4467-9863-060c2b527a1a" />
+<img width="462" height="74" alt="image" src="./imagenes/0cdbf221-35a7-4467-9863-060c2b527a1a.png" />
 
 ## 3. RoMON
 ## 3.1 Activación del servicio
@@ -79,7 +79,7 @@ Ir a:
 Activar:
 Enabled
 
-<img width="321" height="218" alt="image" src="https://github.com/user-attachments/assets/c8b7494a-947a-4294-81bc-3280287aec84" />
+<img width="321" height="218" alt="image" src="./imagenes/c8b7494a-947a-4294-81bc-3280287aec84.png" />
 
 # Desde terminal:
 
@@ -87,7 +87,7 @@ Ver estado:
 `/tool romon print`
 Activar si está deshabilitado:
 `/tool romon set enabled=yes`
-<img width="338" height="83" alt="image" src="https://github.com/user-attachments/assets/1a89a5fa-1187-4729-9576-08f0fa61d20c" />
+<img width="338" height="83" alt="image" src="./imagenes/1a89a5fa-1187-4729-9576-08f0fa61d20c.png" />
 
 ## 3.2 Acceso vía RoMON (Winbox)
 Paso a paso:
@@ -99,8 +99,8 @@ Paso a paso:
 5.Seleccionar equipo o ingresar MAC manualmente
 6.Ingresar credenciales
 7.Click en Connect
-<img width="949" height="293" alt="image" src="https://github.com/user-attachments/assets/afc9f20a-c02b-4231-94bf-9fe1ec4a981a" />
-<img width="589" height="159" alt="image" src="https://github.com/user-attachments/assets/082c0939-447f-4d5d-b85a-fbca1be238dd" />
+<img width="949" height="293" alt="image" src="./imagenes/afc9f20a-c02b-4231-94bf-9fe1ec4a981a.png" />
+<img width="589" height="159" alt="image" src="./imagenes/082c0939-447f-4d5d-b85a-fbca1be238dd.png" />
 
 ## 4. Casos de uso
 

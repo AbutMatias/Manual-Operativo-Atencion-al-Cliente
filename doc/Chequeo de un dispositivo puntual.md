@@ -15,7 +15,7 @@ El objetivo es descartar configuración del router y determinar si el problema e
 - Identificar al menos un equipo afectado
 - Confirmar su MAC o IP desde **Access List**
 
-<img width="610" height="238" alt="image" src="https://github.com/user-attachments/assets/85cf9541-eb60-4d04-a0f0-bdfbc9c52297" />
+<img width="610" height="238" alt="image" src="./imagenes/85cf9541-eb60-4d04-a0f0-bdfbc9c52297.png" />
 
 
 ---
@@ -31,7 +31,7 @@ El objetivo es descartar configuración del router y determinar si el problema e
 - Ambas deben tener el mismo nombre (SSID)
 - Intentar reconectar el dispositivo
 
-<img width="540" height="517" alt="image" src="https://github.com/user-attachments/assets/68b66865-690f-40b1-b56d-7648eb94a01d" />
+<img width="540" height="517" alt="image" src="./imagenes/68b66865-690f-40b1-b56d-7648eb94a01d.png" />
 
 
 ---
@@ -42,7 +42,7 @@ El objetivo es descartar configuración del router y determinar si el problema e
   - Security Profile
 - Probar reconexión del dispositivo
 
-  <img width="839" height="522" alt="image" src="https://github.com/user-attachments/assets/f6216613-9547-472e-be4f-e9fbf9ac3f61" />
+  <img width="839" height="522" alt="image" src="./imagenes/f6216613-9547-472e-be4f-e9fbf9ac3f61.png" />
 
 
 ---
@@ -52,7 +52,7 @@ El objetivo es descartar configuración del router y determinar si el problema e
 - En Settings:
   - Desactivar “Hide Passwords” si es necesario
 
-  <img width="1395" height="574" alt="image" src="https://github.com/user-attachments/assets/29eea78f-ea54-4f1e-b4aa-23ba8243bae3" />
+  <img width="1395" height="574" alt="image" src="./imagenes/29eea78f-ea54-4f1e-b4aa-23ba8243bae3.png" />
 
 
 ---
@@ -68,7 +68,7 @@ Verificar:
 - Unicast Ciphers: `tkip`
 - Group Ciphers: `tkip`
 
-<img width="426" height="423" alt="image" src="https://github.com/user-attachments/assets/072bcad9-d3a7-49e8-ac94-26b98eedd5f0" />
+<img width="426" height="423" alt="image" src="./imagenes/072bcad9-d3a7-49e8-ac94-26b98eedd5f0.png" />
 
 
 ---
@@ -99,7 +99,7 @@ Comparar señales entre dispositivos:
 | Buena | -60 dBm |
 | Mala | -80 dBm |
 
-<img width="1160" height="317" alt="image" src="https://github.com/user-attachments/assets/2fecd450-8476-4a3d-bfd8-20353368a9ea" />
+<img width="1160" height="317" alt="image" src="./imagenes/2fecd450-8476-4a3d-bfd8-20353368a9ea.png" />
 
 ---
 
@@ -116,7 +116,7 @@ Comparar señales entre dispositivos:
 - La frecuencia debe estar en **AUTO**
 - Evitar fijar canales manualmente salvo prueba
 
-<img width="796" height="472" alt="image" src="https://github.com/user-attachments/assets/c44bc188-6568-4485-9392-bbea9ec55d3d" />
+<img width="796" height="472" alt="image" src="./imagenes/c44bc188-6568-4485-9392-bbea9ec55d3d.png" />
 
 
 
@@ -127,7 +127,7 @@ Comparar señales entre dispositivos:
 - Deshabilitar temporalmente la interfaz WiFi
 - Forzar búsqueda automática de frecuencia
 
-<img width="890" height="400" alt="image" src="https://github.com/user-attachments/assets/3f4be55c-fcac-4398-90a6-4c601840196c" />
+<img width="890" height="400" alt="image" src="./imagenes/3f4be55c-fcac-4398-90a6-4c601840196c.png" />
 
 ---
 
@@ -139,9 +139,9 @@ Herramienta para analizar saturación de canales:
 - Permite identificar canales menos congestionados
 - Mejora estabilidad de conexión
 
-<img width="426" height="669" alt="image" src="https://github.com/user-attachments/assets/0edec2f0-14c9-4c43-ac5e-b7626dbf05fb" />
+<img width="426" height="669" alt="image" src="./imagenes/0edec2f0-14c9-4c43-ac5e-b7626dbf05fb.png" />
 
-<img width="531" height="619" alt="image" src="https://github.com/user-attachments/assets/78a5a8df-21e7-439e-97c2-18fd9cf73987" />
+<img width="531" height="619" alt="image" src="./imagenes/78a5a8df-21e7-439e-97c2-18fd9cf73987.png" />
 
 
 ### Importante
@@ -150,7 +150,7 @@ Herramienta para analizar saturación de canales:
 - Al ejecutarlo puede causar corte momentáneo de WiFi
 - Luego se debe restaurar la configuración original
 - 
-<img width="533" height="624" alt="image" src="https://github.com/user-attachments/assets/ab9e0ab1-7da3-477c-a8cd-a0421e918a94" />
+<img width="533" height="624" alt="image" src="./imagenes/ab9e0ab1-7da3-477c-a8cd-a0421e918a94.png" />
 
 ---
 
@@ -177,13 +177,13 @@ Verificar existencia de canales en MikroTik:
 
 ## Scan List
 
-<img width="528" height="499" alt="image" src="https://github.com/user-attachments/assets/5a886964-b0d2-4ca7-b938-fb192580457a" />
+<img width="528" height="499" alt="image" src="./imagenes/5a886964-b0d2-4ca7-b938-fb192580457a.png" />
 
 - wlan1 → WiFi (2.4 GHz)
-<img width="532" height="280" alt="image" src="https://github.com/user-attachments/assets/60c77b34-c864-4d55-a000-d4c3c48f606d" />
+<img width="532" height="280" alt="image" src="./imagenes/60c77b34-c864-4d55-a000-d4c3c48f606d.png" />
 
 - wlan2 → WiFi5 GHz
-<img width="527" height="285" alt="image" src="https://github.com/user-attachments/assets/2e03f109-66ed-4dfe-98e8-a3ae0eb6e215" />
+<img width="527" height="285" alt="image" src="./imagenes/2e03f109-66ed-4dfe-98e8-a3ae0eb6e215.png" />
 
 - Debe incluir canales custom configurados
 

@@ -24,7 +24,7 @@
 
 Importante:
 - Las AF provenientes de reclamo son **sin costo**.
-<img width="752" height="506" alt="image" src="https://github.com/user-attachments/assets/3c8777e3-66ea-47aa-b39e-5400829e8547" />
+<img width="752" height="506" alt="image" src="./imagenes/3c8777e3-66ea-47aa-b39e-5400829e8547.png" />
 
 ---
 
@@ -75,7 +75,7 @@ Guardar coordenadas para Google Earth.
    - `Asistente de instalaciones`
 
 2. Abrir **Nueva instalación**
-<img width="1248" height="530" alt="image" src="https://github.com/user-attachments/assets/2a9d7d21-2182-4939-80b8-f22a7d17b8cc" />
+<img width="1248" height="530" alt="image" src="./imagenes/2a9d7d21-2182-4939-80b8-f22a7d17b8cc.png" />
 
 ---
 
@@ -88,7 +88,7 @@ Completar:
 - Obtener usuario:
   - Buscar cliente por número o razón social
   - Doble clic en el servicio correcto
-<img width="1701" height="639" alt="image" src="https://github.com/user-attachments/assets/6cfcf1fa-659d-4833-a23f-28a29e071378" />
+<img width="1701" height="639" alt="image" src="./imagenes/6cfcf1fa-659d-4833-a23f-28a29e071378.png" />
 
 ---
 
@@ -98,7 +98,7 @@ Completar:
 2. Seleccionar:
    - ✔ “Autoriza a retirar aunque se encuentre ausente”
 3. Cerrar vista previa.
-<img width="1133" height="476" alt="image" src="https://github.com/user-attachments/assets/5d466a1c-3ea4-4f44-990d-5c6f0dfa9bb7" />
+<img width="1133" height="476" alt="image" src="./imagenes/5d466a1c-3ea4-4f44-990d-5c6f0dfa9bb7.png" />
 
 ---
 
@@ -112,7 +112,7 @@ Completar:
 
 IMPORTANTE:
 - Siempre debe quedar marcado “Sujeto a bonificación”.
-<img width="781" height="467" alt="image" src="https://github.com/user-attachments/assets/694df181-3af2-4753-be8d-5164d41123e9" />
+<img width="781" height="467" alt="image" src="./imagenes/694df181-3af2-4753-be8d-5164d41123e9.png" />
 
 ---
 
@@ -128,7 +128,7 @@ Completar:
 - Activar:
   - Notificar vía texto
 - Horarios de disponibilidad
-<img width="782" height="471" alt="image" src="https://github.com/user-attachments/assets/9492e4e2-6b71-41b4-896e-2792f8a653a4" />
+<img width="782" height="471" alt="image" src="./imagenes/9492e4e2-6b71-41b4-896e-2792f8a653a4.png" />
 
 ---
 
@@ -174,7 +174,7 @@ Completar:
   - Cambiar estado manualmente a **“Sin iniciar”**
   - Agregar nota:
     - “abona luego de la instalación”
-<img width="445" height="317" alt="image" src="https://github.com/user-attachments/assets/8c577276-1888-4f43-8681-97e2947f7229" />
+<img width="445" height="317" alt="image" src="./imagenes/8c577276-1888-4f43-8681-97e2947f7229.png" />
 
 > [!IMPORTANT]   
 > `El anticipo`, es lo que le cobro al cliente antes de que la tarea pase a sin iniciar por eso `siempre tiene que quedar en 0`. `El nuevo cargo de instalación` es lo que se factura cuando la instalación se finaliza exitosamente, ahí es donde me debe quedar `el importe que le quiero cobrar.` 

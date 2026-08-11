@@ -64,7 +64,7 @@ Para consultas o modificaciones internas se utiliza:
 
 * Ingresar al tab “Firewall”
 
-<img width="1326" height="561" alt="image" src="https://github.com/user-attachments/assets/c99443f9-9716-4d2d-b7ca-8717fdd2973b" />
+<img width="1326" height="561" alt="image" src="./imagenes/c99443f9-9716-4d2d-b7ca-8717fdd2973b.png" />
 
 ---
 

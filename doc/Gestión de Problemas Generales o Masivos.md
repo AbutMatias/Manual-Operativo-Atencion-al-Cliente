@@ -217,8 +217,8 @@ En el Issue se debe incluir:
 
 
 
-> <img width="989" height="369" alt="image" src="https://github.com/user-attachments/assets/8d4384e0-abd5-4ac6-b2ff-45e5f8bcda72" />
-> <img width="1280" height="566" alt="image" src="https://github.com/user-attachments/assets/bd68d3a9-6c39-4a35-9bc5-b5e9ad3cfdba" />
+> <img width="989" height="369" alt="image" src="./imagenes/8d4384e0-abd5-4ac6-b2ff-45e5f8bcda72.png" />
+> <img width="1280" height="566" alt="image" src="./imagenes/bd68d3a9-6c39-4a35-9bc5-b5e9ad3cfdba.png" />
 ---
 
 ### Verificación desde WinBox
@@ -233,7 +233,7 @@ Una vez creado el Issue:
 
 
 
-> <img width="877" height="767" alt="image" src="https://github.com/user-attachments/assets/6215f03f-e321-475b-9a96-cced040877da" />
+> <img width="877" height="767" alt="image" src="./imagenes/6215f03f-e321-475b-9a96-cced040877da.png" />
 
 
 ---
@@ -249,12 +249,12 @@ Si **NO existe un corte de energía**, dejar constancia de la verificación.
 Si **EXISTE un corte de energía**, registrar la información proporcionada por EDES, incluyendo el tiempo estimado de resolución informado.
 
 
-> <img width="1044" height="519" alt="image" src="https://github.com/user-attachments/assets/4321d089-a53f-4a43-bda7-a6913af3e0c8" />
+> <img width="1044" height="519" alt="image" src="./imagenes/4321d089-a53f-4a43-bda7-a6913af3e0c8.png" />
 
 En caso de que exista un corte:
 
 
-> <img width="853" height="289" alt="image" src="https://github.com/user-attachments/assets/c7448cd5-7806-4efa-9882-4dcc9a1a22ca" />
+> <img width="853" height="289" alt="image" src="./imagenes/c7448cd5-7806-4efa-9882-4dcc9a1a22ca.png" />
 
 **Información proporcionada por EDES:**
 
@@ -281,11 +281,11 @@ Al crear el reclamo:
 
 **📷 Captura de creación del Reclamo:**
 
-> <img width="1919" height="879" alt="image" src="https://github.com/user-attachments/assets/17a51fa9-b0c2-4aea-b2a0-954b5fa4968b" />
+> <img width="1919" height="879" alt="image" src="./imagenes/17a51fa9-b0c2-4aea-b2a0-954b5fa4968b.png" />
 
 **📷 Captura de la descripción del Reclamo:**
 
-> <img width="966" height="760" alt="image" src="https://github.com/user-attachments/assets/3a115977-bb65-4aba-8850-4fdb9872d67e" />
+> <img width="966" height="760" alt="image" src="./imagenes/3a115977-bb65-4aba-8850-4fdb9872d67e.png" />
 
 ---
 
@@ -307,19 +307,19 @@ Se deben asociar al reclamo general ya creado.
 
 **📷 Captura - Pestaña Reclamos:**
 
-> <img width="1904" height="847" alt="image" src="https://github.com/user-attachments/assets/22b40b07-25a0-44db-a28d-e81011d3b271" />
+> <img width="1904" height="847" alt="image" src="./imagenes/22b40b07-25a0-44db-a28d-e81011d3b271.png" />
 
 **📷 Captura - Abrir Consulta:**
 
-> <img width="1791" height="870" alt="image" src="https://github.com/user-attachments/assets/3d8b3f85-8566-4e8c-80f9-d0a8a4e4d637" />
+> <img width="1791" height="870" alt="image" src="./imagenes/3d8b3f85-8566-4e8c-80f9-d0a8a4e4d637.png" />
 
 **📷 Captura - Filtro por fecha:**
 
-> <img width="1626" height="667" alt="image" src="https://github.com/user-attachments/assets/3348de41-bdb3-402d-9e79-9303f6322c02" />
+> <img width="1626" height="667" alt="image" src="./imagenes/3348de41-bdb3-402d-9e79-9303f6322c02.png" />
 
 **📷 Captura - Agregar Cliente al Reclamo:**
 
-> <img width="1829" height="483" alt="image" src="https://github.com/user-attachments/assets/d8a8ea91-b8eb-489a-a888-5debf28fdcc4" />
+> <img width="1829" height="483" alt="image" src="./imagenes/d8a8ea91-b8eb-489a-a888-5debf28fdcc4.png" />
 
 ---
 
@@ -333,7 +333,7 @@ El mensaje debe utilizar el **mismo número del reclamo creado anteriormente en 
 
 **📷 Captura - Mensaje general en Teams - Captura - Número de Reclamo en SSKA:**
 
-> <img width="929" height="259" alt="image" src="https://github.com/user-attachments/assets/e4e6a5b6-79a0-4f0f-8032-cb66970efd99" />
+> <img width="929" height="259" alt="image" src="./imagenes/e4e6a5b6-79a0-4f0f-8032-cb66970efd99.png" />
 
 
 ---
@@ -355,7 +355,7 @@ El mensaje debe ser:
 
 **📷 Captura - Comunicación en grupo REDES:**
 
-> <img width="690" height="405" alt="image" src="https://github.com/user-attachments/assets/042aa612-f1bc-4040-9258-24705e48013d" />
+> <img width="690" height="405" alt="image" src="./imagenes/042aa612-f1bc-4040-9258-24705e48013d.png" />
 
 ### Grupo SERVIDORES
 

@@ -98,7 +98,7 @@ Si no conecta:
 Configurar DNS 1 igual al gateway del router  
 Volver a intentar conexión
 
-<img width="609" height="602" alt="image" src="https://github.com/user-attachments/assets/ab43f757-2362-45f7-acc7-e72688806aca" />
+<img width="609" height="602" alt="image" src="./imagenes/ab43f757-2362-45f7-acc7-e72688806aca.png" />
 
 ---
 
@@ -155,7 +155,7 @@ No negocia bien la red
 Solución:
 - Forzar velocidad: **100M Full Duplex**
 
-<img width="766" height="795" alt="image" src="https://github.com/user-attachments/assets/31a23ff4-d068-4392-96d8-ee61548cdb4b" />
+<img width="766" height="795" alt="image" src="./imagenes/31a23ff4-d068-4392-96d8-ee61548cdb4b.png" />
 
 
 ---

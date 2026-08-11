@@ -12,7 +12,7 @@ Dentro del sistema `SSAK47`:
 
 ---
 
-<img width="1100" height="660" alt="image" src="https://github.com/user-attachments/assets/6bb4442c-01bf-4980-a777-9c4f4146cb17" />
+<img width="1100" height="660" alt="image" src="./imagenes/6bb4442c-01bf-4980-a777-9c4f4146cb17.png" />
 
 
 ---
@@ -26,7 +26,7 @@ En la parte inferior de la pantalla:
 
 ---
 
-<img width="234" height="46" alt="image" src="https://github.com/user-attachments/assets/0fd2f131-4889-4f95-ac1c-b04318ac086c" />
+<img width="234" height="46" alt="image" src="./imagenes/0fd2f131-4889-4f95-ac1c-b04318ac086c.png" />
 
 
 ---
@@ -42,7 +42,7 @@ Editar los siguientes campos:
 
 ---
 
-<img width="1001" height="330" alt="image" src="https://github.com/user-attachments/assets/52d5febd-e953-4f0d-80d4-158fca953b96" />
+<img width="1001" height="330" alt="image" src="./imagenes/52d5febd-e953-4f0d-80d4-158fca953b96.png" />
 
 
 ---
@@ -54,7 +54,7 @@ Editar los siguientes campos:
 
 ---
 
-<img width="157" height="30" alt="image" src="https://github.com/user-attachments/assets/f6bb9255-7052-45d8-9b59-92cac8e3a66b" />
+<img width="157" height="30" alt="image" src="./imagenes/f6bb9255-7052-45d8-9b59-92cac8e3a66b.png" />
 
 ---
 
@@ -76,4 +76,4 @@ Ir a:
 
 ---
 
-<img width="1329" height="700" alt="image" src="https://github.com/user-attachments/assets/f1f94b1e-cf24-44a4-8c41-2673ba69b0c7" />
+<img width="1329" height="700" alt="image" src="./imagenes/f1f94b1e-cf24-44a4-8c41-2673ba69b0c7.png" />

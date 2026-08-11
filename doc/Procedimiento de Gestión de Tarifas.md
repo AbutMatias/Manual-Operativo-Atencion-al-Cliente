@@ -17,7 +17,7 @@ Dentro del sistema `SSAK47`:
 
 `Servicios → Modificaciones de Tarifas`
 
-<img width="1095" height="607" alt="image" src="https://github.com/user-attachments/assets/a891d06d-2440-4154-8db2-25637295cea3" />
+<img width="1095" height="607" alt="image" src="./imagenes/a891d06d-2440-4154-8db2-25637295cea3.png" />
 
 ---
 
@@ -49,7 +49,7 @@ Dentro de `SSAK47`:
 
 > ⚠️ Nota: Solo usuarios con rol `ADMIN` pueden editar.
 
-<img width="1359" height="665" alt="image" src="https://github.com/user-attachments/assets/e2258cf9-f1a9-4f36-bb24-bab9e37af348" />
+<img width="1359" height="665" alt="image" src="./imagenes/e2258cf9-f1a9-4f36-bb24-bab9e37af348.png" />
 
 ---
 
@@ -70,7 +70,7 @@ Este proceso permite excluir clientes específicos del aumento de tarifas.
 Dentro del sistema `SSAK47`:
 
 `Servicios → Notificación de Cambio de Tarifas`
-<img width="1366" height="716" alt="image" src="https://github.com/user-attachments/assets/be989a0d-e95b-4617-9683-379908abaf28" />
+<img width="1366" height="716" alt="image" src="./imagenes/be989a0d-e95b-4617-9683-379908abaf28.png" />
 
 ---
 
@@ -80,7 +80,7 @@ Dentro del sistema `SSAK47`:
 2. Seleccionar los servicios a exceptuar  
 3. Hacer clic derecho sobre el listado
 
-<img width="361" height="209" alt="image" src="https://github.com/user-attachments/assets/1b53c0c3-2afb-408c-b5f9-91e6fb032719" />
+<img width="361" height="209" alt="image" src="./imagenes/1b53c0c3-2afb-408c-b5f9-91e6fb032719.png" />
 
 4. Aplicar la excepción correspondiente  
 

@@ -22,8 +22,8 @@ Identificar si:
 
 Por Grafana:
 **Dashboard → OLTs → OLT Sopto(Localidades) o OLT ZTE (Tres Arroyos) → Colocamos la MAC de la ONU correspondiente → Query**
-<img width="1845" height="719" alt="image" src="https://github.com/user-attachments/assets/a41a4fd6-abe3-43c4-9bdd-9c8f10b9ac87" />
-<img width="1489" height="631" alt="image" src="https://github.com/user-attachments/assets/bd5e58b2-9e3a-48cf-ba5f-3acec936d1c7" />
+<img width="1845" height="719" alt="image" src="./imagenes/a41a4fd6-abe3-43c4-9bdd-9c8f10b9ac87.png" />
+<img width="1489" height="631" alt="image" src="./imagenes/bd5e58b2-9e3a-48cf-ba5f-3acec936d1c7.png" />
 
 Otro metodo
 
@@ -37,7 +37,7 @@ Buscar por:
 * Nodo Padre
 
 > **Importante:** Siempre que sea posible, obtener las señales en tiempo real de las ONUs afectadas.
-<img width="1839" height="873" alt="image" src="https://github.com/user-attachments/assets/c2f211c6-1441-48a0-b55a-bdb02eeb9c0f" />
+<img width="1839" height="873" alt="image" src="./imagenes/c2f211c6-1441-48a0-b55a-bdb02eeb9c0f.png" />
 
 
 

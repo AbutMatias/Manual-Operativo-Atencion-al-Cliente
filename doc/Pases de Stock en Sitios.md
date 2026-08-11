@@ -164,7 +164,7 @@ Al ingresar al sistema:
 
 - Clic en **“Sí”**
 
-<img width="758" height="156" alt="image" src="https://github.com/user-attachments/assets/5a5a43dc-5305-439c-ba95-778779753824" />
+<img width="758" height="156" alt="image" src="./imagenes/5a5a43dc-5305-439c-ba95-778779753824.png" />
 
 
 ---

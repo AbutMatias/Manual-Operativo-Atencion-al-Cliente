@@ -62,10 +62,10 @@ Se utiliza la herramienta Netmap para consultar el estado de la ONU, su señal y
 ---
 
 ## Capturas de referencia
-<img width="1845" height="892" alt="image" src="https://github.com/user-attachments/assets/b75f851c-b3ab-436a-8577-1df72fcc43c0" />
+<img width="1845" height="892" alt="image" src="./imagenes/b75f851c-b3ab-436a-8577-1df72fcc43c0.png" />
 
 
-<img width="1864" height="884" alt="image" src="https://github.com/user-attachments/assets/00aa624a-91e0-40b3-85ed-aa279c79c6af" />
+<img width="1864" height="884" alt="image" src="./imagenes/00aa624a-91e0-40b3-85ed-aa279c79c6af.png" />
 
 
 ---

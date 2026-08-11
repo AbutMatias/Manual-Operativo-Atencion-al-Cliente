@@ -144,7 +144,7 @@ Puerto habitual:
 ```text
 8080
 ```
-<img width="553" height="355" alt="image" src="https://github.com/user-attachments/assets/c21cd312-9eb2-4544-b3d5-e5f6e280ba4a" />
+<img width="553" height="355" alt="image" src="./imagenes/c21cd312-9eb2-4544-b3d5-e5f6e280ba4a.png" />
 
 Usuario:
 
@@ -184,7 +184,7 @@ Debe indicar:
 ```text
 Registered
 ```
-<img width="745" height="933" alt="image" src="https://github.com/user-attachments/assets/d2d6fa9a-687f-4842-997c-f5d3e0ae9817" />
+<img width="745" height="933" alt="image" src="./imagenes/d2d6fa9a-687f-4842-997c-f5d3e0ae9817.png" />
 
 ### Si muestra Failed
 
@@ -210,9 +210,9 @@ Verificar:
 * Que `Line Enable` esté en `yes`.
 * Que el `User ID` coincida con el número corto configurado en SSAK.
   
-<img width="1236" height="465" alt="image" src="https://github.com/user-attachments/assets/be413833-0da9-4c7e-bb43-0859ec3e42d9" />
+<img width="1236" height="465" alt="image" src="./imagenes/be413833-0da9-4c7e-bb43-0859ec3e42d9.png" />
 
-<img width="745" height="806" alt="image" src="https://github.com/user-attachments/assets/6059924a-86df-4942-a214-46f3d75e4433" />
+<img width="745" height="806" alt="image" src="./imagenes/6059924a-86df-4942-a214-46f3d75e4433.png" />
 
 
 ---
@@ -246,7 +246,7 @@ Debe indicar:
 ```text
 Registered
 ```
-<img width="778" height="349" alt="image" src="https://github.com/user-attachments/assets/7a57e8f7-7fb6-47ee-bf86-90875f0c2fce" />
+<img width="778" height="349" alt="image" src="./imagenes/7a57e8f7-7fb6-47ee-bf86-90875f0c2fce.png" />
 
 #### Hook
 
@@ -285,7 +285,7 @@ Debe resolver:
 ```text
 172.16.40.254
 ```
-<img width="805" height="786" alt="image" src="https://github.com/user-attachments/assets/0f4d872d-f519-4e5d-8347-5950590b60ae" />
+<img width="805" height="786" alt="image" src="./imagenes/0f4d872d-f519-4e5d-8347-5950590b60ae.png" />
 
 Además verificar que:
 
@@ -293,7 +293,7 @@ Además verificar que:
 * DNS configurado correctamente.
 * El equipo obtenga conectividad normal.
 
-<img width="716" height="417" alt="image" src="https://github.com/user-attachments/assets/d80b96c5-c86f-433c-82bd-9b184283535c" />
+<img width="716" height="417" alt="image" src="./imagenes/d80b96c5-c86f-433c-82bd-9b184283535c.png" />
 
 ---
 

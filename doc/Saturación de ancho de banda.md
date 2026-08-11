@@ -88,7 +88,7 @@ IP > Hotspot > Hosts
 
 Si los valores son cercanos a la velocidad contratada, probablemente exista saturación.
 
-<img width="954" height="582" alt="image" src="https://github.com/user-attachments/assets/544e12b4-ef12-472e-90b1-378e9a621c1a" />
+<img width="954" height="582" alt="image" src="./imagenes/544e12b4-ef12-472e-90b1-378e9a621c1a.png" />
 
 
 ---
@@ -111,7 +111,7 @@ Allí se puede observar:
 * Picos de tráfico
 * Si el consumo proviene de LAN o WiFi
 
-<img width="1373" height="327" alt="image" src="https://github.com/user-attachments/assets/b514d0fc-88f2-4950-a377-e667c4c3310e" />
+<img width="1373" height="327" alt="image" src="./imagenes/b514d0fc-88f2-4950-a377-e667c4c3310e.png" />
 
 
 ---
@@ -157,7 +157,7 @@ IP > DHCP Server > Leases
 
 3. Identificar el dispositivo correspondiente.
 
-<img width="1702" height="842" alt="image" src="https://github.com/user-attachments/assets/cef2a226-bd23-468c-bc31-23d44b292043" />
+<img width="1702" height="842" alt="image" src="./imagenes/cef2a226-bd23-468c-bc31-23d44b292043.png" />
 ---
 
 # Recomendaciones para el cliente

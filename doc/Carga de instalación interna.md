@@ -76,7 +76,7 @@ Cada tipo de interna tiene documentación y costos específicos en los enlaces c
 - Seleccionar:
   - “Agregar instalación interna”
   
-<img width="1647" height="858" alt="image" src="https://github.com/user-attachments/assets/c01a2dc2-a253-4625-9512-e83f743ff0a6" />
+<img width="1647" height="858" alt="image" src="./imagenes/c01a2dc2-a253-4625-9512-e83f743ff0a6.png" />
 
 ---
 
@@ -118,27 +118,27 @@ Luego ir a:
 - Seleccionar servicio
 - Indicar cantidad si aplica
 - Confirmar y finalizar
-<img width="1902" height="838" alt="image" src="https://github.com/user-attachments/assets/de6197ee-d4b4-47b7-812f-9c016b67f0d0" />
-<img width="1877" height="946" alt="image" src="https://github.com/user-attachments/assets/c4062055-0104-438d-b3ed-22d4fe06503e" />
+<img width="1902" height="838" alt="image" src="./imagenes/de6197ee-d4b4-47b7-812f-9c016b67f0d0.png" />
+<img width="1877" height="946" alt="image" src="./imagenes/c4062055-0104-438d-b3ed-22d4fe06503e.png" />
 
 ---
 
 ### Router host en comodato
 - Seleccionar el artículo correspondiente al servicio del cliente
 - Confirmar selección
-<img width="1875" height="933" alt="image" src="https://github.com/user-attachments/assets/b391816d-150c-4760-8390-cbf642b0e3b2" />
+<img width="1875" height="933" alt="image" src="./imagenes/b391816d-150c-4760-8390-cbf642b0e3b2.png" />
 Luego:
 - Agregar el costo del trabajo de instalación del router host
 - Confirmar y finalizar
 
-<img width="1880" height="922" alt="image" src="https://github.com/user-attachments/assets/3f0f01e6-71d5-4812-bc3c-9c8636027dc7" />
+<img width="1880" height="922" alt="image" src="./imagenes/3f0f01e6-71d5-4812-bc3c-9c8636027dc7.png" />
 
 ---
 
 ### Cableado interno
 - Seleccionar “Cableado interno hasta 15 mts” o según corresponda
 - Ajustar metros según necesidad del cliente
-<img width="1875" height="903" alt="image" src="https://github.com/user-attachments/assets/ac2a4b98-0e55-4e0f-b77e-06603dfafcfb" />
+<img width="1875" height="903" alt="image" src="./imagenes/ac2a4b98-0e55-4e0f-b77e-06603dfafcfb.png" />
 
 ---
 
@@ -148,7 +148,7 @@ Luego:
 - Si no lo tiene:
   - Primero cargar router host
   - Luego router no host
-<img width="1875" height="945" alt="image" src="https://github.com/user-attachments/assets/3788bed0-6a1f-44f4-919d-34ef8082f532" />
+<img width="1875" height="945" alt="image" src="./imagenes/3788bed0-6a1f-44f4-919d-34ef8082f532.png" />
 
 ---
 

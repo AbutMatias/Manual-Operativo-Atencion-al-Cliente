@@ -17,7 +17,7 @@ Desde la [Eternet App](https://app.eternet.cc/notificar-clientes-reclamo) se pue
 - Menú: **Clientes → Notificar → Reclamo**
 - Búsqueda por número de reclamo
 
-<img width="1384" height="745" alt="image" src="https://github.com/user-attachments/assets/c04e139a-a02f-4d7a-a2ed-d164fa937d22" />
+<img width="1384" height="745" alt="image" src="./imagenes/c04e139a-a02f-4d7a-a2ed-d164fa937d22.png" />
 
 
 ---
@@ -40,7 +40,7 @@ Alternativas:
   - Coordinación
 - O se detecta resolución automática del incidente
 
-<img width="658" height="232" alt="image" src="https://github.com/user-attachments/assets/9a498b25-b05d-4dc5-a241-be91589f11d7" />
+<img width="658" height="232" alt="image" src="./imagenes/9a498b25-b05d-4dc5-a241-be91589f11d7.png" />
 
 
 ---

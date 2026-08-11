@@ -19,10 +19,10 @@ Para realizar la baja:
 3. Buscar al cliente correspondiente.
 4. Ingresar al **AMB** desde la solapa **Clientes**.
 
-<img width="791" height="180" alt="image" src="https://github.com/user-attachments/assets/8e0e7bb1-93fd-4274-9c6e-1cf24668558a" />
+<img width="791" height="180" alt="image" src="./imagenes/8e0e7bb1-93fd-4274-9c6e-1cf24668558a.png" />
 
 
-<img width="1366" height="730" alt="image" src="https://github.com/user-attachments/assets/d62ad45b-336b-416a-97a1-9cee3cc8891d" />
+<img width="1366" height="730" alt="image" src="./imagenes/d62ad45b-336b-416a-97a1-9cee3cc8891d.png" />
 
 
 ---
@@ -40,7 +40,7 @@ El sistema mostrará las siguientes alternativas:
 - Baja de Servicio WIFI (con recibo de equipos)
 - Baja de Servicio WIFI (con Equipo a Retirar)
 
-<img width="1003" height="614" alt="image" src="https://github.com/user-attachments/assets/02ec7714-f85e-4ce9-ae81-bf991031f53f" />
+<img width="1003" height="614" alt="image" src="./imagenes/02ec7714-f85e-4ce9-ae81-bf991031f53f.png" />
 
 
 ---
@@ -56,7 +56,7 @@ El sistema mostrará las siguientes alternativas:
 
 Una vez realizada la operación, SSAK47 confirmará la baja del servicio y dejará los equipos pendientes de retiro.
 
-<img width="538" height="135" alt="image" src="https://github.com/user-attachments/assets/265539fc-ebd3-4f6d-8327-3910b72643b2" />
+<img width="538" height="135" alt="image" src="./imagenes/265539fc-ebd3-4f6d-8327-3910b72643b2.png" />
 
 
 ---

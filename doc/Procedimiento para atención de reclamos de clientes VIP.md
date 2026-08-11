@@ -10,7 +10,7 @@ Para identificar si un cliente pertenece o no a la categoría VIP:
 4. Acceder a **Datos personales**.
 5. Verificar el campo **Categoría**.
 
-<img width="1290" height="827" alt="image" src="https://github.com/user-attachments/assets/031c9fb7-9f49-4e31-9be3-e757b66920ca" />
+<img width="1290" height="827" alt="image" src="./imagenes/031c9fb7-9f49-4e31-9be3-e757b66920ca.png" />
 
 
 ---
