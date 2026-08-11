@@ -45,6 +45,8 @@ jobs:
         shell: bash
         run: |
 
+          set -u
+
           mkdir -p doc/imagenes
 
           echo ""
@@ -53,7 +55,12 @@ jobs:
           echo "======================================"
           echo ""
 
-          find doc -type f -name "*.md" -print0 | while IFS= read -r -d '' archivo
+
+          # =====================================================
+          # RECORRER TODOS LOS MARKDOWN
+          # =====================================================
+
+          while IFS= read -r -d '' archivo
           do
 
             echo ""
@@ -61,30 +68,35 @@ jobs:
             echo "Documento: $archivo"
             echo "--------------------------------------"
 
-            # =================================================
-            # BUSCAR IMÁGENES
-            # =================================================
 
-            imagenes=$(grep -oE 'https://github\.com/user-attachments/assets/[a-zA-Z0-9-]+' "$archivo" || true)
+            # ===================================================
+            # EXTRAER URLS DE USER-ATTACHMENTS
+            # ===================================================
 
-            # Si el documento no tiene imágenes,
-            # simplemente continuamos con el siguiente.
+            imagenes=$(
+              grep -oE \
+              'https://github\.com/user-attachments/assets/[a-zA-Z0-9-]+' \
+              "$archivo" \
+              2>/dev/null \
+              | sort -u \
+              || true
+            )
+
 
             if [ -z "$imagenes" ]; then
 
-              echo "No contiene imágenes."
+              echo "No contiene imágenes externas."
+
               continue
 
             fi
 
 
-            # =================================================
+            # ===================================================
             # PROCESAR CADA IMAGEN
-            # =================================================
+            # ===================================================
 
-            echo "$imagenes" |
-            sort -u |
-            while read -r url
+            while IFS= read -r url
             do
 
               if [ -z "$url" ]; then
@@ -92,14 +104,7 @@ jobs:
               fi
 
 
-              # -----------------------------------------------
-              # ID DE LA IMAGEN
-              # -----------------------------------------------
-
               id=$(basename "$url")
-
-
-              temporal="doc/imagenes/$id"
 
 
               echo ""
@@ -108,10 +113,17 @@ jobs:
 
 
               # =================================================
-              # VERIFICAR SI YA EXISTE
+              # BUSCAR SI YA EXISTE
               # =================================================
 
-              existente=$(find doc/imagenes -type f -name "$id.*" | head -n 1 || true)
+              existente=$(
+                find doc/imagenes \
+                  -type f \
+                  -name "${id}.*" \
+                  2>/dev/null \
+                  | head -n 1 \
+                  || true
+              )
 
 
               if [ -n "$existente" ]; then
@@ -119,11 +131,35 @@ jobs:
                 echo "La imagen ya existe:"
                 echo "$existente"
 
+
                 nombre=$(basename "$existente")
 
-                sed -i \
-                  "s|$url|./imagenes/$nombre|g" \
-                  "$archivo"
+
+                # ---------------------------------------------
+                # REEMPLAZAR URL
+                # ---------------------------------------------
+
+                python3 - "$archivo" "$url" "$nombre" <<'PY'
+import sys
+from pathlib import Path
+
+archivo = Path(sys.argv[1])
+url = sys.argv[2]
+nombre = sys.argv[3]
+
+texto = archivo.read_text(encoding="utf-8")
+
+texto = texto.replace(
+    url,
+    f"./imagenes/{nombre}"
+)
+
+archivo.write_text(
+    texto,
+    encoding="utf-8"
+)
+PY
+
 
                 continue
 
@@ -134,6 +170,9 @@ jobs:
               # DESCARGAR
               # =================================================
 
+              temporal="doc/imagenes/$id.download"
+
+
               echo "Descargando..."
 
 
@@ -141,75 +180,61 @@ jobs:
                 --quiet \
                 --timeout=30 \
                 --tries=3 \
+                --user-agent="Mozilla/5.0" \
                 "$url" \
                 -O "$temporal"
               then
 
-                tipo=$(file --brief --mime-type "$temporal")
+
+                # ===============================================
+                # DETECTAR TIPO
+                # ===============================================
+
+                tipo=$(
+                  file \
+                    --brief \
+                    --mime-type \
+                    "$temporal" \
+                    2>/dev/null \
+                    || echo "unknown"
+                )
 
 
                 echo "Tipo detectado: $tipo"
 
 
-                # =================================================
+                # ===============================================
                 # DETERMINAR EXTENSIÓN
-                # =================================================
+                # ===============================================
 
                 case "$tipo" in
 
                   image/jpeg)
-
-                    nuevo="$temporal.jpg"
-
-                    mv "$temporal" "$nuevo"
-
+                    extension="jpg"
                     ;;
-
 
                   image/png)
-
-                    nuevo="$temporal.png"
-
-                    mv "$temporal" "$nuevo"
-
+                    extension="png"
                     ;;
-
 
                   image/gif)
-
-                    nuevo="$temporal.gif"
-
-                    mv "$temporal" "$nuevo"
-
+                    extension="gif"
                     ;;
-
 
                   image/webp)
-
-                    nuevo="$temporal.webp"
-
-                    mv "$temporal" "$nuevo"
-
+                    extension="webp"
                     ;;
-
 
                   image/svg+xml)
-
-                    nuevo="$temporal.svg"
-
-                    mv "$temporal" "$nuevo"
-
+                    extension="svg"
                     ;;
 
-
                   *)
-
                     echo "Formato no compatible: $tipo"
 
                     rm -f "$temporal"
 
                     continue
-
                     ;;
 
                 esac
@@ -219,20 +244,50 @@ jobs:
                 # NOMBRE FINAL
                 # =================================================
 
+                nuevo="doc/imagenes/${id}.${extension}"
+
+
+                mv "$temporal" "$nuevo"
+
+
                 nombre=$(basename "$nuevo")
 
 
+                echo ""
                 echo "Imagen guardada:"
-                echo "doc/imagenes/$nombre"
+                echo "$nuevo"
 
 
                 # =================================================
-                # REEMPLAZAR URL EN MARKDOWN
+                # REEMPLAZAR URL EN EL MARKDOWN
                 # =================================================
 
-                sed -i \
-                  "s|$url|./imagenes/$nombre|g" \
-                  "$archivo"
+                python3 - "$archivo" "$url" "$nombre" <<'PY'
+import sys
+from pathlib import Path
+
+archivo = Path(sys.argv[1])
+url = sys.argv[2]
+nombre = sys.argv[3]
+
+texto = archivo.read_text(encoding="utf-8")
+
+# URL original
+texto = texto.replace(
+    url,
+    f"./imagenes/{nombre}"
+)
+
+archivo.write_text(
+    texto,
+    encoding="utf-8"
+)
+
+print(f"URL reemplazada en: {archivo}")
+PY
+
+
+                echo "Referencia actualizada."
 
 
               else
@@ -242,13 +297,83 @@ jobs:
                 echo "$url"
                 echo ""
 
+
                 rm -f "$temporal"
 
               fi
 
-            done
 
-          done
+            done <<< "$imagenes"
+
+
+          done < <(
+            find doc \
+              -type f \
+              -name "*.md" \
+              -print0
+          )
+
+
+      # =========================================================
+      # VERIFICAR IMÁGENES
+      # =========================================================
+
+      - name: Verificar imágenes
+        run: |
+
+          echo ""
+          echo "======================================"
+          echo " IMÁGENES DESCARGADAS"
+          echo "======================================"
+          echo ""
+
+          find doc/imagenes \
+            -type f \
+            -print \
+            | sort
+
+          echo ""
+
+          cantidad=$(find doc/imagenes -type f | wc -l)
+
+          echo "Total de imágenes: $cantidad"
+
+
+      # =========================================================
+      # BUSCAR URLs QUE TODAVÍA QUEDARON
+      # =========================================================
+
+      - name: Verificar URLs pendientes
+        run: |
+
+          echo ""
+          echo "======================================"
+          echo " VERIFICANDO URLs EXTERNAS"
+          echo "======================================"
+          echo ""
+
+          pendientes=$(
+            grep -RhoE \
+            'https://github\.com/user-attachments/assets/[a-zA-Z0-9-]+' \
+            doc \
+            --include="*.md" \
+            2>/dev/null \
+            | sort -u \
+            || true
+          )
+
+
+          if [ -z "$pendientes" ]; then
+
+            echo "OK: No quedan imágenes externas."
+
+          else
+
+            echo "ADVERTENCIA:"
+            echo ""
+            echo "$pendientes"
+
+          fi
 
 
       # =========================================================
@@ -301,8 +426,10 @@ jobs:
             echo "Guardando cambios..."
             echo ""
 
+
             git commit \
-              -m "Descargar imágenes de documentación"
+              -m "Descargar y corregir imágenes de documentación"
+
 
             git push
 
