@@ -1,4 +1,4 @@
-name: Corregir referencias de imágenes
+name: Corregir imágenes locales
 
 on:
   workflow_dispatch:
@@ -7,105 +7,138 @@ permissions:
   contents: write
 
 jobs:
-  corregir:
+  corregir-imagenes:
     runs-on: ubuntu-latest
 
     steps:
 
-      - name: Descargar repositorio
+      - name: Checkout
         uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
 
-      - name: Corregir imágenes
+      - name: Corregir referencias
+        shell: bash
         run: |
-          python3 <<'PY'
+          python3 - <<'PY'
           from pathlib import Path
           import re
 
-          doc = Path("doc")
-          imagenes = doc / "imagenes"
+          DOC = Path("doc")
+          IMG = DOC / "imagenes"
 
           print("==========================================")
-          print(" CORRECCIÓN DE IMÁGENES")
+          print(" CORREGIR IMÁGENES")
           print("==========================================")
 
-          if not imagenes.exists():
+          if not IMG.exists():
               print("ERROR: no existe doc/imagenes")
-              raise SystemExit(1)
+              exit(1)
 
-          archivos_imagenes = {}
+          # ------------------------------------------
+          # CREAR LISTA DE IMÁGENES
+          # ------------------------------------------
 
-          for archivo in imagenes.iterdir():
-              if archivo.is_file():
-                  archivos_imagenes[archivo.stem] = archivo.name
+          imagenes = {}
 
-          print(f"Imágenes locales encontradas: {len(archivos_imagenes)}")
+          for archivo in IMG.iterdir():
 
-          cambios = 0
+              if not archivo.is_file():
+                  continue
 
-          for archivo in doc.rglob("*.md"):
+              imagenes[archivo.stem] = archivo.name
+
+          print()
+          print("Imágenes encontradas:")
+          
+          for image_id, nombre in imagenes.items():
+              print(f"  {image_id} -> {nombre}")
+
+          print()
+
+          # ------------------------------------------
+          # PROCESAR MARKDOWN
+          # ------------------------------------------
+
+          modificados = 0
+
+          for archivo in DOC.rglob("*.md"):
 
               texto = archivo.read_text(encoding="utf-8")
 
               original = texto
 
-              # Buscar IDs de GitHub user-attachments
-              patron = r'https://github\.com/user-attachments/assets/([a-zA-Z0-9-]+)'
+              # --------------------------------------
+              # BUSCAR:
+              #
+              # https://github.com/user-attachments/assets/ID
+              # --------------------------------------
 
-              ids = set(re.findall(patron, texto))
+              patron = re.compile(
+                  r"https://github\.com/user-attachments/assets/([A-Za-z0-9-]+)"
+              )
+
+              ids = sorted(set(patron.findall(texto)))
 
               if not ids:
                   continue
 
-              print("")
+              print("------------------------------------------")
               print("Documento:", archivo)
 
               for image_id in ids:
 
-                  if image_id not in archivos_imagenes:
-                      print("  NO encontrada:", image_id)
+                  if image_id not in imagenes:
+
+                      print("  Imagen NO encontrada:", image_id)
+
                       continue
 
-                  nombre = archivos_imagenes[image_id]
+                  nombre = imagenes[image_id]
 
-                  ruta_local = f"./imagenes/{nombre}"
-
-                  print("  Encontrada:", nombre)
+                  ruta = "./imagenes/" + nombre
 
                   url = (
                       "https://github.com/user-attachments/assets/"
                       + image_id
                   )
 
-                  # ------------------------------------------
-                  # FORMATO:
+                  print("  Imagen encontrada:", nombre)
+
+                  # ==================================
+                  # REEMPLAZAR:
                   #
                   # [URL](URL)
-                  # ------------------------------------------
+                  # ==================================
 
                   texto = texto.replace(
-                      f"[{url}]({url})",
-                      ruta_local
+                      "[" + url + "](" + url + ")",
+                      ruta
                   )
 
-                  # ------------------------------------------
-                  # FORMATO:
+                  # ==================================
+                  # REEMPLAZAR:
                   #
-                  # <img src="[URL](URL)" ...>
-                  # ------------------------------------------
+                  # src="[URL](URL)"
+                  # ==================================
 
                   texto = texto.replace(
-                      f'src="[{url}]({url})"',
-                      f'src="{ruta_local}"'
+                      'src="[' + url + "](" + url + ')"',
+                      'src="' + ruta + '"'
                   )
 
-                  # ------------------------------------------
-                  # URL directa restante
-                  # ------------------------------------------
+                  # ==================================
+                  # REEMPLAZAR URL RESTANTE
+                  # ==================================
 
                   texto = texto.replace(
                       url,
-                      ruta_local
+                      ruta
                   )
+
+              # --------------------------------------
+              # GUARDAR
+              # --------------------------------------
 
               if texto != original:
 
@@ -114,39 +147,67 @@ jobs:
                       encoding="utf-8"
                   )
 
-                  cambios += 1
+                  modificados += 1
 
-                  print("  Documento corregido.")
+                  print("  OK: documento modificado")
 
-          print("")
+              else:
+
+                  print("  SIN CAMBIOS")
+
+          print()
           print("==========================================")
           print(" RESUMEN")
           print("==========================================")
-          print("Documentos modificados:", cambios)
+          print()
+          print("Documentos modificados:", modificados)
 
           PY
 
-      - name: Mostrar cambios
+      - name: Comprobar resultado
+        shell: bash
         run: |
           echo "=========================================="
-          echo " CAMBIOS"
+          echo " COMPROBANDO URLs"
+          echo "=========================================="
+
+          echo ""
+
+          grep -Rni \
+            "github.com/user-attachments/assets" \
+            doc \
+            --include="*.md" \
+            || true
+
+          echo ""
+          echo "=========================================="
+          echo " GIT STATUS"
           echo "=========================================="
 
           git status
 
           echo ""
-          git diff --stat
+          echo "=========================================="
+          echo " CAMBIOS"
+          echo "=========================================="
+
+          git diff -- doc/
 
       - name: Guardar cambios
+        shell: bash
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
           git add doc/
 
-          if git diff --cached --quiet; then
-            echo "No hay cambios."
+          if git diff --cached --quiet
+          then
+            echo "NO HAY CAMBIOS"
           else
+            echo "GUARDANDO CAMBIOS"
+
             git commit -m "Corregir referencias de imágenes"
+
             git push
           fi
