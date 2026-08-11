@@ -167,6 +167,7 @@
 ## Wireless - Router LB-Link con data + power
 
 <img width="1251" height="703" alt="image" src="https://github.com/user-attachments/assets/8da45c4f-e325-4ea8-be1a-9a0662d69c85" />
+
 ## Wireless - Router LB-Link con data + power + Repetidor (Sub LB-Link)
 
 <img width="1248" height="699" alt="image" src="https://github.com/user-attachments/assets/e4082508-99f9-41b4-9f62-b4c751ebad8b" />
