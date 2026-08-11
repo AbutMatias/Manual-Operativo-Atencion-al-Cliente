@@ -1,0 +1,128 @@
+# 📘 Manual Operativo - Atención al Cliente – Índice General 
+
+Repositorio de documentación técnica, soporte y diagnóstico de red.
+
+---
+
+# 🔎 Acceso rápido por categoría
+
+---
+
+## 🎫 Atención al cliente y reclamos
+- [Carga de reclamos](./doc/Carga%20de%20reclamos.md) 
+- [Carga de instalación interna](./doc/Carga%20de%20instalación%20interna.md) 
+- [Monitoreo de reclamos](./doc/Monitoreo%20de%20Reclamos.md) 
+- [Derivación de reclamos e internas](./doc/Derivación%20de%20Reclamos%20e%20Internas.md) 
+- [Procedimiento de atención de reclamos](./doc/Procedimiento%20para%20atención%20de%20reclamos%20(Atención%20al%20Cliente).md) 
+- [Procedimiento reclamos VIP](./doc/Procedimiento%20para%20atención%20de%20reclamos%20de%20clientes%20VIP.md) 
+- [Notificación de cierre de reclamos](./doc/Notificación%20de%20cierre%20de%20reclamos%20a%20clientes.md)
+- [Actualización a Fibra Óptica](./doc/Actualizacion%20a%20Fibra%20Optica.md)
+- [Gestión de correos electrónicos (MailServer)](./doc/Gestión%20de%20correos%20electrónicos%20(MailServer).md)
+- [Reconexion Temporal (72hs)](https://github.com/Eternet/Atencion.Clientes/blob/main/Documentacion/Manual-Operativo-Atencion-al-Cliente/doc/Reconexión%20Temporal.md)
+- [Cambio de Abono (Upgrade / Downgrade)](https://github.com/Eternet/Atencion.Clientes/blob/main/Documentacion/Manual-Operativo-Atencion-al-Cliente/doc/Cambio%20de%20Abono.md)
+
+  
+> [!Important]
+> [Gestión de ventas fuera del horario Comercial](https://github.com/Eternet/Atencion.Clientes/blob/main/Documentacion/Manual-Operativo-Atencion-al-Cliente/doc/Gestión%20de%20ventas%20fuera%20del%20horario%20Comercial.md)
+---
+
+## 🌐 Diagnóstico de red 
+- [Sin conexión](./doc/Sin%20conexión.md) 
+- [Sin conexión Eternet Plus](./doc/Sin%20conexión%20–%20Eternet%20Plus.md) 
+- [Saturación de ancho de banda](./doc/Saturación%20de%20ancho%20de%20banda.md)
+- [Degradación de señal](./doc/Degradación%20de%20señal.md)
+- [Ping](./doc/Ping.md)
+- [Bandwidth Test (Prueba de ancho de banda en MikroTik) ](https://github.com/Eternet/Atencion.Clientes/blob/main/Documentacion/Manual-Operativo-Atencion-al-Cliente/doc/Bandwidth%20Test%20(Prueba%20de%20ancho%20de%20banda%20en%20MikroTik).md)
+- [Traceroute (Traza de red)](./doc/Traceroute%20(Traza%20de%20red).md)
+- [Prueba de velocidad (SpeedTest)](./doc/Prueba%20de%20velocidad.md)
+- [Chequeo de sitio web o servidor](./doc/Chequeo%20de%20acceso%20a%20un%20sitio%20web%20o%20servidor.md)
+- [Diagnóstico de cobertura](./doc/Diagnósticos%20por%20problemas%20de%20cobertura.md)
+- [Problemas en juegos online](./doc/Problemas%20en%20Juegos%20Online.md)
+- [Photon](https://github.com/Eternet/Atencion.Clientes/blob/main/Documentacion/Manual-Operativo-Atencion-al-Cliente/doc/Photon.md)
+- [LB-Link](https://github.com/Eternet/Atencion.Clientes/blob/main/Documentacion/Manual-Operativo-Atencion-al-Cliente/doc/LB-Link.md)
+- [Vilo](https://github.com/Eternet/Atencion.Clientes/blob/main/Documentacion/Manual-Operativo-Atencion-al-Cliente/doc/Vilo.md)
+- [GLC Apolo W7](https://github.com/Eternet/Atencion.Clientes/blob/main/Documentacion/Manual-Operativo-Atencion-al-Cliente/GLC%20APOLO%20W7.md)
+
+> [!Important]
+> [Glosario de Diagnosticos](https://github.com/Eternet/Atencion.Clientes/blob/main/Documentacion/Manual-Operativo-Atencion-al-Cliente/doc/Glosario%20de%20Diagnosticos.md)
+
+
+---
+## 🖥️ Problemas de conectividad en dispositivos del cliente 
+- [Consolas y PC conectividad](https://github.com/Eternet/Atencion.Clientes/blob/main/Documentacion/Manual-Operativo-Atencion-al-Cliente/doc/Detectar%20y%20resolver%20problemas%20de%20conectividad%20en%20Consolas%20de%20Videojuegos%20y%20PC.md)
+- [Impresoras](./doc/Detectar%20y%20resolver%20Problemas%20en%20Impresoras.md)
+- [Smart TVs](./doc/Detectar%20y%20resolver%20Problemas%20en%20Smart%20TVs.md)
+- [Celulares](./doc/Detectar%20y%20resolver%20problemas%20con%20celulares.md)
+- [Cámaras / DVR](./doc/Detectar%20y%20resolver%20Problemas%20en%20Cámaras%20o%20Equipos%20DVR.md)
+
+---
+## 📡 Equipos de red
+- [Tipos de conexion](https://github.com/Eternet/Atencion.Clientes/blob/main/Documentacion/Manual-Operativo-Atencion-al-Cliente/doc/Tipos%20de%20Conexion.md)
+- [Winbox](./doc/Winbox.md)
+- [WinBox no conecta por ROMON](./doc/WinBox%20no%20conecta%20por%20ROMON.md)
+- [Acceso a equipos MikroTik mediante MAC-Telnet y RoMON](./doc/Acceso%20a%20equipos%20MikroTik%20mediante%20MAC-Telnet%20y%20RoMON.md)
+- [Redireccionamiento de puertos (Port Forwarding)](./doc/Redireccionamiento%20de%20Puertos.md)
+- [Cambio de MAC Address en SSAK](./doc/Cambio%20de%20MAC%20Address.md)
+- [Cambio router HOST](./doc/Cambio%20de%20Router%20HOST.md)
+- [The Dude](./doc/The%20Dude.md)
+- [NetMap](./doc/NetMap.md)
+- [Esquemas de conexion](https://github.com/Eternet/Atencion.Clientes/blob/main/Documentacion/Manual-Operativo-Atencion-al-Cliente/doc/Esquemas%20de%20conexion.md)
+---
+
+## 📶 Wireless / AP / CPE
+- [Acceso y diagnóstico de equipos Ubiquiti (NanoStation)](./doc/Acceso%20y%20diagnóstico%20de%20equipos%20Ubiquiti%20(NanoStation).md)
+- [Equipo cliente (Antena) reiniciándose](./doc/Equipo%20cliente%20(Antena)%20reiniciándose.md)
+- [Equipo cliente (Antena) desenlazándose](./doc/Equipo%20cliente%20(Antena)%20desenlazándose.md)
+- [Equipo cliente con calidad degradada (Wireless)](./doc/Equipo%20wireless%20con%20señal%20degradada.md)
+- [AP sin respuesta](./doc/Comprobación%20de%20AP%20sin%20respuesta.md)
+- [Nodo AP con problemas](./doc/Verificación%20de%20Nodo-AP%20con%20problemas.md)
+- [Verificación de servicios con router en modo Bridge (CPE)](./doc/Verificación%20de%20servicios%20con%20router%20en%20modo%20Bridge%20(CPE).md)
+
+---
+
+
+## 🏗️ Infraestructura / core / fibra
+- [OLTs](./doc/Acceso%20a%20OLTs.md)
+- [Listado OLTs](./doc/Listado%20de%20OLTs%20con%20gestión%20web.md)
+- [iBGP diagnóstico](./doc/Identificar%20perdida%20entre%20NOC1%20y%20localidades%20iBGP.md)
+- [Subnetting](./doc/Subnetting.md)
+- [Servicio iBGP](./doc/Servicio%20iBGP.md)
+
+---
+
+## ⚡ Infraestructura física
+- [Energía shelters y torres](./doc/Energia%20electrica%20shelters%20y%20torres.md)
+- [Power Monitor (Cortes de luz)](https://github.com/Eternet/Atencion.Clientes/blob/main/Documentacion/Manual-Operativo-Atencion-al-Cliente/doc/Power%20Monitor%20(Grafana).md)
+- [Verificacion desde EDES (Cortes de luz en area Bahia Blanca)](https://github.com/Eternet/Atencion.Clientes/blob/main/Documentacion/Manual-Operativo-Atencion-al-Cliente/doc/EDES.md)
+- [Suministros EDES (Planilla de NIS)](./doc/Suministros%20EDES.md)
+- [Cables colgando](./doc/Cables%20colgando.md)
+- [CELTA Tres Arroyos](./doc/Suministros%20eléctricos%20de%20CELTA%20en%20Tres%20Arroyos.md)
+
+---
+
+## 🧩 Sistemas internos
+- [Botmaker](./doc/Botmaker.md)
+- [Eternet App](./doc/Eternet%20App.md)
+- [Foro Eternet](./doc/Foro%20Eternet.md)
+- [Gestión de firewall de IP Públicas](./doc/Gestión%20de%20firewall%20de%20IP%20Públicas.md)
+- [Sin conexión - Telefonía IP (VoIP)](./doc/Telefonia%20IP.md)
+- [Telefonía móvil](./doc/Telefonía%20Móvil.md)
+
+---
+
+## ⚙️ Procesos y operación
+- [Ordenamiento de Tareas y Prioridades](./doc/Ordenamiento%20de%20Tareas%20y%20Prioridades.md)
+- [CRF](./doc/Funcionamiento%20del%20CRF.md)
+- [Área de Calidad – Modelo COPC en Eternet](./doc/Área%20de%20Calidad%20–%20Modelo%20COPC%20en%20Eternet.md)
+- [Guardias técnicas](./doc/Procedimiento%20de%20Guardias%20Técnicas%20de%20Fin%20de%20Semana.md)
+  
+> [!Important]
+> [Gestión de Problemas Generales o Masivos](./doc/Gestión%20de%20Problemas%20Generales%20o%20Masivos.md)
+
+---
+
+## 📚 Glosario y conceptos
+- [Glosario](./doc/Glosario.md)
+- [Glosario diagnóstico](https://github.com/Eternet/Atencion.Clientes/blob/main/Documentacion/Manual-Operativo-Atencion-al-Cliente/doc/Glosario%20de%20Diagnosticos.md)
+- [Chequeos básicos](./doc/Chequeos%20básicos%20y%20uso%20de%20terminología.md)
+- [Guía de indagación](./doc/Guía%20básica%20de%20indagación.md)
