@@ -1,25 +1,25 @@
-name: Descargar y asignar imágenes de documentación
+name: Asignar imágenes locales
 
 on:
+  workflow_dispatch:
+
   push:
     branches:
       - main
-
-  workflow_dispatch:
 
 permissions:
   contents: write
 
 jobs:
-  descargar-imagenes:
+  asignar-imagenes:
 
     runs-on: ubuntu-latest
 
     steps:
 
-      # =========================================================
+      # =====================================================
       # DESCARGAR REPOSITORIO
-      # =========================================================
+      # =====================================================
 
       - name: Descargar repositorio
         uses: actions/checkout@v5
@@ -27,57 +27,44 @@ jobs:
           fetch-depth: 0
 
 
-      # =========================================================
-      # PROCESAR DOCUMENTACIÓN
-      # =========================================================
+      # =====================================================
+      # PROCESAR DOCUMENTOS
+      # =====================================================
 
-      - name: Asignar imágenes a documentos
+      - name: Asignar imágenes
         shell: bash
         run: |
 
-          set +e
-
           echo "=============================================="
-          echo "   ASIGNAR IMÁGENES DE DOCUMENTACIÓN"
+          echo "      ASIGNACIÓN DE IMÁGENES LOCALES"
           echo "=============================================="
           echo ""
 
           mkdir -p doc/imagenes
 
 
-          # =====================================================
-          # CONTADORES
-          # =====================================================
+          # =================================================
+          # RECORRER TODOS LOS MARKDOWN
+          # =================================================
 
-          procesadas=0
-          asignadas=0
-          pendientes=0
-
-
-          # =====================================================
-          # RECORRER TODOS LOS DOCUMENTOS
-          # =====================================================
-
+          find doc -type f -name "*.md" -print0 |
           while IFS= read -r -d '' archivo
           do
 
             echo ""
-            echo "----------------------------------------------"
             echo "Documento:"
             echo "$archivo"
-            echo "----------------------------------------------"
 
 
             # =================================================
-            # BUSCAR URLs DE GITHUB USER ATTACHMENTS
+            # BUSCAR IDs DE USER-ATTACHMENTS
             # =================================================
 
             grep -oE \
               'https://github\.com/user-attachments/assets/[a-zA-Z0-9-]+' \
-              "$archivo" \
-              2>/dev/null |
-              sort -u |
-              while IFS= read -r url
+              "$archivo" 2>/dev/null |
+            sort -u |
+            while IFS= read -r url
             do
 
               if [ -z "$url" ]; then
@@ -85,58 +72,55 @@ jobs:
               fi
 
 
-              procesadas=$((procesadas + 1))
-
-
               # =================================================
               # OBTENER ID
               # =================================================
 
-              id=$(basename "$url")
+              id="${url##*/}"
 
 
               echo ""
-              echo "Imagen encontrada:"
-              echo "$url"
-
-              echo "ID:"
+              echo "Imagen detectada:"
               echo "$id"
 
 
               # =================================================
-              # BUSCAR IMAGEN LOCAL
+              # BUSCAR ARCHIVO LOCAL
               # =================================================
 
-              imagen_local=""
+              imagen=""
 
 
-              for extension in jpg jpeg png gif webp svg JPG JPEG PNG GIF WEBP SVG
+              for extension in png jpg jpeg gif webp svg PNG JPG JPEG GIF WEBP SVG
               do
 
-                candidato="doc/imagenes/${id}.${extension}"
+                archivo_imagen="doc/imagenes/${id}.${extension}"
 
-                if [ -f "$candidato" ]; then
-                  imagen_local="$candidato"
+                if [ -f "$archivo_imagen" ]; then
+
+                  imagen="$archivo_imagen"
+
                   break
+
                 fi
 
               done
 
 
               # =================================================
-              # SI EXISTE LA IMAGEN LOCAL
+              # SI EXISTE LA IMAGEN
               # =================================================
 
-              if [ -n "$imagen_local" ]; then
+              if [ -n "$imagen" ]; then
 
-                nombre=$(basename "$imagen_local")
+                nombre=$(basename "$imagen")
 
-                echo "Imagen local encontrada:"
-                echo "$imagen_local"
+                echo "Encontrada:"
+                echo "$nombre"
 
 
                 # =================================================
-                # REEMPLAZAR URL NORMAL
+                # REEMPLAZAR TODAS LAS VARIANTES
                 # =================================================
 
                 sed -i \
@@ -145,132 +129,76 @@ jobs:
 
 
                 # =================================================
-                # CORREGIR FORMATO:
+                # ELIMINAR FORMATO MARKDOWN
                 #
                 # [URL](URL)
                 # =================================================
 
                 sed -i \
-                  "s|\[$url\]($url)|./imagenes/$nombre|g" \
+                  "s|\[\.\/imagenes\/$nombre\](\.\/imagenes\/$nombre)|./imagenes/$nombre|g" \
                   "$archivo"
 
 
-                # =================================================
-                # CORREGIR HTML:
-                #
-                # <img src="URL">
-                # =================================================
-
-                sed -i \
-                  "s|src=\"$url\"|src=\"./imagenes/$nombre\"|g" \
-                  "$archivo"
-
-
-                # =================================================
-                # CORREGIR HTML RARO:
-                #
-                # src="[URL](URL)"
-                # =================================================
-
-                sed -i \
-                  "s|src=\"\[$url\]($url)\"|src=\"./imagenes/$nombre\"|g" \
-                  "$archivo"
-
-
-                echo "Referencia corregida:"
-                echo "./imagenes/$nombre"
-
-
-                asignadas=$((asignadas + 1))
+                echo "Referencia corregida."
 
 
               else
 
-                echo ""
-                echo "AVISO:"
-                echo "No existe una imagen local para:"
-                echo "$id"
-
-                echo ""
-                echo "Debe existir como:"
-                echo "doc/imagenes/${id}.png"
-                echo "doc/imagenes/${id}.jpg"
-                echo "doc/imagenes/${id}.jpeg"
-                echo "doc/imagenes/${id}.webp"
-                echo ""
-
-                pendientes=$((pendientes + 1))
+                echo "NO encontrada localmente:"
+                echo "doc/imagenes/${id}.*"
 
               fi
 
             done
 
-          done < <(
-            find doc \
-              -type f \
-              -name "*.md" \
-              -print0
-          )
+          done
 
 
-          # =====================================================
-          # MOSTRAR RESUMEN
-          # =====================================================
+      # =====================================================
+      # MOSTRAR RESULTADO
+      # =====================================================
 
-          echo ""
-          echo "=============================================="
-          echo "              RESUMEN"
-          echo "=============================================="
-          echo ""
-
-          echo "URLs encontradas: $procesadas"
-          echo "Imágenes asignadas: $asignadas"
-          echo "Imágenes pendientes: $pendientes"
-
-          echo ""
-
-
-      # =========================================================
-      # VERIFICAR IMÁGENES
-      # =========================================================
-
-      - name: Verificar imágenes
+      - name: Mostrar resultado
         shell: bash
         run: |
 
+          echo ""
           echo "=============================================="
-          echo "        IMÁGENES EN DOC/IMAGENES"
+          echo "           IMÁGENES LOCALES"
           echo "=============================================="
           echo ""
 
-          if [ -d "doc/imagenes" ]; then
+          find doc/imagenes \
+            -type f \
+            -print |
+            sort
 
-            find doc/imagenes \
-              -type f \
-              -print |
-              sort
+          echo ""
 
-          else
+          echo "=============================================="
+          echo "           CAMBIOS REALIZADOS"
+          echo "=============================================="
+          echo ""
 
-            echo "La carpeta doc/imagenes no existe."
-
-          fi
+          git diff --stat
 
           echo ""
 
 
-      # =========================================================
-      # BUSCAR IMÁGENES EXTERNAS RESTANTES
-      # =========================================================
+      # =====================================================
+      # MOSTRAR DOCUMENTOS CON REFERENCIAS EXTERNAS
+      # =====================================================
 
-      - name: Verificar referencias externas
+      - name: Verificar referencias pendientes
         shell: bash
         run: |
 
+          echo ""
           echo "=============================================="
-          echo "       REFERENCIAS EXTERNAS RESTANTES"
+          echo "       REFERENCIAS PENDIENTES"
           echo "=============================================="
           echo ""
+
 
           pendientes=$(
             grep -RhoE \
@@ -278,18 +206,18 @@ jobs:
               doc \
               --include="*.md" \
               2>/dev/null |
-              sort -u
+            sort -u
           )
 
 
           if [ -z "$pendientes" ]; then
 
             echo "OK."
-            echo "No quedan referencias externas."
+            echo "No quedan URLs externas."
 
           else
 
-            echo "Las siguientes referencias todavía no fueron reemplazadas:"
+            echo "Todavía quedan:"
             echo ""
 
             echo "$pendientes"
@@ -297,41 +225,17 @@ jobs:
           fi
 
 
-          echo ""
-
-
-      # =========================================================
-      # MOSTRAR CAMBIOS
-      # =========================================================
-
-      - name: Mostrar cambios
-        shell: bash
-        run: |
-
-          echo "=============================================="
-          echo "              CAMBIOS"
-          echo "=============================================="
-          echo ""
-
-          git status
-
-          echo ""
-
-          git diff --stat || true
-
-          echo ""
-
-
-      # =========================================================
+      # =====================================================
       # GUARDAR CAMBIOS
-      # =========================================================
+      # =====================================================
 
       - name: Guardar cambios
         shell: bash
         run: |
 
+          echo ""
           echo "=============================================="
-          echo "             GUARDAR CAMBIOS"
+          echo "             GUARDANDO CAMBIOS"
           echo "=============================================="
           echo ""
 
@@ -347,22 +251,16 @@ jobs:
           if git diff --cached --quiet
           then
 
-            echo "No hay cambios para guardar."
+            echo "No hay cambios."
 
           else
 
-            echo ""
-            echo "Cambios encontrados."
-
-            echo ""
-
             git commit \
-              -m "Asignar imágenes locales a documentación"
-
+              -m "Asignar imágenes locales"
 
             git push
 
             echo ""
-            echo "Cambios enviados correctamente."
+            echo "Cambios guardados correctamente."
 
           fi
