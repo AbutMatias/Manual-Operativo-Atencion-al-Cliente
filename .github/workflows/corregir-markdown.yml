@@ -11,15 +11,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-
       - name: Descargar repositorio
         uses: actions/checkout@v4
 
-      - name: Corregir archivos Markdown
+      - name: Corregir Markdown
         shell: bash
         run: |
-          set -e
-
           echo "=============================================="
           echo "       CORRECCIÓN DE ARCHIVOS MARKDOWN"
           echo "=============================================="
@@ -28,20 +25,15 @@ jobs:
           find doc -type f -name "*.md" -print0 |
           while IFS= read -r -d '' archivo
           do
-
-            echo "Procesando:"
+            echo "Documento:"
             echo "$archivo"
 
-            sed -i \
-              -e 's/\\#/#/g' \
-              -e 's/\\! /! /g' \
-              -e 's/\\!\\[/![/g' \
-              -e 's/\\(/(/g' \
-              -e 's/\\)/)/g' \
-              "$archivo"
+            sed -i 's/\\#/#/g' "$archivo"
+            sed -i 's/\\!\\[/![/g' "$archivo"
+            sed -i 's/\\(/(/g' "$archivo"
+            sed -i 's/\\)/)/g' "$archivo"
 
-            echo "OK:"
-            echo "$archivo"
+            echo "OK"
             echo ""
 
           done
@@ -63,8 +55,6 @@ jobs:
       - name: Guardar cambios
         shell: bash
         run: |
-          set -e
-
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
@@ -72,16 +62,8 @@ jobs:
 
           if git diff --cached --quiet
           then
-            echo ""
             echo "No hay cambios para guardar."
           else
-            echo ""
-            echo "Guardando cambios..."
-
             git commit -m "Corregir formato Markdown"
-
             git push
-
-            echo ""
-            echo "Cambios guardados correctamente."
           fi
