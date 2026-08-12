@@ -1,250 +1,165 @@
-name: Corregir imágenes locales
+name: Convertir imágenes PNG a JPG
 
 on:
   workflow_dispatch:
+  push:
+    paths:
+      - "doc/imagenes/**"
+      - "doc/**/*.md"
+      - ".github/workflows/descargar-imagenes.yml"
 
 permissions:
   contents: write
 
 jobs:
-  corregir-imagenes:
+  convertir-imagenes:
     runs-on: ubuntu-latest
 
     steps:
-
       - name: Descargar repositorio
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
-      - name: Corregir referencias de imágenes
+      - name: Instalar ImageMagick
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y imagemagick
+
+      - name: Convertir PNG a JPG
         shell: bash
         run: |
+          set -e
 
           echo "=============================================="
-          echo "     CORRECCIÓN DE IMÁGENES LOCALES"
+          echo "     CONVERSIÓN PNG A JPG"
           echo "=============================================="
           echo ""
 
           mkdir -p doc/imagenes
 
-          python3 <<'PY'
+          cantidad=0
 
-          from pathlib import Path
+          while IFS= read -r -d '' archivo
+          do
+            nombre=$(basename "$archivo")
+            base="${nombre%.*}"
+            destino="doc/imagenes/${base}.jpg"
+
+            echo "PNG encontrado:"
+            echo "  $archivo"
+            echo "JPG destino:"
+            echo "  $destino"
+            echo ""
+
+            # Convertir PNG a JPG
+            # Fondo blanco para PNG con transparencia
+            magick "$archivo" \
+              -background white \
+              -alpha remove \
+              -alpha off \
+              -quality 92 \
+              "$destino"
+
+            cantidad=$((cantidad + 1))
+
+          done < <(find doc/imagenes -type f \( -iname "*.png" \) -print0)
+
+          echo ""
+          echo "=============================================="
+          echo "Imágenes convertidas: $cantidad"
+          echo "=============================================="
+
+      - name: Actualizar referencias Markdown
+        shell: bash
+        run: |
+          set -e
+
+          echo "=============================================="
+          echo "   ACTUALIZANDO REFERENCIAS MARKDOWN"
+          echo "=============================================="
+          echo ""
+
+          find doc -type f -name "*.md" -print0 |
+          while IFS= read -r -d '' archivo
+          do
+
+            echo "Revisando:"
+            echo "$archivo"
+
+            python3 - "$archivo" <<'PY'
+          import sys
           import re
+          from pathlib import Path
 
-          carpeta = Path("doc")
-          imagenes = Path("doc/imagenes")
+          archivo = Path(sys.argv[1])
 
-          extensiones = {
-              ".png",
-              ".jpg",
-              ".jpeg",
-              ".gif",
-              ".webp",
-              ".svg"
-          }
+          texto = archivo.read_text(encoding="utf-8")
 
-          archivos_imagen = sorted(
-              [
-                  p for p in imagenes.iterdir()
-                  if p.is_file() and p.suffix.lower() in extensiones
-              ],
-              key=lambda p: p.name.lower()
+          original = texto
+
+          # -------------------------------------------------
+          # Cambiar referencias Markdown:
+          #
+          # ./imagenes/foto.png
+          # ->
+          # ./imagenes/foto.jpg
+          # -------------------------------------------------
+
+          texto = re.sub(
+              r'(\./imagenes/[^)\s]+)\.png(?=[)\s"])',
+              r'\1.jpg',
+              texto,
+              flags=re.IGNORECASE
           )
 
-          print("Imágenes locales encontradas:")
-          print("")
-
-          for imagen in archivos_imagen:
-              print(" -", imagen.name)
-
-          print("")
-          print("Total:", len(archivos_imagen))
-          print("")
-
           # -------------------------------------------------
-          # BUSCAR DOCUMENTOS
+          # Cambiar referencias HTML:
+          #
+          # src="./imagenes/foto.png"
+          # ->
+          # src="./imagenes/foto.jpg"
           # -------------------------------------------------
 
-          documentos = sorted(carpeta.rglob("*.md"))
+          texto = re.sub(
+              r'(\./imagenes/[^"\']+)\.png',
+              r'\1.jpg',
+              texto,
+              flags=re.IGNORECASE
+          )
 
-          contador_global = 0
-
-          for archivo in documentos:
-
-              if "imagenes" in archivo.parts:
-                  continue
-
-              texto = archivo.read_text(
-                  encoding="utf-8",
-                  errors="ignore"
-              )
-
-              original = texto
-
-              print("")
-              print("==============================================")
-              print("Documento:", archivo)
-              print("==============================================")
-
-              # -------------------------------------------------
-              # BUSCAR TODAS LAS URL DE IMÁGENES
-              # -------------------------------------------------
-
-              patron = re.compile(
-                  r'https://(?:github\.com/user-attachments/assets|user-images\.githubusercontent\.com)/[A-Za-z0-9._~:/?#\[\]@!$&\'()*+,;=%-]+'
-              )
-
-              urls = []
-
-              for coincidencia in patron.findall(texto):
-
-                  # Limpiar caracteres que pueden venir
-                  # pegados al final de la URL
-                  url = coincidencia.rstrip(')>"]')
-
-                  if url not in urls:
-                      urls.append(url)
-
-              if not urls:
-                  print("Sin imágenes externas.")
-                  continue
-
-              print("Imágenes externas:", len(urls))
-
-              # -------------------------------------------------
-              # REEMPLAZAR IMÁGENES
-              # -------------------------------------------------
-
-              for url in urls:
-
-                  if contador_global >= len(archivos_imagen):
-
-                      print("")
-                      print("NO HAY MÁS IMÁGENES LOCALES DISPONIBLES")
-                      print("URL:", url)
-                      continue
-
-                  imagen = archivos_imagen[contador_global]
-
-                  nombre = imagen.name
-
-                  referencia = f"./imagenes/{nombre}"
-
-                  print("")
-                  print("URL:")
-                  print(url)
-
-                  print("Asignando:")
-                  print(nombre)
-
-                  # -------------------------------------------------
-                  # CASO:
-                  # [URL](URL)
-                  # -------------------------------------------------
-
-                  texto = texto.replace(
-                      f"[{url}]({url})",
-                      referencia
-                  )
-
-                  # -------------------------------------------------
-                  # CASO:
-                  # <img src="[URL](URL)" ...>
-                  # -------------------------------------------------
-
-                  texto = texto.replace(
-                      f'src="[{url}]({url})"',
-                      f'src="{referencia}"'
-                  )
-
-                  texto = texto.replace(
-                      f"src='[{url}]({url})'",
-                      f"src='{referencia}'"
-                  )
-
-                  # -------------------------------------------------
-                  # CASO:
-                  # <img src="URL" ...>
-                  # -------------------------------------------------
-
-                  texto = texto.replace(
-                      f'src="{url}"',
-                      f'src="{referencia}"'
-                  )
-
-                  texto = texto.replace(
-                      f"src='{url}'",
-                      f"src='{referencia}'"
-                  )
-
-                  # -------------------------------------------------
-                  # CASO:
-                  # URL SOLA
-                  # -------------------------------------------------
-
-                  texto = texto.replace(
-                      url,
-                      referencia
-                  )
-
-                  contador_global += 1
-
-              # -------------------------------------------------
-              # GUARDAR
-              # -------------------------------------------------
-
-              if texto != original:
-
-                  archivo.write_text(
-                      texto,
-                      encoding="utf-8"
-                  )
-
-                  print("")
-                  print("DOCUMENTO MODIFICADO")
-
-              else:
-
-                  print("")
-                  print("SIN CAMBIOS")
-
-          print("")
-          print("==============================================")
-          print("PROCESO FINALIZADO")
-          print("==============================================")
-          print("")
-          print("Imágenes asignadas:", contador_global)
+          if texto != original:
+              archivo.write_text(texto, encoding="utf-8")
+              print(f"MODIFICADO: {archivo}")
+          else:
+              print(f"SIN CAMBIOS: {archivo}")
 
           PY
 
-      - name: Mostrar cambios
+            echo ""
+
+          done
+
+      - name: Mostrar imágenes generadas
         shell: bash
         run: |
-
           echo "=============================================="
-          echo "CAMBIOS"
+          echo "       IMÁGENES JPG GENERADAS"
           echo "=============================================="
-
-          git status
-
           echo ""
-          git diff --stat
+
+          find doc/imagenes -type f -iname "*.jpg" | sort
 
       - name: Guardar cambios
         shell: bash
         run: |
-
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git add doc/
+          git add doc/imagenes
+          git add doc
 
-          if git diff --cached --quiet
-          then
+          if git diff --cached --quiet; then
             echo "No hay cambios para guardar."
           else
-            git commit -m "Corregir referencias de imágenes locales"
+            git commit -m "Convertir imágenes PNG a JPG y actualizar documentación"
             git push
           fi
