@@ -1,6 +1,6 @@
 # Esquema de conexión con servicio FTTH y router Photon Dual
 
-![Photon Dual](./imagenes/3c8777e3-66ea-47aa-b39e-5400829e8547.png)
+![Photon Dual](./imagenes/e11db660-ee56-49ae-96d7-ecc737e21ac4.png)
 <img src="./imagenes/e11db660-ee56-49ae-96d7-ecc737e21ac4.png" alt="image" loading="lazy" decoding="async" style="max-width: 100%; height: auto; cursor: zoom-in;">
 
 # Tutorial: [Link](https://www.youtube.com/watch?v=JZIR1azMiXA) 
