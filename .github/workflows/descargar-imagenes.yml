@@ -2,11 +2,6 @@ name: Convertir imágenes PNG a JPG
 
 on:
   workflow_dispatch:
-  push:
-    paths:
-      - "doc/imagenes/**"
-      - "doc/**/*.md"
-      - ".github/workflows/descargar-imagenes.yml"
 
 permissions:
   contents: write
@@ -19,10 +14,10 @@ jobs:
       - name: Descargar repositorio
         uses: actions/checkout@v4
 
-      - name: Instalar ImageMagick
+      - name: Instalar Pillow
         run: |
-          sudo apt-get update
-          sudo apt-get install -y imagemagick
+          python3 -m pip install --upgrade pip
+          python3 -m pip install Pillow
 
       - name: Convertir PNG a JPG
         shell: bash
@@ -30,62 +25,95 @@ jobs:
           set -e
 
           echo "=============================================="
-          echo "     CONVERSIÓN PNG A JPG"
+          echo "        CONVERSIÓN PNG A JPG"
           echo "=============================================="
           echo ""
 
-          mkdir -p doc/imagenes
+          python3 <<'PY'
+          from pathlib import Path
+          from PIL import Image
 
-          cantidad=0
+          carpeta = Path("doc/imagenes")
 
-          while IFS= read -r -d '' archivo
-          do
-            nombre=$(basename "$archivo")
-            base="${nombre%.*}"
-            destino="doc/imagenes/${base}.jpg"
+          cantidad = 0
 
-            echo "PNG encontrado:"
-            echo "  $archivo"
-            echo "JPG destino:"
-            echo "  $destino"
-            echo ""
+          for archivo in carpeta.rglob("*"):
+              if not archivo.is_file():
+                  continue
 
-            # Convertir PNG a JPG
-            # Fondo blanco para PNG con transparencia
-            magick "$archivo" \
-              -background white \
-              -alpha remove \
-              -alpha off \
-              -quality 92 \
-              "$destino"
+              if archivo.suffix.lower() != ".png":
+                  continue
 
-            cantidad=$((cantidad + 1))
+              destino = archivo.with_suffix(".jpg")
 
-          done < <(find doc/imagenes -type f \( -iname "*.png" \) -print0)
+              print("----------------------------------------------")
+              print(f"PNG encontrado:")
+              print(archivo)
+              print(f"JPG destino:")
+              print(destino)
 
-          echo ""
-          echo "=============================================="
-          echo "Imágenes convertidas: $cantidad"
-          echo "=============================================="
+              try:
+                  imagen = Image.open(archivo)
 
-      - name: Actualizar referencias Markdown
+                  # Convertir imágenes con transparencia
+                  # sobre fondo blanco.
+                  if imagen.mode in ("RGBA", "LA") or (
+                      imagen.mode == "P"
+                      and "transparency" in imagen.info
+                  ):
+                      fondo = Image.new("RGB", imagen.size, "white")
+
+                      if imagen.mode == "P":
+                          imagen = imagen.convert("RGBA")
+
+                      fondo.paste(
+                          imagen,
+                          mask=imagen.getchannel("A")
+                      )
+
+                      imagen = fondo
+
+                  else:
+                      imagen = imagen.convert("RGB")
+
+                  imagen.save(
+                      destino,
+                      "JPEG",
+                      quality=92,
+                      optimize=True
+                  )
+
+                  print("OK")
+                  cantidad += 1
+
+              except Exception as e:
+                  print(f"ERROR: {archivo}")
+                  print(e)
+                  raise
+
+          print("")
+          print("==============================================")
+          print(f"IMÁGENES CONVERTIDAS: {cantidad}")
+          print("==============================================")
+          PY
+
+      - name: Actualizar referencias PNG a JPG
         shell: bash
         run: |
           set -e
 
           echo "=============================================="
-          echo "   ACTUALIZANDO REFERENCIAS MARKDOWN"
+          echo "     ACTUALIZANDO REFERENCIAS"
           echo "=============================================="
           echo ""
 
           find doc -type f -name "*.md" -print0 |
           while IFS= read -r -d '' archivo
           do
+              echo "Revisando:"
+              echo "$archivo"
 
-            echo "Revisando:"
-            echo "$archivo"
-
-            python3 - "$archivo" <<'PY'
+              python3 - "$archivo" <<'PY'
           import sys
           import re
           from pathlib import Path
@@ -96,28 +124,28 @@ jobs:
 
           original = texto
 
-          # -------------------------------------------------
-          # Cambiar referencias Markdown:
+          # ------------------------------------------
+          # Markdown
           #
           # ./imagenes/foto.png
           # ->
           # ./imagenes/foto.jpg
-          # -------------------------------------------------
+          # ------------------------------------------
 
           texto = re.sub(
-              r'(\./imagenes/[^)\s]+)\.png(?=[)\s"])',
+              r'(\./imagenes/[^)\s]+)\.png(?=[)\s])',
               r'\1.jpg',
               texto,
               flags=re.IGNORECASE
           )
 
-          # -------------------------------------------------
-          # Cambiar referencias HTML:
+          # ------------------------------------------
+          # HTML
           #
           # src="./imagenes/foto.png"
           # ->
           # src="./imagenes/foto.jpg"
-          # -------------------------------------------------
+          # ------------------------------------------
 
           texto = re.sub(
               r'(\./imagenes/[^"\']+)\.png',
@@ -127,30 +155,40 @@ jobs:
           )
 
           if texto != original:
-              archivo.write_text(texto, encoding="utf-8")
+              archivo.write_text(
+                  texto,
+                  encoding="utf-8"
+              )
+
               print(f"MODIFICADO: {archivo}")
+
           else:
               print(f"SIN CAMBIOS: {archivo}")
 
           PY
 
-            echo ""
+              echo ""
 
           done
 
-      - name: Mostrar imágenes generadas
-        shell: bash
+      - name: Mostrar JPG generados
         run: |
           echo "=============================================="
-          echo "       IMÁGENES JPG GENERADAS"
+          echo "          JPG GENERADOS"
           echo "=============================================="
           echo ""
 
-          find doc/imagenes -type f -iname "*.jpg" | sort
+          find doc/imagenes \
+            -type f \
+            -iname "*.jpg" \
+            -print |
+          sort
 
       - name: Guardar cambios
         shell: bash
         run: |
+          set -e
+
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
@@ -158,8 +196,8 @@ jobs:
           git add doc
 
           if git diff --cached --quiet; then
-            echo "No hay cambios para guardar."
+              echo "No hay cambios para guardar."
           else
-            git commit -m "Convertir imágenes PNG a JPG y actualizar documentación"
-            git push
+              git commit -m "Convertir imágenes PNG a JPG"
+              git push
           fi
