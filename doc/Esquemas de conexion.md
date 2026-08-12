@@ -115,7 +115,7 @@
 
 - ### Esquema:
 
-![image](./imagenes/64444339-aff91bf7-badf-4e74-a86b-0327834b4df8.jpg)
+![image](./imagenes/364444339-aff91bf7-badf-4e74-a86b-0327834b4df8.jpg)
 
 - ### Tutorial: [Link](https://www.youtube.com/watch?v=YkUoS2sRPCs)
 ---
@@ -189,5 +189,5 @@
 
 ## Wireless - Router GLC-Apolo con data + power + Repetidor (Sub GLC-Apolo)
 
-![image](/imagenes/624036160-ef84d419-2766-4f2b-9fb2-db513f133f6c.jpg)
+![image](./imagenes/624036160-ef84d419-2766-4f2b-9fb2-db513f133f6c.jpg)
 
