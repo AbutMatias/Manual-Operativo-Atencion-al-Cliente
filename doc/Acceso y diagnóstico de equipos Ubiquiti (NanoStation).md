@@ -24,7 +24,7 @@ Aceptar para continuar.
 
 Ingresar usuario y contraseña del equipo.
 
-   - ![image](./imagenes/00aa624a-91e0-40b3-85ed-aa279c79c6af.jpg)
+   - ![image](./imagenes/218597141-a7fc7412-bd7f-4f34-90af-89b833a8bdea.png)
 ---
 
 ## 2. Pantalla principal
