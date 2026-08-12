@@ -14,6 +14,7 @@
     <style>
 
         :root {
+
             --background: #272727;
             --sidebar: #1b1b1b;
             --header: #191919;
@@ -21,6 +22,7 @@
             --panel-hover: #303030;
             --input: #343434;
             --border: #454545;
+
             --text: #f5f5f5;
             --text-secondary: #a0a0a0;
             --text-muted: #777777;
@@ -30,45 +32,70 @@
             --blue-light: rgba(91, 192, 235, .12);
 
             --important: #f0ad4e;
+
         }
+
 
         * {
             box-sizing: border-box;
         }
 
+
         html {
             scroll-behavior: smooth;
         }
 
+
         body {
+
             margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-            background: var(--background);
-            color: var(--text);
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            background:
+                var(--background);
+
+            color:
+                var(--text);
+
         }
+
 
         button,
         input {
             font-family: inherit;
         }
 
+
         ::-webkit-scrollbar {
+
             width: 7px;
             height: 7px;
+
         }
+
 
         ::-webkit-scrollbar-track {
             background: #1e1e1e;
         }
 
+
         ::-webkit-scrollbar-thumb {
+
             background: #555;
+
             border-radius: 10px;
+
         }
+
 
         ::-webkit-scrollbar-thumb:hover {
             background: #666;
         }
+
 
 
         /* =========================================================
@@ -76,7 +103,9 @@
            ========================================================= */
 
         .header {
+
             position: fixed;
+
             left: 0;
             right: 0;
             top: 0;
@@ -85,31 +114,46 @@
 
             z-index: 100;
 
-            background: var(--header);
+            background:
+                var(--header);
 
-            border-bottom: 1px solid #3b3b3b;
+            border-bottom:
+                1px solid #3b3b3b;
 
             display: flex;
+
             align-items: center;
+
             justify-content: space-between;
 
-            padding: 0 18px;
+            padding:
+                0 18px;
+
         }
+
 
         .header-left {
+
             display: flex;
+
             align-items: center;
+
             gap: 12px;
+
         }
 
+
         .menu-button {
+
             width: 40px;
             height: 40px;
 
             border: none;
+
             border-radius: 6px;
 
             background: #303030;
+
             color: white;
 
             font-size: 20px;
@@ -117,70 +161,117 @@
             cursor: pointer;
 
             display: flex;
+
             align-items: center;
+
             justify-content: center;
+
         }
+
 
         .menu-button:hover {
             background: #3a3a3a;
         }
 
+
         .brand {
+
             display: flex;
+
             align-items: center;
+
             gap: 10px;
+
         }
+
 
         .brand-logo {
+
             width: 32px;
             height: 32px;
+
             object-fit: contain;
+
         }
+
 
         .brand-name {
+
             font-size: 16px;
+
             font-weight: bold;
+
             color: white;
+
         }
+
 
         .header-right {
+
             display: flex;
+
             align-items: center;
+
             gap: 10px;
+
         }
+
 
         .header-status {
-            padding: 9px 13px;
+
+            padding:
+                9px 13px;
 
             border-radius: 6px;
 
-            background: var(--blue);
-            color: #10202a;
+            background:
+                var(--blue);
+
+            color:
+                #10202a;
 
             font-size: 12px;
+
             font-weight: bold;
+
         }
 
-        .github-button {
-            padding: 9px 13px;
 
-            border: 1px solid var(--border);
+        .github-button {
+
+            padding:
+                9px 13px;
+
+            border:
+                1px solid var(--border);
+
             border-radius: 6px;
 
-            background: #292929;
-            color: #d5d5d5;
+            background:
+                #292929;
+
+            color:
+                #d5d5d5;
 
             text-decoration: none;
 
             font-size: 12px;
 
             transition: .15s;
+
         }
 
+
         .github-button:hover {
-            border-color: var(--blue);
-            color: var(--blue);
+
+            border-color:
+                var(--blue);
+
+            color:
+                var(--blue);
+
         }
+
 
 
         /* =========================================================
@@ -188,110 +279,166 @@
            ========================================================= */
 
         .sidebar {
+
             position: fixed;
 
             left: 0;
+
             top: 66px;
+
             bottom: 0;
 
             width: 290px;
 
             z-index: 90;
 
-            background: var(--sidebar);
+            background:
+                var(--sidebar);
 
-            border-right: 1px solid #3d3d3d;
+            border-right:
+                1px solid #3d3d3d;
 
             overflow-y: auto;
 
-            transition: transform .2s ease;
+            transition:
+                transform .2s ease;
+
         }
 
-        .sidebar-section {
-            padding: 20px 14px 8px;
 
-            color: #777;
+        .sidebar-section {
+
+            padding:
+                20px 14px 8px;
+
+            color:
+                #777;
 
             font-size: 10px;
+
             font-weight: bold;
 
             text-transform: uppercase;
 
             letter-spacing: .3px;
+
         }
+
 
         .sidebar-search {
-            padding: 0 14px 12px;
+
+            padding:
+                0 14px 12px;
+
         }
 
+
         .sidebar-search input {
+
             width: 100%;
 
-            padding: 9px 10px;
+            padding:
+                9px 10px;
 
             border: none;
+
             outline: none;
 
             border-radius: 5px;
 
-            background: #343434;
+            background:
+                #343434;
 
-            color: #eee;
+            color:
+                #eee;
 
             font-size: 13px;
+
         }
+
 
         .sidebar-search input::placeholder {
             color: #777;
         }
 
+
         .sidebar-search input:focus {
-            box-shadow: 0 0 0 1px var(--blue);
+
+            box-shadow:
+                0 0 0 1px var(--blue);
+
         }
+
 
         .nav {
-            padding: 0 8px;
+
+            padding:
+                0 8px;
+
         }
 
+
         .nav-item {
+
             display: flex;
+
             align-items: center;
 
             gap: 8px;
 
-            padding: 9px 10px;
+            padding:
+                9px 10px;
 
             margin-bottom: 2px;
 
             border-radius: 5px;
 
-            color: #d0d0d0;
+            color:
+                #d0d0d0;
 
             font-size: 12px;
 
             cursor: pointer;
 
             transition: .15s;
+
         }
+
 
         .nav-item:hover {
-            background: #292929;
-            color: white;
+
+            background:
+                #292929;
+
+            color:
+                white;
+
         }
+
 
         .nav-item.active {
-            background: rgba(91, 192, 235, .16);
-            color: var(--blue);
+
+            background:
+                rgba(91, 192, 235, .16);
+
+            color:
+                var(--blue);
+
         }
 
+
         .category-icon {
+
             width: 17px;
+
             min-width: 17px;
 
             text-align: center;
 
             opacity: .9;
+
         }
+
 
 
         /* =========================================================
@@ -299,14 +446,21 @@
            ========================================================= */
 
         .sidebar-category {
+
             margin-bottom: 2px;
+
         }
+
 
         .sidebar-category-title {
+
             font-weight: bold;
+
         }
 
+
         .sidebar-category-name {
+
             flex: 1;
 
             overflow: hidden;
@@ -314,48 +468,68 @@
             white-space: nowrap;
 
             text-overflow: ellipsis;
+
         }
 
+
         .sidebar-arrow {
+
             margin-left: auto;
 
             color: #777;
 
             font-size: 16px;
 
-            transition: transform .15s ease;
+            transition:
+                transform .15s ease;
+
         }
 
-        .sidebar-category-title.expanded .sidebar-arrow,
-        .sidebar-subcategory-title.expanded .sidebar-arrow {
-            transform: rotate(90deg);
-            color: var(--blue);
+
+        .sidebar-category-title.expanded
+        .sidebar-arrow {
+
+            transform:
+                rotate(90deg);
+
+            color:
+                var(--blue);
+
         }
+
 
         .sidebar-category-content {
+
             display: none;
 
             padding-left: 10px;
+
         }
+
 
         .sidebar-category-content.open {
             display: block;
         }
 
+
         .sidebar-document {
+
             display: flex;
 
             align-items: flex-start;
 
             gap: 7px;
 
-            padding: 7px 9px;
+            padding:
+                7px 9px;
 
-            margin: 1px 0;
+            margin:
+                1px 0;
 
             border-radius: 5px;
 
-            color: #aaa;
+            color:
+                #aaa;
 
             font-size: 11px;
 
@@ -364,25 +538,45 @@
             cursor: pointer;
 
             transition: .15s;
+
         }
+
 
         .sidebar-document:hover {
-            background: #292929;
-            color: white;
+
+            background:
+                #292929;
+
+            color:
+                white;
+
         }
+
 
         .sidebar-document-icon {
+
             flex-shrink: 0;
+
             opacity: .8;
+
         }
+
 
         .sidebar-document.important {
-            color: var(--important);
+
+            color:
+                var(--important);
+
         }
 
+
         .sidebar-document.important:hover {
-            color: #ffc66d;
+
+            color:
+                #ffc66d;
+
         }
+
 
 
         /* =========================================================
@@ -390,22 +584,35 @@
            ========================================================= */
 
         .main {
-            margin-left: 290px;
 
-            padding-top: 66px;
+            margin-left:
+                290px;
 
-            min-height: 100vh;
+            padding-top:
+                66px;
 
-            transition: margin-left .2s ease;
+            min-height:
+                100vh;
+
+            transition:
+                margin-left .2s ease;
+
         }
+
 
         .content {
-            max-width: 1200px;
 
-            margin: 0 auto;
+            max-width:
+                1200px;
 
-            padding: 32px;
+            margin:
+                0 auto;
+
+            padding:
+                32px;
+
         }
+
 
 
         /* =========================================================
@@ -413,34 +620,54 @@
            ========================================================= */
 
         .hero {
-            background: var(--panel);
 
-            border: 1px solid var(--border);
+            background:
+                var(--panel);
 
-            border-radius: 8px;
+            border:
+                1px solid var(--border);
 
-            padding: 30px;
+            border-radius:
+                8px;
 
-            margin-bottom: 18px;
+            padding:
+                30px;
+
+            margin-bottom:
+                18px;
+
         }
+
 
         .hero-title {
+
             margin: 0;
 
-            font-size: 25px;
+            font-size:
+                25px;
 
-            color: white;
+            color:
+                white;
+
         }
+
 
         .hero-subtitle {
-            margin: 8px 0 0;
 
-            color: var(--text-secondary);
+            margin:
+                8px 0 0;
 
-            font-size: 13px;
+            color:
+                var(--text-secondary);
 
-            line-height: 1.5;
+            font-size:
+                13px;
+
+            line-height:
+                1.5;
+
         }
+
 
 
         /* =========================================================
@@ -448,87 +675,143 @@
            ========================================================= */
 
         .main-search {
-            margin-top: 22px;
+
+            margin-top:
+                22px;
+
         }
+
 
         .main-search-wrapper {
-            position: relative;
+
+            position:
+                relative;
+
         }
+
 
         .main-search-icon {
-            position: absolute;
 
-            left: 14px;
+            position:
+                absolute;
 
-            top: 50%;
+            left:
+                14px;
 
-            transform: translateY(-50%);
+            top:
+                50%;
 
-            color: #777;
+            transform:
+                translateY(-50%);
 
-            pointer-events: none;
+            color:
+                #777;
+
+            pointer-events:
+                none;
+
         }
+
 
         .main-search input {
-            width: 100%;
 
-            height: 48px;
+            width:
+                100%;
 
-            padding: 0 45px;
+            height:
+                48px;
 
-            border: 1px solid var(--border);
+            padding:
+                0 45px;
 
-            border-radius: 6px;
+            border:
+                1px solid var(--border);
 
-            outline: none;
+            border-radius:
+                6px;
 
-            background: var(--input);
+            outline:
+                none;
 
-            color: white;
+            background:
+                var(--input);
 
-            font-size: 14px;
+            color:
+                white;
+
+            font-size:
+                14px;
+
         }
+
 
         .main-search input::placeholder {
             color: #777;
         }
 
+
         .main-search input:focus {
-            border-color: var(--blue);
+
+            border-color:
+                var(--blue);
 
             box-shadow:
                 0 0 0 2px var(--blue-light);
+
         }
+
 
         .clear-search {
-            position: absolute;
 
-            right: 10px;
+            position:
+                absolute;
 
-            top: 50%;
+            right:
+                10px;
 
-            transform: translateY(-50%);
+            top:
+                50%;
 
-            width: 28px;
-            height: 28px;
+            transform:
+                translateY(-50%);
 
-            border: none;
+            width:
+                28px;
 
-            border-radius: 5px;
+            height:
+                28px;
 
-            background: transparent;
+            border:
+                none;
 
-            color: #777;
+            border-radius:
+                5px;
 
-            cursor: pointer;
+            background:
+                transparent;
 
-            display: none;
+            color:
+                #777;
+
+            cursor:
+                pointer;
+
+            display:
+                none;
+
         }
+
 
         .clear-search:hover {
-            background: #444;
-            color: white;
+
+            background:
+                #444;
+
+            color:
+                white;
+
         }
+
 
 
         /* =========================================================
@@ -536,41 +819,66 @@
            ========================================================= */
 
         .stats {
-            display: grid;
+
+            display:
+                grid;
 
             grid-template-columns:
                 repeat(3, 1fr);
 
-            gap: 12px;
+            gap:
+                12px;
 
-            margin-bottom: 22px;
+            margin-bottom:
+                22px;
+
         }
+
 
         .stat {
-            background: var(--panel);
 
-            border: 1px solid var(--border);
+            background:
+                var(--panel);
 
-            border-radius: 7px;
+            border:
+                1px solid var(--border);
 
-            padding: 16px;
+            border-radius:
+                7px;
+
+            padding:
+                16px;
+
         }
+
 
         .stat-number {
-            font-size: 20px;
 
-            font-weight: bold;
+            font-size:
+                20px;
 
-            color: var(--blue);
+            font-weight:
+                bold;
+
+            color:
+                var(--blue);
+
         }
+
 
         .stat-label {
-            margin-top: 4px;
 
-            color: var(--text-muted);
+            margin-top:
+                4px;
 
-            font-size: 11px;
+            color:
+                var(--text-muted);
+
+            font-size:
+                11px;
+
         }
+
 
 
         /* =========================================================
@@ -578,130 +886,208 @@
            ========================================================= */
 
         .results-header {
-            display: flex;
 
-            align-items: center;
+            display:
+                flex;
 
-            justify-content: space-between;
+            align-items:
+                center;
 
-            margin-bottom: 10px;
+            justify-content:
+                space-between;
+
+            margin-bottom:
+                10px;
+
         }
+
 
         .results-title {
-            font-size: 15px;
 
-            font-weight: bold;
+            font-size:
+                15px;
+
+            font-weight:
+                bold;
+
         }
+
 
         .status {
-            color: var(--text-muted);
 
-            font-size: 11px;
+            color:
+                var(--text-muted);
+
+            font-size:
+                11px;
+
         }
 
+
         .result {
-            background: var(--panel);
 
-            border: 1px solid var(--border);
+            background:
+                var(--panel);
 
-            border-radius: 7px;
+            border:
+                1px solid var(--border);
 
-            padding: 16px;
+            border-radius:
+                7px;
 
-            margin-bottom: 9px;
+            padding:
+                16px;
+
+            margin-bottom:
+                9px;
 
             transition:
                 border-color .15s,
                 background .15s;
+
         }
+
 
         .result:hover {
-            background: var(--panel-hover);
 
-            border-color: #555;
+            background:
+                var(--panel-hover);
+
+            border-color:
+                #555;
+
         }
+
 
         .result-title {
-            font-size: 14px;
 
-            font-weight: bold;
+            font-size:
+                14px;
 
-            color: white;
+            font-weight:
+                bold;
+
+            color:
+                white;
+
         }
+
 
         .result-title-icon {
-            color: var(--blue);
+
+            color:
+                var(--blue);
+
         }
+
 
         .result-category {
-            margin-top: 5px;
 
-            color: var(--text-muted);
+            margin-top:
+                5px;
 
-            font-size: 10px;
+            color:
+                var(--text-muted);
+
+            font-size:
+                10px;
+
         }
 
+
         .result-text {
-            margin-top: 11px;
 
-            padding: 11px;
+            margin-top:
+                11px;
 
-            background: #303030;
+            padding:
+                11px;
 
-            border-left: 3px solid var(--blue);
+            background:
+                #303030;
+
+            border-left:
+                3px solid var(--blue);
 
             border-radius:
                 0 4px 4px 0;
 
-            color: #c9c9c9;
+            color:
+                #c9c9c9;
 
-            font-size: 12px;
+            font-size:
+                12px;
 
-            line-height: 1.6;
+            line-height:
+                1.6;
+
         }
+
 
         .result-actions {
-            margin-top: 12px;
+
+            margin-top:
+                12px;
+
         }
+
 
         .result button {
-            border: none;
 
-            border-radius: 5px;
+            border:
+                none;
 
-            padding: 8px 12px;
+            border-radius:
+                5px;
 
-            background: var(--blue);
+            padding:
+                8px 12px;
 
-            color: #10202a;
+            background:
+                var(--blue);
 
-            font-size: 11px;
+            color:
+                #10202a;
 
-            font-weight: bold;
+            font-size:
+                11px;
 
-            cursor: pointer;
+            font-weight:
+                bold;
+
+            cursor:
+                pointer;
+
         }
+
 
         .result button:hover {
-            background: var(--blue-dark);
 
-            color: white;
+            background:
+                var(--blue-dark);
+
+            color:
+                white;
+
         }
+
 
         mark {
-            background: rgba(
-                91,
-                192,
-                235,
-                .25
-            );
 
-            color: #8edcff;
+            background:
+                rgba(91, 192, 235, .25);
 
-            border-radius: 2px;
+            color:
+                #8edcff;
 
-            padding: 1px 2px;
+            border-radius:
+                2px;
+
+            padding:
+                1px 2px;
+
         }
+
 
 
         /* =========================================================
@@ -709,64 +1095,106 @@
            ========================================================= */
 
         .document {
-            display: none;
 
-            background: var(--panel);
+            display:
+                none;
 
-            border: 1px solid var(--border);
+            background:
+                var(--panel);
 
-            border-radius: 8px;
+            border:
+                1px solid var(--border);
 
-            overflow: hidden;
+            border-radius:
+                8px;
+
+            overflow:
+                hidden;
+
         }
 
-        .document-header {
-            min-height: 52px;
 
-            padding: 8px 14px;
+        .document-header {
+
+            min-height:
+                52px;
+
+            padding:
+                8px 14px;
 
             border-bottom:
                 1px solid var(--border);
 
-            display: flex;
+            display:
+                flex;
 
-            align-items: center;
+            align-items:
+                center;
 
-            justify-content: space-between;
+            justify-content:
+                space-between;
+
         }
+
 
         .back {
-            border: 1px solid var(--border);
 
-            background: #303030;
+            border:
+                1px solid var(--border);
 
-            color: #ddd;
+            background:
+                #303030;
 
-            padding: 7px 11px;
+            color:
+                #ddd;
 
-            border-radius: 5px;
+            padding:
+                7px 11px;
 
-            cursor: pointer;
+            border-radius:
+                5px;
 
-            font-size: 11px;
+            cursor:
+                pointer;
+
+            font-size:
+                11px;
+
         }
+
 
         .back:hover {
-            background: #3a3a3a;
-            color: white;
+
+            background:
+                #3a3a3a;
+
+            color:
+                white;
+
         }
+
 
         .document-github {
-            color: var(--blue);
 
-            text-decoration: none;
+            color:
+                var(--blue);
 
-            font-size: 11px;
+            text-decoration:
+                none;
+
+            font-size:
+                11px;
+
         }
+
 
         .document-github:hover {
-            text-decoration: underline;
+
+            text-decoration:
+                underline;
+
         }
+
 
 
         /* =========================================================
@@ -774,174 +1202,273 @@
            ========================================================= */
 
         .markdown {
-            max-width: 900px;
 
-            margin: auto;
+            max-width:
+                900px;
 
-            padding: 32px;
+            margin:
+                auto;
 
-            color: #d8d8d8;
+            padding:
+                32px;
 
-            font-size: 14px;
+            color:
+                #d8d8d8;
 
-            line-height: 1.7;
+            font-size:
+                14px;
+
+            line-height:
+                1.7;
+
         }
 
+
         .markdown h1 {
-            color: white;
 
-            font-size: 27px;
+            color:
+                white;
 
-            padding-bottom: 10px;
+            font-size:
+                27px;
+
+            padding-bottom:
+                10px;
 
             border-bottom:
                 2px solid var(--blue);
+
         }
 
-        .markdown h2 {
-            margin-top: 35px;
 
-            padding-bottom: 7px;
+        .markdown h2 {
+
+            margin-top:
+                35px;
+
+            padding-bottom:
+                7px;
 
             border-bottom:
                 1px solid var(--border);
 
-            color: white;
+            color:
+                white;
 
-            font-size: 21px;
+            font-size:
+                21px;
+
         }
+
 
         .markdown h3 {
-            margin-top: 25px;
 
-            color: var(--blue);
+            margin-top:
+                25px;
 
-            font-size: 17px;
+            color:
+                var(--blue);
+
+            font-size:
+                17px;
+
         }
+
 
         .markdown h4 {
             color: #ddd;
         }
 
+
         .markdown p {
             color: #ccc;
         }
+
 
         .markdown strong {
             color: white;
         }
 
+
         .markdown a {
             color: var(--blue);
         }
+
 
         .markdown a:hover {
             color: #8edcff;
         }
 
-        .markdown blockquote {
-            margin: 15px 0;
 
-            padding: 10px 15px;
+        .markdown blockquote {
+
+            margin:
+                15px 0;
+
+            padding:
+                10px 15px;
 
             border-left:
                 3px solid var(--blue);
 
-            background: #303030;
+            background:
+                #303030;
 
-            color: #aaa;
+            color:
+                #aaa;
+
         }
+
 
         .markdown img {
-            display: block;
 
-            max-width: 100%;
+            display:
+                block;
 
-            width: auto;
+            max-width:
+                100%;
 
-            height: auto;
+            width:
+                auto;
 
-            margin: 18px auto;
+            height:
+                auto;
 
-            border-radius: 6px;
+            margin:
+                18px auto;
 
-            cursor: zoom-in;
+            border-radius:
+                6px;
 
-            border: 1px solid var(--border);
+            cursor:
+                zoom-in;
 
-            background: #1c1c1c;
+            border:
+                1px solid var(--border);
+
+            background:
+                #1c1c1c;
+
         }
+
 
         .markdown img:hover {
             opacity: .92;
         }
 
+
         .markdown table {
-            width: 100%;
 
-            border-collapse: collapse;
+            width:
+                100%;
 
-            margin: 18px 0;
+            border-collapse:
+                collapse;
+
+            margin:
+                18px 0;
+
         }
+
 
         .markdown th,
         .markdown td {
+
             border:
                 1px solid var(--border);
 
-            padding: 8px 10px;
+            padding:
+                8px 10px;
 
-            text-align: left;
+            text-align:
+                left;
+
         }
+
 
         .markdown th {
-            background: #333;
 
-            color: white;
+            background:
+                #333;
+
+            color:
+                white;
+
         }
+
 
         .markdown td {
-            background: #2c2c2c;
+
+            background:
+                #2c2c2c;
+
         }
+
 
         .markdown code {
-            background: #333;
 
-            color: #8edcff;
+            background:
+                #333;
 
-            padding: 2px 5px;
+            color:
+                #8edcff;
 
-            border-radius: 3px;
+            padding:
+                2px 5px;
+
+            border-radius:
+                3px;
+
         }
+
 
         .markdown pre {
-            background: #181818;
 
-            border: 1px solid #333;
+            background:
+                #181818;
 
-            padding: 15px;
+            border:
+                1px solid #333;
 
-            border-radius: 6px;
+            padding:
+                15px;
 
-            overflow-x: auto;
+            border-radius:
+                6px;
+
+            overflow-x:
+                auto;
+
         }
+
 
         .markdown pre code {
-            background: transparent;
 
-            color: #ddd;
+            background:
+                transparent;
 
-            padding: 0;
+            color:
+                #ddd;
+
+            padding:
+                0;
+
         }
 
+
         .markdown hr {
-            border: none;
+
+            border:
+                none;
 
             border-top:
                 1px solid var(--border);
 
-            margin: 30px 0;
+            margin:
+                30px 0;
+
         }
+
 
 
         /* =========================================================
@@ -949,26 +1476,41 @@
            ========================================================= */
 
         .empty {
-            background: var(--panel);
 
-            border: 1px solid var(--border);
+            background:
+                var(--panel);
 
-            border-radius: 7px;
+            border:
+                1px solid var(--border);
 
-            padding: 45px 20px;
+            border-radius:
+                7px;
 
-            text-align: center;
+            padding:
+                45px 20px;
 
-            color: var(--text-muted);
+            text-align:
+                center;
 
-            font-size: 13px;
+            color:
+                var(--text-muted);
+
+            font-size:
+                13px;
+
         }
+
 
         .empty-title {
-            color: #ddd;
 
-            font-weight: bold;
+            color:
+                #ddd;
+
+            font-weight:
+                bold;
+
         }
+
 
 
         /* =========================================================
@@ -976,39 +1518,58 @@
            ========================================================= */
 
         .loading-bar {
-            position: fixed;
 
-            left: 0;
-            right: 0;
+            position:
+                fixed;
 
-            top: 66px;
+            left:
+                0;
 
-            height: 3px;
+            right:
+                0;
 
-            z-index: 200;
+            top:
+                66px;
 
-            display: none;
+            height:
+                3px;
 
-            overflow: hidden;
+            z-index:
+                200;
 
-            background: #333;
+            display:
+                none;
+
+            overflow:
+                hidden;
+
+            background:
+                #333;
+
         }
+
 
         .loading-bar.active {
             display: block;
         }
 
+
         .loading-progress {
-            width: 30%;
 
-            height: 100%;
+            width:
+                30%;
 
-            background: var(--blue);
+            height:
+                100%;
+
+            background:
+                var(--blue);
 
             animation:
-                loading 1s infinite
-                ease-in-out;
+                loading 1s infinite ease-in-out;
+
         }
+
 
         @keyframes loading {
 
@@ -1025,37 +1586,57 @@
         }
 
 
+
         /* =========================================================
            BOTÓN SUBIR ARRIBA
            ========================================================= */
 
         .back-to-top {
-            position: fixed;
 
-            right: 24px;
-            bottom: 24px;
+            position:
+                fixed;
 
-            width: 44px;
-            height: 44px;
+            right:
+                24px;
 
-            border: 1px solid var(--border);
+            bottom:
+                24px;
 
-            border-radius: 7px;
+            width:
+                44px;
 
-            background: #303030;
+            height:
+                44px;
 
-            color: var(--blue);
+            border:
+                1px solid var(--border);
 
-            font-size: 20px;
+            border-radius:
+                7px;
 
-            cursor: pointer;
+            background:
+                #303030;
 
-            display: none;
+            color:
+                var(--blue);
 
-            align-items: center;
-            justify-content: center;
+            font-size:
+                20px;
 
-            z-index: 300;
+            cursor:
+                pointer;
+
+            display:
+                none;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            z-index:
+                300;
 
             box-shadow:
                 0 4px 15px rgba(0, 0, 0, .35);
@@ -1064,19 +1645,28 @@
                 background .15s,
                 transform .15s,
                 opacity .15s;
+
         }
+
 
         .back-to-top:hover {
-            background: var(--blue);
 
-            color: #10202a;
+            background:
+                var(--blue);
 
-            transform: translateY(-2px);
+            color:
+                #10202a;
+
+            transform:
+                translateY(-2px);
+
         }
+
 
         .back-to-top.visible {
             display: flex;
         }
+
 
 
         /* =========================================================
@@ -1086,46 +1676,85 @@
         @media(max-width: 800px) {
 
             .sidebar {
+
                 transform:
                     translateX(-100%);
+
             }
+
 
             .sidebar.open {
+
                 transform:
                     translateX(0);
+
             }
+
 
             .main {
-                margin-left: 0;
+
+                margin-left:
+                    0;
+
             }
+
 
             .content {
-                padding: 18px;
+
+                padding:
+                    18px;
+
             }
+
 
             .stats {
-                grid-template-columns: 1fr;
+
+                grid-template-columns:
+                    1fr;
+
             }
+
 
             .header-right {
-                display: none;
+
+                display:
+                    none;
+
             }
+
 
             .hero {
-                padding: 22px;
+
+                padding:
+                    22px;
+
             }
+
 
             .hero-title {
-                font-size: 22px;
+
+                font-size:
+                    22px;
+
             }
+
 
             .markdown {
-                padding: 20px;
+
+                padding:
+                    20px;
+
             }
 
+
             .back-to-top {
-                right: 15px;
-                bottom: 15px;
+
+                right:
+                    15px;
+
+                bottom:
+                    15px;
+
             }
 
         }
@@ -1197,6 +1826,7 @@
     </header>
 
 
+
     <!-- =========================================================
          LOADING
          ========================================================= -->
@@ -1209,6 +1839,7 @@
         <div class="loading-progress"></div>
 
     </div>
+
 
 
     <!-- =========================================================
@@ -1256,6 +1887,7 @@
 
             <div
                 class="nav-item"
+                id="navBuscar"
                 onclick="activarBusqueda()"
             >
 
@@ -1289,6 +1921,7 @@
     </aside>
 
 
+
     <!-- =========================================================
          MAIN
          ========================================================= -->
@@ -1303,7 +1936,6 @@
                  ================================================= -->
 
             <section id="home">
-
 
                 <div class="hero">
 
@@ -1353,6 +1985,7 @@
                     </div>
 
                 </div>
+
 
 
                 <!-- =================================================
@@ -1411,6 +2044,7 @@
                 </div>
 
 
+
                 <!-- =================================================
                      RESULTS
                      ================================================= -->
@@ -1435,6 +2069,7 @@
 
 
             </section>
+
 
 
             <!-- =================================================
@@ -1481,6 +2116,7 @@
     </main>
 
 
+
     <!-- =========================================================
          BOTÓN SUBIR ARRIBA
          ========================================================= -->
@@ -1496,8 +2132,8 @@
     </button>
 
 
-    <script>
 
+    <script>
 
         /* =========================================================
            CONFIGURACIÓN
@@ -1528,6 +2164,7 @@
             "./index.json";
 
 
+
         /* =========================================================
            VARIABLES
            ========================================================= */
@@ -1539,6 +2176,7 @@
         let readmeCache = null;
 
         let searchTimer = null;
+
 
 
         /* =========================================================
@@ -1585,20 +2223,7 @@
                 }
 
 
-                try {
-
-                    await cargarCategorias();
-
-                } catch (error) {
-
-                    console.warn(
-                        "No se pudo cargar README:",
-                        error
-                    );
-
-                    categorias = [];
-
-                }
+                await cargarCategorias();
 
 
                 document.getElementById(
@@ -1665,6 +2290,7 @@
             }
 
         }
+
 
 
         /* =========================================================
@@ -1738,7 +2364,7 @@
             } catch (error) {
 
                 console.warn(
-                    "index.json no disponible."
+                    "index.json no disponible. Se utilizará GitHub."
                 );
 
                 return false;
@@ -1746,6 +2372,7 @@
             }
 
         }
+
 
 
         /* =========================================================
@@ -1835,6 +2462,7 @@
         }
 
 
+
         /* =========================================================
            RECORRER CARPETAS
            ========================================================= */
@@ -1913,6 +2541,7 @@
         }
 
 
+
         /* =========================================================
            CATEGORÍAS DEL README
            ========================================================= */
@@ -1949,6 +2578,7 @@
         }
 
 
+
         /* =========================================================
            LEER ESTRUCTURA DEL README
            ========================================================= */
@@ -1958,18 +2588,28 @@
             const resultado = [];
 
             const lineas =
-                markdown.split("\n");
+                markdown.split(/\r?\n/);
 
             let categoriaActual = null;
 
+            let importantePendiente = false;
 
-            for (const linea of lineas) {
 
-                /* ==========================================
+            for (
+                let i = 0;
+                i < lineas.length;
+                i++
+            ) {
+
+                const linea =
+                    lineas[i].trim();
+
+
+                /* =================================================
                    CATEGORÍA
 
-                   ## Atención al cliente
-                   ========================================== */
+                   ## Atención al cliente y reclamos
+                   ================================================= */
 
                 const categoria =
                     linea.match(
@@ -1994,6 +2634,10 @@
                     );
 
 
+                    importantePendiente =
+                        false;
+
+
                     continue;
 
                 }
@@ -2004,15 +2648,34 @@
                 }
 
 
-                /* ==========================================
-                   DOCUMENTO NORMAL
+                /* =================================================
+                   IMPORTANT
+
+                   > [!Important]
+                   ================================================= */
+
+                if (
+                    /^>\s*\[!Important\]/i
+                        .test(linea)
+                ) {
+
+                    importantePendiente =
+                        true;
+
+                    continue;
+
+                }
+
+
+                /* =================================================
+                   LINK NORMAL
 
                    - [Documento](ruta)
-                   ========================================== */
+                   ================================================= */
 
                 const enlace =
                     linea.match(
-                        /^\s*[-*]\s+\[([^\]]+)\]\((.+)\)$/
+                        /^[-*]\s+\[([^\]]+)\]\((.+)\)$/
                     );
 
 
@@ -2029,9 +2692,13 @@
                             ),
 
                         importante:
-                            false
+                            importantePendiente
 
                     });
+
+
+                    importantePendiente =
+                        false;
 
 
                     continue;
@@ -2039,16 +2706,15 @@
                 }
 
 
-                /* ==========================================
-                   DOCUMENTO IMPORTANT
+                /* =================================================
+                   LINK IMPORTANT
 
-                   > [!Important]
                    > [Documento](ruta)
-                   ========================================== */
+                   ================================================= */
 
                 const enlaceImportante =
                     linea.match(
-                        /^\s*>\s*\[([^\]]+)\]\((.+)\)$/
+                        /^>\s*\[([^\]]+)\]\((.+)\)$/
                     );
 
 
@@ -2069,6 +2735,10 @@
 
                     });
 
+
+                    importantePendiente =
+                        false;
+
                 }
 
             }
@@ -2079,8 +2749,9 @@
         }
 
 
+
         /* =========================================================
-           LIMPIAR RUTA DEL README
+           LIMPIAR RUTA README
            ========================================================= */
 
         function limpiarRutaREADME(ruta) {
@@ -2098,7 +2769,7 @@
                 );
 
 
-            /* Decodificar %20, %C3%B3, etc. */
+            /* Decodificar URL */
 
             try {
 
@@ -2113,6 +2784,45 @@
                     "No se pudo decodificar:",
                     resultado
                 );
+
+            }
+
+
+            /* Si es URL completa de GitHub */
+
+            if (
+                resultado.startsWith(
+                    "https://github.com/"
+                ) ||
+                resultado.startsWith(
+                    "http://github.com/"
+                )
+            ) {
+
+                const partes =
+                    resultado.split("/");
+
+
+                const indiceDoc =
+                    partes.findIndex(
+                        parte =>
+                            parte.toLowerCase() ===
+                            "doc"
+                    );
+
+
+                if (
+                    indiceDoc !== -1
+                ) {
+
+                    resultado =
+                        partes
+                            .slice(
+                                indiceDoc + 1
+                            )
+                            .join("/");
+
+                }
 
             }
 
@@ -2138,6 +2848,7 @@
             return resultado.trim();
 
         }
+
 
 
         /* =========================================================
@@ -2173,7 +2884,7 @@
 
 
             categorias.forEach(
-                categoria => {
+                (categoria, indice) => {
 
                     const categoriaElemento =
                         document.createElement(
@@ -2281,6 +2992,7 @@
         }
 
 
+
         /* =========================================================
            AGREGAR DOCUMENTO SIDEBAR
            ========================================================= */
@@ -2340,122 +3052,8 @@
                 "click",
                 () => {
 
-                    const ruta =
-                        limpiarRutaREADME(
-                            documento.ruta
-                        );
-
-
-                    console.log(
-                        "Buscando documento:",
-                        ruta
-                    );
-
-
-                    /* ==========================================
-                       PRIMERA BÚSQUEDA
-                       RUTA EXACTA
-                       ========================================== */
-
-                    let encontrado =
-                        documentos.find(
-                            item =>
-                                normalizarRuta(
-                                    item.path
-                                ) ===
-                                normalizarRuta(
-                                    ruta
-                                )
-                        );
-
-
-                    /* ==========================================
-                       SEGUNDA BÚSQUEDA
-                       ========================================== */
-
-                    if (!encontrado) {
-
-                        encontrado =
-                            documentos.find(
-                                item => {
-
-                                    const itemPath =
-                                        normalizarRuta(
-                                            item.path
-                                        );
-
-
-                                    const rutaLimpia =
-                                        normalizarRuta(
-                                            ruta
-                                        );
-
-
-                                    return (
-                                        itemPath ===
-                                        `doc/${rutaLimpia}`
-                                    );
-
-                                }
-                            );
-
-                    }
-
-
-                    /* ==========================================
-                       TERCERA BÚSQUEDA
-                       POR NOMBRE
-                       ========================================== */
-
-                    if (!encontrado) {
-
-                        const nombreBuscado =
-                            documento.nombre
-                                .replace(
-                                    /\.md$/i,
-                                    ""
-                                )
-                                .trim()
-                                .toLowerCase();
-
-
-                        encontrado =
-                            documentos.find(
-                                item =>
-                                    item.nombre
-                                        .replace(
-                                            /\.md$/i,
-                                            ""
-                                        )
-                                        .trim()
-                                        .toLowerCase() ===
-                                    nombreBuscado
-                            );
-
-                    }
-
-
-                    if (encontrado) {
-
-                        abrirDocumento(
-                            encontrado.path
-                        );
-
-
-                        return;
-
-                    }
-
-
-                    console.warn(
-                        "Documento no encontrado:",
+                    abrirDocumentoDesdeREADME(
                         documento
-                    );
-
-
-                    alert(
-                        "No se encontró el documento:\n\n" +
-                        documento.nombre
                     );
 
                 }
@@ -2467,6 +3065,106 @@
             );
 
         }
+
+
+
+        /* =========================================================
+           ABRIR DOCUMENTO DESDE README
+           ========================================================= */
+
+        function abrirDocumentoDesdeREADME(
+            documentoREADME
+        ) {
+
+            const ruta =
+                normalizarRuta(
+                    documentoREADME.ruta
+                );
+
+
+            console.log(
+                "Buscando documento:",
+                ruta
+            );
+
+
+            let encontrado =
+                documentos.find(
+                    documento =>
+                        normalizarRuta(
+                            documento.path
+                        ) === ruta
+                );
+
+
+            if (!encontrado) {
+
+                encontrado =
+                    documentos.find(
+                        documento => {
+
+                            const path =
+                                normalizarRuta(
+                                    documento.path
+                                );
+
+                            return (
+                                path ===
+                                `doc/${ruta}`
+                            );
+
+                        }
+                    );
+
+            }
+
+
+            if (!encontrado) {
+
+                const nombre =
+                    documentoREADME.nombre
+                        .replace(
+                            /\.md$/i,
+                            ""
+                        )
+                        .trim()
+                        .toLowerCase();
+
+
+                encontrado =
+                    documentos.find(
+                        documento =>
+                            documento.nombre
+                                .replace(
+                                    /\.md$/i,
+                                    ""
+                                )
+                                .trim()
+                                .toLowerCase() ===
+                            nombre
+                    );
+
+            }
+
+
+            if (encontrado) {
+
+                abrirDocumento(
+                    encontrado.path
+                );
+
+                return;
+
+            }
+
+
+            alert(
+                "No se encontró el documento:\n\n" +
+                documentoREADME.nombre
+            );
+
+        }
+
 
 
         /* =========================================================
@@ -2484,7 +3182,8 @@
                         contenido:
                             documento.contenido || "",
 
-                        puntos: 0
+                        puntos:
+                            0
 
                     })
                 );
@@ -2499,6 +3198,7 @@
             );
 
         }
+
 
 
         /* =========================================================
@@ -2570,6 +3270,7 @@
         );
 
 
+
         /* =========================================================
            LIMPIAR BUSCADOR
            ========================================================= */
@@ -2594,6 +3295,7 @@
 
             }
         );
+
 
 
         /* =========================================================
@@ -2707,6 +3409,7 @@
                 `${resultados.length} resultado(s)`;
 
         }
+
 
 
         /* =========================================================
@@ -2861,6 +3564,7 @@
         }
 
 
+
         /* =========================================================
            FRAGMENTO
            ========================================================= */
@@ -2930,6 +3634,7 @@
         }
 
 
+
         /* =========================================================
            RESALTAR
            ========================================================= */
@@ -2976,6 +3681,7 @@
             return resultado;
 
         }
+
 
 
         /* =========================================================
@@ -3038,10 +3744,6 @@
                     documento.contenido || "";
 
 
-                /* =================================================
-                   MARKDOWN → HTML
-                   ================================================= */
-
                 contenido.innerHTML =
                     marked.parse(
                         markdown
@@ -3049,7 +3751,7 @@
 
 
                 /* =================================================
-                   CORREGIR IMÁGENES
+                   IMÁGENES
                    ================================================= */
 
                 contenido
@@ -3072,10 +3774,6 @@
                                 src.trim();
 
 
-                            /* =========================================
-                               URL ABSOLUTA
-                               ========================================= */
-
                             if (
                                 src.startsWith(
                                     "http://"
@@ -3088,14 +3786,7 @@
                                 img.src =
                                     src;
 
-                            }
-
-
-                            /* =========================================
-                               IMAGEN RELATIVA
-                               ========================================= */
-
-                            else {
+                            } else {
 
                                 let imagen =
                                     src;
@@ -3139,18 +3830,6 @@
                                 } catch (
                                     error
                                 ) {}
-
-
-                                if (
-                                    !/\.[a-zA-Z0-9]+$/.test(
-                                        imagen
-                                    )
-                                ) {
-
-                                    imagen +=
-                                        ".jpg";
-
-                                }
 
 
                                 img.src =
@@ -3203,23 +3882,14 @@
                             );
 
 
-                            img.setAttribute(
-                                "style",
-                                "max-width: 100%; height: auto; cursor: zoom-in;"
-                            );
+                            img.style.maxWidth =
+                                "100%";
 
+                            img.style.height =
+                                "auto";
 
-                            img.addEventListener(
-                                "error",
-                                () => {
-
-                                    console.warn(
-                                        "No se pudo cargar imagen:",
-                                        img.src
-                                    );
-
-                                }
-                            );
+                            img.style.cursor =
+                                "zoom-in";
 
 
                             img.addEventListener(
@@ -3244,6 +3914,7 @@
                     );
 
 
+
                 /* =================================================
                    LINKS
                    ================================================= */
@@ -3263,6 +3934,7 @@
                     );
 
 
+
                 /* =================================================
                    LINK GITHUB
                    ================================================= */
@@ -3279,6 +3951,7 @@
                         .join("/");
 
 
+
                 /* =================================================
                    ARRIBA
                    ================================================= */
@@ -3289,8 +3962,9 @@
                 );
 
 
+
                 /* =================================================
-                   CERRAR SIDEBAR
+                   CERRAR SIDEBAR MOBILE
                    ================================================= */
 
                 document
@@ -3333,6 +4007,7 @@
         }
 
 
+
         /* =========================================================
            INICIO
            ========================================================= */
@@ -3366,6 +4041,7 @@
         }
 
 
+
         /* =========================================================
            ACTIVAR BÚSQUEDA
            ========================================================= */
@@ -3377,6 +4053,7 @@
             buscador.focus();
 
         }
+
 
 
         /* =========================================================
@@ -3391,8 +4068,6 @@
                 );
 
 
-            /* Decodificar URL */
-
             try {
 
                 resultado =
@@ -3403,16 +4078,12 @@
             } catch (error) {}
 
 
-            /* Quitar escapes Markdown */
-
             resultado =
                 resultado.replace(
                     /\\([()[\]])/g,
                     "$1"
                 );
 
-
-            /* Quitar ./ */
 
             resultado =
                 resultado.replace(
@@ -3421,16 +4092,12 @@
                 );
 
 
-            /* Quitar doc/ */
-
             resultado =
                 resultado.replace(
                     /^doc\//i,
                     ""
                 );
 
-
-            /* Normalizar barras */
 
             resultado =
                 resultado.replace(
@@ -3444,6 +4111,7 @@
                 .toLowerCase();
 
         }
+
 
 
         /* =========================================================
@@ -3464,6 +4132,7 @@
                 .trim();
 
         }
+
 
 
         /* =========================================================
@@ -3504,6 +4173,7 @@
         }
 
 
+
         /* =========================================================
            ESCAPE REGEX
            ========================================================= */
@@ -3519,6 +4189,7 @@
                 );
 
         }
+
 
 
         /* =========================================================
@@ -3544,6 +4215,7 @@
 
                 }
             );
+
 
 
         /* =========================================================
@@ -3585,11 +4257,51 @@
                                         ? "block"
                                         : "none";
 
+
+                                if (
+                                    texto &&
+                                    visible
+                                ) {
+
+                                    const contenido =
+                                        categoria
+                                            .querySelector(
+                                                ".sidebar-category-content"
+                                            );
+
+
+                                    const titulo =
+                                        categoria
+                                            .querySelector(
+                                                ".sidebar-category-title"
+                                            );
+
+
+                                    if (contenido) {
+
+                                        contenido.classList.add(
+                                            "open"
+                                        );
+
+                                    }
+
+
+                                    if (titulo) {
+
+                                        titulo.classList.add(
+                                            "expanded"
+                                        );
+
+                                    }
+
+                                }
+
                             }
                         );
 
                 }
             );
+
 
 
         /* =========================================================
@@ -3640,6 +4352,7 @@
 
             }
         );
+
 
 
         /* =========================================================
