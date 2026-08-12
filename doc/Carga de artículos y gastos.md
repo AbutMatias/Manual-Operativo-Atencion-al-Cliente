@@ -4,7 +4,7 @@
 
 ## 🧭 1. Carga de artículos
 
-![Pantalla carga artículos](https://user-images.githubusercontent.com/102156800/167452574-53df5a68-3372-4981-8495-f5184c9e878d.png)
+![Pantalla carga artículos](./imagenes/1db10cd0-c743-42ff-8274-608d0c989e0d.png)
 
 ---
 

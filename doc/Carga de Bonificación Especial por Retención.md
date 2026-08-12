@@ -67,6 +67,6 @@ Completar:
 
 ## 📷 Ejemplo visual
 
-![Detalle](https://user-images.githubusercontent.com/80975356/179005023-9099ebd2-63e0-4133-8ee4-0fe0cd8d846a.png)
+![Detalle](./imagenes/0cdbf221-35a7-4467-9863-060c2b527a1a.png)
 
 

@@ -250,7 +250,7 @@ Permite ver:
 
 ## 12. Señal aproximada
 
-<img width="1639" height="648" alt="image" src="https://github.com/user-attachments/assets/f85f9599-4cf8-4306-86e6-509dc43a4518" />
+<img width="1639" height="648" alt="image" src="./imagenes/cdd9e965-139f-4a38-80db-c856e266f76a.png" />
 
 ---
 
@@ -483,11 +483,11 @@ Modos disponibles:
 
 ## ONU con router Vilo
 
-![image](https://github.com/user-attachments/assets/6965b98a-234d-45c5-adfa-2041bad81d94)
+![image](./imagenes/cef2a226-bd23-468c-bc31-23d44b292043.png)
 
 ## ONU con router Vilo + Repetidor (Sub Vilo)
 
-![image](https://github.com/user-attachments/assets/e7f60122-d32e-4531-b96f-68009e7d7304)
+![image](./imagenes/cf88fd13-e26e-4249-937a-2cd7ee8b01b5.png)
 
 ---
 
@@ -495,9 +495,9 @@ Modos disponibles:
 
 ## Wireless - Router Vilo con data + power
 
-![image](https://github.com/user-attachments/assets/b255697d-5729-4177-b956-13f33735bcaf)
+![image](./imagenes/d060c110-c69b-4615-8ecd-ecf93fc77ba4.png)
 
 ## Wireless - Router Vilo con data + power + Repetidor (Sub Vilo)
 
-![image](https://github.com/user-attachments/assets/3c16819d-2bb5-4f0d-b638-629af9b5b8b4)
+![image](./imagenes/d06cca5b-70ac-471a-bdfe-d4a6f434dce0.png)
 

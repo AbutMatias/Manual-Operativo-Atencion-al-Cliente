@@ -16,7 +16,7 @@ El sistema preguntará si se desea facturar el remito en ese momento.
 
 Aparece el siguiente mensaje:
 
-![Confirmación facturación](https://user-images.githubusercontent.com/98965666/186470967-e8c42649-9660-4b41-891e-3678ad10238e.png)
+![Confirmación facturación](./imagenes/50de7a7f-1b99-4651-bb69-daaebefd150c.png)
 
 ### ✔️ Acción:
 - Hacer clic en **“Yes”**
@@ -27,7 +27,7 @@ Aparece el siguiente mensaje:
 
 Luego se abre la siguiente pantalla:
 
-![Pantalla facturación](https://user-images.githubusercontent.com/98965666/186474707-24666af1-c145-419e-92b9-1e3fe99774ac.png)
+![Pantalla facturación](./imagenes/51b5587b-18cb-46e2-8856-50acfbf8729b.png)
 
 ---
 
@@ -96,7 +96,7 @@ Ingresar a:
 
 ## 📋 Selección del envío
 
-![Listado envíos](https://user-images.githubusercontent.com/98965666/186495520-ac13b653-c138-4803-b6c8-6fab47a81475.jpg)
+![Listado envíos](./imagenes/51f30505-12fd-43bf-85f6-870e1893565b.png)
 
 ---
 
@@ -112,7 +112,7 @@ Ingresar a:
 
 ## 🧾 Pantalla de facturación
 
-![Pantalla final](https://user-images.githubusercontent.com/98965666/186496629-4d212d7f-7477-4c71-b073-15137fc4c6b1.jpg)
+![Pantalla final](./imagenes/528b0ead-1ec5-440b-a68b-7c46dd289f22.png)
 
 ---
 

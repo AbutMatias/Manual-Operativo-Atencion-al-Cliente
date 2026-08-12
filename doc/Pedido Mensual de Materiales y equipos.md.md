@@ -50,7 +50,7 @@ El sistema responderá automáticamente con el menú de inicio del proceso.
 
 📷 Ejemplo:
 
-<img width="410" height="209" alt="Inicio pedido" src="https://github.com/user-attachments/assets/95ba2792-f869-4bb7-925d-da7ccbc4132b" />
+<img width="410" height="209" alt="Inicio pedido" src="./imagenes/872b2377-f066-4156-b39b-2aedd4b8168d.png" />
 
 ---
 
@@ -69,7 +69,7 @@ Esto redirige al formulario correspondiente.
 
 📷 Ejemplo:
 
-<img width="547" height="495" alt="Selección tipo pedido" src="https://github.com/user-attachments/assets/7e16e612-3371-4647-af7f-66a7e1c1a696" />
+<img width="547" height="495" alt="Selección tipo pedido" src="./imagenes/874f32b1-6057-49fa-9cda-17761d98366f.png" />
 
 ---
 
@@ -87,7 +87,7 @@ Luego presionar:
 
 📷 Ejemplo:
 
-<img width="509" height="407" alt="Formulario pedido" src="https://github.com/user-attachments/assets/c0c35270-8782-4758-8353-88e03f813ce7" />
+<img width="509" height="407" alt="Formulario pedido" src="./imagenes/8807c7e0-638f-46b8-9d31-0b4b72bb2b62.png" />
 
 ---
 

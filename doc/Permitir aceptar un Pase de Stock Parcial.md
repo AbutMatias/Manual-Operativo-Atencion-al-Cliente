@@ -8,7 +8,7 @@ Al ingresar al sistema, se visualizará la lista de:
 
 - **Envíos pendientes de aceptación**
 
-![Pantalla envíos pendientes](https://user-images.githubusercontent.com/87478049/194096316-960dc5ab-e8ce-439d-b0ab-1169c0a24426.png)
+![Pantalla envíos pendientes](./imagenes/89af86dc-f7b7-45b1-8196-c49219dafef7.png)
 
 ---
 
@@ -29,7 +29,7 @@ Cuando el pase incluye varios artículos:
 - Indicar la cantidad correspondiente
 - Hacer clic en **“Registrar Devolución”**
 
-![Registrar devolución](https://user-images.githubusercontent.com/87478049/194096811-5d0ee435-cc9f-4dce-91af-9d8a42b1c3c7.png)
+![Registrar devolución](./imagenes/8a43aa4e-cd2a-4bae-a5c9-a2c75d5bb5ef.png)
 
 ---
 
@@ -43,7 +43,7 @@ Luego:
 
 - Confirmar las MAC ingresadas
 
-![Ingreso MAC](https://user-images.githubusercontent.com/98965728/194100021-6cc5b6e7-226f-406d-8783-686f856bdd05.png)
+![Ingreso MAC](./imagenes/8a490498-d00f-41da-bc5b-13ac4a146e7d.png)
 
 ---
 
@@ -51,7 +51,7 @@ Luego:
 
 A continuación se mostrará un mensaje de confirmación:
 
-![Confirmación proceso](https://user-images.githubusercontent.com/98965728/194092856-ce7bf0af-8403-4c70-9fc9-ba795b08773b.png)
+![Confirmación proceso](./imagenes/8a6e5cda-85a7-411c-ad93-c5492effe92d.png)
 
 ---
 

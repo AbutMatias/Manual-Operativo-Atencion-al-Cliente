@@ -12,7 +12,7 @@ Si es un cliente nuevo primero tenemos que cargar el cliente, los pasos a seguir
 
 1. Desde SSAK seleccionamos el botón `Nuevo Cliente`
 
-![image](https://github.com/user-attachments/assets/03619f25-62ed-4129-b7be-bbb70bbc1fa8)
+![image](./imagenes/1db9159f-2015-4e96-b456-6f774480fdfc.png)
 
 
 
@@ -20,7 +20,7 @@ Si es un cliente nuevo primero tenemos que cargar el cliente, los pasos a seguir
 
 2. Completamos los datos del nuevo cliente: `DNI/CUIT, Localidad y Domicilio`
 
-![image](https://github.com/user-attachments/assets/a609492d-9897-4498-8b6e-2e2baf427154)
+![image](./imagenes/1e57544d-f5fd-4b76-8f0a-87b9c409e78d.png)
 
 
 
@@ -28,7 +28,7 @@ Si es un cliente nuevo primero tenemos que cargar el cliente, los pasos a seguir
 
 3. Dentro de Mantenimiento de relaciones comerciales luego de completar los datos debemos pulsar en el `botón +`
 
-![image](https://github.com/user-attachments/assets/e282c478-f1dd-46b5-8f57-010042a39c4e)
+![image](./imagenes/21dc3e16-33f6-4334-803a-da5d85748781.png)
 
 
 
@@ -50,7 +50,7 @@ Se abre una pestaña donde completamos la `localidad` y en tipo elegimos `instal
 
 
 
-![image](https://github.com/user-attachments/assets/f6c7b084-989c-410a-85cc-900b4feb8ec4)
+![image](./imagenes/22b40b07-25a0-44db-a28d-e81011d3b271.png)
 
 
 
@@ -65,7 +65,7 @@ El tipo de router en comodato se carga automáticamente según la tarifa selecci
 
 
 
-![image](https://github.com/user-attachments/assets/b5bc5308-1c0b-4109-a70c-8f64bfc2d1ce)
+![image](./imagenes/265539fc-ebd3-4f6d-8327-3910b72643b2.png)
 
 
 
@@ -81,9 +81,9 @@ Cuando encontramos al cliente realizamos doble clic para cargar los datos autom�
 
 
 
-![image](https://github.com/user-attachments/assets/feae7501-5d61-4905-bd30-686732829a54)
+![image](./imagenes/2662c185-139e-46c7-bdb5-49eedfd701ea.png)
 
-![image](https://github.com/user-attachments/assets/cde0be64-e340-48dd-9672-9af0a22dba82)
+![image](./imagenes/29eea78f-ea54-4f1e-b4aa-23ba8243bae3.png)
 
 
 
@@ -110,7 +110,7 @@ Finalmente seleccionamos **Finalizar**.
 
 
 
-![image](https://github.com/user-attachments/assets/0f0243e2-2797-4d8d-9335-a334d8afdf24)
+![image](./imagenes/2a9d7d21-2182-4939-80b8-f22a7d17b8cc.png)
 
 
 
@@ -127,7 +127,7 @@ Ubicamos la instalación con estado `ventas`.
 
 
 
-![image](https://github.com/user-attachments/assets/ab62f0da-39f5-45bd-8da7-2e7892e34d90)
+![image](./imagenes/2b165c77-320c-424e-a130-8195d3419d6c.png)
 
 
 
@@ -142,7 +142,7 @@ Hacemos clic derecho sobre la instalación y seleccionamos:
 
 
 
-![image](https://github.com/user-attachments/assets/0104822a-d50e-45ad-8002-3fb451475bea)
+![image](./imagenes/2c33f7bd-7c1e-4cf8-9016-08834f2be3e3.png)
 
 
 
@@ -153,17 +153,17 @@ Hacemos clic derecho sobre la instalación y seleccionamos:
 Se pueden dar 3 situaciones:
 
 ### ✔ Bonificación total del cargo de instalación
-![image](https://github.com/user-attachments/assets/a0fa34a3-d7ff-4411-aa35-a896cbc25f60)
+![image](./imagenes/2d6b3276-719e-4c49-bda0-f8b6866ff307.png)
 
 ---
 
 ### ✔ Bonificación 50% del cargo de instalación
-![image](https://github.com/user-attachments/assets/3af71f8b-279b-4bc1-aab6-a2ebcbb32f48)
+![image](./imagenes/2ddbe5ee-d1ad-4990-89a0-e4f71925e42b.png)
 
 ---
 
 ### ✔ Cobro total de la instalación
-![image](https://github.com/user-attachments/assets/87e1d146-6331-49ff-ac67-a0210b64476c)
+![image](./imagenes/2e03f109-66ed-4dfe-98e8-a3ae0eb6e215.png)
 
 ---
 

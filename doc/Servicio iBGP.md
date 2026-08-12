@@ -13,7 +13,7 @@ Cada peer corresponde a:
 - Que atraviesa diferentes switches y enlaces wireless (**path físico**)
 - Con IPs en ambos extremos utilizadas para levantar los peers iBGP
 
-![Esquema iBGP](https://user-images.githubusercontent.com/33906536/178333596-1bb5d098-2836-46bf-a571-5923929c25c2.jpg)
+![Esquema iBGP](./imagenes/bd68d3a9-6c39-4a35-9bc5-b5e9ad3cfdba.png)
 
 ---
 
@@ -72,7 +72,7 @@ Permite diagnóstico y observación.
 
 
 
-![Lectura tráfico](https://user-images.githubusercontent.com/33906536/178339959-0c4a07e6-cab5-4166-af9b-7539e5c29939.gif)
+![Lectura tráfico](./imagenes/bddcfe59-d0cf-4af5-8fc8-1874e08064b4.png)
 
 
 
@@ -90,7 +90,7 @@ Permite ver:
 
 
 
-![Detalle localidad](https://user-images.githubusercontent.com/33906536/178341888-fb11c4f2-4648-47a5-b1f3-65e663ea1c30.gif)
+![Detalle localidad](./imagenes/be1d0e05-9557-467a-911d-cc44b9c3cce3.png)
 
 
 
@@ -116,7 +116,7 @@ Acceso restringido a:
 
 
 
-![Reinicio servicio](https://user-images.githubusercontent.com/33906536/178347160-dfe66530-a86b-4550-999d-7dcc763c0ff9.gif)
+![Reinicio servicio](./imagenes/be413833-0da9-4c7e-bb43-0859ec3e42d9.png)
 
 
 
@@ -129,7 +129,7 @@ Acceso restringido a:
 
 
 
-![Tiempo real](https://user-images.githubusercontent.com/33906536/178348018-7b33e98b-5c38-4847-b883-22dcfccd7834.gif)
+![Tiempo real](./imagenes/be59b425-d7ca-4168-aa6a-ac423e98b8d1.png)
 
 
 
@@ -142,7 +142,7 @@ Acceso restringido a:
 
 
 
-![Mover redes](https://user-images.githubusercontent.com/33906536/178349921-1b81cfd6-0c2f-4610-bfc6-0c4842f659c8.gif)
+![Mover redes](./imagenes/be989a0d-e95b-4617-9683-379908abaf28.png)
 
 
 
@@ -156,7 +156,7 @@ Acceso restringido a:
 
 
 
-![Auto management off](https://user-images.githubusercontent.com/33906536/178350238-73cd75ba-0d30-4e97-a734-8c22bd3e5e9c.gif)
+![Auto management off](./imagenes/c01a2dc2-a253-4625-9512-e83f743ff0a6.png)
 
 
 ---

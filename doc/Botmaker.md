@@ -305,7 +305,7 @@ La funcionalidad promete un aumento en la velocidad de atención de hasta 9 vece
 
 ### [Video de ejemplo](https://www.youtube.com/watch?v=rPERLZcZs5E)
 
-- ![image](https://user-images.githubusercontent.com/63564990/220926462-9855910a-8074-471c-b8f2-b317d8784abd.png)
+- ![image](./imagenes/0777c2ac-2dab-450e-bbae-00de837aea48.png)
    - Cabe destacar que las respuestas generadas por la IA pueden ser editadas antes de enviarse.
 
 ---

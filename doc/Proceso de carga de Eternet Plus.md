@@ -15,7 +15,7 @@
 2. Seleccionar:
    - ➜ **Agregar Instalación Interna**
 
-<img width="1219" height="868" alt="Image" src="https://github.com/user-attachments/assets/d533b2c9-7102-4300-a689-5e622a798086" />
+<img width="1219" height="868" alt="Image" src="./imagenes/98a29d39-7256-49be-a3b2-ba94711ab78f.png" />
 
 ---
 
@@ -41,7 +41,7 @@ En todos los campos anteriores:
 - Agregar link del issue:
   - https://github.com/Eternet/Coordinacion/issues/new?template=nueva-interna.yml
 
-<img width="1725" height="789" alt="Image" src="https://github.com/user-attachments/assets/8186f5e4-bd00-442b-9556-540c12322541" />
+<img width="1725" height="789" alt="Image" src="./imagenes/98b7d764-92d2-47f6-bd61-091630fc5e29.png" />
 
 ---
 
@@ -67,7 +67,7 @@ En todos los campos anteriores:
 4. Costo del equipo:
    - **$0**
 
-<img width="1775" height="655" alt="Image" src="https://github.com/user-attachments/assets/8a95d4e4-7c75-4497-988b-7c30420f37bd" />
+<img width="1775" height="655" alt="Image" src="./imagenes/98dbe95d-de6a-4a33-807c-2f7163f3598a.png" />
 
 ---
 

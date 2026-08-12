@@ -14,8 +14,8 @@ Determinar si la falla corresponde realmente a una mala señal óptica antes de 
 4. Obtener la **MAC de la ONU** desde SSKA.
 5. Ingresar la MAC en el buscador.
 6. Presionar **QUERY**.
-> <img width="1901" height="656" alt="image" src="https://github.com/user-attachments/assets/88681c2d-5e1d-4101-85d0-6c8477ce6822" />
-> <img width="1554" height="577" alt="image" src="https://github.com/user-attachments/assets/4763e203-8af7-4acb-bb07-ab2330d7426a" />
+> <img width="1901" height="656" alt="image" src="./imagenes/70f56007-16b2-4231-b12d-a648d697d63b.png" />
+> <img width="1554" height="577" alt="image" src="./imagenes/71911608-6d7a-4b24-9dd3-43edb8b98304.png" />
 
 
 ---
@@ -30,7 +30,7 @@ Comprobar:
 
 Si la ONU no está registrada, continuar con el procedimiento correspondiente y no con este diagnóstico.
 Si la ONU esta registrada en Grafana figurara luego de buscarla. Como en la siguente imagen.
-> <img width="1909" height="630" alt="image" src="https://github.com/user-attachments/assets/34626505-68c2-43e6-a411-81aaa717c7fd" />
+> <img width="1909" height="630" alt="image" src="./imagenes/7264b129-fb60-47ec-8bbe-b77e8c4da09a.png" />
 
 ---
 
@@ -47,7 +47,7 @@ Comprobar si los valores se encuentran dentro de los rangos normales.
 
 Registrar los valores obtenidos.
 En el ejemplo, se verifica una señal extremadamente baja. En la mayoría de las redes GPON, una ONU deja de funcionar correctamente alrededor de -27 a -28 dBm.
-> <img width="1547" height="581" alt="image" src="https://github.com/user-attachments/assets/97e7e397-78a3-45ed-963f-cf5f8b1b8506" />
+> <img width="1547" height="581" alt="image" src="./imagenes/733b846a-c382-402e-a279-bdb1c3f5cee0.png" />
 
 ---
 
@@ -65,7 +65,7 @@ Verificar:
 Siempre comparar la señal actual con el historial antes de diagnosticar una mala señal.
 
 En el ejemplo, se verifica flapeos en la señal optica:
-> <img width="1541" height="584" alt="image" src="https://github.com/user-attachments/assets/4c254804-9b93-4090-9df9-abae2bf41017" />
+> <img width="1541" height="584" alt="image" src="./imagenes/738621b0-d184-4a1e-a31e-aea0b4244e6a.png" />
 
 ---
 
@@ -82,7 +82,7 @@ Verificar:
 Registrar los resultados.
 
 En el ejemplo, se verifica flapeos en la señal optica:
-> <img width="1551" height="583" alt="image" src="https://github.com/user-attachments/assets/baf199fd-aa28-48e0-9593-627261c8a1b4" />
+> <img width="1551" height="583" alt="image" src="./imagenes/76b400b5-0865-446b-863b-68c709dd0770.png" />
 
 ---
 
@@ -104,7 +104,7 @@ Si existen eventos LOSI, registrar:
 - Cantidad de eventos.
 - Estado actual de la señal.
 
-> <img width="1551" height="526" alt="image" src="https://github.com/user-attachments/assets/f8629238-88d2-43f5-90a6-cccac70f67a5" />
+> <img width="1551" height="526" alt="image" src="./imagenes/78a5a8df-21e7-439e-97c2-18fd9cf73987.png" />
 
 
 ---
@@ -123,7 +123,7 @@ Este evento **no significa necesariamente** que exista una mala señal óptica.
 
 Consultar al cliente si sufrió cortes de energía antes de continuar.
 
-> <img width="1548" height="578" alt="image" src="https://github.com/user-attachments/assets/a7b2caa2-e7d4-4af7-a0fc-31e20f1f3240" />
+> <img width="1548" height="578" alt="image" src="./imagenes/78de9a68-3e04-47a4-9556-7a57bc2a65a9.png" />
 
 ---
 
@@ -138,7 +138,7 @@ Comprobar:
 
 Si la señal óptica es correcta pero el puerto Ethernet presenta problemas, continuar con el procedimiento correspondiente a red interna o router.
 
-> <img width="1547" height="562" alt="image" src="https://github.com/user-attachments/assets/039d379b-a78d-49ca-b3d9-b6325b24b307" />
+> <img width="1547" height="562" alt="image" src="./imagenes/7a57e8f7-7fb6-47ee-bf86-90875f0c2fce.png" />
 
 ---
 
@@ -149,8 +149,8 @@ Abrir la tabla MAC de la ONU.
 Verificar que aparezca la MAC del router del cliente.
 
 Si no aparece y la señal óptica es correcta, la falla probablemente no sea de señal.
-> <img width="1569" height="548" alt="image" src="https://github.com/user-attachments/assets/5eab2441-7bde-43c0-acf9-34fa97b95e90" />
-> <img width="544" height="220" alt="image" src="https://github.com/user-attachments/assets/5b0ecf9d-d644-4be4-af3d-e5acc2b04e70" />
+> <img width="1569" height="548" alt="image" src="./imagenes/7aef5379-4303-4763-a395-212cf8eda523.png" />
+> <img width="544" height="220" alt="image" src="./imagenes/7b9bf717-b821-4dc1-948c-b7bc36344ae3.png" />
 
 ---
 

@@ -49,7 +49,7 @@ En caso de tratarse de un **equipo Host**:
 
 ## 🖼️ Referencia visual
 
-![Flujo alta artículo individualizado](https://user-images.githubusercontent.com/87478049/177173139-8825b574-77c7-4d41-ba30-65296f98cb48.png)
+![Flujo alta artículo individualizado](./imagenes/364435301-e11db660-ee56-49ae-96d7-ecc737e21ac4.png)
 
 ---
 
@@ -79,23 +79,23 @@ Una vez completados los pasos anteriores:
 
 Y aparecera la siguiente pantalla:
 
-![image](https://user-images.githubusercontent.com/98965666/232822111-32c5cebd-e091-4fee-ad24-14c0f6860a1b.png)
+![image](./imagenes/364436870-823a1ed5-d286-42b6-ab3f-6b5eb173ee7d.png)
 
 ## Continuamos buscando el artículo el cual necesitamos modificar:
 
-![image](https://user-images.githubusercontent.com/98965666/232822617-f040ed9d-c54a-4f22-a671-1f4ce1446743.png)
+![image](./imagenes/364437286-e1db7992-2435-4119-b7af-4b61d850ebf4.png)
 
 ### continuamos haciendo doble click sobre la descripción del artículo y aparecerá la siguiente pantalla:
 
-![image](https://user-images.githubusercontent.com/98965666/232823441-de7fa58c-f4df-49c8-b40e-cb87e87fb32a.png)
+![image](./imagenes/364438819-16422dd3-3ca9-4048-a809-39d378ddb79f.png)
 
 ## A continuación hacemos click derecho en cualquier parte de la pantalla y seleccionamos "configurar Artículo con stock Individualizado" o "Configurar Artículo con stock no Individualizado" según necesitemos:
 
-![image](https://user-images.githubusercontent.com/98965666/232824464-df1f20da-a0f5-420b-9892-779979b6aee1.png)
+![image](./imagenes/364439081-8f30687b-0b69-437f-8570-aa4f9244cbde.png)
 
 ## En caso que la opción seleccionada sea "Configurar Artículo con stock Individualizado" aparecerá la siguiente pantalla:
 
-![image](https://user-images.githubusercontent.com/98965666/232825218-d90a688b-9039-4301-8469-cf49788ae5c5.png)
+![image](./imagenes/364441936-6f2e4dda-f9b1-4fc4-ba30-967e97b68aa4.png)
 
 ## Campos a Completar:
 
@@ -110,16 +110,16 @@ Y aparecera la siguiente pantalla:
 
 ### De este modo, un artículo cargado correctamente quedaría de la siguiente forma:
 
-![image](https://user-images.githubusercontent.com/98965666/232833613-9473dab1-1c67-465b-b7f2-a0c6935b34ed.png)
+![image](./imagenes/364442374-6c97dfbc-10f4-4f42-9412-d2ef3b001505.png)
 
 ## Una vez completados los campos damos click en aceptar para completar la operación:
 
-![image](https://user-images.githubusercontent.com/98965666/232833964-42e90891-ef9f-4992-9b97-4057c1b805cd.png)
+![image](./imagenes/364442745-dfcab490-efb9-4401-9a14-d173f2639fbe.png)
 
 ## En caso de que seleccionemos la opción "Configurar Artículo con Stock no Individualizado" aparecerá el siguiente mensaje:
 
-![image](https://user-images.githubusercontent.com/98965666/232824909-76ba86e2-2b29-4f21-afae-3d11c11a796e.png)
+![image](./imagenes/364443047-7288c08f-1b04-4821-bef9-50314f5e2d3b.png)
 
 ### A continuación damos click en "Yes" para finalizar la operación
 
-![image](https://user-images.githubusercontent.com/98965666/232845051-26eed565-8019-440b-9243-39a308ebcacd.png)
+![image](./imagenes/364443938-7f67f41b-e0f5-41b0-8317-d0dbccc50ecd.png)

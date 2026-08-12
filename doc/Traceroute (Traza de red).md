@@ -41,7 +41,7 @@ En una PC con Windows se ve así:
 - Tiempo en milisegundos por salto
 - Camino completo hasta el destino
 
-* ![image](https://user-images.githubusercontent.com/63564990/214871331-29aef91f-dc4f-4122-af0d-8cb73dff86aa.png)
+* ![image](./imagenes/cd6de3d3-1f98-4c39-9a5e-1cd2831a3b1f.png)
 
 ---
 
@@ -54,7 +54,7 @@ En MikroTik la traza muestra:
 - Latencia por salto
 - Posible pérdida de paquetes
 
- * ![image](https://user-images.githubusercontent.com/63564990/214847820-513b0881-3bfa-4671-9dce-021edba3b3c4.png)
+ * ![image](./imagenes/cd96d625-e508-44c6-b4a6-5647a704de06.png)
 
 ---
 

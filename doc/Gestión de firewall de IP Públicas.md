@@ -77,7 +77,7 @@ Dentro de esta sección se puede:
 * Eliminar reglas
 * Crear nuevas reglas
 
-![Recording 2023-02-08 at 09 17 18](https://user-images.githubusercontent.com/69018178/217528178-a158060c-778b-4e6f-b085-efc7e76a7769.gif)
+![Recording 2023-02-08 at 09 17 18](./imagenes/6215f03f-e321-475b-9a96-cced040877da.png)
 
 ---
 

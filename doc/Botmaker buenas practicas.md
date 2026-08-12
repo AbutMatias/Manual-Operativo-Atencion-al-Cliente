@@ -31,7 +31,7 @@ Si un cliente solicita contacto a las 16:00 y en ese momento el agente está dis
   - Horario de recontacto
   - Información relevante del caso
 
-![image](https://github.com/user-attachments/assets/85a54c41-6d10-404c-ab8a-0db7ccd771f1)
+![image](./imagenes/04c0afd1-7f65-452e-9501-da46283d3c80.png)
 
 ---
 
@@ -42,7 +42,7 @@ Si un cliente solicita contacto a las 16:00 y en ese momento el agente está dis
   - Posponer atención
 - Elegir fecha y hora
 
-![image](https://github.com/user-attachments/assets/d452e824-5581-41fd-9904-cbb0f17a4ca9)
+![image](./imagenes/053ceeda-b1ea-4276-b2c0-ea805ca63856.png)
 
 ---
 
@@ -50,7 +50,7 @@ Si un cliente solicita contacto a las 16:00 y en ese momento el agente está dis
 
 - Seleccionar OK para confirmar
 
-![image](https://github.com/user-attachments/assets/eb5a1f71-f7de-43eb-b5f1-d77b64c48a3f)
+![image](./imagenes/05ad0118-128b-4e85-914e-61b40de83b21.png)
 
 ---
 
@@ -59,7 +59,7 @@ Si un cliente solicita contacto a las 16:00 y en ese momento el agente está dis
 - El chat se desasigna automáticamente
 - Apagar el bot si corresponde
 
-![image](https://github.com/user-attachments/assets/599db1a3-988d-4bba-8cbf-658c32e3d9ad)
+![image](./imagenes/072bcad9-d3a7-49e8-ac94-26b98eedd5f0.png)
 
 ---
 

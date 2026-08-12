@@ -16,7 +16,7 @@ En esta planificación se detalla, a través de un issue, los técnicos que esta
 
 El issue se genera en el repositorio de Atención al Cliente y tiene el siguiente formato:
 
-![Image](https://github.com/user-attachments/assets/39a3c9d3-8ecb-45c0-82f6-29b5e1c28445)
+![Image](./imagenes/903db1a9-ccf2-4b61-b7a3-3c86219ff1fa.png)
 
 
 ### Formulario de planificación
@@ -169,19 +169,19 @@ Esto permite que todos los integrantes del equipo estén informados y facilita l
 
 Paso a paso 
 - Asignar tecnico
-<img width="913" height="717" alt="image" src="https://github.com/user-attachments/assets/1abd2ab0-913f-4b9d-b575-a3a3c649fa88" />
+<img width="913" height="717" alt="image" src="./imagenes/9060dc05-c0b4-4955-a387-4574e4401137.png" />
 - Asignar tarea
-<img width="942" height="797" alt="image" src="https://github.com/user-attachments/assets/68fa97b7-9d3a-4ae7-9f4a-5a99b6d527ce" />
+<img width="942" height="797" alt="image" src="./imagenes/91ba5eed-2076-4c01-8b9a-3db2c222f20b.png" />
 - Seleccionar rango de dias
-<img width="967" height="683" alt="image" src="https://github.com/user-attachments/assets/410ec866-4db1-425c-a27c-40b821579ffb" />
+<img width="967" height="683" alt="image" src="./imagenes/9284cea1-df18-420b-90bd-25c7db4e6eeb.png" />
 - Doble click al tecnico y el dia que debe ser asignado.
-<img width="1511" height="585" alt="image" src="https://github.com/user-attachments/assets/d1cd9a22-a9d0-4c56-b428-c4ccd259aa0b" />
+<img width="1511" height="585" alt="image" src="./imagenes/93625170-eb4c-43ba-b71d-3b8ba1da92fd.png" />
 - Sin no tiene ninguna tarea asignada le va a figurar el siguente cartel, presionar si.
-- <img width="880" height="408" alt="image" src="https://github.com/user-attachments/assets/d3168d5e-71b7-4f9a-b7dd-ad96cb2b951c" />
+- <img width="880" height="408" alt="image" src="./imagenes/9442faf4-ed65-4e02-8240-f9e09516e159.png" />
 - Les va a figurar asi cuando este asignado.
-- <img width="861" height="754" alt="image" src="https://github.com/user-attachments/assets/7032f799-e23a-4022-862e-69e17eda3de0" />
+- <img width="861" height="754" alt="image" src="./imagenes/9492e4e2-6b71-41b4-896e-2792f8a653a4.png" />
 - Luego a issue del reclamo, asignar el tecnico en este apartado.
-<img width="1634" height="591" alt="image" src="https://github.com/user-attachments/assets/0e5fe396-0a9b-41df-ad42-f75762658b4c" />
+<img width="1634" height="591" alt="image" src="./imagenes/97fe224d-6929-4c01-9a36-6c24eca514bd.png" />
 
 
 

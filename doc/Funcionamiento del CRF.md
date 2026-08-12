@@ -16,11 +16,11 @@ La secuencia inicia cuando el dispositivo realiza una petición a un servidor re
 
 3. Entonces, envía una solicitud ARP al broadcast en la LAN para determinar la MAC del gateway. En una red típica, un dispositivo con IP 192.168.0.150 intentará resolver la MAC de 192.168.0.1. Todos los dispositivos reciben la consulta, pero solo el que posee esa IP responde.
 
-![L2-L3 Schemas-LAN Cliente](https://user-images.githubusercontent.com/30703244/196281072-42d1ee3b-61d2-4f64-8a13-3da584c82b29.png)
+![L2-L3 Schemas-LAN Cliente](./imagenes/544e12b4-ef12-472e-90b1-378e9a621c1a.png)
 
 - Con el comando ARP desde consola, se puede observar que antes del ping no existe la asociación IP-MAC del gateway, y luego del ping se genera la entrada correspondiente.
 
-![ARP status cmd](https://user-images.githubusercontent.com/30703244/196281104-0d21f142-a1ff-44d0-9523-f2d7b36f4ce3.png)
+![ARP status cmd](./imagenes/573344fc-9861-4eab-9b16-7bbb923dbe16.png)
 
 4. Conociendo la MAC del router, el cliente ya puede enviar la petición hacia el destino.
 
@@ -29,9 +29,9 @@ La secuencia inicia cuando el dispositivo realiza una petición a un servidor re
 
 5. El router del cliente ahora debe conocer la MAC de su propio gateway (CRF - Clúster de Routers Frontend). Para ello, envía una solicitud ARP hacia la red de ETERNET, y uno de los miembros del CRF responde.
 
-![L2-L3 Schemas-FO-Schema](https://user-images.githubusercontent.com/30703244/196281309-c252f967-b926-4613-bdbc-e1854fe4de45.png)
+![L2-L3 Schemas-FO-Schema](./imagenes/5a13581c-fb59-4e82-be99-1e73925f9f7a.png)
 
-![Router status](https://user-images.githubusercontent.com/30703244/196281337-b6145781-7b42-48e6-9b89-625f219265ba.png)
+![Router status](./imagenes/5a1aa9d9-0729-4bd0-a912-524a6a893ac3.png)
 
 ---
 
@@ -82,11 +82,11 @@ La secuencia inicia cuando el dispositivo realiza una petición a un servidor re
    - Ejemplo: 192.168.0.150 consulta 192.168.0.1.
    - Todos reciben la consulta, pero solo el gateway responde.
 
-![L2-L3 LAN](https://user-images.githubusercontent.com/30703244/196281072-42d1ee3b-61d2-4f64-8a13-3da584c82b29.png)
+![L2-L3 LAN](./imagenes/544e12b4-ef12-472e-90b1-378e9a621c1a.png)
 
 - Con el comando ARP se puede ver que antes del ping no hay registros y luego del ping se resuelve la MAC del gateway.
 
-![ARP status](https://user-images.githubusercontent.com/30703244/196281104-0d21f142-a1ff-44d0-9523-f2d7b36f4ce3.png)
+![ARP status](./imagenes/573344fc-9861-4eab-9b16-7bbb923dbe16.png)
 
 4. Conociendo la MAC del router, el cliente ya puede enviar tráfico hacia Facebook.
 

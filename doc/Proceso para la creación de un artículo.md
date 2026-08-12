@@ -11,7 +11,7 @@ Ingresar en:
 
 Se mostrará la siguiente pantalla:
 
-![Pantalla mantenimiento](https://user-images.githubusercontent.com/87478049/175362510-4f10d013-4391-4e5c-a229-2182f5fbccfc.png)
+![Pantalla mantenimiento](./imagenes/994826f2-2f25-4194-9f3b-1697ae9c3fe5.png)
 
 ---
 
@@ -21,7 +21,7 @@ Hacer clic en:
 
 - **Insertar registro**
 
-![Insertar registro](https://user-images.githubusercontent.com/87478049/175362301-6b1a74dd-a8e3-4541-ba05-a3cbaf5de8e2.png)
+![Insertar registro](./imagenes/99c68195-5cf6-41ce-bf9b-3f8329e1e9b0.png)
 
 ---
 
@@ -97,13 +97,13 @@ Hacer clic en:
 
 El artículo correctamente cargado se visualizará así:
 
-![Artículo cargado](https://user-images.githubusercontent.com/87478049/177317110-a2d9462a-1032-4fc7-88f8-3e6689057c7e.png)
+![Artículo cargado](./imagenes/9a498b25-b05d-4dc5-a241-be91589f11d7.png)
 
 Y en el listado general:
 
 - Artículos → Listado → búsqueda por palabras clave
 
-![Listado artículos](https://user-images.githubusercontent.com/87478049/177317601-ae31a26f-7ae0-4905-be93-0ee67e42ce75.png)
+![Listado artículos](./imagenes/9d71a0aa-38d9-4d3e-a845-907db1276b98.png)
 
 ---
 
@@ -120,7 +120,7 @@ Ingresar en:
 
 Se mostrará la siguiente pantalla:
 
-![Listado ubicaciones](https://user-images.githubusercontent.com/98965666/185953862-5fe0e5cb-6d51-4ec8-af6c-9279684ecc37.png)
+![Listado ubicaciones](./imagenes/9dd0d04c-ac76-4329-8821-9daaa785eb15.png)
 
 ---
 
@@ -130,7 +130,7 @@ Hacer clic derecho sobre el artículo y seleccionar:
 
 - **“Agregar artículo a un almacén”**
 
-![Agregar almacén](https://user-images.githubusercontent.com/98965666/185956923-ff09e26e-63dd-463e-9da2-787f83429264.png)
+![Agregar almacén](./imagenes/9e581d8a-5c44-42ff-814a-f8a3f08098a1.png)
 
 ---
 
@@ -165,6 +165,6 @@ Hacer clic en:
 
 - **Aceptar**
 
-![Aceptar operación](https://user-images.githubusercontent.com/98965666/185956164-ec6508c8-0278-4e72-8bc8-7e0f7a2692d3.png)
+![Aceptar operación](./imagenes/9fad7229-342e-494e-9aba-f4d192daba15.png)
 
 ---

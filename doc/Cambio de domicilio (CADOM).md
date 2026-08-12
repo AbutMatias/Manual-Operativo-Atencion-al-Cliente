@@ -27,7 +27,7 @@ Se abrirá la ventana **Nueva instalación**.
 - En **Tipo de instalación** elegir `Cambio de domicilio`.
 - Presionar `Obtener usuario`.
 
-![image](https://github.com/user-attachments/assets/53ee0dd5-28cf-49b9-a7f6-afd6428f92a4)
+![image](./imagenes/082c0939-447f-4d5d-b85a-fbca1be238dd.png)
 
 ---
 
@@ -38,7 +38,7 @@ Dentro de la ventana **Obtener Usuario de Internet**:
 - Buscar al cliente por número de cliente o apellido y nombre.
 - Hacer doble clic sobre el servicio correspondiente.
 
-![image](https://github.com/user-attachments/assets/b77b5b9b-b0e8-4240-b891-3ef91af74e1b)
+![image](./imagenes/092e6137-d34f-487d-befb-3891f2794ea9.png)
 
 Se abrirá una nueva ventana donde se visualizará el CPE del cliente (ONU o equipo Wireless).
 
@@ -49,7 +49,7 @@ Verificar:
 
 Luego presionar **Aceptar**.
 
-![image](https://github.com/user-attachments/assets/65349d28-2b43-4d8e-9607-f45c94fb60fc)
+![image](./imagenes/09312052-91fc-428c-828c-b99ed53be678.png)
 
 ---
 
@@ -57,7 +57,7 @@ Luego presionar **Aceptar**.
 
 Una vez obtenido el usuario, seleccionar **Siguiente**.
 
-![image](https://github.com/user-attachments/assets/7de1a3c5-74c1-4f65-b679-fa1fee8bddec)
+![image](./imagenes/0b0d9226-b5a3-44c9-82b4-59ec917e007f.png)
 
 Configurar:
 
@@ -69,7 +69,7 @@ Si el cliente mantiene el mismo plan, dejar la tarifa actual.
 
 Si solicita un cambio de plan, seleccionar la nueva tarifa.
 
-![image](https://github.com/user-attachments/assets/252851d5-a804-40f6-91ad-4406ebaff46d)
+![image](./imagenes/0bc031d1-9d58-4bea-ba11-9f0f0abb940a.png)
 
 ---
 
@@ -89,7 +89,7 @@ Tildar la opción de notificación.
 
 Finalmente seleccionar **Finalizar**.
 
-![image](https://github.com/user-attachments/assets/a3bfd5fe-c960-4ab7-ac34-b05b76354de4)
+![image](./imagenes/0be149fd-d968-473e-b352-3f9149d22b6d.png)
 
 
 ---
@@ -104,7 +104,7 @@ La única diferencia es que, en la pantalla **Nueva instalación**, debemos:
 - Elegir la nueva tarifa correspondiente a la tecnología destino.
 
 
-![image](https://github.com/user-attachments/assets/f67eb073-e71e-4fd7-9ca2-c98071d77a5a)
+![image](./imagenes/0beb3fa5-ca21-4ee7-87af-52802bb72fb9.png)
 
 ---
 

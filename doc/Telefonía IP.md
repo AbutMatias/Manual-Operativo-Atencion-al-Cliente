@@ -35,7 +35,7 @@ Este concepto incluye:
 
 Ejemplo de referencia en factura:
 
-![Factura Telefonía IP](https://github.com/user-attachments/assets/830077af-c2bc-4782-bc83-21b801693f7c)
+![Factura Telefonía IP](./imagenes/c6d71d6a-d1c0-486a-a4b3-7d8f6a5dc73c.png)
 
 ---
 
@@ -67,7 +67,7 @@ Para gestionar la recuperación de equipos:
 
 Ejemplo de pantalla:
 
-![Baja servicio](https://github.com/user-attachments/assets/c536c5fa-0540-43ea-846f-1e18f0d6764c)
+![Baja servicio](./imagenes/c7448cd5-7806-4efa-9882-4dcc9a1a22ca.png)
 <img width="766" height="324" alt="image" src="./imagenes/42783477-623d-4eda-887b-b74e918a16f6.png" />
 
 

@@ -36,7 +36,7 @@ Correspondientes según localidad a:
 ---
 
 ## Esquema visual
-![image](https://user-images.githubusercontent.com/101568958/199522641-6ccf2216-7f70-459a-8b9c-a9ac3523f89e.png)
+![image](./imagenes/ccc57563-e4ee-42fc-b9e7-2fd73d41f543.png)
 
 ---
 
@@ -88,7 +88,7 @@ Cada tecnología tiene interfaces de administración diferentes, por lo que es f
 ---
 
 ## Esquema visual
-![image](https://user-images.githubusercontent.com/101568958/199527202-c8fb70f0-b78c-48e9-a62c-a355d8a4bfa1.png)
+![image](./imagenes/ccdab693-9d55-43e6-b3e1-60e1f4248e50.png)
 
 ---
 

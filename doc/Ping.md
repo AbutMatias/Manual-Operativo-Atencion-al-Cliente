@@ -23,7 +23,7 @@ Esto permite verificar:
 
 ### Ping con paquetes de 1500 bytes (sin fragmentación)
 
-![image](https://github.com/user-attachments/assets/762c4119-e6da-43c3-b5b6-a251fea4be9c)
+![image](./imagenes/8c577276-1888-4f43-8681-97e2947f7229.png)
 
 - Tamaño estándar en redes Ethernet
 - No requiere fragmentación

@@ -159,7 +159,7 @@ Esta herramienta permite medir el rendimiento real entre dos puntos MikroTik.
    - Usuario y contraseña 
    - Dirección (Ambos/Both)
 4. Iniciar prueba
-<img width="334" height="549" alt="image" src="https://github.com/user-attachments/assets/b4fab2aa-cd07-4c25-bd13-424b4b59fce8" />
+<img width="334" height="549" alt="image" src="./imagenes/02ec7714-f85e-4ce9-ae81-bf991031f53f.png" />
 
 ---
 
@@ -210,7 +210,7 @@ Permite visualizar la velocidad de envío y recepción de datos de la interfaz d
    * **Recepción (Receive)**
 
 Estos valores muestran el consumo de Internet en tiempo real.
-<img width="1467" height="749" alt="image" src="https://github.com/user-attachments/assets/d0c3db75-a3ec-465a-a2db-97e920aa1bdb" />
+<img width="1467" height="749" alt="image" src="./imagenes/031c9fb7-9f49-4e31-9be3-e757b66920ca.png" />
 
 ---
 
@@ -237,7 +237,7 @@ En esta sección es posible visualizar:
 * Actividad general de la red.
 
 Esta herramienta resulta útil para identificar programas que estén realizando descargas, actualizaciones o consumiendo ancho de banda de forma inesperada.
-<img width="812" height="968" alt="image" src="https://github.com/user-attachments/assets/f28e1f84-532a-4772-9bb7-4a465eba2fa9" />
+<img width="812" height="968" alt="image" src="./imagenes/0356e12b-2886-41b1-ad28-8e8a86d66881.png" />
 
 ---
 
@@ -256,7 +256,7 @@ En esta pantalla se muestra:
 * Consumo total de datos.
 * Consumo individual por aplicación.
 * Período correspondiente a los últimos 30 días.
-<img width="1784" height="1025" alt="image" src="https://github.com/user-attachments/assets/b203e8a9-a820-451d-a66c-7b4375e55683" />
+<img width="1784" height="1025" alt="image" src="./imagenes/042aa612-f1bc-4040-9258-24705e48013d.png" />
 
 ---
 

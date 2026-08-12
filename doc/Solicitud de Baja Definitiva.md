@@ -54,7 +54,7 @@ En el SSAK buscamos al cliente, ingresamos a **Clientes → Servicios**, selecci
 
 **Servicios Contratados → Baja del Servicio**
 
-<img width="495" alt="image" src="https://github.com/user-attachments/assets/8eb89e8b-273e-4bf7-8887-935a98f68d15">
+<img width="495" alt="image" src="./imagenes/c1c25e65-6fae-48b9-835c-1c06d95c5ae4.png">
 
 ---
 
@@ -68,9 +68,9 @@ En la ventana de carga:
 * Fecha efectiva: fecha de baja (misma fecha o primer día del mes siguiente)
 * Marcar casillero **“Baja”**
 
-<img width="386" alt="image" src="https://github.com/user-attachments/assets/55999035-e90f-4e21-bd80-7781afd4ae7d">
+<img width="386" alt="image" src="./imagenes/c21cd312-9eb2-4544-b3d5-e5f6e280ba4a.png">
 
-<img width="387" alt="image" src="https://github.com/user-attachments/assets/a80b2fbd-6a8f-4498-8922-24fea51bdf36">
+<img width="387" alt="image" src="./imagenes/c2f211c6-1441-48a0-b55a-bdb02eeb9c0f.png">
 
 ---
 
@@ -82,9 +82,9 @@ Se visualizan los equipos en comodato:
 * Aceptar
 * Se genera autorización en PDF para retiro de equipos
 
-<img width="323" alt="image" src="https://github.com/user-attachments/assets/287e4a79-9dac-4c44-b34a-b43bbb608753">
+<img width="323" alt="image" src="./imagenes/c4062055-0104-438d-b3ed-22d4fe06503e.png">
 
-<img width="239" alt="image" src="https://github.com/user-attachments/assets/d5c5e082-6a36-464f-a3bb-a129600623d6">
+<img width="239" alt="image" src="./imagenes/c44bc188-6568-4485-9392-bbea9ec55d3d.png">
 
 ---
 
@@ -96,7 +96,7 @@ Se genera el comprobante de baja del servicio:
 * Caso contrario, cerrar para confirmar la baja
 * La baja puede verificarse en “Bajas y Cortes procesados al cliente”
 
-<img width="701" alt="image" src="https://github.com/user-attachments/assets/6e5058ed-edde-4b57-9e5b-63cbdfc300c7">
+<img width="701" alt="image" src="./imagenes/c4d686ec-583c-4078-bb87-71921716f066.png">
 
 ---
 

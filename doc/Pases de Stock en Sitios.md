@@ -29,7 +29,7 @@ Se visualizará la siguiente ventana:
 
 ### ✔️ Ejemplo de carga correcta
 
-![Ejemplo MAC](https://user-images.githubusercontent.com/98965666/177329690-b97368c6-0217-4cea-8fa9-5304178a1f26.png)
+![Ejemplo MAC](./imagenes/8080b1ff-0bb8-4892-92ab-6aa8ceb4f30e.png)
 
 ---
 
@@ -37,7 +37,7 @@ Se visualizará la siguiente ventana:
 
 - Hacer clic en **“Hacer Pase de Stock”**
 
-![Botón pase stock](https://user-images.githubusercontent.com/98965666/177339116-176bb848-8182-4506-993f-eb77656b5b0d.png)
+![Botón pase stock](./imagenes/81252e8d-578a-4ab5-b388-fcf0de4f2652.png)
 
 ---
 
@@ -87,7 +87,7 @@ Se abre la siguiente ventana:
 
 ## ✔️ Ejemplo completo
 
-![Ejemplo completo](https://user-images.githubusercontent.com/98965666/177332508-670da125-0ce9-4d70-9246-f77eddaaca4d.png)
+![Ejemplo completo](./imagenes/8140d632-eb24-4770-87f3-6a9406dc2a3e.png)
 
 ---
 
@@ -108,7 +108,7 @@ Si es necesario, se pueden agregar artículos sin MAC:
 
 - Revisar en **Detalle de artículos seleccionados**
 
-![Detalle artículos](https://user-images.githubusercontent.com/87478049/177344640-810a9982-6a3a-4d7b-a9a8-0a4ddfa8761b.png)
+![Detalle artículos](./imagenes/81bdefea-ef73-428d-8adb-90736986985b.png)
 
 ---
 
@@ -116,7 +116,7 @@ Si es necesario, se pueden agregar artículos sin MAC:
 
 - Hacer clic en **Aceptar**
 
-![Aceptar pase](https://user-images.githubusercontent.com/98965666/177337511-f2da1e12-10b6-42c2-b92d-6b1f13f23ba4.png)
+![Aceptar pase](./imagenes/83077105-ee0c-407b-b17e-f95618d65cdc.png)
 
 ---
 
@@ -124,7 +124,7 @@ Si es necesario, se pueden agregar artículos sin MAC:
 
 - Aparecerá mensaje de confirmación:
 
-![Confirmación](https://user-images.githubusercontent.com/87478049/177345112-b01ee490-9c8c-4911-80ce-1a3ea2b6583b.png)
+![Confirmación](./imagenes/837d9296-44b9-4597-9cce-b0d8b1c6c388.png)
 
 - Clic en **Aceptar**
 
@@ -147,7 +147,7 @@ Si es necesario, se pueden agregar artículos sin MAC:
 
 Al ingresar al sistema:
 
-![Pantalla recepción](https://user-images.githubusercontent.com/98965666/177363486-23915fed-efb1-4eb4-9c25-6e19a286193a.png)
+![Pantalla recepción](./imagenes/849ff86d-1936-4f4e-9cb3-8bd5d4f6daa5.png)
 
 ---
 
@@ -156,7 +156,7 @@ Al ingresar al sistema:
 - Seleccionar el envío recibido
 - Verificar MACs
 
-![Control MAC](https://user-images.githubusercontent.com/98965666/177364608-db8a3969-1a33-493b-83bd-c1e0d23a7631.png)
+![Control MAC](./imagenes/85cf9541-eb60-4d04-a0f0-bdfbc9c52297.png)
 
 ---
 

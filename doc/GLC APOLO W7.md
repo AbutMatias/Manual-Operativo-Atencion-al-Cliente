@@ -32,7 +32,7 @@ http://192.168.1.254
 
 3. Se abrirá el asistente de configuración inicial.
 
-<img width="1119" height="687" alt="image" src="https://github.com/user-attachments/assets/0121ac43-7073-40e8-b699-7c42f948a650" />
+<img width="1119" height="687" alt="image" src="./imagenes/5a5a43dc-5305-439c-ba95-778779753824.png" />
 
 
 <!-- Captura del asistente inicial -->
@@ -48,7 +48,7 @@ Completar los siguientes campos:
 
 Luego seleccionar **Next**.
 
-<img width="1124" height="602" alt="image" src="https://github.com/user-attachments/assets/7aa8e6e4-ee77-43c1-89b1-099251fa61c6" />
+<img width="1124" height="602" alt="image" src="./imagenes/5a886964-b0d2-4ca7-b938-fb192580457a.png" />
 
 
 <!-- Configuración Broadband Access -->
@@ -69,12 +69,12 @@ en el campo **Wireless Password**.
 
 Esperar aproximadamente **15 segundos** hasta que el equipo guarde la configuración.
 
-<img width="1128" height="759" alt="image" src="https://github.com/user-attachments/assets/fb71db48-12d2-472f-bcf9-c282d6b30213" />
+<img width="1128" height="759" alt="image" src="./imagenes/5bbc8b29-b9cf-449a-8f97-05072555f1a0.png" />
 
 
 <!-- Configuración inicial WiFi -->
 
-<img width="389" height="194" alt="image" src="https://github.com/user-attachments/assets/8848d104-6082-4a7b-90e0-e36516e67166" />
+<img width="389" height="194" alt="image" src="./imagenes/5d466a1c-3ea4-4f44-990d-5c6f0dfa9bb7.png" />
 
 
 <!-- Pantalla de guardado -->
@@ -101,7 +101,7 @@ useradmin
 
 La creada en el paso anterior.
 
-<img width="1120" height="831" alt="image" src="https://github.com/user-attachments/assets/caceef6c-05b3-496d-9d3d-00fb0bacca0a" />
+<img width="1120" height="831" alt="image" src="./imagenes/5d4c1c04-f78a-4319-9032-fabf78088aaa.png" />
 
 
 <!-- Pantalla de inicio de sesión -->
@@ -124,7 +124,7 @@ Ingresar a:
 
 **Tools → Parameter Backup**
 
-<img width="1539" height="949" alt="image" src="https://github.com/user-attachments/assets/0cfa8e2f-755e-43de-aad6-fa00c38df844" />
+<img width="1539" height="949" alt="image" src="./imagenes/5f1aff9a-6328-4411-9774-8995cfdcc6c3.png" />
 
 <!-- Menú Parameter Backup -->
 
@@ -140,7 +140,7 @@ GLC_Apolo-WiFi6.gz
 
 Luego hacer clic en **Restore**.
 
-<img width="1607" height="627" alt="image" src="https://github.com/user-attachments/assets/ca11d2bd-4929-4aca-b12c-222c481dee7e" />
+<img width="1607" height="627" alt="image" src="./imagenes/5f401ea8-0214-4d35-81a0-75a3b5409eec.png" />
 
 
 <!-- Restaurar configuración -->
@@ -167,7 +167,7 @@ useradmin
 Etnrouter2022
 ```
 
-<img width="1125" height="822" alt="image" src="https://github.com/user-attachments/assets/7daf32d2-e9aa-47b9-be6f-cf097e331645" />
+<img width="1125" height="822" alt="image" src="./imagenes/60361ab9-66d6-4858-911f-3ae71f533bda.png" />
 
 
 <!-- Login luego de importar configuración -->
@@ -183,12 +183,12 @@ Modificar:
 
 Verificar que ambas bandas Wi-Fi utilicen la misma configuración.
 
-<img width="1119" height="730" alt="image" src="https://github.com/user-attachments/assets/37e725bf-1baa-4538-b92e-68838392adb4" />
+<img width="1119" height="730" alt="image" src="./imagenes/6059924a-86df-4942-a214-46f3d75e4433.png" />
 
 
 <!-- Configuración WiFi -->
 
-<img width="1109" height="808" alt="image" src="https://github.com/user-attachments/assets/f4b612de-8b87-4333-bae7-7285e5b959a2" />
+<img width="1109" height="808" alt="image" src="./imagenes/60a2ce54-0ef1-4980-b1d6-e28e827b767e.png" />
 
 
 <!-- Configuración SSID -->

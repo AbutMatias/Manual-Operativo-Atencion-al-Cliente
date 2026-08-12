@@ -15,7 +15,7 @@ El procedimiento es el mismo que el de:
 - Se vinculan los equipos al pase de stock
 - Se accede a la pantalla de **“Pases de Stock”**
 
-![Pantalla pases de stock](https://user-images.githubusercontent.com/98965666/186190734-0a614f2b-8202-4ac5-a2ff-009c7a21e1e8.png)
+![Pantalla pases de stock](./imagenes/7c1f9f1f-5de5-4070-a15d-a16bfb2245d2.png)
 
 ---
 
@@ -27,7 +27,7 @@ Se completan los campos como en el proceso estándar, con la diferencia de que:
 
 - Se selecciona: **“Remitos a Clientes”**
 
-![Sitio destino remitos](https://user-images.githubusercontent.com/98965666/186191770-14de891f-a378-414d-925e-4c46840d5cad.png)
+![Sitio destino remitos](./imagenes/7c27b278-d854-4dc4-8f7b-16a7eafd83f3.png)
 
 ---
 
@@ -35,7 +35,7 @@ Se completan los campos como en el proceso estándar, con la diferencia de que:
 
 - Aparece el botón de generación del remito
 
-![Botón generar remito](https://user-images.githubusercontent.com/98965666/186193080-faa804e8-7958-40e2-8abc-9054f984d724.png)
+![Botón generar remito](./imagenes/7cbb7c05-3d8d-4e7b-92fe-2fed9888e2a4.png)
 
 ---
 
@@ -50,7 +50,7 @@ Se completan los campos como en el proceso estándar, con la diferencia de que:
 
 Se abre la siguiente pantalla:
 
-![Datos cliente](https://user-images.githubusercontent.com/98965666/186194072-0215fe55-37a4-4a38-be10-88c7645d929b.png)
+![Datos cliente](./imagenes/7d101f86-be6d-4744-b542-5fd6d47fb046.png)
 
 ---
 
@@ -71,7 +71,7 @@ Se abre la siguiente pantalla:
 
 - Hacer clic en **“Aceptar”**
 
-![Confirmación cliente](https://user-images.githubusercontent.com/98965666/186198295-95f7ef64-d106-4a6b-ad3d-4f1698818ba1.png)
+![Confirmación cliente](./imagenes/7d6c398a-9708-40a4-a0a9-7a145e3f2fa9.png)
 
 ---
 
@@ -79,7 +79,7 @@ Se abre la siguiente pantalla:
 
 - Los datos del cliente quedan visibles en la parte derecha del pase de stock
 
-![Resumen cliente](https://user-images.githubusercontent.com/98965666/186197867-3239b7fb-c53b-47ed-bed3-3431ba955823.png)
+![Resumen cliente](./imagenes/7eff51d8-0809-44d3-8156-3cd201da6bcf.png)
 
 ---
 
@@ -87,7 +87,7 @@ Se abre la siguiente pantalla:
 
 - Hacer clic en **“Aceptar”** en la pantalla de Pase de Stock
 
-![Finalizar pase](https://user-images.githubusercontent.com/98965666/186199086-28605cd1-d864-4906-a30b-1a6a52e23147.png)
+![Finalizar pase](./imagenes/7f0089da-4c20-4fe9-9076-a667b4914a73.png)
 
 ---
 
@@ -95,7 +95,7 @@ Se abre la siguiente pantalla:
 
 Aparece una pregunta de confirmación:
 
-![Confirmación final](https://user-images.githubusercontent.com/98965666/186201063-9591a43a-e38f-41ac-99f6-22bf4a3e15b2.png)
+![Confirmación final](./imagenes/7f2aa180-39e2-4f85-9a21-8b8cf6871e40.png)
 
 ---
 

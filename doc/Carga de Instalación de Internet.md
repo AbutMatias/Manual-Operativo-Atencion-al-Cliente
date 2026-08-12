@@ -18,7 +18,7 @@ Si se trata de un cliente nuevo, debemos crearlo previamente.
 
 Desde SSAK seleccionamos el botón `Nuevo Cliente`.
 
-![image](https://github.com/user-attachments/assets/03619f25-62ed-4129-b7be-bbb70bbc1fa8)
+![image](./imagenes/0e5993aa-eee8-4126-849c-462e229729bc.png)
 
 ---
 
@@ -30,7 +30,7 @@ Completamos los datos básicos:
 * Localidad
 * Domicilio
 
-![image](https://github.com/user-attachments/assets/a609492d-9897-4498-8b6e-2e2baf427154)
+![image](./imagenes/0edec2f0-14c9-4c43-ac5e-b7626dbf05fb.png)
 
 ---
 
@@ -38,7 +38,7 @@ Completamos los datos básicos:
 
 Dentro de **Mantenimiento de Relaciones Comerciales**, luego de completar los datos, presionamos el botón `+`.
 
-![image](https://github.com/user-attachments/assets/e282c478-f1dd-46b5-8f57-010042a39c4e)
+![image](./imagenes/0f4d872d-f519-4e5d-8347-5950590b60ae.png)
 
 ---
 
@@ -62,7 +62,7 @@ Completar:
 
 Luego seleccionar **Siguiente**.
 
-![image](https://github.com/user-attachments/assets/f6c7b084-989c-410a-85cc-900b4feb8ec4)
+![image](./imagenes/0fd2f131-4889-4f95-ac1c-b04318ac086c.png)
 
 ---
 
@@ -76,7 +76,7 @@ Completar:
 
 El router en comodato se asigna automáticamente según la tarifa elegida.
 
-![image](https://github.com/user-attachments/assets/b5bc5308-1c0b-4109-a70c-8f64bfc2d1ce)
+![image](./imagenes/103e57da-de44-481d-a5ef-e5b31afa5759.png)
 
 ---
 
@@ -92,9 +92,9 @@ En la ventana de búsqueda:
 
 Los datos se completarán automáticamente.
 
-![image](https://github.com/user-attachments/assets/feae7501-5d61-4905-bd30-686732829a54)
+![image](./imagenes/122708de-9104-4e80-80eb-9cdac313c7aa.png)
 
-![image](https://github.com/user-attachments/assets/cde0be64-e340-48dd-9672-9af0a22dba82)
+![image](./imagenes/138329a6-fa64-45e3-9b94-6c84b91a8378.png)
 
 ---
 
@@ -130,7 +130,7 @@ Cargar:
 
 Finalmente seleccionar **Finalizar**.
 
-![image](https://github.com/user-attachments/assets/0f0243e2-2797-4d8d-9335-a334d8afdf24)
+![image](./imagenes/163d4eb2-fe78-4932-a5e5-09f443bf5b42.png)
 
 ---
 
@@ -146,7 +146,7 @@ La instalación recién creada aparecerá con estado:
 
 `Ventas`
 
-![image](https://github.com/user-attachments/assets/ab62f0da-39f5-45bd-8da7-2e7892e34d90)
+![image](./imagenes/164240992-294c4974-e789-4efe-ab7e-516bd96ebcf7.jpg)
 
 ---
 
@@ -158,7 +158,7 @@ Seleccionar:
 
 `Bonificaciones en cargos de instalación y/o abonos`
 
-![image](https://github.com/user-attachments/assets/0104822a-d50e-45ad-8002-3fb451475bea)
+![image](./imagenes/17449644-5197-46e5-b87b-f3c08bf28afc.png)
 
 ---
 
@@ -168,19 +168,19 @@ Según lo acordado con el cliente, existen tres escenarios posibles.
 
 ### Bonificación Total del Cargo de Instalación
 
-![image](https://github.com/user-attachments/assets/a0fa34a3-d7ff-4411-aa35-a896cbc25f60)
+![image](./imagenes/17a51fa9-b0c2-4aea-b2a0-954b5fa4968b.png)
 
 ---
 
 ### Bonificación del 50% del Cargo de Instalación
 
-![image](https://github.com/user-attachments/assets/3af71f8b-279b-4bc1-aab6-a2ebcbb32f48)
+![image](./imagenes/18e2cdcf-28dc-4a64-8bec-65d76f458ef4.png)
 
 ---
 
 ### Cobro Total de la Instalación
 
-![image](https://github.com/user-attachments/assets/87e1d146-6331-49ff-ac67-a0210b64476c)
+![image](./imagenes/18e7fd97-8fe4-4c7f-9139-68ec5fc86da4.png)
 
 ---
 

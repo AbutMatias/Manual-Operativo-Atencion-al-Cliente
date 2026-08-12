@@ -15,7 +15,7 @@ Dentro del sistema ingresar a:
 
 Se visualizará la siguiente pantalla:
 
-![Pantalla remitos pendientes](https://user-images.githubusercontent.com/98965666/186750311-6657f8c2-7ccb-4a03-9c3e-10c3d12b6926.png)
+![Pantalla remitos pendientes](./imagenes/52d5febd-e953-4f0d-80d4-158fca953b96.png)
 
 ---
 
@@ -35,7 +35,7 @@ Desde esta pantalla se puede:
 - Tildar las líneas que se desean facturar
 - Ingresar la **cantidad parcial** de artículos a facturar
 
-![Cantidad a facturar](https://user-images.githubusercontent.com/98965666/186750620-42cf7da3-c23e-4cc9-bf14-be504791ef0f.png)
+![Cantidad a facturar](./imagenes/53b740ce-8151-4093-a52b-2279d42f9fe2.png)
 
 ---
 
@@ -45,7 +45,7 @@ Desde esta pantalla se puede:
 - Seleccionar la opción:
   - **“Facturar items y cantidades seleccionadas”**
 
-![Acciones facturar](https://user-images.githubusercontent.com/98965666/186739427-a94df90f-0a68-4c6f-9244-1e8851d67dd7.png)
+![Acciones facturar](./imagenes/53b8e498-c7eb-4e0c-be73-3fc182315641.png)
 
 ---
 

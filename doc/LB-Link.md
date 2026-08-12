@@ -10,7 +10,7 @@ Para identificar el equipo en sistema:
 - Contraseña **Etnrouter2022**
 
 
-<img width="1688" height="809" alt="image" src="https://github.com/user-attachments/assets/e2050a2e-be26-428e-b739-e2d5d08d9ed6" />
+<img width="1688" height="809" alt="image" src="./imagenes/623867242-8da45c4f-e325-4ea8-be1a-9a0662d69c85.png" />
 
 ---
 ## 2. Indicadores de luces
@@ -38,9 +38,9 @@ Permite ver:
 - Recepcion y Transmicion de cada dispositivo
 
 
-<img width="1781" height="785" alt="image" src="https://github.com/user-attachments/assets/e594ac82-2d46-4e86-b8a7-e39052fe0943" />
+<img width="1781" height="785" alt="image" src="./imagenes/623870625-abc8c483-5db2-44e2-85aa-11b9c0d44043.png" />
 
-<img width="1220" height="811" alt="image" src="https://github.com/user-attachments/assets/0e79e47e-d5c9-4486-93d8-d43d09e859ac" />
+<img width="1220" height="811" alt="image" src="./imagenes/624035173-0b53e4d6-a87c-408a-85d4-9ac626e984c7.png" />
 
 ---
 
@@ -62,15 +62,15 @@ Aquí tienes el detalle de lo que puedes gestionar en esta pantalla:
 
 Nota importante: Si realizas algún cambio en el nombre (WiFi Name) o en la contraseña, deberás presionar el botón Apply para guardar. Ten en cuenta que, al hacer esto, todos los dispositivos que estén conectados actualmente se desconectarán y tendrás que volver a conectarlos usando los nuevos datos.
 
-<img width="1296" height="616" alt="image" src="https://github.com/user-attachments/assets/7df988ad-f0f0-4b54-91b9-737cdefed370" />
+<img width="1296" height="616" alt="image" src="./imagenes/624036078-6a43ec93-af61-462e-99a0-6d353c87026f.png" />
 
 
 ---
 
 ## Prueba de velocidad interna
 
-<img width="1634" height="724" alt="image" src="https://github.com/user-attachments/assets/b7bd53c6-4b81-47e2-8528-75522918b7d7" />
-<img width="1402" height="635" alt="image" src="https://github.com/user-attachments/assets/b99b4f62-c6f4-4e52-92d1-012cbecf560c" />
+<img width="1634" height="724" alt="image" src="./imagenes/624036160-ef84d419-2766-4f2b-9fb2-db513f133f6c.png" />
+<img width="1402" height="635" alt="image" src="./imagenes/624036267-04de9196-62b2-4f7e-a58e-73a127f5ad06.png" />
 
 
 
@@ -92,9 +92,9 @@ Nota importante: Si realizas algún cambio en el nombre (WiFi Name) o en la cont
 
 ## Redes WiFi
 
-<img width="1538" height="696" alt="image" src="https://github.com/user-attachments/assets/74022e4d-2e53-4420-a2c7-48738bb469ed" />
+<img width="1538" height="696" alt="image" src="./imagenes/631581e8-fdfa-4bb6-b556-37ba3248c9b9.png" />
 
-<img width="1371" height="685" alt="image" src="https://github.com/user-attachments/assets/475ef64b-79b2-40dd-915f-1b07edf2e4e7" />
+<img width="1371" height="685" alt="image" src="./imagenes/64dba8c3-1a9a-43f3-95f1-c537353c837a.png" />
 
 
 
@@ -114,7 +114,7 @@ Nota importante: Si realizas algún cambio en el nombre (WiFi Name) o en la cont
 
 ## Canales WiFi
 
-<img width="1249" height="766" alt="image" src="https://github.com/user-attachments/assets/550e7cd6-d33d-4b21-bbee-53ea1288a4b9" />
+<img width="1249" height="766" alt="image" src="./imagenes/65993bdc-60d8-493f-b514-8b65a82a2319.png" />
 
 
 
@@ -173,7 +173,7 @@ Modo de compatibilidad que permite conectar dispositivos con los estándares:
 
 **Se recomienda cuando:**
 - Algún dispositivo no puede conectarse utilizando el modo **AX**.
-<img width="1003" height="331" alt="image" src="https://github.com/user-attachments/assets/aadd27ba-6106-45dc-854d-f49e714e070a" />
+<img width="1003" height="331" alt="image" src="./imagenes/66f96e5e-bffa-4704-af29-3e0b53db99d7.png" />
 
 
 
@@ -209,14 +209,14 @@ Modo de compatibilidad que permite conectar dispositivos con los estándares:
 
 > **Importante:** Los modos de compatibilidad no aumentan la velocidad ni el alcance del Wi-Fi. Su única función es permitir la conexión de dispositivos más antiguos.
 
-<img width="963" height="317" alt="image" src="https://github.com/user-attachments/assets/83efa142-2c91-4d0e-ad82-16b9c96677cb" />
+<img width="963" height="317" alt="image" src="./imagenes/6766b9df-05d8-48da-b8f1-c0077facb2a6.png" />
 
 
 ---
 
 ## Reinicio del equipo
 
-<img width="1384" height="645" alt="image" src="https://github.com/user-attachments/assets/1ac29895-ae7a-42c1-8379-92dd78ac91d9" />
+<img width="1384" height="645" alt="image" src="./imagenes/68b66865-690f-40b1-b56d-7648eb94a01d.png" />
 
 
 - Se realiza desde el menú “System Settings”
@@ -229,7 +229,7 @@ Modo de compatibilidad que permite conectar dispositivos con los estándares:
 
 
 
-<img width="1400" height="709" alt="image" src="https://github.com/user-attachments/assets/c26f0090-591b-467e-b240-3965e722a45c" />
+<img width="1400" height="709" alt="image" src="./imagenes/694df181-3af2-4753-be8d-5164d41123e9.png" />
 
 
 
@@ -243,7 +243,7 @@ Modo de compatibilidad que permite conectar dispositivos con los estándares:
 ## Schedule Regular Restarts
 - Permite programar reinicios automáticos
 
-<img width="1472" height="643" alt="image" src="https://github.com/user-attachments/assets/3ba00315-c98d-4d9d-828d-77b276348429" />
+<img width="1472" height="643" alt="image" src="./imagenes/69de65bb-37f8-43e1-8edd-3449d4603626.png" />
 
 
 ---
@@ -252,16 +252,16 @@ Modo de compatibilidad que permite conectar dispositivos con los estándares:
 - Permite cambiar la contraseña maestra del router
 - Se utiliza en momentos que se reinicia de fabrica el router y debemos reestablecer la contraseña
 
-<img width="1452" height="632" alt="image" src="https://github.com/user-attachments/assets/1b4446ea-e696-4d23-a075-0ef09de2f630" />
-<img width="1096" height="396" alt="image" src="https://github.com/user-attachments/assets/37f8a9a8-6b31-4d34-8cbf-df00b8558cea" />
+<img width="1452" height="632" alt="image" src="./imagenes/6a5031df-af3f-4478-90e6-85d34aa14509.png" />
+<img width="1096" height="396" alt="image" src="./imagenes/6a96c101-5996-4585-8dd0-f33e0222ab6f.png" />
 
 ---
 
 ## WAN Settings
 - Configuración del internet principal
 
-<img width="1551" height="633" alt="image" src="https://github.com/user-attachments/assets/fbcaf630-5e80-499d-8c46-44570e4f58f6" />
-<img width="1399" height="682" alt="image" src="https://github.com/user-attachments/assets/b4c5fb8f-659d-48d3-849f-caa1828a31ed" />
+<img width="1551" height="633" alt="image" src="./imagenes/6b3a3720-eae0-4e82-a860-8cf29aea3712.png" />
+<img width="1399" height="682" alt="image" src="./imagenes/6bb4442c-01bf-4980-a777-9c4f4146cb17.png" />
 
 
 ---
@@ -324,9 +324,9 @@ En este ejemplo, el router podrá asignar direcciones desde **192.168.1.100** ha
 - No modificar la **LAN IP** ni la **Netmask**, salvo que sea necesario por cambios en la red.
 - Ajustar el rango **Start IP** y **End IP** únicamente si se requiere reservar direcciones IP para otros equipos o dispositivos con IP fija.
 
-<img width="1393" height="572" alt="image" src="https://github.com/user-attachments/assets/1badb13a-6b5c-4abb-8694-97f1a2b633b0" />
+<img width="1393" height="572" alt="image" src="./imagenes/6c9d7794-0dd8-45e5-8320-40e528a39168.png" />
 
-<img width="1291" height="623" alt="image" src="https://github.com/user-attachments/assets/c6e5c8b3-b26f-4bf2-8f45-4a34efbc4f36" />
+<img width="1291" height="623" alt="image" src="./imagenes/6cfcf1fa-659d-4833-a23f-28a29e071378.png" />
 
 ---
 ## Mesh
@@ -343,8 +343,8 @@ La función en esta pantalla te permite configurar el dispositivo dentro de una 
 
 - Agent/Satellite: Actúa como un nodo adicional que extiende la cobertura de la red recibiendo la señal del controlador.
 
-<img width="1498" height="608" alt="image" src="https://github.com/user-attachments/assets/3b9be544-f548-49f2-838d-4dcc00d2de56" />
-<img width="1445" height="589" alt="image" src="https://github.com/user-attachments/assets/a5d0ee82-10d3-4fa6-bd04-5bc0d4f3c5e9" />
+<img width="1498" height="608" alt="image" src="./imagenes/6d934dad-4a8a-406b-acdb-a5a28f86aa4e.png" />
+<img width="1445" height="589" alt="image" src="./imagenes/6db18836-44ad-41f5-ac68-4b30940d17b0.png" />
 
 ---
 ## Port Forwarding (Redirección de puertos)
@@ -359,6 +359,6 @@ La redirección de puertos se utiliza para permitir que dispositivos o servicios
 
 - Tabla de datos: Actualmente indica "No Data", lo que significa que no hay reglas de redirección configuradas en este momento.
 
-<img width="1421" height="634" alt="image" src="https://github.com/user-attachments/assets/867f2752-e107-4da9-87e8-33e7872c7369" />
-<img width="1309" height="717" alt="image" src="https://github.com/user-attachments/assets/ac9a0c64-5096-439f-843d-1d14ca552659" />
+<img width="1421" height="634" alt="image" src="./imagenes/6ec0119c-e7fc-45c8-97d8-d490d06b1ce1.png" />
+<img width="1309" height="717" alt="image" src="./imagenes/6f1fab16-69cc-43bf-8c2a-0510b3431085.png" />
 

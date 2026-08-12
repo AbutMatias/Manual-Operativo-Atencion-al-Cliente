@@ -26,7 +26,7 @@ Plataforma donde se documentan y gestionan solicitudes de reconexión.
 
 ---
 
-![Image](https://github.com/user-attachments/assets/c6d43077-0f3c-4fb5-84d5-7c73ac10585a)
+![Image](./imagenes/b302b4ed-22d7-4eea-ba25-3486425a2592.png)
 
 ---
 
@@ -42,7 +42,7 @@ Plataforma donde se documentan y gestionan solicitudes de reconexión.
 
 
 
-![Image](https://github.com/user-attachments/assets/bb2fec6c-9107-4f9d-ad9c-a7d0115292e5)
+![Image](./imagenes/b391816d-150c-4760-8390-cbf642b0e3b2.png)
 
 
 ---
@@ -53,7 +53,7 @@ Plataforma donde se documentan y gestionan solicitudes de reconexión.
 
 
 
-![Image](https://github.com/user-attachments/assets/c08f9f57-1850-4cb6-b03f-08652f102a6b)
+![Image](./imagenes/b403e61f-e634-417d-a237-30dbaf65b212.png)
 
 
 
@@ -70,7 +70,7 @@ Plataforma donde se documentan y gestionan solicitudes de reconexión.
 
 
 
-![Image](https://user-images.githubusercontent.com/6059680-025f-4e76-b395-c241e5ad836a)
+![Image](./imagenes/b514d0fc-88f2-4950-a377-e667c4c3310e.png)
 
 
 
@@ -89,7 +89,7 @@ En ventana de reconexión:
 
 
 
-![Image](https://user-images.githubusercontent.com/edc491a8-f78e-46c3-b198-56b402fc5ebe)
+![Image](./imagenes/b5d55786-ae1d-42bc-a487-909b230c048e.png)
 
 
 
@@ -108,7 +108,7 @@ https://pagar.rapipago.com.ar/
 
 
 
-![Image](https://user-images.githubusercontent.com/6f809a70-ecae-4090-bb1c-e6d2ce119ff0)
+![Image](./imagenes/b708d4fe-892d-47b2-8d29-94562fc9e6e4.png)
 
 
 
@@ -132,7 +132,7 @@ https://pagar.rapipago.com.ar/
 
 
 
-![Image](https://user-images.githubusercontent.com/affcc211-6d09-49ed-b8ea-1fd7cfe3807c)
+![Image](./imagenes/b75f851c-b3ab-436a-8577-1df72fcc43c0.png)
 
 
 

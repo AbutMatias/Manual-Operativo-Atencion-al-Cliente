@@ -21,14 +21,14 @@ Dentro del sistema ingresar en:
 
 Seleccionar el remito correspondiente y hacer **clic derecho**.
 
-![Seleccionar remito](https://user-images.githubusercontent.com/98965666/194311225-5be8a65d-6b73-4218-9d20-fb99deeca574.png)
+![Seleccionar remito](./imagenes/a1998f30-25a3-47cb-8aee-8dd7b0efd599.png)
 
 Elegir una de las siguientes opciones:
 
 - **Anular Remito Completo**
 - **Anular Ítems y Cantidades Seleccionadas**
 
-![Opciones](https://user-images.githubusercontent.com/98965666/194312582-43338cd5-97b4-4eb1-a7de-db1cbe20f579.png)
+![Opciones](./imagenes/a313753f-79bf-4a55-87be-283ba25225a1.png)
 
 ### Anular Remito Completo
 
@@ -48,14 +48,14 @@ Permite anular únicamente determinados artículos o cantidades.
 
 Al seleccionarlo aparecerá la siguiente ventana:
 
-![Parcial](https://user-images.githubusercontent.com/98965666/194312999-9a473795-d045-46cb-8e76-b7f664abb461.png)
+![Parcial](./imagenes/a41a4fd6-abe3-43c4-9bdd-9c8f10b9ac87.png)
 
 Luego:
 
 - Ingresar las **MAC** de los equipos individualizados.
 - Presionar **Confirmar MACs**.
 
-![MACs](https://user-images.githubusercontent.com/98965666/194313373-86d110db-97f6-4a9f-9fc3-7aca48d36081.png)
+![MACs](./imagenes/a4a87b8c-6763-4014-af50-27f06e83105d.png)
 
 ---
 
@@ -68,7 +68,7 @@ Ingresar en:
 1. **Equipos de Red**
 2. **Listado de Envío de Equipos**
 
-![Listado](https://user-images.githubusercontent.com/98965666/194316039-5c2df191-4e93-4537-9abc-2356127929c2.png)
+![Listado](./imagenes/a5c3e8ff-e415-44bc-b633-5cfa64f6b1df.png)
 
 ---
 
@@ -78,11 +78,11 @@ Clic derecho →
 
 **Registrar Devolución y Reemplazo de Artículos**
 
-![Menú](https://user-images.githubusercontent.com/98965666/194317569-e41f8147-9d62-4e8a-8fd8-9e92351caba1.png)
+![Menú](./imagenes/a7c8ccd5-84e0-40d3-a4f0-391ff77595b0.png)
 
 Se abrirá la siguiente pantalla:
 
-![Pantalla](https://user-images.githubusercontent.com/98965666/196185341-597a3f19-f2bb-45c1-b7e2-bc63eab07b2d.png)
+![Pantalla](./imagenes/a891d06d-2440-4154-8db2-25637295cea3.png)
 
 ---
 
@@ -91,13 +91,13 @@ Se abrirá la siguiente pantalla:
 - Seleccionar el artículo.
 - Indicar la cantidad correspondiente.
 
-![Cantidad](https://user-images.githubusercontent.com/98965666/196186606-7be8676a-3e97-4d39-a41c-a30b75b3f212.png)
+![Cantidad](./imagenes/a89cf51d-548c-4a1a-8e08-5758671decea.png)
 
 Luego hacer clic en:
 
 **Registrar Reemplazo**
 
-![Botón](https://user-images.githubusercontent.com/98965666/194321693-5002db43-a1c1-4400-ba0a-89b400a9cece.png)
+![Botón](./imagenes/a9e8bb00-2ea2-4516-8a86-9e30d6f033ed.png)
 
 ---
 
@@ -105,20 +105,20 @@ Luego hacer clic en:
 
 Se abrirá la siguiente ventana:
 
-![MACs](https://user-images.githubusercontent.com/98965666/196186762-033524be-dad2-44f9-a083-320bc83e5979.png)
+![MACs](./imagenes/aa081392-d270-49d3-a628-3b4740b0b43c.png)
 
 Ingresar:
 
 - MAC de los equipos devueltos.
 - MAC de los equipos de reposición.
 
-![Ingreso](https://user-images.githubusercontent.com/98965666/196188247-0da28b80-4887-4c03-8b28-ca95dc3c0b3c.png)
+![Ingreso](./imagenes/aa81493a-3fe0-4436-81fc-3b5cf4883491.png)
 
 Finalmente presionar:
 
 **Confirmar MACs**
 
-![Confirmación](https://user-images.githubusercontent.com/98965666/196188385-dd038928-faa8-428e-b698-63de8d0f8a45.png)
+![Confirmación](./imagenes/ab0aa16c-760a-4978-b916-3d10c25a11f4.png)
 
 ---
 
@@ -131,7 +131,7 @@ Ingresar en:
 1. **Ventas**
 2. **Listado de...**
 
-![Listado](https://user-images.githubusercontent.com/98965666/194325200-02ee9a9b-7e72-426c-977d-c15f9c19c9bb.png)
+![Listado](./imagenes/ab43f757-2362-45f7-acc7-e72688806aca.png)
 
 ---
 
@@ -141,11 +141,11 @@ Clic derecho →
 
 **NC por Devolución de Mercadería**
 
-![NC](https://user-images.githubusercontent.com/98965666/194325729-6a6810ee-746f-498d-b711-71a815c4070c.png)
+![NC](./imagenes/ab6aa05e-282e-4e2b-af45-7f6106eaec92.png)
 
 Se abrirá la siguiente pantalla:
 
-![Pantalla NC](https://user-images.githubusercontent.com/98965666/194326026-9585ff80-fc8d-49c3-9661-122a33019ccd.png)
+![Pantalla NC](./imagenes/ab9e0ab1-7da3-477c-a8cd-a0421e918a94.png)
 
 ---
 
@@ -153,7 +153,7 @@ Se abrirá la siguiente pantalla:
 
 Elegir los artículos y especificar las cantidades que formarán parte de la Nota de Crédito.
 
-![Cantidades](https://user-images.githubusercontent.com/98965666/194328005-9e495169-2dad-4ff1-9001-85e9b727f262.png)
+![Cantidades](./imagenes/ac2a4b98-0e55-4e0f-b77e-06603dfafcfb.png)
 
 Luego hacer clic derecho sobre la selección y elegir:
 
@@ -165,7 +165,7 @@ Luego hacer clic derecho sobre la selección y elegir:
 
 Se abrirá la siguiente ventana:
 
-![Confirmación](https://user-images.githubusercontent.com/98965666/194328589-0be80464-531f-4549-921e-042e86aa1c81.png)
+![Confirmación](./imagenes/ad15eb37-2ce8-4b5e-9fd3-b99633f146f3.png)
 
 Ingresar las **MAC** de los equipos devueltos.
 
@@ -173,4 +173,4 @@ Finalmente hacer clic en:
 
 **Confirmar MACs**
 
-![MACs NC](https://user-images.githubusercontent.com/98965666/194328917-2c7b59f4-3790-4e73-a1fa-b769a557377d.png)
+![MACs NC](./imagenes/ae5574c2-a5db-4fd1-a802-01e26fe672ca.png)

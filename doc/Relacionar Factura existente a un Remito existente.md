@@ -13,7 +13,7 @@ Dentro del sistema ingresar en:
 
 Al ingresar se visualizará la siguiente pantalla:
 
-![Listado](https://user-images.githubusercontent.com/98965666/187991296-18aa0c27-ae6d-4bd2-8e20-9b801ad97561.png)
+![Listado](./imagenes/b8b16532-31a5-4854-9954-f1ac7c19c8a0.png)
 
 ---
 
@@ -23,7 +23,7 @@ Marcar (tildando) las líneas del remito que se desean relacionar con la factura
 
 Luego indicar la cantidad correspondiente para cada artículo.
 
-![Selección de líneas](https://user-images.githubusercontent.com/98965666/187991479-fef7d6b2-2c0d-4aaf-a904-491fb6c7b3ed.png)
+![Selección de líneas](./imagenes/ba0433a7-40ad-43ba-8d4b-fa47d8fb49bd.png)
 
 ---
 
@@ -34,7 +34,7 @@ Una vez seleccionadas las líneas:
 - Hacer clic derecho sobre cualquiera de ellas.
 - Seleccionar la opción **Relacionar remitos a factura existente**.
 
-![Menú contextual](https://user-images.githubusercontent.com/98965666/187991970-e1f8a0d2-cb03-4173-9ae4-8d1d2469b57d.png)
+![Menú contextual](./imagenes/baaf9b37-be27-4f18-80e5-c7c317cf3f5e.png)
 
 ---
 
@@ -42,11 +42,11 @@ Una vez seleccionadas las líneas:
 
 El sistema mostrará el listado de facturas disponibles.
 
-![Listado de facturas](https://user-images.githubusercontent.com/98965666/187992160-39834467-0b71-4fbe-88d2-d89293d75498.png)
+![Listado de facturas](./imagenes/bb958b7b-0cd6-43f1-9a49-a430afa31102.png)
 
 Seleccionar la factura correspondiente haciendo **doble clic** sobre ella.
 
-![Seleccionar factura](https://user-images.githubusercontent.com/98965666/187992488-9eb58762-d6fb-4460-a8a7-cbb345e6b9a8.png)
+![Seleccionar factura](./imagenes/bc7a3fec-adc8-4d50-95e3-571435b1e016.png)
 
 ---
 
@@ -65,6 +65,6 @@ Si todas las validaciones son correctas, el sistema mostrará el siguiente mensa
 
 > **"Las líneas fueron satisfactoriamente asignadas a la factura seleccionada."**
 
-![Confirmación](https://user-images.githubusercontent.com/98965666/187992298-ac7fec28-b07a-4ecf-bf16-97f4106925ef.png)
+![Confirmación](./imagenes/bd5e58b2-9e3a-48cf-ba5f-3acec936d1c7.png)
 
 Con este mensaje, la relación entre el remito y la factura habrá quedado registrada correctamente.

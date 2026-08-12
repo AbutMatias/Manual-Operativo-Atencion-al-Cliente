@@ -14,7 +14,7 @@ Antes de comenzar, verificar si el cliente ya existe.
    - Tipo: **Instalación domiciliaria**.
 3. Hacer clic en **Siguiente**.
 
-> ![image](https://github.com/user-attachments/assets/f6c7b084-989c-410a-85cc-900b4feb8ec4)
+> ![image](./imagenes/2f0c03a7-52fe-4d2c-baef-2db5b47073f6.png)
 
 
 ---
@@ -29,7 +29,7 @@ Completar:
 
 > El router en comodato se asigna automáticamente según la tarifa elegida.
 
-> ![image](https://github.com/user-attachments/assets/b5bc5308-1c0b-4109-a70c-8f64bfc2d1ce)
+> ![image](./imagenes/2f14c4b1-b7cb-4675-a09b-dd94303f4c8c.png)
 
 ---
 
@@ -39,9 +39,9 @@ Completar:
 2. Buscar al cliente por **DNI** o **Razón Social**.
 3. Hacer doble clic sobre el cliente para cargar sus datos automáticamente.
 
-> ![image](https://github.com/user-attachments/assets/feae7501-5d61-4905-bd30-686732829a54)
+> ![image](./imagenes/2fecd450-8476-4a3d-bfd8-20353368a9ea.png)
 
-> ![image](https://github.com/user-attachments/assets/cde0be64-e340-48dd-9672-9af0a22dba82)
+> ![image](./imagenes/31a23ff4-d068-4392-96d8-ee61548cdb4b.png)
 
 ---
 
@@ -65,7 +65,7 @@ Luego completar:
 
 Por último, seleccionar **Finalizar**.
 
-> <img width="1326" height="882" alt="image" src="https://github.com/user-attachments/assets/d9fc518a-5834-459d-a3c7-bb306f74f7ec" />
+> <img width="1326" height="882" alt="image" src="./imagenes/32eba67a-8fb8-4b05-8479-c5d15f103191.png" />
 
 ---
 
@@ -77,7 +77,7 @@ Por último, seleccionar **Finalizar**.
 2. Abrir **Instalaciones**.
 3. Seleccionar la instalación con estado **Ventas**.
 
-> ![image](https://github.com/user-attachments/assets/ab62f0da-39f5-45bd-8da7-2e7892e34d90)
+> ![image](./imagenes/330eac41-4c99-48ba-a8b3-5d69b630f140.png)
 
 ---
 
@@ -86,7 +86,7 @@ Por último, seleccionar **Finalizar**.
 1. Hacer clic derecho sobre la instalación.
 2. Seleccionar **Bonificaciones en cargos de instalación y/o abonos**.
 
-> ![image](https://github.com/user-attachments/assets/0104822a-d50e-45ad-8002-3fb451475bea)
+> ![image](./imagenes/3348de41-bdb3-402d-9e79-9303f6322c02.png)
 
 Aplicar la opción acordada con el cliente:
 
@@ -96,16 +96,16 @@ Aplicar la opción acordada con el cliente:
   
 ---
  - Bonificación del 100 %.
-> ![image](https://github.com/user-attachments/assets/a0fa34a3-d7ff-4411-aa35-a896cbc25f60)
+> ![image](./imagenes/3548f50b-366b-48f7-b95a-79a001073c82.png)
 
 
  - Bonificación del 50 %
 
-> ![image](https://github.com/user-attachments/assets/3af71f8b-279b-4bc1-aab6-a2ebcbb32f48)
+> ![image](./imagenes/357967700-d9122dce-e1d8-4727-9262-45d14329d867.png)
 
  - Cobro total
 
-> ![image](https://github.com/user-attachments/assets/87e1d146-6331-49ff-ac67-a0210b64476c)
+> ![image](./imagenes/357978417-6965b98a-234d-45c5-adfa-2041bad81d94.png)
 
 
 
