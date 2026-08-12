@@ -76,7 +76,7 @@ Este grupo incluye múltiples causas posibles dentro del domicilio del cliente.
 - [Microcortes / cortes en navegación](./Consulta%20de%20Red%20Interna.md)  
   Interrupciones intermitentes del servicio.
 
-- [Sin navegación](./Consulta%20de%20Red%20Interna.md)  
+- [Sin navegación]([./Sin%20navegación.md))  
   Ningún dispositivo navega.
 
 - [Sin navegación en dispositivo puntual](./Consulta%20de%20Red%20Interna.md)  
