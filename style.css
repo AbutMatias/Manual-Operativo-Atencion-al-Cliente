@@ -252,3 +252,45 @@ body {
     border-radius: 6px;
     border: 1px solid var(--border);
 }
+
+/* BOTÓN VOLVER ARRIBA */
+
+.back-to-top {
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+
+    width: 45px;
+    height: 45px;
+
+    border: 1px solid var(--border);
+    border-radius: 8px;
+
+    background: var(--blue);
+    color: #10202a;
+
+    font-size: 22px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 9999;
+
+    box-shadow: 0 4px 12px rgba(0,0,0,.35);
+
+    transition: .2s;
+}
+
+.back-to-top:hover {
+    background: var(--blue-dark);
+    color: white;
+    transform: translateY(-3px);
+}
+
+.back-to-top.visible {
+    display: flex;
+}
