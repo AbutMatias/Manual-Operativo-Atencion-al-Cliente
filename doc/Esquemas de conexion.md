@@ -1,6 +1,6 @@
 # Esquema de conexión con servicio FTTH y router Photon Dual
 
-![Photon Dual](./imagenes/e11db660-ee56-49ae-96d7-ecc737e21ac4.jpg)
+![image](https://github.com/user-attachments/assets/e11db660-ee56-49ae-96d7-ecc737e21ac4)
 
 
 # Tutorial: [Link](https://www.youtube.com/watch?v=JZIR1azMiXA) 
@@ -8,13 +8,13 @@
 # Esquema de conexión con servicio FTTH y router Photon
 
 
-![router Photon](./imagenes/3d8b3f85-8566-4e8c-80f9-d0a8a4e4d637.jpg)
+![image](https://github.com/user-attachments/assets/bb4fce75-3bd7-4709-9d09-de0aa4b161fd)
 
 # Tutorial: [Link](https://www.youtube.com/watch?v=kiiyXDmYEoY) 
 
 # Esquemas de conexión con servicio Wireless y router Photon
 
-![Photon](./imagenes/3e11288b-a309-4cb7-b497-727619fc1a26.jpg)
+![image](https://github.com/user-attachments/assets/eed06019-9a22-492a-bf80-f4486e914616)
 
 # Tutorial: [Link](https://www.youtube.com/watch?v=kiiyXDmYEoY) 
 ---
@@ -25,7 +25,7 @@
 ## Mikrotik AC2 + ONU
 - ### Esquema:
 
-![Mikrotik AC2 + ONU](./imagenes/3e4d3b3b-a150-4899-b21d-e07f934fb0f1.jpg)
+![image](https://github.com/user-attachments/assets/823a1ed5-d286-42b6-ab3f-6b5eb173ee7d)
 
 - ### Tutorial: [Link](https://www.youtube.com/watch?v=xhFWoQJ-S7w)
 
@@ -33,7 +33,7 @@
 
 - ### Esquema:
 
-![Mikrotik 951/952 + ONU](./imagenes/3e991f85-9be2-4404-8b12-830ca2fc7f65.jpg)
+![image](https://github.com/user-attachments/assets/e1db7992-2435-4119-b7af-4b61d850ebf4)
 
 - ### Tutorial: [Link](https://www.youtube.com/watch?v=dq8nk7vlU1c)
 
@@ -41,7 +41,7 @@
 
 - ### Esquema:
 
-![Mikrotik AC2 + ONU + Repetidor](./imagenes/3ee5ef33-583e-46af-b1b9-60e3c9633c02.jpg)
+![image](https://github.com/user-attachments/assets/16422dd3-3ca9-4048-a809-39d378ddb79f)
 
 - ### Tutorial: [Link](https://www.youtube.com/watch?v=2ar_3evqd9A)
 
@@ -49,7 +49,7 @@
 
 - ### Esquema:
 
-![Mikrotik 951/952 + ONU + Repetidor](./imagenes/3f0f01e6-71d5-4812-bc3c-9c8636027dc7.jpg)
+![image](https://github.com/user-attachments/assets/8f30687b-0b69-437f-8570-aa4f9244cbde)
 
 - ###  Tutorial: [Link](https://www.youtube.com/watch?v=PlAXccVVQfc)
 
@@ -57,7 +57,7 @@
 
 - ### Esquema:
 
-![Mikrotik 2011 + ONU](./imagenes/3f4be55c-fcac-4398-90a6-4c601840196c.jpg)
+![image](https://github.com/user-attachments/assets/d5879103-8d63-454e-9746-fb1b59e7fe87)
 
 - ### Tutorial: [Link](https://www.youtube.com/watch?v=RguLdaiYpME)
 
@@ -67,7 +67,7 @@
 
 - ### Esquema:
 
-![Wireless MK por POE OUT](./imagenes/3ff05e9d-8fff-458a-a9ff-b90b2e92ce74.jpg)
+![image](https://github.com/user-attachments/assets/d9122dce-e1d8-4727-9262-45d14329d867)
 
 - ### Tutorial: [Link]()
 
@@ -75,7 +75,7 @@
 
 - ### Esquema:
 
-![Wireless MK 951/952 con data+power](./imagenes/40c96625-0905-490a-8ce1-7b9ac009e60b.jpg)
+![image](https://github.com/user-attachments/assets/6f2e4dda-f9b1-4fc4-ba30-967e97b68aa4)
 
 - ### Tutorial: [Link](https://www.youtube.com/watch?v=3dCX8RAM0rY)
 
@@ -83,7 +83,7 @@
 
 - ### Esquema:
 
-![Wireless MK AC2 con data+power](./imagenes/4258ae15-3f97-48bb-96e0-2b33b6d10556.jpg)
+![image](https://github.com/user-attachments/assets/6c97dfbc-10f4-4f42-9412-d2ef3b001505)
 
 - ### Tutorial: [Link](https://www.youtube.com/watch?v=dp-0fEAS2Rs)
 
@@ -91,7 +91,7 @@
 
 - ### Esquema:
 
-![Wireless MK AC2 con data+power + Repetidor](./imagenes/42783477-623d-4eda-887b-b74e918a16f6.jpg)
+![image](https://github.com/user-attachments/assets/dfcab490-efb9-4401-9a14-d173f2639fbe)
 
 - ### Tutorial: [Link](https://www.youtube.com/watch?v=KQ2pCQoGcRI)
 
@@ -99,7 +99,7 @@
 
 - ### Esquema:
 
-![Wireless MK 951/952 con data+power + Repetidor](./imagenes/42950201-0d08-484c-b88d-6883ce025814.jpg)
+![image](https://github.com/user-attachments/assets/7288c08f-1b04-4821-bef9-50314f5e2d3b)
 
 - ### Tutorial: [Link](https://www.youtube.com/watch?v=pi3QedMvAho)
 
@@ -107,7 +107,7 @@
 
 - ### Esquema:
 
-![Wireless MK 2011 por POE OUT](./imagenes/42f2e529-74f7-4105-a980-2d237aa3814e.jpg)
+![image](https://github.com/user-attachments/assets/7f67f41b-e0f5-41b0-8317-d0dbccc50ecd)
 
 - ### Tutorial: [Link](https://www.youtube.com/watch?v=sHoyIJ8TRUQ)
 
@@ -115,7 +115,7 @@
 
 - ### Esquema:
 
-![Wireless MK 2011 con data+power](./imagenes/4321d089-a53f-4a43-bda7-a6913af3e0c8.jpg)
+![image](https://github.com/user-attachments/assets/aff91bf7-badf-4e74-a86b-0327834b4df8)
 
 - ### Tutorial: [Link](https://www.youtube.com/watch?v=YkUoS2sRPCs)
 ---
@@ -124,7 +124,7 @@
 
 - ### Esquema:
 
-![Nano+MK+PowerActive](./imagenes/164240992-294c4974-e789-4efe-ab7e-516bd96ebcf7.jpg)
+![Nano+MK+PowerActive](https://user-images.githubusercontent.com/88723629/164240992-294c4974-e789-4efe-ab7e-516bd96ebcf7.jpg)
 
 ---
 
@@ -133,11 +133,11 @@
 
 ## ONU con router Vilo
 
-![router Vilo](./imagenes/43dd25fe-9aec-47cd-a0d9-16d57386fa11.jpg)
+![image](https://github.com/user-attachments/assets/6965b98a-234d-45c5-adfa-2041bad81d94)
 
 ## ONU con router Vilo + Repetidor (Sub Vilo)
 
-![router Vilo + Repetidor (Sub Vilo)](./imagenes/449067ec-33e1-4e0d-bab5-e7f73f54b5de.jpg)
+![image](https://github.com/user-attachments/assets/e7f60122-d32e-4531-b96f-68009e7d7304)
 
 ---
 
@@ -145,50 +145,49 @@
 
 ## Wireless - Router Vilo con data + power
 
-![Wireless y router Vilo](./imagenes/45da255c-f077-4fc2-913b-f44dbc187e4d.jpg)
+![image](https://github.com/user-attachments/assets/b255697d-5729-4177-b956-13f33735bcaf)
 
 ## Wireless - Router Vilo con data + power + Repetidor (Sub Vilo)
 
-![Router Vilo con data + power + Repetidor (Sub Vilo)](./imagenes/45e602eb-0ae2-4f69-a333-79e233857a80.jpg)
+![image](https://github.com/user-attachments/assets/3c16819d-2bb5-4f0d-b638-629af9b5b8b4)
 
 ---
 # Esquemas de conexión con servicio FTTH y router LB-Link
 
 ## ONU con router LB-Link
 
-<img width="1109" height="627" alt="image" src="./imagenes/478ca2ba-b349-4880-a503-24681a68044b.jpg" />
+<img width="1109" height="627" alt="image" src="https://github.com/user-attachments/assets/b711e652-4259-4024-bba9-e81fba52b1c5" />
 
 ---
 ## ONU con router LB-Link + Repetidor (Sub LB-Link)
 
-<img width="1248" height="702" alt="image" src="./imagenes/48a85cbf-e6be-4c7a-9d11-c815216a0112.jpg" />
+<img width="1248" height="702" alt="image" src="https://github.com/user-attachments/assets/abc8c483-5db2-44e2-85aa-11b9c0d44043" />
 
 
 ## Wireless - Router LB-Link con data + power
 
-<img width="1251" height="703" alt="image" src="./imagenes/4988dffd-d979-4e7f-afce-dd70f1f2f430.jpg" />
-
+<img width="1251" height="703" alt="image" src="https://github.com/user-attachments/assets/8da45c4f-e325-4ea8-be1a-9a0662d69c85" />
 ## Wireless - Router LB-Link con data + power + Repetidor (Sub LB-Link)
 
-<img width="1248" height="699" alt="image" src="./imagenes/4c56a581-ecf9-420f-b555-5287de1dca48.jpg" />
+<img width="1248" height="699" alt="image" src="https://github.com/user-attachments/assets/e4082508-99f9-41b4-9f62-b4c751ebad8b" />
 
 ---
 
 
 ## ONU con router GLC-Apolo
-<img width="1024" height="576" alt="image" src="./imagenes/4e8dfeae-cf43-4cd8-a97e-43e4325a30fe.jpg" />
+<img width="1024" height="576" alt="image" src="https://github.com/user-attachments/assets/04de9196-62b2-4f7e-a58e-73a127f5ad06" />
 
 
 ## ONU con router GLC-Apolo + Repetidor (Sub GLC-Apolo)
-<img width="1024" height="573" alt="image" src="./imagenes/4f46f1fa-13e1-4213-9567-9f116eedf270.jpg" />
+<img width="1024" height="573" alt="image" src="https://github.com/user-attachments/assets/6a43ec93-af61-462e-99a0-6d353c87026f" />
 
 
 
 ## Wireless - Router GLC-Apolo con data + power
-<img width="1024" height="583" alt="image" src="./imagenes/4f59f0db-5dc5-40f7-988f-b3d1635c1577.jpg" />
+<img width="1024" height="583" alt="image" src="https://github.com/user-attachments/assets/0b53e4d6-a87c-408a-85d4-9ac626e984c7" />
 
 
 ## Wireless - Router GLC-Apolo con data + power + Repetidor (Sub GLC-Apolo)
-<img width="1024" height="569" alt="image" src="./imagenes/5091cfa2-873c-4cab-b80f-84e047c6aeeb.jpg" />
+<img width="1024" height="569" alt="image" src="https://github.com/user-attachments/assets/ef84d419-2766-4f2b-9fb2-db513f133f6c" />
 
 
