@@ -4657,51 +4657,44 @@
            BOTÓN SUBIR ARRIBA
         ========================================================= */
 
-        const backToTop =
-            document.getElementById(
-                "backToTop"
-            );
+       <button
+    id="backToTop"
+    class="back-to-top"
+    type="button"
+    title="Volver arriba"
+    aria-label="Volver arriba"
+>
+    ↑
+</button>
 
+        // =========================================================
+// BOTÓN VOLVER ARRIBA
+// =========================================================
 
-        window.addEventListener(
-            "scroll",
-            () => {
+const backToTop = document.getElementById("backToTop");
 
-                if (
-                    window.scrollY > 300
-                ) {
+window.addEventListener("scroll", function () {
 
-                    backToTop.classList.add(
-                        "visible"
-                    );
+    if (window.scrollY > 300) {
 
-                } else {
+        backToTop.classList.add("visible");
 
-                    backToTop.classList.remove(
-                        "visible"
-                    );
+    } else {
 
-                }
+        backToTop.classList.remove("visible");
 
-            }
-        );
+    }
 
+});
 
-        backToTop.addEventListener(
-            "click",
-            () => {
+backToTop.addEventListener("click", function () {
 
-                window.scrollTo({
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
 
-                    top: 0,
-
-                    behavior: "smooth"
-
-                });
-
-            }
-        );
-
+});
 
         /* =========================================================
            INICIAR
