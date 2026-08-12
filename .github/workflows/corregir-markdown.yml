@@ -1,0 +1,87 @@
+name: Corregir Markdown
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  corregir-markdown:
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Descargar repositorio
+        uses: actions/checkout@v4
+
+      - name: Corregir archivos Markdown
+        shell: bash
+        run: |
+          set -e
+
+          echo "=============================================="
+          echo "       CORRECCIÓN DE ARCHIVOS MARKDOWN"
+          echo "=============================================="
+          echo ""
+
+          find doc -type f -name "*.md" -print0 |
+          while IFS= read -r -d '' archivo
+          do
+
+            echo "Procesando:"
+            echo "$archivo"
+
+            sed -i \
+              -e 's/\\#/#/g' \
+              -e 's/\\! /! /g' \
+              -e 's/\\!\\[/![/g' \
+              -e 's/\\(/(/g' \
+              -e 's/\\)/)/g' \
+              "$archivo"
+
+            echo "OK:"
+            echo "$archivo"
+            echo ""
+
+          done
+
+      - name: Mostrar cambios
+        shell: bash
+        run: |
+          echo "=============================================="
+          echo "             CAMBIOS DETECTADOS"
+          echo "=============================================="
+          echo ""
+
+          git status
+
+          echo ""
+          echo "Resumen:"
+          git diff --stat || true
+
+      - name: Guardar cambios
+        shell: bash
+        run: |
+          set -e
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add doc/
+
+          if git diff --cached --quiet
+          then
+            echo ""
+            echo "No hay cambios para guardar."
+          else
+            echo ""
+            echo "Guardando cambios..."
+
+            git commit -m "Corregir formato Markdown"
+
+            git push
+
+            echo ""
+            echo "Cambios guardados correctamente."
+          fi
