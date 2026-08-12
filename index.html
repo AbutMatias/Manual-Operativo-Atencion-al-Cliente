@@ -7,57 +7,95 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Eternet Assistant</title>
+    <meta name="theme-color" content="#111827">
+
+    <title>Ethernet App - Manual Operativo</title>
 
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 
     <style>
 
+        /* =========================================================
+           VARIABLES
+        ========================================================= */
+
         :root {
 
-            --background: #272727;
-            --sidebar: #1b1b1b;
-            --header: #191919;
-            --panel: #292929;
-            --panel-hover: #303030;
-            --input: #343434;
-            --border: #454545;
+            --bg: #0b0f14;
+            --bg-soft: #11161d;
+            --sidebar: #0d1218;
+            --header: rgba(13, 18, 24, .94);
 
-            --text: #f5f5f5;
-            --text-secondary: #a0a0a0;
-            --text-muted: #777777;
+            --panel: #151b23;
+            --panel-hover: #1b232d;
+            --panel-light: #202934;
 
-            --blue: #5bc0eb;
-            --blue-dark: #3ca8d1;
-            --blue-light: rgba(91, 192, 235, .12);
+            --border: rgba(255,255,255,.08);
+            --border-hover: rgba(255,255,255,.15);
 
-            --important: #f0ad4e;
+            --text: #f3f4f6;
+            --text-soft: #c5ccd5;
+            --text-muted: #7f8b99;
+
+            --primary: #ff5a1f;
+            --primary-light: #ff7a47;
+            --primary-dark: #d9440e;
+
+            --primary-transparent: rgba(255,90,31,.12);
+            --primary-glow: rgba(255,90,31,.22);
+
+            --success: #34d399;
+            --warning: #fbbf24;
+            --danger: #f87171;
+
+            --radius: 12px;
+
+            --sidebar-width: 290px;
+            --header-height: 68px;
+
+            --shadow:
+                0 10px 30px rgba(0,0,0,.25);
 
         }
 
+
+        /* =========================================================
+           RESET
+        ========================================================= */
 
         * {
             box-sizing: border-box;
         }
 
-
         html {
             scroll-behavior: smooth;
         }
-
 
         body {
 
             margin: 0;
 
             font-family:
+                Inter,
+                ui-sans-serif,
+                system-ui,
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
                 Arial,
-                Helvetica,
                 sans-serif;
 
-            background: var(--background);
+            background:
+                radial-gradient(
+                    circle at top right,
+                    rgba(255,90,31,.06),
+                    transparent 30%
+                ),
+                var(--bg);
 
             color: var(--text);
+
+            min-height: 100vh;
 
         }
 
@@ -68,28 +106,37 @@
         }
 
 
-        ::-webkit-scrollbar {
-            width: 7px;
-            height: 7px;
+        button {
+            outline: none;
         }
 
+
+        ::selection {
+            background: var(--primary);
+            color: white;
+        }
+
+
+        /* =========================================================
+           SCROLLBAR
+        ========================================================= */
+
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
 
         ::-webkit-scrollbar-track {
-            background: #1e1e1e;
+            background: #090c10;
         }
-
 
         ::-webkit-scrollbar-thumb {
-
-            background: #555;
-
+            background: #303945;
             border-radius: 10px;
-
         }
 
-
         ::-webkit-scrollbar-thumb:hover {
-            background: #666;
+            background: #46515e;
         }
 
 
@@ -101,18 +148,13 @@
 
             position: fixed;
 
+            top: 0;
             left: 0;
             right: 0;
-            top: 0;
 
-            height: 66px;
+            height: var(--header-height);
 
-            z-index: 100;
-
-            background: var(--header);
-
-            border-bottom:
-                1px solid #3b3b3b;
+            z-index: 1000;
 
             display: flex;
 
@@ -121,6 +163,13 @@
             justify-content: space-between;
 
             padding: 0 18px;
+
+            background: var(--header);
+
+            backdrop-filter: blur(16px);
+
+            border-bottom:
+                1px solid var(--border);
 
         }
 
@@ -131,7 +180,7 @@
 
             align-items: center;
 
-            gap: 12px;
+            gap: 13px;
 
         }
 
@@ -141,29 +190,38 @@
             width: 40px;
             height: 40px;
 
-            border: none;
+            border: 1px solid var(--border);
 
-            border-radius: 6px;
+            border-radius: 9px;
 
-            background: #303030;
+            background: #1a212a;
 
             color: white;
 
-            font-size: 20px;
+            font-size: 19px;
 
             cursor: pointer;
 
             display: flex;
 
             align-items: center;
-
             justify-content: center;
+
+            transition: .2s;
 
         }
 
 
         .menu-button:hover {
-            background: #3a3a3a;
+
+            background: var(--primary-transparent);
+
+            border-color: var(--primary);
+
+            color: var(--primary-light);
+
+            transform: translateY(-1px);
+
         }
 
 
@@ -180,8 +238,8 @@
 
         .brand-logo {
 
-            width: 32px;
-            height: 32px;
+            width: 34px;
+            height: 34px;
 
             object-fit: contain;
 
@@ -190,11 +248,22 @@
 
         .brand-name {
 
-            font-size: 16px;
+            font-size: 15px;
 
-            font-weight: bold;
+            font-weight: 700;
 
-            color: white;
+            letter-spacing: -.2px;
+
+        }
+
+
+        .brand-subtitle {
+
+            color: var(--text-muted);
+
+            font-size: 11px;
+
+            margin-left: 4px;
 
         }
 
@@ -205,57 +274,85 @@
 
             align-items: center;
 
-            gap: 10px;
+            gap: 9px;
 
         }
 
 
         .header-status {
 
-            padding: 9px 13px;
+            display: flex;
 
-            border-radius: 6px;
+            align-items: center;
 
-            background: var(--blue);
+            gap: 7px;
 
-            color: #10202a;
+            padding: 8px 11px;
 
-            font-size: 12px;
+            border-radius: 8px;
 
-            font-weight: bold;
+            background: var(--primary-transparent);
+
+            border: 1px solid rgba(255,90,31,.2);
+
+            color: var(--primary-light);
+
+            font-size: 11px;
+
+            font-weight: 700;
+
+        }
+
+
+        .status-dot {
+
+            width: 7px;
+            height: 7px;
+
+            border-radius: 50%;
+
+            background: var(--success);
+
+            box-shadow:
+                0 0 8px rgba(52,211,153,.5);
 
         }
 
 
         .github-button {
 
-            padding: 9px 13px;
+            display: flex;
 
-            border:
-                1px solid var(--border);
+            align-items: center;
 
-            border-radius: 6px;
+            gap: 7px;
 
-            background: #292929;
+            padding: 8px 12px;
 
-            color: #d5d5d5;
+            border: 1px solid var(--border);
+
+            border-radius: 8px;
+
+            background: #171d25;
+
+            color: var(--text-soft);
 
             text-decoration: none;
 
-            font-size: 12px;
+            font-size: 11px;
 
-            transition: .15s;
+            transition: .2s;
 
         }
 
 
         .github-button:hover {
 
-            border-color:
-                var(--blue);
+            color: white;
 
-            color:
-                var(--blue);
+            border-color: var(--primary);
+
+            background: var(--primary-transparent);
 
         }
 
@@ -269,23 +366,29 @@
             position: fixed;
 
             left: 0;
-            top: 66px;
+
+            top: var(--header-height);
+
             bottom: 0;
 
-            width: 290px;
+            width: var(--sidebar-width);
 
-            z-index: 90;
+            z-index: 900;
 
             background:
-                var(--sidebar);
+                linear-gradient(
+                    180deg,
+                    #0d1218 0%,
+                    #0b1016 100%
+                );
 
             border-right:
-                1px solid #3d3d3d;
+                1px solid var(--border);
 
             overflow-y: auto;
 
             transition:
-                transform .2s ease;
+                transform .25s ease;
 
         }
 
@@ -293,19 +396,17 @@
         .sidebar-section {
 
             padding:
-                20px 14px 8px;
+                22px 14px 9px;
 
-            color: #777;
+            color: #697586;
 
-            font-size: 10px;
+            font-size: 9px;
 
-            font-weight: bold;
+            font-weight: 800;
 
-            text-transform:
-                uppercase;
+            text-transform: uppercase;
 
-            letter-spacing:
-                .3px;
+            letter-spacing: 1px;
 
         }
 
@@ -313,7 +414,33 @@
         .sidebar-search {
 
             padding:
-                0 14px 12px;
+                0 12px 12px;
+
+        }
+
+
+        .sidebar-search-wrapper {
+
+            position: relative;
+
+        }
+
+
+        .sidebar-search-icon {
+
+            position: absolute;
+
+            left: 11px;
+
+            top: 50%;
+
+            transform: translateY(-50%);
+
+            color: #66717f;
+
+            font-size: 13px;
+
+            pointer-events: none;
 
         }
 
@@ -322,33 +449,44 @@
 
             width: 100%;
 
-            padding:
-                9px 10px;
+            height: 38px;
 
-            border: none;
+            padding:
+                0 10px 0 34px;
+
+            border:
+                1px solid transparent;
 
             outline: none;
 
-            border-radius: 5px;
+            border-radius: 8px;
 
-            background: #343434;
+            background: #171d24;
 
-            color: #eee;
+            color: white;
 
-            font-size: 13px;
+            font-size: 12px;
+
+            transition: .2s;
 
         }
 
 
         .sidebar-search input::placeholder {
-            color: #777;
+            color: #66717f;
         }
 
 
         .sidebar-search input:focus {
 
+            border-color:
+                rgba(255,90,31,.45);
+
+            background: #1b222b;
+
             box-shadow:
-                0 0 0 1px var(--blue);
+                0 0 0 3px
+                rgba(255,90,31,.07);
 
         }
 
@@ -356,7 +494,7 @@
         .nav {
 
             padding:
-                0 8px;
+                0 9px;
 
         }
 
@@ -367,30 +505,34 @@
 
             align-items: center;
 
-            gap: 8px;
+            gap: 9px;
+
+            min-height: 38px;
 
             padding:
-                9px 10px;
+                8px 10px;
 
-            margin-bottom: 2px;
+            margin-bottom: 3px;
 
-            border-radius: 5px;
+            border-radius: 8px;
 
-            color: #d0d0d0;
+            color: #aeb7c2;
 
             font-size: 12px;
 
             cursor: pointer;
 
-            transition: .15s;
+            transition:
+                background .18s,
+                color .18s,
+                transform .18s;
 
         }
 
 
         .nav-item:hover {
 
-            background:
-                #292929;
+            background: #171e27;
 
             color: white;
 
@@ -400,23 +542,29 @@
         .nav-item.active {
 
             background:
-                rgba(91, 192, 235, .16);
+                linear-gradient(
+                    90deg,
+                    rgba(255,90,31,.18),
+                    rgba(255,90,31,.06)
+                );
 
-            color:
-                var(--blue);
+            color: var(--primary-light);
+
+            border-left:
+                2px solid var(--primary);
 
         }
 
 
         .category-icon {
 
-            width: 17px;
+            width: 18px;
 
-            min-width: 17px;
+            min-width: 18px;
 
             text-align: center;
 
-            opacity: .9;
+            font-size: 13px;
 
         }
 
@@ -426,16 +574,12 @@
         ========================================================= */
 
         .sidebar-category {
-
             margin-bottom: 2px;
-
         }
 
 
         .sidebar-category-title {
-
-            font-weight: bold;
-
+            font-weight: 600;
         }
 
 
@@ -456,12 +600,11 @@
 
             margin-left: auto;
 
-            color: #777;
+            color: #697586;
 
-            font-size: 16px;
+            font-size: 17px;
 
-            transition:
-                transform .15s ease;
+            transition: transform .2s;
 
         }
 
@@ -469,11 +612,9 @@
         .sidebar-category-title.expanded
         .sidebar-arrow {
 
-            transform:
-                rotate(90deg);
+            transform: rotate(90deg);
 
-            color:
-                var(--blue);
+            color: var(--primary);
 
         }
 
@@ -482,7 +623,12 @@
 
             display: none;
 
-            padding-left: 10px;
+            margin-left: 9px;
+
+            padding-left: 8px;
+
+            border-left:
+                1px solid #242c36;
 
         }
 
@@ -501,30 +647,28 @@
             gap: 7px;
 
             padding:
-                7px 9px;
+                7px 8px;
 
-            margin:
-                1px 0;
+            margin: 1px 0;
 
-            border-radius: 5px;
+            border-radius: 6px;
 
-            color: #aaa;
+            color: #8994a2;
 
             font-size: 11px;
 
-            line-height: 1.35;
+            line-height: 1.4;
 
             cursor: pointer;
 
-            transition: .15s;
+            transition: .18s;
 
         }
 
 
         .sidebar-document:hover {
 
-            background:
-                #292929;
+            background: #171e27;
 
             color: white;
 
@@ -532,27 +676,12 @@
 
 
         .sidebar-document-icon {
-
             flex-shrink: 0;
-
-            opacity: .8;
-
         }
 
 
         .sidebar-document.important {
-
-            color:
-                var(--important);
-
-        }
-
-
-        .sidebar-document.important:hover {
-
-            color:
-                #ffc66d;
-
+            color: var(--warning);
         }
 
 
@@ -562,25 +691,26 @@
 
         .main {
 
-            margin-left: 290px;
+            margin-left: var(--sidebar-width);
 
-            padding-top: 66px;
+            padding-top: var(--header-height);
 
             min-height: 100vh;
 
             transition:
-                margin-left .2s ease;
+                margin-left .25s ease;
 
         }
 
 
         .content {
 
-            max-width: 1200px;
+            max-width: 1250px;
 
             margin: 0 auto;
 
-            padding: 32px;
+            padding:
+                32px;
 
         }
 
@@ -591,17 +721,93 @@
 
         .hero {
 
+            position: relative;
+
+            overflow: hidden;
+
             background:
-                var(--panel);
+                linear-gradient(
+                    135deg,
+                    #171e27 0%,
+                    #121820 100%
+                );
 
             border:
                 1px solid var(--border);
 
-            border-radius: 8px;
+            border-radius: 16px;
 
-            padding: 30px;
+            padding:
+                34px;
 
             margin-bottom: 18px;
+
+            box-shadow: var(--shadow);
+
+        }
+
+
+        .hero::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 280px;
+            height: 280px;
+
+            right: -120px;
+            top: -150px;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(255,90,31,.16),
+                    transparent 70%
+                );
+
+            pointer-events: none;
+
+        }
+
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+
+        .hero-badge {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 7px;
+
+            padding:
+                6px 10px;
+
+            margin-bottom: 13px;
+
+            border-radius: 999px;
+
+            background:
+                var(--primary-transparent);
+
+            border:
+                1px solid rgba(255,90,31,.2);
+
+            color:
+                var(--primary-light);
+
+            font-size: 10px;
+
+            font-weight: 700;
+
+            text-transform: uppercase;
+
+            letter-spacing: .5px;
 
         }
 
@@ -610,24 +816,32 @@
 
             margin: 0;
 
-            font-size: 25px;
+            font-size: 31px;
 
-            color: white;
+            line-height: 1.15;
 
+            letter-spacing: -.8px;
+
+        }
+
+
+        .hero-title span {
+            color: var(--primary);
         }
 
 
         .hero-subtitle {
 
-            margin:
-                8px 0 0;
+            max-width: 760px;
 
-            color:
-                var(--text-secondary);
+            margin:
+                10px 0 0;
+
+            color: var(--text-muted);
 
             font-size: 13px;
 
-            line-height: 1.5;
+            line-height: 1.65;
 
         }
 
@@ -637,16 +851,12 @@
         ========================================================= */
 
         .main-search {
-
-            margin-top: 22px;
-
+            margin-top: 25px;
         }
 
 
         .main-search-wrapper {
-
             position: relative;
-
         }
 
 
@@ -654,14 +864,17 @@
 
             position: absolute;
 
-            left: 14px;
+            left: 16px;
 
             top: 50%;
 
             transform:
                 translateY(-50%);
 
-            color: #777;
+            color:
+                var(--primary);
+
+            font-size: 15px;
 
             pointer-events: none;
 
@@ -672,40 +885,43 @@
 
             width: 100%;
 
-            height: 48px;
+            height: 52px;
 
             padding:
-                0 45px;
+                0 48px;
 
             border:
                 1px solid var(--border);
 
-            border-radius: 6px;
+            border-radius: 10px;
 
             outline: none;
 
             background:
-                var(--input);
+                rgba(7,10,14,.45);
 
             color: white;
 
-            font-size: 14px;
+            font-size: 13px;
+
+            transition: .2s;
 
         }
 
 
         .main-search input::placeholder {
-            color: #777;
+            color: #66717f;
         }
 
 
         .main-search input:focus {
 
             border-color:
-                var(--blue);
+                rgba(255,90,31,.55);
 
             box-shadow:
-                0 0 0 2px var(--blue-light);
+                0 0 0 4px
+                rgba(255,90,31,.07);
 
         }
 
@@ -721,16 +937,16 @@
             transform:
                 translateY(-50%);
 
-            width: 28px;
-            height: 28px;
+            width: 30px;
+            height: 30px;
 
             border: none;
 
-            border-radius: 5px;
+            border-radius: 7px;
 
             background: transparent;
 
-            color: #777;
+            color: #697586;
 
             cursor: pointer;
 
@@ -741,7 +957,7 @@
 
         .clear-search:hover {
 
-            background: #444;
+            background: #242c35;
 
             color: white;
 
@@ -759,48 +975,103 @@
             grid-template-columns:
                 repeat(3, 1fr);
 
-            gap: 12px;
+            gap: 14px;
 
-            margin-bottom: 22px;
+            margin-bottom: 25px;
 
         }
 
 
         .stat {
 
+            position: relative;
+
+            overflow: hidden;
+
             background:
-                var(--panel);
+                linear-gradient(
+                    135deg,
+                    #151b23,
+                    #121820
+                );
 
             border:
                 1px solid var(--border);
 
-            border-radius: 7px;
+            border-radius: 12px;
 
-            padding: 16px;
+            padding: 17px;
+
+            transition: .2s;
+
+        }
+
+
+        .stat:hover {
+
+            transform:
+                translateY(-2px);
+
+            border-color:
+                var(--border-hover);
+
+        }
+
+
+        .stat::after {
+
+            content: "";
+
+            position: absolute;
+
+            right: -30px;
+            bottom: -40px;
+
+            width: 100px;
+            height: 100px;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(255,90,31,.08),
+                    transparent 70%
+                );
 
         }
 
 
         .stat-number {
 
-            font-size: 20px;
+            position: relative;
 
-            font-weight: bold;
+            z-index: 2;
+
+            font-size: 22px;
+
+            font-weight: 800;
 
             color:
-                var(--blue);
+                var(--primary-light);
 
         }
 
 
         .stat-label {
 
+            position: relative;
+
+            z-index: 2;
+
             margin-top: 4px;
 
             color:
                 var(--text-muted);
 
-            font-size: 11px;
+            font-size: 10px;
+
+            text-transform: uppercase;
+
+            letter-spacing: .5px;
 
         }
 
@@ -817,7 +1088,7 @@
 
             justify-content: space-between;
 
-            margin-bottom: 10px;
+            margin-bottom: 11px;
 
         }
 
@@ -826,7 +1097,7 @@
 
             font-size: 15px;
 
-            font-weight: bold;
+            font-weight: 800;
 
         }
 
@@ -836,7 +1107,7 @@
             color:
                 var(--text-muted);
 
-            font-size: 11px;
+            font-size: 10px;
 
         }
 
@@ -844,40 +1115,48 @@
         .result {
 
             background:
-                var(--panel);
+                linear-gradient(
+                    135deg,
+                    #151b23,
+                    #131920
+                );
 
             border:
                 1px solid var(--border);
 
-            border-radius: 7px;
+            border-radius: 11px;
 
-            padding: 16px;
+            padding: 17px;
 
-            margin-bottom: 9px;
+            margin-bottom: 10px;
 
             transition:
-                border-color .15s,
-                background .15s;
+                transform .18s,
+                border-color .18s,
+                background .18s;
 
         }
 
 
         .result:hover {
 
+            transform:
+                translateY(-1px);
+
             background:
                 var(--panel-hover);
 
             border-color:
-                #555;
+                rgba(255,255,255,.14);
 
         }
 
 
         .result-title {
 
-            font-size: 14px;
+            font-size: 13px;
 
-            font-weight: bold;
+            font-weight: 750;
 
             color: white;
 
@@ -885,10 +1164,7 @@
 
 
         .result-title-icon {
-
-            color:
-                var(--blue);
-
+            color: var(--primary);
         }
 
 
@@ -899,7 +1175,7 @@
             color:
                 var(--text-muted);
 
-            font-size: 10px;
+            font-size: 9px;
 
         }
 
@@ -908,31 +1184,29 @@
 
             margin-top: 11px;
 
-            padding: 11px;
+            padding: 12px;
 
             background:
-                #303030;
+                #10161d;
 
             border-left:
-                3px solid var(--blue);
+                3px solid var(--primary);
 
             border-radius:
-                0 4px 4px 0;
+                0 7px 7px 0;
 
             color:
-                #c9c9c9;
+                #aeb7c2;
 
-            font-size: 12px;
+            font-size: 11px;
 
-            line-height: 1.6;
+            line-height: 1.65;
 
         }
 
 
         .result-actions {
-
             margin-top: 12px;
-
         }
 
 
@@ -940,22 +1214,23 @@
 
             border: none;
 
-            border-radius: 5px;
+            border-radius: 7px;
 
             padding:
                 8px 12px;
 
             background:
-                var(--blue);
+                var(--primary);
 
-            color:
-                #10202a;
+            color: white;
 
-            font-size: 11px;
+            font-size: 10px;
 
-            font-weight: bold;
+            font-weight: 700;
 
             cursor: pointer;
+
+            transition: .18s;
 
         }
 
@@ -963,9 +1238,14 @@
         .result button:hover {
 
             background:
-                var(--blue-dark);
+                var(--primary-light);
 
-            color: white;
+            transform:
+                translateY(-1px);
+
+            box-shadow:
+                0 5px 15px
+                rgba(255,90,31,.18);
 
         }
 
@@ -973,15 +1253,15 @@
         mark {
 
             background:
-                rgba(91, 192, 235, .25);
+                rgba(255,90,31,.2);
 
             color:
-                #8edcff;
+                #ff9d78;
 
-            border-radius: 2px;
+            border-radius: 3px;
 
             padding:
-                1px 2px;
+                1px 3px;
 
         }
 
@@ -995,24 +1275,26 @@
             display: none;
 
             background:
-                var(--panel);
+                #121820;
 
             border:
                 1px solid var(--border);
 
-            border-radius: 8px;
+            border-radius: 15px;
 
             overflow: hidden;
+
+            box-shadow: var(--shadow);
 
         }
 
 
         .document-header {
 
-            min-height: 52px;
+            min-height: 56px;
 
             padding:
-                8px 14px;
+                9px 13px;
 
             border-bottom:
                 1px solid var(--border);
@@ -1023,6 +1305,11 @@
 
             justify-content: space-between;
 
+            background:
+                rgba(15,20,27,.8);
+
+            backdrop-filter: blur(10px);
+
         }
 
 
@@ -1032,29 +1319,35 @@
                 1px solid var(--border);
 
             background:
-                #303030;
+                #1a212a;
 
             color:
-                #ddd;
+                #c5ccd5;
 
             padding:
-                7px 11px;
+                8px 11px;
 
-            border-radius: 5px;
+            border-radius: 7px;
 
             cursor: pointer;
 
-            font-size: 11px;
+            font-size: 10px;
+
+            transition: .18s;
 
         }
 
 
         .back:hover {
 
-            background:
-                #3a3a3a;
+            border-color:
+                var(--primary);
 
-            color: white;
+            background:
+                var(--primary-transparent);
+
+            color:
+                white;
 
         }
 
@@ -1062,20 +1355,17 @@
         .document-github {
 
             color:
-                var(--blue);
+                var(--primary-light);
 
             text-decoration: none;
 
-            font-size: 11px;
+            font-size: 10px;
 
         }
 
 
         .document-github:hover {
-
-            text-decoration:
-                underline;
-
+            text-decoration: underline;
         }
 
 
@@ -1085,18 +1375,19 @@
 
         .markdown {
 
-            max-width: 900px;
+            max-width: 920px;
 
             margin: auto;
 
-            padding: 32px;
+            padding:
+                38px;
 
             color:
-                #d8d8d8;
+                #c9d0d8;
 
             font-size: 14px;
 
-            line-height: 1.7;
+            line-height: 1.75;
 
         }
 
@@ -1105,21 +1396,23 @@
 
             color: white;
 
-            font-size: 27px;
+            font-size: 29px;
 
-            padding-bottom: 10px;
+            line-height: 1.25;
+
+            padding-bottom: 12px;
 
             border-bottom:
-                2px solid var(--blue);
+                2px solid var(--primary);
 
         }
 
 
         .markdown h2 {
 
-            margin-top: 35px;
+            margin-top: 38px;
 
-            padding-bottom: 7px;
+            padding-bottom: 8px;
 
             border-bottom:
                 1px solid var(--border);
@@ -1133,10 +1426,10 @@
 
         .markdown h3 {
 
-            margin-top: 25px;
+            margin-top: 28px;
 
             color:
-                var(--blue);
+                var(--primary-light);
 
             font-size: 17px;
 
@@ -1144,12 +1437,12 @@
 
 
         .markdown h4 {
-            color: #ddd;
+            color: #e5e7eb;
         }
 
 
         .markdown p {
-            color: #ccc;
+            color: #c4cbd4;
         }
 
 
@@ -1160,32 +1453,34 @@
 
         .markdown a {
             color:
-                var(--blue);
+                var(--primary-light);
         }
 
 
         .markdown a:hover {
-            color:
-                #8edcff;
+            color: white;
         }
 
 
         .markdown blockquote {
 
             margin:
-                15px 0;
+                17px 0;
 
             padding:
-                10px 15px;
+                12px 16px;
 
             border-left:
-                3px solid var(--blue);
+                3px solid var(--primary);
 
             background:
-                #303030;
+                #181f28;
+
+            border-radius:
+                0 7px 7px 0;
 
             color:
-                #aaa;
+                #aab4bf;
 
         }
 
@@ -1201,9 +1496,9 @@
             height: auto;
 
             margin:
-                18px auto;
+                20px auto;
 
-            border-radius: 6px;
+            border-radius: 8px;
 
             cursor: zoom-in;
 
@@ -1211,13 +1506,12 @@
                 1px solid var(--border);
 
             background:
-                #1c1c1c;
+                #0b0f14;
 
-        }
+            box-shadow:
+                0 10px 25px
+                rgba(0,0,0,.25);
 
-
-        .markdown img:hover {
-            opacity: .92;
         }
 
 
@@ -1225,11 +1519,12 @@
 
             width: 100%;
 
-            border-collapse:
-                collapse;
+            border-collapse: collapse;
 
             margin:
-                18px 0;
+                20px 0;
+
+            overflow: hidden;
 
         }
 
@@ -1241,7 +1536,7 @@
                 1px solid var(--border);
 
             padding:
-                8px 10px;
+                9px 11px;
 
             text-align: left;
 
@@ -1251,7 +1546,7 @@
         .markdown th {
 
             background:
-                #333;
+                #202832;
 
             color: white;
 
@@ -1261,7 +1556,7 @@
         .markdown td {
 
             background:
-                #2c2c2c;
+                #171e26;
 
         }
 
@@ -1269,15 +1564,15 @@
         .markdown code {
 
             background:
-                #333;
+                #202832;
 
             color:
-                #8edcff;
+                #ff9d78;
 
             padding:
                 2px 5px;
 
-            border-radius: 3px;
+            border-radius: 4px;
 
         }
 
@@ -1285,15 +1580,15 @@
         .markdown pre {
 
             background:
-                #181818;
+                #0b0f14;
 
             border:
-                1px solid #333;
+                1px solid var(--border);
 
             padding:
-                15px;
+                16px;
 
-            border-radius: 6px;
+            border-radius: 8px;
 
             overflow-x: auto;
 
@@ -1306,7 +1601,7 @@
                 transparent;
 
             color:
-                #ddd;
+                #d5dbe2;
 
             padding: 0;
 
@@ -1321,7 +1616,7 @@
                 1px solid var(--border);
 
             margin:
-                30px 0;
+                32px 0;
 
         }
 
@@ -1333,12 +1628,16 @@
         .empty {
 
             background:
-                var(--panel);
+                linear-gradient(
+                    135deg,
+                    #151b23,
+                    #121820
+                );
 
             border:
                 1px solid var(--border);
 
-            border-radius: 7px;
+            border-radius: 11px;
 
             padding:
                 45px 20px;
@@ -1348,16 +1647,28 @@
             color:
                 var(--text-muted);
 
-            font-size: 13px;
+            font-size: 12px;
+
+        }
+
+
+        .empty-icon {
+
+            font-size: 28px;
+
+            margin-bottom: 10px;
+
+            opacity: .7;
 
         }
 
 
         .empty-title {
 
-            color: #ddd;
+            color:
+                #e5e7eb;
 
-            font-weight: bold;
+            font-weight: 750;
 
         }
 
@@ -1373,18 +1684,19 @@
             left: 0;
             right: 0;
 
-            top: 66px;
+            top:
+                var(--header-height);
 
-            height: 3px;
+            height: 2px;
 
-            z-index: 200;
+            z-index: 2000;
 
             display: none;
 
             overflow: hidden;
 
             background:
-                #333;
+                rgba(255,255,255,.05);
 
         }
 
@@ -1396,15 +1708,20 @@
 
         .loading-progress {
 
-            width: 30%;
+            width: 25%;
 
             height: 100%;
 
             background:
-                var(--blue);
+                var(--primary);
+
+            box-shadow:
+                0 0 12px
+                var(--primary);
 
             animation:
-                loading 1s infinite ease-in-out;
+                loading 1s infinite
+                ease-in-out;
 
         }
 
@@ -1412,42 +1729,44 @@
         @keyframes loading {
 
             from {
-                transform:
-                    translateX(-120%);
+                transform: translateX(-120%);
             }
 
             to {
-                transform:
-                    translateX(400%);
+                transform: translateX(500%);
             }
 
         }
 
 
         /* =========================================================
-           BOTÓN SUBIR
+           BOTÓN VOLVER ARRIBA
         ========================================================= */
 
         .back-to-top {
 
             position: fixed;
 
-            right: 24px;
-            bottom: 24px;
+            right: 25px;
 
-            width: 44px;
-            height: 44px;
+            bottom: 25px;
+
+            width: 46px;
+            height: 46px;
 
             border:
-                1px solid var(--border);
+                1px solid rgba(255,255,255,.1);
 
-            border-radius: 7px;
+            border-radius: 10px;
 
             background:
-                #303030;
+                rgba(20,26,34,.94);
+
+            backdrop-filter:
+                blur(10px);
 
             color:
-                var(--blue);
+                var(--primary-light);
 
             font-size: 20px;
 
@@ -1456,31 +1775,18 @@
             display: none;
 
             align-items: center;
-
             justify-content: center;
 
-            z-index: 300;
+            z-index: 1500;
 
             box-shadow:
-                0 4px 15px rgba(0, 0, 0, .35);
+                0 8px 25px
+                rgba(0,0,0,.35);
 
             transition:
-                background .15s,
-                transform .15s;
-
-        }
-
-
-        .back-to-top:hover {
-
-            background:
-                var(--blue);
-
-            color:
-                #10202a;
-
-            transform:
-                translateY(-2px);
+                transform .2s,
+                background .2s,
+                border-color .2s;
 
         }
 
@@ -1490,25 +1796,97 @@
         }
 
 
+        .back-to-top:hover {
+
+            background:
+                var(--primary);
+
+            border-color:
+                var(--primary);
+
+            color: white;
+
+            transform:
+                translateY(-3px);
+
+        }
+
+
+        /* =========================================================
+           TOAST
+        ========================================================= */
+
+        .toast {
+
+            position: fixed;
+
+            left: 50%;
+
+            bottom: 25px;
+
+            transform:
+                translate(-50%, 80px);
+
+            padding:
+                10px 15px;
+
+            border:
+                1px solid var(--border);
+
+            border-radius: 8px;
+
+            background:
+                #171e27;
+
+            color:
+                #dbe2ea;
+
+            font-size: 11px;
+
+            z-index: 3000;
+
+            opacity: 0;
+
+            transition:
+                .25s;
+
+            pointer-events: none;
+
+            box-shadow: var(--shadow);
+
+        }
+
+
+        .toast.show {
+
+            transform:
+                translate(-50%, 0);
+
+            opacity: 1;
+
+        }
+
+
         /* =========================================================
            MOBILE
         ========================================================= */
 
-        @media(max-width: 800px) {
+        @media(max-width: 850px) {
 
             .sidebar {
 
                 transform:
                     translateX(-100%);
 
+                box-shadow:
+                    15px 0 40px
+                    rgba(0,0,0,.35);
+
             }
 
 
             .sidebar.open {
-
-                transform:
-                    translateX(0);
-
+                transform: translateX(0);
             }
 
 
@@ -1521,7 +1899,8 @@
 
             .content {
 
-                padding: 18px;
+                padding:
+                    20px 15px;
 
             }
 
@@ -1535,30 +1914,44 @@
 
 
             .header-right {
-
                 display: none;
+            }
 
+
+            .brand-subtitle {
+                display: none;
             }
 
 
             .hero {
 
-                padding: 22px;
+                padding:
+                    25px 20px;
+
+                border-radius:
+                    12px;
 
             }
 
 
             .hero-title {
-
-                font-size: 22px;
-
+                font-size: 25px;
             }
 
 
             .markdown {
 
-                padding: 20px;
+                padding:
+                    24px 18px;
 
+                font-size:
+                    13px;
+
+            }
+
+
+            .document {
+                border-radius: 11px;
             }
 
 
@@ -1568,6 +1961,40 @@
 
                 bottom: 15px;
 
+            }
+
+        }
+
+
+        /* =========================================================
+           OVERLAY MOBILE
+        ========================================================= */
+
+        .sidebar-overlay {
+
+            position: fixed;
+
+            inset: 0;
+
+            background:
+                rgba(0,0,0,.55);
+
+            z-index: 850;
+
+            display: none;
+
+        }
+
+
+        .sidebar-overlay.show {
+            display: block;
+        }
+
+
+        @media(min-width: 851px) {
+
+            .sidebar-overlay {
+                display: none !important;
             }
 
         }
@@ -1607,7 +2034,11 @@
                 >
 
                 <span class="brand-name">
-                    Eternet Assistant
+                    Ethernet App
+                </span>
+
+                <span class="brand-subtitle">
+                    Manual Operativo
                 </span>
 
             </div>
@@ -1621,7 +2052,13 @@
                 class="header-status"
                 id="headerStatus"
             >
-                Cargando...
+
+                <span class="status-dot"></span>
+
+                <span id="headerStatusText">
+                    Cargando...
+                </span>
+
             </div>
 
 
@@ -1631,7 +2068,11 @@
                 target="_blank"
                 rel="noopener noreferrer"
             >
+
+                ◉
+
                 GitHub
+
             </a>
 
         </div>
@@ -1654,6 +2095,16 @@
 
 
     <!-- =========================================================
+         OVERLAY
+    ========================================================= -->
+
+    <div
+        class="sidebar-overlay"
+        id="sidebarOverlay"
+    ></div>
+
+
+    <!-- =========================================================
          SIDEBAR
     ========================================================= -->
 
@@ -1669,12 +2120,20 @@
 
         <div class="sidebar-search">
 
-            <input
-                id="sidebarSearch"
-                type="text"
-                placeholder="Buscar opción..."
-                autocomplete="off"
-            >
+            <div class="sidebar-search-wrapper">
+
+                <span class="sidebar-search-icon">
+                    🔎
+                </span>
+
+                <input
+                    id="sidebarSearch"
+                    type="text"
+                    placeholder="Buscar opción..."
+                    autocomplete="off"
+                >
+
+            </div>
 
         </div>
 
@@ -1709,7 +2168,7 @@
                 </span>
 
                 <span>
-                    Buscar
+                    Buscar documentación
                 </span>
 
             </div>
@@ -1751,48 +2210,65 @@
 
             <section id="home">
 
+
                 <div class="hero">
 
-                    <h1 class="hero-title">
-                        Manual Operativo
-                    </h1>
+                    <div class="hero-content">
+
+                        <div class="hero-badge">
+
+                            <span>●</span>
+
+                            Base de conocimiento
+
+                        </div>
 
 
-                    <p class="hero-subtitle">
+                        <h1 class="hero-title">
 
-                        Documentación técnica y procedimientos
-                        de Atención al Cliente.
+                            Manual
+                            <span>Operativo</span>
 
-                        Buscá rápidamente cualquier procedimiento,
-                        diagnóstico o herramienta.
-
-                    </p>
+                        </h1>
 
 
-                    <div class="main-search">
+                        <p class="hero-subtitle">
 
-                        <div class="main-search-wrapper">
+                            Documentación técnica y procedimientos
+                            de Atención al Cliente. Encontrá
+                            rápidamente diagnósticos, herramientas,
+                            configuraciones y procedimientos.
 
-                            <span class="main-search-icon">
-                                🔎
-                            </span>
-
-
-                            <input
-                                id="buscador"
-                                type="text"
-                                autocomplete="off"
-                                placeholder="Buscar router, ONU, WiFi, ping..."
-                            >
+                        </p>
 
 
-                            <button
-                                id="clearSearch"
-                                class="clear-search"
-                                type="button"
-                            >
-                                ✕
-                            </button>
+                        <div class="main-search">
+
+                            <div class="main-search-wrapper">
+
+                                <span class="main-search-icon">
+                                    🔎
+                                </span>
+
+
+                                <input
+                                    id="buscador"
+                                    type="text"
+                                    autocomplete="off"
+                                    placeholder="Buscar router, ONU, WiFi, ping, DNS..."
+                                >
+
+
+                                <button
+                                    id="clearSearch"
+                                    class="clear-search"
+                                    type="button"
+                                    aria-label="Limpiar búsqueda"
+                                >
+                                    ✕
+                                </button>
+
+                            </div>
 
                         </div>
 
@@ -1807,6 +2283,7 @@
 
                 <div class="stats">
 
+
                     <div class="stat">
 
                         <div
@@ -1817,7 +2294,7 @@
                         </div>
 
                         <div class="stat-label">
-                            Documentos
+                            Documentos disponibles
                         </div>
 
                     </div>
@@ -1854,6 +2331,7 @@
 
                     </div>
 
+
                 </div>
 
 
@@ -1879,6 +2357,7 @@
 
                 <div id="resultados"></div>
 
+
             </section>
 
 
@@ -1898,7 +2377,7 @@
                         onclick="inicio()"
                         type="button"
                     >
-                        ← Volver
+                        ← Volver al inicio
                     </button>
 
 
@@ -1908,7 +2387,7 @@
                         target="_blank"
                         rel="noopener noreferrer"
                     >
-                        Abrir en GitHub
+                        Abrir documento en GitHub ↗
                     </a>
 
                 </div>
@@ -1921,13 +2400,14 @@
 
             </section>
 
+
         </div>
 
     </main>
 
 
     <!-- =========================================================
-         BOTÓN SUBIR ARRIBA
+         BOTÓN VOLVER ARRIBA
     ========================================================= -->
 
     <button
@@ -1941,6 +2421,20 @@
     </button>
 
 
+    <!-- =========================================================
+         TOAST
+    ========================================================= -->
+
+    <div
+        class="toast"
+        id="toast"
+    ></div>
+
+
+    <!-- =========================================================
+         JAVASCRIPT
+    ========================================================= -->
+
     <script>
 
 
@@ -1951,33 +2445,27 @@
         const OWNER =
             "AbutMatias";
 
-
         const REPO =
             "Manual-Operativo-Atencion-al-Cliente";
-
 
         const BRANCH =
             "main";
 
 
-        const GITHUB_API =
-            `https://api.github.com/repos/${OWNER}/${REPO}`;
+        const API =
+            `https://api.github.com/repos/${OWNER}/${REPO}/contents/doc`;
 
 
-        const DOC_API =
-            `${GITHUB_API}/contents/doc?ref=${BRANCH}`;
-
-
-        const README_API =
-            `${GITHUB_API}/readme?ref=${BRANCH}`;
-
-
-        const RAW_URL =
-            `https://raw.githubusercontent.com/${OWNER}/${REPO}/${BRANCH}/`;
+        const README_URL =
+            `https://raw.githubusercontent.com/${OWNER}/${REPO}/${BRANCH}/README.md`;
 
 
         const GITHUB_URL =
             `https://github.com/${OWNER}/${REPO}/blob/${BRANCH}/`;
+
+
+        const RAW_URL =
+            `https://raw.githubusercontent.com/${OWNER}/${REPO}/${BRANCH}/`;
 
 
         const INDEX_URL =
@@ -1992,9 +2480,33 @@
 
         let categorias = [];
 
-        let readmeCache = "";
+        let readmeCache = null;
 
         let searchTimer = null;
+
+
+        /* =========================================================
+           ELEMENTOS
+        ========================================================= */
+
+        const buscador =
+            document.getElementById("buscador");
+
+
+        const clearSearch =
+            document.getElementById("clearSearch");
+
+
+        const sidebar =
+            document.getElementById("sidebar");
+
+
+        const sidebarOverlay =
+            document.getElementById("sidebarOverlay");
+
+
+        const backToTop =
+            document.getElementById("backToTop");
 
 
         /* =========================================================
@@ -2016,47 +2528,40 @@
 
 
             const headerStatus =
-                document.getElementById("headerStatus");
-
-
-            loading.classList.add("active");
-
-
-            status.textContent =
-                "Cargando documentación...";
-
-
-            headerStatus.textContent =
-                "Cargando...";
-
-
-            estado.textContent =
-                "...";
+                document.getElementById("headerStatusText");
 
 
             try {
 
+                loading.classList.add("active");
+
+
+                status.textContent =
+                    "Cargando documentación...";
+
+
+                headerStatus.textContent =
+                    "Cargando...";
+
+
+                estado.textContent =
+                    "...";
+
+
                 /*
-                 * PRIMERO:
-                 * Intentamos index.json
+                 * Primero intentamos cargar index.json.
                  */
 
-                let cargado =
+                const cargadoDesdeIndex =
                     await cargarDesdeIndex();
 
 
                 /*
-                 * SEGUNDO:
-                 * Si index.json no existe o está mal,
-                 * usamos GitHub.
+                 * Si no existe index.json,
+                 * buscamos directamente en GitHub.
                  */
 
-                if (!cargado) {
-
-                    console.log(
-                        "index.json no disponible. Cargando desde GitHub..."
-                    );
-
+                if (!cargadoDesdeIndex) {
 
                     await cargarDocumentosGitHub();
 
@@ -2064,10 +2569,8 @@
 
 
                 /*
-                 * TERCERO:
-                 * Cargamos README.
-                 *
-                 * Si falla, NO rompemos la página.
+                 * README es opcional.
+                 * Si falla, no detenemos el manual.
                  */
 
                 try {
@@ -2077,22 +2580,16 @@
                 } catch (error) {
 
                     console.warn(
-                        "No se pudo cargar README.md:",
+                        "README.md no disponible:",
                         error
                     );
 
-
                     categorias = [];
-
 
                     mostrarCategorias();
 
                 }
 
-
-                /*
-                 * ACTUALIZAR CONTADORES
-                 */
 
                 document.getElementById(
                     "cantidad-documentos"
@@ -2106,10 +2603,6 @@
                     categorias.length;
 
 
-                /*
-                 * ESTADO
-                 */
-
                 estado.textContent =
                     "OK";
 
@@ -2122,19 +2615,12 @@
                     `${documentos.length} documentos disponibles`;
 
 
-                /*
-                 * MOSTRAR DOCUMENTOS
-                 */
-
                 mostrarDocumentosIniciales();
 
 
             } catch (error) {
 
-                console.error(
-                    "Error general:",
-                    error
-                );
+                console.error(error);
 
 
                 estado.textContent =
@@ -2155,15 +2641,17 @@
 
                     <div class="empty">
 
+                        <div class="empty-icon">
+                            ⚠️
+                        </div>
+
                         <div class="empty-title">
                             No se pudo cargar la documentación
                         </div>
 
                         <br>
 
-                        ${escapeHTML(
-                            error.message
-                        )}
+                        ${escapeHTML(error.message)}
 
                     </div>
 
@@ -2171,9 +2659,7 @@
 
             } finally {
 
-                loading.classList.remove(
-                    "active"
-                );
+                loading.classList.remove("active");
 
             }
 
@@ -2181,7 +2667,7 @@
 
 
         /* =========================================================
-           CARGAR INDEX.JSON
+           INDEX.JSON
         ========================================================= */
 
         async function cargarDesdeIndex() {
@@ -2199,11 +2685,6 @@
 
                 if (!respuesta.ok) {
 
-                    console.warn(
-                        "index.json respondió:",
-                        respuesta.status
-                    );
-
                     return false;
 
                 }
@@ -2214,10 +2695,6 @@
 
 
                 if (!Array.isArray(data)) {
-
-                    console.warn(
-                        "index.json no contiene un array."
-                    );
 
                     return false;
 
@@ -2236,9 +2713,13 @@
 
                                 nombre:
                                     documento.nombre ||
-                                    obtenerNombreArchivo(
-                                        documento.path
-                                    ),
+                                    documento.path
+                                        .split("/")
+                                        .pop()
+                                        .replace(
+                                            /\.md$/i,
+                                            ""
+                                        ),
 
                                 path:
                                     documento.path,
@@ -2249,22 +2730,24 @@
 
                                 url:
                                     documento.url ||
-                                    `${RAW_URL}${codificarRuta(
-                                        documento.path
-                                    )}`
+                                    `${RAW_URL}${documento.path}`
 
                             })
                         );
 
 
-                documentos =
-                    eliminarDuplicados(
-                        documentos
-                    );
+                documentos.sort(
+                    (a, b) =>
+                        a.nombre.localeCompare(
+                            b.nombre,
+                            "es"
+                        )
+                );
 
 
                 console.log(
-                    `Cargados ${documentos.length} documentos desde index.json`
+                    "Documentación cargada desde index.json:",
+                    documentos.length
                 );
 
 
@@ -2278,7 +2761,6 @@
                     error
                 );
 
-
                 return false;
 
             }
@@ -2287,24 +2769,19 @@
 
 
         /* =========================================================
-           CARGAR DOCUMENTOS DESDE GITHUB
+           GITHUB
         ========================================================= */
 
         async function cargarDocumentosGitHub() {
 
             const respuesta =
-                await fetch(
-                    DOC_API,
-                    {
-                        cache: "no-store"
-                    }
-                );
+                await fetch(API);
 
 
             if (!respuesta.ok) {
 
                 throw new Error(
-                    `GitHub no pudo cargar la carpeta doc. Código: ${respuesta.status}`
+                    `GitHub API respondió ${respuesta.status}`
                 );
 
             }
@@ -2321,10 +2798,6 @@
                 archivos
             );
 
-
-            /*
-             * Descargar contenido de los documentos.
-             */
 
             await Promise.all(
 
@@ -2355,7 +2828,7 @@
                         } catch (error) {
 
                             console.warn(
-                                "No se pudo descargar:",
+                                "No se pudo cargar:",
                                 documento.path
                             );
 
@@ -2371,19 +2844,12 @@
             );
 
 
-            documentos =
-                eliminarDuplicados(
-                    documentos
-                );
-
-
             documentos.sort(
-                ordenarDocumentos
-            );
-
-
-            console.log(
-                `Cargados ${documentos.length} documentos desde GitHub`
+                (a, b) =>
+                    a.nombre.localeCompare(
+                        b.nombre,
+                        "es"
+                    )
             );
 
         }
@@ -2401,18 +2867,12 @@
                 const archivo of archivos
             ) {
 
-                /*
-                 * ARCHIVO MARKDOWN
-                 */
 
                 if (
-
                     archivo.type === "file" &&
-
                     archivo.name
                         .toLowerCase()
                         .endsWith(".md")
-
                 ) {
 
                     documentos.push({
@@ -2427,13 +2887,10 @@
                             archivo.path,
 
                         url:
-                            archivo.download_url ||
-                            `${RAW_URL}${codificarRuta(
-                                archivo.path
-                            )}`,
+                            archivo.download_url,
 
                         contenido:
-                            ""
+                            null
 
                     });
 
@@ -2442,10 +2899,6 @@
 
                 }
 
-
-                /*
-                 * CARPETA
-                 */
 
                 if (
                     archivo.type === "dir"
@@ -2490,20 +2943,16 @@
 
 
         /* =========================================================
-           CARGAR README
+           CATEGORÍAS README
         ========================================================= */
 
         async function cargarCategorias() {
 
             const respuesta =
                 await fetch(
-                    README_API,
+                    `${README_URL}?v=${Date.now()}`,
                     {
-                        cache: "no-store",
-                        headers: {
-                            "Accept":
-                                "application/vnd.github+json"
-                        }
+                        cache: "no-store"
                     }
                 );
 
@@ -2511,34 +2960,14 @@
             if (!respuesta.ok) {
 
                 throw new Error(
-                    `GitHub no pudo cargar README.md. Código: ${respuesta.status}`
+                    "No se pudo cargar README.md"
                 );
 
             }
 
-
-            const data =
-                await respuesta.json();
-
-
-            if (!data.content) {
-
-                throw new Error(
-                    "GitHub no devolvió el contenido del README."
-                );
-
-            }
-
-
-            /*
-             * GitHub devuelve README codificado
-             * en Base64.
-             */
 
             readmeCache =
-                decodificarBase64(
-                    data.content
-                );
+                await respuesta.text();
 
 
             categorias =
@@ -2549,77 +2978,11 @@
 
             mostrarCategorias();
 
-
-            console.log(
-                `Cargadas ${categorias.length} categorías desde README.md`
-            );
-
         }
 
 
         /* =========================================================
-           DECODIFICAR README BASE64
-        ========================================================= */
-
-        function decodificarBase64(
-            contenido
-        ) {
-
-            try {
-
-                const limpio =
-                    contenido.replace(
-                        /\s/g,
-                        ""
-                    );
-
-
-                const binario =
-                    atob(limpio);
-
-
-                const bytes =
-                    new Uint8Array(
-                        binario.length
-                    );
-
-
-                for (
-                    let i = 0;
-                    i < binario.length;
-                    i++
-                ) {
-
-                    bytes[i] =
-                        binario.charCodeAt(i);
-
-                }
-
-
-                return new TextDecoder(
-                    "utf-8"
-                ).decode(
-                    bytes
-                );
-
-
-            } catch (error) {
-
-                console.error(
-                    "Error decodificando README:",
-                    error
-                );
-
-
-                return "";
-
-            }
-
-        }
-
-
-        /* =========================================================
-           OBTENER CATEGORÍAS DEL README
+           OBTENER CATEGORÍAS
         ========================================================= */
 
         function obtenerCategorias(
@@ -2629,36 +2992,21 @@
             const resultado = [];
 
             const lineas =
-                markdown.split(/\r?\n/);
+                markdown.split("\n");
 
 
             let categoriaActual =
                 null;
 
 
-            let importantNext =
-                false;
-
-
             for (
-                let i = 0;
-                i < lineas.length;
-                i++
+                const linea of lineas
             ) {
 
-                const linea =
-                    lineas[i];
-
-
-                /*
-                 * CATEGORÍA
-                 *
-                 * ## Atención al cliente
-                 */
 
                 const categoria =
                     linea.match(
-                        /^##\s+(.+?)\s*$/
+                        /^##\s+(.+)$/
                     );
 
 
@@ -2679,10 +3027,6 @@
                     );
 
 
-                    importantNext =
-                        false;
-
-
                     continue;
 
                 }
@@ -2693,33 +3037,9 @@
                 }
 
 
-                /*
-                 * DETECTAR [!Important]
-                 */
-
-                if (
-                    /^\s*>\s*\[!Important\]\s*$/i.test(
-                        linea
-                    )
-                ) {
-
-                    importantNext =
-                        true;
-
-                    continue;
-
-                }
-
-
-                /*
-                 * DOCUMENTO NORMAL
-                 *
-                 * - [Nombre](./doc/archivo.md)
-                 */
-
                 const enlace =
                     linea.match(
-                        /^\s*[-*]\s+\[([^\]]+)\]\((.+)\)\s*$/
+                        /^\s*[-*]\s+\[([^\]]+)\]\((.+)\)$/
                     );
 
 
@@ -2732,7 +3052,7 @@
 
                         ruta:
                             limpiarRutaREADME(
-                                enlace[2]
+                                enlace[2].trim()
                             ),
 
                         importante:
@@ -2741,24 +3061,14 @@
                     });
 
 
-                    importantNext =
-                        false;
-
-
                     continue;
 
                 }
 
 
-                /*
-                 * DOCUMENTO IMPORTANT
-                 *
-                 * > [Nombre](./doc/archivo.md)
-                 */
-
                 const enlaceImportante =
                     linea.match(
-                        /^\s*>\s*\[([^\]]+)\]\((.+)\)\s*$/
+                        /^\s*>\s*\[([^\]]+)\]\((.+)\)$/
                     );
 
 
@@ -2771,61 +3081,13 @@
 
                         ruta:
                             limpiarRutaREADME(
-                                enlaceImportante[2]
+                                enlaceImportante[2].trim()
                             ),
 
                         importante:
                             true
 
                     });
-
-
-                    importantNext =
-                        false;
-
-
-                    continue;
-
-                }
-
-
-                /*
-                 * Por si [!Important] aparece
-                 * y el enlace está en la línea siguiente.
-                 */
-
-                if (
-                    importantNext
-                ) {
-
-                    const enlaceDespues =
-                        linea.match(
-                            /^\s*>\s*\[([^\]]+)\]\((.+)\)\s*$/
-                        );
-
-
-                    if (enlaceDespues) {
-
-                        categoriaActual.documentos.push({
-
-                            nombre:
-                                enlaceDespues[1].trim(),
-
-                            ruta:
-                                limpiarRutaREADME(
-                                    enlaceDespues[2]
-                                ),
-
-                            importante:
-                                true
-
-                        });
-
-
-                        importantNext =
-                            false;
-
-                    }
 
                 }
 
@@ -2851,49 +3113,12 @@
                 ).trim();
 
 
-            /*
-             * Quitar <>
-             */
-
-            resultado =
-                resultado.replace(
-                    /^<|>$/g,
-                    ""
-                );
-
-
-            /*
-             * Quitar escapes Markdown
-             */
-
             resultado =
                 resultado.replace(
                     /\\([()[\]])/g,
                     "$1"
                 );
 
-
-            /*
-             * Si es URL completa de GitHub
-             */
-
-            const githubMatch =
-                resultado.match(
-                    /github\.com\/[^/]+\/[^/]+\/(?:blob|tree)\/[^/]+\/(.+)$/i
-                );
-
-
-            if (githubMatch) {
-
-                resultado =
-                    githubMatch[1];
-
-            }
-
-
-            /*
-             * Decodificar URL
-             */
 
             try {
 
@@ -2902,19 +3127,8 @@
                         resultado
                     );
 
-            } catch (error) {
+            } catch (error) {}
 
-                console.warn(
-                    "No se pudo decodificar:",
-                    resultado
-                );
-
-            }
-
-
-            /*
-             * Quitar ./ inicial
-             */
 
             resultado =
                 resultado.replace(
@@ -2922,11 +3136,6 @@
                     ""
                 );
 
-
-            /*
-             * Quitar doc/ para
-             * comparaciones internas
-             */
 
             resultado =
                 resultado.replace(
@@ -2964,7 +3173,7 @@
                     <div class="nav-item">
 
                         <span class="category-icon">
-                            📁
+                            📄
                         </span>
 
                         Sin categorías
@@ -2973,7 +3182,6 @@
 
                 `;
 
-
                 return;
 
             }
@@ -2981,6 +3189,7 @@
 
             categorias.forEach(
                 categoria => {
+
 
                     const categoriaElemento =
                         document.createElement(
@@ -3089,7 +3298,7 @@
 
 
         /* =========================================================
-           AGREGAR DOCUMENTO AL SIDEBAR
+           DOCUMENTO SIDEBAR
         ========================================================= */
 
         function agregarDocumentoSidebar(
@@ -3131,13 +3340,11 @@
                 </span>
 
                 <span>
-
                     ${escapeHTML(
                         limpiarEmoji(
                             documento.nombre
                         )
                     )}
-
                 </span>
 
             `;
@@ -3147,34 +3354,9 @@
                 "click",
                 () => {
 
-                    const encontrado =
-                        encontrarDocumento(
-                            documento.ruta,
-                            documento.nombre
-                        );
-
-
-                    if (encontrado) {
-
-                        abrirDocumento(
-                            encontrado.path
-                        );
-
-
-                    } else {
-
-                        console.warn(
-                            "Documento no encontrado:",
-                            documento
-                        );
-
-
-                        alert(
-                            "No se encontró el documento:\n\n" +
-                            documento.nombre
-                        );
-
-                    }
+                    buscarYMostrarDocumento(
+                        documento
+                    );
 
                 }
             );
@@ -3188,126 +3370,103 @@
 
 
         /* =========================================================
-           ENCONTRAR DOCUMENTO
+           BUSCAR DOCUMENTO DEL README
         ========================================================= */
 
-        function encontrarDocumento(
-            ruta,
-            nombre
+        function buscarYMostrarDocumento(
+            documento
         ) {
 
-            const rutaNormalizada =
-                normalizarRuta(
-                    ruta
+            const ruta =
+                limpiarRutaREADME(
+                    documento.ruta
                 );
 
-
-            /*
-             * 1. Coincidencia exacta
-             */
 
             let encontrado =
                 documentos.find(
-                    documento =>
+                    item =>
                         normalizarRuta(
-                            documento.path
+                            item.path
                         ) ===
-                        rutaNormalizada
+                        normalizarRuta(
+                            ruta
+                        )
                 );
 
 
-            if (encontrado) {
-                return encontrado;
-            }
+            if (!encontrado) {
+
+                encontrado =
+                    documentos.find(
+                        item => {
+
+                            const itemPath =
+                                normalizarRuta(
+                                    item.path
+                                );
 
 
-            /*
-             * 2. Comparar agregando doc/
-             */
+                            const rutaLimpia =
+                                normalizarRuta(
+                                    ruta
+                                );
 
-            encontrado =
-                documentos.find(
-                    documento => {
 
-                        const item =
-                            normalizarRuta(
-                                documento.path
+                            return (
+                                itemPath ===
+                                `doc/${rutaLimpia}`
                             );
 
+                        }
+                    );
 
-                        return (
-                            item ===
-                            `doc/${rutaNormalizada}`
-                        );
-
-                    }
-                );
-
-
-            if (encontrado) {
-                return encontrado;
             }
 
 
-            /*
-             * 3. Comparar solo nombre
-             */
+            if (!encontrado) {
 
-            const nombreBuscado =
-                normalizarNombre(
-                    nombre
-                );
-
-
-            encontrado =
-                documentos.find(
-                    documento =>
-                        normalizarNombre(
-                            documento.nombre
-                        ) ===
-                        nombreBuscado
-                );
+                const nombreBuscado =
+                    documento.nombre
+                        .replace(
+                            /\.md$/i,
+                            ""
+                        )
+                        .trim()
+                        .toLowerCase();
 
 
-            if (encontrado) {
-                return encontrado;
+                encontrado =
+                    documentos.find(
+                        item =>
+                            item.nombre
+                                .replace(
+                                    /\.md$/i,
+                                    ""
+                                )
+                                .trim()
+                                .toLowerCase() ===
+                            nombreBuscado
+                    );
+
             }
 
 
-            /*
-             * 4. Comparar último segmento
-             */
+            if (encontrado) {
 
-            const ultimoSegmento =
-                rutaNormalizada
-                    .split("/")
-                    .pop();
-
-
-            encontrado =
-                documentos.find(
-                    documento => {
-
-                        const item =
-                            normalizarRuta(
-                                documento.path
-                            );
-
-
-                        return (
-                            item.endsWith(
-                                "/" +
-                                ultimoSegmento
-                            ) ||
-                            item ===
-                            ultimoSegmento
-                        );
-
-                    }
+                abrirDocumento(
+                    encontrado.path
                 );
 
+                return;
 
-            return encontrado || null;
+            }
+
+
+            alert(
+                "No se encontró el documento:\n\n" +
+                documento.nombre
+            );
 
         }
 
@@ -3319,25 +3478,18 @@
         function mostrarDocumentosIniciales() {
 
             const resultados =
-                documentos
-                    .slice()
-                    .sort(
-                        ordenarDocumentos
-                    )
-                    .map(
-                        documento => ({
+                documentos.map(
+                    documento => ({
 
-                            documento,
+                        documento,
 
-                            contenido:
-                                documento.contenido ||
-                                "",
+                        contenido:
+                            documento.contenido || "",
 
-                            puntos:
-                                0
+                        puntos: 0
 
-                        })
-                    );
+                    })
+                );
 
 
             mostrarResultados(
@@ -3354,18 +3506,6 @@
         /* =========================================================
            BUSCADOR
         ========================================================= */
-
-        const buscador =
-            document.getElementById(
-                "buscador"
-            );
-
-
-        const clearSearch =
-            document.getElementById(
-                "clearSearch"
-            );
-
 
         buscador.addEventListener(
             "input",
@@ -3430,7 +3570,6 @@
 
                 buscador.value = "";
 
-
                 clearSearch.style.display =
                     "none";
 
@@ -3472,19 +3611,17 @@
             ) {
 
                 const contenido =
-                    documento.contenido ||
-                    "";
+                    documento.contenido || "";
 
 
-                const textoBusqueda = (
-
-                    documento.nombre +
-                    " " +
-                    documento.path +
-                    " " +
-                    contenido
-
-                ).toLowerCase();
+                const textoBusqueda =
+                    (
+                        documento.nombre +
+                        " " +
+                        documento.path +
+                        " " +
+                        contenido
+                    ).toLowerCase();
 
 
                 let puntos = 0;
@@ -3508,8 +3645,7 @@
 
 
                 if (
-                    puntos ===
-                    palabras.length
+                    puntos === palabras.length
                 ) {
 
                     resultados.push({
@@ -3593,10 +3729,9 @@
 
                     <div class="empty">
 
-                        🔎
-
-                        <br>
-                        <br>
+                        <div class="empty-icon">
+                            🔎
+                        </div>
 
                         <div class="empty-title">
                             No encontramos resultados
@@ -3607,8 +3742,7 @@
                         No existe ningún documento
                         que contenga:
 
-                        <br>
-                        <br>
+                        <br><br>
 
                         <strong>
                             "${escapeHTML(texto)}"
@@ -3618,7 +3752,6 @@
 
                 `;
 
-
                 return;
 
             }
@@ -3626,6 +3759,7 @@
 
             resultados.forEach(
                 resultado => {
+
 
                     const fragmento =
                         obtenerFragmento(
@@ -3648,7 +3782,9 @@
 
                         <div class="result-title">
 
-                            <span class="result-title-icon">
+                            <span
+                                class="result-title-icon"
+                            >
                                 📄
                             </span>
 
@@ -3685,7 +3821,7 @@
                             <button
                                 type="button"
                             >
-                                Leer documento
+                                Leer documento →
                             </button>
 
                         </div>
@@ -3728,9 +3864,7 @@
         ) {
 
             const limpio =
-                String(
-                    contenido || ""
-                )
+                contenido
                     .replace(
                         /[#>*_`]/g,
                         " "
@@ -3804,11 +3938,6 @@
                 );
 
 
-            if (!busqueda) {
-                return resultado;
-            }
-
-
             const palabras =
                 busqueda
                     .split(/\s+/)
@@ -3862,13 +3991,6 @@
                 "block";
 
 
-            document.getElementById(
-                "navInicio"
-            ).classList.remove(
-                "active"
-            );
-
-
             const contenido =
                 document.getElementById(
                     "contenidoDocumento"
@@ -3882,8 +4004,7 @@
             const documento =
                 documentos.find(
                     item =>
-                        item.path ===
-                        path
+                        item.path === path
                 );
 
 
@@ -3893,6 +4014,10 @@
 
                     <div class="empty">
 
+                        <div class="empty-icon">
+                            ⚠️
+                        </div>
+
                         <div class="empty-title">
                             Documento no encontrado
                         </div>
@@ -3900,7 +4025,6 @@
                     </div>
 
                 `;
-
 
                 return;
 
@@ -3910,8 +4034,7 @@
             try {
 
                 const markdown =
-                    documento.contenido ||
-                    "";
+                    documento.contenido || "";
 
 
                 contenido.innerHTML =
@@ -3920,9 +4043,9 @@
                     );
 
 
-                /*
-                 * IMÁGENES
-                 */
+                /* =================================================
+                   IMÁGENES
+                ================================================= */
 
                 contenido
                     .querySelectorAll("img")
@@ -3944,10 +4067,6 @@
                                 src.trim();
 
 
-                            /*
-                             * URL absoluta
-                             */
-
                             if (
                                 src.startsWith(
                                     "http://"
@@ -3961,11 +4080,6 @@
                                     src;
 
                             }
-
-
-                            /*
-                             * URL relativa
-                             */
 
                             else {
 
@@ -3987,6 +4101,20 @@
                                     );
 
 
+                                imagen =
+                                    imagen.replace(
+                                        /^doc\/imagenes\//i,
+                                        ""
+                                    );
+
+
+                                imagen =
+                                    imagen.replace(
+                                        /^imagenes\//i,
+                                        ""
+                                    );
+
+
                                 try {
 
                                     imagen =
@@ -3997,48 +4125,25 @@
                                 } catch (error) {}
 
 
-                                /*
-                                 * Si la imagen viene
-                                 * dentro de doc/
-                                 */
+                                img.src =
+                                    `${RAW_URL}doc/imagenes/${imagen}`;
 
-                                if (
-                                    imagen
-                                        .toLowerCase()
-                                        .startsWith(
-                                            "doc/"
-                                        )
-                                ) {
-
-                                    imagen =
-                                        imagen.substring(
-                                            4
-                                        );
-
-                                }
+                            }
 
 
-                                /*
-                                 * Imágenes del manual
-                                 */
+                            let alt =
+                                img.getAttribute(
+                                    "alt"
+                                );
 
-                                if (
-                                    imagen
-                                        .toLowerCase()
-                                        .startsWith(
-                                            "imagenes/"
-                                        )
-                                ) {
 
-                                    img.src =
-                                        `${RAW_URL}doc/${imagen}`;
+                            if (
+                                !alt ||
+                                !alt.trim()
+                            ) {
 
-                                } else {
-
-                                    img.src =
-                                        `${RAW_URL}doc/imagenes/${imagen}`;
-
-                                }
+                                alt =
+                                    "Imagen";
 
                             }
 
@@ -4054,6 +4159,12 @@
 
 
                             img.setAttribute(
+                                "alt",
+                                alt
+                            );
+
+
+                            img.setAttribute(
                                 "loading",
                                 "lazy"
                             );
@@ -4065,26 +4176,20 @@
                             );
 
 
-                            img.style.maxWidth =
-                                "100%";
-
-
-                            img.style.height =
-                                "auto";
-
-
-                            img.style.cursor =
-                                "zoom-in";
-
-
                             img.addEventListener(
                                 "click",
                                 () => {
 
-                                    window.open(
-                                        img.src,
-                                        "_blank"
-                                    );
+                                    if (
+                                        img.src
+                                    ) {
+
+                                        window.open(
+                                            img.src,
+                                            "_blank"
+                                        );
+
+                                    }
 
                                 }
                             );
@@ -4093,9 +4198,9 @@
                     );
 
 
-                /*
-                 * LINKS
-                 */
+                /* =================================================
+                   LINKS
+                ================================================= */
 
                 contenido
                     .querySelectorAll("a")
@@ -4112,43 +4217,33 @@
                     );
 
 
-                /*
-                 * LINK GITHUB
-                 */
+                /* =================================================
+                   LINK GITHUB
+                ================================================= */
 
                 document.getElementById(
                     "linkGithub"
                 ).href =
                     GITHUB_URL +
-                    codificarRuta(
-                        path
-                    );
+                    path
+                        .split("/")
+                        .map(
+                            encodeURIComponent
+                        )
+                        .join("/");
 
 
-                /*
-                 * ARRIBA
-                 */
+                /* =================================================
+                   ARRIBA
+                ================================================= */
 
-                window.scrollTo(
-                    {
-                        top: 0,
-                        behavior: "smooth"
-                    }
-                );
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                });
 
 
-                /*
-                 * CERRAR SIDEBAR
-                 */
-
-                document
-                    .getElementById(
-                        "sidebar"
-                    )
-                    .classList
-                    .remove(
-                        "open"
-                    );
+                cerrarSidebar();
 
 
             } catch (error) {
@@ -4161,6 +4256,10 @@
                 contenido.innerHTML = `
 
                     <div class="empty">
+
+                        <div class="empty-icon">
+                            ⚠️
+                        </div>
 
                         <div class="empty-title">
                             No se pudo cargar el documento
@@ -4206,12 +4305,23 @@
             );
 
 
-            window.scrollTo(
-                {
-                    top: 0,
-                    behavior: "smooth"
-                }
+            document.getElementById(
+                "navBuscar"
+            ).classList.remove(
+                "active"
             );
+
+
+            window.scrollTo({
+
+                top: 0,
+
+                behavior: "smooth"
+
+            });
+
+
+            cerrarSidebar();
 
         }
 
@@ -4223,6 +4333,13 @@
         function activarBusqueda() {
 
             inicio();
+
+
+            document.getElementById(
+                "navInicio"
+            ).classList.remove(
+                "active"
+            );
 
 
             document.getElementById(
@@ -4251,10 +4368,6 @@
                 );
 
 
-            /*
-             * Decodificar URL
-             */
-
             try {
 
                 resultado =
@@ -4265,20 +4378,12 @@
             } catch (error) {}
 
 
-            /*
-             * Quitar escapes Markdown
-             */
-
             resultado =
                 resultado.replace(
                     /\\([()[\]])/g,
                     "$1"
                 );
 
-
-            /*
-             * Quitar ./ 
-             */
 
             resultado =
                 resultado.replace(
@@ -4287,22 +4392,6 @@
                 );
 
 
-            /*
-             * Normalizar barras
-             */
-
-            resultado =
-                resultado.replace(
-                    /\\/g,
-                    "/"
-                );
-
-
-            /*
-             * Quitar doc/ para
-             * comparación consistente
-             */
-
             resultado =
                 resultado.replace(
                     /^doc\//i,
@@ -4310,148 +4399,16 @@
                 );
 
 
+            resultado =
+                resultado.replace(
+                    /\/+/g,
+                    "/"
+                );
+
+
             return resultado
                 .trim()
                 .toLowerCase();
-
-        }
-
-
-        /* =========================================================
-           NORMALIZAR NOMBRE
-        ========================================================= */
-
-        function normalizarNombre(
-            nombre
-        ) {
-
-            return String(
-                nombre || ""
-            )
-                .replace(
-                    /\.md$/i,
-                    ""
-                )
-                .trim()
-                .toLowerCase();
-
-        }
-
-
-        /* =========================================================
-           CODIFICAR RUTA PARA URL
-        ========================================================= */
-
-        function codificarRuta(
-            ruta
-        ) {
-
-            return String(
-                ruta || ""
-            )
-                .split("/")
-                .map(
-                    parte =>
-                        encodeURIComponent(
-                            parte
-                        )
-                )
-                .join("/");
-
-        }
-
-
-        /* =========================================================
-           OBTENER NOMBRE DE ARCHIVO
-        ========================================================= */
-
-        function obtenerNombreArchivo(
-            path
-        ) {
-
-            const partes =
-                String(
-                    path || ""
-                )
-                    .split("/");
-
-
-            const nombre =
-                partes[
-                    partes.length - 1
-                ] || "";
-
-
-            return nombre.replace(
-                /\.md$/i,
-                ""
-            );
-
-        }
-
-
-        /* =========================================================
-           ELIMINAR DUPLICADOS
-        ========================================================= */
-
-        function eliminarDuplicados(
-            lista
-        ) {
-
-            const mapa =
-                new Map();
-
-
-            lista.forEach(
-                documento => {
-
-                    const clave =
-                        normalizarRuta(
-                            documento.path
-                        );
-
-
-                    if (
-                        !mapa.has(
-                            clave
-                        )
-                    ) {
-
-                        mapa.set(
-                            clave,
-                            documento
-                        );
-
-                    }
-
-                }
-            );
-
-
-            return Array.from(
-                mapa.values()
-            );
-
-        }
-
-
-        /* =========================================================
-           ORDENAR DOCUMENTOS
-        ========================================================= */
-
-        function ordenarDocumentos(
-            a,
-            b
-        ) {
-
-            return String(
-                a.nombre || ""
-            ).localeCompare(
-                String(
-                    b.nombre || ""
-                ),
-                "es"
-            );
 
         }
 
@@ -4464,9 +4421,7 @@
             texto
         ) {
 
-            return String(
-                texto || ""
-            )
+            return String(texto)
 
                 .replace(
                     /[\u{1F300}-\u{1FAFF}]/gu,
@@ -4486,9 +4441,7 @@
             texto
         ) {
 
-            return String(
-                texto ?? ""
-            )
+            return String(texto)
 
                 .replace(
                     /&/g,
@@ -4526,9 +4479,7 @@
             texto
         ) {
 
-            return String(
-                texto || ""
-            )
+            return String(texto)
                 .replace(
                     /[.*+?^${}()|[\]\\]/g,
                     "\\$&"
@@ -4538,7 +4489,7 @@
 
 
         /* =========================================================
-           MENÚ MÓVIL
+           MENÚ
         ========================================================= */
 
         document
@@ -4549,17 +4500,46 @@
                 "click",
                 () => {
 
-                    document
-                        .getElementById(
-                            "sidebar"
-                        )
+                    sidebar
                         .classList
                         .toggle(
                             "open"
                         );
 
+
+                    sidebarOverlay
+                        .classList
+                        .toggle(
+                            "show"
+                        );
+
                 }
             );
+
+
+        sidebarOverlay
+            .addEventListener(
+                "click",
+                cerrarSidebar
+            );
+
+
+        function cerrarSidebar() {
+
+            sidebar
+                .classList
+                .remove(
+                    "open"
+                );
+
+
+            sidebarOverlay
+                .classList
+                .remove(
+                    "show"
+                );
+
+        }
 
 
         /* =========================================================
@@ -4601,51 +4581,6 @@
                                         ? "block"
                                         : "none";
 
-
-                                /*
-                                 * Si estamos buscando,
-                                 * abrir automáticamente
-                                 * las categorías encontradas.
-                                 */
-
-                                if (
-                                    texto &&
-                                    visible
-                                ) {
-
-                                    const contenido =
-                                        categoria
-                                            .querySelector(
-                                                ".sidebar-category-content"
-                                            );
-
-
-                                    const titulo =
-                                        categoria
-                                            .querySelector(
-                                                ".sidebar-category-title"
-                                            );
-
-
-                                    if (contenido) {
-
-                                        contenido.classList.add(
-                                            "open"
-                                        );
-
-                                    }
-
-
-                                    if (titulo) {
-
-                                        titulo.classList.add(
-                                            "expanded"
-                                        );
-
-                                    }
-
-                                }
-
                             }
                         );
 
@@ -4654,47 +4589,73 @@
 
 
         /* =========================================================
-           BOTÓN SUBIR ARRIBA
+           BOTÓN VOLVER ARRIBA
         ========================================================= */
 
-       <button
-    id="backToTop"
-    class="back-to-top"
-    type="button"
-    title="Volver arriba"
-    aria-label="Volver arriba"
->
-    ↑
-</button>
+        window.addEventListener(
+            "scroll",
+            () => {
 
-        // =========================================================
-// BOTÓN VOLVER ARRIBA
-// =========================================================
+                if (
+                    window.scrollY >
+                    300
+                ) {
 
-const backToTop = document.getElementById("backToTop");
+                    backToTop
+                        .classList
+                        .add(
+                            "visible"
+                        );
 
-window.addEventListener("scroll", function () {
+                } else {
 
-    if (window.scrollY > 300) {
+                    backToTop
+                        .classList
+                        .remove(
+                            "visible"
+                        );
 
-        backToTop.classList.add("visible");
+                }
 
-    } else {
+            }
+        );
 
-        backToTop.classList.remove("visible");
 
-    }
+        backToTop.addEventListener(
+            "click",
+            () => {
 
-});
+                window.scrollTo({
 
-backToTop.addEventListener("click", function () {
+                    top: 0,
 
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-    });
+                    behavior: "smooth"
 
-});
+                });
+
+            }
+        );
+
+
+        /* =========================================================
+           TECLA ESC
+        ========================================================= */
+
+        document.addEventListener(
+            "keydown",
+            event => {
+
+                if (
+                    event.key === "Escape"
+                ) {
+
+                    cerrarSidebar();
+
+                }
+
+            }
+        );
+
 
         /* =========================================================
            INICIAR
