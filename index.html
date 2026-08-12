@@ -1,1243 +1,1807 @@
 <!DOCTYPE html>
-
 <html lang="es">
 
 <head>
 
-```
-<meta charset="UTF-8">
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Ethernet App - Manual Operativo</title>
-
-<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-
-<style>
-
-    :root {
-        --background: #272727;
-        --sidebar: #1b1b1b;
-        --header: #191919;
-        --panel: #292929;
-        --panel-hover: #303030;
-        --input: #343434;
-        --border: #454545;
-        --text: #f5f5f5;
-        --text-secondary: #a0a0a0;
-        --text-muted: #777777;
-        --blue: #5bc0eb;
-        --blue-dark: #3ca8d1;
-        --blue-light: rgba(91, 192, 235, .12);
-    }
-
-    * {
-        box-sizing: border-box;
-    }
-
-    html {
-        scroll-behavior: smooth;
-    }
-
-    body {
-        margin: 0;
-        font-family: Arial, Helvetica, sans-serif;
-        background: var(--background);
-        color: var(--text);
-    }
-
-    button,
-    input {
-        font-family: inherit;
-    }
-
-    ::-webkit-scrollbar {
-        width: 7px;
-        height: 7px;
-    }
-
-    ::-webkit-scrollbar-track {
-        background: #1e1e1e;
-    }
-
-    ::-webkit-scrollbar-thumb {
-        background: #555;
-        border-radius: 10px;
-    }
-
-    ::-webkit-scrollbar-thumb:hover {
-        background: #666;
-    }
-
-    /* HEADER */
-
-    .header {
-        position: fixed;
-        left: 0;
-        right: 0;
-        top: 0;
-        height: 66px;
-        z-index: 100;
-        background: var(--header);
-        border-bottom: 1px solid #3b3b3b;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 0 18px;
-    }
-
-    .header-left {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-    }
-
-    .menu-button {
-        width: 40px;
-        height: 40px;
-        border: none;
-        border-radius: 6px;
-        background: #303030;
-        color: white;
-        font-size: 20px;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .menu-button:hover {
-        background: #3a3a3a;
-    }
-
-    .brand {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-    }
-
-    .brand-logo {
-        width: 32px;
-        height: 32px;
-        object-fit: contain;
-    }
-
-    .brand-name {
-        font-size: 16px;
-        font-weight: bold;
-        color: white;
-    }
-
-    .header-right {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-    }
-
-    .header-status {
-        padding: 9px 13px;
-        border-radius: 6px;
-        background: var(--blue);
-        color: #10202a;
-        font-size: 12px;
-        font-weight: bold;
-    }
-
-    .github-button {
-        padding: 9px 13px;
-        border: 1px solid var(--border);
-        border-radius: 6px;
-        background: #292929;
-        color: #d5d5d5;
-        text-decoration: none;
-        font-size: 12px;
-        transition: .15s;
-    }
-
-    .github-button:hover {
-        border-color: var(--blue);
-        color: var(--blue);
-    }
-
-    /* SIDEBAR */
-
-    .sidebar {
-        position: fixed;
-        left: 0;
-        top: 66px;
-        bottom: 0;
-        width: 270px;
-        z-index: 90;
-        background: var(--sidebar);
-        border-right: 1px solid #3d3d3d;
-        overflow-y: auto;
-        transition: transform .2s ease;
-    }
-
-    .sidebar-section {
-        padding: 20px 14px 8px;
-        color: #777;
-        font-size: 10px;
-        font-weight: bold;
-        text-transform: uppercase;
-        letter-spacing: .3px;
-    }
-
-    .sidebar-search {
-        padding: 0 14px 12px;
-    }
-
-    .sidebar-search input {
-        width: 100%;
-        padding: 9px 10px;
-        border: none;
-        outline: none;
-        border-radius: 5px;
-        background: #343434;
-        color: #eee;
-        font-size: 13px;
-    }
-
-    .sidebar-search input::placeholder {
-        color: #777;
-    }
-
-    .sidebar-search input:focus {
-        box-shadow: 0 0 0 1px var(--blue);
-    }
-
-    .nav {
-        padding: 0 8px;
-    }
-
-    .nav-item {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        padding: 9px 10px;
-        margin-bottom: 2px;
-        border-radius: 5px;
-        color: #d0d0d0;
-        font-size: 12px;
-        cursor: pointer;
-        transition: .15s;
-    }
-
-    .nav-item:hover {
-        background: #292929;
-        color: white;
-    }
-
-    .nav-item.active {
-        background: rgba(91, 192, 235, .16);
-        color: var(--blue);
-    }
-
-    .category-icon {
-        width: 17px;
-        text-align: center;
-        opacity: .9;
-    }
-
-    /* MAIN */
-
-    .main {
-        margin-left: 270px;
-        padding-top: 66px;
-        min-height: 100vh;
-        transition: margin-left .2s ease;
-    }
-
-    .content {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 32px;
-    }
-
-    /* HERO */
-
-    .hero {
-        background: var(--panel);
-        border: 1px solid var(--border);
-        border-radius: 8px;
-        padding: 30px;
-        margin-bottom: 18px;
-    }
-
-    .hero-title {
-        margin: 0;
-        font-size: 25px;
-        color: white;
-    }
-
-    .hero-subtitle {
-        margin: 8px 0 0;
-        color: var(--text-secondary);
-        font-size: 13px;
-        line-height: 1.5;
-    }
-
-    /* SEARCH */
-
-    .main-search {
-        margin-top: 22px;
-    }
-
-    .main-search-wrapper {
-        position: relative;
-    }
-
-    .main-search-icon {
-        position: absolute;
-        left: 14px;
-        top: 50%;
-        transform: translateY(-50%);
-        color: #777;
-        pointer-events: none;
-    }
-
-    .main-search input {
-        width: 100%;
-        height: 48px;
-        padding: 0 45px;
-        border: 1px solid var(--border);
-        border-radius: 6px;
-        outline: none;
-        background: var(--input);
-        color: white;
-        font-size: 14px;
-    }
-
-    .main-search input::placeholder {
-        color: #777;
-    }
-
-    .main-search input:focus {
-        border-color: var(--blue);
-        box-shadow: 0 0 0 2px var(--blue-light);
-    }
-
-    .clear-search {
-        position: absolute;
-        right: 10px;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 28px;
-        height: 28px;
-        border: none;
-        border-radius: 5px;
-        background: transparent;
-        color: #777;
-        cursor: pointer;
-        display: none;
-    }
-
-    .clear-search:hover {
-        background: #444;
-        color: white;
-    }
-
-    /* STATS */
-
-    .stats {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 12px;
-        margin-bottom: 22px;
-    }
-
-    .stat {
-        background: var(--panel);
-        border: 1px solid var(--border);
-        border-radius: 7px;
-        padding: 16px;
-    }
-
-    .stat-number {
-        font-size: 20px;
-        font-weight: bold;
-        color: var(--blue);
-    }
-
-    .stat-label {
-        margin-top: 4px;
-        color: var(--text-muted);
-        font-size: 11px;
-    }
-
-    /* RESULTS */
-
-    .results-header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        margin-bottom: 10px;
-    }
-
-    .results-title {
-        font-size: 15px;
-        font-weight: bold;
-    }
-
-    .status {
-        color: var(--text-muted);
-        font-size: 11px;
-    }
-
-    .result {
-        background: var(--panel);
-        border: 1px solid var(--border);
-        border-radius: 7px;
-        padding: 16px;
-        margin-bottom: 9px;
-        transition: border-color .15s, background .15s;
-    }
-
-    .result:hover {
-        background: var(--panel-hover);
-        border-color: #555;
-    }
-
-    .result-title {
-        font-size: 14px;
-        font-weight: bold;
-        color: white;
-    }
-
-    .result-title-icon {
-        color: var(--blue);
-    }
-
-    .result-category {
-        margin-top: 5px;
-        color: var(--text-muted);
-        font-size: 10px;
-    }
-
-    .result-text {
-        margin-top: 11px;
-        padding: 11px;
-        background: #303030;
-        border-left: 3px solid var(--blue);
-        border-radius: 0 4px 4px 0;
-        color: #c9c9c9;
-        font-size: 12px;
-        line-height: 1.6;
-    }
-
-    .result-actions {
-        margin-top: 12px;
-    }
-
-    .result button {
-        border: none;
-        border-radius: 5px;
-        padding: 8px 12px;
-        background: var(--blue);
-        color: #10202a;
-        font-size: 11px;
-        font-weight: bold;
-        cursor: pointer;
-    }
-
-    .result button:hover {
-        background: var(--blue-dark);
-        color: white;
-    }
-
-    mark {
-        background: rgba(91, 192, 235, .25);
-        color: #8edcff;
-        border-radius: 2px;
-        padding: 1px 2px;
-    }
-
-    /* DOCUMENT */
-
-    .document {
-        display: none;
-        background: var(--panel);
-        border: 1px solid var(--border);
-        border-radius: 8px;
-        overflow: hidden;
-    }
-
-    .document-header {
-        min-height: 52px;
-        padding: 8px 14px;
-        border-bottom: 1px solid var(--border);
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    }
-
-    .back {
-        border: 1px solid var(--border);
-        background: #303030;
-        color: #ddd;
-        padding: 7px 11px;
-        border-radius: 5px;
-        cursor: pointer;
-        font-size: 11px;
-    }
-
-    .back:hover {
-        background: #3a3a3a;
-        color: white;
-    }
-
-    .document-github {
-        color: var(--blue);
-        text-decoration: none;
-        font-size: 11px;
-    }
-
-    .document-github:hover {
-        text-decoration: underline;
-    }
-
-    /* MARKDOWN */
-
-    .markdown {
-        max-width: 900px;
-        margin: auto;
-        padding: 32px;
-        color: #d8d8d8;
-        font-size: 14px;
-        line-height: 1.7;
-    }
-
-    .markdown h1 {
-        color: white;
-        font-size: 27px;
-        padding-bottom: 10px;
-        border-bottom: 2px solid var(--blue);
-    }
-
-    .markdown h2 {
-        margin-top: 35px;
-        padding-bottom: 7px;
-        border-bottom: 1px solid var(--border);
-        color: white;
-        font-size: 21px;
-    }
-
-    .markdown h3 {
-        margin-top: 25px;
-        color: var(--blue);
-        font-size: 17px;
-    }
-
-    .markdown h4 {
-        color: #ddd;
-    }
-
-    .markdown p {
-        color: #ccc;
-    }
-
-    .markdown strong {
-        color: white;
-    }
-
-    .markdown a {
-        color: var(--blue);
-    }
-
-    .markdown a:hover {
-        color: #8edcff;
-    }
-
-    .markdown blockquote {
-        margin: 15px 0;
-        padding: 10px 15px;
-        border-left: 3px solid var(--blue);
-        background: #303030;
-        color: #aaa;
-    }
-
-    /*
-     * IMÁGENES
-     */
-
-    .markdown img {
-        display: block;
-        max-width: 100%;
-        width: auto;
-        height: auto;
-        margin: 18px auto;
-        border-radius: 6px;
-        cursor: zoom-in;
-        border: 1px solid var(--border);
-        background: #1c1c1c;
-    }
-
-    .markdown img:hover {
-        opacity: .92;
-    }
-
-    .markdown table {
-        width: 100%;
-        border-collapse: collapse;
-        margin: 18px 0;
-    }
-
-    .markdown th,
-    .markdown td {
-        border: 1px solid var(--border);
-        padding: 8px 10px;
-        text-align: left;
-    }
-
-    .markdown th {
-        background: #333;
-        color: white;
-    }
-
-    .markdown td {
-        background: #2c2c2c;
-    }
-
-    .markdown code {
-        background: #333;
-        color: #8edcff;
-        padding: 2px 5px;
-        border-radius: 3px;
-    }
-
-    .markdown pre {
-        background: #181818;
-        border: 1px solid #333;
-        padding: 15px;
-        border-radius: 6px;
-        overflow-x: auto;
-    }
-
-    .markdown pre code {
-        background: transparent;
-        color: #ddd;
-        padding: 0;
-    }
-
-    .markdown hr {
-        border: none;
-        border-top: 1px solid var(--border);
-        margin: 30px 0;
-    }
-
-    /* EMPTY */
-
-    .empty {
-        background: var(--panel);
-        border: 1px solid var(--border);
-        border-radius: 7px;
-        padding: 45px 20px;
-        text-align: center;
-        color: var(--text-muted);
-        font-size: 13px;
-    }
-
-    .empty-title {
-        color: #ddd;
-        font-weight: bold;
-    }
-
-    /* LOADING */
-
-    .loading-bar {
-        position: fixed;
-        left: 0;
-        right: 0;
-        top: 66px;
-        height: 3px;
-        z-index: 200;
-        display: none;
-        overflow: hidden;
-        background: #333;
-    }
-
-    .loading-bar.active {
-        display: block;
-    }
-
-    .loading-progress {
-        width: 30%;
-        height: 100%;
-        background: var(--blue);
-        animation: loading 1s infinite ease-in-out;
-    }
-
-    @keyframes loading {
-
-        from {
-            transform: translateX(-120%);
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ethernet App - Manual Operativo</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+    <style>
+
+        :root {
+            --background: #272727;
+            --sidebar: #1b1b1b;
+            --header: #191919;
+            --panel: #292929;
+            --panel-hover: #303030;
+            --input: #343434;
+            --border: #454545;
+            --text: #f5f5f5;
+            --text-secondary: #a0a0a0;
+            --text-muted: #777777;
+            --blue: #5bc0eb;
+            --blue-dark: #3ca8d1;
+            --blue-light: rgba(91, 192, 235, .12);
         }
 
-        to {
-            transform: translateX(400%);
+        * {
+            box-sizing: border-box;
         }
 
-    }
-
-    /* MOBILE */
-
-    @media(max-width: 800px) {
-
-        .sidebar {
-            transform: translateX(-100%);
+        html {
+            scroll-behavior: smooth;
         }
 
-        .sidebar.open {
-            transform: translateX(0);
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--background);
+            color: var(--text);
         }
 
-        .main {
-            margin-left: 0;
+        button,
+        input {
+            font-family: inherit;
         }
 
-        .content {
-            padding: 18px;
+        ::-webkit-scrollbar {
+            width: 7px;
+            height: 7px;
         }
 
-        .stats {
-            grid-template-columns: 1fr;
+        ::-webkit-scrollbar-track {
+            background: #1e1e1e;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #555;
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #666;
+        }
+
+
+        /* =========================================================
+           HEADER
+           ========================================================= */
+
+        .header {
+            position: fixed;
+            left: 0;
+            right: 0;
+            top: 0;
+            height: 66px;
+            z-index: 100;
+
+            background: var(--header);
+
+            border-bottom: 1px solid #3b3b3b;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 18px;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .menu-button {
+            width: 40px;
+            height: 40px;
+
+            border: none;
+            border-radius: 6px;
+
+            background: #303030;
+            color: white;
+
+            font-size: 20px;
+
+            cursor: pointer;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .menu-button:hover {
+            background: #3a3a3a;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .brand-logo {
+            width: 32px;
+            height: 32px;
+
+            object-fit: contain;
+        }
+
+        .brand-name {
+            font-size: 16px;
+            font-weight: bold;
+            color: white;
         }
 
         .header-right {
-            display: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
+        .header-status {
+            padding: 9px 13px;
+
+            border-radius: 6px;
+
+            background: var(--blue);
+            color: #10202a;
+
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .github-button {
+            padding: 9px 13px;
+
+            border: 1px solid var(--border);
+            border-radius: 6px;
+
+            background: #292929;
+            color: #d5d5d5;
+
+            text-decoration: none;
+
+            font-size: 12px;
+
+            transition: .15s;
+        }
+
+        .github-button:hover {
+            border-color: var(--blue);
+            color: var(--blue);
+        }
+
+
+        /* =========================================================
+           SIDEBAR
+           ========================================================= */
+
+        .sidebar {
+            position: fixed;
+
+            left: 0;
+            top: 66px;
+            bottom: 0;
+
+            width: 290px;
+
+            z-index: 90;
+
+            background: var(--sidebar);
+
+            border-right: 1px solid #3d3d3d;
+
+            overflow-y: auto;
+
+            transition: transform .2s ease;
+        }
+
+        .sidebar-section {
+            padding: 20px 14px 8px;
+
+            color: #777;
+
+            font-size: 10px;
+            font-weight: bold;
+
+            text-transform: uppercase;
+
+            letter-spacing: .3px;
+        }
+
+        .sidebar-search {
+            padding: 0 14px 12px;
+        }
+
+        .sidebar-search input {
+            width: 100%;
+
+            padding: 9px 10px;
+
+            border: none;
+            outline: none;
+
+            border-radius: 5px;
+
+            background: #343434;
+
+            color: #eee;
+
+            font-size: 13px;
+        }
+
+        .sidebar-search input::placeholder {
+            color: #777;
+        }
+
+        .sidebar-search input:focus {
+            box-shadow: 0 0 0 1px var(--blue);
+        }
+
+        .nav {
+            padding: 0 8px;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+
+            gap: 8px;
+
+            padding: 9px 10px;
+
+            margin-bottom: 2px;
+
+            border-radius: 5px;
+
+            color: #d0d0d0;
+
+            font-size: 12px;
+
+            cursor: pointer;
+
+            transition: .15s;
+        }
+
+        .nav-item:hover {
+            background: #292929;
+            color: white;
+        }
+
+        .nav-item.active {
+            background: rgba(91, 192, 235, .16);
+            color: var(--blue);
+        }
+
+        .category-icon {
+            width: 17px;
+            min-width: 17px;
+
+            text-align: center;
+
+            opacity: .9;
+        }
+
+
+        /* =========================================================
+           ÍNDICE DEL README
+           ========================================================= */
+
+        .sidebar-category {
+            margin-bottom: 2px;
+        }
+
+        .sidebar-category-title {
+            font-weight: bold;
+        }
+
+        .sidebar-category-name {
+            flex: 1;
+
+            overflow: hidden;
+
+            white-space: nowrap;
+
+            text-overflow: ellipsis;
+        }
+
+        .sidebar-arrow {
+            margin-left: auto;
+
+            color: #777;
+
+            font-size: 16px;
+
+            transition: transform .15s ease;
+        }
+
+        .sidebar-category-title.expanded .sidebar-arrow,
+        .sidebar-subcategory-title.expanded .sidebar-arrow {
+            transform: rotate(90deg);
+
+            color: var(--blue);
+        }
+
+        .sidebar-category-content {
+            display: none;
+
+            padding-left: 10px;
+        }
+
+        .sidebar-category-content.open {
+            display: block;
+        }
+
+        .sidebar-subcategory {
+            margin-top: 2px;
+        }
+
+        .sidebar-subcategory-title {
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 8px;
+
+            padding: 8px 10px;
+
+            border-radius: 5px;
+
+            color: #aaa;
+
+            font-size: 11px;
+
+            cursor: pointer;
+
+            transition: .15s;
+        }
+
+        .sidebar-subcategory-title:hover {
+            background: #292929;
+
+            color: white;
+        }
+
+        .sidebar-subcategory-content {
+            display: none;
+
+            padding-left: 8px;
+        }
+
+        .sidebar-subcategory-content.open {
+            display: block;
+        }
+
+        .sidebar-document {
+            display: flex;
+
+            align-items: flex-start;
+
+            gap: 7px;
+
+            padding: 7px 9px;
+
+            margin: 1px 0;
+
+            border-radius: 5px;
+
+            color: #aaa;
+
+            font-size: 11px;
+
+            line-height: 1.35;
+
+            cursor: pointer;
+
+            transition: .15s;
+        }
+
+        .sidebar-document:hover {
+            background: #292929;
+
+            color: white;
+        }
+
+        .sidebar-document-icon {
+            flex-shrink: 0;
+
+            opacity: .8;
+        }
+
+
+        /* =========================================================
+           MAIN
+           ========================================================= */
+
+        .main {
+            margin-left: 290px;
+
+            padding-top: 66px;
+
+            min-height: 100vh;
+
+            transition: margin-left .2s ease;
+        }
+
+        .content {
+            max-width: 1200px;
+
+            margin: 0 auto;
+
+            padding: 32px;
+        }
+
+
+        /* =========================================================
+           HERO
+           ========================================================= */
+
         .hero {
-            padding: 22px;
+            background: var(--panel);
+
+            border: 1px solid var(--border);
+
+            border-radius: 8px;
+
+            padding: 30px;
+
+            margin-bottom: 18px;
         }
 
         .hero-title {
-            font-size: 22px;
+            margin: 0;
+
+            font-size: 25px;
+
+            color: white;
         }
+
+        .hero-subtitle {
+            margin: 8px 0 0;
+
+            color: var(--text-secondary);
+
+            font-size: 13px;
+
+            line-height: 1.5;
+        }
+
+
+        /* =========================================================
+           SEARCH
+           ========================================================= */
+
+        .main-search {
+            margin-top: 22px;
+        }
+
+        .main-search-wrapper {
+            position: relative;
+        }
+
+        .main-search-icon {
+            position: absolute;
+
+            left: 14px;
+
+            top: 50%;
+
+            transform: translateY(-50%);
+
+            color: #777;
+
+            pointer-events: none;
+        }
+
+        .main-search input {
+            width: 100%;
+
+            height: 48px;
+
+            padding: 0 45px;
+
+            border: 1px solid var(--border);
+
+            border-radius: 6px;
+
+            outline: none;
+
+            background: var(--input);
+
+            color: white;
+
+            font-size: 14px;
+        }
+
+        .main-search input::placeholder {
+            color: #777;
+        }
+
+        .main-search input:focus {
+            border-color: var(--blue);
+
+            box-shadow:
+                0 0 0 2px var(--blue-light);
+        }
+
+        .clear-search {
+            position: absolute;
+
+            right: 10px;
+
+            top: 50%;
+
+            transform: translateY(-50%);
+
+            width: 28px;
+            height: 28px;
+
+            border: none;
+
+            border-radius: 5px;
+
+            background: transparent;
+
+            color: #777;
+
+            cursor: pointer;
+
+            display: none;
+        }
+
+        .clear-search:hover {
+            background: #444;
+
+            color: white;
+        }
+
+
+        /* =========================================================
+           STATS
+           ========================================================= */
+
+        .stats {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 12px;
+
+            margin-bottom: 22px;
+        }
+
+        .stat {
+            background: var(--panel);
+
+            border: 1px solid var(--border);
+
+            border-radius: 7px;
+
+            padding: 16px;
+        }
+
+        .stat-number {
+            font-size: 20px;
+
+            font-weight: bold;
+
+            color: var(--blue);
+        }
+
+        .stat-label {
+            margin-top: 4px;
+
+            color: var(--text-muted);
+
+            font-size: 11px;
+        }
+
+
+        /* =========================================================
+           RESULTS
+           ========================================================= */
+
+        .results-header {
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            margin-bottom: 10px;
+        }
+
+        .results-title {
+            font-size: 15px;
+
+            font-weight: bold;
+        }
+
+        .status {
+            color: var(--text-muted);
+
+            font-size: 11px;
+        }
+
+        .result {
+            background: var(--panel);
+
+            border: 1px solid var(--border);
+
+            border-radius: 7px;
+
+            padding: 16px;
+
+            margin-bottom: 9px;
+
+            transition:
+                border-color .15s,
+                background .15s;
+        }
+
+        .result:hover {
+            background: var(--panel-hover);
+
+            border-color: #555;
+        }
+
+        .result-title {
+            font-size: 14px;
+
+            font-weight: bold;
+
+            color: white;
+        }
+
+        .result-title-icon {
+            color: var(--blue);
+        }
+
+        .result-category {
+            margin-top: 5px;
+
+            color: var(--text-muted);
+
+            font-size: 10px;
+        }
+
+        .result-text {
+            margin-top: 11px;
+
+            padding: 11px;
+
+            background: #303030;
+
+            border-left: 3px solid var(--blue);
+
+            border-radius:
+                0 4px 4px 0;
+
+            color: #c9c9c9;
+
+            font-size: 12px;
+
+            line-height: 1.6;
+        }
+
+        .result-actions {
+            margin-top: 12px;
+        }
+
+        .result button {
+            border: none;
+
+            border-radius: 5px;
+
+            padding: 8px 12px;
+
+            background: var(--blue);
+
+            color: #10202a;
+
+            font-size: 11px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+        .result button:hover {
+            background: var(--blue-dark);
+
+            color: white;
+        }
+
+        mark {
+            background: rgba(
+                91,
+                192,
+                235,
+                .25
+            );
+
+            color: #8edcff;
+
+            border-radius: 2px;
+
+            padding: 1px 2px;
+        }
+
+
+        /* =========================================================
+           DOCUMENT
+           ========================================================= */
+
+        .document {
+            display: none;
+
+            background: var(--panel);
+
+            border: 1px solid var(--border);
+
+            border-radius: 8px;
+
+            overflow: hidden;
+        }
+
+        .document-header {
+            min-height: 52px;
+
+            padding: 8px 14px;
+
+            border-bottom:
+                1px solid var(--border);
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+        }
+
+        .back {
+            border: 1px solid var(--border);
+
+            background: #303030;
+
+            color: #ddd;
+
+            padding: 7px 11px;
+
+            border-radius: 5px;
+
+            cursor: pointer;
+
+            font-size: 11px;
+        }
+
+        .back:hover {
+            background: #3a3a3a;
+
+            color: white;
+        }
+
+        .document-github {
+            color: var(--blue);
+
+            text-decoration: none;
+
+            font-size: 11px;
+        }
+
+        .document-github:hover {
+            text-decoration: underline;
+        }
+
+
+        /* =========================================================
+           MARKDOWN
+           ========================================================= */
 
         .markdown {
-            padding: 20px;
+            max-width: 900px;
+
+            margin: auto;
+
+            padding: 32px;
+
+            color: #d8d8d8;
+
+            font-size: 14px;
+
+            line-height: 1.7;
         }
 
-    }
+        .markdown h1 {
+            color: white;
 
-</style>
-```
+            font-size: 27px;
+
+            padding-bottom: 10px;
+
+            border-bottom:
+                2px solid var(--blue);
+        }
+
+        .markdown h2 {
+            margin-top: 35px;
+
+            padding-bottom: 7px;
+
+            border-bottom:
+                1px solid var(--border);
+
+            color: white;
+
+            font-size: 21px;
+        }
+
+        .markdown h3 {
+            margin-top: 25px;
+
+            color: var(--blue);
+
+            font-size: 17px;
+        }
+
+        .markdown h4 {
+            color: #ddd;
+        }
+
+        .markdown p {
+            color: #ccc;
+        }
+
+        .markdown strong {
+            color: white;
+        }
+
+        .markdown a {
+            color: var(--blue);
+        }
+
+        .markdown a:hover {
+            color: #8edcff;
+        }
+
+        .markdown blockquote {
+            margin: 15px 0;
+
+            padding: 10px 15px;
+
+            border-left:
+                3px solid var(--blue);
+
+            background: #303030;
+
+            color: #aaa;
+        }
+
+        .markdown img {
+            display: block;
+
+            max-width: 100%;
+
+            width: auto;
+
+            height: auto;
+
+            margin: 18px auto;
+
+            border-radius: 6px;
+
+            cursor: zoom-in;
+
+            border: 1px solid var(--border);
+
+            background: #1c1c1c;
+        }
+
+        .markdown img:hover {
+            opacity: .92;
+        }
+
+        .markdown table {
+            width: 100%;
+
+            border-collapse: collapse;
+
+            margin: 18px 0;
+        }
+
+        .markdown th,
+        .markdown td {
+            border:
+                1px solid var(--border);
+
+            padding: 8px 10px;
+
+            text-align: left;
+        }
+
+        .markdown th {
+            background: #333;
+
+            color: white;
+        }
+
+        .markdown td {
+            background: #2c2c2c;
+        }
+
+        .markdown code {
+            background: #333;
+
+            color: #8edcff;
+
+            padding: 2px 5px;
+
+            border-radius: 3px;
+        }
+
+        .markdown pre {
+            background: #181818;
+
+            border: 1px solid #333;
+
+            padding: 15px;
+
+            border-radius: 6px;
+
+            overflow-x: auto;
+        }
+
+        .markdown pre code {
+            background: transparent;
+
+            color: #ddd;
+
+            padding: 0;
+        }
+
+        .markdown hr {
+            border: none;
+
+            border-top:
+                1px solid var(--border);
+
+            margin: 30px 0;
+        }
+
+
+        /* =========================================================
+           EMPTY
+           ========================================================= */
+
+        .empty {
+            background: var(--panel);
+
+            border: 1px solid var(--border);
+
+            border-radius: 7px;
+
+            padding: 45px 20px;
+
+            text-align: center;
+
+            color: var(--text-muted);
+
+            font-size: 13px;
+        }
+
+        .empty-title {
+            color: #ddd;
+
+            font-weight: bold;
+        }
+
+
+        /* =========================================================
+           LOADING
+           ========================================================= */
+
+        .loading-bar {
+            position: fixed;
+
+            left: 0;
+            right: 0;
+
+            top: 66px;
+
+            height: 3px;
+
+            z-index: 200;
+
+            display: none;
+
+            overflow: hidden;
+
+            background: #333;
+        }
+
+        .loading-bar.active {
+            display: block;
+        }
+
+        .loading-progress {
+            width: 30%;
+
+            height: 100%;
+
+            background: var(--blue);
+
+            animation:
+                loading 1s infinite
+                ease-in-out;
+        }
+
+        @keyframes loading {
+
+            from {
+                transform:
+                    translateX(-120%);
+            }
+
+            to {
+                transform:
+                    translateX(400%);
+            }
+
+        }
+
+
+        /* =========================================================
+           MOBILE
+           ========================================================= */
+
+        @media(max-width: 800px) {
+
+            .sidebar {
+                transform:
+                    translateX(-100%);
+            }
+
+            .sidebar.open {
+                transform:
+                    translateX(0);
+            }
+
+            .main {
+                margin-left: 0;
+            }
+
+            .content {
+                padding: 18px;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            .header-right {
+                display: none;
+            }
+
+            .hero {
+                padding: 22px;
+            }
+
+            .hero-title {
+                font-size: 22px;
+            }
+
+            .markdown {
+                padding: 20px;
+            }
+
+        }
+
+    </style>
 
 </head>
 
+
 <body>
 
-<header class="header">
 
-```
-<div class="header-left">
+    <!-- =========================================================
+         HEADER
+         ========================================================= -->
 
-    <button
-        class="menu-button"
-        id="menuButton"
-        type="button"
-        aria-label="Abrir menú"
-    >
-        ☰
-    </button>
+    <header class="header">
 
-    <div class="brand">
-
-        <img
-            src="logo_ethernet.png"
-            alt="Ethernet"
-            class="brand-logo"
-        >
-
-        <span class="brand-name">
-            Ethernet App
-        </span>
-
-    </div>
-
-</div>
-
-<div class="header-right">
-
-    <div
-        class="header-status"
-        id="headerStatus"
-    >
-        Cargando manual...
-    </div>
-
-    <a
-        class="github-button"
-        href="https://github.com/AbutMatias/Manual-Operativo-Atencion-al-Cliente"
-        target="_blank"
-        rel="noopener noreferrer"
-    >
-        GitHub
-    </a>
-
-</div>
-```
-
-</header>
-
-<div
-    class="loading-bar"
-    id="loadingBar"
->
-
-```
-<div class="loading-progress"></div>
-```
-
-</div>
-
-<aside
-    class="sidebar"
-    id="sidebar"
->
-
-```
-<div class="sidebar-section">
-    Navegación
-</div>
-
-<div class="sidebar-search">
-
-    <input
-        id="sidebarSearch"
-        type="text"
-        placeholder="Buscar opción..."
-        autocomplete="off"
-    >
-
-</div>
-
-<div class="nav">
-
-    <div
-        class="nav-item active"
-        id="navInicio"
-        onclick="inicio()"
-    >
-
-        <span class="category-icon">
-            🏠
-        </span>
-
-        Inicio
-
-    </div>
-
-    <div
-        class="nav-item"
-        onclick="activarBusqueda()"
-    >
-
-        <span class="category-icon">
-            🔎
-        </span>
-
-        Buscar
-
-    </div>
-
-</div>
-
-<div class="sidebar-section">
-    Documentación
-</div>
-
-<div
-    class="nav"
-    id="categorias"
->
-
-    <div class="nav-item">
-        Cargando categorías...
-    </div>
-
-</div>
-```
-
-</aside>
-
-<main class="main">
-
-```
-<div class="content">
-
-    <section id="home">
-
-        <div class="hero">
-
-            <h1 class="hero-title">
-                Manual Operativo
-            </h1>
-
-            <p class="hero-subtitle">
-
-                Documentación técnica y procedimientos
-                de Atención al Cliente.
-
-                Buscá rápidamente cualquier procedimiento,
-                diagnóstico o herramienta.
-
-            </p>
-
-            <div class="main-search">
-
-                <div class="main-search-wrapper">
-
-                    <span class="main-search-icon">
-                        🔎
-                    </span>
-
-                    <input
-                        id="buscador"
-                        type="text"
-                        autocomplete="off"
-                        placeholder="Buscar router, ONU, WiFi, ping..."
-                    >
-
-                    <button
-                        id="clearSearch"
-                        class="clear-search"
-                        type="button"
-                    >
-                        ✕
-                    </button>
-
-                </div>
-
-            </div>
-
-        </div>
-
-        <div class="stats">
-
-            <div class="stat">
-
-                <div
-                    class="stat-number"
-                    id="cantidad-documentos"
-                >
-                    0
-                </div>
-
-                <div class="stat-label">
-                    Documentos
-                </div>
-
-            </div>
-
-            <div class="stat">
-
-                <div
-                    class="stat-number"
-                    id="cantidad-categorias"
-                >
-                    0
-                </div>
-
-                <div class="stat-label">
-                    Categorías
-                </div>
-
-            </div>
-
-            <div class="stat">
-
-                <div
-                    class="stat-number"
-                    id="estado"
-                >
-                    ...
-                </div>
-
-                <div class="stat-label">
-                    Estado del buscador
-                </div>
-
-            </div>
-
-        </div>
-
-        <div class="results-header">
-
-            <div class="results-title">
-                Documentación
-            </div>
-
-            <div
-                class="status"
-                id="status"
-            >
-                Cargando...
-            </div>
-
-        </div>
-
-        <div id="resultados"></div>
-
-    </section>
-
-    <section
-        class="document"
-        id="documento"
-    >
-
-        <div class="document-header">
+        <div class="header-left">
 
             <button
-                class="back"
-                onclick="inicio()"
+                class="menu-button"
+                id="menuButton"
+                type="button"
+                aria-label="Abrir menú"
             >
-                ← Volver
+                ☰
             </button>
 
+
+            <div class="brand">
+
+                <img
+                    src="logo_ethernet.png"
+                    alt="Ethernet"
+                    class="brand-logo"
+                >
+
+                <span class="brand-name">
+                    Ethernet App
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="header-right">
+
+            <div
+                class="header-status"
+                id="headerStatus"
+            >
+                Cargando manual...
+            </div>
+
+
             <a
-                id="linkGithub"
-                class="document-github"
+                class="github-button"
+                href="https://github.com/AbutMatias/Manual-Operativo-Atencion-al-Cliente"
                 target="_blank"
                 rel="noopener noreferrer"
             >
-                Abrir en GitHub
+                GitHub
             </a>
 
         </div>
 
-        <article
-            class="markdown"
-            id="contenidoDocumento"
-        ></article>
-
-    </section>
-
-</div>
-```
-
-</main>
-
-<script>
-
-    /* =========================================================
-       CONFIGURACIÓN
-    ========================================================= */
-
-    const OWNER =
-        "AbutMatias";
-
-    const REPO =
-        "Manual-Operativo-Atencion-al-Cliente";
-
-    const BRANCH =
-        "main";
-
-    const API =
-        `https://api.github.com/repos/${OWNER}/${REPO}/contents/doc`;
-
-    const README_URL =
-        `https://raw.githubusercontent.com/${OWNER}/${REPO}/${BRANCH}/README.md`;
-
-    const GITHUB_URL =
-        `https://github.com/${OWNER}/${REPO}/blob/${BRANCH}/`;
-
-    const RAW_URL =
-        `https://raw.githubusercontent.com/${OWNER}/${REPO}/${BRANCH}/`;
-
-    const INDEX_URL =
-        "./index.json";
+    </header>
 
 
-    /* =========================================================
-       VARIABLES
-    ========================================================= */
+    <!-- =========================================================
+         LOADING
+         ========================================================= -->
 
-    let documentos = [];
+    <div
+        class="loading-bar"
+        id="loadingBar"
+    >
 
-    let categorias = [];
+        <div class="loading-progress"></div>
 
-    let readmeCache = null;
-
-    let searchTimer = null;
-
-
-    /* =========================================================
-       INICIAR
-    ========================================================= */
-
-    async function iniciar() {
-
-        const status =
-            document.getElementById("status");
-
-        const estado =
-            document.getElementById("estado");
-
-        const loading =
-            document.getElementById("loadingBar");
-
-        const headerStatus =
-            document.getElementById("headerStatus");
-
-        try {
-
-            loading.classList.add("active");
-
-            status.textContent =
-                "Cargando documentación...";
-
-            headerStatus.textContent =
-                "Cargando...";
-
-            estado.textContent =
-                "...";
+    </div>
 
 
-            let cargadoDesdeIndex =
-                await cargarDesdeIndex();
+    <!-- =========================================================
+         SIDEBAR
+         ========================================================= -->
+
+    <aside
+        class="sidebar"
+        id="sidebar"
+    >
+
+        <div class="sidebar-section">
+            Navegación
+        </div>
 
 
-            if (!cargadoDesdeIndex) {
+        <div class="sidebar-search">
 
-                await cargarDocumentosGitHub();
+            <input
+                id="sidebarSearch"
+                type="text"
+                placeholder="Buscar opción..."
+                autocomplete="off"
+            >
 
-            }
+        </div>
+
+
+        <div class="nav">
+
+            <div
+                class="nav-item active"
+                id="navInicio"
+                onclick="inicio()"
+            >
+
+                <span class="category-icon">
+                    🏠
+                </span>
+
+                Inicio
+
+            </div>
+
+
+            <div
+                class="nav-item"
+                onclick="activarBusqueda()"
+            >
+
+                <span class="category-icon">
+                    🔎
+                </span>
+
+                Buscar
+
+            </div>
+
+        </div>
+
+
+        <div class="sidebar-section">
+            Documentación
+        </div>
+
+
+        <div
+            class="nav"
+            id="categorias"
+        >
+
+            <div class="nav-item">
+                Cargando índice...
+            </div>
+
+        </div>
+
+    </aside>
+
+
+    <!-- =========================================================
+         MAIN
+         ========================================================= -->
+
+    <main class="main">
+
+        <div class="content">
+
+
+            <!-- =================================================
+                 HOME
+                 ================================================= -->
+
+            <section id="home">
+
+
+                <div class="hero">
+
+                    <h1 class="hero-title">
+                        Manual Operativo
+                    </h1>
+
+
+                    <p class="hero-subtitle">
+
+                        Documentación técnica y procedimientos
+                        de Atención al Cliente.
+
+                        Buscá rápidamente cualquier procedimiento,
+                        diagnóstico o herramienta.
+
+                    </p>
+
+
+                    <div class="main-search">
+
+                        <div class="main-search-wrapper">
+
+                            <span class="main-search-icon">
+                                🔎
+                            </span>
+
+
+                            <input
+                                id="buscador"
+                                type="text"
+                                autocomplete="off"
+                                placeholder="Buscar router, ONU, WiFi, ping..."
+                            >
+
+
+                            <button
+                                id="clearSearch"
+                                class="clear-search"
+                                type="button"
+                            >
+                                ✕
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     STATS
+                     ================================================= -->
+
+                <div class="stats">
+
+                    <div class="stat">
+
+                        <div
+                            class="stat-number"
+                            id="cantidad-documentos"
+                        >
+                            0
+                        </div>
+
+                        <div class="stat-label">
+                            Documentos
+                        </div>
+
+                    </div>
+
+
+                    <div class="stat">
+
+                        <div
+                            class="stat-number"
+                            id="cantidad-categorias"
+                        >
+                            0
+                        </div>
+
+                        <div class="stat-label">
+                            Categorías
+                        </div>
+
+                    </div>
+
+
+                    <div class="stat">
+
+                        <div
+                            class="stat-number"
+                            id="estado"
+                        >
+                            ...
+                        </div>
+
+                        <div class="stat-label">
+                            Estado del buscador
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     RESULTS
+                     ================================================= -->
+
+                <div class="results-header">
+
+                    <div class="results-title">
+                        Documentación
+                    </div>
+
+                    <div
+                        class="status"
+                        id="status"
+                    >
+                        Cargando...
+                    </div>
+
+                </div>
+
+
+                <div id="resultados"></div>
+
+
+            </section>
+
+
+            <!-- =================================================
+                 DOCUMENTO
+                 ================================================= -->
+
+            <section
+                class="document"
+                id="documento"
+            >
+
+                <div class="document-header">
+
+                    <button
+                        class="back"
+                        onclick="inicio()"
+                    >
+                        ← Volver
+                    </button>
+
+
+                    <a
+                        id="linkGithub"
+                        class="document-github"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Abrir en GitHub
+                    </a>
+
+                </div>
+
+
+                <article
+                    class="markdown"
+                    id="contenidoDocumento"
+                ></article>
+
+            </section>
+
+
+        </div>
+
+    </main>
+
+
+    <script>
+
+
+        /* =========================================================
+           CONFIGURACIÓN
+           ========================================================= */
+
+        const OWNER =
+            "AbutMatias";
+
+
+        const REPO =
+            "Manual-Operativo-Atencion-al-Cliente";
+
+
+        const BRANCH =
+            "main";
+
+
+        const API =
+            `https://api.github.com/repos/${OWNER}/${REPO}/contents/doc`;
+
+
+        const README_URL =
+            `https://raw.githubusercontent.com/${OWNER}/${REPO}/${BRANCH}/README.md`;
+
+
+        const GITHUB_URL =
+            `https://github.com/${OWNER}/${REPO}/blob/${BRANCH}/`;
+
+
+        const RAW_URL =
+            `https://raw.githubusercontent.com/${OWNER}/${REPO}/${BRANCH}/`;
+
+
+        const INDEX_URL =
+            "./index.json";
+
+
+        /* =========================================================
+           VARIABLES
+           ========================================================= */
+
+        let documentos = [];
+
+        let categorias = [];
+
+        let readmeCache = null;
+
+        let searchTimer = null;
+
+
+        /* =========================================================
+           INICIAR
+           ========================================================= */
+
+        async function iniciar() {
+
+            const status =
+                document.getElementById("status");
+
+
+            const estado =
+                document.getElementById("estado");
+
+
+            const loading =
+                document.getElementById("loadingBar");
+
+
+            const headerStatus =
+                document.getElementById("headerStatus");
 
 
             try {
 
-                await cargarCategorias();
+                loading.classList.add("active");
+
+
+                status.textContent =
+                    "Cargando documentación...";
+
+
+                headerStatus.textContent =
+                    "Cargando...";
+
+
+                estado.textContent =
+                    "...";
+
+
+                let cargadoDesdeIndex =
+                    await cargarDesdeIndex();
+
+
+                if (!cargadoDesdeIndex) {
+
+                    await cargarDocumentosGitHub();
+
+                }
+
+
+                try {
+
+                    await cargarCategorias();
+
+                } catch (error) {
+
+                    console.warn(
+                        "No se pudo cargar README:",
+                        error
+                    );
+
+                    categorias = [];
+
+                }
+
+
+                document.getElementById(
+                    "cantidad-documentos"
+                ).textContent =
+                    documentos.length;
+
+
+                document.getElementById(
+                    "cantidad-categorias"
+                ).textContent =
+                    categorias.length;
+
+
+                estado.textContent =
+                    "OK";
+
+
+                headerStatus.textContent =
+                    `${documentos.length} documentos`;
+
+
+                status.textContent =
+                    `${documentos.length} documentos disponibles`;
+
+
+                mostrarDocumentosIniciales();
+
+
+            } catch (error) {
+
+                console.error(error);
+
+
+                estado.textContent =
+                    "ERROR";
+
+
+                headerStatus.textContent =
+                    "Error";
+
+
+                status.textContent =
+                    "Error al cargar";
+
+
+                document.getElementById(
+                    "resultados"
+                ).innerHTML = `
+
+                    <div class="empty">
+
+                        <div class="empty-title">
+                            No se pudo cargar la documentación
+                        </div>
+
+                        <br>
+
+                        ${escapeHTML(error.message)}
+
+                    </div>
+
+                `;
+
+
+            } finally {
+
+                loading.classList.remove("active");
+
+            }
+
+        }
+
+
+        /* =========================================================
+           CARGAR INDEX.JSON
+           ========================================================= */
+
+        async function cargarDesdeIndex() {
+
+            try {
+
+                const respuesta =
+                    await fetch(
+                        `${INDEX_URL}?v=${Date.now()}`
+                    );
+
+
+                if (!respuesta.ok) {
+
+                    return false;
+
+                }
+
+
+                const data =
+                    await respuesta.json();
+
+
+                if (!Array.isArray(data)) {
+
+                    return false;
+
+                }
+
+
+                documentos =
+                    data.map(documento => ({
+
+                        nombre:
+                            documento.nombre,
+
+                        path:
+                            documento.path,
+
+                        contenido:
+                            documento.contenido || "",
+
+                        url:
+                            documento.url ||
+                            `${RAW_URL}${documento.path}`
+
+                    }));
+
+
+                documentos.sort(
+                    (a, b) =>
+                        a.nombre.localeCompare(
+                            b.nombre,
+                            "es"
+                        )
+                );
+
+
+                console.log(
+                    "Documentación cargada desde index.json"
+                );
+
+
+                return true;
+
 
             } catch (error) {
 
                 console.warn(
-                    "No se pudo cargar README:",
-                    error
+                    "index.json no disponible."
                 );
 
-                categorias = [];
+                return false;
 
             }
 
-
-            document.getElementById(
-                "cantidad-documentos"
-            ).textContent =
-                documentos.length;
-
-
-            document.getElementById(
-                "cantidad-categorias"
-            ).textContent =
-                categorias.length;
-
-
-            estado.textContent =
-                "OK";
-
-
-            headerStatus.textContent =
-                `${documentos.length} documentos`;
-
-
-            status.textContent =
-                `${documentos.length} documentos disponibles`;
-
-
-            mostrarDocumentosIniciales();
-
-
-        } catch (error) {
-
-            console.error(error);
-
-            estado.textContent =
-                "ERROR";
-
-            headerStatus.textContent =
-                "Error";
-
-            status.textContent =
-                "Error al cargar";
-
-            document.getElementById(
-                "resultados"
-            ).innerHTML = `
-
-                <div class="empty">
-
-                    <div class="empty-title">
-                        No se pudo cargar la documentación
-                    </div>
-
-                    <br>
-
-                    ${escapeHTML(error.message)}
-
-                </div>
-
-            `;
-
-        } finally {
-
-            loading.classList.remove("active");
-
         }
 
-    }
 
+        /* =========================================================
+           CARGAR DESDE GITHUB
+           ========================================================= */
 
-    /* =========================================================
-       CARGAR INDEX.JSON
-    ========================================================= */
-
-    async function cargarDesdeIndex() {
-
-        try {
+        async function cargarDocumentosGitHub() {
 
             const respuesta =
-                await fetch(
-                    `${INDEX_URL}?v=${Date.now()}`
-                );
+                await fetch(API);
 
 
             if (!respuesta.ok) {
 
-                return false;
+                throw new Error(
+                    `GitHub API respondió ${respuesta.status}`
+                );
 
             }
 
 
-            const data =
+            const archivos =
                 await respuesta.json();
 
 
-            if (!Array.isArray(data)) {
-
-                return false;
-
-            }
+            documentos = [];
 
 
-            documentos =
-                data.map(documento => ({
+            await recorrerCarpeta(
+                archivos
+            );
 
-                    nombre:
-                        documento.nombre,
 
-                    path:
-                        documento.path,
+            await Promise.all(
 
-                    contenido:
-                        documento.contenido || "",
+                documentos.map(
+                    async documento => {
 
-                    url:
-                        documento.url ||
-                        `${RAW_URL}${documento.path}`
+                        try {
 
-                }));
+                            const respuesta =
+                                await fetch(
+                                    documento.url
+                                );
+
+
+                            if (!respuesta.ok) {
+
+                                throw new Error(
+                                    respuesta.status
+                                );
+
+                            }
+
+
+                            documento.contenido =
+                                await respuesta.text();
+
+
+                        } catch (error) {
+
+                            console.warn(
+                                "No se pudo cargar:",
+                                documento.path
+                            );
+
+
+                            documento.contenido =
+                                "";
+
+                        }
+
+                    }
+                )
+
+            );
 
 
             documentos.sort(
@@ -1248,1102 +1812,1762 @@
                     )
             );
 
-
-            console.log(
-                "Documentación cargada desde index.json"
-            );
-
-
-            return true;
-
-
-        } catch (error) {
-
-            console.warn(
-                "index.json no disponible."
-            );
-
-            return false;
-
-        }
-
-    }
-
-
-    /* =========================================================
-       CARGAR DESDE GITHUB
-    ========================================================= */
-
-    async function cargarDocumentosGitHub() {
-
-        const respuesta =
-            await fetch(API);
-
-
-        if (!respuesta.ok) {
-
-            throw new Error(
-                `GitHub API respondió ${respuesta.status}`
-            );
-
         }
 
 
-        const archivos =
-            await respuesta.json();
+        /* =========================================================
+           RECORRER CARPETAS
+           ========================================================= */
+
+        async function recorrerCarpeta(archivos) {
+
+            for (const archivo of archivos) {
+
+                if (
+
+                    archivo.type === "file" &&
+
+                    archivo.name
+                        .toLowerCase()
+                        .endsWith(".md")
+
+                ) {
+
+                    documentos.push({
+
+                        nombre:
+                            archivo.name.replace(
+                                /\.md$/i,
+                                ""
+                            ),
+
+                        path:
+                            archivo.path,
+
+                        url:
+                            archivo.download_url,
+
+                        contenido:
+                            null
+
+                    });
+
+                    continue;
+
+                }
 
 
-        documentos = [];
-
-
-        await recorrerCarpeta(
-            archivos
-        );
-
-
-        await Promise.all(
-
-            documentos.map(
-                async documento => {
+                if (archivo.type === "dir") {
 
                     try {
 
                         const respuesta =
                             await fetch(
-                                documento.url
+                                archivo.url
                             );
 
 
-                        if (!respuesta.ok) {
-
-                            throw new Error(
-                                respuesta.status
-                            );
-
-                        }
+                        if (!respuesta.ok)
+                            continue;
 
 
-                        documento.contenido =
-                            await respuesta.text();
+                        const contenido =
+                            await respuesta.json();
+
+
+                        await recorrerCarpeta(
+                            contenido
+                        );
 
 
                     } catch (error) {
 
                         console.warn(
-                            "No se pudo cargar:",
-                            documento.path
+                            "No se pudo leer:",
+                            archivo.path
                         );
-
-                        documento.contenido =
-                            "";
 
                     }
 
                 }
-            )
 
-        );
+            }
 
-
-        documentos.sort(
-            (a, b) =>
-                a.nombre.localeCompare(
-                    b.nombre,
-                    "es"
-                )
-        );
-
-    }
+        }
 
 
-    /* =========================================================
-       RECORRER CARPETAS
-    ========================================================= */
+        /* =========================================================
+           CATEGORÍAS DEL README
+           ========================================================= */
 
-    async function recorrerCarpeta(archivos) {
+        async function cargarCategorias() {
 
-        for (const archivo of archivos) {
+            const respuesta =
+                await fetch(
+                    `${README_URL}?v=${Date.now()}`
+                );
 
-            if (
 
-                archivo.type === "file" &&
+            if (!respuesta.ok) {
 
-                archivo.name
-                    .toLowerCase()
-                    .endsWith(".md")
-
-            ) {
-
-                documentos.push({
-
-                    nombre:
-                        archivo.name.replace(
-                            /\.md$/i,
-                            ""
-                        ),
-
-                    path:
-                        archivo.path,
-
-                    url:
-                        archivo.download_url,
-
-                    contenido:
-                        null
-
-                });
-
-                continue;
+                throw new Error(
+                    "No se pudo cargar README.md"
+                );
 
             }
 
 
-            if (archivo.type === "dir") {
+            readmeCache =
+                await respuesta.text();
 
-                try {
 
-                    const respuesta =
-                        await fetch(
-                            archivo.url
+            categorias =
+                obtenerCategorias(
+                    readmeCache
+                );
+
+
+            mostrarCategorias();
+
+        }
+
+
+        /* =========================================================
+           LEER ESTRUCTURA DEL README
+           ========================================================= */
+
+        function obtenerCategorias(markdown) {
+
+            const resultado = [];
+
+            const lineas =
+                markdown.split("\n");
+
+
+            let categoriaActual = null;
+
+            let subcategoriaActual = null;
+
+
+            for (const linea of lineas) {
+
+
+                /* ==========================================
+                   CATEGORÍA PRINCIPAL ##
+                   ========================================== */
+
+                const categoria =
+                    linea.match(
+                        /^##\s+(.+)$/
+                    );
+
+
+                if (categoria) {
+
+                    categoriaActual = {
+
+                        nombre:
+                            categoria[1].trim(),
+
+                        subcategorias: [],
+
+                        documentos: []
+
+                    };
+
+
+                    resultado.push(
+                        categoriaActual
+                    );
+
+
+                    subcategoriaActual =
+                        null;
+
+
+                    continue;
+
+                }
+
+
+                /* ==========================================
+                   SUBCATEGORÍA ###
+                   ========================================== */
+
+                const subcategoria =
+                    linea.match(
+                        /^###\s+(.+)$/
+                    );
+
+
+                if (
+                    subcategoria &&
+                    categoriaActual
+                ) {
+
+                    subcategoriaActual = {
+
+                        nombre:
+                            subcategoria[1].trim(),
+
+                        documentos: []
+
+                    };
+
+
+                    categoriaActual
+                        .subcategorias
+                        .push(
+                            subcategoriaActual
                         );
 
 
-                    if (!respuesta.ok)
-                        continue;
+                    continue;
+
+                }
 
 
-                    const contenido =
-                        await respuesta.json();
+                /* ==========================================
+                   DOCUMENTO
+                   ========================================== */
 
-
-                    await recorrerCarpeta(
-                        contenido
+                const enlace =
+                    linea.match(
+                        /^\s*[-*]\s+\[([^\]]+)\]\(([^)]+)\)/
                     );
 
 
-                } catch (error) {
+                if (
+                    enlace &&
+                    categoriaActual
+                ) {
 
-                    console.warn(
-                        "No se pudo leer:",
-                        archivo.path
-                    );
+                    const documento = {
+
+                        nombre:
+                            enlace[1].trim(),
+
+                        ruta:
+                            enlace[2].trim()
+
+                    };
+
+
+                    if (subcategoriaActual) {
+
+                        subcategoriaActual
+                            .documentos
+                            .push(
+                                documento
+                            );
+
+                    } else {
+
+                        categoriaActual
+                            .documentos
+                            .push(
+                                documento
+                            );
+
+                    }
 
                 }
 
             }
 
-        }
 
-    }
-
-
-    /* =========================================================
-       CATEGORÍAS
-    ========================================================= */
-
-    async function cargarCategorias() {
-
-        const respuesta =
-            await fetch(
-                `${README_URL}?v=${Date.now()}`
-            );
-
-
-        if (!respuesta.ok) {
-
-            throw new Error(
-                "No se pudo cargar README.md"
-            );
+            return resultado;
 
         }
 
 
-        readmeCache =
-            await respuesta.text();
+        /* =========================================================
+           MOSTRAR CATEGORÍAS
+           ========================================================= */
 
+        function mostrarCategorias() {
 
-        categorias =
-            obtenerCategorias(
-                readmeCache
-            );
-
-
-        mostrarCategorias();
-
-    }
-
-
-    function obtenerCategorias(markdown) {
-
-        const resultado = [];
-
-        const lineas =
-            markdown.split("\n");
-
-
-        for (const linea of lineas) {
-
-            const match =
-                linea.match(
-                    /^##\s+(.+)$/
+            const contenedor =
+                document.getElementById(
+                    "categorias"
                 );
 
 
-            if (!match)
-                continue;
+            contenedor.innerHTML = "";
 
 
-            resultado.push({
+            if (categorias.length === 0) {
 
-                nombre:
-                    match[1].trim()
+                contenedor.innerHTML = `
 
-            });
-
-        }
-
-
-        return resultado;
-
-    }
-
-
-    /* =========================================================
-       MOSTRAR CATEGORÍAS
-    ========================================================= */
-
-    function mostrarCategorias() {
-
-        const contenedor =
-            document.getElementById(
-                "categorias"
-            );
-
-
-        contenedor.innerHTML = "";
-
-
-        if (categorias.length === 0) {
-
-            contenedor.innerHTML = `
-
-                <div class="nav-item">
-                    Sin categorías
-                </div>
-
-            `;
-
-            return;
-
-        }
-
-
-        categorias.forEach(
-            categoria => {
-
-                const elemento =
-                    document.createElement(
-                        "div"
-                    );
-
-
-                elemento.className =
-                    "nav-item";
-
-
-                elemento.innerHTML = `
-
-                    <span class="category-icon">
-                        📁
-                    </span>
-
-                    <span>
-                        ${escapeHTML(
-                            limpiarEmoji(
-                                categoria.nombre
-                            )
-                        )}
-                    </span>
+                    <div class="nav-item">
+                        Sin categorías
+                    </div>
 
                 `;
 
+                return;
 
-                elemento.onclick =
-                    () =>
-                        filtrarCategoria(
-                            categoria
+            }
+
+
+            categorias.forEach(
+                categoria => {
+
+
+                    /* ==========================================
+                       CATEGORÍA
+                       ========================================== */
+
+                    const categoriaElemento =
+                        document.createElement(
+                            "div"
                         );
 
 
-                contenedor.appendChild(
-                    elemento
+                    categoriaElemento.className =
+                        "sidebar-category";
+
+
+                    const categoriaTitulo =
+                        document.createElement(
+                            "div"
+                        );
+
+
+                    categoriaTitulo.className =
+                        "nav-item sidebar-category-title";
+
+
+                    categoriaTitulo.innerHTML = `
+
+                        <span class="category-icon">
+                            📁
+                        </span>
+
+                        <span class="sidebar-category-name">
+
+                            ${escapeHTML(
+                                limpiarEmoji(
+                                    categoria.nombre
+                                )
+                            )}
+
+                        </span>
+
+                        <span class="sidebar-arrow">
+                            ›
+                        </span>
+
+                    `;
+
+
+                    /* ==========================================
+                       CONTENIDO
+                       ========================================== */
+
+                    const categoriaContenido =
+                        document.createElement(
+                            "div"
+                        );
+
+
+                    categoriaContenido.className =
+                        "sidebar-category-content";
+
+
+                    categoriaTitulo.addEventListener(
+                        "click",
+                        () => {
+
+                            categoriaContenido
+                                .classList
+                                .toggle(
+                                    "open"
+                                );
+
+
+                            categoriaTitulo
+                                .classList
+                                .toggle(
+                                    "expanded"
+                                );
+
+                        }
+                    );
+
+
+                    categoriaElemento.appendChild(
+                        categoriaTitulo
+                    );
+
+
+                    /* ==========================================
+                       DOCUMENTOS DIRECTOS
+                       ========================================== */
+
+                    categoria.documentos.forEach(
+                        documento => {
+
+                            agregarDocumentoSidebar(
+                                categoriaContenido,
+                                documento
+                            );
+
+                        }
+                    );
+
+
+                    /* ==========================================
+                       SUBCATEGORÍAS
+                       ========================================== */
+
+                    categoria.subcategorias.forEach(
+                        subcategoria => {
+
+
+                            const sub =
+                                document.createElement(
+                                    "div"
+                                );
+
+
+                            sub.className =
+                                "sidebar-subcategory";
+
+
+                            const subTitulo =
+                                document.createElement(
+                                    "div"
+                                );
+
+
+                            subTitulo.className =
+                                "sidebar-subcategory-title";
+
+
+                            subTitulo.innerHTML = `
+
+                                <span>
+
+                                    ${escapeHTML(
+                                        limpiarEmoji(
+                                            subcategoria.nombre
+                                        )
+                                    )}
+
+                                </span>
+
+                                <span class="sidebar-arrow">
+                                    ›
+                                </span>
+
+                            `;
+
+
+                            const subContenido =
+                                document.createElement(
+                                    "div"
+                                );
+
+
+                            subContenido.className =
+                                "sidebar-subcategory-content";
+
+
+                            subTitulo.addEventListener(
+                                "click",
+                                () => {
+
+                                    subContenido
+                                        .classList
+                                        .toggle(
+                                            "open"
+                                        );
+
+
+                                    subTitulo
+                                        .classList
+                                        .toggle(
+                                            "expanded"
+                                        );
+
+                                }
+                            );
+
+
+                            sub.appendChild(
+                                subTitulo
+                            );
+
+
+                            /* ==================================
+                               DOCUMENTOS
+                               ================================== */
+
+                            subcategoria.documentos.forEach(
+                                documento => {
+
+                                    agregarDocumentoSidebar(
+                                        subContenido,
+                                        documento
+                                    );
+
+                                }
+                            );
+
+
+                            sub.appendChild(
+                                subContenido
+                            );
+
+
+                            categoriaContenido.appendChild(
+                                sub
+                            );
+
+                        }
+                    );
+
+
+                    categoriaElemento.appendChild(
+                        categoriaContenido
+                    );
+
+
+                    contenedor.appendChild(
+                        categoriaElemento
+                    );
+
+                }
+            );
+
+        }
+
+
+        /* =========================================================
+           AGREGAR DOCUMENTO AL SIDEBAR
+           ========================================================= */
+
+        function agregarDocumentoSidebar(
+            contenedor,
+            documento
+        ) {
+
+            const elemento =
+                document.createElement(
+                    "div"
                 );
+
+
+            elemento.className =
+                "sidebar-document";
+
+
+            elemento.innerHTML = `
+
+                <span class="sidebar-document-icon">
+                    📄
+                </span>
+
+                <span>
+
+                    ${escapeHTML(
+                        limpiarEmoji(
+                            documento.nombre
+                        )
+                    )}
+
+                </span>
+
+            `;
+
+
+            elemento.addEventListener(
+                "click",
+                () => {
+
+
+                    let ruta =
+                        documento.ruta;
+
+
+                    /* ======================================
+                       LIMPIAR RUTA
+                       ====================================== */
+
+                    ruta =
+                        ruta.trim();
+
+
+                    ruta =
+                        ruta.replace(
+                            /^\.\/+/,
+                            ""
+                        );
+
+
+                    ruta =
+                        ruta.replace(
+                            /^doc\/+/,
+                            ""
+                        );
+
+
+                    /* ======================================
+                       BUSCAR POR RUTA
+                       ====================================== */
+
+                    let encontrado =
+                        documentos.find(
+                            item =>
+                                normalizarRuta(
+                                    item.path
+                                ) ===
+                                normalizarRuta(
+                                    ruta
+                                )
+                        );
+
+
+                    /* ======================================
+                       SI NO ENCUENTRA,
+                       BUSCAR POR PATH CON DOC/
+                       ====================================== */
+
+                    if (!encontrado) {
+
+                        encontrado =
+                            documentos.find(
+                                item => {
+
+                                    const itemPath =
+                                        normalizarRuta(
+                                            item.path
+                                        );
+
+
+                                    const rutaLimpia =
+                                        normalizarRuta(
+                                            ruta
+                                        );
+
+
+                                    return (
+
+                                        itemPath ===
+                                        `doc/${rutaLimpia}`
+
+                                    );
+
+                                }
+                            );
+
+                    }
+
+
+                    /* ======================================
+                       SI ENCUENTRA
+                       ====================================== */
+
+                    if (encontrado) {
+
+                        abrirDocumento(
+                            encontrado.path
+                        );
+
+
+                        return;
+
+                    }
+
+
+                    /* ======================================
+                       ÚLTIMO INTENTO:
+                       BUSCAR POR NOMBRE
+                       ====================================== */
+
+                    const nombreBuscado =
+                        documento.nombre
+                            .replace(
+                                /\.md$/i,
+                                ""
+                            )
+                            .trim()
+                            .toLowerCase();
+
+
+                    encontrado =
+                        documentos.find(
+                            item =>
+                                item.nombre
+                                    .trim()
+                                    .toLowerCase() ===
+                                nombreBuscado
+                        );
+
+
+                    if (encontrado) {
+
+                        abrirDocumento(
+                            encontrado.path
+                        );
+
+                        return;
+
+                    }
+
+
+                    console.warn(
+                        "Documento no encontrado:",
+                        documento
+                    );
+
+
+                    alert(
+                        "No se encontró el documento: " +
+                        documento.nombre
+                    );
+
+                }
+            );
+
+
+            contenedor.appendChild(
+                elemento
+            );
+
+        }
+
+
+        /* =========================================================
+           DOCUMENTOS INICIALES
+           ========================================================= */
+
+        function mostrarDocumentosIniciales() {
+
+            const resultados =
+                documentos.map(
+                    documento => ({
+
+                        documento,
+
+                        contenido:
+                            documento.contenido || "",
+
+                        puntos: 0
+
+                    })
+                );
+
+
+            mostrarResultados(
+                resultados.slice(
+                    0,
+                    20
+                ),
+                ""
+            );
+
+        }
+
+
+        /* =========================================================
+           BUSCADOR
+           ========================================================= */
+
+        const buscador =
+            document.getElementById(
+                "buscador"
+            );
+
+
+        const clearSearch =
+            document.getElementById(
+                "clearSearch"
+            );
+
+
+        buscador.addEventListener(
+            "input",
+            function () {
+
+                const texto =
+                    this.value
+                        .trim()
+                        .toLowerCase();
+
+
+                clearSearch.style.display =
+                    texto
+                        ? "block"
+                        : "none";
+
+
+                clearTimeout(
+                    searchTimer
+                );
+
+
+                searchTimer =
+                    setTimeout(
+                        () => {
+
+                            if (!texto) {
+
+                                mostrarDocumentosIniciales();
+
+
+                                document.getElementById(
+                                    "status"
+                                ).textContent =
+                                    `${documentos.length} documentos disponibles`;
+
+
+                                return;
+
+                            }
+
+
+                            buscarDocumentos(
+                                texto
+                            );
+
+                        },
+                        80
+                    );
 
             }
         );
 
-    }
+
+        /* =========================================================
+           LIMPIAR BUSCADOR
+           ========================================================= */
+
+        clearSearch.addEventListener(
+            "click",
+            () => {
+
+                buscador.value = "";
 
 
-    /* =========================================================
-       DOCUMENTOS INICIALES
-    ========================================================= */
+                clearSearch.style.display =
+                    "none";
 
-    function mostrarDocumentosIniciales() {
 
-        const resultados =
-            documentos.map(
-                documento => ({
+                mostrarDocumentosIniciales();
+
+
+                document.getElementById(
+                    "status"
+                ).textContent =
+                    `${documentos.length} documentos disponibles`;
+
+
+                buscador.focus();
+
+            }
+        );
+
+
+        /* =========================================================
+           BUSCAR DOCUMENTOS
+           ========================================================= */
+
+        function buscarDocumentos(texto) {
+
+            const palabras =
+                texto
+                    .split(/\s+/)
+                    .filter(Boolean);
+
+
+            const resultados = [];
+
+
+            for (const documento of documentos) {
+
+                const contenido =
+                    documento.contenido || "";
+
+
+                const textoBusqueda = (
+
+                    documento.nombre +
+                    " " +
+                    documento.path +
+                    " " +
+                    contenido
+
+                ).toLowerCase();
+
+
+                let puntos = 0;
+
+
+                for (const palabra of palabras) {
+
+                    if (
+                        textoBusqueda.includes(
+                            palabra
+                        )
+                    ) {
+
+                        puntos++;
+
+                    }
+
+                }
+
+
+                if (
+                    puntos === palabras.length
+                ) {
+
+                    resultados.push({
+
+                        documento,
+
+                        contenido,
+
+                        puntos
+
+                    });
+
+                }
+
+            }
+
+
+            resultados.sort(
+                (a, b) => {
+
+                    if (
+                        b.puntos !==
+                        a.puntos
+                    ) {
+
+                        return (
+                            b.puntos -
+                            a.puntos
+                        );
+
+                    }
+
+
+                    return a.documento.nombre
+                        .localeCompare(
+                            b.documento.nombre,
+                            "es"
+                        );
+
+                }
+            );
+
+
+            mostrarResultados(
+                resultados,
+                texto
+            );
+
+
+            document.getElementById(
+                "status"
+            ).textContent =
+                `${resultados.length} resultado(s)`;
+
+        }
+
+
+        /* =========================================================
+           MOSTRAR RESULTADOS
+           ========================================================= */
+
+        function mostrarResultados(
+            resultados,
+            texto
+        ) {
+
+            const contenedor =
+                document.getElementById(
+                    "resultados"
+                );
+
+
+            contenedor.innerHTML = "";
+
+
+            if (resultados.length === 0) {
+
+                contenedor.innerHTML = `
+
+                    <div class="empty">
+
+                        🔎
+
+                        <br>
+                        <br>
+
+                        <div class="empty-title">
+                            No encontramos resultados
+                        </div>
+
+                        <br>
+
+                        No existe ningún documento
+                        que contenga:
+
+                        <br>
+                        <br>
+
+                        <strong>
+                            "${escapeHTML(texto)}"
+                        </strong>
+
+                    </div>
+
+                `;
+
+                return;
+
+            }
+
+
+            resultados.forEach(
+                resultado => {
+
+                    const fragmento =
+                        obtenerFragmento(
+                            resultado.contenido,
+                            texto
+                        );
+
+
+                    const elemento =
+                        document.createElement(
+                            "div"
+                        );
+
+
+                    elemento.className =
+                        "result";
+
+
+                    elemento.innerHTML = `
+
+                        <div class="result-title">
+
+                            <span
+                                class="result-title-icon"
+                            >
+                                📄
+                            </span>
+
+                            ${escapeHTML(
+                                resultado.documento.nombre
+                            )}
+
+                        </div>
+
+
+                        <div class="result-category">
+
+                            📁
+
+                            ${escapeHTML(
+                                resultado.documento.path
+                            )}
+
+                        </div>
+
+
+                        <div class="result-text">
+
+                            ${resaltar(
+                                fragmento,
+                                texto
+                            )}
+
+                        </div>
+
+
+                        <div class="result-actions">
+
+                            <button
+                                type="button"
+                            >
+                                Leer documento
+                            </button>
+
+                        </div>
+
+                    `;
+
+
+                    elemento
+                        .querySelector(
+                            "button"
+                        )
+                        .addEventListener(
+                            "click",
+                            () =>
+                                abrirDocumento(
+                                    resultado
+                                        .documento
+                                        .path
+                                )
+                        );
+
+
+                    contenedor.appendChild(
+                        elemento
+                    );
+
+                }
+            );
+
+        }
+
+
+        /* =========================================================
+           FRAGMENTO
+           ========================================================= */
+
+        function obtenerFragmento(
+            contenido,
+            texto
+        ) {
+
+            const limpio =
+                contenido
+                    .replace(
+                        /[#>*_`]/g,
+                        " "
+                    )
+                    .replace(
+                        /\s+/g,
+                        " "
+                    )
+                    .trim();
+
+
+            if (!texto) {
+
+                return limpio.substring(
+                    0,
+                    300
+                );
+
+            }
+
+
+            const posicion =
+                limpio
+                    .toLowerCase()
+                    .indexOf(
+                        texto.toLowerCase()
+                    );
+
+
+            if (posicion === -1) {
+
+                return limpio.substring(
+                    0,
+                    300
+                );
+
+            }
+
+
+            const inicio =
+                Math.max(
+                    0,
+                    posicion - 120
+                );
+
+
+            return limpio.substring(
+                inicio,
+                posicion +
+                texto.length +
+                250
+            );
+
+        }
+
+
+        /* =========================================================
+           RESALTAR
+           ========================================================= */
+
+        function resaltar(
+            texto,
+            busqueda
+        ) {
+
+            let resultado =
+                escapeHTML(
+                    texto
+                );
+
+
+            const palabras =
+                busqueda
+                    .split(/\s+/)
+                    .filter(Boolean);
+
+
+            palabras.forEach(
+                palabra => {
+
+                    const regex =
+                        new RegExp(
+                            `(${escapeRegex(
+                                palabra
+                            )})`,
+                            "gi"
+                        );
+
+
+                    resultado =
+                        resultado.replace(
+                            regex,
+                            "<mark>$1</mark>"
+                        );
+
+                }
+            );
+
+
+            return resultado;
+
+        }
+
+
+        /* =========================================================
+           ABRIR DOCUMENTO
+           ========================================================= */
+
+        function abrirDocumento(path) {
+
+            document.getElementById(
+                "home"
+            ).style.display =
+                "none";
+
+
+            document.getElementById(
+                "documento"
+            ).style.display =
+                "block";
+
+
+            const contenido =
+                document.getElementById(
+                    "contenidoDocumento"
+                );
+
+
+            contenido.innerHTML =
+                "<p>Cargando documento...</p>";
+
+
+            const documento =
+                documentos.find(
+                    item =>
+                        item.path === path
+                );
+
+
+            if (!documento) {
+
+                contenido.innerHTML = `
+
+                    <div class="empty">
+
+                        <div class="empty-title">
+                            Documento no encontrado
+                        </div>
+
+                    </div>
+
+                `;
+
+                return;
+
+            }
+
+
+            try {
+
+                const markdown =
+                    documento.contenido || "";
+
+
+                /* ==========================================
+                   MARKDOWN → HTML
+                   ========================================== */
+
+                contenido.innerHTML =
+                    marked.parse(
+                        markdown
+                    );
+
+
+                /* ==========================================
+                   CORREGIR IMÁGENES
+                   ========================================== */
+
+                contenido
+                    .querySelectorAll("img")
+                    .forEach(img => {
+
+                        let src =
+                            img.getAttribute(
+                                "src"
+                            );
+
+
+                        if (!src)
+                            return;
+
+
+                        src =
+                            src.trim();
+
+
+                        /* ==================================
+                           LIMPIAR URL ENVUELTA
+                           ================================== */
+
+                        if (
+                            src.startsWith("[") &&
+                            src.includes("](")
+                        ) {
+
+                            const match =
+                                src.match(
+                                    /^\[([^\]]+)\]\(([^)]+)\)$/
+                                );
+
+
+                            if (match) {
+
+                                src =
+                                    match[2];
+
+                            }
+
+                        }
+
+
+                        /* ==================================
+                           URL USER ATTACHMENTS
+                           ================================== */
+
+                        if (
+                            src.includes(
+                                "github.com/user-attachments/assets/"
+                            )
+                        ) {
+
+                            img.src =
+                                src;
+
+                        }
+
+
+                        /* ==================================
+                           URL ABSOLUTA
+                           ================================== */
+
+                        else if (
+
+                            src.startsWith(
+                                "http://"
+                            ) ||
+
+                            src.startsWith(
+                                "https://"
+                            )
+
+                        ) {
+
+                            img.src =
+                                src;
+
+                        }
+
+
+                        /* ==================================
+                           IMAGEN RELATIVA
+                           ================================== */
+
+                        else {
+
+                            let imagen =
+                                src;
+
+
+                            imagen =
+                                imagen.replace(
+                                    /^\.\/+/,
+                                    ""
+                                );
+
+
+                            const carpeta =
+                                path
+                                    .split("/")
+                                    .slice(
+                                        0,
+                                        -1
+                                    )
+                                    .join("/");
+
+
+                            img.src =
+                                `${RAW_URL}${carpeta}/${imagen}`;
+
+                        }
+
+
+                        /* ==================================
+                           CONFIGURACIÓN
+                           ================================== */
+
+                        img.loading =
+                            "lazy";
+
+
+                        img.decoding =
+                            "async";
+
+
+                        img.style.maxWidth =
+                            "100%";
+
+
+                        img.style.height =
+                            "auto";
+
+
+                        img.style.cursor =
+                            "zoom-in";
+
+
+                        /* ==================================
+                           ERROR
+                           ================================== */
+
+                        img.addEventListener(
+                            "error",
+                            () => {
+
+                                console.warn(
+                                    "No se pudo cargar imagen:",
+                                    img.src
+                                );
+
+                            }
+                        );
+
+
+                        /* ==================================
+                           ABRIR IMAGEN
+                           ================================== */
+
+                        img.addEventListener(
+                            "click",
+                            () => {
+
+                                if (
+                                    img.src
+                                ) {
+
+                                    window.open(
+                                        img.src,
+                                        "_blank"
+                                    );
+
+                                }
+
+                            }
+                        );
+
+                    });
+
+
+                /* ==========================================
+                   LINKS
+                   ========================================== */
+
+                contenido
+                    .querySelectorAll("a")
+                    .forEach(
+                        link => {
+
+                            link.target =
+                                "_blank";
+
+
+                            link.rel =
+                                "noopener noreferrer";
+
+                        }
+                    );
+
+
+                /* ==========================================
+                   LINK GITHUB
+                   ========================================== */
+
+                document.getElementById(
+                    "linkGithub"
+                ).href =
+                    GITHUB_URL +
+                    path
+                        .split("/")
+                        .map(
+                            encodeURIComponent
+                        )
+                        .join("/");
+
+
+                window.scrollTo(
+                    0,
+                    0
+                );
+
+
+                /* ==========================================
+                   CERRAR SIDEBAR EN CELULAR
+                   ========================================== */
+
+                document
+                    .getElementById(
+                        "sidebar"
+                    )
+                    .classList
+                    .remove(
+                        "open"
+                    );
+
+
+            } catch (error) {
+
+                console.error(error);
+
+
+                contenido.innerHTML = `
+
+                    <div class="empty">
+
+                        <div class="empty-title">
+                            No se pudo cargar el documento
+                        </div>
+
+                        <br>
+
+                        ${escapeHTML(
+                            error.message
+                        )}
+
+                    </div>
+
+                `;
+
+            }
+
+        }
+
+
+        /* =========================================================
+           FILTRAR CATEGORÍA
+           ========================================================= */
+
+        async function filtrarCategoria(
+            categoria
+        ) {
+
+            if (!readmeCache)
+                return;
+
+
+            const rutas =
+                obtenerDocumentosDeCategoria(
+                    readmeCache,
+                    categoria.nombre
+                );
+
+
+            const resultados = [];
+
+
+            for (const ruta of rutas) {
+
+                const documento =
+                    documentos.find(
+                        item =>
+                            normalizarRuta(
+                                item.path
+                            ) ===
+                            normalizarRuta(
+                                ruta
+                            )
+                    );
+
+
+                if (!documento)
+                    continue;
+
+
+                resultados.push({
 
                     documento,
 
                     contenido:
                         documento.contenido || "",
 
-                    puntos: 0
+                    puntos: 1
 
-                })
-            );
+                });
 
+            }
 
-        mostrarResultados(
-            resultados.slice(0, 20),
-            ""
-        );
-
-    }
-
-
-    /* =========================================================
-       BUSCADOR
-    ========================================================= */
-
-    const buscador =
-        document.getElementById(
-            "buscador"
-        );
-
-
-    const clearSearch =
-        document.getElementById(
-            "clearSearch"
-        );
-
-
-    buscador.addEventListener(
-        "input",
-        function () {
-
-            const texto =
-                this.value
-                    .trim()
-                    .toLowerCase();
-
-
-            clearSearch.style.display =
-                texto
-                    ? "block"
-                    : "none";
-
-
-            clearTimeout(
-                searchTimer
-            );
-
-
-            searchTimer =
-                setTimeout(
-                    () => {
-
-                        if (!texto) {
-
-                            mostrarDocumentosIniciales();
-
-                            document.getElementById(
-                                "status"
-                            ).textContent =
-                                `${documentos.length} documentos disponibles`;
-
-                            return;
-
-                        }
-
-
-                        buscarDocumentos(
-                            texto
-                        );
-
-                    },
-                    80
-                );
-
-        }
-    );
-
-
-    /* =========================================================
-       LIMPIAR BUSCADOR
-    ========================================================= */
-
-    clearSearch.addEventListener(
-        "click",
-        () => {
 
             buscador.value = "";
+
 
             clearSearch.style.display =
                 "none";
 
-            mostrarDocumentosIniciales();
+
+            mostrarResultados(
+                resultados,
+                ""
+            );
+
 
             document.getElementById(
                 "status"
             ).textContent =
-                `${documentos.length} documentos disponibles`;
-
-            buscador.focus();
-
-        }
-    );
-
-
-    /* =========================================================
-       BUSCAR
-    ========================================================= */
-
-    function buscarDocumentos(texto) {
-
-        const palabras =
-            texto
-                .split(/\s+/)
-                .filter(Boolean);
-
-
-        const resultados = [];
-
-
-        for (const documento of documentos) {
-
-            const contenido =
-                documento.contenido || "";
-
-
-            const textoBusqueda = (
-
-                documento.nombre +
-                " " +
-                documento.path +
-                " " +
-                contenido
-
-            ).toLowerCase();
-
-
-            let puntos = 0;
-
-
-            for (const palabra of palabras) {
-
-                if (
-                    textoBusqueda.includes(
-                        palabra
-                    )
-                ) {
-
-                    puntos++;
-
-                }
-
-            }
-
-
-            if (
-                puntos === palabras.length
-            ) {
-
-                resultados.push({
-
-                    documento,
-
-                    contenido,
-
-                    puntos
-
-                });
-
-            }
+                `${resultados.length} documentos en ${limpiarEmoji(
+                    categoria.nombre
+                )}`;
 
         }
 
 
-        resultados.sort(
-            (a, b) => {
+        /* =========================================================
+           OBTENER DOCUMENTOS DE CATEGORÍA
+           ========================================================= */
 
-                if (
-                    b.puntos !==
-                    a.puntos
-                ) {
+        function obtenerDocumentosDeCategoria(
+            markdown,
+            categoria
+        ) {
 
-                    return (
-                        b.puntos -
-                        a.puntos
+            const lineas =
+                markdown.split("\n");
+
+
+            let dentro = false;
+
+            const rutas = [];
+
+
+            for (const linea of lineas) {
+
+                const heading =
+                    linea.match(
+                        /^##\s+(.+)$/
                     );
+
+
+                if (heading) {
+
+                    const titulo =
+                        heading[1].trim();
+
+
+                    dentro =
+                        titulo === categoria;
+
+
+                    continue;
 
                 }
 
 
-                return a.documento.nombre
-                    .localeCompare(
-                        b.documento.nombre,
-                        "es"
-                    );
-
-            }
-        );
+                if (!dentro)
+                    continue;
 
 
-        mostrarResultados(
-            resultados,
-            texto
-        );
-
-
-        document.getElementById(
-            "status"
-        ).textContent =
-            `${resultados.length} resultado(s)`;
-
-    }
-
-
-    /* =========================================================
-       MOSTRAR RESULTADOS
-    ========================================================= */
-
-    function mostrarResultados(
-        resultados,
-        texto
-    ) {
-
-        const contenedor =
-            document.getElementById(
-                "resultados"
-            );
-
-
-        contenedor.innerHTML = "";
-
-
-        if (resultados.length === 0) {
-
-            contenedor.innerHTML = `
-
-                <div class="empty">
-
-                    🔎
-
-                    <br><br>
-
-                    <div class="empty-title">
-                        No encontramos resultados
-                    </div>
-
-                    <br>
-
-                    No existe ningún documento
-                    que contenga:
-
-                    <br><br>
-
-                    <strong>
-                        "${escapeHTML(texto)}"
-                    </strong>
-
-                </div>
-
-            `;
-
-            return;
-
-        }
-
-
-        resultados.forEach(
-            resultado => {
-
-                const fragmento =
-                    obtenerFragmento(
-                        resultado.contenido,
-                        texto
+                const enlace =
+                    linea.match(
+                        /^\s*[-*]\s+\[([^\]]+)\]\(([^)]+)\)/
                     );
 
 
-                const elemento =
-                    document.createElement(
-                        "div"
+                if (!enlace)
+                    continue;
+
+
+                let ruta =
+                    enlace[2].trim();
+
+
+                ruta =
+                    ruta.replace(
+                        /^\.\//,
+                        ""
                     );
 
 
-                elemento.className =
-                    "result";
-
-
-                elemento.innerHTML = `
-
-                    <div class="result-title">
-
-                        <span
-                            class="result-title-icon"
-                        >
-                            📄
-                        </span>
-
-                        ${escapeHTML(
-                            resultado.documento.nombre
-                        )}
-
-                    </div>
-
-
-                    <div class="result-category">
-
-                        📁
-
-                        ${escapeHTML(
-                            resultado.documento.path
-                        )}
-
-                    </div>
-
-
-                    <div class="result-text">
-
-                        ${resaltar(
-                            fragmento,
-                            texto
-                        )}
-
-                    </div>
-
-
-                    <div class="result-actions">
-
-                        <button
-                            type="button"
-                        >
-                            Leer documento
-                        </button>
-
-                    </div>
-
-                `;
-
-
-                elemento
-                    .querySelector("button")
-                    .addEventListener(
-                        "click",
-                        () =>
-                            abrirDocumento(
-                                resultado.documento.path
-                            )
+                ruta =
+                    ruta.replace(
+                        /\\([()[\]])/g,
+                        "$1"
                     );
 
 
-                contenedor.appendChild(
-                    elemento
+                rutas.push(
+                    ruta
                 );
 
             }
-        );
-
-    }
 
 
-    /* =========================================================
-       FRAGMENTO
-    ========================================================= */
-
-    function obtenerFragmento(
-        contenido,
-        texto
-    ) {
-
-        const limpio =
-            contenido
-                .replace(
-                    /[#>*_`]/g,
-                    " "
-                )
-                .replace(
-                    /\s+/g,
-                    " "
-                )
-                .trim();
-
-
-        if (!texto) {
-
-            return limpio.substring(
-                0,
-                300
-            );
+            return rutas;
 
         }
 
 
-        const posicion =
-            limpio
-                .toLowerCase()
-                .indexOf(
-                    texto.toLowerCase()
-                );
-
-
-        if (posicion === -1) {
-
-            return limpio.substring(
-                0,
-                300
-            );
-
-        }
-
-
-        const inicio =
-            Math.max(
-                0,
-                posicion - 120
-            );
-
-
-        return limpio.substring(
-            inicio,
-            posicion +
-            texto.length +
-            250
-        );
-
-    }
-
-
-    /* =========================================================
-       RESALTAR
-    ========================================================= */
-
-    function resaltar(
-        texto,
-        busqueda
-    ) {
-
-        let resultado =
-            escapeHTML(
-                texto
-            );
-
-
-        const palabras =
-            busqueda
-                .split(/\s+/)
-                .filter(Boolean);
-
-
-        palabras.forEach(
-            palabra => {
-
-                const regex =
-                    new RegExp(
-                        `(${escapeRegex(
-                            palabra
-                        )})`,
-                        "gi"
-                    );
-
-
-                resultado =
-                    resultado.replace(
-                        regex,
-                        "<mark>$1</mark>"
-                    );
-
-            }
-        );
-
-
-        return resultado;
-
-    }
-
-
-    /* =========================================================
-       ABRIR DOCUMENTO
-    ========================================================= */
-
-    function abrirDocumento(path) {
-
-        document.getElementById(
-            "home"
-        ).style.display =
-            "none";
-
-
-        document.getElementById(
-            "documento"
-        ).style.display =
-            "block";
-
-
-        const contenido =
-            document.getElementById(
-                "contenidoDocumento"
-            );
-
-
-        contenido.innerHTML =
-            "<p>Cargando documento...</p>";
-
-
-        const documento =
-            documentos.find(
-                item =>
-                    item.path === path
-            );
-
-
-        if (!documento) {
-
-            contenido.innerHTML = `
-
-                <div class="empty">
-
-                    <div class="empty-title">
-                        Documento no encontrado
-                    </div>
-
-                </div>
-
-            `;
-
-            return;
-
-        }
-
-
-        try {
-
-            const markdown =
-                documento.contenido || "";
-
-
-            /*
-             * Convertimos Markdown a HTML.
-             */
-
-            contenido.innerHTML =
-                marked.parse(
-                    markdown
-                );
-
-
-            /*
-             * =================================================
-             * CORRECCIÓN DE IMÁGENES
-             * =================================================
-             *
-             * Las imágenes pueden aparecer como:
-             *
-             * 1. https://github.com/user-attachments/...
-             *
-             * 2. ./imagen.png
-             *
-             * 3. imagen.png
-             *
-             * 4. /doc/imagen.png
-             *
-             * 5. URL absoluta
-             *
-             * Se respetan las URLs de GitHub.
-             */
-
-
-            contenido
-                .querySelectorAll("img")
-                .forEach(img => {
-
-                    let src =
-                        img.getAttribute(
-                            "src"
-                        );
-
-
-                    if (!src)
-                        return;
-
-
-                    src =
-                        src.trim();
-
-
-                    /*
-                     * Imagen adjunta de GitHub.
-                     *
-                     * NO la modificamos.
-                     */
-
-                    if (
-                        src.includes(
-                            "github.com/user-attachments/assets/"
-                        )
-                    ) {
-
-                        img.src = src;
-
-                    }
-
-
-                    /*
-                     * Imagen absoluta.
-                     */
-
-                    else if (
-                        src.startsWith(
-                            "http://"
-                        ) ||
-                        src.startsWith(
-                            "https://"
-                        )
-                    ) {
-
-                        img.src = src;
-
-                    }
-
-
-                    /*
-                     * Imagen relativa.
-                     *
-                     * La buscamos dentro de la carpeta
-                     * correspondiente al documento.
-                     */
-
-                    else {
-
-                        const carpeta =
-                            path
-                                .split("/")
-                                .slice(
-                                    0,
-                                    -1
-                                )
-                                .join("/");
-
-
-                        const rutaImagen =
-                            `${RAW_URL}${carpeta}/${src}`;
-
-
-                        img.src =
-                            rutaImagen;
-
-                    }
-
-
-                    /*
-                     * Configuración visual.
-                     */
-
-                    img.loading =
-                        "lazy";
-
-                    img.decoding =
-                        "async";
-
-                    img.style.maxWidth =
-                        "100%";
-
-                    img.style.height =
-                        "auto";
-
-                    img.style.cursor =
-                        "zoom-in";
-
-
-                    /*
-                     * Si la imagen falla,
-                     * mostramos información en consola.
-                     */
-
-                    img.addEventListener(
-                        "error",
-                        () => {
-
-                            console.warn(
-                                "No se pudo cargar imagen:",
-                                img.src
-                            );
-
-                        }
-                    );
-
-
-                    /*
-                     * Click para abrir
-                     * la imagen grande.
-                     */
-
-                    img.addEventListener(
-                        "click",
-                        () => {
-
-                            if (
-                                img.src
-                            ) {
-
-                                window.open(
-                                    img.src,
-                                    "_blank"
-                                );
-
-                            }
-
-                        }
-                    );
-
-                });
-
-
-            /*
-             * Links de GitHub.
-             */
-
-            contenido
-                .querySelectorAll("a")
-                .forEach(link => {
-
-                    link.target =
-                        "_blank";
-
-                    link.rel =
-                        "noopener noreferrer";
-
-                });
-
-
-            /*
-             * Link al documento original
-             * en GitHub.
-             */
+        /* =========================================================
+           INICIO
+           ========================================================= */
+
+        function inicio() {
 
             document.getElementById(
-                "linkGithub"
-            ).href =
-                GITHUB_URL +
-                path
-                    .split("/")
-                    .map(
-                        encodeURIComponent
-                    )
-                    .join("/");
+                "home"
+            ).style.display =
+                "block";
+
+
+            document.getElementById(
+                "documento"
+            ).style.display =
+                "none";
+
+
+            document.getElementById(
+                "navInicio"
+            ).classList.add(
+                "active"
+            );
 
 
             window.scrollTo(
@@ -2351,421 +3575,207 @@
                 0
             );
 
-
-        } catch (error) {
-
-            console.error(error);
-
-
-            contenido.innerHTML = `
-
-                <div class="empty">
-
-                    <div class="empty-title">
-                        No se pudo cargar el documento
-                    </div>
-
-                    <br>
-
-                    ${escapeHTML(
-                        error.message
-                    )}
-
-                </div>
-
-            `;
-
         }
 
-    }
 
+        /* =========================================================
+           ACTIVAR BÚSQUEDA
+           ========================================================= */
 
-    /* =========================================================
-       FILTRAR CATEGORÍA
-    ========================================================= */
+        function activarBusqueda() {
 
-    async function filtrarCategoria(
-        categoria
-    ) {
+            inicio();
 
-        if (!readmeCache)
-            return;
-
-
-        const rutas =
-            obtenerDocumentosDeCategoria(
-                readmeCache,
-                categoria.nombre
-            );
-
-
-        const resultados = [];
-
-
-        for (const ruta of rutas) {
-
-            const documento =
-                documentos.find(
-                    item =>
-                        normalizarRuta(
-                            item.path
-                        ) ===
-                        normalizarRuta(
-                            ruta
-                        )
-                );
-
-
-            if (!documento)
-                continue;
-
-
-            resultados.push({
-
-                documento,
-
-                contenido:
-                    documento.contenido || "",
-
-                puntos: 1
-
-            });
+            buscador.focus();
 
         }
 
 
-        buscador.value = "";
+        /* =========================================================
+           NORMALIZAR RUTA
+           ========================================================= */
 
-        clearSearch.style.display =
-            "none";
+        function normalizarRuta(
+            ruta
+        ) {
 
+            return String(ruta)
 
-        mostrarResultados(
-            resultados,
-            ""
-        );
-
-
-        document.getElementById(
-            "status"
-        ).textContent =
-            `${resultados.length} documentos en ${limpiarEmoji(
-                categoria.nombre
-            )}`;
-
-    }
-
-
-    /* =========================================================
-       LEER CATEGORÍAS DEL README
-    ========================================================= */
-
-    function obtenerDocumentosDeCategoria(
-        markdown,
-        categoria
-    ) {
-
-        const lineas =
-            markdown.split("\n");
-
-
-        let dentro = false;
-
-        const rutas = [];
-
-
-        for (const linea of lineas) {
-
-            const heading =
-                linea.match(
-                    /^##\s+(.+)$/
-                );
-
-
-            if (heading) {
-
-                const titulo =
-                    heading[1].trim();
-
-
-                dentro =
-                    titulo === categoria;
-
-
-                continue;
-
-            }
-
-
-            if (!dentro)
-                continue;
-
-
-            const enlace =
-                linea.match(
-                    /^\s*-\s+\[([^\]]+)\]\(([^)]+)\)/
-                );
-
-
-            if (!enlace)
-                continue;
-
-
-            let ruta =
-                enlace[2].trim();
-
-
-            ruta =
-                ruta.replace(
-                    /^\.\//,
+                .replace(
+                    /^\.\/+/,
                     ""
-                );
+                )
 
+                .replace(
+                    /^doc\/+/,
+                    ""
+                )
 
-            ruta =
-                ruta.replace(
-                    /\\([()[\]])/g,
-                    "$1"
-                );
+                .replace(
+                    /\\/g,
+                    ""
+                )
 
+                .trim()
 
-            rutas.push(
-                ruta
-            );
+                .toLowerCase();
 
         }
 
 
-        return rutas;
+        /* =========================================================
+           LIMPIAR EMOJIS
+           ========================================================= */
 
-    }
+        function limpiarEmoji(
+            texto
+        ) {
 
+            return String(texto)
 
-    /* =========================================================
-       INICIO
-    ========================================================= */
+                .replace(
+                    /[\u{1F300}-\u{1FAFF}]/gu,
+                    ""
+                )
 
-    function inicio() {
+                .trim();
 
-        document.getElementById(
-            "home"
-        ).style.display =
-            "block";
-
-
-        document.getElementById(
-            "documento"
-        ).style.display =
-            "none";
+        }
 
 
-        document.getElementById(
-            "navInicio"
-        ).classList.add(
-            "active"
-        );
+        /* =========================================================
+           ESCAPE HTML
+           ========================================================= */
+
+        function escapeHTML(
+            texto
+        ) {
+
+            return String(texto)
+
+                .replace(
+                    /&/g,
+                    "&amp;"
+                )
+
+                .replace(
+                    /</g,
+                    "&lt;"
+                )
+
+                .replace(
+                    />/g,
+                    "&gt;"
+                )
+
+                .replace(
+                    /"/g,
+                    "&quot;"
+                )
+
+                .replace(
+                    /'/g,
+                    "&#039;"
+                );
+
+        }
 
 
-        window.scrollTo(
-            0,
-            0
-        );
+        /* =========================================================
+           ESCAPE REGEX
+           ========================================================= */
 
-    }
+        function escapeRegex(
+            texto
+        ) {
 
+            return String(texto)
+                .replace(
+                    /[.*+?^${}()|[\]\\]/g,
+                    "\\$&"
+                );
 
-    /* =========================================================
-       ACTIVAR BÚSQUEDA
-    ========================================================= */
-
-    function activarBusqueda() {
-
-        inicio();
-
-        buscador.focus();
-
-    }
+        }
 
 
-    /* =========================================================
-       NORMALIZAR RUTA
-    ========================================================= */
+        /* =========================================================
+           MENÚ MÓVIL
+           ========================================================= */
 
-    function normalizarRuta(
-        ruta
-    ) {
-
-        return String(ruta)
-
-            .replace(
-                /^\.\//,
-                ""
+        document
+            .getElementById(
+                "menuButton"
             )
+            .addEventListener(
+                "click",
+                () => {
 
-            .replace(
-                /\\/g,
-                ""
-            )
+                    document
+                        .getElementById(
+                            "sidebar"
+                        )
+                        .classList
+                        .toggle(
+                            "open"
+                        );
 
-            .trim()
-
-            .toLowerCase();
-
-    }
-
-
-    /* =========================================================
-       LIMPIAR EMOJIS
-    ========================================================= */
-
-    function limpiarEmoji(
-        texto
-    ) {
-
-        return String(texto)
-
-            .replace(
-                /[\u{1F300}-\u{1FAFF}]/gu,
-                ""
-            )
-
-            .trim();
-
-    }
-
-
-    /* =========================================================
-       ESCAPE HTML
-    ========================================================= */
-
-    function escapeHTML(
-        texto
-    ) {
-
-        return String(texto)
-
-            .replace(
-                /&/g,
-                "&amp;"
-            )
-
-            .replace(
-                /</g,
-                "&lt;"
-            )
-
-            .replace(
-                />/g,
-                "&gt;"
-            )
-
-            .replace(
-                /"/g,
-                "&quot;"
-            )
-
-            .replace(
-                /'/g,
-                "&#039;"
+                }
             );
 
-    }
+
+        /* =========================================================
+           BUSCAR EN SIDEBAR
+           ========================================================= */
+
+        document
+            .getElementById(
+                "sidebarSearch"
+            )
+            .addEventListener(
+                "input",
+                function () {
+
+                    const texto =
+                        this.value
+                            .toLowerCase()
+                            .trim();
 
 
-    /* =========================================================
-       ESCAPE REGEX
-    ========================================================= */
+                    document
+                        .querySelectorAll(
+                            "#categorias .sidebar-category"
+                        )
+                        .forEach(
+                            categoria => {
 
-    function escapeRegex(
-        texto
-    ) {
+                                const visible =
+                                    categoria
+                                        .textContent
+                                        .toLowerCase()
+                                        .includes(
+                                            texto
+                                        );
 
-        return String(texto)
-            .replace(
-                /[.*+?^${}()|[\]\\]/g,
-                "\\$&"
+
+                                categoria.style.display =
+                                    visible
+                                        ? "block"
+                                        : "none";
+
+                            }
+                        );
+
+                }
             );
 
-    }
 
+        /* =========================================================
+           ARRANCAR
+           ========================================================= */
 
-    /* =========================================================
-       MENÚ MÓVIL
-    ========================================================= */
+        iniciar();
 
-    document
-        .getElementById(
-            "menuButton"
-        )
-        .addEventListener(
-            "click",
-            () => {
-
-                document
-                    .getElementById(
-                        "sidebar"
-                    )
-                    .classList
-                    .toggle(
-                        "open"
-                    );
-
-            }
-        );
-
-
-    /* =========================================================
-       BUSCAR EN MENÚ
-    ========================================================= */
-
-    document
-        .getElementById(
-            "sidebarSearch"
-        )
-        .addEventListener(
-            "input",
-            function () {
-
-                const texto =
-                    this.value
-                        .toLowerCase()
-                        .trim();
-
-
-                document
-                    .querySelectorAll(
-                        "#categorias .nav-item"
-                    )
-                    .forEach(
-                        item => {
-
-                            const visible =
-                                item.textContent
-                                    .toLowerCase()
-                                    .includes(
-                                        texto
-                                    );
-
-
-                            item.style.display =
-                                visible
-                                    ? "flex"
-                                    : "none";
-
-                        }
-                    );
-
-            }
-        );
-
-
-    /* =========================================================
-       ARRANCAR
-    ========================================================= */
-
-    iniciar();
-
-</script>
+    </script>
 
 </body>
 
