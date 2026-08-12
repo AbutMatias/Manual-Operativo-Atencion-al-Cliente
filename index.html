@@ -129,7 +129,6 @@
         .brand-logo {
             width: 32px;
             height: 32px;
-
             object-fit: contain;
         }
 
@@ -283,15 +282,13 @@
         .category-icon {
             width: 17px;
             min-width: 17px;
-
             text-align: center;
-
             opacity: .9;
         }
 
 
         /* =========================================================
-           ÍNDICE DEL README
+           CATEGORÍAS
            ========================================================= */
 
         .sidebar-category {
@@ -325,13 +322,11 @@
         .sidebar-category-title.expanded .sidebar-arrow,
         .sidebar-subcategory-title.expanded .sidebar-arrow {
             transform: rotate(90deg);
-
             color: var(--blue);
         }
 
         .sidebar-category-content {
             display: none;
-
             padding-left: 10px;
         }
 
@@ -367,13 +362,11 @@
 
         .sidebar-subcategory-title:hover {
             background: #292929;
-
             color: white;
         }
 
         .sidebar-subcategory-content {
             display: none;
-
             padding-left: 8px;
         }
 
@@ -407,13 +400,11 @@
 
         .sidebar-document:hover {
             background: #292929;
-
             color: white;
         }
 
         .sidebar-document-icon {
             flex-shrink: 0;
-
             opacity: .8;
         }
 
@@ -560,7 +551,6 @@
 
         .clear-search:hover {
             background: #444;
-
             color: white;
         }
 
@@ -787,7 +777,6 @@
 
         .back:hover {
             background: #3a3a3a;
-
             color: white;
         }
 
@@ -1467,30 +1456,23 @@
         const OWNER =
             "AbutMatias";
 
-
         const REPO =
             "Manual-Operativo-Atencion-al-Cliente";
-
 
         const BRANCH =
             "main";
 
-
         const API =
             `https://api.github.com/repos/${OWNER}/${REPO}/contents/doc`;
-
 
         const README_URL =
             `https://raw.githubusercontent.com/${OWNER}/${REPO}/${BRANCH}/README.md`;
 
-
         const GITHUB_URL =
             `https://github.com/${OWNER}/${REPO}/blob/${BRANCH}/`;
 
-
         const RAW_URL =
             `https://raw.githubusercontent.com/${OWNER}/${REPO}/${BRANCH}/`;
-
 
         const INDEX_URL =
             "./index.json";
@@ -1518,14 +1500,11 @@
             const status =
                 document.getElementById("status");
 
-
             const estado =
                 document.getElementById("estado");
 
-
             const loading =
                 document.getElementById("loadingBar");
-
 
             const headerStatus =
                 document.getElementById("headerStatus");
@@ -1535,14 +1514,11 @@
 
                 loading.classList.add("active");
 
-
                 status.textContent =
                     "Cargando documentación...";
 
-
                 headerStatus.textContent =
                     "Cargando...";
-
 
                 estado.textContent =
                     "...";
@@ -1590,10 +1566,8 @@
                 estado.textContent =
                     "OK";
 
-
                 headerStatus.textContent =
                     `${documentos.length} documentos`;
-
 
                 status.textContent =
                     `${documentos.length} documentos disponibles`;
@@ -1606,14 +1580,11 @@
 
                 console.error(error);
 
-
                 estado.textContent =
                     "ERROR";
 
-
                 headerStatus.textContent =
                     "Error";
-
 
                 status.textContent =
                     "Error al cargar";
@@ -1636,7 +1607,6 @@
                     </div>
 
                 `;
-
 
             } finally {
 
@@ -1824,13 +1794,10 @@
             for (const archivo of archivos) {
 
                 if (
-
                     archivo.type === "file" &&
-
                     archivo.name
                         .toLowerCase()
                         .endsWith(".md")
-
                 ) {
 
                     documentos.push({
@@ -1933,7 +1900,7 @@
 
 
         /* =========================================================
-           LEER ESTRUCTURA DEL README
+           LEER ESTRUCTURA README
            ========================================================= */
 
         function obtenerCategorias(markdown) {
@@ -1943,7 +1910,6 @@
             const lineas =
                 markdown.split("\n");
 
-
             let categoriaActual = null;
 
             let subcategoriaActual = null;
@@ -1951,10 +1917,6 @@
 
             for (const linea of lineas) {
 
-
-                /* ==========================================
-                   CATEGORÍA PRINCIPAL ##
-                   ========================================== */
 
                 const categoria =
                     linea.match(
@@ -1990,10 +1952,6 @@
                 }
 
 
-                /* ==========================================
-                   SUBCATEGORÍA ###
-                   ========================================== */
-
                 const subcategoria =
                     linea.match(
                         /^###\s+(.+)$/
@@ -2026,10 +1984,6 @@
 
                 }
 
-
-                /* ==========================================
-                   DOCUMENTO
-                   ========================================== */
 
                 const enlace =
                     linea.match(
@@ -2115,10 +2069,6 @@
                 categoria => {
 
 
-                    /* ==========================================
-                       CATEGORÍA
-                       ========================================== */
-
                     const categoriaElemento =
                         document.createElement(
                             "div"
@@ -2162,10 +2112,6 @@
                     `;
 
 
-                    /* ==========================================
-                       CONTENIDO
-                       ========================================== */
-
                     const categoriaContenido =
                         document.createElement(
                             "div"
@@ -2202,10 +2148,6 @@
                     );
 
 
-                    /* ==========================================
-                       DOCUMENTOS DIRECTOS
-                       ========================================== */
-
                     categoria.documentos.forEach(
                         documento => {
 
@@ -2217,10 +2159,6 @@
                         }
                     );
 
-
-                    /* ==========================================
-                       SUBCATEGORÍAS
-                       ========================================== */
 
                     categoria.subcategorias.forEach(
                         subcategoria => {
@@ -2301,10 +2239,6 @@
                             );
 
 
-                            /* ==================================
-                               DOCUMENTOS
-                               ================================== */
-
                             subcategoria.documentos.forEach(
                                 documento => {
 
@@ -2346,7 +2280,7 @@
 
 
         /* =========================================================
-           AGREGAR DOCUMENTO AL SIDEBAR
+           AGREGAR DOCUMENTO SIDEBAR
            ========================================================= */
 
         function agregarDocumentoSidebar(
@@ -2387,36 +2321,23 @@
                 "click",
                 () => {
 
-
                     let ruta =
-                        documento.ruta;
-
-
-                    /* ======================================
-                       LIMPIAR RUTA
-                       ====================================== */
-
-                    ruta =
-                        ruta.trim();
+                        documento.ruta.trim();
 
 
                     ruta =
                         ruta.replace(
-                            /^\.\/+/,
+                            /^\.\//,
                             ""
                         );
 
 
                     ruta =
                         ruta.replace(
-                            /^doc\/+/,
+                            /^doc\//,
                             ""
                         );
 
-
-                    /* ======================================
-                       BUSCAR POR RUTA
-                       ====================================== */
 
                     let encontrado =
                         documentos.find(
@@ -2429,11 +2350,6 @@
                                 )
                         );
 
-
-                    /* ======================================
-                       SI NO ENCUENTRA,
-                       BUSCAR POR PATH CON DOC/
-                       ====================================== */
 
                     if (!encontrado) {
 
@@ -2454,10 +2370,8 @@
 
 
                                     return (
-
                                         itemPath ===
                                         `doc/${rutaLimpia}`
-
                                     );
 
                                 }
@@ -2466,26 +2380,16 @@
                     }
 
 
-                    /* ======================================
-                       SI ENCUENTRA
-                       ====================================== */
-
                     if (encontrado) {
 
                         abrirDocumento(
                             encontrado.path
                         );
 
-
                         return;
 
                     }
 
-
-                    /* ======================================
-                       ÚLTIMO INTENTO:
-                       BUSCAR POR NOMBRE
-                       ====================================== */
 
                     const nombreBuscado =
                         documento.nombre
@@ -2617,12 +2521,10 @@
 
                                 mostrarDocumentosIniciales();
 
-
                                 document.getElementById(
                                     "status"
                                 ).textContent =
                                     `${documentos.length} documentos disponibles`;
-
 
                                 return;
 
@@ -2651,19 +2553,15 @@
 
                 buscador.value = "";
 
-
                 clearSearch.style.display =
                     "none";
 
-
                 mostrarDocumentosIniciales();
-
 
                 document.getElementById(
                     "status"
                 ).textContent =
                     `${documentos.length} documentos disponibles`;
-
 
                 buscador.focus();
 
@@ -3049,437 +2947,75 @@
            ABRIR DOCUMENTO
            ========================================================= */
 
-       /* =========================================================
-   ABRIR DOCUMENTO
-========================================================= */
+        function abrirDocumento(path) {
 
-function abrirDocumento(path) {
-
-    document.getElementById(
-        "home"
-    ).style.display =
-        "none";
+            document.getElementById(
+                "home"
+            ).style.display =
+                "none";
 
 
-    document.getElementById(
-        "documento"
-    ).style.display =
-        "block";
+            document.getElementById(
+                "documento"
+            ).style.display =
+                "block";
 
 
-    const contenido =
-        document.getElementById(
-            "contenidoDocumento"
-        );
+            const contenido =
+                document.getElementById(
+                    "contenidoDocumento"
+                );
 
 
-    contenido.innerHTML =
-        "<p>Cargando documento...</p>";
+            contenido.innerHTML =
+                "<p>Cargando documento...</p>";
 
 
-    const documento =
-        documentos.find(
-            item =>
-                item.path === path
-        );
+            const documento =
+                documentos.find(
+                    item =>
+                        item.path === path
+                );
 
 
-    if (!documento) {
+            if (!documento) {
 
-        contenido.innerHTML = `
+                contenido.innerHTML = `
 
-            <div class="empty">
+                    <div class="empty">
 
-                <div class="empty-title">
-                    Documento no encontrado
-                </div>
+                        <div class="empty-title">
+                            Documento no encontrado
+                        </div>
 
-            </div>
+                    </div>
 
-        `;
+                `;
 
-        return;
+                return;
 
-    }
-
-
-    try {
-
-        const markdown =
-            documento.contenido || "";
+            }
 
 
-        /* =====================================================
-           CONVERTIR MARKDOWN A HTML
-        ===================================================== */
+            try {
 
-        contenido.innerHTML =
-            marked.parse(
-                markdown
-            );
-
-
-        /* =====================================================
-           CORRECCIÓN DE IMÁGENES
-        ===================================================== */
-
-        contenido
-            .querySelectorAll("img")
-            .forEach(img => {
-
-                let src =
-                    img.getAttribute("src");
-
-
-                if (!src)
-                    return;
-
-
-                src =
-                    src.trim();
+                const markdown =
+                    documento.contenido || "";
 
 
                 /* =================================================
-                   LIMPIAR URL
-                ================================================= */
+                   MARKDOWN → HTML
+                   ================================================= */
 
-                /*
-                 * Algunos documentos pueden contener:
-                 *
-                 * [https://...](https://...)
-                 *
-                 * Si por algún motivo quedó dentro del src,
-                 * intentamos recuperar solamente la URL.
-                 */
-
-                if (
-                    src.startsWith("[") &&
-                    src.includes("](")
-                ) {
-
-                    const match =
-                        src.match(
-                            /^\[([^\]]+)\]\(([^)]+)\)$/
-                        );
-
-
-                    if (match) {
-
-                        src =
-                            match[2];
-
-                    }
-
-                }
-
-
-                /* =================================================
-                   IMAGEN DE GITHUB USER ATTACHMENTS
-                ================================================= */
-
-                if (
-                    src.includes(
-                        "github.com/user-attachments/assets/"
-                    )
-                ) {
-
-                    img.src =
-                        src;
-
-                }
-
-
-                /* =================================================
-                   URL ABSOLUTA
-                ================================================= */
-
-                else if (
-
-                    src.startsWith(
-                        "http://"
-                    )
-
-                    ||
-
-                    src.startsWith(
-                        "https://"
-                    )
-
-                ) {
-
-                    img.src =
-                        src;
-
-                }
-
-
-                /* =================================================
-                   IMAGEN RELATIVA
-                ================================================= */
-
-                else {
-
-                    /*
-                     * Obtener carpeta donde está
-                     * el documento Markdown.
-                     */
-
-                    const carpeta =
-                        path
-                            .split("/")
-                            .slice(
-                                0,
-                                -1
-                            )
-                            .join("/");
-
-
-                    /*
-                     * Limpiar ./ inicial
-                     */
-
-                    let ruta =
-                        src;
-
-
-                    while (
-                        ruta.startsWith(
-                            "./"
-                        )
-                    ) {
-
-                        ruta =
-                            ruta.substring(
-                                2
-                            );
-
-                    }
-
-
-                    /*
-                     * Si la imagen ya comienza
-                     * con imagenes/, no duplicarla.
-                     */
-
-                    let rutaImagen;
-
-
-                    if (
-                        ruta.startsWith(
-                            "imagenes/"
-                        )
-                    ) {
-
-                        rutaImagen =
-                            `${RAW_URL}${ruta}`;
-
-                    }
-
-                    else {
-
-                        rutaImagen =
-                            `${RAW_URL}${carpeta}/imagenes/${ruta}`;
-
-                    }
-
-
-                    img.src =
-                        rutaImagen;
-
-                }
-
-
-                /* =================================================
-                   ALT
-                ================================================= */
-
-                let alt =
-                    img.getAttribute(
-                        "alt"
+                contenido.innerHTML =
+                    marked.parse(
+                        markdown
                     );
 
 
-                if (
-                    !alt ||
-                    !alt.trim()
-                ) {
-
-                    alt =
-                        "image";
-
-                }
-
-
                 /* =================================================
-                   ELIMINAR WIDTH Y HEIGHT
-                ================================================= */
-
-                img.removeAttribute(
-                    "width"
-                );
-
-
-                img.removeAttribute(
-                    "height"
-                );
-
-
-                /* =================================================
-                   RECONSTRUIR ATRIBUTOS
-                ================================================= */
-
-                img.setAttribute(
-                    "src",
-                    img.src
-                );
-
-
-                img.setAttribute(
-                    "alt",
-                    alt
-                );
-
-
-                img.setAttribute(
-                    "loading",
-                    "lazy"
-                );
-
-
-                img.setAttribute(
-                    "decoding",
-                    "async"
-                );
-
-
-                /* =================================================
-                   ESTILO ÚNICO
-                ================================================= */
-
-                img.setAttribute(
-                    "style",
-                    "max-width: 100%; height: auto; cursor: zoom-in;"
-                );
-
-
-                /* =================================================
-                   EVENTO ERROR
-                ================================================= */
-
-                img.addEventListener(
-                    "error",
-                    () => {
-
-                        console.warn(
-                            "No se pudo cargar imagen:",
-                            img.src
-                        );
-
-                    }
-                );
-
-
-                /* =================================================
-                   CLICK PARA ABRIR IMAGEN
-                ================================================= */
-
-                img.addEventListener(
-                    "click",
-                    () => {
-
-                        if (
-                            img.src
-                        ) {
-
-                            window.open(
-                                img.src,
-                                "_blank"
-                            );
-
-                        }
-
-                    }
-                );
-
-            });
-
-
-        /* =====================================================
-           CORREGIR LINKS
-        ===================================================== */
-
-        contenido
-            .querySelectorAll("a")
-            .forEach(link => {
-
-                link.target =
-                    "_blank";
-
-
-                link.rel =
-                    "noopener noreferrer";
-
-            });
-
-
-        /* =====================================================
-           LINK AL DOCUMENTO EN GITHUB
-        ===================================================== */
-
-        document.getElementById(
-            "linkGithub"
-        ).href =
-            GITHUB_URL +
-            path
-                .split("/")
-                .map(
-                    encodeURIComponent
-                )
-                .join("/");
-
-
-        /* =====================================================
-           VOLVER ARRIBA
-        ===================================================== */
-
-        window.scrollTo(
-            0,
-            0
-        );
-
-
-    } catch (error) {
-
-        console.error(
-            error
-        );
-
-
-        contenido.innerHTML = `
-
-            <div class="empty">
-
-                <div class="empty-title">
-                    No se pudo cargar el documento
-                </div>
-
-                <br>
-
-                ${escapeHTML(
-                    error.message
-                )}
-
-            </div>
-
-        `;
-
-    }
-
-}
-
-                /* ==========================================
                    CORREGIR IMÁGENES
-                   ========================================== */
+                   ================================================= */
 
                 contenido
                     .querySelectorAll("img")
@@ -3491,17 +3027,21 @@ function abrirDocumento(path) {
                             );
 
 
-                        if (!src)
+                        if (!src) {
                             return;
+                        }
 
 
                         src =
                             src.trim();
 
 
-                        /* ==================================
+                        /* =========================================
                            LIMPIAR URL ENVUELTA
-                           ================================== */
+                           
+                           Ejemplo:
+                           [URL](URL)
+                           ========================================= */
 
                         if (
                             src.startsWith("[") &&
@@ -3524,9 +3064,9 @@ function abrirDocumento(path) {
                         }
 
 
-                        /* ==================================
-                           URL USER ATTACHMENTS
-                           ================================== */
+                        /* =========================================
+                           IMAGEN USER ATTACHMENTS
+                           ========================================= */
 
                         if (
                             src.includes(
@@ -3540,9 +3080,9 @@ function abrirDocumento(path) {
                         }
 
 
-                        /* ==================================
+                        /* =========================================
                            URL ABSOLUTA
-                           ================================== */
+                           ========================================= */
 
                         else if (
 
@@ -3562,9 +3102,9 @@ function abrirDocumento(path) {
                         }
 
 
-                        /* ==================================
+                        /* =========================================
                            IMAGEN RELATIVA
-                           ================================== */
+                           ========================================= */
 
                         else {
 
@@ -3579,49 +3119,135 @@ function abrirDocumento(path) {
                                 );
 
 
-                            const carpeta =
-                                path
-                                    .split("/")
-                                    .slice(
-                                        0,
-                                        -1
-                                    )
-                                    .join("/");
+                            imagen =
+                                imagen.replace(
+                                    /^\/+/,
+                                    ""
+                                );
 
+
+                            /*
+                             * Todas las imágenes
+                             * del manual están en:
+                             *
+                             * doc/imagenes/
+                             */
+
+                            if (
+                                imagen.startsWith(
+                                    "imagenes/"
+                                )
+                            ) {
+
+                                imagen =
+                                    imagen.substring(
+                                        "imagenes/".length
+                                    );
+
+                            }
+
+
+                            /*
+                             * Si no tiene extensión,
+                             * agregamos .jpg
+                             */
+
+                            if (
+                                !/\.[a-zA-Z0-9]+$/.test(
+                                    imagen
+                                )
+                            ) {
+
+                                imagen +=
+                                    ".jpg";
+
+                            }
+
+
+                            /*
+                             * URL final:
+                             *
+                             * https://raw.githubusercontent.com/
+                             * AbutMatias/
+                             * Manual-Operativo-Atencion-al-Cliente/
+                             * main/
+                             * doc/imagenes/
+                             * ARCHIVO.jpg
+                             */
 
                             img.src =
-                                `${RAW_URL}${carpeta}/${imagen}`;
+                                `${RAW_URL}doc/imagenes/${imagen}`;
 
                         }
 
 
-                        /* ==================================
-                           CONFIGURACIÓN
-                           ================================== */
+                        /* =========================================
+                           ALT
+                           ========================================= */
 
-                        img.loading =
-                            "lazy";
-
-
-                        img.decoding =
-                            "async";
+                        let alt =
+                            img.getAttribute(
+                                "alt"
+                            );
 
 
-                        img.style.maxWidth =
-                            "100%";
+                        if (
+                            !alt ||
+                            !alt.trim()
+                        ) {
+
+                            alt =
+                                "image";
+
+                        }
 
 
-                        img.style.height =
-                            "auto";
+                        /* =========================================
+                           ELIMINAR WIDTH / HEIGHT
+                           ========================================= */
+
+                        img.removeAttribute(
+                            "width"
+                        );
+
+                        img.removeAttribute(
+                            "height"
+                        );
 
 
-                        img.style.cursor =
-                            "zoom-in";
+                        /* =========================================
+                           ATRIBUTOS FINALES
+                           ========================================= */
+
+                        img.setAttribute(
+                            "src",
+                            img.src
+                        );
+
+                        img.setAttribute(
+                            "alt",
+                            alt
+                        );
+
+                        img.setAttribute(
+                            "loading",
+                            "lazy"
+                        );
+
+                        img.setAttribute(
+                            "decoding",
+                            "async"
+                        );
+
+                        img.setAttribute(
+                            "style",
+                            "max-width: 100%; height: auto; cursor: zoom-in;"
+                        );
 
 
-                        /* ==================================
+                        /* =========================================
                            ERROR
-                           ================================== */
+                           ========================================= */
 
                         img.addEventListener(
                             "error",
@@ -3636,9 +3262,9 @@ function abrirDocumento(path) {
                         );
 
 
-                        /* ==================================
-                           ABRIR IMAGEN
-                           ================================== */
+                        /* =========================================
+                           CLICK
+                           ========================================= */
 
                         img.addEventListener(
                             "click",
@@ -3661,9 +3287,9 @@ function abrirDocumento(path) {
                     });
 
 
-                /* ==========================================
+                /* =================================================
                    LINKS
-                   ========================================== */
+                   ================================================= */
 
                 contenido
                     .querySelectorAll("a")
@@ -3673,7 +3299,6 @@ function abrirDocumento(path) {
                             link.target =
                                 "_blank";
 
-
                             link.rel =
                                 "noopener noreferrer";
 
@@ -3681,9 +3306,9 @@ function abrirDocumento(path) {
                     );
 
 
-                /* ==========================================
+                /* =================================================
                    LINK GITHUB
-                   ========================================== */
+                   ================================================= */
 
                 document.getElementById(
                     "linkGithub"
@@ -3697,15 +3322,19 @@ function abrirDocumento(path) {
                         .join("/");
 
 
+                /* =================================================
+                   ARRIBA
+                   ================================================= */
+
                 window.scrollTo(
                     0,
                     0
                 );
 
 
-                /* ==========================================
-                   CERRAR SIDEBAR EN CELULAR
-                   ========================================== */
+                /* =================================================
+                   CERRAR SIDEBAR
+                   ================================================= */
 
                 document
                     .getElementById(
@@ -3719,7 +3348,9 @@ function abrirDocumento(path) {
 
             } catch (error) {
 
-                console.error(error);
+                console.error(
+                    error
+                );
 
 
                 contenido.innerHTML = `
@@ -3800,7 +3431,6 @@ function abrirDocumento(path) {
 
 
             buscador.value = "";
-
 
             clearSearch.style.display =
                 "none";
@@ -3964,12 +3594,12 @@ function abrirDocumento(path) {
             return String(ruta)
 
                 .replace(
-                    /^\.\/+/,
+                    /^\.\//,
                     ""
                 )
 
                 .replace(
-                    /^doc\/+/,
+                    /^doc\//,
                     ""
                 )
 
