@@ -1,346 +1,265 @@
-name: Corregir imágenes locales
+name: Correcciones automáticas
 
 on:
-  workflow_dispatch:
-
-permissions:
-  contents: write
+  push:
+    branches:
+      - main
 
 jobs:
-  corregir-imagenes:
+  corregir:
     runs-on: ubuntu-latest
 
     steps:
 
       - name: Descargar repositorio
-        uses: actions/checkout@v5
-        with:
-          fetch-depth: 0
+        uses: actions/checkout@v4
 
-      - name: Corregir referencias de imágenes
+      - name: Corregir imágenes de los documentos Markdown
         shell: bash
         run: |
+          set -e
+
+          echo "=============================================="
+          echo "   CORRECCIÓN DE IMÁGENES MARKDOWN"
+          echo "=============================================="
+
           python3 <<'PY'
           from pathlib import Path
           import re
 
           DOC = Path("doc")
-          IMG = DOC / "imagenes"
+          IMAGENES = DOC / "imagenes"
 
-          print("==============================================")
-          print("      CORRECCIÓN DE IMÁGENES LOCALES")
-          print("==============================================")
-          print()
-
-          if not IMG.exists():
-              print("ERROR: no existe la carpeta doc/imagenes")
+          if not DOC.exists():
+              print("ERROR: no existe la carpeta doc")
               raise SystemExit(1)
 
-          # ==================================================
-          # CREAR LISTADO DE IMÁGENES LOCALES
-          # ==================================================
+          if not IMAGENES.exists():
+              print("ERROR: no existe doc/imagenes")
+              raise SystemExit(1)
 
-          imagenes = {}
+          extensiones = {
+              ".jpg",
+              ".jpeg",
+              ".png",
+              ".gif",
+              ".webp",
+              ".bmp"
+          }
 
-          for archivo in IMG.iterdir():
+          imagenes = []
+
+          for archivo in IMAGENES.rglob("*"):
 
               if not archivo.is_file():
                   continue
 
-              imagenes[archivo.stem] = archivo.name
+              if archivo.suffix.lower() not in extensiones:
+                  continue
 
-          print("Imágenes locales encontradas:")
-          print()
+              imagenes.append(archivo)
 
-          for image_id, nombre in sorted(imagenes.items()):
-              print(f"  {image_id} -> {nombre}")
+          print(f"Imágenes encontradas: {len(imagenes)}")
 
-          print()
+          indice = {}
 
-          documentos_modificados = 0
-          imagenes_encontradas = 0
-          imagenes_faltantes = 0
+          for imagen in imagenes:
 
-          # ==================================================
-          # PROCESAR TODOS LOS MARKDOWN
-          # ==================================================
+              indice[imagen.name.lower()] = imagen
 
-          for archivo in DOC.rglob("*.md"):
+              stem = imagen.stem.lower()
 
-              texto = archivo.read_text(encoding="utf-8")
+              if stem not in indice:
+                  indice[stem] = imagen
+
+          documentos = list(DOC.rglob("*.md"))
+
+          print(f"Documentos encontrados: {len(documentos)}")
+
+          for documento in documentos:
+
+              print("")
+              print("==============================================")
+              print(f"Documento: {documento}")
+              print("==============================================")
+
+              texto = documento.read_text(
+                  encoding="utf-8"
+              )
 
               original = texto
 
-              # ==================================================
-              # BUSCAR GITHUB USER ATTACHMENTS
-              # ==================================================
+              # ------------------------------------------
+              # CORREGIR MARKDOWN ESCAPADO
+              # ------------------------------------------
 
-              patron_github = re.compile(
-                  r"https://github\.com/user-attachments/assets/([A-Za-z0-9-]+)"
+              texto = texto.replace(r"\#", "#")
+              texto = texto.replace(r"\!", "!")
+              texto = texto.replace(r"\(", "(")
+              texto = texto.replace(r"\)", ")")
+              texto = texto.replace(r"\_", "_")
+
+              # ------------------------------------------
+              # CORREGIR IMÁGENES ESCAPADAS
+              # ------------------------------------------
+
+              texto = re.sub(
+                  r'!\[([^\]]*)\]\\\((.*?)\\\)',
+                  r'![\1](\2)',
+                  texto
               )
 
-              ids_github = set(
-                  patron_github.findall(texto)
+              # ------------------------------------------
+              # BUSCAR IMÁGENES
+              # ------------------------------------------
+
+              patron = re.compile(
+                  r'!\[([^\]]*)\]\(([^)\n]+)\)'
               )
 
-              # ==================================================
-              # BUSCAR USER IMAGES
-              # ==================================================
+              def corregir(match):
 
-              patron_user_images = re.compile(
-                  r"https://user-images\.githubusercontent\.com/[^/\s]+/([A-Za-z0-9-]+)\.([A-Za-z0-9]+)"
+                  alt = match.group(1)
+                  ruta = match.group(2).strip()
+
+                  # URL externa
+                  if (
+                      ruta.startswith("http://")
+                      or ruta.startswith("https://")
+                      or ruta.startswith("data:")
+                  ):
+                      return match.group(0)
+
+                  ruta = ruta.replace("\\", "/")
+
+                  while ruta.startswith("./"):
+                      ruta = ruta[2:]
+
+                  while ruta.startswith("/"):
+                      ruta = ruta[1:]
+
+                  nombre = Path(ruta).name
+                  nombre_lower = nombre.lower()
+
+                  # --------------------------------------
+                  # COINCIDENCIA EXACTA
+                  # --------------------------------------
+
+                  if nombre_lower in indice:
+
+                      imagen = indice[nombre_lower]
+
+                      nueva = (
+                          "./imagenes/"
+                          + imagen.name
+                      )
+
+                      print(
+                          f"OK: {ruta} -> {nueva}"
+                      )
+
+                      return (
+                          f"![{alt}]({nueva})"
+                      )
+
+                  # --------------------------------------
+                  # BUSCAR POR STEM
+                  # --------------------------------------
+
+                  stem = Path(nombre).stem.lower()
+
+                  candidatos = []
+
+                  for imagen in imagenes:
+
+                      imagen_stem = (
+                          imagen.stem.lower()
+                      )
+
+                      if (
+                          imagen_stem == stem
+                          or imagen_stem.endswith(stem)
+                          or stem.endswith(imagen_stem)
+                      ):
+                          candidatos.append(imagen)
+
+                  # --------------------------------------
+                  # ENCONTRADO
+                  # --------------------------------------
+
+                  if candidatos:
+
+                      # Preferir JPG
+                      candidatos.sort(
+                          key=lambda x: (
+                              0
+                              if x.suffix.lower() == ".jpg"
+                              else 1
+                          )
+                      )
+
+                      imagen = candidatos[0]
+
+                      nueva = (
+                          "./imagenes/"
+                          + imagen.name
+                      )
+
+                      print(
+                          f"CORREGIDA:"
+                      )
+
+                      print(
+                          f"  Antes: {ruta}"
+                      )
+
+                      print(
+                          f"  Ahora: {nueva}"
+                      )
+
+                      return (
+                          f"![{alt}]({nueva})"
+                      )
+
+                  # --------------------------------------
+                  # NO ENCONTRADA
+                  # --------------------------------------
+
+                  print(
+                      f"AVISO: no encontrada: {ruta}"
+                  )
+
+                  return match.group(0)
+
+              texto = patron.sub(
+                  corregir,
+                  texto
               )
 
-              user_images = set(
-                  patron_user_images.findall(texto)
-              )
-
-              if not ids_github and not user_images:
-                  continue
-
-              print("----------------------------------------------")
-              print("Documento:")
-              print(archivo)
-              print("----------------------------------------------")
-
-              # ==================================================
-              # PROCESAR GITHUB ATTACHMENTS
-              # ==================================================
-
-              for image_id in sorted(ids_github):
-
-                  url = (
-                      "https://github.com/user-attachments/assets/"
-                      + image_id
-                  )
-
-                  print()
-                  print("GitHub Attachment:")
-                  print(image_id)
-
-                  imagen_local = None
-
-                  # Buscar por ID exacto
-                  for extension in [
-                      ".png",
-                      ".jpg",
-                      ".jpeg",
-                      ".gif",
-                      ".webp",
-                      ".svg",
-                      ".PNG",
-                      ".JPG",
-                      ".JPEG",
-                      ".GIF",
-                      ".WEBP",
-                      ".SVG",
-                  ]:
-
-                      candidato = IMG / f"{image_id}{extension}"
-
-                      if candidato.exists():
-                          imagen_local = candidato
-                          break
-
-                  if imagen_local is None:
-
-                      print("  NO encontrada localmente")
-                      print(f"  Esperada: {image_id}.*")
-
-                      imagenes_faltantes += 1
-
-                      continue
-
-                  nombre = imagen_local.name
-                  ruta = f"./imagenes/{nombre}"
-
-                  print("  Encontrada:", nombre)
-
-                  # ------------------------------------------
-                  # [URL](URL)
-                  # ------------------------------------------
-
-                  texto = texto.replace(
-                      f"[{url}]({url})",
-                      ruta
-                  )
-
-                  # ------------------------------------------
-                  # src="[URL](URL)"
-                  # ------------------------------------------
-
-                  texto = texto.replace(
-                      f'src="[{url}]({url})"',
-                      f'src="{ruta}"'
-                  )
-
-                  # ------------------------------------------
-                  # URL directa
-                  # ------------------------------------------
-
-                  texto = texto.replace(
-                      url,
-                      ruta
-                  )
-
-                  imagenes_encontradas += 1
-
-              # ==================================================
-              # PROCESAR USER-IMAGES
-              # ==================================================
-
-              for image_id, extension in sorted(user_images):
-
-                  url = None
-
-                  # Buscar la URL completa en el documento
-                  patron = re.compile(
-                      r"https://user-images\.githubusercontent\.com/[^/\s]+/"
-                      + re.escape(image_id)
-                      + r"\."
-                      + re.escape(extension)
-                  )
-
-                  encontrado = patron.search(texto)
-
-                  if encontrado:
-                      url = encontrado.group(0)
-
-                  if not url:
-                      continue
-
-                  print()
-                  print("User Images:")
-                  print(url)
-
-                  # ------------------------------------------------
-                  # Buscar imagen local por ID
-                  # ------------------------------------------------
-
-                  imagen_local = None
-
-                  for archivo_imagen in IMG.iterdir():
-
-                      if not archivo_imagen.is_file():
-                          continue
-
-                      if archivo_imagen.stem == image_id:
-                          imagen_local = archivo_imagen
-                          break
-
-                  if imagen_local is None:
-
-                      print("  NO encontrada localmente")
-                      print(f"  Esperada: {image_id}.*")
-
-                      imagenes_faltantes += 1
-
-                      continue
-
-                  nombre = imagen_local.name
-                  ruta = f"./imagenes/{nombre}"
-
-                  print("  Encontrada:", nombre)
-
-                  # ------------------------------------------
-                  # [URL](URL)
-                  # ------------------------------------------
-
-                  texto = texto.replace(
-                      f"[{url}]({url})",
-                      ruta
-                  )
-
-                  # ------------------------------------------
-                  # src="[URL](URL)"
-                  # ------------------------------------------
-
-                  texto = texto.replace(
-                      f'src="[{url}]({url})"',
-                      f'src="{ruta}"'
-                  )
-
-                  # ------------------------------------------
-                  # URL directa
-                  # ------------------------------------------
-
-                  texto = texto.replace(
-                      url,
-                      ruta
-                  )
-
-                  imagenes_encontradas += 1
-
-              # ==================================================
-              # GUARDAR DOCUMENTO
-              # ==================================================
+              # ------------------------------------------
+              # GUARDAR
+              # ------------------------------------------
 
               if texto != original:
 
-                  archivo.write_text(
+                  documento.write_text(
                       texto,
                       encoding="utf-8"
                   )
 
-                  documentos_modificados += 1
-
-                  print()
-                  print("  DOCUMENTO MODIFICADO")
+                  print(
+                      f"OK: actualizado {documento}"
+                  )
 
               else:
 
-                  print()
-                  print("  SIN CAMBIOS")
+                  print("Sin cambios")
 
-          # ==================================================
-          # RESUMEN
-          # ==================================================
-
-          print()
+          print("")
           print("==============================================")
-          print("                  RESUMEN")
+          print("CORRECCIÓN FINALIZADA")
           print("==============================================")
-          print()
-          print(
-              "Documentos modificados:",
-              documentos_modificados
-          )
-          print(
-              "Imágenes asignadas:",
-              imagenes_encontradas
-          )
-          print(
-              "Imágenes faltantes:",
-              imagenes_faltantes
-          )
-          print()
-
           PY
-
-      - name: Verificar resultado
-        shell: bash
-        run: |
-          echo "=============================================="
-          echo "       VERIFICACIÓN DE IMÁGENES"
-          echo "=============================================="
-          echo ""
-
-          echo "Imágenes locales:"
-          find doc/imagenes -type f | sort
-
-          echo ""
-
-          echo "Referencias externas restantes:"
-          grep -RniE \
-            "github\.com/user-attachments/assets|user-images\.githubusercontent\.com" \
-            doc \
-            --include="*.md" \
-            || true
-
-          echo ""
-
-          echo "Cambios:"
-          git diff --stat
 
       - name: Guardar cambios
         shell: bash
@@ -348,15 +267,11 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git add doc/
+          git add doc
 
-          if git diff --cached --quiet
-          then
+          if git diff --cached --quiet; then
             echo "No hay cambios para guardar."
           else
-            echo "Guardando cambios..."
-
-            git commit -m "Convertir imágenes a referencias locales"
-
+            git commit -m "Corregir referencias de imágenes"
             git push
           fi
