@@ -10,7 +10,7 @@ Para identificar el equipo en sistema:
 - Contraseña **Etnrouter2022**
 
 
-<img width="1688" height="809" alt="image" src="./imagenes/623867242-8da45c4f-e325-4ea8-be1a-9a0662d69c85.png" />
+<img width="1688" height="809" alt="image" src="./imagenes/623867242-8da45c4f-e325-4ea8-be1a-9a0662d69c85.jpg" />
 
 ---
 ## 2. Indicadores de luces
@@ -38,9 +38,9 @@ Permite ver:
 - Recepcion y Transmicion de cada dispositivo
 
 
-<img width="1781" height="785" alt="image" src="./imagenes/623870625-abc8c483-5db2-44e2-85aa-11b9c0d44043.png" />
+<img width="1781" height="785" alt="image" src="./imagenes/623870625-abc8c483-5db2-44e2-85aa-11b9c0d44043.jpg" />
 
-<img width="1220" height="811" alt="image" src="./imagenes/624035173-0b53e4d6-a87c-408a-85d4-9ac626e984c7.png" />
+<img width="1220" height="811" alt="image" src="./imagenes/624035173-0b53e4d6-a87c-408a-85d4-9ac626e984c7.jpg" />
 
 ---
 
@@ -62,15 +62,15 @@ Aquí tienes el detalle de lo que puedes gestionar en esta pantalla:
 
 Nota importante: Si realizas algún cambio en el nombre (WiFi Name) o en la contraseña, deberás presionar el botón Apply para guardar. Ten en cuenta que, al hacer esto, todos los dispositivos que estén conectados actualmente se desconectarán y tendrás que volver a conectarlos usando los nuevos datos.
 
-<img width="1296" height="616" alt="image" src="./imagenes/624036078-6a43ec93-af61-462e-99a0-6d353c87026f.png" />
+<img width="1296" height="616" alt="image" src="./imagenes/624036078-6a43ec93-af61-462e-99a0-6d353c87026f.jpg" />
 
 
 ---
 
 ## Prueba de velocidad interna
 
-<img width="1634" height="724" alt="image" src="./imagenes/624036160-ef84d419-2766-4f2b-9fb2-db513f133f6c.png" />
-<img width="1402" height="635" alt="image" src="./imagenes/624036267-04de9196-62b2-4f7e-a58e-73a127f5ad06.png" />
+<img width="1634" height="724" alt="image" src="./imagenes/624036160-ef84d419-2766-4f2b-9fb2-db513f133f6c.jpg" />
+<img width="1402" height="635" alt="image" src="./imagenes/624036267-04de9196-62b2-4f7e-a58e-73a127f5ad06.jpg" />
 
 
 
@@ -92,9 +92,9 @@ Nota importante: Si realizas algún cambio en el nombre (WiFi Name) o en la cont
 
 ## Redes WiFi
 
-<img width="1538" height="696" alt="image" src="./imagenes/631581e8-fdfa-4bb6-b556-37ba3248c9b9.png" />
+<img width="1538" height="696" alt="image" src="./imagenes/631581e8-fdfa-4bb6-b556-37ba3248c9b9.jpg" />
 
-<img width="1371" height="685" alt="image" src="./imagenes/64dba8c3-1a9a-43f3-95f1-c537353c837a.png" />
+<img width="1371" height="685" alt="image" src="./imagenes/64dba8c3-1a9a-43f3-95f1-c537353c837a.jpg" />
 
 
 
@@ -114,7 +114,7 @@ Nota importante: Si realizas algún cambio en el nombre (WiFi Name) o en la cont
 
 ## Canales WiFi
 
-<img width="1249" height="766" alt="image" src="./imagenes/65993bdc-60d8-493f-b514-8b65a82a2319.png" />
+<img width="1249" height="766" alt="image" src="./imagenes/65993bdc-60d8-493f-b514-8b65a82a2319.jpg" />
 
 
 
@@ -173,7 +173,7 @@ Modo de compatibilidad que permite conectar dispositivos con los estándares:
 
 **Se recomienda cuando:**
 - Algún dispositivo no puede conectarse utilizando el modo **AX**.
-<img width="1003" height="331" alt="image" src="./imagenes/66f96e5e-bffa-4704-af29-3e0b53db99d7.png" />
+<img width="1003" height="331" alt="image" src="./imagenes/66f96e5e-bffa-4704-af29-3e0b53db99d7.jpg" />
 
 
 
@@ -209,14 +209,14 @@ Modo de compatibilidad que permite conectar dispositivos con los estándares:
 
 > **Importante:** Los modos de compatibilidad no aumentan la velocidad ni el alcance del Wi-Fi. Su única función es permitir la conexión de dispositivos más antiguos.
 
-<img width="963" height="317" alt="image" src="./imagenes/6766b9df-05d8-48da-b8f1-c0077facb2a6.png" />
+<img width="963" height="317" alt="image" src="./imagenes/6766b9df-05d8-48da-b8f1-c0077facb2a6.jpg" />
 
 
 ---
 
 ## Reinicio del equipo
 
-<img width="1384" height="645" alt="image" src="./imagenes/68b66865-690f-40b1-b56d-7648eb94a01d.png" />
+<img width="1384" height="645" alt="image" src="./imagenes/68b66865-690f-40b1-b56d-7648eb94a01d.jpg" />
 
 
 - Se realiza desde el menú “System Settings”
@@ -229,7 +229,7 @@ Modo de compatibilidad que permite conectar dispositivos con los estándares:
 
 
 
-<img width="1400" height="709" alt="image" src="./imagenes/694df181-3af2-4753-be8d-5164d41123e9.png" />
+<img width="1400" height="709" alt="image" src="./imagenes/694df181-3af2-4753-be8d-5164d41123e9.jpg" />
 
 
 
@@ -243,7 +243,7 @@ Modo de compatibilidad que permite conectar dispositivos con los estándares:
 ## Schedule Regular Restarts
 - Permite programar reinicios automáticos
 
-<img width="1472" height="643" alt="image" src="./imagenes/69de65bb-37f8-43e1-8edd-3449d4603626.png" />
+<img width="1472" height="643" alt="image" src="./imagenes/69de65bb-37f8-43e1-8edd-3449d4603626.jpg" />
 
 
 ---
@@ -252,16 +252,16 @@ Modo de compatibilidad que permite conectar dispositivos con los estándares:
 - Permite cambiar la contraseña maestra del router
 - Se utiliza en momentos que se reinicia de fabrica el router y debemos reestablecer la contraseña
 
-<img width="1452" height="632" alt="image" src="./imagenes/6a5031df-af3f-4478-90e6-85d34aa14509.png" />
-<img width="1096" height="396" alt="image" src="./imagenes/6a96c101-5996-4585-8dd0-f33e0222ab6f.png" />
+<img width="1452" height="632" alt="image" src="./imagenes/6a5031df-af3f-4478-90e6-85d34aa14509.jpg" />
+<img width="1096" height="396" alt="image" src="./imagenes/6a96c101-5996-4585-8dd0-f33e0222ab6f.jpg" />
 
 ---
 
 ## WAN Settings
 - Configuración del internet principal
 
-<img width="1551" height="633" alt="image" src="./imagenes/6b3a3720-eae0-4e82-a860-8cf29aea3712.png" />
-<img width="1399" height="682" alt="image" src="./imagenes/6bb4442c-01bf-4980-a777-9c4f4146cb17.png" />
+<img width="1551" height="633" alt="image" src="./imagenes/6b3a3720-eae0-4e82-a860-8cf29aea3712.jpg" />
+<img width="1399" height="682" alt="image" src="./imagenes/6bb4442c-01bf-4980-a777-9c4f4146cb17.jpg" />
 
 
 ---
@@ -324,9 +324,9 @@ En este ejemplo, el router podrá asignar direcciones desde **192.168.1.100** ha
 - No modificar la **LAN IP** ni la **Netmask**, salvo que sea necesario por cambios en la red.
 - Ajustar el rango **Start IP** y **End IP** únicamente si se requiere reservar direcciones IP para otros equipos o dispositivos con IP fija.
 
-<img width="1393" height="572" alt="image" src="./imagenes/6c9d7794-0dd8-45e5-8320-40e528a39168.png" />
+<img width="1393" height="572" alt="image" src="./imagenes/6c9d7794-0dd8-45e5-8320-40e528a39168.jpg" />
 
-<img width="1291" height="623" alt="image" src="./imagenes/6cfcf1fa-659d-4833-a23f-28a29e071378.png" />
+<img width="1291" height="623" alt="image" src="./imagenes/6cfcf1fa-659d-4833-a23f-28a29e071378.jpg" />
 
 ---
 ## Mesh
@@ -343,8 +343,8 @@ La función en esta pantalla te permite configurar el dispositivo dentro de una 
 
 - Agent/Satellite: Actúa como un nodo adicional que extiende la cobertura de la red recibiendo la señal del controlador.
 
-<img width="1498" height="608" alt="image" src="./imagenes/6d934dad-4a8a-406b-acdb-a5a28f86aa4e.png" />
-<img width="1445" height="589" alt="image" src="./imagenes/6db18836-44ad-41f5-ac68-4b30940d17b0.png" />
+<img width="1498" height="608" alt="image" src="./imagenes/6d934dad-4a8a-406b-acdb-a5a28f86aa4e.jpg" />
+<img width="1445" height="589" alt="image" src="./imagenes/6db18836-44ad-41f5-ac68-4b30940d17b0.jpg" />
 
 ---
 ## Port Forwarding (Redirección de puertos)
@@ -359,6 +359,6 @@ La redirección de puertos se utiliza para permitir que dispositivos o servicios
 
 - Tabla de datos: Actualmente indica "No Data", lo que significa que no hay reglas de redirección configuradas en este momento.
 
-<img width="1421" height="634" alt="image" src="./imagenes/6ec0119c-e7fc-45c8-97d8-d490d06b1ce1.png" />
-<img width="1309" height="717" alt="image" src="./imagenes/6f1fab16-69cc-43bf-8c2a-0510b3431085.png" />
+<img width="1421" height="634" alt="image" src="./imagenes/6ec0119c-e7fc-45c8-97d8-d490d06b1ce1.jpg" />
+<img width="1309" height="717" alt="image" src="./imagenes/6f1fab16-69cc-43bf-8c2a-0510b3431085.jpg" />
 

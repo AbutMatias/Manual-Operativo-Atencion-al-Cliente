@@ -35,7 +35,7 @@ Este concepto incluye:
 
 Ejemplo de referencia en factura:
 
-![Factura Telefonía IP](./imagenes/c6d71d6a-d1c0-486a-a4b3-7d8f6a5dc73c.png)
+![Factura Telefonía IP](./imagenes/c6d71d6a-d1c0-486a-a4b3-7d8f6a5dc73c.jpg)
 
 ---
 
@@ -49,7 +49,7 @@ Para dar de baja el servicio de Telefonía IP:
    - `El cliente tiene Servicio de Telefonía`
 4. Ir a **Datos Personales**
 5. Guardar los cambios
-<img width="1141" height="608" alt="image" src="./imagenes/9e581d8a-5c44-42ff-814a-f8a3f08098a1.png" />
+<img width="1141" height="608" alt="image" src="./imagenes/9e581d8a-5c44-42ff-814a-f8a3f08098a1.jpg" />
 
 ---
 
@@ -67,8 +67,8 @@ Para gestionar la recuperación de equipos:
 
 Ejemplo de pantalla:
 
-![Baja servicio](./imagenes/c7448cd5-7806-4efa-9882-4dcc9a1a22ca.png)
-<img width="766" height="324" alt="image" src="./imagenes/42783477-623d-4eda-887b-b74e918a16f6.png" />
+![Baja servicio](./imagenes/c7448cd5-7806-4efa-9882-4dcc9a1a22ca.jpg)
+<img width="766" height="324" alt="image" src="./imagenes/42783477-623d-4eda-887b-b74e918a16f6.jpg" />
 
 
 3. Seleccionar los equipos a retirar:
@@ -78,7 +78,7 @@ Ejemplo de pantalla:
   - ONU
   - Otros equipos instalados
 
-<img width="842" height="234" alt="image" src="./imagenes/0106f65e-8422-49d5-a1b0-dff318465a06.png" />
+<img width="842" height="234" alt="image" src="./imagenes/0106f65e-8422-49d5-a1b0-dff318465a06.jpg" />
 
 
 ---

@@ -43,8 +43,8 @@ Se considera que **no está autenticado o autorizado**.
 
 En este contexto, estos términos pueden utilizarse como equivalentes dentro del esquema actual.
 
-  <img width="947" height="516" alt="image" src="./imagenes/38885455-59a9-4c9a-8d55-b166e6593632.png" />
-  <img width="986" height="423" alt="image" src="./imagenes/d694f24f-afef-41aa-8fde-f397e6958905.png" />
+  <img width="947" height="516" alt="image" src="./imagenes/38885455-59a9-4c9a-8d55-b166e6593632.jpg" />
+  <img width="986" height="423" alt="image" src="./imagenes/d694f24f-afef-41aa-8fde-f397e6958905.jpg" />
 
   
 ---
@@ -121,7 +121,7 @@ En este caso, la forma correcta de describirlo es:
 
 - “El equipo aparece en el vecindario, pero no permite acceso por MAC-Telnet”
 
-<img width="1110" height="574" alt="image" src="./imagenes/a7c8ccd5-84e0-40d3-a4f0-391ff77595b0.png" />
+<img width="1110" height="574" alt="image" src="./imagenes/a7c8ccd5-84e0-40d3-a4f0-391ff77595b0.jpg" />
 
 
 ---

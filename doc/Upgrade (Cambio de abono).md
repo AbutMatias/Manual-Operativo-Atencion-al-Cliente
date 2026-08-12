@@ -17,7 +17,7 @@ En SSAK:
 - Clic derecho sobre el servicio a modificar
 - Seleccionar: **Cambio de abono**
 
-<img width="1384" height="1030" alt="image" src="./imagenes/ef293901-7ba8-4101-a054-df074fd1fa0d.png" />
+<img width="1384" height="1030" alt="image" src="./imagenes/ef293901-7ba8-4101-a054-df074fd1fa0d.jpg" />
 
 ---
 
@@ -33,7 +33,7 @@ Se disponen de 4 opciones:
 
 Se aplica el cambio de forma inmediata.
 
-<img width="1086" height="627" alt="image" src="./imagenes/3ee5ef33-583e-46af-b1b9-60e3c9633c02.png" />
+<img width="1086" height="627" alt="image" src="./imagenes/3ee5ef33-583e-46af-b1b9-60e3c9633c02.jpg" />
 
 
 ---
@@ -46,7 +46,7 @@ Se utiliza cuando el upgrade se ejecuta luego de finalizar una instalación inte
 - Luego se realiza el upgrade
 - El sistema asocia automáticamente el ID de la instalación
 
-<img width="1083" height="627" alt="image" src="./imagenes/478ca2ba-b349-4880-a503-24681a68044b.png" />
+<img width="1083" height="627" alt="image" src="./imagenes/478ca2ba-b349-4880-a503-24681a68044b.jpg" />
 
 
 ---
@@ -58,7 +58,7 @@ Permite definir:
 - Fecha técnica de aplicación
 - Fecha de inicio de facturación proporcional
 
-<img width="1084" height="625" alt="image" src="./imagenes/9d71a0aa-38d9-4d3e-a845-907db1276b98.png" />
+<img width="1084" height="625" alt="image" src="./imagenes/9d71a0aa-38d9-4d3e-a845-907db1276b98.jpg" />
 
 
 
@@ -68,7 +68,7 @@ Permite definir:
 
 Se utiliza cuando el cambio está vinculado a un reclamo por cambio de equipo (host).
 
-<img width="1082" height="626" alt="image" src="./imagenes/4f59f0db-5dc5-40f7-988f-b3d1635c1577.png" />
+<img width="1082" height="626" alt="image" src="./imagenes/4f59f0db-5dc5-40f7-988f-b3d1635c1577.jpg" />
 
 
 

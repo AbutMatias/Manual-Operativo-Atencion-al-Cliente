@@ -12,7 +12,7 @@ Si es un cliente nuevo primero tenemos que cargar el cliente, los pasos a seguir
 
 1. Desde SSAK seleccionamos el botón `Nuevo Cliente`
 
-![image](./imagenes/1db9159f-2015-4e96-b456-6f774480fdfc.png)
+![image](./imagenes/1db9159f-2015-4e96-b456-6f774480fdfc.jpg)
 
 
 
@@ -20,7 +20,7 @@ Si es un cliente nuevo primero tenemos que cargar el cliente, los pasos a seguir
 
 2. Completamos los datos del nuevo cliente: `DNI/CUIT, Localidad y Domicilio`
 
-![image](./imagenes/1e57544d-f5fd-4b76-8f0a-87b9c409e78d.png)
+![image](./imagenes/1e57544d-f5fd-4b76-8f0a-87b9c409e78d.jpg)
 
 
 
@@ -28,7 +28,7 @@ Si es un cliente nuevo primero tenemos que cargar el cliente, los pasos a seguir
 
 3. Dentro de Mantenimiento de relaciones comerciales luego de completar los datos debemos pulsar en el `botón +`
 
-![image](./imagenes/21dc3e16-33f6-4334-803a-da5d85748781.png)
+![image](./imagenes/21dc3e16-33f6-4334-803a-da5d85748781.jpg)
 
 
 
@@ -50,7 +50,7 @@ Se abre una pestaña donde completamos la `localidad` y en tipo elegimos `instal
 
 
 
-![image](./imagenes/22b40b07-25a0-44db-a28d-e81011d3b271.png)
+![image](./imagenes/22b40b07-25a0-44db-a28d-e81011d3b271.jpg)
 
 
 
@@ -65,7 +65,7 @@ El tipo de router en comodato se carga automáticamente según la tarifa selecci
 
 
 
-![image](./imagenes/265539fc-ebd3-4f6d-8327-3910b72643b2.png)
+![image](./imagenes/265539fc-ebd3-4f6d-8327-3910b72643b2.jpg)
 
 
 
@@ -81,9 +81,9 @@ Cuando encontramos al cliente realizamos doble clic para cargar los datos autom�
 
 
 
-![image](./imagenes/2662c185-139e-46c7-bdb5-49eedfd701ea.png)
+![image](./imagenes/2662c185-139e-46c7-bdb5-49eedfd701ea.jpg)
 
-![image](./imagenes/29eea78f-ea54-4f1e-b4aa-23ba8243bae3.png)
+![image](./imagenes/29eea78f-ea54-4f1e-b4aa-23ba8243bae3.jpg)
 
 
 
@@ -110,7 +110,7 @@ Finalmente seleccionamos **Finalizar**.
 
 
 
-![image](./imagenes/2a9d7d21-2182-4939-80b8-f22a7d17b8cc.png)
+![image](./imagenes/2a9d7d21-2182-4939-80b8-f22a7d17b8cc.jpg)
 
 
 
@@ -127,7 +127,7 @@ Ubicamos la instalación con estado `ventas`.
 
 
 
-![image](./imagenes/2b165c77-320c-424e-a130-8195d3419d6c.png)
+![image](./imagenes/2b165c77-320c-424e-a130-8195d3419d6c.jpg)
 
 
 
@@ -142,7 +142,7 @@ Hacemos clic derecho sobre la instalación y seleccionamos:
 
 
 
-![image](./imagenes/2c33f7bd-7c1e-4cf8-9016-08834f2be3e3.png)
+![image](./imagenes/2c33f7bd-7c1e-4cf8-9016-08834f2be3e3.jpg)
 
 
 
@@ -153,17 +153,17 @@ Hacemos clic derecho sobre la instalación y seleccionamos:
 Se pueden dar 3 situaciones:
 
 ### ✔ Bonificación total del cargo de instalación
-![image](./imagenes/2d6b3276-719e-4c49-bda0-f8b6866ff307.png)
+![image](./imagenes/2d6b3276-719e-4c49-bda0-f8b6866ff307.jpg)
 
 ---
 
 ### ✔ Bonificación 50% del cargo de instalación
-![image](./imagenes/2ddbe5ee-d1ad-4990-89a0-e4f71925e42b.png)
+![image](./imagenes/2ddbe5ee-d1ad-4990-89a0-e4f71925e42b.jpg)
 
 ---
 
 ### ✔ Cobro total de la instalación
-![image](./imagenes/2e03f109-66ed-4dfe-98e8-a3ae0eb6e215.png)
+![image](./imagenes/2e03f109-66ed-4dfe-98e8-a3ae0eb6e215.jpg)
 
 ---
 

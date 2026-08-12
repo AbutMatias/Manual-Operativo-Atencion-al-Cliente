@@ -8,7 +8,7 @@ Al ingresar al sistema, se visualizará la lista de:
 
 - **Envíos pendientes de aceptación**
 
-![Pantalla envíos pendientes](./imagenes/89af86dc-f7b7-45b1-8196-c49219dafef7.png)
+![Pantalla envíos pendientes](./imagenes/89af86dc-f7b7-45b1-8196-c49219dafef7.jpg)
 
 ---
 
@@ -29,7 +29,7 @@ Cuando el pase incluye varios artículos:
 - Indicar la cantidad correspondiente
 - Hacer clic en **“Registrar Devolución”**
 
-![Registrar devolución](./imagenes/8a43aa4e-cd2a-4bae-a5c9-a2c75d5bb5ef.png)
+![Registrar devolución](./imagenes/8a43aa4e-cd2a-4bae-a5c9-a2c75d5bb5ef.jpg)
 
 ---
 
@@ -43,7 +43,7 @@ Luego:
 
 - Confirmar las MAC ingresadas
 
-![Ingreso MAC](./imagenes/8a490498-d00f-41da-bc5b-13ac4a146e7d.png)
+![Ingreso MAC](./imagenes/8a490498-d00f-41da-bc5b-13ac4a146e7d.jpg)
 
 ---
 
@@ -51,7 +51,7 @@ Luego:
 
 A continuación se mostrará un mensaje de confirmación:
 
-![Confirmación proceso](./imagenes/8a6e5cda-85a7-411c-ad93-c5492effe92d.png)
+![Confirmación proceso](./imagenes/8a6e5cda-85a7-411c-ad93-c5492effe92d.jpg)
 
 ---
 

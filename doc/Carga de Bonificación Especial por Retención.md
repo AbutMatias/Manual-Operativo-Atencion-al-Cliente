@@ -67,6 +67,6 @@ Completar:
 
 ## 📷 Ejemplo visual
 
-![Detalle](./imagenes/0cdbf221-35a7-4467-9863-060c2b527a1a.png)
+![Detalle](./imagenes/0cdbf221-35a7-4467-9863-060c2b527a1a.jpg)
 
 

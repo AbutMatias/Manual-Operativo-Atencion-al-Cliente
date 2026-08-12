@@ -28,16 +28,16 @@ Ejemplo:
 
 ### Ejemplo de telnet a Rockstar: 
 
-   * ![img](./imagenes/357978494-e7f60122-d32e-4531-b96f-68009e7d7304.png)
+   * ![img](./imagenes/357978494-e7f60122-d32e-4531-b96f-68009e7d7304.jpg)
    * En este caso vemos que el host no está accesible con una conexión segura (HTTPS).
 
 ### Ejemplo de telnet a Google:
 
-   * ![image](./imagenes/357979264-b255697d-5729-4177-b956-13f33735bcaf.png)
+   * ![image](./imagenes/357979264-b255697d-5729-4177-b956-13f33735bcaf.jpg)
    * En este caso vemos que el host está accesible con una conexión segura (HTTPS).
 
 Del mismo modo, podemos verificar si se puede acceder al host con una conexión insegura:
-   * ![image](./imagenes/357979382-3c16819d-2bb5-4f0d-b638-629af9b5b8b4.png)
+   * ![image](./imagenes/357979382-3c16819d-2bb5-4f0d-b638-629af9b5b8b4.jpg)
 
 ---
 

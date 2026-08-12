@@ -64,7 +64,7 @@ Para consultas o modificaciones internas se utiliza:
 
 * Ingresar al tab “Firewall”
 
-<img width="1326" height="561" alt="image" src="./imagenes/c99443f9-9716-4d2d-b7ca-8717fdd2973b.png" />
+<img width="1326" height="561" alt="image" src="./imagenes/c99443f9-9716-4d2d-b7ca-8717fdd2973b.jpg" />
 
 ---
 
@@ -77,7 +77,7 @@ Dentro de esta sección se puede:
 * Eliminar reglas
 * Crear nuevas reglas
 
-![Recording 2023-02-08 at 09 17 18](./imagenes/6215f03f-e321-475b-9a96-cced040877da.png)
+![Recording 2023-02-08 at 09 17 18](./imagenes/6215f03f-e321-475b-9a96-cced040877da.jpg)
 
 ---
 

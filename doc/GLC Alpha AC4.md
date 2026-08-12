@@ -199,11 +199,11 @@ Permite visualizar reglas de redirección de puertos.
 
 - Cerca del router: RSSI 69 (señal fuerte)
 
-![image](./imagenes/60c77b34-c864-4d55-a000-d4c3c48f606d.png)
+![image](./imagenes/60c77b34-c864-4d55-a000-d4c3c48f606d.jpg)
 
 - Lejos del router: RSSI 30 (señal débil)
 
-![image](./imagenes/613bcf87-0588-439e-8d19-65c07382d42e.png)
+![image](./imagenes/613bcf87-0588-439e-8d19-65c07382d42e.jpg)
 
 ---
 

@@ -46,7 +46,7 @@ Esto permite ubicar con mayor precisión el envío a anular.
 
 - **“Anular envío”**
 
-<img width="344" height="93" alt="image" src="./imagenes/81252e8d-578a-4ab5-b388-fcf0de4f2652.png" />
+<img width="344" height="93" alt="image" src="./imagenes/81252e8d-578a-4ab5-b388-fcf0de4f2652.jpg" />
 
 
 ---
@@ -59,7 +59,7 @@ Si el envío se encuentra en estado:
 
 El sistema permitirá confirmar la anulación.
 
-<img width="305" height="134" alt="image" src="./imagenes/69de65bb-37f8-43e1-8edd-3449d4603626.png" />
+<img width="305" height="134" alt="image" src="./imagenes/69de65bb-37f8-43e1-8edd-3449d4603626.jpg" />
 
 
 ---

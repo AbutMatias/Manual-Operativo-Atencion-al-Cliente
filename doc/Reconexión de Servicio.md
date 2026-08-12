@@ -26,7 +26,7 @@ Plataforma donde se documentan y gestionan solicitudes de reconexión.
 
 ---
 
-![Image](./imagenes/b302b4ed-22d7-4eea-ba25-3486425a2592.png)
+![Image](./imagenes/b302b4ed-22d7-4eea-ba25-3486425a2592.jpg)
 
 ---
 
@@ -42,7 +42,7 @@ Plataforma donde se documentan y gestionan solicitudes de reconexión.
 
 
 
-![Image](./imagenes/b391816d-150c-4760-8390-cbf642b0e3b2.png)
+![Image](./imagenes/b391816d-150c-4760-8390-cbf642b0e3b2.jpg)
 
 
 ---
@@ -53,7 +53,7 @@ Plataforma donde se documentan y gestionan solicitudes de reconexión.
 
 
 
-![Image](./imagenes/b403e61f-e634-417d-a237-30dbaf65b212.png)
+![Image](./imagenes/b403e61f-e634-417d-a237-30dbaf65b212.jpg)
 
 
 
@@ -70,7 +70,7 @@ Plataforma donde se documentan y gestionan solicitudes de reconexión.
 
 
 
-![Image](./imagenes/b514d0fc-88f2-4950-a377-e667c4c3310e.png)
+![Image](./imagenes/b514d0fc-88f2-4950-a377-e667c4c3310e.jpg)
 
 
 
@@ -89,7 +89,7 @@ En ventana de reconexión:
 
 
 
-![Image](./imagenes/b5d55786-ae1d-42bc-a487-909b230c048e.png)
+![Image](./imagenes/b5d55786-ae1d-42bc-a487-909b230c048e.jpg)
 
 
 
@@ -108,7 +108,7 @@ https://pagar.rapipago.com.ar/
 
 
 
-![Image](./imagenes/b708d4fe-892d-47b2-8d29-94562fc9e6e4.png)
+![Image](./imagenes/b708d4fe-892d-47b2-8d29-94562fc9e6e4.jpg)
 
 
 
@@ -132,7 +132,7 @@ https://pagar.rapipago.com.ar/
 
 
 
-![Image](./imagenes/b75f851c-b3ab-436a-8577-1df72fcc43c0.png)
+![Image](./imagenes/b75f851c-b3ab-436a-8577-1df72fcc43c0.jpg)
 
 
 

@@ -14,8 +14,8 @@ Determinar si la falla corresponde realmente a una mala señal óptica antes de 
 4. Obtener la **MAC de la ONU** desde SSKA.
 5. Ingresar la MAC en el buscador.
 6. Presionar **QUERY**.
-> <img width="1901" height="656" alt="image" src="./imagenes/70f56007-16b2-4231-b12d-a648d697d63b.png" />
-> <img width="1554" height="577" alt="image" src="./imagenes/71911608-6d7a-4b24-9dd3-43edb8b98304.png" />
+> <img width="1901" height="656" alt="image" src="./imagenes/70f56007-16b2-4231-b12d-a648d697d63b.jpg" />
+> <img width="1554" height="577" alt="image" src="./imagenes/71911608-6d7a-4b24-9dd3-43edb8b98304.jpg" />
 
 
 ---
@@ -30,7 +30,7 @@ Comprobar:
 
 Si la ONU no está registrada, continuar con el procedimiento correspondiente y no con este diagnóstico.
 Si la ONU esta registrada en Grafana figurara luego de buscarla. Como en la siguente imagen.
-> <img width="1909" height="630" alt="image" src="./imagenes/7264b129-fb60-47ec-8bbe-b77e8c4da09a.png" />
+> <img width="1909" height="630" alt="image" src="./imagenes/7264b129-fb60-47ec-8bbe-b77e8c4da09a.jpg" />
 
 ---
 
@@ -47,7 +47,7 @@ Comprobar si los valores se encuentran dentro de los rangos normales.
 
 Registrar los valores obtenidos.
 En el ejemplo, se verifica una señal extremadamente baja. En la mayoría de las redes GPON, una ONU deja de funcionar correctamente alrededor de -27 a -28 dBm.
-> <img width="1547" height="581" alt="image" src="./imagenes/733b846a-c382-402e-a279-bdb1c3f5cee0.png" />
+> <img width="1547" height="581" alt="image" src="./imagenes/733b846a-c382-402e-a279-bdb1c3f5cee0.jpg" />
 
 ---
 
@@ -65,7 +65,7 @@ Verificar:
 Siempre comparar la señal actual con el historial antes de diagnosticar una mala señal.
 
 En el ejemplo, se verifica flapeos en la señal optica:
-> <img width="1541" height="584" alt="image" src="./imagenes/738621b0-d184-4a1e-a31e-aea0b4244e6a.png" />
+> <img width="1541" height="584" alt="image" src="./imagenes/738621b0-d184-4a1e-a31e-aea0b4244e6a.jpg" />
 
 ---
 
@@ -82,7 +82,7 @@ Verificar:
 Registrar los resultados.
 
 En el ejemplo, se verifica flapeos en la señal optica:
-> <img width="1551" height="583" alt="image" src="./imagenes/76b400b5-0865-446b-863b-68c709dd0770.png" />
+> <img width="1551" height="583" alt="image" src="./imagenes/76b400b5-0865-446b-863b-68c709dd0770.jpg" />
 
 ---
 
@@ -104,7 +104,7 @@ Si existen eventos LOSI, registrar:
 - Cantidad de eventos.
 - Estado actual de la señal.
 
-> <img width="1551" height="526" alt="image" src="./imagenes/78a5a8df-21e7-439e-97c2-18fd9cf73987.png" />
+> <img width="1551" height="526" alt="image" src="./imagenes/78a5a8df-21e7-439e-97c2-18fd9cf73987.jpg" />
 
 
 ---
@@ -123,7 +123,7 @@ Este evento **no significa necesariamente** que exista una mala señal óptica.
 
 Consultar al cliente si sufrió cortes de energía antes de continuar.
 
-> <img width="1548" height="578" alt="image" src="./imagenes/78de9a68-3e04-47a4-9556-7a57bc2a65a9.png" />
+> <img width="1548" height="578" alt="image" src="./imagenes/78de9a68-3e04-47a4-9556-7a57bc2a65a9.jpg" />
 
 ---
 
@@ -138,7 +138,7 @@ Comprobar:
 
 Si la señal óptica es correcta pero el puerto Ethernet presenta problemas, continuar con el procedimiento correspondiente a red interna o router.
 
-> <img width="1547" height="562" alt="image" src="./imagenes/7a57e8f7-7fb6-47ee-bf86-90875f0c2fce.png" />
+> <img width="1547" height="562" alt="image" src="./imagenes/7a57e8f7-7fb6-47ee-bf86-90875f0c2fce.jpg" />
 
 ---
 
@@ -149,8 +149,8 @@ Abrir la tabla MAC de la ONU.
 Verificar que aparezca la MAC del router del cliente.
 
 Si no aparece y la señal óptica es correcta, la falla probablemente no sea de señal.
-> <img width="1569" height="548" alt="image" src="./imagenes/7aef5379-4303-4763-a395-212cf8eda523.png" />
-> <img width="544" height="220" alt="image" src="./imagenes/7b9bf717-b821-4dc1-948c-b7bc36344ae3.png" />
+> <img width="1569" height="548" alt="image" src="./imagenes/7aef5379-4303-4763-a395-212cf8eda523.jpg" />
+> <img width="544" height="220" alt="image" src="./imagenes/7b9bf717-b821-4dc1-948c-b7bc36344ae3.jpg" />
 
 ---
 

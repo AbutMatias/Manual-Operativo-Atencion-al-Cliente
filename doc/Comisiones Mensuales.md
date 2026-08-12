@@ -46,7 +46,7 @@ Antes de enviar la información a Recursos Humanos se debe:
 2. Verificar que no existan errores de cálculo.
 3. Confirmar que los empleados incluidos sean correctos.
 4. Revisar que los multiplicadores aplicados correspondan al período.
-- ![image](./imagenes/3594ba22-2930-4bb3-9cce-e573b22e2455.png)
+- ![image](./imagenes/3594ba22-2930-4bb3-9cce-e573b22e2455.jpg)
 ---
 
 ## Envío a Recursos Humanos
@@ -57,8 +57,8 @@ Una vez validada la información:
 2. Obtener el enlace con permisos de visualización.
 3. Publicar el enlace en el issue de comisiones generado por RRHH.
 4. Confirmar la disponibilidad de la información para su liquidación.
- ![Recording 2022-07-12 at 10 16 45](./imagenes/364429162-eed06019-9a22-492a-bf80-f4486e914616.png)
-![Recording 2022-07-12 at 10 19 32](./imagenes/364430361-bb4fce75-3bd7-4709-9d09-de0aa4b161fd.png)
+ ![Recording 2022-07-12 at 10 16 45](./imagenes/364429162-eed06019-9a22-492a-bf80-f4486e914616.jpg)
+![Recording 2022-07-12 at 10 19 32](./imagenes/364430361-bb4fce75-3bd7-4709-9d09-de0aa4b161fd.jpg)
 ---
 
 ## Período de cálculo

@@ -28,7 +28,7 @@ El proceso se compone de **tres intentos escalonados** de contacto con el client
 - Se solicita suspensión de la baja
 - Se aplican ajustes en la cuenta
 
-<img width="503" height="313" alt="image" src="./imagenes/cc4d2597-321f-4a2b-bc5c-6012e923d56d.png" />
+<img width="503" height="313" alt="image" src="./imagenes/cc4d2597-321f-4a2b-bc5c-6012e923d56d.jpg" />
 
 ---
 
@@ -49,7 +49,7 @@ El proceso se compone de **tres intentos escalonados** de contacto con el client
   - Suspensión de baja
   - Ajuste de cuenta
  
-<img width="468" height="297" alt="image" src="./imagenes/8ada713d-590c-4ce4-9b5e-8d8b95dadb69.png" />
+<img width="468" height="297" alt="image" src="./imagenes/8ada713d-590c-4ce4-9b5e-8d8b95dadb69.jpg" />
 
 
 ---
@@ -89,7 +89,7 @@ Si el cliente acepta la restitución del servicio:
 - Hasta resolución del caso documentado en:
   https://github.com/Eternet/SSAK47.Issues/issues/43
 
-  <img width="1746" height="691" alt="image" src="./imagenes/8080b1ff-0bb8-4892-92ab-6aa8ceb4f30e.png" />
+  <img width="1746" height="691" alt="image" src="./imagenes/8080b1ff-0bb8-4892-92ab-6aa8ceb4f30e.jpg" />
 
 
 ---
@@ -134,7 +134,7 @@ La pantalla principal se divide en dos partes:
 - **Detalle de la gestión seleccionada (derecha)**  
 
 Cada registro muestra su **estado actual dentro del proceso de recupero**.
-<img width="1636" height="923" alt="image" src="./imagenes/5d4c1c04-f78a-4319-9032-fabf78088aaa.png" />
+<img width="1636" height="923" alt="image" src="./imagenes/5d4c1c04-f78a-4319-9032-fabf78088aaa.jpg" />
 
 ---
 
@@ -221,8 +221,8 @@ El botón de envío aparece solo si:
 4. Envío del mensaje
 
 El cliente recibe automáticamente la propuesta de recupero.
-<img width="1632" height="922" alt="image" src="./imagenes/ccdab693-9d55-43e6-b3e1-60e1f4248e50.png" />
-<img width="751" height="296" alt="image" src="./imagenes/8facd557-6541-46f1-a95e-ab7750c7206f.png" />
+<img width="1632" height="922" alt="image" src="./imagenes/ccdab693-9d55-43e6-b3e1-60e1f4248e50.jpg" />
+<img width="751" height="296" alt="image" src="./imagenes/8facd557-6541-46f1-a95e-ab7750c7206f.jpg" />
 
 
 ---
@@ -235,10 +235,10 @@ Desde la pantalla secundaria se pueden crear nuevas gestiones ingresando:
 - Contacto WhatsApp
 - Propuesta de descuento
 - Condiciones del recupero
-<img width="1635" height="922" alt="image" src="./imagenes/6c9d7794-0dd8-45e5-8320-40e528a39168.png" />
+<img width="1635" height="922" alt="image" src="./imagenes/6c9d7794-0dd8-45e5-8320-40e528a39168.jpg" />
 
 Al guardar:
 - El registro queda en estado **“Sin iniciar”**
-<img width="1629" height="921" alt="image" src="./imagenes/d2b5c184-4c87-4202-be7a-0461b531d884.png" />
+<img width="1629" height="921" alt="image" src="./imagenes/d2b5c184-4c87-4202-be7a-0461b531d884.jpg" />
 
 ---

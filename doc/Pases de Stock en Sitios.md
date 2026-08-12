@@ -29,7 +29,7 @@ Se visualizará la siguiente ventana:
 
 ### ✔️ Ejemplo de carga correcta
 
-![Ejemplo MAC](./imagenes/8080b1ff-0bb8-4892-92ab-6aa8ceb4f30e.png)
+![Ejemplo MAC](./imagenes/8080b1ff-0bb8-4892-92ab-6aa8ceb4f30e.jpg)
 
 ---
 
@@ -37,7 +37,7 @@ Se visualizará la siguiente ventana:
 
 - Hacer clic en **“Hacer Pase de Stock”**
 
-![Botón pase stock](./imagenes/81252e8d-578a-4ab5-b388-fcf0de4f2652.png)
+![Botón pase stock](./imagenes/81252e8d-578a-4ab5-b388-fcf0de4f2652.jpg)
 
 ---
 
@@ -87,7 +87,7 @@ Se abre la siguiente ventana:
 
 ## ✔️ Ejemplo completo
 
-![Ejemplo completo](./imagenes/8140d632-eb24-4770-87f3-6a9406dc2a3e.png)
+![Ejemplo completo](./imagenes/8140d632-eb24-4770-87f3-6a9406dc2a3e.jpg)
 
 ---
 
@@ -108,7 +108,7 @@ Si es necesario, se pueden agregar artículos sin MAC:
 
 - Revisar en **Detalle de artículos seleccionados**
 
-![Detalle artículos](./imagenes/81bdefea-ef73-428d-8adb-90736986985b.png)
+![Detalle artículos](./imagenes/81bdefea-ef73-428d-8adb-90736986985b.jpg)
 
 ---
 
@@ -116,7 +116,7 @@ Si es necesario, se pueden agregar artículos sin MAC:
 
 - Hacer clic en **Aceptar**
 
-![Aceptar pase](./imagenes/83077105-ee0c-407b-b17e-f95618d65cdc.png)
+![Aceptar pase](./imagenes/83077105-ee0c-407b-b17e-f95618d65cdc.jpg)
 
 ---
 
@@ -124,7 +124,7 @@ Si es necesario, se pueden agregar artículos sin MAC:
 
 - Aparecerá mensaje de confirmación:
 
-![Confirmación](./imagenes/837d9296-44b9-4597-9cce-b0d8b1c6c388.png)
+![Confirmación](./imagenes/837d9296-44b9-4597-9cce-b0d8b1c6c388.jpg)
 
 - Clic en **Aceptar**
 
@@ -147,7 +147,7 @@ Si es necesario, se pueden agregar artículos sin MAC:
 
 Al ingresar al sistema:
 
-![Pantalla recepción](./imagenes/849ff86d-1936-4f4e-9cb3-8bd5d4f6daa5.png)
+![Pantalla recepción](./imagenes/849ff86d-1936-4f4e-9cb3-8bd5d4f6daa5.jpg)
 
 ---
 
@@ -156,7 +156,7 @@ Al ingresar al sistema:
 - Seleccionar el envío recibido
 - Verificar MACs
 
-![Control MAC](./imagenes/85cf9541-eb60-4d04-a0f0-bdfbc9c52297.png)
+![Control MAC](./imagenes/85cf9541-eb60-4d04-a0f0-bdfbc9c52297.jpg)
 
 ---
 
@@ -164,7 +164,7 @@ Al ingresar al sistema:
 
 - Clic en **“Sí”**
 
-<img width="758" height="156" alt="image" src="./imagenes/5a5a43dc-5305-439c-ba95-778779753824.png" />
+<img width="758" height="156" alt="image" src="./imagenes/5a5a43dc-5305-439c-ba95-778779753824.jpg" />
 
 
 ---

@@ -16,7 +16,7 @@ El sistema preguntará si se desea facturar el remito en ese momento.
 
 Aparece el siguiente mensaje:
 
-![Confirmación facturación](./imagenes/50de7a7f-1b99-4651-bb69-daaebefd150c.png)
+![Confirmación facturación](./imagenes/50de7a7f-1b99-4651-bb69-daaebefd150c.jpg)
 
 ### ✔️ Acción:
 - Hacer clic en **“Yes”**
@@ -27,7 +27,7 @@ Aparece el siguiente mensaje:
 
 Luego se abre la siguiente pantalla:
 
-![Pantalla facturación](./imagenes/51b5587b-18cb-46e2-8856-50acfbf8729b.png)
+![Pantalla facturación](./imagenes/51b5587b-18cb-46e2-8856-50acfbf8729b.jpg)
 
 ---
 
@@ -96,7 +96,7 @@ Ingresar a:
 
 ## 📋 Selección del envío
 
-![Listado envíos](./imagenes/51f30505-12fd-43bf-85f6-870e1893565b.png)
+![Listado envíos](./imagenes/51f30505-12fd-43bf-85f6-870e1893565b.jpg)
 
 ---
 
@@ -112,7 +112,7 @@ Ingresar a:
 
 ## 🧾 Pantalla de facturación
 
-![Pantalla final](./imagenes/528b0ead-1ec5-440b-a68b-7c46dd289f22.png)
+![Pantalla final](./imagenes/528b0ead-1ec5-440b-a68b-7c46dd289f22.jpg)
 
 ---
 

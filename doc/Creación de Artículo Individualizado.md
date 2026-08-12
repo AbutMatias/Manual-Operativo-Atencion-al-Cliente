@@ -49,7 +49,7 @@ En caso de tratarse de un **equipo Host**:
 
 ## 🖼️ Referencia visual
 
-![Flujo alta artículo individualizado](./imagenes/364435301-e11db660-ee56-49ae-96d7-ecc737e21ac4.png)
+![Flujo alta artículo individualizado](./imagenes/364435301-e11db660-ee56-49ae-96d7-ecc737e21ac4.jpg)
 
 ---
 
@@ -79,23 +79,23 @@ Una vez completados los pasos anteriores:
 
 Y aparecera la siguiente pantalla:
 
-![image](./imagenes/364436870-823a1ed5-d286-42b6-ab3f-6b5eb173ee7d.png)
+![image](./imagenes/364436870-823a1ed5-d286-42b6-ab3f-6b5eb173ee7d.jpg)
 
 ## Continuamos buscando el artículo el cual necesitamos modificar:
 
-![image](./imagenes/364437286-e1db7992-2435-4119-b7af-4b61d850ebf4.png)
+![image](./imagenes/364437286-e1db7992-2435-4119-b7af-4b61d850ebf4.jpg)
 
 ### continuamos haciendo doble click sobre la descripción del artículo y aparecerá la siguiente pantalla:
 
-![image](./imagenes/364438819-16422dd3-3ca9-4048-a809-39d378ddb79f.png)
+![image](./imagenes/364438819-16422dd3-3ca9-4048-a809-39d378ddb79f.jpg)
 
 ## A continuación hacemos click derecho en cualquier parte de la pantalla y seleccionamos "configurar Artículo con stock Individualizado" o "Configurar Artículo con stock no Individualizado" según necesitemos:
 
-![image](./imagenes/364439081-8f30687b-0b69-437f-8570-aa4f9244cbde.png)
+![image](./imagenes/364439081-8f30687b-0b69-437f-8570-aa4f9244cbde.jpg)
 
 ## En caso que la opción seleccionada sea "Configurar Artículo con stock Individualizado" aparecerá la siguiente pantalla:
 
-![image](./imagenes/364441936-6f2e4dda-f9b1-4fc4-ba30-967e97b68aa4.png)
+![image](./imagenes/364441936-6f2e4dda-f9b1-4fc4-ba30-967e97b68aa4.jpg)
 
 ## Campos a Completar:
 
@@ -110,16 +110,16 @@ Y aparecera la siguiente pantalla:
 
 ### De este modo, un artículo cargado correctamente quedaría de la siguiente forma:
 
-![image](./imagenes/364442374-6c97dfbc-10f4-4f42-9412-d2ef3b001505.png)
+![image](./imagenes/364442374-6c97dfbc-10f4-4f42-9412-d2ef3b001505.jpg)
 
 ## Una vez completados los campos damos click en aceptar para completar la operación:
 
-![image](./imagenes/364442745-dfcab490-efb9-4401-9a14-d173f2639fbe.png)
+![image](./imagenes/364442745-dfcab490-efb9-4401-9a14-d173f2639fbe.jpg)
 
 ## En caso de que seleccionemos la opción "Configurar Artículo con Stock no Individualizado" aparecerá el siguiente mensaje:
 
-![image](./imagenes/364443047-7288c08f-1b04-4821-bef9-50314f5e2d3b.png)
+![image](./imagenes/364443047-7288c08f-1b04-4821-bef9-50314f5e2d3b.jpg)
 
 ### A continuación damos click en "Yes" para finalizar la operación
 
-![image](./imagenes/364443938-7f67f41b-e0f5-41b0-8317-d0dbccc50ecd.png)
+![image](./imagenes/364443938-7f67f41b-e0f5-41b0-8317-d0dbccc50ecd.jpg)

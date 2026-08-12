@@ -21,14 +21,14 @@ Dentro del sistema ingresar en:
 
 Seleccionar el remito correspondiente y hacer **clic derecho**.
 
-![Seleccionar remito](./imagenes/a1998f30-25a3-47cb-8aee-8dd7b0efd599.png)
+![Seleccionar remito](./imagenes/a1998f30-25a3-47cb-8aee-8dd7b0efd599.jpg)
 
 Elegir una de las siguientes opciones:
 
 - **Anular Remito Completo**
 - **Anular Ítems y Cantidades Seleccionadas**
 
-![Opciones](./imagenes/a313753f-79bf-4a55-87be-283ba25225a1.png)
+![Opciones](./imagenes/a313753f-79bf-4a55-87be-283ba25225a1.jpg)
 
 ### Anular Remito Completo
 
@@ -48,14 +48,14 @@ Permite anular únicamente determinados artículos o cantidades.
 
 Al seleccionarlo aparecerá la siguiente ventana:
 
-![Parcial](./imagenes/a41a4fd6-abe3-43c4-9bdd-9c8f10b9ac87.png)
+![Parcial](./imagenes/a41a4fd6-abe3-43c4-9bdd-9c8f10b9ac87.jpg)
 
 Luego:
 
 - Ingresar las **MAC** de los equipos individualizados.
 - Presionar **Confirmar MACs**.
 
-![MACs](./imagenes/a4a87b8c-6763-4014-af50-27f06e83105d.png)
+![MACs](./imagenes/a4a87b8c-6763-4014-af50-27f06e83105d.jpg)
 
 ---
 
@@ -68,7 +68,7 @@ Ingresar en:
 1. **Equipos de Red**
 2. **Listado de Envío de Equipos**
 
-![Listado](./imagenes/a5c3e8ff-e415-44bc-b633-5cfa64f6b1df.png)
+![Listado](./imagenes/a5c3e8ff-e415-44bc-b633-5cfa64f6b1df.jpg)
 
 ---
 
@@ -78,11 +78,11 @@ Clic derecho →
 
 **Registrar Devolución y Reemplazo de Artículos**
 
-![Menú](./imagenes/a7c8ccd5-84e0-40d3-a4f0-391ff77595b0.png)
+![Menú](./imagenes/a7c8ccd5-84e0-40d3-a4f0-391ff77595b0.jpg)
 
 Se abrirá la siguiente pantalla:
 
-![Pantalla](./imagenes/a891d06d-2440-4154-8db2-25637295cea3.png)
+![Pantalla](./imagenes/a891d06d-2440-4154-8db2-25637295cea3.jpg)
 
 ---
 
@@ -91,13 +91,13 @@ Se abrirá la siguiente pantalla:
 - Seleccionar el artículo.
 - Indicar la cantidad correspondiente.
 
-![Cantidad](./imagenes/a89cf51d-548c-4a1a-8e08-5758671decea.png)
+![Cantidad](./imagenes/a89cf51d-548c-4a1a-8e08-5758671decea.jpg)
 
 Luego hacer clic en:
 
 **Registrar Reemplazo**
 
-![Botón](./imagenes/a9e8bb00-2ea2-4516-8a86-9e30d6f033ed.png)
+![Botón](./imagenes/a9e8bb00-2ea2-4516-8a86-9e30d6f033ed.jpg)
 
 ---
 
@@ -105,20 +105,20 @@ Luego hacer clic en:
 
 Se abrirá la siguiente ventana:
 
-![MACs](./imagenes/aa081392-d270-49d3-a628-3b4740b0b43c.png)
+![MACs](./imagenes/aa081392-d270-49d3-a628-3b4740b0b43c.jpg)
 
 Ingresar:
 
 - MAC de los equipos devueltos.
 - MAC de los equipos de reposición.
 
-![Ingreso](./imagenes/aa81493a-3fe0-4436-81fc-3b5cf4883491.png)
+![Ingreso](./imagenes/aa81493a-3fe0-4436-81fc-3b5cf4883491.jpg)
 
 Finalmente presionar:
 
 **Confirmar MACs**
 
-![Confirmación](./imagenes/ab0aa16c-760a-4978-b916-3d10c25a11f4.png)
+![Confirmación](./imagenes/ab0aa16c-760a-4978-b916-3d10c25a11f4.jpg)
 
 ---
 
@@ -131,7 +131,7 @@ Ingresar en:
 1. **Ventas**
 2. **Listado de...**
 
-![Listado](./imagenes/ab43f757-2362-45f7-acc7-e72688806aca.png)
+![Listado](./imagenes/ab43f757-2362-45f7-acc7-e72688806aca.jpg)
 
 ---
 
@@ -141,11 +141,11 @@ Clic derecho →
 
 **NC por Devolución de Mercadería**
 
-![NC](./imagenes/ab6aa05e-282e-4e2b-af45-7f6106eaec92.png)
+![NC](./imagenes/ab6aa05e-282e-4e2b-af45-7f6106eaec92.jpg)
 
 Se abrirá la siguiente pantalla:
 
-![Pantalla NC](./imagenes/ab9e0ab1-7da3-477c-a8cd-a0421e918a94.png)
+![Pantalla NC](./imagenes/ab9e0ab1-7da3-477c-a8cd-a0421e918a94.jpg)
 
 ---
 
@@ -153,7 +153,7 @@ Se abrirá la siguiente pantalla:
 
 Elegir los artículos y especificar las cantidades que formarán parte de la Nota de Crédito.
 
-![Cantidades](./imagenes/ac2a4b98-0e55-4e0f-b77e-06603dfafcfb.png)
+![Cantidades](./imagenes/ac2a4b98-0e55-4e0f-b77e-06603dfafcfb.jpg)
 
 Luego hacer clic derecho sobre la selección y elegir:
 
@@ -165,7 +165,7 @@ Luego hacer clic derecho sobre la selección y elegir:
 
 Se abrirá la siguiente ventana:
 
-![Confirmación](./imagenes/ad15eb37-2ce8-4b5e-9fd3-b99633f146f3.png)
+![Confirmación](./imagenes/ad15eb37-2ce8-4b5e-9fd3-b99633f146f3.jpg)
 
 Ingresar las **MAC** de los equipos devueltos.
 
@@ -173,4 +173,4 @@ Finalmente hacer clic en:
 
 **Confirmar MACs**
 
-![MACs NC](./imagenes/ae5574c2-a5db-4fd1-a802-01e26fe672ca.png)
+![MACs NC](./imagenes/ae5574c2-a5db-4fd1-a802-01e26fe672ca.jpg)

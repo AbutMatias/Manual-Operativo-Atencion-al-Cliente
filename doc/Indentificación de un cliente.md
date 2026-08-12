@@ -42,7 +42,7 @@ Al recibir un llamado, intentar identificar al cliente siguiendo este orden:
 
 Es la forma más rápida de encontrarlo.
 
-<img width="232" height="870" alt="image" src="./imagenes/3ff05e9d-8fff-458a-a9ff-b90b2e92ce74.png" />
+<img width="232" height="870" alt="image" src="./imagenes/3ff05e9d-8fff-458a-a9ff-b90b2e92ce74.jpg" />
 
 ### 2. DNI o CUIT/CUIL
 
@@ -79,9 +79,9 @@ Puede buscarse directamente desde la lista de clientes.
 3. Seleccionar **Buscar**.
 4. Ingresar el dato correspondiente.
 
-<img width="316" height="429" alt="image" src="./imagenes/45e602eb-0ae2-4f69-a333-79e233857a80.png" />
+<img width="316" height="429" alt="image" src="./imagenes/45e602eb-0ae2-4f69-a333-79e233857a80.jpg" />
 
-<img width="1919" height="1079" alt="image" src="./imagenes/f07a2496-4d90-4fdc-89cf-f8cc93e76791.png" />
+<img width="1919" height="1079" alt="image" src="./imagenes/f07a2496-4d90-4fdc-89cf-f8cc93e76791.jpg" />
 ---
 
 ## Búsqueda por IP

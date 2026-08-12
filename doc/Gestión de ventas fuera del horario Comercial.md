@@ -53,7 +53,7 @@ Si el cliente acepta la contratación:
 - Completar sus datos.
 - Registrar los medios de contacto.
 - Adherir al débito automático (si corresponde).
-> <img width="1626" height="867" alt="image" src="./imagenes/623859282-b711e652-4259-4024-bba9-e81fba52b1c5.png" />
+> <img width="1626" height="867" alt="image" src="./imagenes/623859282-b711e652-4259-4024-bba9-e81fba52b1c5.jpg" />
 
 
 - [Generar la instalación en SSAK.](https://github.com/Eternet/Atencion.Clientes/blob/main/Documentacion/Manual-Operativo-Atencion-al-Cliente/doc/Carga%20de%20una%20instalación%20de%20Internet.md)

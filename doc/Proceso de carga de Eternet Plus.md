@@ -15,7 +15,7 @@
 2. Seleccionar:
    - ➜ **Agregar Instalación Interna**
 
-<img width="1219" height="868" alt="Image" src="./imagenes/98a29d39-7256-49be-a3b2-ba94711ab78f.png" />
+<img width="1219" height="868" alt="Image" src="./imagenes/98a29d39-7256-49be-a3b2-ba94711ab78f.jpg" />
 
 ---
 
@@ -41,7 +41,7 @@ En todos los campos anteriores:
 - Agregar link del issue:
   - https://github.com/Eternet/Coordinacion/issues/new?template=nueva-interna.yml
 
-<img width="1725" height="789" alt="Image" src="./imagenes/98b7d764-92d2-47f6-bd61-091630fc5e29.png" />
+<img width="1725" height="789" alt="Image" src="./imagenes/98b7d764-92d2-47f6-bd61-091630fc5e29.jpg" />
 
 ---
 
@@ -67,7 +67,7 @@ En todos los campos anteriores:
 4. Costo del equipo:
    - **$0**
 
-<img width="1775" height="655" alt="Image" src="./imagenes/98dbe95d-de6a-4a33-807c-2f7163f3598a.png" />
+<img width="1775" height="655" alt="Image" src="./imagenes/98dbe95d-de6a-4a33-807c-2f7163f3598a.jpg" />
 
 ---
 
@@ -79,7 +79,7 @@ En todos los campos anteriores:
 2. Valor:
    - U$S 14,80 (convertido a pesos)
 
-<img width="1723" height="499" alt="image" src="./imagenes/f6da0c82-b192-4136-91ee-fe6fd5bfaa0e.png" />
+<img width="1723" height="499" alt="image" src="./imagenes/f6da0c82-b192-4136-91ee-fe6fd5bfaa0e.jpg" />
 
 
 ---

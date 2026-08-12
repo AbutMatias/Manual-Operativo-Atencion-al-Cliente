@@ -26,7 +26,7 @@ Revisar:
 - Máscara de subred
 - Network
 
-<img width="597" height="382" alt="image" src="./imagenes/98dbe95d-de6a-4a33-807c-2f7163f3598a.png" />
+<img width="597" height="382" alt="image" src="./imagenes/98dbe95d-de6a-4a33-807c-2f7163f3598a.jpg" />
 
 
 ## 3. Verificar rutas existentes
@@ -38,7 +38,7 @@ Ejecutar:
 - `0.0.0.0/0`
 - Gateway: `xxx.yyy.zzz.1` (primeros 3 octetos del network + .1)
   
-<img width="539" height="268" alt="image" src="./imagenes/138329a6-fa64-45e3-9b94-6c84b91a8378.png" />
+<img width="539" height="268" alt="image" src="./imagenes/138329a6-fa64-45e3-9b94-6c84b91a8378.jpg" />
 
 
 ## Casos posibles

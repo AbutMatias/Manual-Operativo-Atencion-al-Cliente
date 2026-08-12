@@ -14,7 +14,7 @@ Antes de comenzar, verificar si el cliente ya existe.
    - Tipo: **Instalación domiciliaria**.
 3. Hacer clic en **Siguiente**.
 
-> ![image](./imagenes/2f0c03a7-52fe-4d2c-baef-2db5b47073f6.png)
+> ![image](./imagenes/2f0c03a7-52fe-4d2c-baef-2db5b47073f6.jpg)
 
 
 ---
@@ -29,7 +29,7 @@ Completar:
 
 > El router en comodato se asigna automáticamente según la tarifa elegida.
 
-> ![image](./imagenes/2f14c4b1-b7cb-4675-a09b-dd94303f4c8c.png)
+> ![image](./imagenes/2f14c4b1-b7cb-4675-a09b-dd94303f4c8c.jpg)
 
 ---
 
@@ -39,9 +39,9 @@ Completar:
 2. Buscar al cliente por **DNI** o **Razón Social**.
 3. Hacer doble clic sobre el cliente para cargar sus datos automáticamente.
 
-> ![image](./imagenes/2fecd450-8476-4a3d-bfd8-20353368a9ea.png)
+> ![image](./imagenes/2fecd450-8476-4a3d-bfd8-20353368a9ea.jpg)
 
-> ![image](./imagenes/31a23ff4-d068-4392-96d8-ee61548cdb4b.png)
+> ![image](./imagenes/31a23ff4-d068-4392-96d8-ee61548cdb4b.jpg)
 
 ---
 
@@ -65,7 +65,7 @@ Luego completar:
 
 Por último, seleccionar **Finalizar**.
 
-> <img width="1326" height="882" alt="image" src="./imagenes/32eba67a-8fb8-4b05-8479-c5d15f103191.png" />
+> <img width="1326" height="882" alt="image" src="./imagenes/32eba67a-8fb8-4b05-8479-c5d15f103191.jpg" />
 
 ---
 
@@ -77,7 +77,7 @@ Por último, seleccionar **Finalizar**.
 2. Abrir **Instalaciones**.
 3. Seleccionar la instalación con estado **Ventas**.
 
-> ![image](./imagenes/330eac41-4c99-48ba-a8b3-5d69b630f140.png)
+> ![image](./imagenes/330eac41-4c99-48ba-a8b3-5d69b630f140.jpg)
 
 ---
 
@@ -86,7 +86,7 @@ Por último, seleccionar **Finalizar**.
 1. Hacer clic derecho sobre la instalación.
 2. Seleccionar **Bonificaciones en cargos de instalación y/o abonos**.
 
-> ![image](./imagenes/3348de41-bdb3-402d-9e79-9303f6322c02.png)
+> ![image](./imagenes/3348de41-bdb3-402d-9e79-9303f6322c02.jpg)
 
 Aplicar la opción acordada con el cliente:
 
@@ -96,16 +96,16 @@ Aplicar la opción acordada con el cliente:
   
 ---
  - Bonificación del 100 %.
-> ![image](./imagenes/3548f50b-366b-48f7-b95a-79a001073c82.png)
+> ![image](./imagenes/3548f50b-366b-48f7-b95a-79a001073c82.jpg)
 
 
  - Bonificación del 50 %
 
-> ![image](./imagenes/357967700-d9122dce-e1d8-4727-9262-45d14329d867.png)
+> ![image](./imagenes/357967700-d9122dce-e1d8-4727-9262-45d14329d867.jpg)
 
  - Cobro total
 
-> ![image](./imagenes/357978417-6965b98a-234d-45c5-adfa-2041bad81d94.png)
+> ![image](./imagenes/357978417-6965b98a-234d-45c5-adfa-2041bad81d94.jpg)
 
 
 

@@ -11,7 +11,7 @@ Ingresar en:
 
 Se mostrará la siguiente pantalla:
 
-![Pantalla mantenimiento](./imagenes/994826f2-2f25-4194-9f3b-1697ae9c3fe5.png)
+![Pantalla mantenimiento](./imagenes/994826f2-2f25-4194-9f3b-1697ae9c3fe5.jpg)
 
 ---
 
@@ -21,7 +21,7 @@ Hacer clic en:
 
 - **Insertar registro**
 
-![Insertar registro](./imagenes/99c68195-5cf6-41ce-bf9b-3f8329e1e9b0.png)
+![Insertar registro](./imagenes/99c68195-5cf6-41ce-bf9b-3f8329e1e9b0.jpg)
 
 ---
 
@@ -97,13 +97,13 @@ Hacer clic en:
 
 El artículo correctamente cargado se visualizará así:
 
-![Artículo cargado](./imagenes/9a498b25-b05d-4dc5-a241-be91589f11d7.png)
+![Artículo cargado](./imagenes/9a498b25-b05d-4dc5-a241-be91589f11d7.jpg)
 
 Y en el listado general:
 
 - Artículos → Listado → búsqueda por palabras clave
 
-![Listado artículos](./imagenes/9d71a0aa-38d9-4d3e-a845-907db1276b98.png)
+![Listado artículos](./imagenes/9d71a0aa-38d9-4d3e-a845-907db1276b98.jpg)
 
 ---
 
@@ -120,7 +120,7 @@ Ingresar en:
 
 Se mostrará la siguiente pantalla:
 
-![Listado ubicaciones](./imagenes/9dd0d04c-ac76-4329-8821-9daaa785eb15.png)
+![Listado ubicaciones](./imagenes/9dd0d04c-ac76-4329-8821-9daaa785eb15.jpg)
 
 ---
 
@@ -130,7 +130,7 @@ Hacer clic derecho sobre el artículo y seleccionar:
 
 - **“Agregar artículo a un almacén”**
 
-![Agregar almacén](./imagenes/9e581d8a-5c44-42ff-814a-f8a3f08098a1.png)
+![Agregar almacén](./imagenes/9e581d8a-5c44-42ff-814a-f8a3f08098a1.jpg)
 
 ---
 
@@ -165,6 +165,6 @@ Hacer clic en:
 
 - **Aceptar**
 
-![Aceptar operación](./imagenes/9fad7229-342e-494e-9aba-f4d192daba15.png)
+![Aceptar operación](./imagenes/9fad7229-342e-494e-9aba-f4d192daba15.jpg)
 
 ---

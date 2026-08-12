@@ -27,7 +27,7 @@ Se abrirá la ventana **Nueva instalación**.
 - En **Tipo de instalación** elegir `Cambio de domicilio`.
 - Presionar `Obtener usuario`.
 
-![image](./imagenes/082c0939-447f-4d5d-b85a-fbca1be238dd.png)
+![image](./imagenes/082c0939-447f-4d5d-b85a-fbca1be238dd.jpg)
 
 ---
 
@@ -38,7 +38,7 @@ Dentro de la ventana **Obtener Usuario de Internet**:
 - Buscar al cliente por número de cliente o apellido y nombre.
 - Hacer doble clic sobre el servicio correspondiente.
 
-![image](./imagenes/092e6137-d34f-487d-befb-3891f2794ea9.png)
+![image](./imagenes/092e6137-d34f-487d-befb-3891f2794ea9.jpg)
 
 Se abrirá una nueva ventana donde se visualizará el CPE del cliente (ONU o equipo Wireless).
 
@@ -49,7 +49,7 @@ Verificar:
 
 Luego presionar **Aceptar**.
 
-![image](./imagenes/09312052-91fc-428c-828c-b99ed53be678.png)
+![image](./imagenes/09312052-91fc-428c-828c-b99ed53be678.jpg)
 
 ---
 
@@ -57,7 +57,7 @@ Luego presionar **Aceptar**.
 
 Una vez obtenido el usuario, seleccionar **Siguiente**.
 
-![image](./imagenes/0b0d9226-b5a3-44c9-82b4-59ec917e007f.png)
+![image](./imagenes/0b0d9226-b5a3-44c9-82b4-59ec917e007f.jpg)
 
 Configurar:
 
@@ -69,7 +69,7 @@ Si el cliente mantiene el mismo plan, dejar la tarifa actual.
 
 Si solicita un cambio de plan, seleccionar la nueva tarifa.
 
-![image](./imagenes/0bc031d1-9d58-4bea-ba11-9f0f0abb940a.png)
+![image](./imagenes/0bc031d1-9d58-4bea-ba11-9f0f0abb940a.jpg)
 
 ---
 
@@ -89,7 +89,7 @@ Tildar la opción de notificación.
 
 Finalmente seleccionar **Finalizar**.
 
-![image](./imagenes/0be149fd-d968-473e-b352-3f9149d22b6d.png)
+![image](./imagenes/0be149fd-d968-473e-b352-3f9149d22b6d.jpg)
 
 
 ---
@@ -104,7 +104,7 @@ La única diferencia es que, en la pantalla **Nueva instalación**, debemos:
 - Elegir la nueva tarifa correspondiente a la tecnología destino.
 
 
-![image](./imagenes/0beb3fa5-ca21-4ee7-87af-52802bb72fb9.png)
+![image](./imagenes/0beb3fa5-ca21-4ee7-87af-52802bb72fb9.jpg)
 
 ---
 
@@ -142,7 +142,7 @@ Consultar:
 >
 > `Relacionar la instalación con una baja`.
 
-<img width="697" height="672" alt="image" src="./imagenes/fb31c7b1-0022-4f12-ac6f-e37748f90217.png" />
+<img width="697" height="672" alt="image" src="./imagenes/fb31c7b1-0022-4f12-ac6f-e37748f90217.jpg" />
 
 
 ---

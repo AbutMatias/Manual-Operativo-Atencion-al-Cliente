@@ -26,7 +26,7 @@ Ingresar con las credenciales correspondientes.
 
 Se visualizará la pantalla de carga de datos.
 
-![Image](./imagenes/1a89a5fa-1187-4729-9576-08f0fa61d20c.png)
+![Image](./imagenes/1a89a5fa-1187-4729-9576-08f0fa61d20c.jpg)
 
 <br><br><br>
 
@@ -45,7 +45,7 @@ La solicitud llega al correo:
 
 Mostrando el nombre y apellido o razón social del cliente.
 
-![image](./imagenes/1b53c0c3-2afb-408c-b5f9-91e6fb032719.png)
+![image](./imagenes/1b53c0c3-2afb-408c-b5f9-91e6fb032719.jpg)
 
 
 
@@ -59,7 +59,7 @@ En SSAK ingresar a:
 
 `Instalaciones → Instalaciones confirmadas en Entidades`
 
-![image](./imagenes/1b5a46d4-1367-4d90-abbb-e26af06bf48a.png)
+![image](./imagenes/1b5a46d4-1367-4d90-abbb-e26af06bf48a.jpg)
 
 
 
@@ -90,11 +90,11 @@ Se mostrará la información cargada por el prestador.
 
 Luego presionar **Aceptar**.
 
-![image](./imagenes/1bc4b066-54e1-46f2-a0ab-7eda5fc2e67e.png)
+![image](./imagenes/1bc4b066-54e1-46f2-a0ab-7eda5fc2e67e.jpg)
 
 <br><br><br>
 
-![image](./imagenes/1d39df25-8e32-4855-af8e-76cba1a6e5d7.png)
+![image](./imagenes/1d39df25-8e32-4855-af8e-76cba1a6e5d7.jpg)
 
 <br><br><br>
 

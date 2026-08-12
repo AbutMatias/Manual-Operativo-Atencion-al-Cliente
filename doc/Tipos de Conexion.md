@@ -36,7 +36,7 @@ Correspondientes según localidad a:
 ---
 
 ## Esquema visual
-![image](./imagenes/ccc57563-e4ee-42fc-b9e7-2fd73d41f543.png)
+![image](./imagenes/ccc57563-e4ee-42fc-b9e7-2fd73d41f543.jpg)
 
 ---
 
@@ -62,10 +62,10 @@ Se utiliza la herramienta Netmap para consultar el estado de la ONU, su señal y
 ---
 
 ## Capturas de referencia
-<img width="1845" height="892" alt="image" src="./imagenes/b75f851c-b3ab-436a-8577-1df72fcc43c0.png" />
+<img width="1845" height="892" alt="image" src="./imagenes/b75f851c-b3ab-436a-8577-1df72fcc43c0.jpg" />
 
 
-<img width="1864" height="884" alt="image" src="./imagenes/00aa624a-91e0-40b3-85ed-aa279c79c6af.png" />
+<img width="1864" height="884" alt="image" src="./imagenes/00aa624a-91e0-40b3-85ed-aa279c79c6af.jpg" />
 
 
 ---
@@ -88,7 +88,7 @@ Cada tecnología tiene interfaces de administración diferentes, por lo que es f
 ---
 
 ## Esquema visual
-![image](./imagenes/ccdab693-9d55-43e6-b3e1-60e1f4248e50.png)
+![image](./imagenes/ccdab693-9d55-43e6-b3e1-60e1f4248e50.jpg)
 
 ---
 

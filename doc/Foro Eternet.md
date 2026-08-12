@@ -69,6 +69,6 @@ Si existe documentación previa del cliente o instalación, el foro puede conten
 Si no se encuentran resultados, continuar el diagnóstico utilizando las herramientas y sistemas actualmente vigentes.
 
 Ejemplo:
-<img width="1262" height="928" alt="image" src="./imagenes/7c1f9f1f-5de5-4070-a15d-a16bfb2245d2.png" />
-<img width="1085" height="837" alt="image" src="./imagenes/0777c2ac-2dab-450e-bbae-00de837aea48.png" />
+<img width="1262" height="928" alt="image" src="./imagenes/7c1f9f1f-5de5-4070-a15d-a16bfb2245d2.jpg" />
+<img width="1085" height="837" alt="image" src="./imagenes/0777c2ac-2dab-450e-bbae-00de837aea48.jpg" />
 

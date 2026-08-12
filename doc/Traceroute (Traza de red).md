@@ -41,7 +41,7 @@ En una PC con Windows se ve así:
 - Tiempo en milisegundos por salto
 - Camino completo hasta el destino
 
-* ![image](./imagenes/cd6de3d3-1f98-4c39-9a5e-1cd2831a3b1f.png)
+* ![image](./imagenes/cd6de3d3-1f98-4c39-9a5e-1cd2831a3b1f.jpg)
 
 ---
 
@@ -54,7 +54,7 @@ En MikroTik la traza muestra:
 - Latencia por salto
 - Posible pérdida de paquetes
 
- * ![image](./imagenes/cd96d625-e508-44c6-b4a6-5647a704de06.png)
+ * ![image](./imagenes/cd96d625-e508-44c6-b4a6-5647a704de06.jpg)
 
 ---
 
@@ -105,7 +105,7 @@ Pueden existir variaciones en la ruta:
 ### Localidades con iBGP
 - Puede aparecer un salto adicional antes del BGP principal
 
-<img width="1635" height="642" alt="image" src="./imagenes/af39b9d5-a281-4e7b-84bd-00e89cf2d43d.png" />
+<img width="1635" height="642" alt="image" src="./imagenes/af39b9d5-a281-4e7b-84bd-00e89cf2d43d.jpg" />
 
 ---
 ### Tipos de trazas que pueden encontrarse

@@ -25,8 +25,8 @@ Ejemplos:
 5. Verificar el estado de la subred antes de continuar con el diagnóstico. 
 
 
-> <img width="1896" height="883" alt="image" src="./imagenes/c03148f2-9a8a-4b2e-8df8-b1eea1f65b40.png" />
-> <img width="1892" height="890" alt="image" src="./imagenes/c04e139a-a02f-4d7a-a2ed-d164fa937d22.png" />
+> <img width="1896" height="883" alt="image" src="./imagenes/c03148f2-9a8a-4b2e-8df8-b1eea1f65b40.jpg" />
+> <img width="1892" height="890" alt="image" src="./imagenes/c04e139a-a02f-4d7a-a2ed-d164fa937d22.jpg" />
 
 
 
@@ -44,9 +44,9 @@ Verificar:
 - Historial de conexión.
 
 Registrar el resultado.
-> <img width="1549" height="602" alt="image" src="./imagenes/c062e7c7-417b-4629-9868-01d02d48babe.png" />
-> <img width="1547" height="549" alt="image" src="./imagenes/c0922147-43d3-4a12-affe-1fd24e81d03e.png" />
-> <img width="1538" height="538" alt="image" src="./imagenes/c1102320-d63d-43fe-979c-d8a66aed2b5a.png" />
+> <img width="1549" height="602" alt="image" src="./imagenes/c062e7c7-417b-4629-9868-01d02d48babe.jpg" />
+> <img width="1547" height="549" alt="image" src="./imagenes/c0922147-43d3-4a12-affe-1fd24e81d03e.jpg" />
+> <img width="1538" height="538" alt="image" src="./imagenes/c1102320-d63d-43fe-979c-d8a66aed2b5a.jpg" />
 
 ---
 

@@ -118,7 +118,7 @@ Esto evita visitas innecesarias.
 - Si la infraestructura se reutiliza para otro cliente:
   - Debe estar en condiciones óptimas.
   - Debe cumplir estándares de calidad establecidos.
-- ![image](./imagenes/a0dcce0f-933f-431c-ad70-8c725cb2671e.png)
+- ![image](./imagenes/a0dcce0f-933f-431c-ad70-8c725cb2671e.jpg)
 ---
 
 ## Notas importantes

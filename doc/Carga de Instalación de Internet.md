@@ -18,7 +18,7 @@ Si se trata de un cliente nuevo, debemos crearlo previamente.
 
 Desde SSAK seleccionamos el botón `Nuevo Cliente`.
 
-![image](./imagenes/0e5993aa-eee8-4126-849c-462e229729bc.png)
+![image](./imagenes/0e5993aa-eee8-4126-849c-462e229729bc.jpg)
 
 ---
 
@@ -30,7 +30,7 @@ Completamos los datos básicos:
 * Localidad
 * Domicilio
 
-![image](./imagenes/0edec2f0-14c9-4c43-ac5e-b7626dbf05fb.png)
+![image](./imagenes/0edec2f0-14c9-4c43-ac5e-b7626dbf05fb.jpg)
 
 ---
 
@@ -38,7 +38,7 @@ Completamos los datos básicos:
 
 Dentro de **Mantenimiento de Relaciones Comerciales**, luego de completar los datos, presionamos el botón `+`.
 
-![image](./imagenes/0f4d872d-f519-4e5d-8347-5950590b60ae.png)
+![image](./imagenes/0f4d872d-f519-4e5d-8347-5950590b60ae.jpg)
 
 ---
 
@@ -62,7 +62,7 @@ Completar:
 
 Luego seleccionar **Siguiente**.
 
-![image](./imagenes/0fd2f131-4889-4f95-ac1c-b04318ac086c.png)
+![image](./imagenes/0fd2f131-4889-4f95-ac1c-b04318ac086c.jpg)
 
 ---
 
@@ -76,7 +76,7 @@ Completar:
 
 El router en comodato se asigna automáticamente según la tarifa elegida.
 
-![image](./imagenes/103e57da-de44-481d-a5ef-e5b31afa5759.png)
+![image](./imagenes/103e57da-de44-481d-a5ef-e5b31afa5759.jpg)
 
 ---
 
@@ -92,9 +92,9 @@ En la ventana de búsqueda:
 
 Los datos se completarán automáticamente.
 
-![image](./imagenes/122708de-9104-4e80-80eb-9cdac313c7aa.png)
+![image](./imagenes/122708de-9104-4e80-80eb-9cdac313c7aa.jpg)
 
-![image](./imagenes/138329a6-fa64-45e3-9b94-6c84b91a8378.png)
+![image](./imagenes/138329a6-fa64-45e3-9b94-6c84b91a8378.jpg)
 
 ---
 
@@ -130,7 +130,7 @@ Cargar:
 
 Finalmente seleccionar **Finalizar**.
 
-![image](./imagenes/163d4eb2-fe78-4932-a5e5-09f443bf5b42.png)
+![image](./imagenes/163d4eb2-fe78-4932-a5e5-09f443bf5b42.jpg)
 
 ---
 
@@ -158,7 +158,7 @@ Seleccionar:
 
 `Bonificaciones en cargos de instalación y/o abonos`
 
-![image](./imagenes/17449644-5197-46e5-b87b-f3c08bf28afc.png)
+![image](./imagenes/17449644-5197-46e5-b87b-f3c08bf28afc.jpg)
 
 ---
 
@@ -168,19 +168,19 @@ Según lo acordado con el cliente, existen tres escenarios posibles.
 
 ### Bonificación Total del Cargo de Instalación
 
-![image](./imagenes/17a51fa9-b0c2-4aea-b2a0-954b5fa4968b.png)
+![image](./imagenes/17a51fa9-b0c2-4aea-b2a0-954b5fa4968b.jpg)
 
 ---
 
 ### Bonificación del 50% del Cargo de Instalación
 
-![image](./imagenes/18e2cdcf-28dc-4a64-8bec-65d76f458ef4.png)
+![image](./imagenes/18e2cdcf-28dc-4a64-8bec-65d76f458ef4.jpg)
 
 ---
 
 ### Cobro Total de la Instalación
 
-![image](./imagenes/18e7fd97-8fe4-4c7f-9139-68ec5fc86da4.png)
+![image](./imagenes/18e7fd97-8fe4-4c7f-9139-68ec5fc86da4.jpg)
 
 ---
 

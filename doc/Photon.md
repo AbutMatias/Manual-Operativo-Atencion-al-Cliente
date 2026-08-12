@@ -380,7 +380,7 @@ https://github.com/AbutMatias/Inducci-n-Atencion-al-Cliente-/blob/main/PTW3202W%
 
 # Esquema de conexión con servicio FTTH y router Photon Dual
 
-![image](./imagenes/8a77e195-9233-4d37-a8da-6dc0f253a994.png)
+![image](./imagenes/8a77e195-9233-4d37-a8da-6dc0f253a994.jpg)
 
 
 # Tutorial: [Link](https://www.youtube.com/watch?v=JZIR1azMiXA) 
@@ -388,13 +388,13 @@ https://github.com/AbutMatias/Inducci-n-Atencion-al-Cliente-/blob/main/PTW3202W%
 # Esquema de conexión con servicio FTTH y router Photon
 
 
-![image](./imagenes/8ac5e37b-7b28-4317-b5a5-fa6a67cba0c0.png)
+![image](./imagenes/8ac5e37b-7b28-4317-b5a5-fa6a67cba0c0.jpg)
 
 # Tutorial: [Link](https://www.youtube.com/watch?v=kiiyXDmYEoY) 
 
 # Esquemas de conexión con servicio Wireless y router Photon
 
-![image](./imagenes/8ada713d-590c-4ce4-9b5e-8d8b95dadb69.png)
+![image](./imagenes/8ada713d-590c-4ce4-9b5e-8d8b95dadb69.jpg)
 
 # Tutorial: [Link](https://www.youtube.com/watch?v=kiiyXDmYEoY) 
 

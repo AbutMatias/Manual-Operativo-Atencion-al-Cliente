@@ -47,7 +47,7 @@ Una vez realizada la traza:
 📌 Ejemplo típico:  
 La pérdida comienza en el segundo salto
 
-![Ejemplo pérdida de paquetes](./imagenes/623865409-e4082508-99f9-41b4-9f62-b4c751ebad8b.png)
+![Ejemplo pérdida de paquetes](./imagenes/623865409-e4082508-99f9-41b4-9f62-b4c751ebad8b.jpg)
 
 ---
 

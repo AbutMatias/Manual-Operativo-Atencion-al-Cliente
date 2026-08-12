@@ -13,7 +13,7 @@ Cada peer corresponde a:
 - Que atraviesa diferentes switches y enlaces wireless (**path físico**)
 - Con IPs en ambos extremos utilizadas para levantar los peers iBGP
 
-![Esquema iBGP](./imagenes/bd68d3a9-6c39-4a35-9bc5-b5e9ad3cfdba.png)
+![Esquema iBGP](./imagenes/bd68d3a9-6c39-4a35-9bc5-b5e9ad3cfdba.jpg)
 
 ---
 
@@ -72,7 +72,7 @@ Permite diagnóstico y observación.
 
 
 
-![Lectura tráfico](./imagenes/bddcfe59-d0cf-4af5-8fc8-1874e08064b4.png)
+![Lectura tráfico](./imagenes/bddcfe59-d0cf-4af5-8fc8-1874e08064b4.jpg)
 
 
 
@@ -90,7 +90,7 @@ Permite ver:
 
 
 
-![Detalle localidad](./imagenes/be1d0e05-9557-467a-911d-cc44b9c3cce3.png)
+![Detalle localidad](./imagenes/be1d0e05-9557-467a-911d-cc44b9c3cce3.jpg)
 
 
 
@@ -116,7 +116,7 @@ Acceso restringido a:
 
 
 
-![Reinicio servicio](./imagenes/be413833-0da9-4c7e-bb43-0859ec3e42d9.png)
+![Reinicio servicio](./imagenes/be413833-0da9-4c7e-bb43-0859ec3e42d9.jpg)
 
 
 
@@ -129,7 +129,7 @@ Acceso restringido a:
 
 
 
-![Tiempo real](./imagenes/be59b425-d7ca-4168-aa6a-ac423e98b8d1.png)
+![Tiempo real](./imagenes/be59b425-d7ca-4168-aa6a-ac423e98b8d1.jpg)
 
 
 
@@ -142,7 +142,7 @@ Acceso restringido a:
 
 
 
-![Mover redes](./imagenes/be989a0d-e95b-4617-9683-379908abaf28.png)
+![Mover redes](./imagenes/be989a0d-e95b-4617-9683-379908abaf28.jpg)
 
 
 
@@ -156,7 +156,7 @@ Acceso restringido a:
 
 
 
-![Auto management off](./imagenes/c01a2dc2-a253-4625-9512-e83f743ff0a6.png)
+![Auto management off](./imagenes/c01a2dc2-a253-4625-9512-e83f743ff0a6.jpg)
 
 
 ---

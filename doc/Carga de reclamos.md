@@ -28,7 +28,7 @@
 
 - Seleccionar la plantilla correspondiente (ej: **Nuevo reclamo**)
 
-<img width="797" height="770" alt="image" src="./imagenes/7aef5379-4303-4763-a395-212cf8eda523.png" />
+<img width="797" height="770" alt="image" src="./imagenes/7aef5379-4303-4763-a395-212cf8eda523.jpg" />
 
 
 ---
@@ -45,7 +45,7 @@ Completar con información real del sistema:
   - Imágenes
   - GIFs (https://gifcap.dev/)
 
-<img width="1578" height="883" alt="image" src="./imagenes/81bdefea-ef73-428d-8adb-90736986985b.png" />
+<img width="1578" height="883" alt="image" src="./imagenes/81bdefea-ef73-428d-8adb-90736986985b.jpg" />
 
 
 ---
@@ -57,7 +57,7 @@ Completar con información real del sistema:
 - Buscar el cliente correspondiente
 - Hacer clic en **Ver Detalles**
 
-<img width="1639" height="767" alt="image" src="./imagenes/573344fc-9861-4eab-9b16-7bbb923dbe16.png" />
+<img width="1639" height="767" alt="image" src="./imagenes/573344fc-9861-4eab-9b16-7bbb923dbe16.jpg" />
 
 ---
 
@@ -67,7 +67,7 @@ Completar con información real del sistema:
 - Hacer clic derecho
 - Seleccionar: **Nuevo reclamo**
 
-<img width="1005" height="488" alt="image" src="./imagenes/2f14c4b1-b7cb-4675-a09b-dd94303f4c8c.png" />
+<img width="1005" height="488" alt="image" src="./imagenes/2f14c4b1-b7cb-4675-a09b-dd94303f4c8c.jpg" />
 
 
 ---
@@ -86,7 +86,7 @@ Se abre la pantalla **Alta de Reclamos**, donde se debe completar:
 - Teléfonos:
   - Seleccionar números de contacto del cliente
 
-<img width="995" height="827" alt="image" src="./imagenes/4e8dfeae-cf43-4cd8-a97e-43e4325a30fe.png" />
+<img width="995" height="827" alt="image" src="./imagenes/4e8dfeae-cf43-4cd8-a97e-43e4325a30fe.jpg" />
 
 
 ✔ Una vez completado:

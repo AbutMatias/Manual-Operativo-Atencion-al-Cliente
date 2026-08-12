@@ -16,7 +16,7 @@ En esta planificación se detalla, a través de un issue, los técnicos que esta
 
 El issue se genera en el repositorio de Atención al Cliente y tiene el siguiente formato:
 
-![Image](./imagenes/903db1a9-ccf2-4b61-b7a3-3c86219ff1fa.png)
+![Image](./imagenes/903db1a9-ccf2-4b61-b7a3-3c86219ff1fa.jpg)
 
 
 ### Formulario de planificación
@@ -169,19 +169,19 @@ Esto permite que todos los integrantes del equipo estén informados y facilita l
 
 Paso a paso 
 - Asignar tecnico
-<img width="913" height="717" alt="image" src="./imagenes/9060dc05-c0b4-4955-a387-4574e4401137.png" />
+<img width="913" height="717" alt="image" src="./imagenes/9060dc05-c0b4-4955-a387-4574e4401137.jpg" />
 - Asignar tarea
-<img width="942" height="797" alt="image" src="./imagenes/91ba5eed-2076-4c01-8b9a-3db2c222f20b.png" />
+<img width="942" height="797" alt="image" src="./imagenes/91ba5eed-2076-4c01-8b9a-3db2c222f20b.jpg" />
 - Seleccionar rango de dias
-<img width="967" height="683" alt="image" src="./imagenes/9284cea1-df18-420b-90bd-25c7db4e6eeb.png" />
+<img width="967" height="683" alt="image" src="./imagenes/9284cea1-df18-420b-90bd-25c7db4e6eeb.jpg" />
 - Doble click al tecnico y el dia que debe ser asignado.
-<img width="1511" height="585" alt="image" src="./imagenes/93625170-eb4c-43ba-b71d-3b8ba1da92fd.png" />
+<img width="1511" height="585" alt="image" src="./imagenes/93625170-eb4c-43ba-b71d-3b8ba1da92fd.jpg" />
 - Sin no tiene ninguna tarea asignada le va a figurar el siguente cartel, presionar si.
-- <img width="880" height="408" alt="image" src="./imagenes/9442faf4-ed65-4e02-8240-f9e09516e159.png" />
+- <img width="880" height="408" alt="image" src="./imagenes/9442faf4-ed65-4e02-8240-f9e09516e159.jpg" />
 - Les va a figurar asi cuando este asignado.
-- <img width="861" height="754" alt="image" src="./imagenes/9492e4e2-6b71-41b4-896e-2792f8a653a4.png" />
+- <img width="861" height="754" alt="image" src="./imagenes/9492e4e2-6b71-41b4-896e-2792f8a653a4.jpg" />
 - Luego a issue del reclamo, asignar el tecnico en este apartado.
-<img width="1634" height="591" alt="image" src="./imagenes/97fe224d-6929-4c01-9a36-6c24eca514bd.png" />
+<img width="1634" height="591" alt="image" src="./imagenes/97fe224d-6929-4c01-9a36-6c24eca514bd.jpg" />
 
 
 

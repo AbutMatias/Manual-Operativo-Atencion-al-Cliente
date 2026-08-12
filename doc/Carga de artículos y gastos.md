@@ -4,7 +4,7 @@
 
 ## 🧭 1. Carga de artículos
 
-![Pantalla carga artículos](./imagenes/1db10cd0-c743-42ff-8274-608d0c989e0d.png)
+![Pantalla carga artículos](./imagenes/1db10cd0-c743-42ff-8274-608d0c989e0d.jpg)
 
 ---
 
@@ -17,7 +17,7 @@
 - Determina la **cuenta contable de ventas asociada**
 
 👉 Es obligatorio agrupar correctamente cada artículo según su categoría.
-<img width="653" height="674" alt="image" src="./imagenes/ccc57563-e4ee-42fc-b9e7-2fd73d41f543.png" />
+<img width="653" height="674" alt="image" src="./imagenes/ccc57563-e4ee-42fc-b9e7-2fd73d41f543.jpg" />
 
 📍 En el pie de la imagen se observa la relación:
 
@@ -146,7 +146,7 @@
 
 - Se carga el **precio de compra del artículo**
 - Puede variar según clasificación (ej: redes → tipo de redes)
-<img width="647" height="608" alt="image" src="./imagenes/f47e773a-71a9-49a5-bdea-dbe6f47bf461.png" />
+<img width="647" height="608" alt="image" src="./imagenes/f47e773a-71a9-49a5-bdea-dbe6f47bf461.jpg" />
 
 ---
 
@@ -176,7 +176,7 @@
 
 ✔️ Excepción:
 Solo se cargan como artículos si es necesario identificarlos individualmente contra proveedor.
-<img width="1171" height="629" alt="image" src="./imagenes/da2b39a3-7fbe-4ec3-b11f-6325ac44471f.png" />
+<img width="1171" height="629" alt="image" src="./imagenes/da2b39a3-7fbe-4ec3-b11f-6325ac44471f.jpg" />
 
 ---
 

@@ -145,7 +145,7 @@ Cada atributo se evalúa bajo la modalidad:
 - No pasa
 - [Planilla de Monitoreo](https://eternet-my.sharepoint.com/:x:/r/personal/bernabe_quesada_eternet_cc/Documents/Calidad%20Eternet/Planilla.evaluacion.xlsx?d=w552103c2c4404cd484182ac2d186c5a9&csf=1&web=1&e=i4yBch)
 ### 4. Retroalimentación
-![image](./imagenes/0106f65e-8422-49d5-a1b0-dff318465a06.png)
+![image](./imagenes/0106f65e-8422-49d5-a1b0-dff318465a06.jpg)
 Los resultados son compartidos con cada representante para fomentar la mejora continua.
 [Macro Enfoque](https://eternet.sharepoint.com/:w:/s/QualityOnboarding/EdSugbcNdmtBtFovPW4vgyYBeDVsM9MbOLKrFmg_PWQsQA?e=elTTIu)
 

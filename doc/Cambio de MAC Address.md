@@ -51,7 +51,7 @@ Se utiliza cuando:
 - Buscar el botón:
   - “Cambiar MAC”
 - Hacer clic
-<img width="700" height="716" alt="image" src="./imagenes/837d9296-44b9-4597-9cce-b0d8b1c6c388.png" />
+<img width="700" height="716" alt="image" src="./imagenes/837d9296-44b9-4597-9cce-b0d8b1c6c388.jpg" />
 
 ---
 
@@ -109,7 +109,7 @@ En este caso:
 
 Importante:
 - La MAC provisoria se elimina al cerrar el reclamo
-<img width="567" height="116" alt="image" src="./imagenes/5091cfa2-873c-4cab-b80f-84e047c6aeeb.png" />
+<img width="567" height="116" alt="image" src="./imagenes/5091cfa2-873c-4cab-b80f-84e047c6aeeb.jpg" />
 
 ---
 

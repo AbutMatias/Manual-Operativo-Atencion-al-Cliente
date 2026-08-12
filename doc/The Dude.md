@@ -45,14 +45,14 @@ Desde el mapa podemos acceder directamente a los equipos:
 
 En la barra inferior derecha aparece un ícono de estado:
 
-- Verde: Todo funciona correctamente ![image](./imagenes/c886f92b-e7dc-46d8-9ef7-25bcdfe7f06b.png) (🟢)
-- Rojo: Hay equipos caídos o sin respuesta ![image](./imagenes/c8b7494a-947a-4294-81bc-3280287aec84.png) (🔴)
+- Verde: Todo funciona correctamente ![image](./imagenes/c886f92b-e7dc-46d8-9ef7-25bcdfe7f06b.jpg) (🟢)
+- Rojo: Hay equipos caídos o sin respuesta ![image](./imagenes/c8b7494a-947a-4294-81bc-3280287aec84.jpg) (🔴)
 
 También pueden aparecer enlaces en rojo:
 - Puede indicar saturación
 - Mala negociación
 - Corte en el enlace
-![image](./imagenes/c96abc41-f362-4e14-aee4-ba87d673666f.png)
+![image](./imagenes/c96abc41-f362-4e14-aee4-ba87d673666f.jpg)
 ---
 
 ## Cómo conectarse a The Dude
@@ -133,9 +133,9 @@ Representan enlaces o accesos a otros mapas.
 - UTP + PoE: datos + alimentación eléctrica `🔵`
 - Fibra óptica: enlaces de alta capacidad `🟡`
 
-  ![image](./imagenes/c99443f9-9716-4d2d-b7ca-8717fdd2973b.png)
+  ![image](./imagenes/c99443f9-9716-4d2d-b7ca-8717fdd2973b.jpg)
 
-  ![image](./imagenes/cc4d2597-321f-4a2b-bc5c-6012e923d56d.png)
+  ![image](./imagenes/cc4d2597-321f-4a2b-bc5c-6012e923d56d.jpg)
 
 ---
 

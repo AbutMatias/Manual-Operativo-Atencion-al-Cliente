@@ -83,8 +83,8 @@ Verificar el valor **Signal Strength (RSSI)**.
 > [!NOTE]
 > WinBox no permite conocer la distancia exacta entre el router y el dispositivo. El valor **RSSI** sirve como referencia para estimar la calidad de la cobertura Wi-Fi.
 
-<img width="697" height="337" alt="image" src="./imagenes/3788bed0-6a1f-44f4-919d-34ef8082f532.png" />
-<img width="1639" height="648" alt="image" src="./imagenes/38885455-59a9-4c9a-8d55-b166e6593632.png" />
+<img width="697" height="337" alt="image" src="./imagenes/3788bed0-6a1f-44f4-919d-34ef8082f532.jpg" />
+<img width="1639" height="648" alt="image" src="./imagenes/38885455-59a9-4c9a-8d55-b166e6593632.jpg" />
 
 ---
 

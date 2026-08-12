@@ -10,7 +10,7 @@ Para clientes Nateados, independientemente del tipo de router que utilicen, la m
 
 
 
-![image](./imagenes/3762534b-d52e-4a8a-b1a6-f35dcbecfe2c.png)
+![image](./imagenes/3762534b-d52e-4a8a-b1a6-f35dcbecfe2c.jpg)
 
 
 
@@ -20,7 +20,7 @@ Otro sitio que se puede ingresar para averiguar la IP de salida del cliente es h
 
 
 
-![image](./imagenes/377782a9-8d87-43ee-a590-f0f4a1a1281a.png)
+![image](./imagenes/377782a9-8d87-43ee-a590-f0f4a1a1281a.jpg)
 
 
 
