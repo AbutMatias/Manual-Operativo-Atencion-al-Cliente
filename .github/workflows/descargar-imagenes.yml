@@ -1,4 +1,4 @@
-name: Convertir imágenes PNG a JPG
+name: Asignar imágenes locales
 
 on:
   workflow_dispatch:
@@ -7,197 +7,352 @@ permissions:
   contents: write
 
 jobs:
-  convertir-imagenes:
+  asignar-imagenes:
     runs-on: ubuntu-latest
 
     steps:
       - name: Descargar repositorio
         uses: actions/checkout@v4
 
-      - name: Instalar Pillow
-        run: |
-          python3 -m pip install --upgrade pip
-          python3 -m pip install Pillow
-
-      - name: Convertir PNG a JPG
+      - name: Asignar imágenes locales
         shell: bash
         run: |
           set -e
 
           echo "=============================================="
-          echo "        CONVERSIÓN PNG A JPG"
+          echo "       ASIGNACIÓN DE IMÁGENES LOCALES"
           echo "=============================================="
           echo ""
+
+          mkdir -p doc/imagenes
 
           python3 <<'PY'
           from pathlib import Path
-          from PIL import Image
-
-          carpeta = Path("doc/imagenes")
-
-          cantidad = 0
-
-          for archivo in carpeta.rglob("*"):
-              if not archivo.is_file():
-                  continue
-
-              if archivo.suffix.lower() != ".png":
-                  continue
-
-              destino = archivo.with_suffix(".jpg")
-
-              print("----------------------------------------------")
-              print(f"PNG encontrado:")
-              print(archivo)
-              print(f"JPG destino:")
-              print(destino)
-
-              try:
-                  imagen = Image.open(archivo)
-
-                  # Convertir imágenes con transparencia
-                  # sobre fondo blanco.
-                  if imagen.mode in ("RGBA", "LA") or (
-                      imagen.mode == "P"
-                      and "transparency" in imagen.info
-                  ):
-                      fondo = Image.new("RGB", imagen.size, "white")
-
-                      if imagen.mode == "P":
-                          imagen = imagen.convert("RGBA")
-
-                      fondo.paste(
-                          imagen,
-                          mask=imagen.getchannel("A")
-                      )
-
-                      imagen = fondo
-
-                  else:
-                      imagen = imagen.convert("RGB")
-
-                  imagen.save(
-                      destino,
-                      "JPEG",
-                      quality=92,
-                      optimize=True
-                  )
-
-                  print("OK")
-                  cantidad += 1
-
-              except Exception as e:
-                  print(f"ERROR: {archivo}")
-                  print(e)
-                  raise
-
-          print("")
-          print("==============================================")
-          print(f"IMÁGENES CONVERTIDAS: {cantidad}")
-          print("==============================================")
-          PY
-
-      - name: Actualizar referencias PNG a JPG
-        shell: bash
-        run: |
-          set -e
-
-          echo "=============================================="
-          echo "     ACTUALIZANDO REFERENCIAS"
-          echo "=============================================="
-          echo ""
-
-          find doc -type f -name "*.md" -print0 |
-          while IFS= read -r -d '' archivo
-          do
-              echo "Revisando:"
-              echo "$archivo"
-
-              python3 - "$archivo" <<'PY'
-          import sys
           import re
-          from pathlib import Path
 
-          archivo = Path(sys.argv[1])
+          ROOT = Path("doc")
+          IMAGENES = ROOT / "imagenes"
 
-          texto = archivo.read_text(encoding="utf-8")
+          extensiones = {
+              ".png",
+              ".jpg",
+              ".jpeg",
+              ".gif",
+              ".webp",
+              ".svg"
+          }
 
-          original = texto
+          # ==========================================================
+          # CREAR ÍNDICE DE TODAS LAS IMÁGENES LOCALES
+          # ==========================================================
 
-          # ------------------------------------------
-          # Markdown
-          #
-          # ./imagenes/foto.png
-          # ->
-          # ./imagenes/foto.jpg
-          # ------------------------------------------
+          archivos = []
 
-          texto = re.sub(
-              r'(\./imagenes/[^)\s]+)\.png(?=[)\s])',
-              r'\1.jpg',
-              texto,
-              flags=re.IGNORECASE
+          for archivo in IMAGENES.rglob("*"):
+              if archivo.is_file() and archivo.suffix.lower() in extensiones:
+                  archivos.append(archivo)
+
+          print(f"Imágenes locales encontradas: {len(archivos)}")
+          print("")
+
+          # ==========================================================
+          # FUNCIÓN PARA OBTENER IDENTIFICADORES
+          # ==========================================================
+
+          UUID_RE = re.compile(
+              r'(?<![a-zA-Z0-9])'
+              r'[0-9a-fA-F]{8}-'
+              r'[0-9a-fA-F]{4}-'
+              r'[0-9a-fA-F]{4}-'
+              r'[0-9a-fA-F]{4}-'
+              r'[0-9a-fA-F]{12}'
+              r'(?![a-zA-Z0-9])'
           )
 
-          # ------------------------------------------
-          # HTML
+          def obtener_uuids(nombre):
+              """
+              Obtiene todos los UUID que aparecen en el nombre.
+
+              Ejemplo:
+
+              624036160-ef84d419-2766-4f2b-9fb2-db513f133f6c.jpg
+
+              devuelve:
+
+              ef84d419-2766-4f2b-9fb2-db513f133f6c
+              """
+
+              return UUID_RE.findall(nombre)
+
+          # ==========================================================
+          # ÍNDICE:
           #
-          # src="./imagenes/foto.png"
-          # ->
-          # src="./imagenes/foto.jpg"
-          # ------------------------------------------
+          # UUID -> archivo local
+          #
+          # ==========================================================
 
-          texto = re.sub(
-              r'(\./imagenes/[^"\']+)\.png',
-              r'\1.jpg',
-              texto,
-              flags=re.IGNORECASE
-          )
+          indice = {}
 
-          if texto != original:
-              archivo.write_text(
-                  texto,
+          for archivo in archivos:
+
+              uuids = obtener_uuids(archivo.name)
+
+              for uuid in uuids:
+
+                  uuid = uuid.lower()
+
+                  # Si ya existe, no reemplazarlo.
+                  # Evita problemas si hubiera duplicados.
+                  if uuid not in indice:
+                      indice[uuid] = archivo
+
+          print(f"Identificadores encontrados: {len(indice)}")
+          print("")
+
+          # ==========================================================
+          # PROCESAR TODOS LOS MARKDOWN
+          # ==========================================================
+
+          modificados = 0
+          imagenes_asignadas = 0
+          imagenes_no_encontradas = 0
+
+          for archivo_md in ROOT.rglob("*.md"):
+
+              # No procesar archivos dentro de doc/imagenes
+              if IMAGENES in archivo_md.parents:
+                  continue
+
+              print("==============================================")
+              print(f"Documento: {archivo_md}")
+              print("==============================================")
+
+              texto = archivo_md.read_text(
                   encoding="utf-8"
               )
 
-              print(f"MODIFICADO: {archivo}")
+              original = texto
 
-          else:
-              print(f"SIN CAMBIOS: {archivo}")
+              # ======================================================
+              # BUSCAR:
+              #
+              # https://github.com/user-attachments/assets/UUID
+              #
+              # https://user-images.githubusercontent.com/.../UUID.ext
+              #
+              # ======================================================
+
+              patrones = [
+                  re.compile(
+                      r'https://github\.com/user-attachments/assets/'
+                      r'([0-9a-fA-F-]{36})'
+                  ),
+
+                  re.compile(
+                      r'https://user-images\.githubusercontent\.com/'
+                      r'[^)\s]+/([0-9]+-[0-9a-fA-F-]{36})'
+                      r'(?:\.[a-zA-Z0-9]+)?'
+                  )
+              ]
+
+              urls_encontradas = []
+
+              for patron in patrones:
+
+                  for match in patron.finditer(texto):
+
+                      url = match.group(0)
+
+                      if url not in urls_encontradas:
+                          urls_encontradas.append(url)
+
+              # ======================================================
+              # PROCESAR CADA URL
+              # ======================================================
+
+              for url in urls_encontradas:
+
+                  # --------------------------------------------------
+                  # OBTENER UUID DESDE LA URL
+                  # --------------------------------------------------
+
+                  encontrados = UUID_RE.findall(url)
+
+                  if not encontrados:
+                      print("")
+                      print("No se pudo obtener UUID:")
+                      print(url)
+                      continue
+
+                  uuid = encontrados[-1].lower()
+
+                  print("")
+                  print("Imagen detectada:")
+                  print(uuid)
+
+                  # --------------------------------------------------
+                  # BUSCAR IMAGEN LOCAL
+                  # --------------------------------------------------
+
+                  imagen = indice.get(uuid)
+
+                  if imagen is None:
+
+                      print("NO encontrada localmente")
+                      print(
+                          f"UUID buscado: {uuid}"
+                      )
+
+                      imagenes_no_encontradas += 1
+
+                      continue
+
+                  print("Encontrada localmente:")
+                  print(imagen)
+
+                  # ==================================================
+                  # OBTENER NOMBRE RELATIVO
+                  # ==================================================
+
+                  try:
+                      relativo = imagen.relative_to(ROOT)
+                  except ValueError:
+                      print("Error obteniendo ruta relativa")
+                      continue
+
+                  referencia = "./" + relativo.as_posix()
+
+                  # ==================================================
+                  # REEMPLAZAR TODAS LAS FORMAS
+                  #
+                  # URL
+                  #
+                  # [URL](URL)
+                  #
+                  # ![texto](URL)
+                  #
+                  # <img src="URL">
+                  #
+                  # ==================================================
+
+                  # ----------------------------------------------
+                  # Caso:
+                  #
+                  # [URL](URL)
+                  # ----------------------------------------------
+
+                  texto = texto.replace(
+                      f"[{url}]({url})",
+                      referencia
+                  )
+
+                  # ----------------------------------------------
+                  # Caso:
+                  #
+                  # ![texto](URL)
+                  # ----------------------------------------------
+
+                  patron_imagen = re.compile(
+                      r'(!\[[^\]]*\]\()'
+                      + re.escape(url)
+                      + r'(\))'
+                  )
+
+                  texto = patron_imagen.sub(
+                      lambda m: m.group(1) + referencia + m.group(2),
+                      texto
+                  )
+
+                  # ----------------------------------------------
+                  # Caso:
+                  #
+                  # <img src="URL">
+                  # ----------------------------------------------
+
+                  texto = texto.replace(
+                      f'src="{url}"',
+                      f'src="{referencia}"'
+                  )
+
+                  texto = texto.replace(
+                      f"src='{url}'",
+                      f"src='{referencia}'"
+                  )
+
+                  # ----------------------------------------------
+                  # Caso directo:
+                  #
+                  # URL
+                  # ----------------------------------------------
+
+                  texto = texto.replace(
+                      url,
+                      referencia
+                  )
+
+                  imagenes_asignadas += 1
+
+                  print("Referencia asignada:")
+                  print(referencia)
+
+              # ======================================================
+              # GUARDAR CAMBIOS
+              # ======================================================
+
+              if texto != original:
+
+                  archivo_md.write_text(
+                      texto,
+                      encoding="utf-8"
+                  )
+
+                  modificados += 1
+
+                  print("")
+                  print("DOCUMENTO MODIFICADO")
+
+              else:
+
+                  print("")
+                  print("SIN CAMBIOS")
+
+              print("")
+
+          # ==========================================================
+          # RESUMEN
+          # ==========================================================
+
+          print("")
+          print("==============================================")
+          print("              RESUMEN FINAL")
+          print("==============================================")
+          print("")
+          print(f"Documentos modificados: {modificados}")
+          print(f"Imágenes asignadas: {imagenes_asignadas}")
+          print(f"Imágenes no encontradas: {imagenes_no_encontradas}")
+          print("")
+          print("==============================================")
 
           PY
-
-              echo ""
-
-          done
-
-      - name: Mostrar JPG generados
-        run: |
-          echo "=============================================="
-          echo "          JPG GENERADOS"
-          echo "=============================================="
-          echo ""
-
-          find doc/imagenes \
-            -type f \
-            -iname "*.jpg" \
-            -print |
-          sort
 
       - name: Guardar cambios
         shell: bash
         run: |
           set -e
 
+          echo "=============================================="
+          echo "          GUARDANDO CAMBIOS"
+          echo "=============================================="
+          echo ""
+
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git add doc/imagenes
           git add doc
 
           if git diff --cached --quiet; then
-              echo "No hay cambios para guardar."
+            echo "No hay cambios para guardar."
           else
-              git commit -m "Convertir imágenes PNG a JPG"
-              git push
+            git commit -m "Asignar imágenes locales a documentación"
+            git push
           fi
