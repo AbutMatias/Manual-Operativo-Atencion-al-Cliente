@@ -1,18 +1,25 @@
-name: Correcciones automáticas
+name: Corregir imágenes
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
 
+permissions:
+  contents: write
+
 jobs:
-  corregir:
+  corregir-imagenes:
     runs-on: ubuntu-latest
 
     steps:
 
       - name: Descargar repositorio
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: true
 
       - name: Corregir imágenes de los documentos Markdown
         shell: bash
@@ -47,82 +54,55 @@ jobs:
               ".bmp"
           }
 
-          imagenes = []
+          archivos_imagenes = {}
 
-          for archivo in IMAGENES.rglob("*"):
+          for imagen in IMAGENES.rglob("*"):
 
-              if not archivo.is_file():
+              if not imagen.is_file():
                   continue
 
-              if archivo.suffix.lower() not in extensiones:
+              if imagen.suffix.lower() not in extensiones:
                   continue
 
-              imagenes.append(archivo)
+              archivos_imagenes[imagen.name.lower()] = imagen
+              archivos_imagenes[imagen.stem.lower()] = imagen
 
-          print(f"Imágenes encontradas: {len(imagenes)}")
-
-          indice = {}
-
-          for imagen in imagenes:
-
-              indice[imagen.name.lower()] = imagen
-
-              stem = imagen.stem.lower()
-
-              if stem not in indice:
-                  indice[stem] = imagen
+          print(
+              f"Imágenes encontradas: {len(archivos_imagenes)}"
+          )
 
           documentos = list(DOC.rglob("*.md"))
 
-          print(f"Documentos encontrados: {len(documentos)}")
+          print(
+              f"Documentos encontrados: {len(documentos)}"
+          )
 
-          for documento in documentos:
+          patron = re.compile(
+              r'!\[([^\]]*)\]\(([^)]+)\)'
+          )
 
-              print("")
-              print("==============================================")
-              print(f"Documento: {documento}")
-              print("==============================================")
+          for archivo in documentos:
 
-              texto = documento.read_text(
+              print("----------------------------------------------")
+              print(f"Documento: {archivo}")
+
+              texto = archivo.read_text(
                   encoding="utf-8"
               )
 
               original = texto
 
-              # ------------------------------------------
-              # CORREGIR MARKDOWN ESCAPADO
-              # ------------------------------------------
-
-              texto = texto.replace(r"\#", "#")
+              # Corregir Markdown escapado
               texto = texto.replace(r"\!", "!")
               texto = texto.replace(r"\(", "(")
               texto = texto.replace(r"\)", ")")
-              texto = texto.replace(r"\_", "_")
 
-              # ------------------------------------------
-              # CORREGIR IMÁGENES ESCAPADAS
-              # ------------------------------------------
-
-              texto = re.sub(
-                  r'!\[([^\]]*)\]\\\((.*?)\\\)',
-                  r'![\1](\2)',
-                  texto
-              )
-
-              # ------------------------------------------
-              # BUSCAR IMÁGENES
-              # ------------------------------------------
-
-              patron = re.compile(
-                  r'!\[([^\]]*)\]\(([^)\n]+)\)'
-              )
-
-              def corregir(match):
+              def corregir_imagen(match):
 
                   alt = match.group(1)
                   ruta = match.group(2).strip()
 
-                  # URL externa
+                  # No modificar URLs externas
                   if (
                       ruta.startswith("http://")
                       or ruta.startswith("https://")
@@ -130,130 +110,133 @@ jobs:
                   ):
                       return match.group(0)
 
-                  ruta = ruta.replace("\\", "/")
+                  ruta = ruta.replace("\\", "")
 
                   while ruta.startswith("./"):
                       ruta = ruta[2:]
 
-                  while ruta.startswith("/"):
-                      ruta = ruta[1:]
+                  if ruta.startswith("doc/"):
+                      ruta = ruta[4:]
 
                   nombre = Path(ruta).name
+
                   nombre_lower = nombre.lower()
-
-                  # --------------------------------------
-                  # COINCIDENCIA EXACTA
-                  # --------------------------------------
-
-                  if nombre_lower in indice:
-
-                      imagen = indice[nombre_lower]
-
-                      nueva = (
-                          "./imagenes/"
-                          + imagen.name
-                      )
-
-                      print(
-                          f"OK: {ruta} -> {nueva}"
-                      )
-
-                      return (
-                          f"![{alt}]({nueva})"
-                      )
-
-                  # --------------------------------------
-                  # BUSCAR POR STEM
-                  # --------------------------------------
-
                   stem = Path(nombre).stem.lower()
 
-                  candidatos = []
+                  # ------------------------------------------
+                  # ARCHIVO EXACTO
+                  # ------------------------------------------
 
-                  for imagen in imagenes:
+                  if nombre_lower in archivos_imagenes:
 
-                      imagen_stem = (
-                          imagen.stem.lower()
-                      )
-
-                      if (
-                          imagen_stem == stem
-                          or imagen_stem.endswith(stem)
-                          or stem.endswith(imagen_stem)
-                      ):
-                          candidatos.append(imagen)
-
-                  # --------------------------------------
-                  # ENCONTRADO
-                  # --------------------------------------
-
-                  if candidatos:
-
-                      # Preferir JPG
-                      candidatos.sort(
-                          key=lambda x: (
-                              0
-                              if x.suffix.lower() == ".jpg"
-                              else 1
-                          )
-                      )
-
-                      imagen = candidatos[0]
-
-                      nueva = (
-                          "./imagenes/"
-                          + imagen.name
-                      )
+                      imagen = archivos_imagenes[nombre_lower]
 
                       print(
-                          f"CORREGIDA:"
-                      )
-
-                      print(
-                          f"  Antes: {ruta}"
-                      )
-
-                      print(
-                          f"  Ahora: {nueva}"
+                          f"OK: {ruta} -> {imagen.name}"
                       )
 
                       return (
-                          f"![{alt}]({nueva})"
+                          f"![{alt}]"
+                          f"(./imagenes/{imagen.name})"
                       )
 
-                  # --------------------------------------
-                  # NO ENCONTRADA
-                  # --------------------------------------
+                  # ------------------------------------------
+                  # MISMO NOMBRE SIN EXTENSIÓN
+                  # ------------------------------------------
+
+                  if stem in archivos_imagenes:
+
+                      imagen = archivos_imagenes[stem]
+
+                      print(
+                          f"OK: {ruta} -> {imagen.name}"
+                      )
+
+                      return (
+                          f"![{alt}]"
+                          f"(./imagenes/{imagen.name})"
+                      )
+
+                  # ------------------------------------------
+                  # BUSCAR COINCIDENCIA PARCIAL
+                  # ------------------------------------------
+
+                  coincidencias = []
+
+                  for clave, imagen in archivos_imagenes.items():
+
+                      if (
+                          clave == stem
+                          or clave.endswith(stem)
+                          or stem.endswith(clave)
+                      ):
+                          coincidencias.append(imagen)
+
+                  if coincidencias:
+
+                      imagen = coincidencias[0]
+
+                      print(
+                          f"CORREGIDA: {ruta} -> {imagen.name}"
+                      )
+
+                      return (
+                          f"![{alt}]"
+                          f"(./imagenes/{imagen.name})"
+                      )
+
+                  # ------------------------------------------
+                  # SI NO TIENE EXTENSIÓN, PROBAR .JPG
+                  # ------------------------------------------
+
+                  if "." not in nombre:
+
+                      candidato = (
+                          stem + ".jpg"
+                      ).lower()
+
+                      if candidato in archivos_imagenes:
+
+                          imagen = archivos_imagenes[
+                              candidato
+                          ]
+
+                          print(
+                              f"CORREGIDA: {ruta} -> {imagen.name}"
+                          )
+
+                          return (
+                              f"![{alt}]"
+                              f"(./imagenes/{imagen.name})"
+                          )
 
                   print(
-                      f"AVISO: no encontrada: {ruta}"
+                      f"AVISO: imagen no encontrada: {ruta}"
                   )
 
                   return match.group(0)
 
               texto = patron.sub(
-                  corregir,
+                  corregir_imagen,
                   texto
               )
 
-              # ------------------------------------------
-              # GUARDAR
-              # ------------------------------------------
-
               if texto != original:
 
-                  documento.write_text(
+                  archivo.write_text(
                       texto,
                       encoding="utf-8"
                   )
 
                   print(
-                      f"OK: actualizado {documento}"
+                      f"ACTUALIZADO: {archivo}"
                   )
 
               else:
 
-                  print("Sin cambios")
+                  print(
+                      "Sin cambios"
+                  )
 
           print("")
           print("==============================================")
@@ -261,17 +244,23 @@ jobs:
           print("==============================================")
           PY
 
-      - name: Guardar cambios
+      - name: Guardar cambios en GitHub
         shell: bash
         run: |
+
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
           git add doc
 
           if git diff --cached --quiet; then
+
             echo "No hay cambios para guardar."
+
           else
+
             git commit -m "Corregir referencias de imágenes"
-            git push
+
+            git push origin main
+
           fi
