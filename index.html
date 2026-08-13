@@ -7,7 +7,10 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Eternet Assistant</title>
+    <meta name="description"
+        content="Manual Operativo - Atención al Cliente">
+
+    <title>Ethernet App - Manual Operativo</title>
 
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 
@@ -15,70 +18,67 @@
 
         /* =========================================================
            VARIABLES
-           ========================================================= */
+        ========================================================= */
 
         :root {
 
-            --background: #202124;
-            --sidebar: #171819;
-            --header: #171819;
+            --background: #f4f6f8;
+            --sidebar: #ffffff;
+            --header: #ffffff;
+            --panel: #ffffff;
+            --panel-hover: #f1f5f8;
+            --input: #f3f5f7;
 
-            --panel: #292a2d;
-            --panel-hover: #303136;
+            --border: #e0e5e9;
 
-            --input: #343539;
+            --text: #20252a;
+            --text-secondary: #68727c;
+            --text-muted: #929ba3;
 
-            --border: #414247;
+            --blue: #159bd3;
+            --blue-dark: #087cac;
+            --blue-light: rgba(21, 155, 211, .12);
 
-            --text: #f5f5f5;
-            --text-secondary: #aeb0b5;
-            --text-muted: #777a82;
+            --important: #e9a43a;
 
-            --primary: #f15a24;
-            --primary-dark: #d94816;
-            --primary-light: rgba(241, 90, 36, .15);
+            --shadow:
+                0 4px 18px rgba(0, 0, 0, .06);
 
-            --success: #4caf50;
-            --danger: #ef5350;
-
-            --shadow: 0 8px 30px rgba(0, 0, 0, .25);
-
+            --radius: 10px;
         }
 
 
-        /* =========================================================
-           MODO CLARO
-           ========================================================= */
+        /* DARK MODE */
 
-        body.light {
+        body.dark {
 
-            --background: #f3f4f6;
-            --sidebar: #ffffff;
-            --header: #ffffff;
+            --background: #181a1d;
+            --sidebar: #202225;
+            --header: #1d1f22;
+            --panel: #24272b;
+            --panel-hover: #2b2f34;
+            --input: #2b2f34;
 
-            --panel: #ffffff;
-            --panel-hover: #f5f6f8;
+            --border: #383d43;
 
-            --input: #f0f1f3;
+            --text: #f2f4f5;
+            --text-secondary: #aeb6bd;
+            --text-muted: #747d85;
 
-            --border: #dcdfe4;
+            --blue: #5bc0eb;
+            --blue-dark: #3ca8d1;
+            --blue-light: rgba(91, 192, 235, .13);
 
-            --text: #202124;
-            --text-secondary: #5f6368;
-            --text-muted: #777b82;
+            --important: #f0ad4e;
 
-            --primary: #e9511d;
-            --primary-dark: #c94012;
-            --primary-light: rgba(233, 81, 29, .12);
-
-            --shadow: 0 8px 25px rgba(0, 0, 0, .08);
-
+            --shadow:
+                0 5px 20px rgba(0, 0, 0, .25);
         }
 
 
         /* =========================================================
            GENERAL
-           ========================================================= */
+        ========================================================= */
 
         * {
             box-sizing: border-box;
@@ -95,6 +95,7 @@
             margin: 0;
 
             font-family:
+                Inter,
                 Arial,
                 Helvetica,
                 sans-serif;
@@ -106,59 +107,47 @@
             transition:
                 background .2s,
                 color .2s;
-
         }
 
 
         button,
         input {
-
             font-family: inherit;
-
         }
 
 
         button {
-
-            cursor: pointer;
-
+            outline: none;
         }
 
 
         ::-webkit-scrollbar {
-
-            width: 8px;
-            height: 8px;
-
+            width: 7px;
+            height: 7px;
         }
 
 
         ::-webkit-scrollbar-track {
-
             background: var(--background);
-
         }
 
 
         ::-webkit-scrollbar-thumb {
 
-            background: #555;
+            background: #777;
 
             border-radius: 10px;
-
         }
 
 
         ::-webkit-scrollbar-thumb:hover {
-
-            background: #777;
-
+            background: var(--blue);
         }
 
 
         /* =========================================================
            HEADER
-           ========================================================= */
+        ========================================================= */
 
         .header {
 
@@ -168,9 +157,14 @@
             left: 0;
             right: 0;
 
-            height: 64px;
+            height: 68px;
 
             z-index: 1000;
+
+            background: var(--header);
+
+            border-bottom:
+                1px solid var(--border);
 
             display: flex;
 
@@ -178,16 +172,10 @@
 
             justify-content: space-between;
 
-            padding: 0 16px;
-
-            background: var(--header);
-
-            border-bottom:
-                1px solid var(--border);
+            padding: 0 20px;
 
             box-shadow:
-                0 2px 10px rgba(0,0,0,.12);
-
+                0 2px 12px rgba(0,0,0,.04);
         }
 
 
@@ -197,41 +185,40 @@
 
             align-items: center;
 
-            gap: 12px;
-
+            gap: 13px;
         }
 
 
         .menu-button {
 
-            width: 38px;
-            height: 38px;
+            width: 40px;
+            height: 40px;
 
             border: none;
 
-            border-radius: 7px;
+            border-radius: 8px;
 
-            background: var(--input);
+            background: var(--panel-hover);
 
             color: var(--text);
 
             font-size: 20px;
+
+            cursor: pointer;
 
             display: flex;
 
             align-items: center;
 
             justify-content: center;
-
         }
 
 
         .menu-button:hover {
 
-            background: var(--primary);
+            background: var(--blue);
 
             color: white;
-
         }
 
 
@@ -242,17 +229,15 @@
             align-items: center;
 
             gap: 10px;
-
         }
 
 
         .brand-logo {
 
-            width: 34px;
-            height: 34px;
+            width: 35px;
+            height: 35px;
 
             object-fit: contain;
-
         }
 
 
@@ -260,10 +245,9 @@
 
             font-size: 16px;
 
-            font-weight: bold;
+            font-weight: 700;
 
             color: var(--text);
-
         }
 
 
@@ -273,8 +257,7 @@
 
             align-items: center;
 
-            gap: 8px;
-
+            gap: 9px;
         }
 
 
@@ -282,105 +265,111 @@
 
             padding: 8px 12px;
 
-            border-radius: 6px;
+            border-radius: 7px;
 
-            background: var(--primary);
+            background: var(--blue-light);
 
-            color: white;
+            color: var(--blue);
 
             font-size: 11px;
 
-            font-weight: bold;
-
+            font-weight: 700;
         }
 
 
-        .github-button,
-        .theme-button {
+        .theme-button,
+        .github-button {
 
-            min-height: 34px;
+            height: 38px;
 
-            padding: 8px 12px;
-
-            border-radius: 6px;
+            border-radius: 7px;
 
             border: 1px solid var(--border);
 
             background: var(--panel);
 
-            color: var(--text-secondary);
+            color: var(--text);
+
+            cursor: pointer;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            padding: 0 12px;
 
             text-decoration: none;
 
-            font-size: 11px;
+            font-size: 12px;
 
             transition: .15s;
-
         }
 
 
-        .github-button:hover,
-        .theme-button:hover {
+        .theme-button:hover,
+        .github-button:hover {
 
-            border-color: var(--primary);
+            border-color: var(--blue);
 
-            color: var(--primary);
-
+            color: var(--blue);
         }
 
 
         /* =========================================================
            SIDEBAR
-           ========================================================= */
+        ========================================================= */
 
         .sidebar {
 
             position: fixed;
 
-            top: 64px;
             left: 0;
+            top: 68px;
             bottom: 0;
 
-            width: 290px;
+            width: 310px;
 
             z-index: 900;
-
-            overflow-y: auto;
 
             background: var(--sidebar);
 
             border-right:
                 1px solid var(--border);
 
+            overflow-y: auto;
+
             transition:
                 transform .25s ease;
+        }
 
+
+        .sidebar-top {
+
+            padding: 16px 14px 8px;
         }
 
 
         .sidebar-section {
 
-            padding:
-                18px 12px 8px;
+            padding: 17px 15px 8px;
 
             color: var(--text-muted);
 
             font-size: 10px;
 
-            font-weight: bold;
+            font-weight: 800;
 
             text-transform: uppercase;
 
-            letter-spacing: .5px;
-
+            letter-spacing: .7px;
         }
 
 
         .sidebar-search {
 
-            padding:
-                0 10px 12px;
-
+            padding: 0 14px 12px;
         }
 
 
@@ -388,44 +377,36 @@
 
             width: 100%;
 
-            height: 36px;
+            height: 38px;
 
-            padding: 0 10px;
+            padding: 0 11px;
 
-            border: none;
+            border:
+                1px solid var(--border);
 
             outline: none;
 
-            border-radius: 6px;
+            border-radius: 7px;
 
             background: var(--input);
 
             color: var(--text);
 
             font-size: 12px;
-
         }
 
 
         .sidebar-search input:focus {
 
+            border-color: var(--blue);
+
             box-shadow:
-                0 0 0 2px var(--primary-light);
-
-        }
-
-
-        .sidebar-search input::placeholder {
-
-            color: var(--text-muted);
-
+                0 0 0 2px var(--blue-light);
         }
 
 
         .nav {
-
             padding: 0 8px;
-
         }
 
 
@@ -435,15 +416,13 @@
 
             align-items: center;
 
-            gap: 8px;
+            gap: 9px;
 
-            min-height: 36px;
+            padding: 9px 10px;
 
-            padding: 8px 10px;
+            margin-bottom: 3px;
 
-            margin-bottom: 2px;
-
-            border-radius: 6px;
+            border-radius: 7px;
 
             color: var(--text-secondary);
 
@@ -452,25 +431,24 @@
             cursor: pointer;
 
             transition: .15s;
-
         }
 
 
         .nav-item:hover {
 
-            background: var(--panel);
+            background: var(--panel-hover);
 
             color: var(--text);
-
         }
 
 
         .nav-item.active {
 
-            background: var(--primary-light);
+            background: var(--blue-light);
 
-            color: var(--primary);
+            color: var(--blue);
 
+            font-weight: 700;
         }
 
 
@@ -481,25 +459,113 @@
             min-width: 18px;
 
             text-align: center;
-
         }
 
 
         /* =========================================================
-           CATEGORÍAS
-           ========================================================= */
+           QUICK ACCESS
+        ========================================================= */
+
+        .quick-access {
+
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 6px;
+
+            padding: 0 14px 12px;
+        }
+
+
+        .quick-button {
+
+            border: 1px solid var(--border);
+
+            background: var(--input);
+
+            color: var(--text-secondary);
+
+            border-radius: 6px;
+
+            padding: 6px 8px;
+
+            font-size: 10px;
+
+            cursor: pointer;
+        }
+
+
+        .quick-button:hover {
+
+            border-color: var(--blue);
+
+            color: var(--blue);
+        }
+
+
+        /* =========================================================
+           FAVORITES / HISTORY
+        ========================================================= */
+
+        .special-list {
+
+            padding: 0 8px;
+        }
+
+
+        .special-item {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 7px;
+
+            padding: 7px 9px;
+
+            border-radius: 6px;
+
+            color: var(--text-secondary);
+
+            font-size: 11px;
+
+            cursor: pointer;
+        }
+
+
+        .special-item:hover {
+
+            background: var(--panel-hover);
+
+            color: var(--text);
+        }
+
+
+        .empty-special {
+
+            padding: 6px 10px;
+
+            color: var(--text-muted);
+
+            font-size: 10px;
+        }
+
+
+        /* =========================================================
+           CATEGORIES
+        ========================================================= */
 
         .sidebar-category {
-
-            margin-bottom: 3px;
-
+            margin-bottom: 2px;
         }
 
 
         .sidebar-category-title {
 
-            font-weight: bold;
+            font-weight: 700;
 
+            user-select: none;
         }
 
 
@@ -512,31 +578,33 @@
             white-space: nowrap;
 
             text-overflow: ellipsis;
-
         }
 
 
-        .sidebar-arrow {
-
-            margin-left: auto;
-
-            font-size: 16px;
+        .category-count {
 
             color: var(--text-muted);
 
-            transition: transform .15s;
-
+            font-size: 9px;
         }
 
 
-        .sidebar-category-title.expanded
         .sidebar-arrow {
 
-            transform:
-                rotate(90deg);
+            color: var(--text-muted);
 
-            color: var(--primary);
+            font-size: 17px;
 
+            transition:
+                transform .15s;
+        }
+
+
+        .sidebar-category-title.expanded .sidebar-arrow {
+
+            transform: rotate(90deg);
+
+            color: var(--blue);
         }
 
 
@@ -544,15 +612,12 @@
 
             display: none;
 
-            padding-left: 10px;
-
+            padding-left: 13px;
         }
 
 
         .sidebar-category-content.open {
-
             display: block;
-
         }
 
 
@@ -568,7 +633,7 @@
 
             margin: 1px 0;
 
-            border-radius: 5px;
+            border-radius: 6px;
 
             color: var(--text-secondary);
 
@@ -578,75 +643,122 @@
 
             cursor: pointer;
 
+            transition: .15s;
         }
 
 
         .sidebar-document:hover {
 
-            background: var(--panel);
+            background: var(--panel-hover);
 
             color: var(--text);
-
         }
 
 
-        .sidebar-document-icon {
+        .sidebar-document.important {
+
+            color: var(--important);
+
+            font-weight: 600;
+        }
+
+
+        .favorite-star {
+
+            margin-left: auto;
+
+            opacity: .45;
+
+            cursor: pointer;
 
             flex-shrink: 0;
+        }
 
+
+        .favorite-star:hover,
+        .favorite-star.active {
+
+            opacity: 1;
+
+            color: #f0ad4e;
         }
 
 
         /* =========================================================
            MAIN
-           ========================================================= */
+        ========================================================= */
 
         .main {
 
-            margin-left: 290px;
+            margin-left: 310px;
 
-            padding-top: 64px;
+            padding-top: 68px;
 
             min-height: 100vh;
 
             transition:
-                margin-left .25s;
-
+                margin-left .25s ease;
         }
 
 
         .content {
 
-            width: 100%;
-
-            max-width: 1250px;
+            max-width: 1350px;
 
             margin: auto;
 
-            padding: 28px;
-
+            padding: 30px;
         }
 
 
         /* =========================================================
            HERO
-           ========================================================= */
+        ========================================================= */
 
         .hero {
 
-            padding: 30px;
+            position: relative;
 
-            margin-bottom: 16px;
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--panel),
+                    var(--panel-hover)
+                );
 
             border:
                 1px solid var(--border);
 
-            border-radius: 10px;
+            border-radius: 14px;
 
-            background: var(--panel);
+            padding: 32px;
+
+            margin-bottom: 18px;
+
+            overflow: hidden;
 
             box-shadow: var(--shadow);
+        }
 
+
+        .hero::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 220px;
+            height: 220px;
+
+            right: -70px;
+            top: -90px;
+
+            border-radius: 50%;
+
+            background:
+                var(--blue-light);
+
+            pointer-events: none;
         }
 
 
@@ -654,24 +766,21 @@
 
             margin: 0;
 
-            font-size: 27px;
+            font-size: 29px;
 
             color: var(--text);
 
-        }
+            position: relative;
 
-
-        .hero-title span {
-
-            color: var(--primary);
-
+            z-index: 1;
         }
 
 
         .hero-subtitle {
 
-            margin:
-                8px 0 0;
+            margin: 9px 0 0;
+
+            max-width: 800px;
 
             color: var(--text-secondary);
 
@@ -679,24 +788,28 @@
 
             line-height: 1.6;
 
+            position: relative;
+
+            z-index: 1;
         }
 
 
         /* =========================================================
            SEARCH
-           ========================================================= */
+        ========================================================= */
 
         .main-search {
 
-            margin-top: 22px;
+            margin-top: 24px;
 
+            position: relative;
+
+            z-index: 2;
         }
 
 
         .main-search-wrapper {
-
             position: relative;
-
         }
 
 
@@ -704,17 +817,15 @@
 
             position: absolute;
 
-            left: 14px;
-
+            left: 15px;
             top: 50%;
 
             transform:
                 translateY(-50%);
 
-            pointer-events: none;
-
             color: var(--text-muted);
 
+            pointer-events: none;
         }
 
 
@@ -722,15 +833,14 @@
 
             width: 100%;
 
-            height: 48px;
+            height: 52px;
 
-            padding:
-                0 45px;
+            padding: 0 50px;
 
             border:
                 1px solid var(--border);
 
-            border-radius: 7px;
+            border-radius: 9px;
 
             outline: none;
 
@@ -740,17 +850,16 @@
 
             font-size: 14px;
 
+            transition: .15s;
         }
 
 
         .main-search input:focus {
 
-            border-color:
-                var(--primary);
+            border-color: var(--blue);
 
             box-shadow:
-                0 0 0 3px var(--primary-light);
-
+                0 0 0 3px var(--blue-light);
         }
 
 
@@ -758,8 +867,7 @@
 
             position: absolute;
 
-            right: 8px;
-
+            right: 10px;
             top: 50%;
 
             transform:
@@ -770,14 +878,15 @@
 
             border: none;
 
-            border-radius: 5px;
+            border-radius: 6px;
 
             background: transparent;
 
             color: var(--text-muted);
 
-            display: none;
+            cursor: pointer;
 
+            display: none;
         }
 
 
@@ -786,13 +895,12 @@
             background: var(--panel-hover);
 
             color: var(--text);
-
         }
 
 
         /* =========================================================
            STATS
-           ========================================================= */
+        ========================================================= */
 
         .stats {
 
@@ -803,33 +911,32 @@
 
             gap: 12px;
 
-            margin-bottom: 22px;
-
+            margin-bottom: 20px;
         }
 
 
         .stat {
 
-            padding: 16px;
+            background: var(--panel);
 
             border:
                 1px solid var(--border);
 
-            border-radius: 8px;
+            border-radius: 10px;
 
-            background: var(--panel);
+            padding: 17px;
 
+            box-shadow: var(--shadow);
         }
 
 
         .stat-number {
 
-            color: var(--primary);
-
             font-size: 21px;
 
-            font-weight: bold;
+            font-weight: 800;
 
+            color: var(--blue);
         }
 
 
@@ -840,13 +947,90 @@
             color: var(--text-muted);
 
             font-size: 11px;
+        }
 
+
+        /* =========================================================
+           QUICK HOME
+        ========================================================= */
+
+        .home-section-title {
+
+            margin: 22px 0 10px;
+
+            font-size: 14px;
+
+            font-weight: 800;
+        }
+
+
+        .home-quick {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(170px, 1fr));
+
+            gap: 10px;
+
+            margin-bottom: 24px;
+        }
+
+
+        .home-quick-button {
+
+            border:
+                1px solid var(--border);
+
+            background: var(--panel);
+
+            color: var(--text);
+
+            border-radius: 9px;
+
+            padding: 13px;
+
+            text-align: left;
+
+            cursor: pointer;
+
+            transition: .15s;
+        }
+
+
+        .home-quick-button:hover {
+
+            transform: translateY(-2px);
+
+            border-color: var(--blue);
+
+            box-shadow: var(--shadow);
+        }
+
+
+        .home-quick-title {
+
+            color: var(--blue);
+
+            font-size: 12px;
+
+            font-weight: 700;
+        }
+
+
+        .home-quick-text {
+
+            margin-top: 4px;
+
+            color: var(--text-muted);
+
+            font-size: 10px;
         }
 
 
         /* =========================================================
            RESULTS
-           ========================================================= */
+        ========================================================= */
 
         .results-header {
 
@@ -857,7 +1041,6 @@
             justify-content: space-between;
 
             margin-bottom: 10px;
-
         }
 
 
@@ -865,8 +1048,7 @@
 
             font-size: 15px;
 
-            font-weight: bold;
-
+            font-weight: 800;
         }
 
 
@@ -875,25 +1057,26 @@
             color: var(--text-muted);
 
             font-size: 11px;
-
         }
 
 
         .result {
 
-            padding: 16px;
-
-            margin-bottom: 9px;
+            background: var(--panel);
 
             border:
                 1px solid var(--border);
 
-            border-radius: 8px;
+            border-radius: 9px;
 
-            background: var(--panel);
+            padding: 16px;
+
+            margin-bottom: 9px;
 
             transition: .15s;
 
+            box-shadow:
+                0 2px 8px rgba(0,0,0,.025);
         }
 
 
@@ -901,27 +1084,24 @@
 
             background: var(--panel-hover);
 
-            border-color:
-                var(--primary);
+            border-color: var(--blue);
 
+            transform: translateY(-1px);
         }
 
 
         .result-title {
 
-            color: var(--text);
-
             font-size: 14px;
 
-            font-weight: bold;
+            font-weight: 800;
 
+            color: var(--text);
         }
 
 
         .result-title-icon {
-
-            color: var(--primary);
-
+            color: var(--blue);
         }
 
 
@@ -932,113 +1112,130 @@
             color: var(--text-muted);
 
             font-size: 10px;
-
         }
 
 
         .result-text {
 
-            margin-top: 10px;
+            margin-top: 11px;
 
             padding: 11px;
 
+            background: var(--input);
+
             border-left:
-                3px solid var(--primary);
+                3px solid var(--blue);
 
             border-radius:
                 0 5px 5px 0;
-
-            background:
-                var(--input);
 
             color: var(--text-secondary);
 
             font-size: 12px;
 
             line-height: 1.6;
-
         }
 
 
         .result-actions {
 
-            margin-top: 12px;
+            display: flex;
 
+            gap: 7px;
+
+            margin-top: 12px;
         }
 
 
         .result button {
 
-            padding:
-                8px 12px;
-
             border: none;
 
-            border-radius: 5px;
+            border-radius: 6px;
 
-            background: var(--primary);
+            padding: 8px 12px;
+
+            background: var(--blue);
 
             color: white;
 
             font-size: 11px;
 
-            font-weight: bold;
+            font-weight: 700;
 
+            cursor: pointer;
+        }
+
+
+        .result button.secondary {
+
+            background: var(--input);
+
+            border:
+                1px solid var(--border);
+
+            color: var(--text-secondary);
         }
 
 
         .result button:hover {
 
-            background:
-                var(--primary-dark);
+            background: var(--blue-dark);
+        }
 
+
+        .result button.secondary:hover {
+
+            color: var(--blue);
+
+            border-color: var(--blue);
+
+            background: var(--panel-hover);
         }
 
 
         mark {
 
             background:
-                var(--primary-light);
+                rgba(21,155,211,.22);
 
-            color:
-                var(--primary);
+            color: var(--blue);
 
             border-radius: 2px;
 
-            padding:
-                1px 2px;
-
+            padding: 1px 2px;
         }
 
 
         /* =========================================================
-           DOCUMENTO
-           ========================================================= */
+           DOCUMENT
+        ========================================================= */
 
         .document {
 
             display: none;
 
-            overflow: hidden;
+            background: var(--panel);
 
             border:
                 1px solid var(--border);
 
-            border-radius: 10px;
+            border-radius: 12px;
 
-            background: var(--panel);
+            overflow: hidden;
 
             box-shadow: var(--shadow);
-
         }
 
 
         .document-header {
 
-            min-height: 54px;
+            min-height: 58px;
 
-            padding:
-                8px 14px;
+            padding: 8px 14px;
+
+            border-bottom:
+                1px solid var(--border);
 
             display: flex;
 
@@ -1046,77 +1243,163 @@
 
             justify-content: space-between;
 
-            border-bottom:
-                1px solid var(--border);
-
+            gap: 10px;
         }
 
 
-        .back {
+        .document-actions {
 
-            padding:
-                8px 12px;
+            display: flex;
+
+            align-items: center;
+
+            gap: 7px;
+        }
+
+
+        .back,
+        .document-action {
 
             border:
                 1px solid var(--border);
-
-            border-radius: 5px;
 
             background: var(--input);
 
             color: var(--text-secondary);
 
-            font-size: 11px;
+            padding: 8px 11px;
 
+            border-radius: 6px;
+
+            cursor: pointer;
+
+            font-size: 11px;
         }
 
 
-        .back:hover {
+        .back:hover,
+        .document-action:hover {
 
-            border-color:
-                var(--primary);
+            border-color: var(--blue);
 
-            color: var(--primary);
-
+            color: var(--blue);
         }
 
 
         .document-github {
 
-            color: var(--primary);
+            color: var(--blue);
 
             text-decoration: none;
 
             font-size: 11px;
-
         }
 
 
         .document-github:hover {
-
             text-decoration: underline;
-
         }
 
 
         /* =========================================================
-           MARKDOWN
-           ========================================================= */
+           DOCUMENT LAYOUT
+        ========================================================= */
+
+        .document-body {
+
+            display: grid;
+
+            grid-template-columns:
+                220px 1fr;
+        }
+
+
+        .document-toc {
+
+            border-right:
+                1px solid var(--border);
+
+            padding: 20px 13px;
+
+            position: sticky;
+
+            top: 68px;
+
+            height: calc(100vh - 68px);
+
+            overflow-y: auto;
+        }
+
+
+        .toc-title {
+
+            font-size: 10px;
+
+            text-transform: uppercase;
+
+            letter-spacing: .7px;
+
+            color: var(--text-muted);
+
+            font-weight: 800;
+
+            margin-bottom: 10px;
+        }
+
+
+        .toc-item {
+
+            display: block;
+
+            padding: 6px 8px;
+
+            margin-bottom: 2px;
+
+            border-radius: 5px;
+
+            color: var(--text-secondary);
+
+            font-size: 10px;
+
+            line-height: 1.4;
+
+            cursor: pointer;
+        }
+
+
+        .toc-item:hover {
+
+            background: var(--panel-hover);
+
+            color: var(--blue);
+        }
+
+
+        .toc-h3 {
+            padding-left: 17px;
+        }
+
+
+        .toc-h4 {
+            padding-left: 27px;
+        }
+
 
         .markdown {
 
             max-width: 950px;
 
+            width: 100%;
+
             margin: auto;
 
-            padding: 35px;
+            padding: 36px;
 
             color: var(--text-secondary);
 
             font-size: 14px;
 
             line-height: 1.75;
-
         }
 
 
@@ -1124,21 +1407,20 @@
 
             color: var(--text);
 
-            font-size: 28px;
+            font-size: 29px;
 
-            padding-bottom: 10px;
+            padding-bottom: 11px;
 
             border-bottom:
-                2px solid var(--primary);
-
+                2px solid var(--blue);
         }
 
 
         .markdown h2 {
 
-            margin-top: 35px;
+            margin-top: 38px;
 
-            padding-bottom: 7px;
+            padding-bottom: 8px;
 
             border-bottom:
                 1px solid var(--border);
@@ -1146,66 +1428,54 @@
             color: var(--text);
 
             font-size: 21px;
-
         }
 
 
         .markdown h3 {
 
-            margin-top: 26px;
+            margin-top: 27px;
 
-            color: var(--primary);
+            color: var(--blue);
 
             font-size: 17px;
-
         }
 
 
         .markdown h4 {
-
             color: var(--text);
-
         }
 
 
         .markdown p {
-
             color: var(--text-secondary);
-
         }
 
 
         .markdown strong {
-
             color: var(--text);
-
         }
 
 
         .markdown a {
-
-            color: var(--primary);
-
+            color: var(--blue);
         }
 
 
         .markdown blockquote {
 
-            margin:
-                15px 0;
+            margin: 16px 0;
 
-            padding:
-                10px 15px;
+            padding: 11px 15px;
 
             border-left:
-                3px solid var(--primary);
+                3px solid var(--blue);
 
-            background:
-                var(--input);
+            background: var(--input);
 
-            color:
-                var(--text-secondary);
+            color: var(--text-secondary);
 
+            border-radius:
+                0 6px 6px 0;
         }
 
 
@@ -1215,20 +1485,20 @@
 
             max-width: 100%;
 
+            width: auto;
+
             height: auto;
 
-            margin:
-                20px auto;
+            margin: 20px auto;
+
+            border-radius: 7px;
+
+            cursor: zoom-in;
 
             border:
                 1px solid var(--border);
 
-            border-radius: 7px;
-
             background: var(--background);
-
-            cursor: zoom-in;
-
         }
 
 
@@ -1236,77 +1506,63 @@
 
             width: 100%;
 
-            border-collapse:
-                collapse;
+            border-collapse: collapse;
 
-            margin:
-                20px 0;
+            margin: 18px 0;
 
+            overflow: hidden;
         }
 
 
         .markdown th,
         .markdown td {
 
-            padding:
-                8px 10px;
-
             border:
                 1px solid var(--border);
 
-            text-align: left;
+            padding: 9px 11px;
 
+            text-align: left;
         }
 
 
         .markdown th {
 
-            background:
-                var(--input);
+            background: var(--input);
 
             color: var(--text);
-
         }
 
 
         .markdown td {
-
-            background:
-                var(--panel);
-
+            background: var(--panel);
         }
 
 
         .markdown code {
 
-            padding:
-                2px 5px;
+            background: var(--input);
+
+            color: var(--blue);
+
+            padding: 2px 5px;
 
             border-radius: 3px;
-
-            background:
-                var(--input);
-
-            color:
-                var(--primary);
-
         }
 
 
         .markdown pre {
 
-            overflow-x: auto;
-
-            padding: 15px;
+            background: #151719;
 
             border:
                 1px solid var(--border);
 
+            padding: 15px;
+
             border-radius: 7px;
 
-            background:
-                #151515;
-
+            overflow-x: auto;
         }
 
 
@@ -1316,58 +1572,63 @@
 
             color: #ddd;
 
+            padding: 0;
+        }
+
+
+        .markdown hr {
+
+            border: none;
+
+            border-top:
+                1px solid var(--border);
+
+            margin: 30px 0;
         }
 
 
         /* =========================================================
            EMPTY
-           ========================================================= */
+        ========================================================= */
 
         .empty {
 
-            padding:
-                45px 20px;
+            background: var(--panel);
 
             border:
                 1px solid var(--border);
 
-            border-radius: 8px;
+            border-radius: 9px;
 
-            background:
-                var(--panel);
+            padding: 45px 20px;
 
             text-align: center;
 
-            color:
-                var(--text-muted);
+            color: var(--text-muted);
 
             font-size: 13px;
-
         }
 
 
         .empty-title {
 
-            color:
-                var(--text);
+            color: var(--text);
 
-            font-weight:
-                bold;
-
+            font-weight: 800;
         }
 
 
         /* =========================================================
            LOADING
-           ========================================================= */
+        ========================================================= */
 
         .loading-bar {
 
             position: fixed;
 
-            top: 64px;
             left: 0;
             right: 0;
+            top: 68px;
 
             height: 3px;
 
@@ -1377,16 +1638,12 @@
 
             overflow: hidden;
 
-            background:
-                var(--input);
-
+            background: var(--border);
         }
 
 
         .loading-bar.active {
-
             display: block;
-
         }
 
 
@@ -1396,44 +1653,35 @@
 
             height: 100%;
 
-            background:
-                var(--primary);
+            background: var(--blue);
 
             animation:
                 loading 1s infinite ease-in-out;
-
         }
 
 
         @keyframes loading {
 
             from {
-
-                transform:
-                    translateX(-120%);
-
+                transform: translateX(-120%);
             }
 
             to {
-
-                transform:
-                    translateX(400%);
-
+                transform: translateX(400%);
             }
-
         }
 
 
         /* =========================================================
-           BOTÓN SUBIR
-           ========================================================= */
+           BACK TO TOP
+        ========================================================= */
 
         .back-to-top {
 
             position: fixed;
 
-            right: 24px;
-            bottom: 24px;
+            right: 25px;
+            bottom: 25px;
 
             width: 45px;
             height: 45px;
@@ -1443,59 +1691,53 @@
 
             border-radius: 8px;
 
-            background:
-                var(--panel);
+            background: var(--panel);
 
-            color:
-                var(--primary);
+            color: var(--blue);
 
-            font-size: 21px;
+            font-size: 20px;
+
+            cursor: pointer;
 
             display: none;
 
             align-items: center;
-
             justify-content: center;
 
-            z-index: 1500;
+            z-index: 3000;
 
-            box-shadow:
-                var(--shadow);
+            box-shadow: var(--shadow);
 
+            transition: .15s;
         }
 
 
         .back-to-top.visible {
-
             display: flex;
-
         }
 
 
         .back-to-top:hover {
 
-            background:
-                var(--primary);
+            background: var(--blue);
 
             color: white;
 
             transform:
-                translateY(-2px);
-
+                translateY(-3px);
         }
 
 
         /* =========================================================
            MOBILE
-           ========================================================= */
+        ========================================================= */
 
-        @media(max-width: 800px) {
+        @media(max-width: 900px) {
 
             .sidebar {
 
                 transform:
                     translateX(-100%);
-
             }
 
 
@@ -1505,22 +1747,18 @@
                     translateX(0);
 
                 box-shadow:
-                    8px 0 30px rgba(0,0,0,.3);
-
+                    8px 0 30px rgba(0,0,0,.25);
             }
 
 
             .main {
 
                 margin-left: 0;
-
             }
 
 
             .content {
-
-                padding: 16px;
-
+                padding: 18px;
             }
 
 
@@ -1528,46 +1766,86 @@
 
                 grid-template-columns:
                     1fr;
-
             }
 
 
-            .header-right {
+            .header-right .header-status,
+            .github-button {
 
                 display: none;
-
             }
 
 
             .hero {
-
-                padding: 22px;
-
+                padding: 23px;
             }
 
 
             .hero-title {
-
                 font-size: 23px;
+            }
 
+
+            .document-body {
+
+                grid-template-columns:
+                    1fr;
+            }
+
+
+            .document-toc {
+
+                position: static;
+
+                height: auto;
+
+                border-right: none;
+
+                border-bottom:
+                    1px solid var(--border);
+
+                max-height: 220px;
             }
 
 
             .markdown {
+                padding: 22px;
+            }
+        }
 
+
+        @media(max-width: 600px) {
+
+            .brand-name {
+                display: none;
+            }
+
+
+            .header {
+                padding: 0 12px;
+            }
+
+
+            .content {
+                padding: 12px;
+            }
+
+
+            .hero {
                 padding: 20px;
-
             }
 
 
-            .back-to-top {
-
-                right: 15px;
-
-                bottom: 15px;
-
+            .result-actions {
+                flex-wrap: wrap;
             }
 
+
+            .home-quick {
+
+                grid-template-columns:
+                    1fr 1fr;
+            }
         }
 
     </style>
@@ -1578,326 +1856,545 @@
 <body>
 
 
-    <!-- =========================================================
-         HEADER
-         ========================================================= -->
+<!-- =========================================================
+     HEADER
+========================================================= -->
 
-    <header class="header">
+<header class="header">
 
-        <div class="header-left">
+    <div class="header-left">
 
-            <button
-                class="menu-button"
-                id="menuButton"
-                type="button"
-                aria-label="Abrir menú"
+        <button
+            class="menu-button"
+            id="menuButton"
+            type="button"
+            aria-label="Abrir menú"
+        >
+            ☰
+        </button>
+
+
+        <div class="brand">
+
+            <img
+                src="logo_ethernet.png"
+                alt="Ethernet"
+                class="brand-logo"
             >
-                ☰
-            </button>
 
-
-            <div class="brand">
-
-                <img
-                    src="logo_ethernet.png"
-                    alt="Ethernet"
-                    class="brand-logo"
-                >
-
-                <span class="brand-name">
-                    Eternet Assistant
-                </span>
-
-            </div>
+            <span class="brand-name">
+                Ethernet App
+            </span>
 
         </div>
-
-
-        <div class="header-right">
-
-            <div
-                class="header-status"
-                id="headerStatus"
-            >
-                Cargando...
-            </div>
-
-
-            <button
-                class="theme-button"
-                id="themeButton"
-                type="button"
-                title="Cambiar tema"
-            >
-                ☀️ Claro
-            </button>
-
-
-            <a
-                class="github-button"
-                href="https://github.com/AbutMatias/Manual-Operativo-Atencion-al-Cliente"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                GitHub
-            </a>
-
-        </div>
-
-    </header>
-
-
-    <!-- =========================================================
-         LOADING
-         ========================================================= -->
-
-    <div
-        class="loading-bar"
-        id="loadingBar"
-    >
-
-        <div class="loading-progress"></div>
 
     </div>
 
 
-    <!-- =========================================================
-         SIDEBAR
-         ========================================================= -->
+    <div class="header-right">
 
-    <aside
-        class="sidebar"
-        id="sidebar"
-    >
-
-        <div class="sidebar-section">
-            Navegación
+        <div
+            class="header-status"
+            id="headerStatus"
+        >
+            Cargando...
         </div>
 
 
-        <div class="sidebar-search">
-
-            <input
-                id="sidebarSearch"
-                type="text"
-                placeholder="Buscar opción..."
-                autocomplete="off"
-            >
-
-        </div>
+        <button
+            class="theme-button"
+            id="themeButton"
+            type="button"
+            title="Cambiar tema"
+        >
+            ☀️
+        </button>
 
 
-        <div class="nav">
+        <a
+            class="github-button"
+            href="https://github.com/AbutMatias/Manual-Operativo-Atencion-al-Cliente"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            GitHub
+        </a>
 
-            <div
-                class="nav-item active"
-                id="navInicio"
-                onclick="inicio()"
-            >
+    </div>
 
-                <span class="category-icon">
-                    🏠
-                </span>
-
-                Inicio
-
-            </div>
+</header>
 
 
-            <div
-                class="nav-item"
-                onclick="activarBusqueda()"
-            >
+<!-- =========================================================
+     LOADING
+========================================================= -->
 
-                <span class="category-icon">
-                    🔎
-                </span>
+<div
+    class="loading-bar"
+    id="loadingBar"
+>
 
-                Buscar
+    <div class="loading-progress"></div>
 
-            </div>
-
-        </div>
+</div>
 
 
-        <div class="sidebar-section">
-            Documentación
+<!-- =========================================================
+     SIDEBAR
+========================================================= -->
+
+<aside
+    class="sidebar"
+    id="sidebar"
+>
+
+
+    <div class="sidebar-section">
+        Navegación
+    </div>
+
+
+    <div class="sidebar-search">
+
+        <input
+            id="sidebarSearch"
+            type="text"
+            placeholder="Buscar documento..."
+            autocomplete="off"
+        >
+
+    </div>
+
+
+    <div class="nav">
+
+        <div
+            class="nav-item active"
+            id="navInicio"
+            onclick="inicio()"
+        >
+
+            <span class="category-icon">
+                🏠
+            </span>
+
+            Inicio
+
         </div>
 
 
         <div
-            class="nav"
-            id="categorias"
+            class="nav-item"
+            onclick="activarBusqueda()"
         >
 
-            <div class="nav-item">
-                Cargando documentos...
-            </div>
+            <span class="category-icon">
+                🔎
+            </span>
+
+            Buscar
 
         </div>
 
-    </aside>
+    </div>
 
 
-    <!-- =========================================================
-         MAIN
-         ========================================================= -->
+    <!-- FAVORITOS -->
 
-    <main class="main">
-
-        <div class="content">
+    <div class="sidebar-section">
+        ⭐ Favoritos
+    </div>
 
 
-            <!-- =================================================
-                 HOME
-                 ================================================= -->
+    <div
+        class="special-list"
+        id="favoritos"
+    >
 
-            <section id="home">
+        <div class="empty-special">
+            No hay favoritos
+        </div>
 
-                <div class="hero">
-
-                    <h1 class="hero-title">
-                        Manual <span>Operativo</span>
-                    </h1>
-
-
-                    <p class="hero-subtitle">
-
-                        Documentación técnica y procedimientos
-                        de Atención al Cliente.
-
-                        Buscá rápidamente cualquier procedimiento,
-                        diagnóstico, herramienta o configuración.
-
-                    </p>
+    </div>
 
 
-                    <div class="main-search">
+    <!-- HISTORIAL -->
 
-                        <div class="main-search-wrapper">
-
-                            <span class="main-search-icon">
-                                🔎
-                            </span>
+    <div class="sidebar-section">
+        🕘 Recientes
+    </div>
 
 
-                            <input
-                                id="buscador"
-                                type="text"
-                                autocomplete="off"
-                                placeholder="Buscar router, ONU, WiFi, ping..."
-                            >
+    <div
+        class="special-list"
+        id="historial"
+    >
+
+        <div class="empty-special">
+            No hay documentos recientes
+        </div>
+
+    </div>
 
 
-                            <button
-                                id="clearSearch"
-                                class="clear-search"
-                                type="button"
-                            >
-                                ✕
-                            </button>
+    <!-- ACCESOS -->
 
-                        </div>
+    <div class="sidebar-section">
+        ⚡ Accesos rápidos
+    </div>
+
+
+    <div class="quick-access">
+
+        <button
+            class="quick-button"
+            onclick="buscarRapido('Sin conexión')"
+        >
+            Sin conexión
+        </button>
+
+        <button
+            class="quick-button"
+            onclick="buscarRapido('Ping')"
+        >
+            Ping
+        </button>
+
+        <button
+            class="quick-button"
+            onclick="buscarRapido('Traceroute')"
+        >
+            Traceroute
+        </button>
+
+        <button
+            class="quick-button"
+            onclick="buscarRapido('Winbox')"
+        >
+            Winbox
+        </button>
+
+        <button
+            class="quick-button"
+            onclick="buscarRapido('SpeedTest')"
+        >
+            SpeedTest
+        </button>
+
+        <button
+            class="quick-button"
+            onclick="buscarRapido('WiFi')"
+        >
+            WiFi
+        </button>
+
+    </div>
+
+
+    <div class="sidebar-section">
+        Documentación
+    </div>
+
+
+    <div
+        class="nav"
+        id="categorias"
+    >
+
+        <div class="nav-item">
+            Cargando índice...
+        </div>
+
+    </div>
+
+</aside>
+
+
+<!-- =========================================================
+     MAIN
+========================================================= -->
+
+<main class="main">
+
+    <div class="content">
+
+
+        <!-- =====================================================
+             HOME
+        ===================================================== -->
+
+        <section id="home">
+
+
+            <div class="hero">
+
+                <h1 class="hero-title">
+                    Manual Operativo
+                </h1>
+
+
+                <p class="hero-subtitle">
+
+                    Documentación técnica, procedimientos,
+                    diagnóstico de red y herramientas para
+                    Atención al Cliente.
+
+                </p>
+
+
+                <div class="main-search">
+
+                    <div class="main-search-wrapper">
+
+                        <span class="main-search-icon">
+                            🔎
+                        </span>
+
+
+                        <input
+                            id="buscador"
+                            type="text"
+                            autocomplete="off"
+                            placeholder="Buscar router, ONU, WiFi, ping..."
+                        >
+
+
+                        <button
+                            id="clearSearch"
+                            class="clear-search"
+                            type="button"
+                        >
+                            ✕
+                        </button>
 
                     </div>
 
                 </div>
 
-
-                <!-- STATS -->
-
-                <div class="stats">
-
-                    <div class="stat">
-
-                        <div
-                            class="stat-number"
-                            id="cantidad-documentos"
-                        >
-                            0
-                        </div>
-
-                        <div class="stat-label">
-                            Documentos
-                        </div>
-
-                    </div>
+            </div>
 
 
-                    <div class="stat">
+            <!-- ESTADÍSTICAS -->
 
-                        <div
-                            class="stat-number"
-                            id="cantidad-categorias"
-                        >
-                            0
-                        </div>
+            <div class="stats">
 
-                        <div class="stat-label">
-                            Categorías
-                        </div>
-
-                    </div>
-
-
-                    <div class="stat">
-
-                        <div
-                            class="stat-number"
-                            id="estado"
-                        >
-                            ...
-                        </div>
-
-                        <div class="stat-label">
-                            Estado del buscador
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <!-- RESULTS -->
-
-                <div class="results-header">
-
-                    <div class="results-title">
-                        Documentación
-                    </div>
+                <div class="stat">
 
                     <div
-                        class="status"
-                        id="status"
+                        class="stat-number"
+                        id="cantidad-documentos"
                     >
-                        Cargando...
+                        0
+                    </div>
+
+                    <div class="stat-label">
+                        Documentos
                     </div>
 
                 </div>
 
 
-                <div id="resultados"></div>
+                <div class="stat">
 
-            </section>
+                    <div
+                        class="stat-number"
+                        id="cantidad-categorias"
+                    >
+                        0
+                    </div>
+
+                    <div class="stat-label">
+                        Categorías
+                    </div>
+
+                </div>
 
 
-            <!-- =================================================
-                 DOCUMENTO
-                 ================================================= -->
+                <div class="stat">
 
-            <section
-                class="document"
-                id="documento"
-            >
+                    <div
+                        class="stat-number"
+                        id="estado"
+                    >
+                        ...
+                    </div>
 
-                <div class="document-header">
+                    <div class="stat-label">
+                        Estado del buscador
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ACCESOS RÁPIDOS -->
+
+            <div class="home-section-title">
+                ⚡ Accesos rápidos
+            </div>
+
+
+            <div class="home-quick">
+
+                <button
+                    class="home-quick-button"
+                    onclick="buscarRapido('Sin conexión')"
+                >
+
+                    <div class="home-quick-title">
+                        🌐 Sin conexión
+                    </div>
+
+                    <div class="home-quick-text">
+                        Diagnóstico de problemas de conectividad
+                    </div>
+
+                </button>
+
+
+                <button
+                    class="home-quick-button"
+                    onclick="buscarRapido('Ping')"
+                >
+
+                    <div class="home-quick-title">
+                        📡 Ping
+                    </div>
+
+                    <div class="home-quick-text">
+                        Comprobación de conectividad y latencia
+                    </div>
+
+                </button>
+
+
+                <button
+                    class="home-quick-button"
+                    onclick="buscarRapido('Traceroute')"
+                >
+
+                    <div class="home-quick-title">
+                        🛰️ Traceroute
+                    </div>
+
+                    <div class="home-quick-text">
+                        Análisis de la ruta de red
+                    </div>
+
+                </button>
+
+
+                <button
+                    class="home-quick-button"
+                    onclick="buscarRapido('Winbox')"
+                >
+
+                    <div class="home-quick-title">
+                        🖥️ Winbox
+                    </div>
+
+                    <div class="home-quick-text">
+                        Acceso y administración MikroTik
+                    </div>
+
+                </button>
+
+
+                <button
+                    class="home-quick-button"
+                    onclick="buscarRapido('SpeedTest')"
+                >
+
+                    <div class="home-quick-title">
+                        🚀 SpeedTest
+                    </div>
+
+                    <div class="home-quick-text">
+                        Prueba de velocidad
+                    </div>
+
+                </button>
+
+
+                <button
+                    class="home-quick-button"
+                    onclick="buscarRapido('WiFi')"
+                >
+
+                    <div class="home-quick-title">
+                        📶 WiFi
+                    </div>
+
+                    <div class="home-quick-text">
+                        Diagnóstico de conectividad inalámbrica
+                    </div>
+
+                </button>
+
+            </div>
+
+
+            <!-- RESULTADOS -->
+
+            <div class="results-header">
+
+                <div class="results-title">
+                    Documentación
+                </div>
+
+                <div
+                    class="status"
+                    id="status"
+                >
+                    Cargando...
+                </div>
+
+            </div>
+
+
+            <div id="resultados"></div>
+
+
+        </section>
+
+
+        <!-- =====================================================
+             DOCUMENTO
+        ===================================================== -->
+
+        <section
+            class="document"
+            id="documento"
+        >
+
+            <div class="document-header">
+
+                <button
+                    class="back"
+                    onclick="inicio()"
+                >
+                    ← Volver
+                </button>
+
+
+                <div class="document-actions">
 
                     <button
-                        class="back"
-                        onclick="inicio()"
+                        class="document-action"
+                        id="favoriteDocument"
                         type="button"
                     >
-                        ← Volver
+                        ☆ Favorito
+                    </button>
+
+
+                    <button
+                        class="document-action"
+                        id="copyLink"
+                        type="button"
+                    >
+                        🔗 Copiar enlace
                     </button>
 
 
@@ -1912,1059 +2409,1434 @@
 
                 </div>
 
+            </div>
+
+
+            <div class="document-body">
+
+
+                <aside
+                    class="document-toc"
+                    id="documentToc"
+                >
+
+                    <div class="toc-title">
+                        En este documento
+                    </div>
+
+
+                    <div id="tocContent">
+
+                        <div class="empty-special">
+                            Sin índice
+                        </div>
+
+                    </div>
+
+                </aside>
+
 
                 <article
                     class="markdown"
                     id="contenidoDocumento"
                 >
+
                 </article>
 
-            </section>
 
-        </div>
+            </div>
 
-    </main>
+        </section>
 
 
-    <!-- =========================================================
-         BOTÓN SUBIR ARRIBA
-         ========================================================= -->
+    </div>
 
-    <button
-        id="backToTop"
-        class="back-to-top"
-        type="button"
-        title="Subir arriba"
-        aria-label="Subir arriba"
-    >
-        ↑
-    </button>
+</main>
 
 
-    <script>
+<!-- =========================================================
+     BACK TO TOP
+========================================================= -->
 
-        /* =========================================================
-           CONFIGURACIÓN
-           ========================================================= */
+<button
+    id="backToTop"
+    class="back-to-top"
+    type="button"
+    title="Subir arriba"
+    aria-label="Subir arriba"
+>
+    ↑
+</button>
 
-        const OWNER =
-            "AbutMatias";
 
+<script>
 
-        const REPO =
-            "Manual-Operativo-Atencion-al-Cliente";
 
+/* =========================================================
+   CONFIGURACIÓN
+========================================================= */
 
-        const BRANCH =
-            "main";
+const OWNER =
+    "AbutMatias";
 
+const REPO =
+    "Manual-Operativo-Atencion-al-Cliente";
 
-        const DOC_FOLDER =
-            "doc";
+const BRANCH =
+    "main";
 
 
-        const API =
-            `https://api.github.com/repos/${OWNER}/${REPO}/contents/${DOC_FOLDER}`;
+const API =
+    `https://api.github.com/repos/${OWNER}/${REPO}/contents/doc`;
 
 
-        const RAW_URL =
-            `https://raw.githubusercontent.com/${OWNER}/${REPO}/${BRANCH}/`;
+const README_URL =
+    `https://raw.githubusercontent.com/${OWNER}/${REPO}/${BRANCH}/README.md`;
 
 
-        const GITHUB_URL =
-            `https://github.com/${OWNER}/${REPO}/blob/${BRANCH}/`;
+const GITHUB_URL =
+    `https://github.com/${OWNER}/${REPO}/blob/${BRANCH}/`;
 
 
-        const INDEX_URL =
-            "./index.json";
+const RAW_URL =
+    `https://raw.githubusercontent.com/${OWNER}/${REPO}/${BRANCH}/`;
 
 
-        const README_URL =
-            `${RAW_URL}README.md`;
+const INDEX_URL =
+    "./index.json";
 
 
-        /* =========================================================
-           VARIABLES
-           ========================================================= */
+/* =========================================================
+   VARIABLES
+========================================================= */
 
-        let documentos = [];
+let documentos = [];
 
-        let categorias = [];
+let categorias = [];
 
-        let searchTimer = null;
+let readmeCache = null;
 
+let searchTimer = null;
 
-        /* =========================================================
-           INICIO
-           ========================================================= */
+let documentoActual = null;
 
-        async function iniciar() {
 
-            const loading =
-                document.getElementById("loadingBar");
+/* =========================================================
+   ELEMENTOS
+========================================================= */
 
+const buscador =
+    document.getElementById("buscador");
 
-            const estado =
-                document.getElementById("estado");
+const clearSearch =
+    document.getElementById("clearSearch");
 
+const backToTop =
+    document.getElementById("backToTop");
 
-            const status =
-                document.getElementById("status");
+const sidebar =
+    document.getElementById("sidebar");
 
+const themeButton =
+    document.getElementById("themeButton");
 
-            const headerStatus =
-                document.getElementById("headerStatus");
 
+/* =========================================================
+   TEMA
+========================================================= */
 
-            loading.classList.add("active");
+function cargarTema() {
 
+    const tema =
+        localStorage.getItem("temaManual");
 
-            try {
 
-                estado.textContent = "...";
+    if (tema === "dark") {
 
-                status.textContent =
-                    "Cargando documentación...";
+        document.body.classList.add("dark");
 
-                headerStatus.textContent =
-                    "Cargando...";
+        themeButton.textContent =
+            "☀️";
 
+    } else {
 
-                /*
-                 * PRIMERO:
-                 * Intentamos index.json
-                 */
+        document.body.classList.remove("dark");
 
-                let cargado =
-                    await cargarDesdeIndex();
+        themeButton.textContent =
+            "🌙";
+    }
+}
 
 
-                /*
-                 * SI NO FUNCIONA:
-                 * usamos directamente GitHub
-                 */
+themeButton.addEventListener(
+    "click",
+    () => {
 
-                if (!cargado) {
+        document.body.classList.toggle("dark");
 
-                    console.log(
-                        "index.json no disponible. Cargando desde GitHub..."
-                    );
 
-                    await cargarDocumentosGitHub();
+        const oscuro =
+            document.body.classList.contains("dark");
 
-                }
 
+        localStorage.setItem(
+            "temaManual",
+            oscuro ? "dark" : "light"
+        );
 
-                /*
-                 * Si no encontramos documentos
-                 */
 
-                if (
-                    !documentos.length
-                ) {
+        themeButton.textContent =
+            oscuro
+                ? "☀️"
+                : "🌙";
 
-                    throw new Error(
-                        "No se encontraron documentos dentro de /doc"
-                    );
+    }
+);
 
-                }
 
+cargarTema();
 
-                /*
-                 * Cargar README solamente
-                 * como complemento.
-                 *
-                 * Si falla NO rompe la página.
-                 */
 
-                await cargarCategorias();
+/* =========================================================
+   INICIAR
+========================================================= */
 
+async function iniciar() {
 
-                /*
-                 * Si README no creó categorías,
-                 * generamos categorías automáticamente
-                 * según las carpetas.
-                 */
+    const status =
+        document.getElementById("status");
 
-                if (
-                    !categorias.length
-                ) {
+    const estado =
+        document.getElementById("estado");
 
-                    generarCategoriasAutomaticas();
+    const loading =
+        document.getElementById("loadingBar");
 
-                }
+    const headerStatus =
+        document.getElementById("headerStatus");
 
 
-                /*
-                 * Actualizar estadísticas
-                 */
+    try {
 
-                document.getElementById(
-                    "cantidad-documentos"
-                ).textContent =
-                    documentos.length;
+        loading.classList.add("active");
 
+        status.textContent =
+            "Cargando documentación...";
 
-                document.getElementById(
-                    "cantidad-categorias"
-                ).textContent =
-                    categorias.length;
+        headerStatus.textContent =
+            "Cargando...";
 
+        estado.textContent =
+            "...";
 
-                estado.textContent =
-                    "OK";
 
+        const cargadoDesdeIndex =
+            await cargarDesdeIndex();
 
-                headerStatus.textContent =
-                    `${documentos.length} documentos`;
 
+        if (!cargadoDesdeIndex) {
 
-                status.textContent =
-                    `${documentos.length} documentos disponibles`;
-
-
-                mostrarDocumentosIniciales();
-
-
-            } catch (error) {
-
-                console.error(
-                    "Error inicializando:",
-                    error
-                );
-
-
-                estado.textContent =
-                    "ERROR";
-
-
-                headerStatus.textContent =
-                    "Error";
-
-
-                status.textContent =
-                    "Error al cargar";
-
-
-                document.getElementById(
-                    "resultados"
-                ).innerHTML = `
-
-                    <div class="empty">
-
-                        <div class="empty-title">
-                            No se pudo cargar la documentación
-                        </div>
-
-                        <br>
-
-                        ${escapeHTML(error.message)}
-
-                        <br><br>
-
-                        <button
-                            onclick="iniciar()"
-                            style="
-                                padding:10px 15px;
-                                border:none;
-                                border-radius:6px;
-                                background:var(--primary);
-                                color:white;
-                                font-weight:bold;
-                            "
-                        >
-                            Reintentar
-                        </button>
-
-                    </div>
-
-                `;
-
-            } finally {
-
-                loading.classList.remove(
-                    "active"
-                );
-
-            }
+            await cargarDocumentosGitHub();
 
         }
 
 
-        /* =========================================================
-           CARGAR INDEX.JSON
-           ========================================================= */
+        try {
 
-        async function cargarDesdeIndex() {
+            await cargarCategorias();
+
+        } catch (error) {
+
+            console.warn(
+                "No se pudo cargar README:",
+                error
+            );
+
+            categorias = [];
+
+        }
+
+
+        document.getElementById(
+            "cantidad-documentos"
+        ).textContent =
+            documentos.length;
+
+
+        document.getElementById(
+            "cantidad-categorias"
+        ).textContent =
+            categorias.length;
+
+
+        estado.textContent =
+            "OK";
+
+
+        headerStatus.textContent =
+            `${documentos.length} documentos`;
+
+
+        status.textContent =
+            `${documentos.length} documentos disponibles`;
+
+
+        mostrarDocumentosIniciales();
+
+        mostrarFavoritos();
+
+        mostrarHistorial();
+
+
+    } catch (error) {
+
+        console.error(error);
+
+        estado.textContent =
+            "ERROR";
+
+        headerStatus.textContent =
+            "Error";
+
+        status.textContent =
+            "Error al cargar";
+
+
+        document.getElementById(
+            "resultados"
+        ).innerHTML = `
+
+            <div class="empty">
+
+                <div class="empty-title">
+                    No se pudo cargar la documentación
+                </div>
+
+                <br>
+
+                ${escapeHTML(error.message)}
+
+            </div>
+
+        `;
+
+    } finally {
+
+        loading.classList.remove("active");
+
+    }
+
+}
+
+
+/* =========================================================
+   INDEX.JSON
+========================================================= */
+
+async function cargarDesdeIndex() {
+
+    try {
+
+        const respuesta =
+            await fetch(
+                `${INDEX_URL}?v=${Date.now()}`
+            );
+
+
+        if (!respuesta.ok) {
+            return false;
+        }
+
+
+        const data =
+            await respuesta.json();
+
+
+        if (!Array.isArray(data)) {
+            return false;
+        }
+
+
+        documentos =
+            data.map(documento => ({
+
+                nombre:
+                    documento.nombre,
+
+                path:
+                    documento.path,
+
+                contenido:
+                    documento.contenido || "",
+
+                url:
+                    documento.url ||
+                    `${RAW_URL}${documento.path}`
+
+            }));
+
+
+        documentos.sort(
+            (a, b) =>
+                a.nombre.localeCompare(
+                    b.nombre,
+                    "es"
+                )
+        );
+
+
+        return true;
+
+
+    } catch (error) {
+
+        console.warn(
+            "index.json no disponible"
+        );
+
+        return false;
+
+    }
+
+}
+
+
+/* =========================================================
+   GITHUB
+========================================================= */
+
+async function cargarDocumentosGitHub() {
+
+    const respuesta =
+        await fetch(API);
+
+
+    if (!respuesta.ok) {
+
+        throw new Error(
+            `GitHub API respondió ${respuesta.status}`
+        );
+
+    }
+
+
+    const archivos =
+        await respuesta.json();
+
+
+    documentos = [];
+
+
+    await recorrerCarpeta(
+        archivos
+    );
+
+
+    await Promise.all(
+
+        documentos.map(
+            async documento => {
+
+                try {
+
+                    const respuesta =
+                        await fetch(
+                            documento.url
+                        );
+
+
+                    if (!respuesta.ok) {
+                        throw new Error(
+                            respuesta.status
+                        );
+                    }
+
+
+                    documento.contenido =
+                        await respuesta.text();
+
+
+                } catch (error) {
+
+                    documento.contenido =
+                        "";
+
+                }
+
+            }
+        )
+
+    );
+
+
+    documentos.sort(
+        (a, b) =>
+            a.nombre.localeCompare(
+                b.nombre,
+                "es"
+            )
+    );
+
+}
+
+
+/* =========================================================
+   RECORRER CARPETAS
+========================================================= */
+
+async function recorrerCarpeta(archivos) {
+
+    for (const archivo of archivos) {
+
+        if (
+            archivo.type === "file" &&
+            archivo.name
+                .toLowerCase()
+                .endsWith(".md")
+        ) {
+
+            documentos.push({
+
+                nombre:
+                    archivo.name.replace(
+                        /\.md$/i,
+                        ""
+                    ),
+
+                path:
+                    archivo.path,
+
+                url:
+                    archivo.download_url,
+
+                contenido:
+                    null
+
+            });
+
+            continue;
+        }
+
+
+        if (archivo.type === "dir") {
 
             try {
 
                 const respuesta =
                     await fetch(
-                        `${INDEX_URL}?v=${Date.now()}`,
-                        {
-                            cache: "no-store"
-                        }
+                        archivo.url
                     );
 
 
                 if (!respuesta.ok) {
-
-                    return false;
-
+                    continue;
                 }
 
 
-                const data =
+                const contenido =
                     await respuesta.json();
 
 
-                if (
-                    !Array.isArray(data)
-                ) {
-
-                    return false;
-
-                }
-
-
-                documentos =
-                    data
-                        .filter(
-                            documento =>
-                                documento.path &&
-                                String(
-                                    documento.path
-                                )
-                                .toLowerCase()
-                                .endsWith(".md")
-                        )
-                        .map(
-                            documento => ({
-
-                                nombre:
-                                    documento.nombre ||
-                                    obtenerNombreArchivo(
-                                        documento.path
-                                    ),
-
-                                path:
-                                    documento.path,
-
-                                contenido:
-                                    documento.contenido ||
-                                    "",
-
-                                url:
-                                    documento.url ||
-                                    `${RAW_URL}${documento.path}`
-
-                            })
-                        );
-
-
-                documentos.sort(
-                    ordenarDocumentos
+                await recorrerCarpeta(
+                    contenido
                 );
-
-
-                console.log(
-                    `index.json cargado: ${documentos.length} documentos`
-                );
-
-
-                return documentos.length > 0;
 
 
             } catch (error) {
 
                 console.warn(
-                    "No se pudo cargar index.json:",
-                    error
+                    "No se pudo leer:",
+                    archivo.path
+                );
+
+            }
+
+        }
+
+    }
+
+}
+
+
+/* =========================================================
+   README
+========================================================= */
+
+async function cargarCategorias() {
+
+    const respuesta =
+        await fetch(
+            `${README_URL}?v=${Date.now()}`
+        );
+
+
+    if (!respuesta.ok) {
+
+        throw new Error(
+            "No se pudo cargar README.md"
+        );
+
+    }
+
+
+    readmeCache =
+        await respuesta.text();
+
+
+    categorias =
+        obtenerCategorias(
+            readmeCache
+        );
+
+
+    mostrarCategorias();
+
+}
+
+
+/* =========================================================
+   OBTENER CATEGORÍAS
+========================================================= */
+
+function obtenerCategorias(markdown) {
+
+    const resultado = [];
+
+    const lineas =
+        markdown.split("\n");
+
+    let categoriaActual = null;
+
+    let documentoPendienteImportante =
+        false;
+
+
+    for (const linea of lineas) {
+
+        const categoria =
+            linea.match(
+                /^##\s+(.+)$/
+            );
+
+
+        if (categoria) {
+
+            categoriaActual = {
+
+                nombre:
+                    categoria[1].trim(),
+
+                documentos: []
+
+            };
+
+
+            resultado.push(
+                categoriaActual
+            );
+
+
+            continue;
+        }
+
+
+        if (!categoriaActual) {
+            continue;
+        }
+
+
+        if (
+            linea
+                .trim()
+                .startsWith("> [!Important]")
+        ) {
+
+            documentoPendienteImportante =
+                true;
+
+            continue;
+        }
+
+
+        const enlace =
+            linea.match(
+                /^\s*[-*]\s+\[([^\]]+)\]\((.+)\)$/
+            );
+
+
+        if (enlace) {
+
+            categoriaActual.documentos.push({
+
+                nombre:
+                    enlace[1].trim(),
+
+                ruta:
+                    limpiarRutaREADME(
+                        enlace[2].trim()
+                    ),
+
+                importante:
+                    false
+
+            });
+
+            continue;
+        }
+
+
+        const enlaceImportante =
+            linea.match(
+                /^\s*>\s*\[([^\]]+)\]\((.+)\)$/
+            );
+
+
+        if (enlaceImportante) {
+
+            categoriaActual.documentos.push({
+
+                nombre:
+                    enlaceImportante[1].trim(),
+
+                ruta:
+                    limpiarRutaREADME(
+                        enlaceImportante[2].trim()
+                    ),
+
+                importante:
+                    true
+
+            });
+
+
+            documentoPendienteImportante =
+                false;
+        }
+
+    }
+
+
+    return resultado;
+
+}
+
+
+/* =========================================================
+   LIMPIAR RUTA
+========================================================= */
+
+function limpiarRutaREADME(ruta) {
+
+    let resultado =
+        String(ruta || "").trim();
+
+
+    resultado =
+        resultado.replace(
+            /\\([()[\]])/g,
+            "$1"
+        );
+
+
+    try {
+
+        resultado =
+            decodeURIComponent(
+                resultado
+            );
+
+    } catch (error) {}
+
+
+    resultado =
+        resultado.replace(
+            /^\.\/+/,
+            ""
+        );
+
+
+    resultado =
+        resultado.replace(
+            /^doc\//i,
+            ""
+        );
+
+
+    return resultado.trim();
+
+}
+
+
+/* =========================================================
+   MOSTRAR CATEGORÍAS
+========================================================= */
+
+function mostrarCategorias() {
+
+    const contenedor =
+        document.getElementById(
+            "categorias"
+        );
+
+
+    contenedor.innerHTML = "";
+
+
+    if (
+        categorias.length === 0
+    ) {
+
+        contenedor.innerHTML = `
+
+            <div class="nav-item">
+                Sin categorías
+            </div>
+
+        `;
+
+        return;
+    }
+
+
+    categorias.forEach(
+        (categoria, index) => {
+
+            const categoriaElemento =
+                document.createElement(
+                    "div"
                 );
 
 
-                return false;
+            categoriaElemento.className =
+                "sidebar-category";
 
-            }
 
-        }
-
-
-        /* =========================================================
-           CARGAR DIRECTAMENTE DESDE GITHUB
-           ========================================================= */
-
-        async function cargarDocumentosGitHub() {
-
-            documentos = [];
-
-
-            await recorrerCarpeta(
-                API
-            );
-
-
-            /*
-             * Cargar contenido de todos los Markdown
-             */
-
-            await Promise.all(
-
-                documentos.map(
-                    async documento => {
-
-                        try {
-
-                            const respuesta =
-                                await fetch(
-                                    documento.url,
-                                    {
-                                        cache: "no-store"
-                                    }
-                                );
-
-
-                            if (
-                                !respuesta.ok
-                            ) {
-
-                                return;
-
-                            }
-
-
-                            documento.contenido =
-                                await respuesta.text();
-
-
-                        } catch (error) {
-
-                            console.warn(
-                                "No se pudo cargar:",
-                                documento.path
-                            );
-
-                        }
-
-                    }
-                )
-
-            );
-
-
-            documentos.sort(
-                ordenarDocumentos
-            );
-
-
-            console.log(
-                `GitHub cargado: ${documentos.length} documentos`
-            );
-
-        }
-
-
-        /* =========================================================
-           RECORRER CARPETAS DE /DOC
-           ========================================================= */
-
-        async function recorrerCarpeta(url) {
-
-            try {
-
-                const respuesta =
-                    await fetch(
-                        `${url}${url.includes("?") ? "&" : "?"}v=${Date.now()}`,
-                        {
-                            cache: "no-store"
-                        }
-                    );
-
-
-                if (
-                    !respuesta.ok
-                ) {
-
-                    throw new Error(
-                        `GitHub respondió ${respuesta.status}`
-                    );
-
-                }
-
-
-                const archivos =
-                    await respuesta.json();
-
-
-                for (
-                    const archivo of archivos
-                ) {
-
-                    /*
-                     * Markdown
-                     */
-
-                    if (
-                        archivo.type === "file" &&
-                        archivo.name
-                            .toLowerCase()
-                            .endsWith(".md")
-                    ) {
-
-                        documentos.push({
-
-                            nombre:
-                                archivo.name.replace(
-                                    /\.md$/i,
-                                    ""
-                                ),
-
-                            path:
-                                archivo.path,
-
-                            url:
-                                archivo.download_url,
-
-                            contenido:
-                                ""
-
-                        });
-
-
-                        continue;
-
-                    }
-
-
-                    /*
-                     * Carpeta
-                     */
-
-                    if (
-                        archivo.type === "dir"
-                    ) {
-
-                        await recorrerCarpeta(
-                            archivo.url
-                        );
-
-                    }
-
-                }
-
-
-            } catch (error) {
-
-                console.error(
-                    "Error recorriendo GitHub:",
-                    error
-                );
-
-                throw error;
-
-            }
-
-        }
-
-
-        /* =========================================================
-           CATEGORÍAS
-           ========================================================= */
-
-        async function cargarCategorias() {
-
-            categorias = [];
-
-
-            try {
-
-                const respuesta =
-                    await fetch(
-                        `${README_URL}?v=${Date.now()}`,
-                        {
-                            cache: "no-store"
-                        }
-                    );
-
-
-                /*
-                 * Si README no existe,
-                 * no pasa nada.
-                 */
-
-                if (
-                    !respuesta.ok
-                ) {
-
-                    console.warn(
-                        "README.md no disponible. Se usarán categorías automáticas."
-                    );
-
-                    generarCategoriasAutomaticas();
-
-                    mostrarCategorias();
-
-                    return;
-
-                }
-
-
-                const markdown =
-                    await respuesta.text();
-
-
-                categorias =
-                    obtenerCategorias(
-                        markdown
-                    );
-
-
-                /*
-                 * Si README existe pero
-                 * no tiene categorías válidas
-                 */
-
-                if (
-                    !categorias.length
-                ) {
-
-                    generarCategoriasAutomaticas();
-
-                }
-
-
-                mostrarCategorias();
-
-
-            } catch (error) {
-
-                console.warn(
-                    "No se pudo cargar README:",
-                    error
+            const categoriaTitulo =
+                document.createElement(
+                    "div"
                 );
 
 
-                generarCategoriasAutomaticas();
+            categoriaTitulo.className =
+                "nav-item sidebar-category-title";
 
-                mostrarCategorias();
 
-            }
+            categoriaTitulo.innerHTML = `
 
-        }
+                <span class="category-icon">
+                    📁
+                </span>
 
+                <span class="sidebar-category-name">
 
-        /* =========================================================
-           LEER CATEGORÍAS DEL README
-           ========================================================= */
-
-        function obtenerCategorias(markdown) {
-
-            const resultado = [];
-
-            const lineas =
-                markdown.split("\n");
-
-
-            let categoriaActual = null;
-
-
-            for (
-                const linea of lineas
-            ) {
-
-                /*
-                 * ## Categoría
-                 */
-
-                const categoria =
-                    linea.match(
-                        /^##\s+(.+)$/
-                    );
-
-
-                if (
-                    categoria
-                ) {
-
-                    categoriaActual = {
-
-                        nombre:
-                            categoria[1].trim(),
-
-                        documentos: []
-
-                    };
-
-
-                    resultado.push(
-                        categoriaActual
-                    );
-
-
-                    continue;
-
-                }
-
-
-                if (
-                    !categoriaActual
-                ) {
-
-                    continue;
-
-                }
-
-
-                /*
-                 * - [Documento](ruta)
-                 */
-
-                const enlace =
-                    linea.match(
-                        /^\s*[-*]\s+\[([^\]]+)\]\((.+)\)$/
-                    );
-
-
-                if (
-                    enlace
-                ) {
-
-                    categoriaActual.documentos.push({
-
-                        nombre:
-                            enlace[1].trim(),
-
-                        ruta:
-                            limpiarRutaREADME(
-                                enlace[2].trim()
-                            ),
-
-                        importante:
-                            false
-
-                    });
-
-
-                    continue;
-
-                }
-
-
-                /*
-                 * > [Documento](ruta)
-                 */
-
-                const importante =
-                    linea.match(
-                        /^\s*>\s*\[([^\]]+)\]\((.+)\)$/
-                    );
-
-
-                if (
-                    importante
-                ) {
-
-                    categoriaActual.documentos.push({
-
-                        nombre:
-                            importante[1].trim(),
-
-                        ruta:
-                            limpiarRutaREADME(
-                                importante[2].trim()
-                            ),
-
-                        importante:
-                            true
-
-                    });
-
-                }
-
-            }
-
-
-            /*
-             * Eliminar categorías vacías
-             */
-
-            return resultado.filter(
-                categoria =>
-                    categoria.documentos.length > 0
-            );
-
-        }
-
-
-        /* =========================================================
-           CATEGORÍAS AUTOMÁTICAS
-           ========================================================= */
-
-        function generarCategoriasAutomaticas() {
-
-            const mapa =
-                new Map();
-
-
-            for (
-                const documento of documentos
-            ) {
-
-                const partes =
-                    documento.path.split("/");
-
-
-                /*
-                 * doc/archivo.md
-                 */
-
-                let categoria =
-                    "General";
-
-
-                /*
-                 * doc/carpeta/archivo.md
-                 */
-
-                if (
-                    partes.length >= 3
-                ) {
-
-                    categoria =
-                        partes[1];
-
-                }
-
-
-                if (
-                    !mapa.has(categoria)
-                ) {
-
-                    mapa.set(
-                        categoria,
-                        []
-                    );
-
-                }
-
-
-                mapa.get(
-                    categoria
-                ).push({
-
-                    nombre:
-                        documento.nombre,
-
-                    ruta:
-                        documento.path,
-
-                    importante:
-                        false
-
-                });
-
-            }
-
-
-            categorias =
-                Array.from(
-                    mapa.entries()
-                )
-                .map(
-                    ([nombre, documentos]) => ({
-
-                        nombre:
-                            limpiarNombreCategoria(
-                                nombre
-                            ),
-
-                        documentos:
-                            documentos.sort(
-                                (a, b) =>
-                                    a.nombre.localeCompare(
-                                        b.nombre,
-                                        "es"
-                                    )
-                            )
-
-                    })
-                )
-                .sort(
-                    (a, b) =>
-                        a.nombre.localeCompare(
-                            b.nombre,
-                            "es"
+                    ${escapeHTML(
+                        limpiarEmoji(
+                            categoria.nombre
                         )
+                    )}
+
+                </span>
+
+                <span class="category-count">
+                    ${categoria.documentos.length}
+                </span>
+
+                <span class="sidebar-arrow">
+                    ›
+                </span>
+
+            `;
+
+
+            const categoriaContenido =
+                document.createElement(
+                    "div"
                 );
+
+
+            categoriaContenido.className =
+                "sidebar-category-content";
+
+
+            categoriaTitulo.addEventListener(
+                "click",
+                () => {
+
+                    categoriaContenido
+                        .classList
+                        .toggle("open");
+
+
+                    categoriaTitulo
+                        .classList
+                        .toggle("expanded");
+
+                }
+            );
+
+
+            categoriaElemento.appendChild(
+                categoriaTitulo
+            );
+
+
+            categoria.documentos.forEach(
+                documento => {
+
+                    agregarDocumentoSidebar(
+                        categoriaContenido,
+                        documento
+                    );
+
+                }
+            );
+
+
+            categoriaElemento.appendChild(
+                categoriaContenido
+            );
+
+
+            contenedor.appendChild(
+                categoriaElemento
+            );
 
         }
+    );
+
+}
 
 
-        /* =========================================================
-           MOSTRAR CATEGORÍAS
-           ========================================================= */
+/* =========================================================
+   SIDEBAR DOCUMENT
+========================================================= */
 
-        function mostrarCategorias() {
+function agregarDocumentoSidebar(
+    contenedor,
+    documento
+) {
 
-            const contenedor =
-                document.getElementById(
-                    "categorias"
-                );
+    const elemento =
+        document.createElement(
+            "div"
+        );
 
 
-            contenedor.innerHTML = "";
+    elemento.className =
+        "sidebar-document";
 
+
+    if (
+        documento.importante
+    ) {
+
+        elemento.classList.add(
+            "important"
+        );
+
+    }
+
+
+    const icono =
+        documento.importante
+            ? "⚠️"
+            : "📄";
+
+
+    const ruta =
+        limpiarRutaREADME(
+            documento.ruta
+        );
+
+
+    const favorito =
+        esFavoritoPorRuta(
+            ruta
+        );
+
+
+    elemento.innerHTML = `
+
+        <span class="sidebar-document-icon">
+            ${icono}
+        </span>
+
+        <span>
+            ${escapeHTML(
+                limpiarEmoji(
+                    documento.nombre
+                )
+            )}
+        </span>
+
+        <span
+            class="favorite-star ${favorito ? "active" : ""}"
+            title="Favorito"
+        >
+            ${favorito ? "★" : "☆"}
+        </span>
+
+    `;
+
+
+    elemento.addEventListener(
+        "click",
+        event => {
 
             if (
-                !categorias.length
+                event.target.classList
+                    .contains("favorite-star")
             ) {
 
-                contenedor.innerHTML = `
+                event.stopPropagation();
 
-                    <div class="nav-item">
-                        No hay categorías
-                    </div>
+                alternarFavorito(
+                    ruta
+                );
 
-                `;
+                event.target.classList.toggle(
+                    "active"
+                );
+
+                event.target.textContent =
+                    esFavoritoPorRuta(ruta)
+                        ? "★"
+                        : "☆";
 
                 return;
-
             }
 
 
-            categorias.forEach(
-                (categoria, indice) => {
+            abrirDocumentoPorRuta(
+                ruta
+            );
 
-                    const categoriaElemento =
-                        document.createElement(
-                            "div"
-                        );
-
-
-                    categoriaElemento.className =
-                        "sidebar-category";
+        }
+    );
 
 
-                    const categoriaTitulo =
-                        document.createElement(
-                            "div"
-                        );
+    contenedor.appendChild(
+        elemento
+    );
+
+}
 
 
-                    categoriaTitulo.className =
-                        "nav-item sidebar-category-title";
+/* =========================================================
+   BUSCAR DOCUMENTO POR RUTA
+========================================================= */
+
+function buscarDocumentoPorRuta(
+    ruta
+) {
+
+    const rutaNormalizada =
+        normalizarRuta(
+            ruta
+        );
 
 
-                    categoriaTitulo.innerHTML = `
-
-                        <span class="category-icon">
-                            📁
-                        </span>
-
-                        <span class="sidebar-category-name">
-
-                            ${escapeHTML(
-                                limpiarEmoji(
-                                    categoria.nombre
-                                )
-                            )}
-
-                        </span>
-
-                        <span class="sidebar-arrow">
-                            ›
-                        </span>
-
-                    `;
+    let encontrado =
+        documentos.find(
+            item =>
+                normalizarRuta(
+                    item.path
+                ) ===
+                rutaNormalizada
+        );
 
 
-                    const contenido =
-                        document.createElement(
-                            "div"
-                        );
+    if (!encontrado) {
+
+        encontrado =
+            documentos.find(
+                item =>
+                    normalizarRuta(
+                        item.path
+                    ) ===
+                    `doc/${rutaNormalizada}`
+            );
+
+    }
 
 
-                    contenido.className =
-                        "sidebar-category-content";
+    if (!encontrado) {
+
+        const nombre =
+            rutaNormalizada
+                .split("/")
+                .pop()
+                .replace(
+                    /\.md$/i,
+                    ""
+                );
 
 
-                    /*
-                     * Primera categoría abierta
-                     */
+        encontrado =
+            documentos.find(
+                item =>
+                    normalizarRuta(
+                        item.nombre
+                    ) ===
+                    nombre
+            );
 
-                    if (
-                        indice === 0
-                    ) {
+    }
 
-                        contenido.classList.add(
-                            "open"
-                        );
 
-                        categoriaTitulo.classList.add(
-                            "expanded"
-                        );
+    return encontrado;
+
+}
+
+
+/* =========================================================
+   ABRIR POR RUTA
+========================================================= */
+
+function abrirDocumentoPorRuta(
+    ruta
+) {
+
+    const documento =
+        buscarDocumentoPorRuta(
+            ruta
+        );
+
+
+    if (documento) {
+
+        abrirDocumento(
+            documento.path
+        );
+
+        return;
+
+    }
+
+
+    alert(
+        "No se encontró el documento:\n\n" +
+        ruta
+    );
+
+}
+
+
+/* =========================================================
+   DOCUMENTOS INICIALES
+========================================================= */
+
+function mostrarDocumentosIniciales() {
+
+    const resultados =
+        documentos.map(
+            documento => ({
+
+                documento,
+
+                contenido:
+                    documento.contenido || "",
+
+                puntos: 0
+
+            })
+        );
+
+
+    mostrarResultados(
+        resultados.slice(
+            0,
+            20
+        ),
+        ""
+    );
+
+}
+
+
+/* =========================================================
+   BUSCADOR
+========================================================= */
+
+buscador.addEventListener(
+    "input",
+    function () {
+
+        const texto =
+            this.value
+                .trim()
+                .toLowerCase();
+
+
+        clearSearch.style.display =
+            texto
+                ? "block"
+                : "none";
+
+
+        clearTimeout(
+            searchTimer
+        );
+
+
+        searchTimer =
+            setTimeout(
+                () => {
+
+                    if (!texto) {
+
+                        mostrarDocumentosIniciales();
+
+                        document.getElementById(
+                            "status"
+                        ).textContent =
+                            `${documentos.length} documentos disponibles`;
+
+                        return;
 
                     }
 
 
-                    categoriaTitulo.addEventListener(
-                        "click",
-                        () => {
-
-                            contenido.classList.toggle(
-                                "open"
-                            );
-
-
-                            categoriaTitulo.classList.toggle(
-                                "expanded"
-                            );
-
-                        }
+                    buscarDocumentos(
+                        texto
                     );
 
-
-                    categoria.documentos.forEach(
-                        documento => {
-
-                            agregarDocumentoSidebar(
-                                contenido,
-                                documento
-                            );
-
-                        }
-                    );
-
-
-                    categoriaElemento.appendChild(
-                        categoriaTitulo
-                    );
-
-
-                    categoriaElemento.appendChild(
-                        contenido
-                    );
-
-
-                    contenedor.appendChild(
-                        categoriaElemento
-                    );
-
-                }
+                },
+                80
             );
+
+    }
+);
+
+
+/* =========================================================
+   BUSCAR RÁPIDO
+========================================================= */
+
+function buscarRapido(texto) {
+
+    inicio();
+
+
+    buscador.value =
+        texto;
+
+
+    clearSearch.style.display =
+        "block";
+
+
+    buscarDocumentos(
+        texto.toLowerCase()
+    );
+
+
+    buscador.focus();
+
+}
+
+
+/* =========================================================
+   LIMPIAR BUSCADOR
+========================================================= */
+
+clearSearch.addEventListener(
+    "click",
+    () => {
+
+        buscador.value = "";
+
+        clearSearch.style.display =
+            "none";
+
+        mostrarDocumentosIniciales();
+
+        document.getElementById(
+            "status"
+        ).textContent =
+            `${documentos.length} documentos disponibles`;
+
+        buscador.focus();
+
+    }
+);
+
+
+/* =========================================================
+   BUSCAR
+========================================================= */
+
+function buscarDocumentos(texto) {
+
+    const palabras =
+        texto
+            .split(/\s+/)
+            .filter(Boolean);
+
+
+    const resultados = [];
+
+
+    for (
+        const documento of documentos
+    ) {
+
+        const contenido =
+            documento.contenido || "";
+
+
+        const textoBusqueda = (
+
+            documento.nombre +
+            " " +
+            documento.path +
+            " " +
+            contenido
+
+        ).toLowerCase();
+
+
+        let puntos = 0;
+
+
+        for (
+            const palabra of palabras
+        ) {
+
+            if (
+                textoBusqueda.includes(
+                    palabra
+                )
+            ) {
+
+                puntos++;
+
+            }
 
         }
 
 
-        /* =========================================================
-           DOCUMENTO SIDEBAR
-           ========================================================= */
-
-        function agregarDocumentoSidebar(
-            contenedor,
-            documento
+        if (
+            puntos === palabras.length
         ) {
+
+            resultados.push({
+
+                documento,
+
+                contenido,
+
+                puntos
+
+            });
+
+        }
+
+    }
+
+
+    resultados.sort(
+        (a, b) => {
+
+            if (
+                b.puntos !==
+                a.puntos
+            ) {
+
+                return (
+                    b.puntos -
+                    a.puntos
+                );
+
+            }
+
+
+            return a.documento.nombre
+                .localeCompare(
+                    b.documento.nombre,
+                    "es"
+                );
+
+        }
+    );
+
+
+    mostrarResultados(
+        resultados,
+        texto
+    );
+
+
+    document.getElementById(
+        "status"
+    ).textContent =
+        `${resultados.length} resultado(s)`;
+
+}
+
+
+/* =========================================================
+   MOSTRAR RESULTADOS
+========================================================= */
+
+function mostrarResultados(
+    resultados,
+    texto
+) {
+
+    const contenedor =
+        document.getElementById(
+            "resultados"
+        );
+
+
+    contenedor.innerHTML = "";
+
+
+    if (
+        resultados.length === 0
+    ) {
+
+        contenedor.innerHTML = `
+
+            <div class="empty">
+
+                🔎
+
+                <br><br>
+
+                <div class="empty-title">
+                    No encontramos resultados
+                </div>
+
+                <br>
+
+                No existe ningún documento
+                que contenga:
+
+                <br><br>
+
+                <strong>
+                    "${escapeHTML(texto)}"
+                </strong>
+
+            </div>
+
+        `;
+
+        return;
+    }
+
+
+    resultados.forEach(
+        resultado => {
+
+            const fragmento =
+                obtenerFragmento(
+                    resultado.contenido,
+                    texto
+                );
+
 
             const elemento =
                 document.createElement(
@@ -2973,20 +3845,840 @@
 
 
             elemento.className =
-                "sidebar-document";
+                "result";
+
+
+            const favorito =
+                esFavoritoPorRuta(
+                    resultado.documento.path
+                );
 
 
             elemento.innerHTML = `
 
-                <span class="sidebar-document-icon">
-                    ${documento.importante ? "⚠️" : "📄"}
+                <div class="result-title">
+
+                    <span
+                        class="result-title-icon"
+                    >
+                        📄
+                    </span>
+
+                    ${escapeHTML(
+                        resultado.documento.nombre
+                    )}
+
+                </div>
+
+
+                <div class="result-category">
+
+                    📁
+
+                    ${escapeHTML(
+                        resultado.documento.path
+                    )}
+
+                </div>
+
+
+                <div class="result-text">
+
+                    ${resaltar(
+                        fragmento,
+                        texto
+                    )}
+
+                </div>
+
+
+                <div class="result-actions">
+
+                    <button
+                        type="button"
+                        class="read-button"
+                    >
+                        Leer documento
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="secondary favorite-result"
+                    >
+                        ${favorito
+                            ? "★ Favorito"
+                            : "☆ Favorito"}
+                    </button>
+
+                </div>
+
+            `;
+
+
+            elemento
+                .querySelector(
+                    ".read-button"
+                )
+                .addEventListener(
+                    "click",
+                    () =>
+                        abrirDocumento(
+                            resultado
+                                .documento
+                                .path
+                        )
+                );
+
+
+            elemento
+                .querySelector(
+                    ".favorite-result"
+                )
+                .addEventListener(
+                    "click",
+                    () => {
+
+                        alternarFavorito(
+                            resultado
+                                .documento
+                                .path
+                        );
+
+
+                        elemento
+                            .querySelector(
+                                ".favorite-result"
+                            )
+                            .textContent =
+                            esFavoritoPorRuta(
+                                resultado
+                                    .documento
+                                    .path
+                            )
+                                ? "★ Favorito"
+                                : "☆ Favorito";
+
+                    }
+                );
+
+
+            contenedor.appendChild(
+                elemento
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   FRAGMENTO
+========================================================= */
+
+function obtenerFragmento(
+    contenido,
+    texto
+) {
+
+    const limpio =
+        contenido
+            .replace(
+                /[#>*_`]/g,
+                " "
+            )
+            .replace(
+                /\s+/g,
+                " "
+            )
+            .trim();
+
+
+    if (!texto) {
+
+        return limpio.substring(
+            0,
+            300
+        );
+
+    }
+
+
+    const posicion =
+        limpio
+            .toLowerCase()
+            .indexOf(
+                texto.toLowerCase()
+            );
+
+
+    if (
+        posicion === -1
+    ) {
+
+        return limpio.substring(
+            0,
+            300
+        );
+
+    }
+
+
+    const inicio =
+        Math.max(
+            0,
+            posicion - 120
+        );
+
+
+    return limpio.substring(
+        inicio,
+        posicion +
+        texto.length +
+        250
+    );
+
+}
+
+
+/* =========================================================
+   RESALTAR
+========================================================= */
+
+function resaltar(
+    texto,
+    busqueda
+) {
+
+    let resultado =
+        escapeHTML(
+            texto
+        );
+
+
+    if (!busqueda) {
+        return resultado;
+    }
+
+
+    const palabras =
+        busqueda
+            .split(/\s+/)
+            .filter(Boolean);
+
+
+    palabras.forEach(
+        palabra => {
+
+            const regex =
+                new RegExp(
+                    `(${escapeRegex(
+                        palabra
+                    )})`,
+                    "gi"
+                );
+
+
+            resultado =
+                resultado.replace(
+                    regex,
+                    "<mark>$1</mark>"
+                );
+
+        }
+    );
+
+
+    return resultado;
+
+}
+
+
+/* =========================================================
+   ABRIR DOCUMENTO
+========================================================= */
+
+function abrirDocumento(path) {
+
+    const documento =
+        documentos.find(
+            item =>
+                item.path === path
+        );
+
+
+    if (!documento) {
+
+        alert(
+            "Documento no encontrado"
+        );
+
+        return;
+
+    }
+
+
+    documentoActual =
+        documento;
+
+
+    document.getElementById(
+        "home"
+    ).style.display =
+        "none";
+
+
+    document.getElementById(
+        "documento"
+    ).style.display =
+        "block";
+
+
+    const contenido =
+        document.getElementById(
+            "contenidoDocumento"
+        );
+
+
+    contenido.innerHTML =
+        "<p>Cargando documento...</p>";
+
+
+    try {
+
+        const markdown =
+            documento.contenido || "";
+
+
+        contenido.innerHTML =
+            marked.parse(
+                markdown
+            );
+
+
+        prepararDocumento(
+            contenido,
+            documento
+        );
+
+
+        agregarHistorial(
+            documento
+        );
+
+
+        actualizarBotonFavorito();
+
+
+        window.scrollTo(
+            0,
+            0
+        );
+
+
+        sidebar.classList.remove(
+            "open"
+        );
+
+
+        document.getElementById(
+            "navInicio"
+        ).classList.remove(
+            "active"
+        );
+
+
+        const hash =
+            encodeURIComponent(
+                documento.path
+            );
+
+
+        history.replaceState(
+            null,
+            "",
+            `#documento=${hash}`
+        );
+
+
+    } catch (error) {
+
+        contenido.innerHTML = `
+
+            <div class="empty">
+
+                <div class="empty-title">
+                    No se pudo cargar el documento
+                </div>
+
+                <br>
+
+                ${escapeHTML(
+                    error.message
+                )}
+
+            </div>
+
+        `;
+
+    }
+
+}
+
+
+/* =========================================================
+   PREPARAR DOCUMENTO
+========================================================= */
+
+function prepararDocumento(
+    contenido,
+    documento
+) {
+
+    /* IMÁGENES */
+
+    contenido
+        .querySelectorAll("img")
+        .forEach(
+            img => {
+
+                let src =
+                    img.getAttribute(
+                        "src"
+                    );
+
+
+                if (!src) {
+                    return;
+                }
+
+
+                src =
+                    src.trim();
+
+
+                if (
+                    src.startsWith(
+                        "http://"
+                    ) ||
+                    src.startsWith(
+                        "https://"
+                    )
+                ) {
+
+                    img.src =
+                        src;
+
+                } else {
+
+                    let imagen =
+                        src;
+
+
+                    imagen =
+                        imagen.replace(
+                            /^\.\//,
+                            ""
+                        );
+
+
+                    imagen =
+                        imagen.replace(
+                            /^\/+/,
+                            ""
+                        );
+
+
+                    imagen =
+                        imagen.replace(
+                            /^doc\/imagenes\//i,
+                            ""
+                        );
+
+
+                    imagen =
+                        imagen.replace(
+                            /^imagenes\//i,
+                            ""
+                        );
+
+
+                    try {
+
+                        imagen =
+                            decodeURIComponent(
+                                imagen
+                            );
+
+                    } catch (error) {}
+
+
+                    img.src =
+                        `${RAW_URL}doc/imagenes/${imagen}`;
+
+                }
+
+
+                img.loading =
+                    "lazy";
+
+
+                img.decoding =
+                    "async";
+
+
+                img.addEventListener(
+                    "click",
+                    () => {
+
+                        window.open(
+                            img.src,
+                            "_blank"
+                        );
+
+                    }
+                );
+
+            }
+        );
+
+
+    /* LINKS */
+
+    contenido
+        .querySelectorAll("a")
+        .forEach(
+            link => {
+
+                link.target =
+                    "_blank";
+
+                link.rel =
+                    "noopener noreferrer";
+
+            }
+        );
+
+
+    /* GITHUB */
+
+    document.getElementById(
+        "linkGithub"
+    ).href =
+        GITHUB_URL +
+        documento.path
+            .split("/")
+            .map(
+                encodeURIComponent
+            )
+            .join("/");
+
+
+    /* ÍNDICE */
+
+    generarIndice(
+        contenido
+    );
+
+}
+
+
+/* =========================================================
+   ÍNDICE INTERNO
+========================================================= */
+
+function generarIndice(
+    contenido
+) {
+
+    const toc =
+        document.getElementById(
+            "tocContent"
+        );
+
+
+    toc.innerHTML = "";
+
+
+    const encabezados =
+        contenido.querySelectorAll(
+            "h1, h2, h3, h4"
+        );
+
+
+    if (
+        encabezados.length === 0
+    ) {
+
+        toc.innerHTML = `
+
+            <div class="empty-special">
+                Sin índice
+            </div>
+
+        `;
+
+        return;
+    }
+
+
+    encabezados.forEach(
+        (heading, index) => {
+
+            const id =
+                `seccion-${index}`;
+
+
+            heading.id =
+                id;
+
+
+            const item =
+                document.createElement(
+                    "div"
+                );
+
+
+            item.className =
+                "toc-item";
+
+
+            if (
+                heading.tagName === "H3"
+            ) {
+
+                item.classList.add(
+                    "toc-h3"
+                );
+
+            }
+
+
+            if (
+                heading.tagName === "H4"
+            ) {
+
+                item.classList.add(
+                    "toc-h4"
+                );
+
+            }
+
+
+            item.textContent =
+                heading.textContent;
+
+
+            item.addEventListener(
+                "click",
+                () => {
+
+                    heading.scrollIntoView({
+                        behavior: "smooth",
+                        block: "start"
+                    });
+
+                }
+            );
+
+
+            toc.appendChild(
+                item
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   FAVORITOS
+========================================================= */
+
+function obtenerFavoritos() {
+
+    try {
+
+        return JSON.parse(
+            localStorage.getItem(
+                "manualFavoritos"
+            ) || "[]"
+        );
+
+    } catch (error) {
+
+        return [];
+
+    }
+
+}
+
+
+function guardarFavoritos(
+    favoritos
+) {
+
+    localStorage.setItem(
+        "manualFavoritos",
+        JSON.stringify(
+            favoritos
+        )
+    );
+
+}
+
+
+function esFavoritoPorRuta(
+    ruta
+) {
+
+    const favoritos =
+        obtenerFavoritos();
+
+
+    const normalizada =
+        normalizarRuta(
+            ruta
+        );
+
+
+    return favoritos.some(
+        item =>
+            normalizarRuta(
+                item
+            ) === normalizada
+    );
+
+}
+
+
+function alternarFavorito(
+    ruta
+) {
+
+    const favoritos =
+        obtenerFavoritos();
+
+
+    const normalizada =
+        normalizarRuta(
+            ruta
+        );
+
+
+    const indice =
+        favoritos.findIndex(
+            item =>
+                normalizarRuta(
+                    item
+                ) === normalizada
+        );
+
+
+    if (
+        indice >= 0
+    ) {
+
+        favoritos.splice(
+            indice,
+            1
+        );
+
+    } else {
+
+        favoritos.push(
+            ruta
+        );
+
+    }
+
+
+    guardarFavoritos(
+        favoritos
+    );
+
+
+    mostrarFavoritos();
+
+
+    if (
+        documentoActual
+    ) {
+
+        actualizarBotonFavorito();
+
+    }
+
+}
+
+
+function mostrarFavoritos() {
+
+    const contenedor =
+        document.getElementById(
+            "favoritos"
+        );
+
+
+    const favoritos =
+        obtenerFavoritos();
+
+
+    contenedor.innerHTML = "";
+
+
+    if (
+        favoritos.length === 0
+    ) {
+
+        contenedor.innerHTML = `
+
+            <div class="empty-special">
+                No hay favoritos
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    favoritos.forEach(
+        ruta => {
+
+            const documento =
+                buscarDocumentoPorRuta(
+                    ruta
+                );
+
+
+            if (!documento) {
+                return;
+            }
+
+
+            const elemento =
+                document.createElement(
+                    "div"
+                );
+
+
+            elemento.className =
+                "special-item";
+
+
+            elemento.innerHTML = `
+
+                <span>
+                    ⭐
                 </span>
 
                 <span>
                     ${escapeHTML(
-                        limpiarEmoji(
-                            documento.nombre
-                        )
+                        documento.nombre
                     )}
                 </span>
 
@@ -2995,33 +4687,10 @@
 
             elemento.addEventListener(
                 "click",
-                () => {
-
-                    const encontrado =
-                        encontrarDocumento(
-                            documento.ruta,
-                            documento.nombre
-                        );
-
-
-                    if (
-                        encontrado
-                    ) {
-
-                        abrirDocumento(
-                            encontrado.path
-                        );
-
-                    } else {
-
-                        alert(
-                            "No se encontró el documento:\n\n" +
-                            documento.nombre
-                        );
-
-                    }
-
-                }
+                () =>
+                    abrirDocumento(
+                        documento.path
+                    )
             );
 
 
@@ -3030,1469 +4699,668 @@
             );
 
         }
+    );
+
+}
 
 
-        /* =========================================================
-           ENCONTRAR DOCUMENTO
-           ========================================================= */
+document.getElementById(
+    "favoriteDocument"
+).addEventListener(
+    "click",
+    () => {
 
-        function encontrarDocumento(
-            ruta,
-            nombre
-        ) {
-
-            const rutaNormalizada =
-                normalizarRuta(
-                    ruta
-                );
-
-
-            /*
-             * 1 - Ruta exacta
-             */
-
-            let encontrado =
-                documentos.find(
-                    documento =>
-                        normalizarRuta(
-                            documento.path
-                        ) ===
-                        rutaNormalizada
-                );
-
-
-            if (
-                encontrado
-            ) {
-
-                return encontrado;
-
-            }
-
-
-            /*
-             * 2 - Con doc/
-             */
-
-            encontrado =
-                documentos.find(
-                    documento =>
-                        normalizarRuta(
-                            documento.path
-                        ) ===
-                        `doc/${rutaNormalizada}`
-                );
-
-
-            if (
-                encontrado
-            ) {
-
-                return encontrado;
-
-            }
-
-
-            /*
-             * 3 - Por nombre
-             */
-
-            const nombreNormalizado =
-                String(nombre)
-                    .replace(
-                        /\.md$/i,
-                        ""
-                    )
-                    .trim()
-                    .toLowerCase();
-
-
-            return documentos.find(
-                documento =>
-                    documento.nombre
-                        .replace(
-                            /\.md$/i,
-                            ""
-                        )
-                        .trim()
-                        .toLowerCase() ===
-                    nombreNormalizado
-            );
-
+        if (!documentoActual) {
+            return;
         }
 
 
-        /* =========================================================
-           DOCUMENTOS INICIALES
-           ========================================================= */
+        alternarFavorito(
+            documentoActual.path
+        );
 
-        function mostrarDocumentosIniciales() {
-
-            const resultados =
-                documentos.map(
-                    documento => ({
-
-                        documento,
-
-                        contenido:
-                            documento.contenido || "",
-
-                        puntos: 0
-
-                    })
-                );
+    }
+);
 
 
-            mostrarResultados(
-                resultados.slice(
-                    0,
-                    20
-                ),
-                ""
-            );
+function actualizarBotonFavorito() {
 
-        }
+    if (!documentoActual) {
+        return;
+    }
 
 
-        /* =========================================================
-           BUSCADOR
-           ========================================================= */
-
-        const buscador =
-            document.getElementById(
-                "buscador"
-            );
-
-
-        const clearSearch =
-            document.getElementById(
-                "clearSearch"
-            );
-
-
-        buscador.addEventListener(
-            "input",
-            function () {
-
-                const texto =
-                    this.value
-                        .trim()
-                        .toLowerCase();
-
-
-                clearSearch.style.display =
-                    texto
-                        ? "block"
-                        : "none";
-
-
-                clearTimeout(
-                    searchTimer
-                );
-
-
-                searchTimer =
-                    setTimeout(
-                        () => {
-
-                            if (
-                                !texto
-                            ) {
-
-                                mostrarDocumentosIniciales();
-
-                                document.getElementById(
-                                    "status"
-                                ).textContent =
-                                    `${documentos.length} documentos disponibles`;
-
-                                return;
-
-                            }
-
-
-                            buscarDocumentos(
-                                texto
-                            );
-
-                        },
-                        100
-                    );
-
-            }
+    const favorito =
+        esFavoritoPorRuta(
+            documentoActual.path
         );
 
 
-        clearSearch.addEventListener(
-            "click",
-            () => {
+    document.getElementById(
+        "favoriteDocument"
+    ).textContent =
+        favorito
+            ? "★ Favorito"
+            : "☆ Favorito";
 
-                buscador.value = "";
-
-                clearSearch.style.display =
-                    "none";
-
-
-                mostrarDocumentosIniciales();
+}
 
 
-                document.getElementById(
-                    "status"
-                ).textContent =
-                    `${documentos.length} documentos disponibles`;
+/* =========================================================
+   HISTORIAL
+========================================================= */
+
+function obtenerHistorial() {
+
+    try {
+
+        return JSON.parse(
+            localStorage.getItem(
+                "manualHistorial"
+            ) || "[]"
+        );
+
+    } catch (error) {
+
+        return [];
+
+    }
+
+}
 
 
-                buscador.focus();
+function agregarHistorial(
+    documento
+) {
 
-            }
+    let historial =
+        obtenerHistorial();
+
+
+    historial =
+        historial.filter(
+            item =>
+                item.path !==
+                documento.path
         );
 
 
-        /* =========================================================
-           BUSCAR DOCUMENTOS
-           ========================================================= */
+    historial.unshift({
 
-        function buscarDocumentos(
-            texto
-        ) {
+        path:
+            documento.path,
 
-            const palabras =
-                texto
-                    .split(/\s+/)
-                    .filter(Boolean);
+        nombre:
+            documento.nombre
+
+    });
 
 
-            const resultados = [];
+    historial =
+        historial.slice(
+            0,
+            8
+        );
 
 
-            for (
-                const documento of documentos
-            ) {
-
-                const contenido =
-                    documento.contenido || "";
-
-
-                const textoBusqueda = (
-
-                    documento.nombre +
-                    " " +
-                    documento.path +
-                    " " +
-                    contenido
-
-                ).toLowerCase();
+    localStorage.setItem(
+        "manualHistorial",
+        JSON.stringify(
+            historial
+        )
+    );
 
 
-                let puntos = 0;
+    mostrarHistorial();
+
+}
 
 
-                for (
-                    const palabra of palabras
-                ) {
+function mostrarHistorial() {
 
-                    if (
-                        textoBusqueda.includes(
-                            palabra
-                        )
-                    ) {
-
-                        puntos++;
-
-                    }
-
-                }
+    const contenedor =
+        document.getElementById(
+            "historial"
+        );
 
 
-                /*
-                 * Todas las palabras deben aparecer
-                 */
-
-                if (
-                    puntos === palabras.length
-                ) {
-
-                    resultados.push({
-
-                        documento,
-
-                        contenido,
-
-                        puntos
-
-                    });
-
-                }
-
-            }
+    const historial =
+        obtenerHistorial();
 
 
-            resultados.sort(
-                (a, b) => {
-
-                    if (
-                        b.puntos !==
-                        a.puntos
-                    ) {
-
-                        return (
-                            b.puntos -
-                            a.puntos
-                        );
-
-                    }
+    contenedor.innerHTML = "";
 
 
-                    return ordenarDocumentos(
-                        a.documento,
-                        b.documento
-                    );
+    if (
+        historial.length === 0
+    ) {
 
-                }
-            );
+        contenedor.innerHTML = `
 
+            <div class="empty-special">
+                No hay documentos recientes
+            </div>
 
-            mostrarResultados(
-                resultados,
-                texto
-            );
+        `;
 
+        return;
 
-            document.getElementById(
-                "status"
-            ).textContent =
-                `${resultados.length} resultado(s)`;
-
-        }
+    }
 
 
-        /* =========================================================
-           MOSTRAR RESULTADOS
-           ========================================================= */
+    historial.forEach(
+        item => {
 
-        function mostrarResultados(
-            resultados,
-            texto
-        ) {
-
-            const contenedor =
-                document.getElementById(
-                    "resultados"
+            const documento =
+                documentos.find(
+                    doc =>
+                        doc.path ===
+                        item.path
                 );
 
 
-            contenedor.innerHTML = "";
-
-
-            if (
-                resultados.length === 0
-            ) {
-
-                contenedor.innerHTML = `
-
-                    <div class="empty">
-
-                        🔎
-
-                        <br><br>
-
-                        <div class="empty-title">
-                            No encontramos resultados
-                        </div>
-
-                        <br>
-
-                        No existe ningún documento
-                        que contenga:
-
-                        <br><br>
-
-                        <strong>
-                            "${escapeHTML(texto)}"
-                        </strong>
-
-                    </div>
-
-                `;
-
+            if (!documento) {
                 return;
-
             }
 
 
-            resultados.forEach(
-                resultado => {
-
-                    const fragmento =
-                        obtenerFragmento(
-                            resultado.contenido,
-                            texto
-                        );
+            const elemento =
+                document.createElement(
+                    "div"
+                );
 
 
-                    const elemento =
-                        document.createElement(
-                            "div"
-                        );
+            elemento.className =
+                "special-item";
 
 
-                    elemento.className =
-                        "result";
+            elemento.innerHTML = `
+
+                <span>
+                    🕘
+                </span>
+
+                <span>
+                    ${escapeHTML(
+                        documento.nombre
+                    )}
+                </span>
+
+            `;
 
 
-                    elemento.innerHTML = `
-
-                        <div class="result-title">
-
-                            <span
-                                class="result-title-icon"
-                            >
-                                📄
-                            </span>
-
-                            ${escapeHTML(
-                                resultado.documento.nombre
-                            )}
-
-                        </div>
+            elemento.addEventListener(
+                "click",
+                () =>
+                    abrirDocumento(
+                        documento.path
+                    )
+            );
 
 
-                        <div class="result-category">
+            contenedor.appendChild(
+                elemento
+            );
 
-                            📁
+        }
+    );
 
-                            ${escapeHTML(
-                                resultado.documento.path
-                            )}
-
-                        </div>
-
-
-                        <div class="result-text">
-
-                            ${resaltar(
-                                fragmento,
-                                texto
-                            )}
-
-                        </div>
+}
 
 
-                        <div class="result-actions">
+/* =========================================================
+   COPIAR ENLACE
+========================================================= */
 
-                            <button
-                                type="button"
-                            >
-                                Leer documento
-                            </button>
+document.getElementById(
+    "copyLink"
+).addEventListener(
+    "click",
+    async () => {
 
-                        </div>
-
-                    `;
-
-
-                    elemento
-                        .querySelector(
-                            "button"
-                        )
-                        .addEventListener(
-                            "click",
-                            () =>
-                                abrirDocumento(
-                                    resultado.documento.path
-                                )
-                        );
+        if (!documentoActual) {
+            return;
+        }
 
 
-                    contenedor.appendChild(
-                        elemento
-                    );
+        const url =
+            `${location.origin}${location.pathname}#documento=${encodeURIComponent(documentoActual.path)}`;
 
-                }
+
+        try {
+
+            await navigator.clipboard.writeText(
+                url
+            );
+
+
+            const boton =
+                document.getElementById(
+                    "copyLink"
+                );
+
+
+            const anterior =
+                boton.textContent;
+
+
+            boton.textContent =
+                "✓ Copiado";
+
+
+            setTimeout(
+                () => {
+
+                    boton.textContent =
+                        anterior;
+
+                },
+                1500
+            );
+
+
+        } catch (error) {
+
+            alert(
+                "No se pudo copiar el enlace."
             );
 
         }
 
+    }
+);
 
-        /* =========================================================
-           FRAGMENTO
-           ========================================================= */
 
-        function obtenerFragmento(
-            contenido,
-            texto
-        ) {
+/* =========================================================
+   INICIO
+========================================================= */
 
-            const limpio =
-                String(contenido || "")
-                    .replace(
-                        /[#>*_`]/g,
-                        " "
-                    )
-                    .replace(
-                        /\s+/g,
-                        " "
-                    )
+function inicio() {
+
+    document.getElementById(
+        "home"
+    ).style.display =
+        "block";
+
+
+    document.getElementById(
+        "documento"
+    ).style.display =
+        "none";
+
+
+    document.getElementById(
+        "navInicio"
+    ).classList.add(
+        "active"
+    );
+
+
+    documentoActual =
+        null;
+
+
+    history.replaceState(
+        null,
+        "",
+        location.pathname
+    );
+
+
+    window.scrollTo(
+        0,
+        0
+    );
+
+}
+
+
+/* =========================================================
+   BÚSQUEDA
+========================================================= */
+
+function activarBusqueda() {
+
+    inicio();
+
+    buscador.focus();
+
+}
+
+
+/* =========================================================
+   NORMALIZAR RUTA
+========================================================= */
+
+function normalizarRuta(
+    ruta
+) {
+
+    let resultado =
+        String(
+            ruta || ""
+        );
+
+
+    try {
+
+        resultado =
+            decodeURIComponent(
+                resultado
+            );
+
+    } catch (error) {}
+
+
+    resultado =
+        resultado.replace(
+            /\\([()[\]])/g,
+            "$1"
+        );
+
+
+    resultado =
+        resultado.replace(
+            /^\.\/+/,
+            ""
+        );
+
+
+    resultado =
+        resultado.replace(
+            /^doc\//i,
+            ""
+        );
+
+
+    resultado =
+        resultado.replace(
+            /\/+/g,
+            "/"
+        );
+
+
+    return resultado
+        .trim()
+        .toLowerCase();
+
+}
+
+
+/* =========================================================
+   EMOJIS
+========================================================= */
+
+function limpiarEmoji(
+    texto
+) {
+
+    return String(texto)
+
+        .replace(
+            /[\u{1F300}-\u{1FAFF}]/gu,
+            ""
+        )
+
+        .trim();
+
+}
+
+
+/* =========================================================
+   ESCAPE HTML
+========================================================= */
+
+function escapeHTML(
+    texto
+) {
+
+    return String(texto)
+
+        .replace(
+            /&/g,
+            "&amp;"
+        )
+
+        .replace(
+            /</g,
+            "&lt;"
+        )
+
+        .replace(
+            />/g,
+            "&gt;"
+        )
+
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+
+        .replace(
+            /'/g,
+            "&#039;"
+        );
+
+}
+
+
+/* =========================================================
+   ESCAPE REGEX
+========================================================= */
+
+function escapeRegex(
+    texto
+) {
+
+    return String(texto)
+        .replace(
+            /[.*+?^${}()|[\]\\]/g,
+            "\\$&"
+        );
+
+}
+
+
+/* =========================================================
+   MENÚ
+========================================================= */
+
+document
+    .getElementById(
+        "menuButton"
+    )
+    .addEventListener(
+        "click",
+        () => {
+
+            sidebar.classList.toggle(
+                "open"
+            );
+
+        }
+    );
+
+
+/* =========================================================
+   BUSCAR SIDEBAR
+========================================================= */
+
+document
+    .getElementById(
+        "sidebarSearch"
+    )
+    .addEventListener(
+        "input",
+        function () {
+
+            const texto =
+                this.value
+                    .toLowerCase()
                     .trim();
 
 
-            if (
-                !texto
-            ) {
-
-                return limpio.substring(
-                    0,
-                    300
-                );
-
-            }
-
-
-            const posicion =
-                limpio
-                    .toLowerCase()
-                    .indexOf(
-                        texto.toLowerCase()
-                    );
-
-
-            if (
-                posicion === -1
-            ) {
-
-                return limpio.substring(
-                    0,
-                    300
-                );
-
-            }
-
-
-            const inicio =
-                Math.max(
-                    0,
-                    posicion - 120
-                );
-
-
-            return limpio.substring(
-                inicio,
-                posicion +
-                texto.length +
-                250
-            );
-
-        }
-
-
-        /* =========================================================
-           RESALTAR
-           ========================================================= */
-
-        function resaltar(
-            texto,
-            busqueda
-        ) {
-
-            let resultado =
-                escapeHTML(
-                    texto
-                );
-
-
-            const palabras =
-                busqueda
-                    .split(/\s+/)
-                    .filter(Boolean);
-
-
-            palabras.forEach(
-                palabra => {
-
-                    const regex =
-                        new RegExp(
-                            `(${escapeRegex(palabra)})`,
-                            "gi"
-                        );
-
-
-                    resultado =
-                        resultado.replace(
-                            regex,
-                            "<mark>$1</mark>"
-                        );
-
-                }
-            );
-
-
-            return resultado;
-
-        }
-
-
-        /* =========================================================
-           ABRIR DOCUMENTO
-           ========================================================= */
-
-        async function abrirDocumento(
-            path
-        ) {
-
-            document.getElementById(
-                "home"
-            ).style.display =
-                "none";
-
-
-            document.getElementById(
-                "documento"
-            ).style.display =
-                "block";
-
-
-            const contenido =
-                document.getElementById(
-                    "contenidoDocumento"
-                );
-
-
-            contenido.innerHTML =
-                "<p>Cargando documento...</p>";
-
-
-            let documento =
-                documentos.find(
-                    item =>
-                        item.path === path
-                );
-
-
-            if (
-                !documento
-            ) {
-
-                contenido.innerHTML = `
-
-                    <div class="empty">
-
-                        <div class="empty-title">
-                            Documento no encontrado
-                        </div>
-
-                    </div>
-
-                `;
-
-                return;
-
-            }
-
-
-            try {
-
-                /*
-                 * Si el documento no tiene contenido,
-                 * lo descargamos directamente.
-                 */
-
-                if (
-                    !documento.contenido
-                ) {
-
-                    const respuesta =
-                        await fetch(
-                            documento.url ||
-                            `${RAW_URL}${documento.path}`
-                        );
-
-
-                    if (
-                        !respuesta.ok
-                    ) {
-
-                        throw new Error(
-                            `No se pudo descargar el documento (${respuesta.status})`
-                        );
-
-                    }
-
-
-                    documento.contenido =
-                        await respuesta.text();
-
-                }
-
-
-                /*
-                 * Markdown -> HTML
-                 */
-
-                contenido.innerHTML =
-                    marked.parse(
-                        documento.contenido
-                    );
-
-
-                /*
-                 * IMÁGENES
-                 */
-
-                contenido
-                    .querySelectorAll("img")
-                    .forEach(
-                        img => {
-
-                            let src =
-                                img.getAttribute(
-                                    "src"
+            document
+                .querySelectorAll(
+                    "#categorias .sidebar-category"
+                )
+                .forEach(
+                    categoria => {
+
+                        const visible =
+                            categoria
+                                .textContent
+                                .toLowerCase()
+                                .includes(
+                                    texto
                                 );
 
 
-                            if (
-                                !src
-                            ) {
-
-                                return;
-
-                            }
+                        categoria.style.display =
+                            visible
+                                ? "block"
+                                : "none";
 
 
-                            src =
-                                src.trim();
+                        if (
+                            texto &&
+                            visible
+                        ) {
+
+                            const contenido =
+                                categoria.querySelector(
+                                    ".sidebar-category-content"
+                                );
 
 
-                            /*
-                             * URL absoluta
-                             */
-
-                            if (
-                                src.startsWith(
-                                    "http://"
-                                ) ||
-                                src.startsWith(
-                                    "https://"
-                                )
-                            ) {
-
-                                img.src =
-                                    src;
-
-                            }
-
-                            else {
-
-                                let imagen =
-                                    src;
+                            const titulo =
+                                categoria.querySelector(
+                                    ".sidebar-category-title"
+                                );
 
 
-                                imagen =
-                                    imagen.replace(
-                                        /^\.\/+/,
-                                        ""
-                                    );
+                            contenido.classList.add(
+                                "open"
+                            );
 
 
-                                imagen =
-                                    imagen.replace(
-                                        /^\/+/,
-                                        ""
-                                    );
-
-
-                                /*
-                                 * Si viene de doc/imagenes
-                                 */
-
-                                imagen =
-                                    imagen.replace(
-                                        /^doc\/imagenes\//i,
-                                        ""
-                                    );
-
-
-                                imagen =
-                                    imagen.replace(
-                                        /^imagenes\//i,
-                                        ""
-                                    );
-
-
-                                try {
-
-                                    imagen =
-                                        decodeURIComponent(
-                                            imagen
-                                        );
-
-                                } catch (
-                                    error
-                                ) {}
-
-
-                                /*
-                                 * Imagen dentro de doc/imagenes
-                                 */
-
-                                img.src =
-                                    `${RAW_URL}doc/imagenes/${imagen}`;
-
-                            }
-
-
-                            img.loading =
-                                "lazy";
-
-
-                            img.decoding =
-                                "async";
-
-
-                            img.style.maxWidth =
-                                "100%";
-
-
-                            img.style.height =
-                                "auto";
-
-
-                            img.style.cursor =
-                                "zoom-in";
-
-
-                            /*
-                             * Abrir imagen
-                             * en nueva pestaña
-                             */
-
-                            img.addEventListener(
-                                "click",
-                                () => {
-
-                                    if (
-                                        img.src
-                                    ) {
-
-                                        window.open(
-                                            img.src,
-                                            "_blank"
-                                        );
-
-                                    }
-
-                                }
+                            titulo.classList.add(
+                                "expanded"
                             );
 
                         }
-                    );
 
-
-                /*
-                 * LINKS
-                 */
-
-                contenido
-                    .querySelectorAll("a")
-                    .forEach(
-                        link => {
-
-                            link.target =
-                                "_blank";
-
-                            link.rel =
-                                "noopener noreferrer";
-
-                        }
-                    );
-
-
-                /*
-                 * LINK GITHUB
-                 */
-
-                document.getElementById(
-                    "linkGithub"
-                ).href =
-                    GITHUB_URL +
-                    path
-                        .split("/")
-                        .map(
-                            encodeURIComponent
-                        )
-                        .join("/");
-
-
-                /*
-                 * Arriba
-                 */
-
-                window.scrollTo({
-                    top: 0,
-                    behavior: "smooth"
-                });
-
-
-                /*
-                 * Cerrar sidebar
-                 */
-
-                document
-                    .getElementById(
-                        "sidebar"
-                    )
-                    .classList
-                    .remove(
-                        "open"
-                    );
-
-            } catch (
-                error
-            ) {
-
-                console.error(
-                    error
+                    }
                 );
 
-
-                contenido.innerHTML = `
-
-                    <div class="empty">
-
-                        <div class="empty-title">
-                            No se pudo cargar el documento
-                        </div>
-
-                        <br>
-
-                        ${escapeHTML(
-                            error.message
-                        )}
-
-                    </div>
-
-                `;
-
-            }
-
         }
+    );
 
 
-        /* =========================================================
-           INICIO
-           ========================================================= */
+/* =========================================================
+   BOTÓN ARRIBA
+========================================================= */
 
-        function inicio() {
+window.addEventListener(
+    "scroll",
+    () => {
 
-            document.getElementById(
-                "home"
-            ).style.display =
-                "block";
+        if (
+            window.scrollY > 350
+        ) {
 
-
-            document.getElementById(
-                "documento"
-            ).style.display =
-                "none";
-
-
-            document.getElementById(
-                "navInicio"
-            ).classList.add(
-                "active"
+            backToTop.classList.add(
+                "visible"
             );
 
+        } else {
 
-            window.scrollTo({
-                top: 0,
-                behavior: "smooth"
-            });
-
-        }
-
-
-        /* =========================================================
-           ACTIVAR BÚSQUEDA
-           ========================================================= */
-
-        function activarBusqueda() {
-
-            inicio();
-
-            setTimeout(
-                () => buscador.focus(),
-                100
+            backToTop.classList.remove(
+                "visible"
             );
 
         }
 
+    }
+);
 
-        /* =========================================================
-           NORMALIZAR RUTA
-           ========================================================= */
 
-        function normalizarRuta(
+backToTop.addEventListener(
+    "click",
+    () => {
+
+        window.scrollTo({
+
+            top: 0,
+
+            behavior: "smooth"
+
+        });
+
+    }
+);
+
+
+/* =========================================================
+   ABRIR DOCUMENTO DESDE URL
+========================================================= */
+
+function abrirDocumentoDesdeHash() {
+
+    const hash =
+        location.hash;
+
+
+    if (
+        !hash.startsWith(
+            "#documento="
+        )
+    ) {
+
+        return;
+
+    }
+
+
+    const ruta =
+        decodeURIComponent(
+            hash.substring(
+                "#documento=".length
+            )
+        );
+
+
+    const documento =
+        buscarDocumentoPorRuta(
             ruta
-        ) {
-
-            let resultado =
-                String(
-                    ruta || ""
-                );
-
-
-            try {
-
-                resultado =
-                    decodeURIComponent(
-                        resultado
-                    );
-
-            } catch (
-                error
-            ) {}
-
-
-            resultado =
-                resultado.replace(
-                    /\\([()[\]])/g,
-                    "$1"
-                );
-
-
-            resultado =
-                resultado.replace(
-                    /^\.\/+/,
-                    ""
-                );
-
-
-            resultado =
-                resultado.replace(
-                    /^doc\//i,
-                    ""
-                );
-
-
-            resultado =
-                resultado.replace(
-                    /\/+/g,
-                    "/"
-                );
-
-
-            return resultado
-                .trim()
-                .toLowerCase();
-
-        }
-
-
-        /* =========================================================
-           LIMPIAR RUTA README
-           ========================================================= */
-
-        function limpiarRutaREADME(
-            ruta
-        ) {
-
-            let resultado =
-                String(
-                    ruta || ""
-                ).trim();
-
-
-            resultado =
-                resultado.replace(
-                    /\\([()[\]])/g,
-                    "$1"
-                );
-
-
-            try {
-
-                resultado =
-                    decodeURIComponent(
-                        resultado
-                    );
-
-            } catch (
-                error
-            ) {}
-
-
-            resultado =
-                resultado.replace(
-                    /^\.\/+/,
-                    ""
-                );
-
-
-            resultado =
-                resultado.replace(
-                    /^doc\//i,
-                    ""
-                );
-
-
-            return resultado.trim();
-
-        }
-
-
-        /* =========================================================
-           OBTENER NOMBRE
-           ========================================================= */
-
-        function obtenerNombreArchivo(
-            path
-        ) {
-
-            const partes =
-                String(path)
-                    .split("/");
-
-
-            return (
-                partes.pop() || ""
-            )
-                .replace(
-                    /\.md$/i,
-                    ""
-                );
-
-        }
-
-
-        /* =========================================================
-           LIMPIAR EMOJIS
-           ========================================================= */
-
-        function limpiarEmoji(
-            texto
-        ) {
-
-            return String(
-                texto || ""
-            )
-                .replace(
-                    /[\u{1F300}-\u{1FAFF}]/gu,
-                    ""
-                )
-                .trim();
-
-        }
-
-
-        /* =========================================================
-           LIMPIAR NOMBRE CATEGORÍA
-           ========================================================= */
-
-        function limpiarNombreCategoria(
-            texto
-        ) {
-
-            return String(
-                texto || ""
-            )
-                .replace(
-                    /[-_]/g,
-                    " "
-                )
-                .replace(
-                    /\s+/g,
-                    " "
-                )
-                .trim()
-                .replace(
-                    /\b\w/g,
-                    letra =>
-                        letra.toUpperCase()
-                );
-
-        }
-
-
-        /* =========================================================
-           ORDENAR
-           ========================================================= */
-
-        function ordenarDocumentos(
-            a,
-            b
-        ) {
-
-            return String(
-                a.nombre
-            ).localeCompare(
-                String(b.nombre),
-                "es"
-            );
-
-        }
-
-
-        /* =========================================================
-           ESCAPE HTML
-           ========================================================= */
-
-        function escapeHTML(
-            texto
-        ) {
-
-            return String(
-                texto ?? ""
-            )
-                .replace(
-                    /&/g,
-                    "&amp;"
-                )
-                .replace(
-                    /</g,
-                    "&lt;"
-                )
-                .replace(
-                    />/g,
-                    "&gt;"
-                )
-                .replace(
-                    /"/g,
-                    "&quot;"
-                )
-                .replace(
-                    /'/g,
-                    "&#039;"
-                );
-
-        }
-
-
-        /* =========================================================
-           ESCAPE REGEX
-           ========================================================= */
-
-        function escapeRegex(
-            texto
-        ) {
-
-            return String(
-                texto
-            )
-                .replace(
-                    /[.*+?^${}()|[\]\\]/g,
-                    "\\$&"
-                );
-
-        }
-
-
-        /* =========================================================
-           MENÚ MÓVIL
-           ========================================================= */
-
-        document
-            .getElementById(
-                "menuButton"
-            )
-            .addEventListener(
-                "click",
-                () => {
-
-                    document
-                        .getElementById(
-                            "sidebar"
-                        )
-                        .classList
-                        .toggle(
-                            "open"
-                        );
-
-                }
-            );
-
-
-        /* =========================================================
-           BUSCADOR SIDEBAR
-           ========================================================= */
-
-        document
-            .getElementById(
-                "sidebarSearch"
-            )
-            .addEventListener(
-                "input",
-                function () {
-
-                    const texto =
-                        this.value
-                            .toLowerCase()
-                            .trim();
-
-
-                    document
-                        .querySelectorAll(
-                            "#categorias .sidebar-category"
-                        )
-                        .forEach(
-                            categoria => {
-
-                                const visible =
-                                    categoria
-                                        .textContent
-                                        .toLowerCase()
-                                        .includes(
-                                            texto
-                                        );
-
-
-                                categoria.style.display =
-                                    visible
-                                        ? "block"
-                                        : "none";
-
-                            }
-                        );
-
-                }
-            );
-
-
-        /* =========================================================
-           BOTÓN SUBIR ARRIBA
-           ========================================================= */
-
-        const backToTop =
-            document.getElementById(
-                "backToTop"
-            );
-
-
-        window.addEventListener(
-            "scroll",
-            () => {
-
-                if (
-                    window.scrollY > 300
-                ) {
-
-                    backToTop.classList.add(
-                        "visible"
-                    );
-
-                } else {
-
-                    backToTop.classList.remove(
-                        "visible"
-                    );
-
-                }
-
-            }
         );
 
 
-        backToTop.addEventListener(
-            "click",
-            () => {
+    if (documento) {
 
-                window.scrollTo({
-
-                    top: 0,
-
-                    behavior: "smooth"
-
-                });
-
-            }
+        abrirDocumento(
+            documento.path
         );
 
+    }
 
-        /* =========================================================
-           MODO OSCURO / CLARO
-           ========================================================= */
-
-        const themeButton =
-            document.getElementById(
-                "themeButton"
-            );
+}
 
 
-        function aplicarTema(
-            tema
-        ) {
+/* =========================================================
+   INICIO
+========================================================= */
 
-            if (
-                tema === "light"
-            ) {
+iniciar()
+    .then(
+        () => {
 
-                document.body.classList.add(
-                    "light"
-                );
-
-
-                themeButton.textContent =
-                    "🌙 Oscuro";
-
-            } else {
-
-                document.body.classList.remove(
-                    "light"
-                );
-
-
-                themeButton.textContent =
-                    "☀️ Claro";
-
-            }
-
-
-            localStorage.setItem(
-                "ethernet-theme",
-                tema
-            );
+            abrirDocumentoDesdeHash();
 
         }
+    );
 
-
-        const temaGuardado =
-            localStorage.getItem(
-                "ethernet-theme"
-            );
-
-
-        aplicarTema(
-            temaGuardado === "light"
-                ? "light"
-                : "dark"
-        );
-
-
-        themeButton.addEventListener(
-            "click",
-            () => {
-
-                const esClaro =
-                    document.body.classList.contains(
-                        "light"
-                    );
-
-
-                aplicarTema(
-                    esClaro
-                        ? "dark"
-                        : "light"
-                );
-
-            }
-        );
-
-
-        /* =========================================================
-           ARRANCAR
-           ========================================================= */
-
-        iniciar();
-
-    </script>
+</script>
 
 </body>
 
