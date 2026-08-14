@@ -100,7 +100,7 @@ Este grupo incluye múltiples causas posibles dentro del domicilio del cliente.
 - [Router desconfigurado](./Router%20desconfigurado.md)  
   Router funcionando pero sin configuración válida o con valores por defecto.
 
-- [Falta de cobertura WiFi](./Chequeo%20de%20un%20dispositivo%20puntual.md)  
+- [Falta de cobertura WiFi](./Falta%20de%20cobertura%20WiFi.md)  
   Señal inalámbrica insuficiente dentro del domicilio.
 
 - [Consulta de red interna](./Consulta%20de%20Red%20Interna.md)  
