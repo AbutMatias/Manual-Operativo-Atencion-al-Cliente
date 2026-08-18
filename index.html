@@ -5,17 +5,28 @@
 
     <meta charset="UTF-8">
 
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-    <meta name="description"
-        content="Manual Operativo - Atención al Cliente">
+    <meta
+        name="description"
+        content="Manual Operativo - Atención al Cliente"
+    >
 
     <title>Eternet Assistant</title>
 
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <!-- MARKED -->
+    <script
+        src="https://cdn.jsdelivr.net/npm/marked/marked.min.js">
+    </script>
 
-    <link rel="stylesheet" href="style.css">
+    <!-- CSS EXTERNO -->
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
 
 </head>
 
@@ -23,3511 +34,645 @@
 <body>
 
 
-<!-- =========================================================
-     HEADER
-========================================================= -->
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
 
-<header class="header">
+    <header class="header">
 
-    <div class="header-left">
+        <div class="header-left">
 
-        <button
-            class="menu-button"
-            id="menuButton"
-            type="button"
-            aria-label="Abrir menú"
-        >
-            ☰
-        </button>
+            <button
+                id="menuButton"
+                class="menu-button"
+                type="button"
+                aria-label="Abrir menú"
+            >
+                ☰
+            </button>
 
 
-        <div class="brand">
+            <div class="brand">
 
-            <img
-                src="logo_ethernet.png"
-                alt="Ethernet"
-                class="brand-logo"
+                <img
+                    src="logo_ethernet.png"
+                    alt="Eternet"
+                    class="brand-logo"
+                >
+
+                <span class="brand-name">
+                    Eternet Assistant
+                </span>
+
+                <span class="brand-subtitle">
+                    Manual Operativo
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="header-right">
+
+            <div
+                class="header-status"
+                id="headerStatus"
             >
 
-            <span class="brand-name">
-                Eternet Assistant
-            </span>
+                <span class="status-dot"></span>
 
-        </div>
-
-    </div>
-
-
-    <div class="header-right">
-
-        <div
-            class="header-status"
-            id="headerStatus"
-        >
-            Cargando...
-        </div>
-
-
-        <button
-            class="theme-button"
-            id="themeButton"
-            type="button"
-            title="Cambiar tema"
-        >
-            ☀️
-        </button>
-
-
-        <a
-            class="github-button"
-            href="https://github.com/AbutMatias/Manual-Operativo-Atencion-al-Cliente"
-            target="_blank"
-            rel="noopener noreferrer"
-        >
-            GitHub
-        </a>
-
-    </div>
-
-</header>
-
-
-<!-- =========================================================
-     LOADING
-========================================================= -->
-
-<div
-    class="loading-bar"
-    id="loadingBar"
->
-
-    <div class="loading-progress"></div>
-
-</div>
-
-
-<!-- =========================================================
-     SIDEBAR
-========================================================= -->
-
-<aside
-    class="sidebar"
-    id="sidebar"
->
-
-
-    <div class="sidebar-section">
-        Navegación
-    </div>
-
-
-    <div class="sidebar-search">
-
-        <input
-            id="sidebarSearch"
-            type="text"
-            placeholder="Buscar documento..."
-            autocomplete="off"
-        >
-
-    </div>
-
-
-    <div class="nav">
-
-        <div
-            class="nav-item active"
-            id="navInicio"
-            onclick="inicio()"
-        >
-
-            <span class="category-icon">
-                🏠
-            </span>
-
-            Inicio
-
-        </div>
-
-
-        <div
-            class="nav-item"
-            onclick="activarBusqueda()"
-        >
-
-            <span class="category-icon">
-                🔎
-            </span>
-
-            Buscar
-
-        </div>
-
-    </div>
-
-
-    <!-- FAVORITOS -->
-
-    <div class="sidebar-section">
-        ⭐ Favoritos
-    </div>
-
-
-    <div
-        class="special-list"
-        id="favoritos"
-    >
-
-        <div class="empty-special">
-            No hay favoritos
-        </div>
-
-    </div>
-
-
-    <!-- HISTORIAL -->
-
-    <div class="sidebar-section">
-        🕘 Recientes
-    </div>
-
-
-    <div
-        class="special-list"
-        id="historial"
-    >
-
-        <div class="empty-special">
-            No hay documentos recientes
-        </div>
-
-    </div>
-
-
-    <!-- ACCESOS -->
-
-    <div class="sidebar-section">
-        ⚡ Accesos rápidos
-    </div>
-
-
-    <div class="quick-access">
-
-        <button
-            class="quick-button"
-            onclick="buscarRapido('Sin conexión')"
-        >
-            Sin conexión
-        </button>
-
-        <button
-            class="quick-button"
-            onclick="buscarRapido('Ping')"
-        >
-            Ping
-        </button>
-
-        <button
-            class="quick-button"
-            onclick="buscarRapido('Traceroute')"
-        >
-            Traceroute
-        </button>
-
-        <button
-            class="quick-button"
-            onclick="buscarRapido('Winbox')"
-        >
-            Winbox
-        </button>
-
-        <button
-            class="quick-button"
-            onclick="buscarRapido('SpeedTest')"
-        >
-            SpeedTest
-        </button>
-
-        <button
-            class="quick-button"
-            onclick="buscarRapido('WiFi')"
-        >
-            WiFi
-        </button>
-
-    </div>
-
-
-    <div class="sidebar-section">
-        Documentación
-    </div>
-
-
-    <div
-        class="nav"
-        id="categorias"
-    >
-
-        <div class="nav-item">
-            Cargando índice...
-        </div>
-
-    </div>
-
-</aside>
-
-
-<!-- =========================================================
-     MAIN
-========================================================= -->
-
-<main class="main">
-
-    <div class="content">
-
-
-        <!-- =====================================================
-             HOME
-        ===================================================== -->
-
-        <section id="home">
-
-
-            <div class="hero">
-
-                <h1 class="hero-title">
-                    Manual Operativo
-                </h1>
-
-
-                <p class="hero-subtitle">
-
-                    Documentación técnica, procedimientos,
-                    diagnóstico de red y herramientas para
-                    Atención al Cliente.
-
-                </p>
-
-
-                <div class="main-search">
-
-                    <div class="main-search-wrapper">
-
-                        <span class="main-search-icon">
-                            🔎
-                        </span>
-
-
-                        <input
-                            id="buscador"
-                            type="text"
-                            autocomplete="off"
-                            placeholder="Buscar router, ONU, WiFi, ping..."
-                        >
-
-
-                        <button
-                            id="clearSearch"
-                            class="clear-search"
-                            type="button"
-                        >
-                            ✕
-                        </button>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- ESTADÍSTICAS -->
-
-            <div class="stats">
-
-                <div class="stat">
-
-                    <div
-                        class="stat-number"
-                        id="cantidad-documentos"
-                    >
-                        0
-                    </div>
-
-                    <div class="stat-label">
-                        Documentos
-                    </div>
-
-                </div>
-
-
-                <div class="stat">
-
-                    <div
-                        class="stat-number"
-                        id="cantidad-categorias"
-                    >
-                        0
-                    </div>
-
-                    <div class="stat-label">
-                        Categorías
-                    </div>
-
-                </div>
-
-
-                <div class="stat">
-
-                    <div
-                        class="stat-number"
-                        id="estado"
-                    >
-                        ...
-                    </div>
-
-                    <div class="stat-label">
-                        Estado del buscador
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- ACCESOS RÁPIDOS -->
-
-            <div class="home-section-title">
-                ⚡ Accesos rápidos
-            </div>
-
-
-            <div class="home-quick">
-
-                <button
-                    class="home-quick-button"
-                    onclick="buscarRapido('Sin conexión')"
-                >
-
-                    <div class="home-quick-title">
-                        🌐 Sin conexión
-                    </div>
-
-                    <div class="home-quick-text">
-                        Diagnóstico de problemas de conectividad
-                    </div>
-
-                </button>
-
-
-                <button
-                    class="home-quick-button"
-                    onclick="buscarRapido('Ping')"
-                >
-
-                    <div class="home-quick-title">
-                        📡 Ping
-                    </div>
-
-                    <div class="home-quick-text">
-                        Comprobación de conectividad y latencia
-                    </div>
-
-                </button>
-
-
-                <button
-                    class="home-quick-button"
-                    onclick="buscarRapido('Traceroute')"
-                >
-
-                    <div class="home-quick-title">
-                        🛰️ Traceroute
-                    </div>
-
-                    <div class="home-quick-text">
-                        Análisis de la ruta de red
-                    </div>
-
-                </button>
-
-
-                <button
-                    class="home-quick-button"
-                    onclick="buscarRapido('Winbox')"
-                >
-
-                    <div class="home-quick-title">
-                        🖥️ Winbox
-                    </div>
-
-                    <div class="home-quick-text">
-                        Acceso y administración MikroTik
-                    </div>
-
-                </button>
-
-
-                <button
-                    class="home-quick-button"
-                    onclick="buscarRapido('SpeedTest')"
-                >
-
-                    <div class="home-quick-title">
-                        🚀 SpeedTest
-                    </div>
-
-                    <div class="home-quick-text">
-                        Prueba de velocidad
-                    </div>
-
-                </button>
-
-
-                <button
-                    class="home-quick-button"
-                    onclick="buscarRapido('WiFi')"
-                >
-
-                    <div class="home-quick-title">
-                        📶 WiFi
-                    </div>
-
-                    <div class="home-quick-text">
-                        Diagnóstico de conectividad inalámbrica
-                    </div>
-
-                </button>
-
-            </div>
-
-
-            <!-- RESULTADOS -->
-
-            <div class="results-header">
-
-                <div class="results-title">
-                    Documentación
-                </div>
-
-                <div
-                    class="status"
-                    id="status"
-                >
+                <span id="headerStatusText">
                     Cargando...
-                </div>
+                </span>
 
             </div>
 
 
-            <div id="resultados"></div>
+            <a
+                class="github-button"
+                href="https://github.com/AbutMatias/Manual-Operativo-Atencion-al-Cliente"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                ◉ GitHub
+            </a>
+
+        </div>
+
+    </header>
 
 
-        </section>
+    <!-- =====================================================
+         BARRA DE CARGA
+    ====================================================== -->
 
+    <div
+        class="loading-bar"
+        id="loadingBar"
+    >
 
-        <!-- =====================================================
-             DOCUMENTO
-        ===================================================== -->
-
-        <section
-            class="document"
-            id="documento"
-        >
-
-            <div class="document-header">
-
-                <button
-                    class="back"
-                    onclick="inicio()"
-                >
-                    ← Volver
-                </button>
-
-
-                <div class="document-actions">
-
-                    <button
-                        class="document-action"
-                        id="favoriteDocument"
-                        type="button"
-                    >
-                        ☆ Favorito
-                    </button>
-
-
-                    <button
-                        class="document-action"
-                        id="copyLink"
-                        type="button"
-                    >
-                        🔗 Copiar enlace
-                    </button>
-
-
-                    <a
-                        id="linkGithub"
-                        class="document-github"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        Abrir en GitHub
-                    </a>
-
-                </div>
-
-            </div>
-
-
-            <div class="document-body">
-
-
-                <aside
-                    class="document-toc"
-                    id="documentToc"
-                >
-
-                    <div class="toc-title">
-                        En este documento
-                    </div>
-
-
-                    <div id="tocContent">
-
-                        <div class="empty-special">
-                            Sin índice
-                        </div>
-
-                    </div>
-
-                </aside>
-
-
-                <article
-                    class="markdown"
-                    id="contenidoDocumento"
-                >
-
-                </article>
-
-
-            </div>
-
-        </section>
-
+        <div class="loading-progress"></div>
 
     </div>
 
-</main>
 
+    <!-- =====================================================
+         OVERLAY MOBILE
+    ====================================================== -->
 
-<!-- =========================================================
-     BACK TO TOP
-========================================================= -->
+    <div
+        class="sidebar-overlay"
+        id="sidebarOverlay"
+    ></div>
 
-<button
-    id="backToTop"
-    class="back-to-top"
-    type="button"
-    title="Subir arriba"
-    aria-label="Subir arriba"
->
-    ↑
-</button>
 
+    <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
 
-<script>
+    <aside
+        class="sidebar"
+        id="sidebar"
+    >
 
 
-/* =========================================================
-   CONFIGURACIÓN
-========================================================= */
+        <!-- NAVEGACIÓN -->
 
-const OWNER =
-    "AbutMatias";
+        <div class="sidebar-section">
+            Navegación
+        </div>
 
-const REPO =
-    "Manual-Operativo-Atencion-al-Cliente";
 
-const BRANCH =
-    "main";
+        <!-- BUSCADOR SIDEBAR -->
 
+        <div class="sidebar-search">
 
-const API =
-    `https://api.github.com/repos/${OWNER}/${REPO}/contents/doc`;
+            <div class="sidebar-search-wrapper">
 
+                <span class="sidebar-search-icon">
+                    🔎
+                </span>
 
-const README_URL =
-    `https://raw.githubusercontent.com/${OWNER}/${REPO}/${BRANCH}/README.md`;
-
-
-const GITHUB_URL =
-    `https://github.com/${OWNER}/${REPO}/blob/${BRANCH}/`;
-
-
-const RAW_URL =
-    `https://raw.githubusercontent.com/${OWNER}/${REPO}/${BRANCH}/`;
-
-
-const INDEX_URL =
-    "./index.json";
-
-
-/* =========================================================
-   VARIABLES
-========================================================= */
-
-let documentos = [];
-
-let categorias = [];
-
-let readmeCache = null;
-
-let searchTimer = null;
-
-let documentoActual = null;
-
-
-/* =========================================================
-   ELEMENTOS
-========================================================= */
-
-const buscador =
-    document.getElementById("buscador");
-
-const clearSearch =
-    document.getElementById("clearSearch");
-
-const backToTop =
-    document.getElementById("backToTop");
-
-const sidebar =
-    document.getElementById("sidebar");
-
-const themeButton =
-    document.getElementById("themeButton");
-
-
-/* =========================================================
-   TEMA
-========================================================= */
-
-function cargarTema() {
-
-    const tema =
-        localStorage.getItem("temaManual");
-
-
-    if (tema === "dark") {
-
-        document.body.classList.add("dark");
-
-        themeButton.textContent =
-            "☀️";
-
-    } else {
-
-        document.body.classList.remove("dark");
-
-        themeButton.textContent =
-            "🌙";
-    }
-}
-
-
-themeButton.addEventListener(
-    "click",
-    () => {
-
-        document.body.classList.toggle("dark");
-
-
-        const oscuro =
-            document.body.classList.contains("dark");
-
-
-        localStorage.setItem(
-            "temaManual",
-            oscuro ? "dark" : "light"
-        );
-
-
-        themeButton.textContent =
-            oscuro
-                ? "☀️"
-                : "🌙";
-
-    }
-);
-
-
-cargarTema();
-
-
-/* =========================================================
-   INICIAR
-========================================================= */
-
-async function iniciar() {
-
-    const status =
-        document.getElementById("status");
-
-    const estado =
-        document.getElementById("estado");
-
-    const loading =
-        document.getElementById("loadingBar");
-
-    const headerStatus =
-        document.getElementById("headerStatus");
-
-
-    try {
-
-        loading.classList.add("active");
-
-        status.textContent =
-            "Cargando documentación...";
-
-        headerStatus.textContent =
-            "Cargando...";
-
-        estado.textContent =
-            "...";
-
-
-        const cargadoDesdeIndex =
-            await cargarDesdeIndex();
-
-
-        if (!cargadoDesdeIndex) {
-
-            await cargarDocumentosGitHub();
-
-        }
-
-
-        try {
-
-            await cargarCategorias();
-
-        } catch (error) {
-
-            console.warn(
-                "No se pudo cargar README:",
-                error
-            );
-
-            categorias = [];
-
-        }
-
-
-        document.getElementById(
-            "cantidad-documentos"
-        ).textContent =
-            documentos.length;
-
-
-        document.getElementById(
-            "cantidad-categorias"
-        ).textContent =
-            categorias.length;
-
-
-        estado.textContent =
-            "OK";
-
-
-        headerStatus.textContent =
-            `${documentos.length} documentos`;
-
-
-        status.textContent =
-            `${documentos.length} documentos disponibles`;
-
-
-        mostrarDocumentosIniciales();
-
-        mostrarFavoritos();
-
-        mostrarHistorial();
-
-
-    } catch (error) {
-
-        console.error(error);
-
-        estado.textContent =
-            "ERROR";
-
-        headerStatus.textContent =
-            "Error";
-
-        status.textContent =
-            "Error al cargar";
-
-
-        document.getElementById(
-            "resultados"
-        ).innerHTML = `
-
-            <div class="empty">
-
-                <div class="empty-title">
-                    No se pudo cargar la documentación
-                </div>
-
-                <br>
-
-                ${escapeHTML(error.message)}
+                <input
+                    id="sidebarSearch"
+                    type="text"
+                    placeholder="Buscar opción..."
+                    autocomplete="off"
+                >
 
             </div>
 
-        `;
+        </div>
 
-    } finally {
 
-        loading.classList.remove("active");
+        <!-- MENÚ -->
 
-    }
+        <div class="nav">
 
-}
 
-
-/* =========================================================
-   INDEX.JSON
-========================================================= */
-
-async function cargarDesdeIndex() {
-
-    try {
-
-        const respuesta =
-            await fetch(
-                `${INDEX_URL}?v=${Date.now()}`
-            );
-
-
-        if (!respuesta.ok) {
-            return false;
-        }
-
-
-        const data =
-            await respuesta.json();
-
-
-        if (!Array.isArray(data)) {
-            return false;
-        }
-
-
-        documentos =
-            data.map(documento => ({
-
-                nombre:
-                    documento.nombre,
-
-                path:
-                    documento.path,
-
-                contenido:
-                    documento.contenido || "",
-
-                url:
-                    documento.url ||
-                    `${RAW_URL}${documento.path}`
-
-            }));
-
-
-        documentos.sort(
-            (a, b) =>
-                a.nombre.localeCompare(
-                    b.nombre,
-                    "es"
-                )
-        );
-
-
-        return true;
-
-
-    } catch (error) {
-
-        console.warn(
-            "index.json no disponible"
-        );
-
-        return false;
-
-    }
-
-}
-
-
-/* =========================================================
-   GITHUB
-========================================================= */
-
-async function cargarDocumentosGitHub() {
-
-    const respuesta =
-        await fetch(API);
-
-
-    if (!respuesta.ok) {
-
-        throw new Error(
-            `GitHub API respondió ${respuesta.status}`
-        );
-
-    }
-
-
-    const archivos =
-        await respuesta.json();
-
-
-    documentos = [];
-
-
-    await recorrerCarpeta(
-        archivos
-    );
-
-
-    await Promise.all(
-
-        documentos.map(
-            async documento => {
-
-                try {
-
-                    const respuesta =
-                        await fetch(
-                            documento.url
-                        );
-
-
-                    if (!respuesta.ok) {
-                        throw new Error(
-                            respuesta.status
-                        );
-                    }
-
-
-                    documento.contenido =
-                        await respuesta.text();
-
-
-                } catch (error) {
-
-                    documento.contenido =
-                        "";
-
-                }
-
-            }
-        )
-
-    );
-
-
-    documentos.sort(
-        (a, b) =>
-            a.nombre.localeCompare(
-                b.nombre,
-                "es"
-            )
-    );
-
-}
-
-
-/* =========================================================
-   RECORRER CARPETAS
-========================================================= */
-
-async function recorrerCarpeta(archivos) {
-
-    for (const archivo of archivos) {
-
-        if (
-            archivo.type === "file" &&
-            archivo.name
-                .toLowerCase()
-                .endsWith(".md")
-        ) {
-
-            documentos.push({
-
-                nombre:
-                    archivo.name.replace(
-                        /\.md$/i,
-                        ""
-                    ),
-
-                path:
-                    archivo.path,
-
-                url:
-                    archivo.download_url,
-
-                contenido:
-                    null
-
-            });
-
-            continue;
-        }
-
-
-        if (archivo.type === "dir") {
-
-            try {
-
-                const respuesta =
-                    await fetch(
-                        archivo.url
-                    );
-
-
-                if (!respuesta.ok) {
-                    continue;
-                }
-
-
-                const contenido =
-                    await respuesta.json();
-
-
-                await recorrerCarpeta(
-                    contenido
-                );
-
-
-            } catch (error) {
-
-                console.warn(
-                    "No se pudo leer:",
-                    archivo.path
-                );
-
-            }
-
-        }
-
-    }
-
-}
-
-
-/* =========================================================
-   README
-========================================================= */
-
-async function cargarCategorias() {
-
-    const respuesta =
-        await fetch(
-            `${README_URL}?v=${Date.now()}`
-        );
-
-
-    if (!respuesta.ok) {
-
-        throw new Error(
-            "No se pudo cargar README.md"
-        );
-
-    }
-
-
-    readmeCache =
-        await respuesta.text();
-
-
-    categorias =
-        obtenerCategorias(
-            readmeCache
-        );
-
-
-    mostrarCategorias();
-
-}
-
-
-/* =========================================================
-   OBTENER CATEGORÍAS
-========================================================= */
-
-function obtenerCategorias(markdown) {
-
-    const resultado = [];
-
-    const lineas =
-        markdown.split("\n");
-
-    let categoriaActual = null;
-
-    let documentoPendienteImportante =
-        false;
-
-
-    for (const linea of lineas) {
-
-        const categoria =
-            linea.match(
-                /^##\s+(.+)$/
-            );
-
-
-        if (categoria) {
-
-            categoriaActual = {
-
-                nombre:
-                    categoria[1].trim(),
-
-                documentos: []
-
-            };
-
-
-            resultado.push(
-                categoriaActual
-            );
-
-
-            continue;
-        }
-
-
-        if (!categoriaActual) {
-            continue;
-        }
-
-
-        if (
-            linea
-                .trim()
-                .startsWith("> [!Important]")
-        ) {
-
-            documentoPendienteImportante =
-                true;
-
-            continue;
-        }
-
-
-        const enlace =
-            linea.match(
-                /^\s*[-*]\s+\[([^\]]+)\]\((.+)\)$/
-            );
-
-
-        if (enlace) {
-
-            categoriaActual.documentos.push({
-
-                nombre:
-                    enlace[1].trim(),
-
-                ruta:
-                    limpiarRutaREADME(
-                        enlace[2].trim()
-                    ),
-
-                importante:
-                    false
-
-            });
-
-            continue;
-        }
-
-
-        const enlaceImportante =
-            linea.match(
-                /^\s*>\s*\[([^\]]+)\]\((.+)\)$/
-            );
-
-
-        if (enlaceImportante) {
-
-            categoriaActual.documentos.push({
-
-                nombre:
-                    enlaceImportante[1].trim(),
-
-                ruta:
-                    limpiarRutaREADME(
-                        enlaceImportante[2].trim()
-                    ),
-
-                importante:
-                    true
-
-            });
-
-
-            documentoPendienteImportante =
-                false;
-        }
-
-    }
-
-
-    return resultado;
-
-}
-
-
-/* =========================================================
-   LIMPIAR RUTA
-========================================================= */
-
-function limpiarRutaREADME(ruta) {
-
-    let resultado =
-        String(ruta || "").trim();
-
-
-    resultado =
-        resultado.replace(
-            /\\([()[\]])/g,
-            "$1"
-        );
-
-
-    try {
-
-        resultado =
-            decodeURIComponent(
-                resultado
-            );
-
-    } catch (error) {}
-
-
-    resultado =
-        resultado.replace(
-            /^\.\/+/,
-            ""
-        );
-
-
-    resultado =
-        resultado.replace(
-            /^doc\//i,
-            ""
-        );
-
-
-    return resultado.trim();
-
-}
-
-
-/* =========================================================
-   MOSTRAR CATEGORÍAS
-========================================================= */
-
-function mostrarCategorias() {
-
-    const contenedor =
-        document.getElementById(
-            "categorias"
-        );
-
-
-    contenedor.innerHTML = "";
-
-
-    if (
-        categorias.length === 0
-    ) {
-
-        contenedor.innerHTML = `
-
-            <div class="nav-item">
-                Sin categorías
-            </div>
-
-        `;
-
-        return;
-    }
-
-
-    categorias.forEach(
-        (categoria, index) => {
-
-            const categoriaElemento =
-                document.createElement(
-                    "div"
-                );
-
-
-            categoriaElemento.className =
-                "sidebar-category";
-
-
-            const categoriaTitulo =
-                document.createElement(
-                    "div"
-                );
-
-
-            categoriaTitulo.className =
-                "nav-item sidebar-category-title";
-
-
-            categoriaTitulo.innerHTML = `
+            <div
+                class="nav-item active"
+                id="navInicio"
+                data-action="inicio"
+            >
 
                 <span class="category-icon">
-                    📁
+                    🏠
                 </span>
 
-                <span class="sidebar-category-name">
-
-                    ${escapeHTML(
-                        limpiarEmoji(
-                            categoria.nombre
-                        )
-                    )}
-
+                <span>
+                    Inicio
                 </span>
 
-                <span class="category-count">
-                    ${categoria.documentos.length}
+            </div>
+
+
+            <div
+                class="nav-item"
+                id="navBuscar"
+                data-action="buscar"
+            >
+
+                <span class="category-icon">
+                    🔎
                 </span>
 
-                <span class="sidebar-arrow">
-                    ›
+                <span>
+                    Buscar documentación
                 </span>
 
-            `;
+            </div>
+
+        </div>
 
 
-            const categoriaContenido =
-                document.createElement(
-                    "div"
-                );
+        <!-- ACCESOS RÁPIDOS -->
+
+        <div class="sidebar-section">
+            Accesos rápidos
+        </div>
 
 
-            categoriaContenido.className =
-                "sidebar-category-content";
+        <div class="quick-access">
 
 
-            categoriaTitulo.addEventListener(
-                "click",
-                () => {
-
-                    categoriaContenido
-                        .classList
-                        .toggle("open");
-
-
-                    categoriaTitulo
-                        .classList
-                        .toggle("expanded");
-
-                }
-            );
+            <button
+                class="quick-button"
+                type="button"
+                data-search="ONU"
+            >
+                ONU
+            </button>
 
 
-            categoriaElemento.appendChild(
-                categoriaTitulo
-            );
+            <button
+                class="quick-button"
+                type="button"
+                data-search="Router"
+            >
+                Router
+            </button>
 
 
-            categoria.documentos.forEach(
-                documento => {
-
-                    agregarDocumentoSidebar(
-                        categoriaContenido,
-                        documento
-                    );
-
-                }
-            );
+            <button
+                class="quick-button"
+                type="button"
+                data-search="WiFi"
+            >
+                WiFi
+            </button>
 
 
-            categoriaElemento.appendChild(
-                categoriaContenido
-            );
+            <button
+                class="quick-button"
+                type="button"
+                data-search="Ping"
+            >
+                Ping
+            </button>
 
 
-            contenedor.appendChild(
-                categoriaElemento
-            );
-
-        }
-    );
-
-}
-
-
-/* =========================================================
-   SIDEBAR DOCUMENT
-========================================================= */
-
-function agregarDocumentoSidebar(
-    contenedor,
-    documento
-) {
-
-    const elemento =
-        document.createElement(
-            "div"
-        );
+            <button
+                class="quick-button"
+                type="button"
+                data-search="DNS"
+            >
+                DNS
+            </button>
 
 
-    elemento.className =
-        "sidebar-document";
+            <button
+                class="quick-button"
+                type="button"
+                data-search="Winbox"
+            >
+                Winbox
+            </button>
 
 
-    if (
-        documento.importante
-    ) {
-
-        elemento.classList.add(
-            "important"
-        );
-
-    }
+            <button
+                class="quick-button"
+                type="button"
+                data-search="SpeedTest"
+            >
+                SpeedTest
+            </button>
 
 
-    const icono =
-        documento.importante
-            ? "⚠️"
-            : "📄";
+            <button
+                class="quick-button"
+                type="button"
+                data-search="Traceroute"
+            >
+                Traceroute
+            </button>
+
+        </div>
 
 
-    const ruta =
-        limpiarRutaREADME(
-            documento.ruta
-        );
+        <!-- FAVORITOS -->
+
+        <div class="sidebar-section">
+            Favoritos
+        </div>
 
 
-    const favorito =
-        esFavoritoPorRuta(
-            ruta
-        );
-
-
-    elemento.innerHTML = `
-
-        <span class="sidebar-document-icon">
-            ${icono}
-        </span>
-
-        <span>
-            ${escapeHTML(
-                limpiarEmoji(
-                    documento.nombre
-                )
-            )}
-        </span>
-
-        <span
-            class="favorite-star ${favorito ? "active" : ""}"
-            title="Favorito"
+        <div
+            class="special-list"
+            id="favoritos"
         >
-            ${favorito ? "★" : "☆"}
-        </span>
-
-    `;
-
-
-    elemento.addEventListener(
-        "click",
-        event => {
-
-            if (
-                event.target.classList
-                    .contains("favorite-star")
-            ) {
-
-                event.stopPropagation();
-
-                alternarFavorito(
-                    ruta
-                );
-
-                event.target.classList.toggle(
-                    "active"
-                );
-
-                event.target.textContent =
-                    esFavoritoPorRuta(ruta)
-                        ? "★"
-                        : "☆";
-
-                return;
-            }
-
-
-            abrirDocumentoPorRuta(
-                ruta
-            );
-
-        }
-    );
-
-
-    contenedor.appendChild(
-        elemento
-    );
-
-}
-
-
-/* =========================================================
-   BUSCAR DOCUMENTO POR RUTA
-========================================================= */
-
-function buscarDocumentoPorRuta(
-    ruta
-) {
-
-    const rutaNormalizada =
-        normalizarRuta(
-            ruta
-        );
-
-
-    let encontrado =
-        documentos.find(
-            item =>
-                normalizarRuta(
-                    item.path
-                ) ===
-                rutaNormalizada
-        );
-
-
-    if (!encontrado) {
-
-        encontrado =
-            documentos.find(
-                item =>
-                    normalizarRuta(
-                        item.path
-                    ) ===
-                    `doc/${rutaNormalizada}`
-            );
-
-    }
-
-
-    if (!encontrado) {
-
-        const nombre =
-            rutaNormalizada
-                .split("/")
-                .pop()
-                .replace(
-                    /\.md$/i,
-                    ""
-                );
-
-
-        encontrado =
-            documentos.find(
-                item =>
-                    normalizarRuta(
-                        item.nombre
-                    ) ===
-                    nombre
-            );
-
-    }
-
-
-    return encontrado;
-
-}
-
-
-/* =========================================================
-   ABRIR POR RUTA
-========================================================= */
-
-function abrirDocumentoPorRuta(
-    ruta
-) {
-
-    const documento =
-        buscarDocumentoPorRuta(
-            ruta
-        );
-
-
-    if (documento) {
-
-        abrirDocumento(
-            documento.path
-        );
-
-        return;
-
-    }
-
-
-    alert(
-        "No se encontró el documento:\n\n" +
-        ruta
-    );
-
-}
-
-
-/* =========================================================
-   DOCUMENTOS INICIALES
-========================================================= */
-
-function mostrarDocumentosIniciales() {
-
-    const resultados =
-        documentos.map(
-            documento => ({
-
-                documento,
-
-                contenido:
-                    documento.contenido || "",
-
-                puntos: 0
-
-            })
-        );
-
-
-    mostrarResultados(
-        resultados.slice(
-            0,
-            20
-        ),
-        ""
-    );
-
-}
-
-
-/* =========================================================
-   BUSCADOR
-========================================================= */
-
-buscador.addEventListener(
-    "input",
-    function () {
-
-        const texto =
-            this.value
-                .trim()
-                .toLowerCase();
-
-
-        clearSearch.style.display =
-            texto
-                ? "block"
-                : "none";
-
-
-        clearTimeout(
-            searchTimer
-        );
-
-
-        searchTimer =
-            setTimeout(
-                () => {
-
-                    if (!texto) {
-
-                        mostrarDocumentosIniciales();
-
-                        document.getElementById(
-                            "status"
-                        ).textContent =
-                            `${documentos.length} documentos disponibles`;
-
-                        return;
-
-                    }
-
-
-                    buscarDocumentos(
-                        texto
-                    );
-
-                },
-                80
-            );
-
-    }
-);
-
-
-/* =========================================================
-   BUSCAR RÁPIDO
-========================================================= */
-
-function buscarRapido(texto) {
-
-    inicio();
-
-
-    buscador.value =
-        texto;
-
-
-    clearSearch.style.display =
-        "block";
-
-
-    buscarDocumentos(
-        texto.toLowerCase()
-    );
-
-
-    buscador.focus();
-
-}
-
-
-/* =========================================================
-   LIMPIAR BUSCADOR
-========================================================= */
-
-clearSearch.addEventListener(
-    "click",
-    () => {
-
-        buscador.value = "";
-
-        clearSearch.style.display =
-            "none";
-
-        mostrarDocumentosIniciales();
-
-        document.getElementById(
-            "status"
-        ).textContent =
-            `${documentos.length} documentos disponibles`;
-
-        buscador.focus();
-
-    }
-);
-
-
-/* =========================================================
-   BUSCAR
-========================================================= */
-
-function buscarDocumentos(texto) {
-
-    const palabras =
-        texto
-            .split(/\s+/)
-            .filter(Boolean);
-
-
-    const resultados = [];
-
-
-    for (
-        const documento of documentos
-    ) {
-
-        const contenido =
-            documento.contenido || "";
-
-
-        const textoBusqueda = (
-
-            documento.nombre +
-            " " +
-            documento.path +
-            " " +
-            contenido
-
-        ).toLowerCase();
-
-
-        let puntos = 0;
-
-
-        for (
-            const palabra of palabras
-        ) {
-
-            if (
-                textoBusqueda.includes(
-                    palabra
-                )
-            ) {
-
-                puntos++;
-
-            }
-
-        }
-
-
-        if (
-            puntos === palabras.length
-        ) {
-
-            resultados.push({
-
-                documento,
-
-                contenido,
-
-                puntos
-
-            });
-
-        }
-
-    }
-
-
-    resultados.sort(
-        (a, b) => {
-
-            if (
-                b.puntos !==
-                a.puntos
-            ) {
-
-                return (
-                    b.puntos -
-                    a.puntos
-                );
-
-            }
-
-
-            return a.documento.nombre
-                .localeCompare(
-                    b.documento.nombre,
-                    "es"
-                );
-
-        }
-    );
-
-
-    mostrarResultados(
-        resultados,
-        texto
-    );
-
-
-    document.getElementById(
-        "status"
-    ).textContent =
-        `${resultados.length} resultado(s)`;
-
-}
-
-
-/* =========================================================
-   MOSTRAR RESULTADOS
-========================================================= */
-
-function mostrarResultados(
-    resultados,
-    texto
-) {
-
-    const contenedor =
-        document.getElementById(
-            "resultados"
-        );
-
-
-    contenedor.innerHTML = "";
-
-
-    if (
-        resultados.length === 0
-    ) {
-
-        contenedor.innerHTML = `
-
-            <div class="empty">
-
-                🔎
-
-                <br><br>
-
-                <div class="empty-title">
-                    No encontramos resultados
-                </div>
-
-                <br>
-
-                No existe ningún documento
-                que contenga:
-
-                <br><br>
-
-                <strong>
-                    "${escapeHTML(texto)}"
-                </strong>
-
-            </div>
-
-        `;
-
-        return;
-    }
-
-
-    resultados.forEach(
-        resultado => {
-
-            const fragmento =
-                obtenerFragmento(
-                    resultado.contenido,
-                    texto
-                );
-
-
-            const elemento =
-                document.createElement(
-                    "div"
-                );
-
-
-            elemento.className =
-                "result";
-
-
-            const favorito =
-                esFavoritoPorRuta(
-                    resultado.documento.path
-                );
-
-
-            elemento.innerHTML = `
-
-                <div class="result-title">
-
-                    <span
-                        class="result-title-icon"
-                    >
-                        📄
-                    </span>
-
-                    ${escapeHTML(
-                        resultado.documento.nombre
-                    )}
-
-                </div>
-
-
-                <div class="result-category">
-
-                    📁
-
-                    ${escapeHTML(
-                        resultado.documento.path
-                    )}
-
-                </div>
-
-
-                <div class="result-text">
-
-                    ${resaltar(
-                        fragmento,
-                        texto
-                    )}
-
-                </div>
-
-
-                <div class="result-actions">
-
-                    <button
-                        type="button"
-                        class="read-button"
-                    >
-                        Leer documento
-                    </button>
-
-
-                    <button
-                        type="button"
-                        class="secondary favorite-result"
-                    >
-                        ${favorito
-                            ? "★ Favorito"
-                            : "☆ Favorito"}
-                    </button>
-
-                </div>
-
-            `;
-
-
-            elemento
-                .querySelector(
-                    ".read-button"
-                )
-                .addEventListener(
-                    "click",
-                    () =>
-                        abrirDocumento(
-                            resultado
-                                .documento
-                                .path
-                        )
-                );
-
-
-            elemento
-                .querySelector(
-                    ".favorite-result"
-                )
-                .addEventListener(
-                    "click",
-                    () => {
-
-                        alternarFavorito(
-                            resultado
-                                .documento
-                                .path
-                        );
-
-
-                        elemento
-                            .querySelector(
-                                ".favorite-result"
-                            )
-                            .textContent =
-                            esFavoritoPorRuta(
-                                resultado
-                                    .documento
-                                    .path
-                            )
-                                ? "★ Favorito"
-                                : "☆ Favorito";
-
-                    }
-                );
-
-
-            contenedor.appendChild(
-                elemento
-            );
-
-        }
-    );
-
-}
-
-
-/* =========================================================
-   FRAGMENTO
-========================================================= */
-
-function obtenerFragmento(
-    contenido,
-    texto
-) {
-
-    const limpio =
-        contenido
-            .replace(
-                /[#>*_`]/g,
-                " "
-            )
-            .replace(
-                /\s+/g,
-                " "
-            )
-            .trim();
-
-
-    if (!texto) {
-
-        return limpio.substring(
-            0,
-            300
-        );
-
-    }
-
-
-    const posicion =
-        limpio
-            .toLowerCase()
-            .indexOf(
-                texto.toLowerCase()
-            );
-
-
-    if (
-        posicion === -1
-    ) {
-
-        return limpio.substring(
-            0,
-            300
-        );
-
-    }
-
-
-    const inicio =
-        Math.max(
-            0,
-            posicion - 120
-        );
-
-
-    return limpio.substring(
-        inicio,
-        posicion +
-        texto.length +
-        250
-    );
-
-}
-
-
-/* =========================================================
-   RESALTAR
-========================================================= */
-
-function resaltar(
-    texto,
-    busqueda
-) {
-
-    let resultado =
-        escapeHTML(
-            texto
-        );
-
-
-    if (!busqueda) {
-        return resultado;
-    }
-
-
-    const palabras =
-        busqueda
-            .split(/\s+/)
-            .filter(Boolean);
-
-
-    palabras.forEach(
-        palabra => {
-
-            const regex =
-                new RegExp(
-                    `(${escapeRegex(
-                        palabra
-                    )})`,
-                    "gi"
-                );
-
-
-            resultado =
-                resultado.replace(
-                    regex,
-                    "<mark>$1</mark>"
-                );
-
-        }
-    );
-
-
-    return resultado;
-
-}
-
-
-/* =========================================================
-   ABRIR DOCUMENTO
-========================================================= */
-
-function abrirDocumento(path) {
-
-    const documento =
-        documentos.find(
-            item =>
-                item.path === path
-        );
-
-
-    if (!documento) {
-
-        alert(
-            "Documento no encontrado"
-        );
-
-        return;
-
-    }
-
-
-    documentoActual =
-        documento;
-
-
-    document.getElementById(
-        "home"
-    ).style.display =
-        "none";
-
-
-    document.getElementById(
-        "documento"
-    ).style.display =
-        "block";
-
-
-    const contenido =
-        document.getElementById(
-            "contenidoDocumento"
-        );
-
-
-    contenido.innerHTML =
-        "<p>Cargando documento...</p>";
-
-
-    try {
-
-        const markdown =
-            documento.contenido || "";
-
-
-        contenido.innerHTML =
-            marked.parse(
-                markdown
-            );
-
-
-        prepararDocumento(
-            contenido,
-            documento
-        );
-
-
-        agregarHistorial(
-            documento
-        );
-
-
-        actualizarBotonFavorito();
-
-
-        window.scrollTo(
-            0,
-            0
-        );
-
-
-        sidebar.classList.remove(
-            "open"
-        );
-
-
-        document.getElementById(
-            "navInicio"
-        ).classList.remove(
-            "active"
-        );
-
-
-        const hash =
-            encodeURIComponent(
-                documento.path
-            );
-
-
-        history.replaceState(
-            null,
-            "",
-            `#documento=${hash}`
-        );
-
-
-    } catch (error) {
-
-        contenido.innerHTML = `
-
-            <div class="empty">
-
-                <div class="empty-title">
-                    No se pudo cargar el documento
-                </div>
-
-                <br>
-
-                ${escapeHTML(
-                    error.message
-                )}
-
-            </div>
-
-        `;
-
-    }
-
-}
-
-
-/* =========================================================
-   PREPARAR DOCUMENTO
-========================================================= */
-
-function prepararDocumento(
-    contenido,
-    documento
-) {
-
-    /* IMÁGENES */
-
-    contenido
-        .querySelectorAll("img")
-        .forEach(
-            img => {
-
-                let src =
-                    img.getAttribute(
-                        "src"
-                    );
-
-
-                if (!src) {
-                    return;
-                }
-
-
-                src =
-                    src.trim();
-
-
-                if (
-                    src.startsWith(
-                        "http://"
-                    ) ||
-                    src.startsWith(
-                        "https://"
-                    )
-                ) {
-
-                    img.src =
-                        src;
-
-                } else {
-
-                    let imagen =
-                        src;
-
-
-                    imagen =
-                        imagen.replace(
-                            /^\.\//,
-                            ""
-                        );
-
-
-                    imagen =
-                        imagen.replace(
-                            /^\/+/,
-                            ""
-                        );
-
-
-                    imagen =
-                        imagen.replace(
-                            /^doc\/imagenes\//i,
-                            ""
-                        );
-
-
-                    imagen =
-                        imagen.replace(
-                            /^imagenes\//i,
-                            ""
-                        );
-
-
-                    try {
-
-                        imagen =
-                            decodeURIComponent(
-                                imagen
-                            );
-
-                    } catch (error) {}
-
-
-                    img.src =
-                        `${RAW_URL}doc/imagenes/${imagen}`;
-
-                }
-
-
-                img.loading =
-                    "lazy";
-
-
-                img.decoding =
-                    "async";
-
-
-                img.addEventListener(
-                    "click",
-                    () => {
-
-                        window.open(
-                            img.src,
-                            "_blank"
-                        );
-
-                    }
-                );
-
-            }
-        );
-
-
-    /* LINKS */
-
-    contenido
-        .querySelectorAll("a")
-        .forEach(
-            link => {
-
-                link.target =
-                    "_blank";
-
-                link.rel =
-                    "noopener noreferrer";
-
-            }
-        );
-
-
-    /* GITHUB */
-
-    document.getElementById(
-        "linkGithub"
-    ).href =
-        GITHUB_URL +
-        documento.path
-            .split("/")
-            .map(
-                encodeURIComponent
-            )
-            .join("/");
-
-
-    /* ÍNDICE */
-
-    generarIndice(
-        contenido
-    );
-
-}
-
-
-/* =========================================================
-   ÍNDICE INTERNO
-========================================================= */
-
-function generarIndice(
-    contenido
-) {
-
-    const toc =
-        document.getElementById(
-            "tocContent"
-        );
-
-
-    toc.innerHTML = "";
-
-
-    const encabezados =
-        contenido.querySelectorAll(
-            "h1, h2, h3, h4"
-        );
-
-
-    if (
-        encabezados.length === 0
-    ) {
-
-        toc.innerHTML = `
-
-            <div class="empty-special">
-                Sin índice
-            </div>
-
-        `;
-
-        return;
-    }
-
-
-    encabezados.forEach(
-        (heading, index) => {
-
-            const id =
-                `seccion-${index}`;
-
-
-            heading.id =
-                id;
-
-
-            const item =
-                document.createElement(
-                    "div"
-                );
-
-
-            item.className =
-                "toc-item";
-
-
-            if (
-                heading.tagName === "H3"
-            ) {
-
-                item.classList.add(
-                    "toc-h3"
-                );
-
-            }
-
-
-            if (
-                heading.tagName === "H4"
-            ) {
-
-                item.classList.add(
-                    "toc-h4"
-                );
-
-            }
-
-
-            item.textContent =
-                heading.textContent;
-
-
-            item.addEventListener(
-                "click",
-                () => {
-
-                    heading.scrollIntoView({
-                        behavior: "smooth",
-                        block: "start"
-                    });
-
-                }
-            );
-
-
-            toc.appendChild(
-                item
-            );
-
-        }
-    );
-
-}
-
-
-/* =========================================================
-   FAVORITOS
-========================================================= */
-
-function obtenerFavoritos() {
-
-    try {
-
-        return JSON.parse(
-            localStorage.getItem(
-                "manualFavoritos"
-            ) || "[]"
-        );
-
-    } catch (error) {
-
-        return [];
-
-    }
-
-}
-
-
-function guardarFavoritos(
-    favoritos
-) {
-
-    localStorage.setItem(
-        "manualFavoritos",
-        JSON.stringify(
-            favoritos
-        )
-    );
-
-}
-
-
-function esFavoritoPorRuta(
-    ruta
-) {
-
-    const favoritos =
-        obtenerFavoritos();
-
-
-    const normalizada =
-        normalizarRuta(
-            ruta
-        );
-
-
-    return favoritos.some(
-        item =>
-            normalizarRuta(
-                item
-            ) === normalizada
-    );
-
-}
-
-
-function alternarFavorito(
-    ruta
-) {
-
-    const favoritos =
-        obtenerFavoritos();
-
-
-    const normalizada =
-        normalizarRuta(
-            ruta
-        );
-
-
-    const indice =
-        favoritos.findIndex(
-            item =>
-                normalizarRuta(
-                    item
-                ) === normalizada
-        );
-
-
-    if (
-        indice >= 0
-    ) {
-
-        favoritos.splice(
-            indice,
-            1
-        );
-
-    } else {
-
-        favoritos.push(
-            ruta
-        );
-
-    }
-
-
-    guardarFavoritos(
-        favoritos
-    );
-
-
-    mostrarFavoritos();
-
-
-    if (
-        documentoActual
-    ) {
-
-        actualizarBotonFavorito();
-
-    }
-
-}
-
-
-function mostrarFavoritos() {
-
-    const contenedor =
-        document.getElementById(
-            "favoritos"
-        );
-
-
-    const favoritos =
-        obtenerFavoritos();
-
-
-    contenedor.innerHTML = "";
-
-
-    if (
-        favoritos.length === 0
-    ) {
-
-        contenedor.innerHTML = `
 
             <div class="empty-special">
                 No hay favoritos
             </div>
 
-        `;
+        </div>
 
-        return;
 
-    }
+        <!-- HISTORIAL -->
 
+        <div class="sidebar-section">
+            Recientes
+        </div>
 
-    favoritos.forEach(
-        ruta => {
 
-            const documento =
-                buscarDocumentoPorRuta(
-                    ruta
-                );
-
-
-            if (!documento) {
-                return;
-            }
-
-
-            const elemento =
-                document.createElement(
-                    "div"
-                );
-
-
-            elemento.className =
-                "special-item";
-
-
-            elemento.innerHTML = `
-
-                <span>
-                    ⭐
-                </span>
-
-                <span>
-                    ${escapeHTML(
-                        documento.nombre
-                    )}
-                </span>
-
-            `;
-
-
-            elemento.addEventListener(
-                "click",
-                () =>
-                    abrirDocumento(
-                        documento.path
-                    )
-            );
-
-
-            contenedor.appendChild(
-                elemento
-            );
-
-        }
-    );
-
-}
-
-
-document.getElementById(
-    "favoriteDocument"
-).addEventListener(
-    "click",
-    () => {
-
-        if (!documentoActual) {
-            return;
-        }
-
-
-        alternarFavorito(
-            documentoActual.path
-        );
-
-    }
-);
-
-
-function actualizarBotonFavorito() {
-
-    if (!documentoActual) {
-        return;
-    }
-
-
-    const favorito =
-        esFavoritoPorRuta(
-            documentoActual.path
-        );
-
-
-    document.getElementById(
-        "favoriteDocument"
-    ).textContent =
-        favorito
-            ? "★ Favorito"
-            : "☆ Favorito";
-
-}
-
-
-/* =========================================================
-   HISTORIAL
-========================================================= */
-
-function obtenerHistorial() {
-
-    try {
-
-        return JSON.parse(
-            localStorage.getItem(
-                "manualHistorial"
-            ) || "[]"
-        );
-
-    } catch (error) {
-
-        return [];
-
-    }
-
-}
-
-
-function agregarHistorial(
-    documento
-) {
-
-    let historial =
-        obtenerHistorial();
-
-
-    historial =
-        historial.filter(
-            item =>
-                item.path !==
-                documento.path
-        );
-
-
-    historial.unshift({
-
-        path:
-            documento.path,
-
-        nombre:
-            documento.nombre
-
-    });
-
-
-    historial =
-        historial.slice(
-            0,
-            8
-        );
-
-
-    localStorage.setItem(
-        "manualHistorial",
-        JSON.stringify(
-            historial
-        )
-    );
-
-
-    mostrarHistorial();
-
-}
-
-
-function mostrarHistorial() {
-
-    const contenedor =
-        document.getElementById(
-            "historial"
-        );
-
-
-    const historial =
-        obtenerHistorial();
-
-
-    contenedor.innerHTML = "";
-
-
-    if (
-        historial.length === 0
-    ) {
-
-        contenedor.innerHTML = `
+        <div
+            class="special-list"
+            id="historial"
+        >
 
             <div class="empty-special">
                 No hay documentos recientes
             </div>
 
-        `;
+        </div>
 
-        return;
 
-    }
+        <!-- DOCUMENTACIÓN -->
 
+        <div class="sidebar-section">
+            Documentación
+        </div>
 
-    historial.forEach(
-        item => {
 
-            const documento =
-                documentos.find(
-                    doc =>
-                        doc.path ===
-                        item.path
-                );
+        <div
+            class="nav"
+            id="categorias"
+        >
 
+            <div class="nav-item">
+                Cargando índice...
+            </div>
 
-            if (!documento) {
-                return;
-            }
+        </div>
 
+    </aside>
 
-            const elemento =
-                document.createElement(
-                    "div"
-                );
 
+    <!-- =====================================================
+         MAIN
+    ====================================================== -->
 
-            elemento.className =
-                "special-item";
+    <main class="main">
 
+        <div class="content">
 
-            elemento.innerHTML = `
 
-                <span>
-                    🕘
-                </span>
+            <!-- =================================================
+                 HOME
+            ================================================== -->
 
-                <span>
-                    ${escapeHTML(
-                        documento.nombre
-                    )}
-                </span>
+            <section id="home">
 
-            `;
 
+                <div class="hero">
 
-            elemento.addEventListener(
-                "click",
-                () =>
-                    abrirDocumento(
-                        documento.path
-                    )
-            );
 
+                    <div class="hero-content">
 
-            contenedor.appendChild(
-                elemento
-            );
 
-        }
-    );
+                        <div class="hero-badge">
 
-}
+                            <span>
+                                ●
+                            </span>
 
+                            Base de conocimiento
 
-/* =========================================================
-   COPIAR ENLACE
-========================================================= */
+                        </div>
 
-document.getElementById(
-    "copyLink"
-).addEventListener(
-    "click",
-    async () => {
 
-        if (!documentoActual) {
-            return;
-        }
+                        <h1 class="hero-title">
 
+                            Manual
+                            <span>Operativo</span>
 
-        const url =
-            `${location.origin}${location.pathname}#documento=${encodeURIComponent(documentoActual.path)}`;
+                        </h1>
 
 
-        try {
+                        <p class="hero-subtitle">
 
-            await navigator.clipboard.writeText(
-                url
-            );
+                            Documentación técnica y
+                            procedimientos de Atención al
+                            Cliente. Encontrá rápidamente
+                            diagnósticos, herramientas,
+                            configuraciones y procedimientos.
 
+                        </p>
 
-            const boton =
-                document.getElementById(
-                    "copyLink"
-                );
 
+                        <!-- BUSCADOR PRINCIPAL -->
 
-            const anterior =
-                boton.textContent;
+                        <div class="main-search">
 
+                            <div class="main-search-wrapper">
 
-            boton.textContent =
-                "✓ Copiado";
+                                <span class="main-search-icon">
+                                    🔎
+                                </span>
 
 
-            setTimeout(
-                () => {
+                                <input
+                                    id="buscador"
+                                    type="text"
+                                    autocomplete="off"
+                                    placeholder="Buscar router, ONU, WiFi, ping, DNS..."
+                                >
 
-                    boton.textContent =
-                        anterior;
 
-                },
-                1500
-            );
+                                <button
+                                    id="clearSearch"
+                                    class="clear-search"
+                                    type="button"
+                                    aria-label="Limpiar búsqueda"
+                                >
+                                    ✕
+                                </button>
 
+                            </div>
 
-        } catch (error) {
+                        </div>
 
-            alert(
-                "No se pudo copiar el enlace."
-            );
+                    </div>
 
-        }
+                </div>
 
-    }
-);
 
+                <!-- =================================================
+                     ESTADÍSTICAS
+                ================================================== -->
 
-/* =========================================================
-   INICIO
-========================================================= */
+                <div class="stats">
 
-function inicio() {
 
-    document.getElementById(
-        "home"
-    ).style.display =
-        "block";
+                    <div class="stat">
 
+                        <div
+                            class="stat-number"
+                            id="cantidad-documentos"
+                        >
+                            0
+                        </div>
 
-    document.getElementById(
-        "documento"
-    ).style.display =
-        "none";
+                        <div class="stat-label">
+                            Documentos
+                        </div>
 
+                    </div>
 
-    document.getElementById(
-        "navInicio"
-    ).classList.add(
-        "active"
-    );
 
+                    <div class="stat">
 
-    documentoActual =
-        null;
+                        <div
+                            class="stat-number"
+                            id="cantidad-categorias"
+                        >
+                            0
+                        </div>
 
+                        <div class="stat-label">
+                            Categorías
+                        </div>
 
-    history.replaceState(
-        null,
-        "",
-        location.pathname
-    );
+                    </div>
 
 
-    window.scrollTo(
-        0,
-        0
-    );
+                    <div class="stat">
 
-}
+                        <div
+                            class="stat-number"
+                            id="estado"
+                        >
+                            ...
+                        </div>
 
+                        <div class="stat-label">
+                            Estado
+                        </div>
 
-/* =========================================================
-   BÚSQUEDA
-========================================================= */
+                    </div>
 
-function activarBusqueda() {
+                </div>
 
-    inicio();
 
-    buscador.focus();
+                <!-- =================================================
+                     ESTADO
+                ================================================== -->
 
-}
+                <div
+                    class="status"
+                    id="status"
+                >
+                    Cargando documentación...
+                </div>
 
 
-/* =========================================================
-   NORMALIZAR RUTA
-========================================================= */
+                <!-- =================================================
+                     RESULTADOS
+                ================================================== -->
 
-function normalizarRuta(
-    ruta
-) {
+                <div
+                    id="resultados"
+                    class="results"
+                >
 
-    let resultado =
-        String(
-            ruta || ""
-        );
+                    <div class="empty">
 
+                        Cargando documentación...
 
-    try {
+                    </div>
 
-        resultado =
-            decodeURIComponent(
-                resultado
-            );
+                </div>
 
-    } catch (error) {}
 
+            </section>
 
-    resultado =
-        resultado.replace(
-            /\\([()[\]])/g,
-            "$1"
-        );
 
+            <!-- =================================================
+                 DOCUMENTO
+            ================================================== -->
 
-    resultado =
-        resultado.replace(
-            /^\.\/+/,
-            ""
-        );
+            <section
+                id="documento"
+                class="document"
+                style="display: none;"
+            >
 
 
-    resultado =
-        resultado.replace(
-            /^doc\//i,
-            ""
-        );
+                <div class="document-header">
 
 
-    resultado =
-        resultado.replace(
-            /\/+/g,
-            "/"
-        );
+                    <div class="document-header-left">
 
 
-    return resultado
-        .trim()
-        .toLowerCase();
+                        <button
+                            id="backButton"
+                            class="back"
+                            type="button"
+                        >
+                            ← Volver
+                        </button>
 
-}
 
+                        <div>
 
-/* =========================================================
-   EMOJIS
-========================================================= */
+                            <h1
+                                id="documentTitle"
+                                class="document-title"
+                            >
+                                Documento
+                            </h1>
 
-function limpiarEmoji(
-    texto
-) {
 
-    return String(texto)
+                            <div
+                                id="documentPath"
+                                class="document-path"
+                            ></div>
 
-        .replace(
-            /[\u{1F300}-\u{1FAFF}]/gu,
-            ""
-        )
+                        </div>
 
-        .trim();
+                    </div>
 
-}
 
+                    <div class="document-actions">
 
-/* =========================================================
-   ESCAPE HTML
-========================================================= */
 
-function escapeHTML(
-    texto
-) {
+                        <button
+                            id="favoriteDocument"
+                            class="secondary"
+                            type="button"
+                        >
+                            ☆ Favorito
+                        </button>
 
-    return String(texto)
 
-        .replace(
-            /&/g,
-            "&amp;"
-        )
+                        <a
+                            id="linkGithub"
+                            class="document-github"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Abrir en GitHub ↗
+                        </a>
 
-        .replace(
-            /</g,
-            "&lt;"
-        )
+                    </div>
 
-        .replace(
-            />/g,
-            "&gt;"
-        )
+                </div>
 
-        .replace(
-            /"/g,
-            "&quot;"
-        )
 
-        .replace(
-            /'/g,
-            "&#039;"
-        );
+                <!-- =================================================
+                     CUERPO DOCUMENTO
+                ================================================== -->
 
-}
+                <div class="document-body">
 
 
-/* =========================================================
-   ESCAPE REGEX
-========================================================= */
+                    <!-- ÍNDICE -->
 
-function escapeRegex(
-    texto
-) {
+                    <aside
+                        class="document-toc"
+                        id="documentToc"
+                    >
 
-    return String(texto)
-        .replace(
-            /[.*+?^${}()|[\]\\]/g,
-            "\\$&"
-        );
+                        <div class="toc-title">
+                            En este documento
+                        </div>
 
-}
 
+                        <div id="tocContent">
 
-/* =========================================================
-   MENÚ
-========================================================= */
+                            <div class="empty-special">
+                                Sin índice
+                            </div>
 
-document
-    .getElementById(
-        "menuButton"
-    )
-    .addEventListener(
-        "click",
-        () => {
+                        </div>
 
-            sidebar.classList.toggle(
-                "open"
-            );
+                    </aside>
 
-        }
-    );
 
+                    <!-- MARKDOWN -->
 
-/* =========================================================
-   BUSCAR SIDEBAR
-========================================================= */
+                    <article
+                        class="markdown"
+                        id="contenidoDocumento"
+                    >
 
-document
-    .getElementById(
-        "sidebarSearch"
-    )
-    .addEventListener(
-        "input",
-        function () {
+                    </article>
 
-            const texto =
-                this.value
-                    .toLowerCase()
-                    .trim();
 
+                </div>
 
-            document
-                .querySelectorAll(
-                    "#categorias .sidebar-category"
-                )
-                .forEach(
-                    categoria => {
 
-                        const visible =
-                            categoria
-                                .textContent
-                                .toLowerCase()
-                                .includes(
-                                    texto
-                                );
+            </section>
 
 
-                        categoria.style.display =
-                            visible
-                                ? "block"
-                                : "none";
+        </div>
 
+    </main>
 
-                        if (
-                            texto &&
-                            visible
-                        ) {
 
-                            const contenido =
-                                categoria.querySelector(
-                                    ".sidebar-category-content"
-                                );
+    <!-- =====================================================
+         VOLVER ARRIBA
+    ====================================================== -->
 
+    <button
+        id="backToTop"
+        class="back-to-top"
+        type="button"
+        title="Subir arriba"
+        aria-label="Subir arriba"
+    >
+        ↑
+    </button>
 
-                            const titulo =
-                                categoria.querySelector(
-                                    ".sidebar-category-title"
-                                );
 
+    <!-- =====================================================
+         JAVASCRIPT EXTERNO
+    ====================================================== -->
 
-                            contenido.classList.add(
-                                "open"
-                            );
+    <script src="script.js"></script>
 
-
-                            titulo.classList.add(
-                                "expanded"
-                            );
-
-                        }
-
-                    }
-                );
-
-        }
-    );
-
-
-/* =========================================================
-   BOTÓN ARRIBA
-========================================================= */
-
-window.addEventListener(
-    "scroll",
-    () => {
-
-        if (
-            window.scrollY > 350
-        ) {
-
-            backToTop.classList.add(
-                "visible"
-            );
-
-        } else {
-
-            backToTop.classList.remove(
-                "visible"
-            );
-
-        }
-
-    }
-);
-
-
-backToTop.addEventListener(
-    "click",
-    () => {
-
-        window.scrollTo({
-
-            top: 0,
-
-            behavior: "smooth"
-
-        });
-
-    }
-);
-
-
-/* =========================================================
-   ABRIR DOCUMENTO DESDE URL
-========================================================= */
-
-function abrirDocumentoDesdeHash() {
-
-    const hash =
-        location.hash;
-
-
-    if (
-        !hash.startsWith(
-            "#documento="
-        )
-    ) {
-
-        return;
-
-    }
-
-
-    const ruta =
-        decodeURIComponent(
-            hash.substring(
-                "#documento=".length
-            )
-        );
-
-
-    const documento =
-        buscarDocumentoPorRuta(
-            ruta
-        );
-
-
-    if (documento) {
-
-        abrirDocumento(
-            documento.path
-        );
-
-    }
-
-}
-
-
-/* =========================================================
-   INICIO
-========================================================= */
-
-iniciar()
-    .then(
-        () => {
-
-            abrirDocumentoDesdeHash();
-
-        }
-    );
-
-</script>
 
 </body>
 
