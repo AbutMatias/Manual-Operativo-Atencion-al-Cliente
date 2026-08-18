@@ -1915,11 +1915,139 @@ body.sidebar-hidden .main {
    BOTÓN MOSTRAR / OCULTAR SIDEBAR
 ========================================================= */
 
+/* =========================================================
+   BOTÓN MOSTRAR / OCULTAR SIDEBAR
+========================================================= */
+
 const menuButton =
     document.getElementById("menuButton");
 
 const sidebar =
     document.getElementById("sidebar");
+
+
+/* =========================================================
+   RECUPERAR ESTADO GUARDADO
+========================================================= */
+
+const sidebarOculta =
+    localStorage.getItem("sidebar-hidden");
+
+
+if (
+    sidebarOculta === "true" &&
+    window.innerWidth > 800
+) {
+
+    document.body.classList.add(
+        "sidebar-hidden"
+    );
+
+}
+
+
+/* =========================================================
+   ACTUALIZAR BOTÓN
+========================================================= */
+
+function actualizarBotonSidebar() {
+
+    const oculta =
+        document.body.classList.contains(
+            "sidebar-hidden"
+        );
+
+
+    menuButton.setAttribute(
+        "aria-label",
+        oculta
+            ? "Mostrar barra lateral"
+            : "Ocultar barra lateral"
+    );
+
+
+    menuButton.setAttribute(
+        "title",
+        oculta
+            ? "Mostrar barra lateral"
+            : "Ocultar barra lateral"
+    );
+
+}
+
+
+/* =========================================================
+   CLICK
+========================================================= */
+
+menuButton.addEventListener(
+    "click",
+    function () {
+
+        /* DESKTOP */
+
+        if (window.innerWidth > 800) {
+
+            document.body.classList.toggle(
+                "sidebar-hidden"
+            );
+
+
+            const oculta =
+                document.body.classList.contains(
+                    "sidebar-hidden"
+                );
+
+
+            localStorage.setItem(
+                "sidebar-hidden",
+                oculta
+            );
+
+        }
+
+        /* MOBILE */
+
+        else {
+
+            sidebar.classList.toggle(
+                "open"
+            );
+
+        }
+
+
+        actualizarBotonSidebar();
+
+    }
+);
+
+
+/* =========================================================
+   INICIALIZAR
+========================================================= */
+
+actualizarBotonSidebar();
+
+
+/* =========================================================
+   CAMBIO DE TAMAÑO
+========================================================= */
+
+window.addEventListener(
+    "resize",
+    function () {
+
+        if (window.innerWidth > 800) {
+
+            sidebar.classList.remove(
+                "open"
+            );
+
+        }
+
+    }
+);
 
 
 /* =========================================================
