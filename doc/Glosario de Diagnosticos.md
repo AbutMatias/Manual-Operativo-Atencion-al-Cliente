@@ -122,7 +122,7 @@ Este grupo incluye múltiples causas posibles dentro del domicilio del cliente.
 - [Cambio de bajada](./Carga%20de%20instalación%20interna.md)  
   Reubicación del punto de conexión dentro del domicilio.
 
-- [Cableado interno](./Carga%20de%20instalación%20interna.md)  
+- [Cableado interno](./Cableado%20interno.md)  
   Instalación o ajuste de conexiones LAN.
 
 - [Acondicionamiento de línea](./Carga%20de%20instalación%20interna.md)  
