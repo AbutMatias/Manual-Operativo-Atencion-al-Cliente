@@ -125,7 +125,7 @@ Este grupo incluye múltiples causas posibles dentro del domicilio del cliente.
 - [Cableado interno](./Cableado%20interno.md)  
   Instalación o ajuste de conexiones LAN.
 
-- [Acondicionamiento de línea](./Carga%20de%20instalación%20interna.md)  
+- [Acondicionamiento de línea](./Acondicionamiento%20de%20linea.md)  
   Ordenamiento de cableado o instalación interna.
 
 - [Cables colgando](./Cables%20colgando.md)  
