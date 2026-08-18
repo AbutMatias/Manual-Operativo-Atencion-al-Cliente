@@ -10,7 +10,7 @@ Se puede identificar que un establecimiento depende de Arsat cuando la razón so
 
 - `Lote`
 
-![image](./imagenes/326530855-60bb5367-b00b-4494-8ec7-06781687b5e2.png)
+![image](./imagenes/326530855-60bb5367-b00b-4494-8ec7-06781687b5e2.jpg)
 
 
 ---
