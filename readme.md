@@ -20,6 +20,7 @@ Repositorio de documentación técnica, soporte y diagnóstico de red.
 - [Gestión de correos electrónicos (MailServer)](./doc/Gestión%20de%20correos%20electrónicos%20(MailServer).md)
 - [Reconexion Temporal (72hs)](./doc/Reconexión%20Temporal.md)
 - [Cambio de Abono (Upgrade / Downgrade)](./doc/Cambio%20de%20Abono.md)
+- [DirectvGO](./doc/DirectvGO.md)
 
   
 > [!Important]
