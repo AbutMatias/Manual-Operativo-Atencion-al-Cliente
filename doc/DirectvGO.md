@@ -250,7 +250,7 @@ Consume principalmente:
 - Contenido On Demand.
 - Diferentes plataformas de streaming.
   
-  ![image](./imagenes/638880974-2dc463e0-ad8a-4536-a030-c9fcac9f3bc5.jpg)
+  ![image](./imagenes/638880974-2dc463e0-ad8a-4536-a030-c9fcac9f3bc5.png)
 
 
 ---
