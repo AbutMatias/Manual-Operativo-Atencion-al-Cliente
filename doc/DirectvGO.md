@@ -167,7 +167,7 @@ La cantidad de reproducciones simultáneas depende del plan contratado y de las 
 - Grilla más limitada.
 - Hasta 10 dispositivos vinculados.
 - Hasta 2 transmisiones simultáneas.
-![image](https://github.com/AbutMatias/Manual-Operativo-Atencion-al-Cliente/blob/main/doc/imagenes/638880188-ea450868-99a8-4a4a-8506-9b7aeb423d5b.jpg)
+![image](./imagenes/638880188-ea450868-99a8-4a4a-8506-9b7aeb423d5b.jpg)
 ## Plan Fútbol Total
 
 Incluye contenido deportivo premium.
@@ -184,7 +184,7 @@ Según la capacitación:
 
 > **Importante:** el Pack Fútbol **no se puede contratar solo**. Debe combinarse con uno de los planes disponibles.
 
-![image](https://github.com/AbutMatias/Manual-Operativo-Atencion-al-Cliente/blob/main/doc/imagenes/638880375-0f41c823-c81f-4024-af88-59e07a6ea54f.jpg)
+![image](./imagenes/638880375-0f41c823-c81f-4024-af88-59e07a6ea54f.jpg)
 
 
 
@@ -208,7 +208,7 @@ Entre los beneficios mencionados se encuentran:
 > **Importante:** Amazon Prime funciona como una plataforma independiente. No hay que confundir la administración de Amazon con la administración de DGO.
 
 
-![image](https://github.com/AbutMatias/Manual-Operativo-Atencion-al-Cliente/blob/main/doc/imagenes/638880863-0a81f8bc-6793-4af0-b354-029b694288dd.jpg)
+![image](./imagenes/638880863-0a81f8bc-6793-4af0-b354-029b694288dd.jpg)
 
 ---
 
@@ -250,7 +250,7 @@ Consume principalmente:
 - Contenido On Demand.
 - Diferentes plataformas de streaming.
   
-  ![image](https://github.com/AbutMatias/Manual-Operativo-Atencion-al-Cliente/blob/main/doc/imagenes/638880974-2dc463e0-ad8a-4536-a030-c9fcac9f3bc5.jpg)
+  ![image](./imagenes/638880974-2dc463e0-ad8a-4536-a030-c9fcac9f3bc5.jpg)
 
 
 ---
