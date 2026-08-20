@@ -167,7 +167,7 @@ La cantidad de reproducciones simultáneas depende del plan contratado y de las 
 - Grilla más limitada.
 - Hasta 10 dispositivos vinculados.
 - Hasta 2 transmisiones simultáneas.
-
+<img width="991" height="546" alt="image" src="https://github.com/user-attachments/assets/ea450868-99a8-4a4a-8506-9b7aeb423d5b" />
 ## Plan Fútbol Total
 
 Incluye contenido deportivo premium.
@@ -183,6 +183,8 @@ Según la capacitación:
 - Pack Fútbol: hasta 2 transmisiones simultáneas.
 
 > **Importante:** el Pack Fútbol **no se puede contratar solo**. Debe combinarse con uno de los planes disponibles.
+<img width="996" height="548" alt="image" src="https://github.com/user-attachments/assets/0f41c823-c81f-4024-af88-59e07a6ea54f" />
+
 
 
 
@@ -205,6 +207,7 @@ Entre los beneficios mencionados se encuentran:
 
 > **Importante:** Amazon Prime funciona como una plataforma independiente. No hay que confundir la administración de Amazon con la administración de DGO.
 
+<img width="975" height="455" alt="image" src="https://github.com/user-attachments/assets/0a81f8bc-6793-4af0-b354-029b694288dd" />
 
 
 ---
@@ -246,7 +249,8 @@ Consume principalmente:
 - Cultura pop.
 - Contenido On Demand.
 - Diferentes plataformas de streaming.
-  
+  <img width="983" height="403" alt="image" src="https://github.com/user-attachments/assets/2dc463e0-ad8a-4536-a030-c9fcac9f3bc5" />
+
 ---
 
 # 8. Atención al cliente
@@ -329,7 +333,10 @@ El Centro de Soluciones permite consultar información sobre:
 - Grabación.
 - Rebobinado.
 - Mensajes de error.
-
+  
+>!IMPORTANT
+>
+> [**Centro de Soluciones**](https://www.directvgo.com/ar/faq)
 ---
 
 # 13. Chatbot y redes sociales
@@ -355,7 +362,10 @@ Principalmente sirve para:
 - Validar el estado de la cuenta.
 - Revisar los paquetes contratados.
 - Confirmar información asociada.
-
+>!IMPORTANT
+>
+> [**Toolbox**](https://toolbox-id-admin.tbxnet.com/login)
+ 
 ---
 
 # 15. Dispositivos vinculados
@@ -365,7 +375,7 @@ Una cuenta puede tener hasta **10 dispositivos vinculados**.
 Si el cliente alcanza ese límite o no recuerda dónde tiene iniciada la sesión, puede ser necesario revisar los dispositivos vinculados y gestionar su desconexión según el procedimiento correspondiente.
 
 > **Importante:** tener 10 dispositivos vinculados no significa poder reproducir contenido en 10 dispositivos al mismo tiempo.
-
+> [Instructivo](https://github.com/user-attachments/files/28792644/Administracion.dispositivos.conectados_DGO.pdf)
 ---
 
 # 16. Validación antes de derivar
